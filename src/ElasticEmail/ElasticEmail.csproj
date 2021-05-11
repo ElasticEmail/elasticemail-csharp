@@ -12,7 +12,7 @@
     <Description>A library generated from a OpenAPI doc</Description>
     <Copyright>No Copyright</Copyright>
     <RootNamespace>ElasticEmail</RootNamespace>
-    <Version>4.0.0</Version>
+    <Version>4.0.10</Version>
     <DocumentationFile>bin\$(Configuration)\$(TargetFramework)\ElasticEmail.xml</DocumentationFile>
     <RepositoryUrl>https://github.com/elasticemail/elasticemail-csharp.git</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
