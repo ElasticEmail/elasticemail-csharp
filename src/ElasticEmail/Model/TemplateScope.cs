@@ -27,30 +27,25 @@ using OpenAPIDateConverter = ElasticEmail.Client.OpenAPIDateConverter;
 namespace ElasticEmail.Model
 {
     /// <summary>
-    /// Defines TemplateType
+    /// Visibility of a template
     /// </summary>
+    /// <value>Visibility of a template</value>
     
     [JsonConverter(typeof(StringEnumConverter))]
     
-    public enum TemplateType
+    public enum TemplateScope
     {
         /// <summary>
-        /// Enum RawHTML for value: RawHTML
+        /// Enum Personal for value: Personal
         /// </summary>
-        [EnumMember(Value = "RawHTML")]
-        RawHTML = 1,
+        [EnumMember(Value = "Personal")]
+        Personal = 1,
 
         /// <summary>
-        /// Enum DragDropEditor for value: DragDropEditor
+        /// Enum Global for value: Global
         /// </summary>
-        [EnumMember(Value = "DragDropEditor")]
-        DragDropEditor = 2,
-
-        /// <summary>
-        /// Enum LandingPageEditor for value: LandingPageEditor
-        /// </summary>
-        [EnumMember(Value = "LandingPageEditor")]
-        LandingPageEditor = 3
+        [EnumMember(Value = "Global")]
+        Global = 2
 
     }
 

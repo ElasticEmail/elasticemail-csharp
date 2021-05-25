@@ -1,7 +1,7 @@
 /*
  * Elastic Email REST API
  *
- * This API is based on the REST API architecture, allowing the user to easily manage their data with this resource-based approach.    Every API call is established on which specific request type (GET, POST, PUT, DELETE) will be used.    To start using this API, you will need your Access Token (available <a href=\"https://elasticemail.com/account#/settings/new/manage-api\">here</a>). Remember to keep it safe. Required access levels are listed in the given request’s description.    This is the documentation for REST API. If you’d like to read our legacy documentation regarding Web API v2 click <a href=\"https://api.elasticemail.com/public/help\">here</a>.
+ * This API is based on the REST API architecture, allowing the user to easily manage their data with this resource-based approach.    Every API call is established on which specific request type (GET, POST, PUT, DELETE) will be used.    To start using this API, you will need your Access Token (available <a target=\"_blank\" href=\"https://elasticemail.com/account#/settings/new/manage-api\">here</a>). Remember to keep it safe. Required access levels are listed in the given request’s description.    This is the documentation for REST API. If you’d like to read our legacy documentation regarding Web API v2 click <a target=\"_blank\" href=\"https://api.elasticemail.com/public/help\">here</a>.    Downloadable library clients can be found in our Github repository <a target=\"_blank\" href=\"https://github.com/ElasticEmail?tab=repositories&q=%22rest+api%22+in%3Areadme\">here</a>
  *
  * The version of the OpenAPI document: 4.0.0
  * Contact: support@elasticemail.com
@@ -104,7 +104,7 @@ namespace ElasticEmail.Api
         /// <param name="limit">Maximum number of returned items. (optional)</param>
         /// <param name="offset">How many items should be returned ahead. (optional)</param>
         /// <returns>List&lt;Template&gt;</returns>
-        List<Template> TemplatesGet(List<TemplateScopeType> scopeType, List<TemplateType> templateTypes = default(List<TemplateType>), int? limit = default(int?), int? offset = default(int?));
+        List<Template> TemplatesGet(List<TemplateScope> scopeType, List<TemplateType> templateTypes = default(List<TemplateType>), int? limit = default(int?), int? offset = default(int?));
 
         /// <summary>
         /// Load Templates
@@ -118,7 +118,7 @@ namespace ElasticEmail.Api
         /// <param name="limit">Maximum number of returned items. (optional)</param>
         /// <param name="offset">How many items should be returned ahead. (optional)</param>
         /// <returns>ApiResponse of List&lt;Template&gt;</returns>
-        ApiResponse<List<Template>> TemplatesGetWithHttpInfo(List<TemplateScopeType> scopeType, List<TemplateType> templateTypes = default(List<TemplateType>), int? limit = default(int?), int? offset = default(int?));
+        ApiResponse<List<Template>> TemplatesGetWithHttpInfo(List<TemplateScope> scopeType, List<TemplateType> templateTypes = default(List<TemplateType>), int? limit = default(int?), int? offset = default(int?));
         /// <summary>
         /// Add Template
         /// </summary>
@@ -233,7 +233,7 @@ namespace ElasticEmail.Api
         /// <param name="offset">How many items should be returned ahead. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;Template&gt;</returns>
-        System.Threading.Tasks.Task<List<Template>> TemplatesGetAsync(List<TemplateScopeType> scopeType, List<TemplateType> templateTypes = default(List<TemplateType>), int? limit = default(int?), int? offset = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<List<Template>> TemplatesGetAsync(List<TemplateScope> scopeType, List<TemplateType> templateTypes = default(List<TemplateType>), int? limit = default(int?), int? offset = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Load Templates
@@ -248,7 +248,7 @@ namespace ElasticEmail.Api
         /// <param name="offset">How many items should be returned ahead. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;Template&gt;)</returns>
-        System.Threading.Tasks.Task<ApiResponse<List<Template>>> TemplatesGetWithHttpInfoAsync(List<TemplateScopeType> scopeType, List<TemplateType> templateTypes = default(List<TemplateType>), int? limit = default(int?), int? offset = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<List<Template>>> TemplatesGetWithHttpInfoAsync(List<TemplateScope> scopeType, List<TemplateType> templateTypes = default(List<TemplateType>), int? limit = default(int?), int? offset = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Add Template
         /// </summary>
@@ -788,7 +788,7 @@ namespace ElasticEmail.Api
         /// <param name="limit">Maximum number of returned items. (optional)</param>
         /// <param name="offset">How many items should be returned ahead. (optional)</param>
         /// <returns>List&lt;Template&gt;</returns>
-        public List<Template> TemplatesGet(List<TemplateScopeType> scopeType, List<TemplateType> templateTypes = default(List<TemplateType>), int? limit = default(int?), int? offset = default(int?))
+        public List<Template> TemplatesGet(List<TemplateScope> scopeType, List<TemplateType> templateTypes = default(List<TemplateType>), int? limit = default(int?), int? offset = default(int?))
         {
             ElasticEmail.Client.ApiResponse<List<Template>> localVarResponse = TemplatesGetWithHttpInfo(scopeType, templateTypes, limit, offset);
             return localVarResponse.Data;
@@ -803,7 +803,7 @@ namespace ElasticEmail.Api
         /// <param name="limit">Maximum number of returned items. (optional)</param>
         /// <param name="offset">How many items should be returned ahead. (optional)</param>
         /// <returns>ApiResponse of List&lt;Template&gt;</returns>
-        public ElasticEmail.Client.ApiResponse<List<Template>> TemplatesGetWithHttpInfo(List<TemplateScopeType> scopeType, List<TemplateType> templateTypes = default(List<TemplateType>), int? limit = default(int?), int? offset = default(int?))
+        public ElasticEmail.Client.ApiResponse<List<Template>> TemplatesGetWithHttpInfo(List<TemplateScope> scopeType, List<TemplateType> templateTypes = default(List<TemplateType>), int? limit = default(int?), int? offset = default(int?))
         {
             // verify the required parameter 'scopeType' is set
             if (scopeType == null)
@@ -867,7 +867,7 @@ namespace ElasticEmail.Api
         /// <param name="offset">How many items should be returned ahead. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;Template&gt;</returns>
-        public async System.Threading.Tasks.Task<List<Template>> TemplatesGetAsync(List<TemplateScopeType> scopeType, List<TemplateType> templateTypes = default(List<TemplateType>), int? limit = default(int?), int? offset = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<List<Template>> TemplatesGetAsync(List<TemplateScope> scopeType, List<TemplateType> templateTypes = default(List<TemplateType>), int? limit = default(int?), int? offset = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             ElasticEmail.Client.ApiResponse<List<Template>> localVarResponse = await TemplatesGetWithHttpInfoAsync(scopeType, templateTypes, limit, offset, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -883,7 +883,7 @@ namespace ElasticEmail.Api
         /// <param name="offset">How many items should be returned ahead. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;Template&gt;)</returns>
-        public async System.Threading.Tasks.Task<ElasticEmail.Client.ApiResponse<List<Template>>> TemplatesGetWithHttpInfoAsync(List<TemplateScopeType> scopeType, List<TemplateType> templateTypes = default(List<TemplateType>), int? limit = default(int?), int? offset = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ElasticEmail.Client.ApiResponse<List<Template>>> TemplatesGetWithHttpInfoAsync(List<TemplateScope> scopeType, List<TemplateType> templateTypes = default(List<TemplateType>), int? limit = default(int?), int? offset = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'scopeType' is set
             if (scopeType == null)

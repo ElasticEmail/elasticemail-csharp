@@ -1,7 +1,7 @@
 /*
  * Elastic Email REST API
  *
- * This API is based on the REST API architecture, allowing the user to easily manage their data with this resource-based approach.    Every API call is established on which specific request type (GET, POST, PUT, DELETE) will be used.    To start using this API, you will need your Access Token (available <a href=\"https://elasticemail.com/account#/settings/new/manage-api\">here</a>). Remember to keep it safe. Required access levels are listed in the given request’s description.    This is the documentation for REST API. If you’d like to read our legacy documentation regarding Web API v2 click <a href=\"https://api.elasticemail.com/public/help\">here</a>.
+ * This API is based on the REST API architecture, allowing the user to easily manage their data with this resource-based approach.    Every API call is established on which specific request type (GET, POST, PUT, DELETE) will be used.    To start using this API, you will need your Access Token (available <a target=\"_blank\" href=\"https://elasticemail.com/account#/settings/new/manage-api\">here</a>). Remember to keep it safe. Required access levels are listed in the given request’s description.    This is the documentation for REST API. If you’d like to read our legacy documentation regarding Web API v2 click <a target=\"_blank\" href=\"https://api.elasticemail.com/public/help\">here</a>.    Downloadable library clients can be found in our Github repository <a target=\"_blank\" href=\"https://github.com/ElasticEmail?tab=repositories&q=%22rest+api%22+in%3Areadme\">here</a>
  *
  * The version of the OpenAPI document: 4.0.0
  * Contact: support@elasticemail.com
@@ -40,19 +40,21 @@ namespace ElasticEmail.Model
         /// <param name="attachments">Attachments provided by sending binary data.</param>
         /// <param name="headers">A key-value collection of custom e-mail headers..</param>
         /// <param name="postback">Postback header..</param>
+        /// <param name="envelopeFrom">E-mail with an optional name to be used as the envelope from address (e.g.: John Doe &lt;email@domain.com&gt;).</param>
         /// <param name="from">Your e-mail with an optional name (e.g.: John Doe &lt;email@domain.com&gt;).</param>
         /// <param name="replyTo">To what address should the recipients reply to (e.g. John Doe &lt;email@domain.com&gt;).</param>
         /// <param name="subject">Default subject of email..</param>
         /// <param name="templateName">Name of template..</param>
         /// <param name="attachFiles">Names of previously uploaded files that should be sent as downloadable attachments.</param>
         /// <param name="utm">Utm marketing data to be attached to every link in this e-mail..</param>
-        public EmailContent(List<BodyPart> body = default(List<BodyPart>), Dictionary<string, string> merge = default(Dictionary<string, string>), List<MessageAttachment> attachments = default(List<MessageAttachment>), Dictionary<string, string> headers = default(Dictionary<string, string>), string postback = default(string), string from = default(string), string replyTo = default(string), string subject = default(string), string templateName = default(string), List<string> attachFiles = default(List<string>), Utm utm = default(Utm))
+        public EmailContent(List<BodyPart> body = default(List<BodyPart>), Dictionary<string, string> merge = default(Dictionary<string, string>), List<MessageAttachment> attachments = default(List<MessageAttachment>), Dictionary<string, string> headers = default(Dictionary<string, string>), string postback = default(string), string envelopeFrom = default(string), string from = default(string), string replyTo = default(string), string subject = default(string), string templateName = default(string), List<string> attachFiles = default(List<string>), Utm utm = default(Utm))
         {
             this.Body = body;
             this.Merge = merge;
             this.Attachments = attachments;
             this.Headers = headers;
             this.Postback = postback;
+            this.EnvelopeFrom = envelopeFrom;
             this.From = from;
             this.ReplyTo = replyTo;
             this.Subject = subject;
@@ -95,6 +97,13 @@ namespace ElasticEmail.Model
         /// <value>Postback header.</value>
         [DataMember(Name = "Postback", EmitDefaultValue = false)]
         public string Postback { get; set; }
+
+        /// <summary>
+        /// E-mail with an optional name to be used as the envelope from address (e.g.: John Doe &lt;email@domain.com&gt;)
+        /// </summary>
+        /// <value>E-mail with an optional name to be used as the envelope from address (e.g.: John Doe &lt;email@domain.com&gt;)</value>
+        [DataMember(Name = "EnvelopeFrom", EmitDefaultValue = false)]
+        public string EnvelopeFrom { get; set; }
 
         /// <summary>
         /// Your e-mail with an optional name (e.g.: John Doe &lt;email@domain.com&gt;)
@@ -151,6 +160,7 @@ namespace ElasticEmail.Model
             sb.Append("  Attachments: ").Append(Attachments).Append("\n");
             sb.Append("  Headers: ").Append(Headers).Append("\n");
             sb.Append("  Postback: ").Append(Postback).Append("\n");
+            sb.Append("  EnvelopeFrom: ").Append(EnvelopeFrom).Append("\n");
             sb.Append("  From: ").Append(From).Append("\n");
             sb.Append("  ReplyTo: ").Append(ReplyTo).Append("\n");
             sb.Append("  Subject: ").Append(Subject).Append("\n");
@@ -221,6 +231,11 @@ namespace ElasticEmail.Model
                     this.Postback.Equals(input.Postback))
                 ) && 
                 (
+                    this.EnvelopeFrom == input.EnvelopeFrom ||
+                    (this.EnvelopeFrom != null &&
+                    this.EnvelopeFrom.Equals(input.EnvelopeFrom))
+                ) && 
+                (
                     this.From == input.From ||
                     (this.From != null &&
                     this.From.Equals(input.From))
@@ -272,6 +287,8 @@ namespace ElasticEmail.Model
                     hashCode = hashCode * 59 + this.Headers.GetHashCode();
                 if (this.Postback != null)
                     hashCode = hashCode * 59 + this.Postback.GetHashCode();
+                if (this.EnvelopeFrom != null)
+                    hashCode = hashCode * 59 + this.EnvelopeFrom.GetHashCode();
                 if (this.From != null)
                     hashCode = hashCode * 59 + this.From.GetHashCode();
                 if (this.ReplyTo != null)

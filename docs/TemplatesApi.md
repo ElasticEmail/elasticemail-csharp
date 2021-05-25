@@ -239,7 +239,7 @@ Name | Type | Description  | Notes
 
 <a name="templatesget"></a>
 # **TemplatesGet**
-> List&lt;Template&gt; TemplatesGet (List<TemplateScopeType> scopeType, List<TemplateType> templateTypes = null, int? limit = null, int? offset = null)
+> List&lt;Template&gt; TemplatesGet (List<TemplateScope> scopeType, List<TemplateType> templateTypes = null, int? limit = null, int? offset = null)
 
 Load Templates
 
@@ -267,7 +267,7 @@ namespace Example
             // config.AddApiKeyPrefix("X-ElasticEmail-ApiKey", "Bearer");
 
             var apiInstance = new TemplatesApi(config);
-            var scopeType = new List<TemplateScopeType>(); // List<TemplateScopeType> | Return templates with specified scope only
+            var scopeType = new List<TemplateScope>(); // List<TemplateScope> | Return templates with specified scope only
             var templateTypes = new List<TemplateType>(); // List<TemplateType> | Return templates with specified type only (optional) 
             var limit = 100;  // int? | Maximum number of returned items. (optional) 
             var offset = 20;  // int? | How many items should be returned ahead. (optional) 
@@ -293,7 +293,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **scopeType** | [**List&lt;TemplateScopeType&gt;**](TemplateScopeType.md)| Return templates with specified scope only | 
+ **scopeType** | [**List&lt;TemplateScope&gt;**](TemplateScope.md)| Return templates with specified scope only | 
  **templateTypes** | [**List&lt;TemplateType&gt;**](TemplateType.md)| Return templates with specified type only | [optional] 
  **limit** | **int?**| Maximum number of returned items. | [optional] 
  **offset** | **int?**| How many items should be returned ahead. | [optional] 
