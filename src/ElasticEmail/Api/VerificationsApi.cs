@@ -158,10 +158,31 @@ namespace ElasticEmail.Api
         /// <returns>ApiResponse of VerificationFileResultDetails</returns>
         ApiResponse<VerificationFileResultDetails> VerificationsFilesByIdResultGetWithHttpInfo(string id, int? limit = default(int?), int? offset = default(int?));
         /// <summary>
-        /// Verify From File
+        /// Start verification
         /// </summary>
         /// <remarks>
-        /// Uploads a CSV file with list of emails to verify. An &#39;email&#39; column is required. Required Access Level: VerifyEmails
+        /// Start a verification of the previously uploaded file with emails. Required Access Level: VerifyEmails
+        /// </remarks>
+        /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">File ID to start verification</param>
+        /// <returns></returns>
+        void VerificationsFilesByIdVerificationPost(string id);
+
+        /// <summary>
+        /// Start verification
+        /// </summary>
+        /// <remarks>
+        /// Start a verification of the previously uploaded file with emails. Required Access Level: VerifyEmails
+        /// </remarks>
+        /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">File ID to start verification</param>
+        /// <returns>ApiResponse of Object(void)</returns>
+        ApiResponse<Object> VerificationsFilesByIdVerificationPostWithHttpInfo(string id);
+        /// <summary>
+        /// Upload File with Emails
+        /// </summary>
+        /// <remarks>
+        /// Uploads a CSV file with list of emails that can then be triggered for verification. An &#39;email&#39; column is required. Required Access Level: VerifyEmails
         /// </remarks>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="file"> (optional)</param>
@@ -169,17 +190,17 @@ namespace ElasticEmail.Api
         VerificationFileResult VerificationsFilesPost(System.IO.Stream file = default(System.IO.Stream));
 
         /// <summary>
-        /// Verify From File
+        /// Upload File with Emails
         /// </summary>
         /// <remarks>
-        /// Uploads a CSV file with list of emails to verify. An &#39;email&#39; column is required. Required Access Level: VerifyEmails
+        /// Uploads a CSV file with list of emails that can then be triggered for verification. An &#39;email&#39; column is required. Required Access Level: VerifyEmails
         /// </remarks>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="file"> (optional)</param>
         /// <returns>ApiResponse of VerificationFileResult</returns>
         ApiResponse<VerificationFileResult> VerificationsFilesPostWithHttpInfo(System.IO.Stream file = default(System.IO.Stream));
         /// <summary>
-        /// Get Simple Files Verification Results
+        /// Get Files Verification Results
         /// </summary>
         /// <remarks>
         /// Returns a list of uploaded files, their statuses and results. Required Access Level: ViewEmailVerifications
@@ -189,7 +210,7 @@ namespace ElasticEmail.Api
         List<VerificationFileResult> VerificationsFilesResultGet();
 
         /// <summary>
-        /// Get Simple Files Verification Results
+        /// Get Files Verification Results
         /// </summary>
         /// <remarks>
         /// Returns a list of uploaded files, their statuses and results. Required Access Level: ViewEmailVerifications
@@ -372,10 +393,33 @@ namespace ElasticEmail.Api
         /// <returns>Task of ApiResponse (VerificationFileResultDetails)</returns>
         System.Threading.Tasks.Task<ApiResponse<VerificationFileResultDetails>> VerificationsFilesByIdResultGetWithHttpInfoAsync(string id, int? limit = default(int?), int? offset = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Verify From File
+        /// Start verification
         /// </summary>
         /// <remarks>
-        /// Uploads a CSV file with list of emails to verify. An &#39;email&#39; column is required. Required Access Level: VerifyEmails
+        /// Start a verification of the previously uploaded file with emails. Required Access Level: VerifyEmails
+        /// </remarks>
+        /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">File ID to start verification</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of void</returns>
+        System.Threading.Tasks.Task VerificationsFilesByIdVerificationPostAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+
+        /// <summary>
+        /// Start verification
+        /// </summary>
+        /// <remarks>
+        /// Start a verification of the previously uploaded file with emails. Required Access Level: VerifyEmails
+        /// </remarks>
+        /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">File ID to start verification</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse</returns>
+        System.Threading.Tasks.Task<ApiResponse<Object>> VerificationsFilesByIdVerificationPostWithHttpInfoAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <summary>
+        /// Upload File with Emails
+        /// </summary>
+        /// <remarks>
+        /// Uploads a CSV file with list of emails that can then be triggered for verification. An &#39;email&#39; column is required. Required Access Level: VerifyEmails
         /// </remarks>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="file"> (optional)</param>
@@ -384,10 +428,10 @@ namespace ElasticEmail.Api
         System.Threading.Tasks.Task<VerificationFileResult> VerificationsFilesPostAsync(System.IO.Stream file = default(System.IO.Stream), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Verify From File
+        /// Upload File with Emails
         /// </summary>
         /// <remarks>
-        /// Uploads a CSV file with list of emails to verify. An &#39;email&#39; column is required. Required Access Level: VerifyEmails
+        /// Uploads a CSV file with list of emails that can then be triggered for verification. An &#39;email&#39; column is required. Required Access Level: VerifyEmails
         /// </remarks>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="file"> (optional)</param>
@@ -395,7 +439,7 @@ namespace ElasticEmail.Api
         /// <returns>Task of ApiResponse (VerificationFileResult)</returns>
         System.Threading.Tasks.Task<ApiResponse<VerificationFileResult>> VerificationsFilesPostWithHttpInfoAsync(System.IO.Stream file = default(System.IO.Stream), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Get Simple Files Verification Results
+        /// Get Files Verification Results
         /// </summary>
         /// <remarks>
         /// Returns a list of uploaded files, their statuses and results. Required Access Level: ViewEmailVerifications
@@ -406,7 +450,7 @@ namespace ElasticEmail.Api
         System.Threading.Tasks.Task<List<VerificationFileResult>> VerificationsFilesResultGetAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Get Simple Files Verification Results
+        /// Get Files Verification Results
         /// </summary>
         /// <remarks>
         /// Returns a list of uploaded files, their statuses and results. Required Access Level: ViewEmailVerifications
@@ -1327,7 +1371,128 @@ namespace ElasticEmail.Api
         }
 
         /// <summary>
-        /// Verify From File Uploads a CSV file with list of emails to verify. An &#39;email&#39; column is required. Required Access Level: VerifyEmails
+        /// Start verification Start a verification of the previously uploaded file with emails. Required Access Level: VerifyEmails
+        /// </summary>
+        /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">File ID to start verification</param>
+        /// <returns></returns>
+        public void VerificationsFilesByIdVerificationPost(string id)
+        {
+            VerificationsFilesByIdVerificationPostWithHttpInfo(id);
+        }
+
+        /// <summary>
+        /// Start verification Start a verification of the previously uploaded file with emails. Required Access Level: VerifyEmails
+        /// </summary>
+        /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">File ID to start verification</param>
+        /// <returns>ApiResponse of Object(void)</returns>
+        public ElasticEmail.Client.ApiResponse<Object> VerificationsFilesByIdVerificationPostWithHttpInfo(string id)
+        {
+            // verify the required parameter 'id' is set
+            if (id == null)
+                throw new ElasticEmail.Client.ApiException(400, "Missing required parameter 'id' when calling VerificationsApi->VerificationsFilesByIdVerificationPost");
+
+            ElasticEmail.Client.RequestOptions localVarRequestOptions = new ElasticEmail.Client.RequestOptions();
+
+            String[] _contentTypes = new String[] {
+            };
+
+            // to determine the Accept header
+            String[] _accepts = new String[] {
+            };
+
+            var localVarContentType = ElasticEmail.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ElasticEmail.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("id", ElasticEmail.Client.ClientUtils.ParameterToString(id)); // path parameter
+
+            // authentication (apikey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-ElasticEmail-ApiKey")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("X-ElasticEmail-ApiKey", this.Configuration.GetApiKeyWithPrefix("X-ElasticEmail-ApiKey"));
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<Object>("/verifications/files/{id}/verification", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("VerificationsFilesByIdVerificationPost", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Start verification Start a verification of the previously uploaded file with emails. Required Access Level: VerifyEmails
+        /// </summary>
+        /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">File ID to start verification</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of void</returns>
+        public async System.Threading.Tasks.Task VerificationsFilesByIdVerificationPostAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            await VerificationsFilesByIdVerificationPostWithHttpInfoAsync(id, cancellationToken).ConfigureAwait(false);
+        }
+
+        /// <summary>
+        /// Start verification Start a verification of the previously uploaded file with emails. Required Access Level: VerifyEmails
+        /// </summary>
+        /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">File ID to start verification</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse</returns>
+        public async System.Threading.Tasks.Task<ElasticEmail.Client.ApiResponse<Object>> VerificationsFilesByIdVerificationPostWithHttpInfoAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            // verify the required parameter 'id' is set
+            if (id == null)
+                throw new ElasticEmail.Client.ApiException(400, "Missing required parameter 'id' when calling VerificationsApi->VerificationsFilesByIdVerificationPost");
+
+
+            ElasticEmail.Client.RequestOptions localVarRequestOptions = new ElasticEmail.Client.RequestOptions();
+
+            String[] _contentTypes = new String[] {
+            };
+
+            // to determine the Accept header
+            String[] _accepts = new String[] {
+            };
+
+
+            var localVarContentType = ElasticEmail.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ElasticEmail.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("id", ElasticEmail.Client.ClientUtils.ParameterToString(id)); // path parameter
+
+            // authentication (apikey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-ElasticEmail-ApiKey")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("X-ElasticEmail-ApiKey", this.Configuration.GetApiKeyWithPrefix("X-ElasticEmail-ApiKey"));
+            }
+
+            // make the HTTP request
+
+            var localVarResponse = await this.AsynchronousClient.PostAsync<Object>("/verifications/files/{id}/verification", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("VerificationsFilesByIdVerificationPost", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Upload File with Emails Uploads a CSV file with list of emails that can then be triggered for verification. An &#39;email&#39; column is required. Required Access Level: VerifyEmails
         /// </summary>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="file"> (optional)</param>
@@ -1339,7 +1504,7 @@ namespace ElasticEmail.Api
         }
 
         /// <summary>
-        /// Verify From File Uploads a CSV file with list of emails to verify. An &#39;email&#39; column is required. Required Access Level: VerifyEmails
+        /// Upload File with Emails Uploads a CSV file with list of emails that can then be triggered for verification. An &#39;email&#39; column is required. Required Access Level: VerifyEmails
         /// </summary>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="file"> (optional)</param>
@@ -1387,7 +1552,7 @@ namespace ElasticEmail.Api
         }
 
         /// <summary>
-        /// Verify From File Uploads a CSV file with list of emails to verify. An &#39;email&#39; column is required. Required Access Level: VerifyEmails
+        /// Upload File with Emails Uploads a CSV file with list of emails that can then be triggered for verification. An &#39;email&#39; column is required. Required Access Level: VerifyEmails
         /// </summary>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="file"> (optional)</param>
@@ -1400,7 +1565,7 @@ namespace ElasticEmail.Api
         }
 
         /// <summary>
-        /// Verify From File Uploads a CSV file with list of emails to verify. An &#39;email&#39; column is required. Required Access Level: VerifyEmails
+        /// Upload File with Emails Uploads a CSV file with list of emails that can then be triggered for verification. An &#39;email&#39; column is required. Required Access Level: VerifyEmails
         /// </summary>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="file"> (optional)</param>
@@ -1452,7 +1617,7 @@ namespace ElasticEmail.Api
         }
 
         /// <summary>
-        /// Get Simple Files Verification Results Returns a list of uploaded files, their statuses and results. Required Access Level: ViewEmailVerifications
+        /// Get Files Verification Results Returns a list of uploaded files, their statuses and results. Required Access Level: ViewEmailVerifications
         /// </summary>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>List&lt;VerificationFileResult&gt;</returns>
@@ -1463,7 +1628,7 @@ namespace ElasticEmail.Api
         }
 
         /// <summary>
-        /// Get Simple Files Verification Results Returns a list of uploaded files, their statuses and results. Required Access Level: ViewEmailVerifications
+        /// Get Files Verification Results Returns a list of uploaded files, their statuses and results. Required Access Level: ViewEmailVerifications
         /// </summary>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of List&lt;VerificationFileResult&gt;</returns>
@@ -1505,7 +1670,7 @@ namespace ElasticEmail.Api
         }
 
         /// <summary>
-        /// Get Simple Files Verification Results Returns a list of uploaded files, their statuses and results. Required Access Level: ViewEmailVerifications
+        /// Get Files Verification Results Returns a list of uploaded files, their statuses and results. Required Access Level: ViewEmailVerifications
         /// </summary>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1517,7 +1682,7 @@ namespace ElasticEmail.Api
         }
 
         /// <summary>
-        /// Get Simple Files Verification Results Returns a list of uploaded files, their statuses and results. Required Access Level: ViewEmailVerifications
+        /// Get Files Verification Results Returns a list of uploaded files, their statuses and results. Required Access Level: ViewEmailVerifications
         /// </summary>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>

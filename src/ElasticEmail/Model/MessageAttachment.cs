@@ -35,9 +35,9 @@ namespace ElasticEmail.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="MessageAttachment" /> class.
         /// </summary>
-        /// <param name="binaryContent">binaryContent.</param>
-        /// <param name="name">Filename.</param>
-        /// <param name="contentType">contentType.</param>
+        /// <param name="binaryContent">File&#39;s content as byte array (or a Base64 string).</param>
+        /// <param name="name">Display name of the file.</param>
+        /// <param name="contentType">MIME content type.</param>
         public MessageAttachment(byte[] binaryContent = default(byte[]), string name = default(string), string contentType = default(string))
         {
             this.BinaryContent = binaryContent;
@@ -46,21 +46,23 @@ namespace ElasticEmail.Model
         }
 
         /// <summary>
-        /// Gets or Sets BinaryContent
+        /// File&#39;s content as byte array (or a Base64 string)
         /// </summary>
+        /// <value>File&#39;s content as byte array (or a Base64 string)</value>
         [DataMember(Name = "BinaryContent", EmitDefaultValue = false)]
         public byte[] BinaryContent { get; set; }
 
         /// <summary>
-        /// Filename
+        /// Display name of the file
         /// </summary>
-        /// <value>Filename</value>
+        /// <value>Display name of the file</value>
         [DataMember(Name = "Name", EmitDefaultValue = false)]
         public string Name { get; set; }
 
         /// <summary>
-        /// Gets or Sets ContentType
+        /// MIME content type
         /// </summary>
+        /// <value>MIME content type</value>
         [DataMember(Name = "ContentType", EmitDefaultValue = false)]
         public string ContentType { get; set; }
 

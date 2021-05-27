@@ -10,8 +10,9 @@ Method | HTTP request | Description
 [**VerificationsFilesByIdDelete**](VerificationsApi.md#verificationsfilesbyiddelete) | **DELETE** /verifications/files/{id} | Delete File Verification Result
 [**VerificationsFilesByIdResultDownloadGet**](VerificationsApi.md#verificationsfilesbyidresultdownloadget) | **GET** /verifications/files/{id}/result/download | Download File Verification Result
 [**VerificationsFilesByIdResultGet**](VerificationsApi.md#verificationsfilesbyidresultget) | **GET** /verifications/files/{id}/result | Get Detailed File Verification Result
-[**VerificationsFilesPost**](VerificationsApi.md#verificationsfilespost) | **POST** /verifications/files | Verify From File
-[**VerificationsFilesResultGet**](VerificationsApi.md#verificationsfilesresultget) | **GET** /verifications/files/result | Get Simple Files Verification Results
+[**VerificationsFilesByIdVerificationPost**](VerificationsApi.md#verificationsfilesbyidverificationpost) | **POST** /verifications/files/{id}/verification | Start verification
+[**VerificationsFilesPost**](VerificationsApi.md#verificationsfilespost) | **POST** /verifications/files | Upload File with Emails
+[**VerificationsFilesResultGet**](VerificationsApi.md#verificationsfilesresultget) | **GET** /verifications/files/result | Get Files Verification Results
 [**VerificationsGet**](VerificationsApi.md#verificationsget) | **GET** /verifications | Get Emails Verification Results
 
 
@@ -467,13 +468,87 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+<a name="verificationsfilesbyidverificationpost"></a>
+# **VerificationsFilesByIdVerificationPost**
+> void VerificationsFilesByIdVerificationPost (string id)
+
+Start verification
+
+Start a verification of the previously uploaded file with emails. Required Access Level: VerifyEmails
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using ElasticEmail.Api;
+using ElasticEmail.Client;
+using ElasticEmail.Model;
+
+namespace Example
+{
+    public class VerificationsFilesByIdVerificationPostExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.elasticemail.com/v4";
+            // Configure API key authorization: apikey
+            config.AddApiKey("X-ElasticEmail-ApiKey", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("X-ElasticEmail-ApiKey", "Bearer");
+
+            var apiInstance = new VerificationsApi(config);
+            var id = id_example;  // string | File ID to start verification
+
+            try
+            {
+                // Start verification
+                apiInstance.VerificationsFilesByIdVerificationPost(id);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling VerificationsApi.VerificationsFilesByIdVerificationPost: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **string**| File ID to start verification | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[apikey](../README.md#apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 <a name="verificationsfilespost"></a>
 # **VerificationsFilesPost**
 > VerificationFileResult VerificationsFilesPost (System.IO.Stream file = null)
 
-Verify From File
+Upload File with Emails
 
-Uploads a CSV file with list of emails to verify. An 'email' column is required. Required Access Level: VerifyEmails
+Uploads a CSV file with list of emails that can then be triggered for verification. An 'email' column is required. Required Access Level: VerifyEmails
 
 ### Example
 ```csharp
@@ -501,7 +576,7 @@ namespace Example
 
             try
             {
-                // Verify From File
+                // Upload File with Emails
                 VerificationFileResult result = apiInstance.VerificationsFilesPost(file);
                 Debug.WriteLine(result);
             }
@@ -546,7 +621,7 @@ Name | Type | Description  | Notes
 # **VerificationsFilesResultGet**
 > List&lt;VerificationFileResult&gt; VerificationsFilesResultGet ()
 
-Get Simple Files Verification Results
+Get Files Verification Results
 
 Returns a list of uploaded files, their statuses and results. Required Access Level: ViewEmailVerifications
 
@@ -575,7 +650,7 @@ namespace Example
 
             try
             {
-                // Get Simple Files Verification Results
+                // Get Files Verification Results
                 List<VerificationFileResult> result = apiInstance.VerificationsFilesResultGet();
                 Debug.WriteLine(result);
             }
