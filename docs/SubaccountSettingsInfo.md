@@ -1,5 +1,6 @@
 # ElasticEmail.Model.SubaccountSettingsInfo
 SubAccount settings
+
 ## Properties
 
 Name | Type | Description | Notes

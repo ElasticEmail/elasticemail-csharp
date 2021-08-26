@@ -1,5 +1,6 @@
 # ElasticEmail.Model.Template
 Template info
+
 ## Properties
 
 Name | Type | Description | Notes

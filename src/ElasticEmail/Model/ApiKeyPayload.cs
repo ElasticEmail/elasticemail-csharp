@@ -1,7 +1,7 @@
 /*
  * Elastic Email REST API
  *
- * This API is based on the REST API architecture, allowing the user to easily manage their data with this resource-based approach.    Every API call is established on which specific request type (GET, POST, PUT, DELETE) will be used.    To start using this API, you will need your Access Token (available <a target=\"_blank\" href=\"https://elasticemail.com/account#/settings/new/manage-api\">here</a>). Remember to keep it safe. Required access levels are listed in the given request’s description.    This is the documentation for REST API. If you’d like to read our legacy documentation regarding Web API v2 click <a target=\"_blank\" href=\"https://api.elasticemail.com/public/help\">here</a>.    Downloadable library clients can be found in our Github repository <a target=\"_blank\" href=\"https://github.com/ElasticEmail?tab=repositories&q=%22rest+api%22+in%3Areadme\">here</a>
+ * This API is based on the REST API architecture, allowing the user to easily manage their data with this resource-based approach.    Every API call is established on which specific request type (GET, POST, PUT, DELETE) will be used.    The API has a limit of 20 concurrent connections and a hard timeout of 600 seconds per request.    To start using this API, you will need your Access Token (available <a target=\"_blank\" href=\"https://elasticemail.com/account#/settings/new/manage-api\">here</a>). Remember to keep it safe. Required access levels are listed in the given request’s description.    This is the documentation for REST API. If you’d like to read our legacy documentation regarding Web API v2 click <a target=\"_blank\" href=\"https://api.elasticemail.com/public/help\">here</a>.    Downloadable library clients can be found in our Github repository <a target=\"_blank\" href=\"https://github.com/ElasticEmail?tab=repositories&q=%22rest+api%22+in%3Areadme\">here</a>
  *
  * The version of the OpenAPI document: 4.0.0
  * Contact: support@elasticemail.com
@@ -35,15 +35,22 @@ namespace ElasticEmail.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ApiKeyPayload" /> class.
         /// </summary>
-        /// <param name="name">Name of the ApiKey for ease of reference..</param>
-        /// <param name="accessLevel">Access level or permission to be assigned to this ApiKey..</param>
+        [JsonConstructorAttribute]
+        protected ApiKeyPayload() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ApiKeyPayload" /> class.
+        /// </summary>
+        /// <param name="name">Name of the ApiKey for ease of reference. (required).</param>
+        /// <param name="accessLevel">Access level or permission to be assigned to this ApiKey. (required).</param>
         /// <param name="expires">Date this ApiKey expires..</param>
         /// <param name="restrictAccessToIPRange">Which IPs can use this ApiKey.</param>
         /// <param name="subaccount">Email of the subaccount for which this ApiKey should be created.</param>
         public ApiKeyPayload(string name = default(string), List<AccessLevel> accessLevel = default(List<AccessLevel>), DateTime? expires = default(DateTime?), List<string> restrictAccessToIPRange = default(List<string>), string subaccount = default(string))
         {
-            this.Name = name;
-            this.AccessLevel = accessLevel;
+            // to ensure "name" is required (not null)
+            this.Name = name ?? throw new ArgumentNullException("name is a required property for ApiKeyPayload and cannot be null");
+            // to ensure "accessLevel" is required (not null)
+            this.AccessLevel = accessLevel ?? throw new ArgumentNullException("accessLevel is a required property for ApiKeyPayload and cannot be null");
             this.Expires = expires;
             this.RestrictAccessToIPRange = restrictAccessToIPRange;
             this.Subaccount = subaccount;
@@ -53,14 +60,14 @@ namespace ElasticEmail.Model
         /// Name of the ApiKey for ease of reference.
         /// </summary>
         /// <value>Name of the ApiKey for ease of reference.</value>
-        [DataMember(Name = "Name", EmitDefaultValue = false)]
+        [DataMember(Name = "Name", IsRequired = true, EmitDefaultValue = false)]
         public string Name { get; set; }
 
         /// <summary>
         /// Access level or permission to be assigned to this ApiKey.
         /// </summary>
         /// <value>Access level or permission to be assigned to this ApiKey.</value>
-        [DataMember(Name = "AccessLevel", EmitDefaultValue = false)]
+        [DataMember(Name = "AccessLevel", IsRequired = true, EmitDefaultValue = false)]
         public List<AccessLevel> AccessLevel { get; set; }
 
         /// <summary>

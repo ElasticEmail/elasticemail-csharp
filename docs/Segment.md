@@ -1,5 +1,6 @@
 # ElasticEmail.Model.Segment
 Dynamic collection of Contacts, managed by SQL-like rule.
+
 ## Properties
 
 Name | Type | Description | Notes

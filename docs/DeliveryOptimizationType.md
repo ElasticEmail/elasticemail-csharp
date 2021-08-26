@@ -1,4 +1,5 @@
 # ElasticEmail.Model.DeliveryOptimizationType
+
 ## Properties
 
 Name | Type | Description | Notes

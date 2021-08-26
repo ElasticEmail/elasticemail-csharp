@@ -1,4 +1,5 @@
 # ElasticEmail.Model.LogJobStatus
+
 ## Properties
 
 Name | Type | Description | Notes

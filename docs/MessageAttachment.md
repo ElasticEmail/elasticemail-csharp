@@ -1,9 +1,10 @@
 # ElasticEmail.Model.MessageAttachment
+
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**BinaryContent** | **byte[]** | File&#39;s content as byte array (or a Base64 string) | [optional] 
+**BinaryContent** | **byte[]** | File&#39;s content as byte array (or a Base64 string) | 
 **Name** | **string** | Display name of the file | [optional] 
 **ContentType** | **string** | MIME content type | [optional] 
 

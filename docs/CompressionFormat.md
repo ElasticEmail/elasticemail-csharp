@@ -1,5 +1,6 @@
 # ElasticEmail.Model.CompressionFormat
 FileResponse compression format
+
 ## Properties
 
 Name | Type | Description | Notes

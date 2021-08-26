@@ -1,10 +1,11 @@
 # ElasticEmail.Model.TemplatePayload
 New template object
+
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Name** | **string** | Template name | [optional] 
+**Name** | **string** | Template name | 
 **Subject** | **string** | Default subject of email. | [optional] 
 **Body** | [**List&lt;BodyPart&gt;**](BodyPart.md) | Email content of this template | [optional] 
 **TemplateScope** | **TemplateScope** | Visibility of a template | [optional] 

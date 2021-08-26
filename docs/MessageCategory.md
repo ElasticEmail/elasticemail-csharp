@@ -1,4 +1,5 @@
 # ElasticEmail.Model.MessageCategory
+
 ## Properties
 
 Name | Type | Description | Notes

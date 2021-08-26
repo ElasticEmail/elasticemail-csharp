@@ -1,4 +1,5 @@
 # ElasticEmail.Model.ContactStatus
+
 ## Properties
 
 Name | Type | Description | Notes

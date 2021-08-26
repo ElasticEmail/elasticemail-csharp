@@ -1,5 +1,6 @@
 # ElasticEmail.Model.Contact
 Contact
+
 ## Properties
 
 Name | Type | Description | Notes

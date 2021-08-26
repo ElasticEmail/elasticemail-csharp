@@ -1,5 +1,6 @@
 # ElasticEmail.Model.SubaccountEmailSettingsPayload
 Settings related to sending emails
+
 ## Properties
 
 Name | Type | Description | Notes

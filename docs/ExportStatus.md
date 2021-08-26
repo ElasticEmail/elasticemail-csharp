@@ -1,5 +1,6 @@
 # ElasticEmail.Model.ExportStatus
 Current status of the export.
+
 ## Properties
 
 Name | Type | Description | Notes

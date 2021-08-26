@@ -1,4 +1,5 @@
 # ElasticEmail.Model.ConsentTracking
+
 ## Properties
 
 Name | Type | Description | Notes

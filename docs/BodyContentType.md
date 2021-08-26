@@ -1,5 +1,6 @@
 # ElasticEmail.Model.BodyContentType
 Type of body part
+
 ## Properties
 
 Name | Type | Description | Notes

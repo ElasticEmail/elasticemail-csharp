@@ -1,9 +1,10 @@
 # ElasticEmail.Model.ContactPayload
+
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Email** | **string** | Proper email address. | [optional] 
+**Email** | **string** | Proper email address. | 
 **Status** | **ContactStatus** | Status of the given resource | [optional] 
 **FirstName** | **string** | First name. | [optional] 
 **LastName** | **string** | Last name. | [optional] 

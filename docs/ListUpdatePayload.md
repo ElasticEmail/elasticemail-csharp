@@ -1,4 +1,5 @@
 # ElasticEmail.Model.ListUpdatePayload
+
 ## Properties
 
 Name | Type | Description | Notes

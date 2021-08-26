@@ -1,5 +1,6 @@
 # ElasticEmail.Model.LogStatusSummary
 Summary of log status
+
 ## Properties
 
 Name | Type | Description | Notes

@@ -1,5 +1,6 @@
 # ElasticEmail.Model.VerificationFileResultDetails
 Detailed verification file result info
+
 ## Properties
 
 Name | Type | Description | Notes

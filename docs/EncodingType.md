@@ -1,5 +1,6 @@
 # ElasticEmail.Model.EncodingType
 Encoding type for the email headers
+
 ## Properties
 
 Name | Type | Description | Notes

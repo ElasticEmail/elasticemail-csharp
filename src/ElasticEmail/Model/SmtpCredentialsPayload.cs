@@ -1,7 +1,7 @@
 /*
  * Elastic Email REST API
  *
- * This API is based on the REST API architecture, allowing the user to easily manage their data with this resource-based approach.    Every API call is established on which specific request type (GET, POST, PUT, DELETE) will be used.    To start using this API, you will need your Access Token (available <a target=\"_blank\" href=\"https://elasticemail.com/account#/settings/new/manage-api\">here</a>). Remember to keep it safe. Required access levels are listed in the given request’s description.    This is the documentation for REST API. If you’d like to read our legacy documentation regarding Web API v2 click <a target=\"_blank\" href=\"https://api.elasticemail.com/public/help\">here</a>.    Downloadable library clients can be found in our Github repository <a target=\"_blank\" href=\"https://github.com/ElasticEmail?tab=repositories&q=%22rest+api%22+in%3Areadme\">here</a>
+ * This API is based on the REST API architecture, allowing the user to easily manage their data with this resource-based approach.    Every API call is established on which specific request type (GET, POST, PUT, DELETE) will be used.    The API has a limit of 20 concurrent connections and a hard timeout of 600 seconds per request.    To start using this API, you will need your Access Token (available <a target=\"_blank\" href=\"https://elasticemail.com/account#/settings/new/manage-api\">here</a>). Remember to keep it safe. Required access levels are listed in the given request’s description.    This is the documentation for REST API. If you’d like to read our legacy documentation regarding Web API v2 click <a target=\"_blank\" href=\"https://api.elasticemail.com/public/help\">here</a>.    Downloadable library clients can be found in our Github repository <a target=\"_blank\" href=\"https://github.com/ElasticEmail?tab=repositories&q=%22rest+api%22+in%3Areadme\">here</a>
  *
  * The version of the OpenAPI document: 4.0.0
  * Contact: support@elasticemail.com
@@ -35,13 +35,19 @@ namespace ElasticEmail.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="SmtpCredentialsPayload" /> class.
         /// </summary>
-        /// <param name="name">Name of the Credential for ease of reference. It must be a valid email address..</param>
+        [JsonConstructorAttribute]
+        protected SmtpCredentialsPayload() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="SmtpCredentialsPayload" /> class.
+        /// </summary>
+        /// <param name="name">Name of the Credential for ease of reference. It must be a valid email address. (required).</param>
         /// <param name="expires">Date this SmtpCredential expires..</param>
         /// <param name="restrictAccessToIPRange">Which IPs can use this SmtpCredential.</param>
         /// <param name="subaccount">Email of the subaccount for which this SmtpCredential should be created.</param>
         public SmtpCredentialsPayload(string name = default(string), DateTime? expires = default(DateTime?), List<string> restrictAccessToIPRange = default(List<string>), string subaccount = default(string))
         {
-            this.Name = name;
+            // to ensure "name" is required (not null)
+            this.Name = name ?? throw new ArgumentNullException("name is a required property for SmtpCredentialsPayload and cannot be null");
             this.Expires = expires;
             this.RestrictAccessToIPRange = restrictAccessToIPRange;
             this.Subaccount = subaccount;
@@ -51,7 +57,7 @@ namespace ElasticEmail.Model
         /// Name of the Credential for ease of reference. It must be a valid email address.
         /// </summary>
         /// <value>Name of the Credential for ease of reference. It must be a valid email address.</value>
-        [DataMember(Name = "Name", EmitDefaultValue = false)]
+        [DataMember(Name = "Name", IsRequired = true, EmitDefaultValue = false)]
         public string Name { get; set; }
 
         /// <summary>

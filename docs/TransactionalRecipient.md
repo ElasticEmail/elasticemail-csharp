@@ -1,10 +1,11 @@
 # ElasticEmail.Model.TransactionalRecipient
 List of transactional recipients
+
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**To** | **List&lt;string&gt;** | List of recipients (visible to others) | [optional] 
+**To** | **List&lt;string&gt;** | List of recipients (visible to others) | 
 **CC** | **List&lt;string&gt;** | List of Carbon Copy recipients (visible to others) | [optional] 
 **BCC** | **List&lt;string&gt;** | List of Blind Carbon Copy recipients (hidden from other recipients) | [optional] 
 

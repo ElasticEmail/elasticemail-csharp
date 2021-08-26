@@ -1,4 +1,5 @@
 # ElasticEmail.Model.EmailData
+
 ## Properties
 
 Name | Type | Description | Notes

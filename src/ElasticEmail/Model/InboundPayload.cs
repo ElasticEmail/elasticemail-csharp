@@ -1,7 +1,7 @@
 /*
  * Elastic Email REST API
  *
- * This API is based on the REST API architecture, allowing the user to easily manage their data with this resource-based approach.    Every API call is established on which specific request type (GET, POST, PUT, DELETE) will be used.    To start using this API, you will need your Access Token (available <a target=\"_blank\" href=\"https://elasticemail.com/account#/settings/new/manage-api\">here</a>). Remember to keep it safe. Required access levels are listed in the given request’s description.    This is the documentation for REST API. If you’d like to read our legacy documentation regarding Web API v2 click <a target=\"_blank\" href=\"https://api.elasticemail.com/public/help\">here</a>.    Downloadable library clients can be found in our Github repository <a target=\"_blank\" href=\"https://github.com/ElasticEmail?tab=repositories&q=%22rest+api%22+in%3Areadme\">here</a>
+ * This API is based on the REST API architecture, allowing the user to easily manage their data with this resource-based approach.    Every API call is established on which specific request type (GET, POST, PUT, DELETE) will be used.    The API has a limit of 20 concurrent connections and a hard timeout of 600 seconds per request.    To start using this API, you will need your Access Token (available <a target=\"_blank\" href=\"https://elasticemail.com/account#/settings/new/manage-api\">here</a>). Remember to keep it safe. Required access levels are listed in the given request’s description.    This is the documentation for REST API. If you’d like to read our legacy documentation regarding Web API v2 click <a target=\"_blank\" href=\"https://api.elasticemail.com/public/help\">here</a>.    Downloadable library clients can be found in our Github repository <a target=\"_blank\" href=\"https://github.com/ElasticEmail?tab=repositories&q=%22rest+api%22+in%3Areadme\">here</a>
  *
  * The version of the OpenAPI document: 4.0.0
  * Contact: support@elasticemail.com
@@ -32,31 +32,40 @@ namespace ElasticEmail.Model
     [DataContract(Name = "InboundPayload")]
     public partial class InboundPayload : IEquatable<InboundPayload>, IValidatableObject
     {
+
         /// <summary>
         /// Type of the filter
         /// </summary>
         /// <value>Type of the filter</value>
-        [DataMember(Name = "FilterType", EmitDefaultValue = false)]
-        public InboundRouteFilterType? FilterType { get; set; }
+        [DataMember(Name = "FilterType", IsRequired = true, EmitDefaultValue = false)]
+        public InboundRouteFilterType FilterType { get; set; }
+
         /// <summary>
         /// Type of action to take
         /// </summary>
         /// <value>Type of action to take</value>
-        [DataMember(Name = "ActionType", EmitDefaultValue = false)]
-        public InboundRouteActionType? ActionType { get; set; }
+        [DataMember(Name = "ActionType", IsRequired = true, EmitDefaultValue = false)]
+        public InboundRouteActionType ActionType { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="InboundPayload" /> class.
         /// </summary>
-        /// <param name="filter">Filter of the inbound data.</param>
-        /// <param name="name">Name of this route.</param>
-        /// <param name="filterType">Type of the filter.</param>
-        /// <param name="actionType">Type of action to take.</param>
+        [JsonConstructorAttribute]
+        protected InboundPayload() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="InboundPayload" /> class.
+        /// </summary>
+        /// <param name="filter">Filter of the inbound data (required).</param>
+        /// <param name="name">Name of this route (required).</param>
+        /// <param name="filterType">Type of the filter (required).</param>
+        /// <param name="actionType">Type of action to take (required).</param>
         /// <param name="emailAddress">Email to forward the inbound to.</param>
         /// <param name="httpAddress">Address to notify about the inbound.</param>
-        public InboundPayload(string filter = default(string), string name = default(string), InboundRouteFilterType? filterType = default(InboundRouteFilterType?), InboundRouteActionType? actionType = default(InboundRouteActionType?), string emailAddress = default(string), string httpAddress = default(string))
+        public InboundPayload(string filter = default(string), string name = default(string), InboundRouteFilterType filterType = default(InboundRouteFilterType), InboundRouteActionType actionType = default(InboundRouteActionType), string emailAddress = default(string), string httpAddress = default(string))
         {
-            this.Filter = filter;
-            this.Name = name;
+            // to ensure "filter" is required (not null)
+            this.Filter = filter ?? throw new ArgumentNullException("filter is a required property for InboundPayload and cannot be null");
+            // to ensure "name" is required (not null)
+            this.Name = name ?? throw new ArgumentNullException("name is a required property for InboundPayload and cannot be null");
             this.FilterType = filterType;
             this.ActionType = actionType;
             this.EmailAddress = emailAddress;
@@ -67,14 +76,14 @@ namespace ElasticEmail.Model
         /// Filter of the inbound data
         /// </summary>
         /// <value>Filter of the inbound data</value>
-        [DataMember(Name = "Filter", EmitDefaultValue = false)]
+        [DataMember(Name = "Filter", IsRequired = true, EmitDefaultValue = false)]
         public string Filter { get; set; }
 
         /// <summary>
         /// Name of this route
         /// </summary>
         /// <value>Name of this route</value>
-        [DataMember(Name = "Name", EmitDefaultValue = false)]
+        [DataMember(Name = "Name", IsRequired = true, EmitDefaultValue = false)]
         public string Name { get; set; }
 
         /// <summary>

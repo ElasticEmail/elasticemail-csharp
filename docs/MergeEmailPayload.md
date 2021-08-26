@@ -1,9 +1,10 @@
 # ElasticEmail.Model.MergeEmailPayload
+
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**MergeFile** | [**MessageAttachment**](MessageAttachment.md) | CSV file containing recipients with optional merge fields | [optional] 
+**MergeFile** | [**MessageAttachment**](MessageAttachment.md) | CSV file containing recipients with optional merge fields | 
 **Content** | [**EmailContent**](EmailContent.md) | Proper e-mail content | [optional] 
 **Options** | [**Options**](Options.md) | E-mail configuration | [optional] 
 

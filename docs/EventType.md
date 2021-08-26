@@ -1,5 +1,6 @@
 # ElasticEmail.Model.EventType
 Type of event
+
 ## Properties
 
 Name | Type | Description | Notes

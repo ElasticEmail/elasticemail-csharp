@@ -1,4 +1,5 @@
 # ElasticEmail.Model.ContactHistory
+
 ## Properties
 
 Name | Type | Description | Notes

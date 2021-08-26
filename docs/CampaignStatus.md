@@ -1,4 +1,5 @@
 # ElasticEmail.Model.CampaignStatus
+
 ## Properties
 
 Name | Type | Description | Notes

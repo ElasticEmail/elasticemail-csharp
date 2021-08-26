@@ -1,4 +1,5 @@
 # ElasticEmail.Model.InboundRoute
+
 ## Properties
 
 Name | Type | Description | Notes

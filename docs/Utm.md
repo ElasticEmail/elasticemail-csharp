@@ -1,5 +1,6 @@
 # ElasticEmail.Model.Utm
 Utm marketing data to be attached to every link in this e-mail.
+
 ## Properties
 
 Name | Type | Description | Notes

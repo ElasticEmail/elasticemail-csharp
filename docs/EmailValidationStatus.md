@@ -1,4 +1,5 @@
 # ElasticEmail.Model.EmailValidationStatus
+
 ## Properties
 
 Name | Type | Description | Notes

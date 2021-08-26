@@ -1,10 +1,11 @@
 # ElasticEmail.Model.EmailTransactionalMessageData
 Email data
+
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Recipients** | [**TransactionalRecipient**](TransactionalRecipient.md) | List of transactional recipients | [optional] 
+**Recipients** | [**TransactionalRecipient**](TransactionalRecipient.md) | List of transactional recipients | 
 **Content** | [**EmailContent**](EmailContent.md) | Proper e-mail content | [optional] 
 **Options** | [**Options**](Options.md) | E-mail configuration | [optional] 
 

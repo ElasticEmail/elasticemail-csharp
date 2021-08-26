@@ -1,5 +1,6 @@
 # ElasticEmail.Model.RecipientEvent
 Detailed information about message recipient
+
 ## Properties
 
 Name | Type | Description | Notes

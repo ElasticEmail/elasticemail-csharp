@@ -1,5 +1,6 @@
 # ElasticEmail.Model.Suppression
 Suppression - Email returning Hard Bounces
+
 ## Properties
 
 Name | Type | Description | Notes

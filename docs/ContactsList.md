@@ -1,5 +1,6 @@
 # ElasticEmail.Model.ContactsList
 List of Lists, with detailed data about its contents.
+
 ## Properties
 
 Name | Type | Description | Notes

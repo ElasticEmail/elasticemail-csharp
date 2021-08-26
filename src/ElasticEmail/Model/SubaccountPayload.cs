@@ -1,7 +1,7 @@
 /*
  * Elastic Email REST API
  *
- * This API is based on the REST API architecture, allowing the user to easily manage their data with this resource-based approach.    Every API call is established on which specific request type (GET, POST, PUT, DELETE) will be used.    To start using this API, you will need your Access Token (available <a target=\"_blank\" href=\"https://elasticemail.com/account#/settings/new/manage-api\">here</a>). Remember to keep it safe. Required access levels are listed in the given request’s description.    This is the documentation for REST API. If you’d like to read our legacy documentation regarding Web API v2 click <a target=\"_blank\" href=\"https://api.elasticemail.com/public/help\">here</a>.    Downloadable library clients can be found in our Github repository <a target=\"_blank\" href=\"https://github.com/ElasticEmail?tab=repositories&q=%22rest+api%22+in%3Areadme\">here</a>
+ * This API is based on the REST API architecture, allowing the user to easily manage their data with this resource-based approach.    Every API call is established on which specific request type (GET, POST, PUT, DELETE) will be used.    The API has a limit of 20 concurrent connections and a hard timeout of 600 seconds per request.    To start using this API, you will need your Access Token (available <a target=\"_blank\" href=\"https://elasticemail.com/account#/settings/new/manage-api\">here</a>). Remember to keep it safe. Required access levels are listed in the given request’s description.    This is the documentation for REST API. If you’d like to read our legacy documentation regarding Web API v2 click <a target=\"_blank\" href=\"https://api.elasticemail.com/public/help\">here</a>.    Downloadable library clients can be found in our Github repository <a target=\"_blank\" href=\"https://github.com/ElasticEmail?tab=repositories&q=%22rest+api%22+in%3Areadme\">here</a>
  *
  * The version of the OpenAPI document: 4.0.0
  * Contact: support@elasticemail.com
@@ -35,14 +35,21 @@ namespace ElasticEmail.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="SubaccountPayload" /> class.
         /// </summary>
-        /// <param name="email">Proper email address..</param>
-        /// <param name="password">Current password..</param>
+        [JsonConstructorAttribute]
+        protected SubaccountPayload() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="SubaccountPayload" /> class.
+        /// </summary>
+        /// <param name="email">Proper email address. (required).</param>
+        /// <param name="password">Current password. (required).</param>
         /// <param name="sendActivation">True, if you want to send activation email to this Account to confirm the creation of a new SubAccount. Otherwise, false (SubAccount will immediately be Active)..</param>
         /// <param name="settings">SubAccount settings.</param>
         public SubaccountPayload(string email = default(string), string password = default(string), bool sendActivation = default(bool), SubaccountSettingsInfoPayload settings = default(SubaccountSettingsInfoPayload))
         {
-            this.Email = email;
-            this.Password = password;
+            // to ensure "email" is required (not null)
+            this.Email = email ?? throw new ArgumentNullException("email is a required property for SubaccountPayload and cannot be null");
+            // to ensure "password" is required (not null)
+            this.Password = password ?? throw new ArgumentNullException("password is a required property for SubaccountPayload and cannot be null");
             this.SendActivation = sendActivation;
             this.Settings = settings;
         }
@@ -51,21 +58,21 @@ namespace ElasticEmail.Model
         /// Proper email address.
         /// </summary>
         /// <value>Proper email address.</value>
-        [DataMember(Name = "Email", EmitDefaultValue = false)]
+        [DataMember(Name = "Email", IsRequired = true, EmitDefaultValue = false)]
         public string Email { get; set; }
 
         /// <summary>
         /// Current password.
         /// </summary>
         /// <value>Current password.</value>
-        [DataMember(Name = "Password", EmitDefaultValue = false)]
+        [DataMember(Name = "Password", IsRequired = true, EmitDefaultValue = false)]
         public string Password { get; set; }
 
         /// <summary>
         /// True, if you want to send activation email to this Account to confirm the creation of a new SubAccount. Otherwise, false (SubAccount will immediately be Active).
         /// </summary>
         /// <value>True, if you want to send activation email to this Account to confirm the creation of a new SubAccount. Otherwise, false (SubAccount will immediately be Active).</value>
-        [DataMember(Name = "SendActivation", EmitDefaultValue = false)]
+        [DataMember(Name = "SendActivation", EmitDefaultValue = true)]
         public bool SendActivation { get; set; }
 
         /// <summary>

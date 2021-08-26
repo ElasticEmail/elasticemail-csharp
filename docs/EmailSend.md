@@ -1,4 +1,5 @@
 # ElasticEmail.Model.EmailSend
+
 ## Properties
 
 Name | Type | Description | Notes

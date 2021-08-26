@@ -1,4 +1,5 @@
 # ElasticEmail.Model.ContactHistEventType
+
 ## Properties
 
 Name | Type | Description | Notes

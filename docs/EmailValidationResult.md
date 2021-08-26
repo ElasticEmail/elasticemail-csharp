@@ -1,4 +1,5 @@
 # ElasticEmail.Model.EmailValidationResult
+
 ## Properties
 
 Name | Type | Description | Notes

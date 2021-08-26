@@ -1,5 +1,6 @@
 # ElasticEmail.Model.SmtpCredentials
 SMTP Credentials info
+
 ## Properties
 
 Name | Type | Description | Notes

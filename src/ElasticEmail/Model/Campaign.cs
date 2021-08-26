@@ -1,7 +1,7 @@
 /*
  * Elastic Email REST API
  *
- * This API is based on the REST API architecture, allowing the user to easily manage their data with this resource-based approach.    Every API call is established on which specific request type (GET, POST, PUT, DELETE) will be used.    To start using this API, you will need your Access Token (available <a target=\"_blank\" href=\"https://elasticemail.com/account#/settings/new/manage-api\">here</a>). Remember to keep it safe. Required access levels are listed in the given request’s description.    This is the documentation for REST API. If you’d like to read our legacy documentation regarding Web API v2 click <a target=\"_blank\" href=\"https://api.elasticemail.com/public/help\">here</a>.    Downloadable library clients can be found in our Github repository <a target=\"_blank\" href=\"https://github.com/ElasticEmail?tab=repositories&q=%22rest+api%22+in%3Areadme\">here</a>
+ * This API is based on the REST API architecture, allowing the user to easily manage their data with this resource-based approach.    Every API call is established on which specific request type (GET, POST, PUT, DELETE) will be used.    The API has a limit of 20 concurrent connections and a hard timeout of 600 seconds per request.    To start using this API, you will need your Access Token (available <a target=\"_blank\" href=\"https://elasticemail.com/account#/settings/new/manage-api\">here</a>). Remember to keep it safe. Required access levels are listed in the given request’s description.    This is the documentation for REST API. If you’d like to read our legacy documentation regarding Web API v2 click <a target=\"_blank\" href=\"https://api.elasticemail.com/public/help\">here</a>.    Downloadable library clients can be found in our Github repository <a target=\"_blank\" href=\"https://github.com/ElasticEmail?tab=repositories&q=%22rest+api%22+in%3Areadme\">here</a>
  *
  * The version of the OpenAPI document: 4.0.0
  * Contact: support@elasticemail.com
@@ -32,6 +32,7 @@ namespace ElasticEmail.Model
     [DataContract(Name = "Campaign")]
     public partial class Campaign : IEquatable<Campaign>, IValidatableObject
     {
+
         /// <summary>
         /// Campaign status
         /// </summary>
@@ -41,17 +42,24 @@ namespace ElasticEmail.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="Campaign" /> class.
         /// </summary>
+        [JsonConstructorAttribute]
+        protected Campaign() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Campaign" /> class.
+        /// </summary>
         /// <param name="content">Campaign&#39;s email content. Provide multiple items to send an A/X Split Campaign.</param>
-        /// <param name="name">Campaign name.</param>
+        /// <param name="name">Campaign name (required).</param>
         /// <param name="status">Campaign status.</param>
-        /// <param name="recipients">Recipients this campaign should be sent to.</param>
+        /// <param name="recipients">Recipients this campaign should be sent to (required).</param>
         /// <param name="options">Campaign sending options.</param>
         public Campaign(List<CampaignTemplate> content = default(List<CampaignTemplate>), string name = default(string), CampaignStatus? status = default(CampaignStatus?), CampaignRecipient recipients = default(CampaignRecipient), CampaignOptions options = default(CampaignOptions))
         {
+            // to ensure "name" is required (not null)
+            this.Name = name ?? throw new ArgumentNullException("name is a required property for Campaign and cannot be null");
+            // to ensure "recipients" is required (not null)
+            this.Recipients = recipients ?? throw new ArgumentNullException("recipients is a required property for Campaign and cannot be null");
             this.Content = content;
-            this.Name = name;
             this.Status = status;
-            this.Recipients = recipients;
             this.Options = options;
         }
 
@@ -66,14 +74,14 @@ namespace ElasticEmail.Model
         /// Campaign name
         /// </summary>
         /// <value>Campaign name</value>
-        [DataMember(Name = "Name", EmitDefaultValue = false)]
+        [DataMember(Name = "Name", IsRequired = true, EmitDefaultValue = false)]
         public string Name { get; set; }
 
         /// <summary>
         /// Recipients this campaign should be sent to
         /// </summary>
         /// <value>Recipients this campaign should be sent to</value>
-        [DataMember(Name = "Recipients", EmitDefaultValue = false)]
+        [DataMember(Name = "Recipients", IsRequired = true, EmitDefaultValue = false)]
         public CampaignRecipient Recipients { get; set; }
 
         /// <summary>

@@ -1,4 +1,5 @@
 # ElasticEmail.Model.SplitOptimizationType
+
 ## Properties
 
 Name | Type | Description | Notes

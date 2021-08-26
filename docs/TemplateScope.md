@@ -1,5 +1,6 @@
 # ElasticEmail.Model.TemplateScope
 Visibility of a template
+
 ## Properties
 
 Name | Type | Description | Notes

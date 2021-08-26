@@ -1,5 +1,6 @@
 # ElasticEmail.Model.ExportFileFormats
 Format of the exported file.
+
 ## Properties
 
 Name | Type | Description | Notes

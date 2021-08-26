@@ -1,5 +1,6 @@
 # ElasticEmail.Model.NewSmtpCredentials
 Newly generated SMTP Credentials with Token
+
 ## Properties
 
 Name | Type | Description | Notes

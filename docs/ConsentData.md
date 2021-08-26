@@ -1,4 +1,5 @@
 # ElasticEmail.Model.ConsentData
+
 ## Properties
 
 Name | Type | Description | Notes

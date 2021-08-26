@@ -1,5 +1,6 @@
 # ElasticEmail.Model.CampaignRecipient
 A set of lists and segments names to read recipients from
+
 ## Properties
 
 Name | Type | Description | Notes

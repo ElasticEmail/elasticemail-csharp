@@ -1,5 +1,6 @@
 # ElasticEmail.Model.FileInfo
 File information
+
 ## Properties
 
 Name | Type | Description | Notes

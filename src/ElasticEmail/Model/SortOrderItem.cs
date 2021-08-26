@@ -1,7 +1,7 @@
 /*
  * Elastic Email REST API
  *
- * This API is based on the REST API architecture, allowing the user to easily manage their data with this resource-based approach.    Every API call is established on which specific request type (GET, POST, PUT, DELETE) will be used.    To start using this API, you will need your Access Token (available <a target=\"_blank\" href=\"https://elasticemail.com/account#/settings/new/manage-api\">here</a>). Remember to keep it safe. Required access levels are listed in the given request’s description.    This is the documentation for REST API. If you’d like to read our legacy documentation regarding Web API v2 click <a target=\"_blank\" href=\"https://api.elasticemail.com/public/help\">here</a>.    Downloadable library clients can be found in our Github repository <a target=\"_blank\" href=\"https://github.com/ElasticEmail?tab=repositories&q=%22rest+api%22+in%3Areadme\">here</a>
+ * This API is based on the REST API architecture, allowing the user to easily manage their data with this resource-based approach.    Every API call is established on which specific request type (GET, POST, PUT, DELETE) will be used.    The API has a limit of 20 concurrent connections and a hard timeout of 600 seconds per request.    To start using this API, you will need your Access Token (available <a target=\"_blank\" href=\"https://elasticemail.com/account#/settings/new/manage-api\">here</a>). Remember to keep it safe. Required access levels are listed in the given request’s description.    This is the documentation for REST API. If you’d like to read our legacy documentation regarding Web API v2 click <a target=\"_blank\" href=\"https://api.elasticemail.com/public/help\">here</a>.    Downloadable library clients can be found in our Github repository <a target=\"_blank\" href=\"https://github.com/ElasticEmail?tab=repositories&q=%22rest+api%22+in%3Areadme\">here</a>
  *
  * The version of the OpenAPI document: 4.0.0
  * Contact: support@elasticemail.com
@@ -35,25 +35,32 @@ namespace ElasticEmail.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="SortOrderItem" /> class.
         /// </summary>
-        /// <param name="publicInboundId">publicInboundId.</param>
-        /// <param name="sortOrder">1 - route will be used first.</param>
+        [JsonConstructorAttribute]
+        protected SortOrderItem() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="SortOrderItem" /> class.
+        /// </summary>
+        /// <param name="publicInboundId">ID of the route to change the order of (required).</param>
+        /// <param name="sortOrder">1 - route will be used first (required).</param>
         public SortOrderItem(string publicInboundId = default(string), int sortOrder = default(int))
         {
-            this.PublicInboundId = publicInboundId;
+            // to ensure "publicInboundId" is required (not null)
+            this.PublicInboundId = publicInboundId ?? throw new ArgumentNullException("publicInboundId is a required property for SortOrderItem and cannot be null");
             this.SortOrder = sortOrder;
         }
 
         /// <summary>
-        /// Gets or Sets PublicInboundId
+        /// ID of the route to change the order of
         /// </summary>
-        [DataMember(Name = "PublicInboundId", EmitDefaultValue = false)]
+        /// <value>ID of the route to change the order of</value>
+        [DataMember(Name = "PublicInboundId", IsRequired = true, EmitDefaultValue = false)]
         public string PublicInboundId { get; set; }
 
         /// <summary>
         /// 1 - route will be used first
         /// </summary>
         /// <value>1 - route will be used first</value>
-        [DataMember(Name = "SortOrder", EmitDefaultValue = false)]
+        [DataMember(Name = "SortOrder", IsRequired = true, EmitDefaultValue = false)]
         public int SortOrder { get; set; }
 
         /// <summary>

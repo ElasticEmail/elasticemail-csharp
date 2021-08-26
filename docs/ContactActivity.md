@@ -1,4 +1,5 @@
 # ElasticEmail.Model.ContactActivity
+
 ## Properties
 
 Name | Type | Description | Notes

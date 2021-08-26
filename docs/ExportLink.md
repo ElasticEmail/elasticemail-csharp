@@ -1,4 +1,5 @@
 # ElasticEmail.Model.ExportLink
+
 ## Properties
 
 Name | Type | Description | Notes

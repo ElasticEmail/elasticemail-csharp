@@ -1,4 +1,5 @@
 # ElasticEmail.Model.EventsOrderBy
+
 ## Properties
 
 Name | Type | Description | Notes

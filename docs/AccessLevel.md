@@ -1,4 +1,5 @@
 # ElasticEmail.Model.AccessLevel
+
 ## Properties
 
 Name | Type | Description | Notes

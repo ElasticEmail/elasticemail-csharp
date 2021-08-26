@@ -1,7 +1,7 @@
 /*
  * Elastic Email REST API
  *
- * This API is based on the REST API architecture, allowing the user to easily manage their data with this resource-based approach.    Every API call is established on which specific request type (GET, POST, PUT, DELETE) will be used.    To start using this API, you will need your Access Token (available <a target=\"_blank\" href=\"https://elasticemail.com/account#/settings/new/manage-api\">here</a>). Remember to keep it safe. Required access levels are listed in the given request’s description.    This is the documentation for REST API. If you’d like to read our legacy documentation regarding Web API v2 click <a target=\"_blank\" href=\"https://api.elasticemail.com/public/help\">here</a>.    Downloadable library clients can be found in our Github repository <a target=\"_blank\" href=\"https://github.com/ElasticEmail?tab=repositories&q=%22rest+api%22+in%3Areadme\">here</a>
+ * This API is based on the REST API architecture, allowing the user to easily manage their data with this resource-based approach.    Every API call is established on which specific request type (GET, POST, PUT, DELETE) will be used.    The API has a limit of 20 concurrent connections and a hard timeout of 600 seconds per request.    To start using this API, you will need your Access Token (available <a target=\"_blank\" href=\"https://elasticemail.com/account#/settings/new/manage-api\">here</a>). Remember to keep it safe. Required access levels are listed in the given request’s description.    This is the documentation for REST API. If you’d like to read our legacy documentation regarding Web API v2 click <a target=\"_blank\" href=\"https://api.elasticemail.com/public/help\">here</a>.    Downloadable library clients can be found in our Github repository <a target=\"_blank\" href=\"https://github.com/ElasticEmail?tab=repositories&q=%22rest+api%22+in%3Areadme\">here</a>
  *
  * The version of the OpenAPI document: 4.0.0
  * Contact: support@elasticemail.com
@@ -29,7 +29,7 @@ namespace ElasticEmail.Client
         /// <param name="configuration">Per-request configurable settings.</param>
         /// <typeparam name="T">The return type.</typeparam>
         /// <returns>The response data, decorated with <see cref="ApiResponse{T}"/></returns>
-        ApiResponse<T> Get<T>(String path, RequestOptions options, IReadableConfiguration configuration = null);
+        ApiResponse<T> Get<T>(string path, RequestOptions options, IReadableConfiguration configuration = null);
 
         /// <summary>
         /// Executes a blocking call to some <paramref name="path"/> using the POST http verb.
@@ -39,7 +39,7 @@ namespace ElasticEmail.Client
         /// <param name="configuration">Per-request configurable settings.</param>
         /// <typeparam name="T">The return type.</typeparam>
         /// <returns>The response data, decorated with <see cref="ApiResponse{T}"/></returns>
-        ApiResponse<T> Post<T>(String path, RequestOptions options, IReadableConfiguration configuration = null);
+        ApiResponse<T> Post<T>(string path, RequestOptions options, IReadableConfiguration configuration = null);
 
         /// <summary>
         /// Executes a blocking call to some <paramref name="path"/> using the PUT http verb.
@@ -49,7 +49,7 @@ namespace ElasticEmail.Client
         /// <param name="configuration">Per-request configurable settings.</param>
         /// <typeparam name="T">The return type.</typeparam>
         /// <returns>The response data, decorated with <see cref="ApiResponse{T}"/></returns>
-        ApiResponse<T> Put<T>(String path, RequestOptions options, IReadableConfiguration configuration = null);
+        ApiResponse<T> Put<T>(string path, RequestOptions options, IReadableConfiguration configuration = null);
 
         /// <summary>
         /// Executes a blocking call to some <paramref name="path"/> using the DELETE http verb.
@@ -59,7 +59,7 @@ namespace ElasticEmail.Client
         /// <param name="configuration">Per-request configurable settings.</param>
         /// <typeparam name="T">The return type.</typeparam>
         /// <returns>The response data, decorated with <see cref="ApiResponse{T}"/></returns>
-        ApiResponse<T> Delete<T>(String path, RequestOptions options, IReadableConfiguration configuration = null);
+        ApiResponse<T> Delete<T>(string path, RequestOptions options, IReadableConfiguration configuration = null);
 
         /// <summary>
         /// Executes a blocking call to some <paramref name="path"/> using the HEAD http verb.
@@ -69,7 +69,7 @@ namespace ElasticEmail.Client
         /// <param name="configuration">Per-request configurable settings.</param>
         /// <typeparam name="T">The return type.</typeparam>
         /// <returns>The response data, decorated with <see cref="ApiResponse{T}"/></returns>
-        ApiResponse<T> Head<T>(String path, RequestOptions options, IReadableConfiguration configuration = null);
+        ApiResponse<T> Head<T>(string path, RequestOptions options, IReadableConfiguration configuration = null);
 
         /// <summary>
         /// Executes a blocking call to some <paramref name="path"/> using the OPTIONS http verb.
@@ -79,7 +79,7 @@ namespace ElasticEmail.Client
         /// <param name="configuration">Per-request configurable settings.</param>
         /// <typeparam name="T">The return type.</typeparam>
         /// <returns>The response data, decorated with <see cref="ApiResponse{T}"/></returns>
-        ApiResponse<T> Options<T>(String path, RequestOptions options, IReadableConfiguration configuration = null);
+        ApiResponse<T> Options<T>(string path, RequestOptions options, IReadableConfiguration configuration = null);
 
         /// <summary>
         /// Executes a blocking call to some <paramref name="path"/> using the PATCH http verb.
@@ -89,6 +89,6 @@ namespace ElasticEmail.Client
         /// <param name="configuration">Per-request configurable settings.</param>
         /// <typeparam name="T">The return type.</typeparam>
         /// <returns>The response data, decorated with <see cref="ApiResponse{T}"/></returns>
-        ApiResponse<T> Patch<T>(String path, RequestOptions options, IReadableConfiguration configuration = null);
+        ApiResponse<T> Patch<T>(string path, RequestOptions options, IReadableConfiguration configuration = null);
     }
 }
