@@ -46,7 +46,10 @@ namespace ElasticEmail.Model
         public TransactionalRecipient(List<string> to = default(List<string>), List<string> cC = default(List<string>), List<string> bCC = default(List<string>))
         {
             // to ensure "to" is required (not null)
-            this.To = to ?? throw new ArgumentNullException("to is a required property for TransactionalRecipient and cannot be null");
+            if (to == null) {
+                throw new ArgumentNullException("to is a required property for TransactionalRecipient and cannot be null");
+            }
+            this.To = to;
             this.CC = cC;
             this.BCC = bCC;
         }
@@ -161,7 +164,7 @@ namespace ElasticEmail.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
         {
             yield break;
         }

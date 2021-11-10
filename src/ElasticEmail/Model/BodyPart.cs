@@ -34,9 +34,8 @@ namespace ElasticEmail.Model
     {
 
         /// <summary>
-        /// Type of the body part
+        /// Gets or Sets ContentType
         /// </summary>
-        /// <value>Type of the body part</value>
         [DataMember(Name = "ContentType", IsRequired = true, EmitDefaultValue = false)]
         public BodyContentType ContentType { get; set; }
         /// <summary>
@@ -47,7 +46,7 @@ namespace ElasticEmail.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="BodyPart" /> class.
         /// </summary>
-        /// <param name="contentType">Type of the body part (required).</param>
+        /// <param name="contentType">contentType (required).</param>
         /// <param name="content">Actual content of the body part.</param>
         /// <param name="charset">Text value of charset encoding for example: iso-8859-1, windows-1251, utf-8, us-ascii, windows-1250 and more….</param>
         public BodyPart(BodyContentType contentType = default(BodyContentType), string content = default(string), string charset = default(string))
@@ -155,7 +154,7 @@ namespace ElasticEmail.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
         {
             yield break;
         }

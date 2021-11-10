@@ -34,16 +34,14 @@ namespace ElasticEmail.Model
     {
 
         /// <summary>
-        /// Type of the filter
+        /// Gets or Sets FilterType
         /// </summary>
-        /// <value>Type of the filter</value>
         [DataMember(Name = "FilterType", EmitDefaultValue = false)]
         public InboundRouteFilterType? FilterType { get; set; }
 
         /// <summary>
-        /// Type of action to take
+        /// Gets or Sets ActionType
         /// </summary>
-        /// <value>Type of action to take</value>
         [DataMember(Name = "ActionType", EmitDefaultValue = false)]
         public InboundRouteActionType? ActionType { get; set; }
         /// <summary>
@@ -51,9 +49,9 @@ namespace ElasticEmail.Model
         /// </summary>
         /// <param name="publicId">publicId.</param>
         /// <param name="name">Name of this route.</param>
-        /// <param name="filterType">Type of the filter.</param>
+        /// <param name="filterType">filterType.</param>
         /// <param name="filter">Filter of the inbound data.</param>
-        /// <param name="actionType">Type of action to take.</param>
+        /// <param name="actionType">actionType.</param>
         /// <param name="actionParameter">URL address or Email to notify about the inbound.</param>
         /// <param name="sortOrder">Place of this route in your routes queue&#39;s order.</param>
         public InboundRoute(string publicId = default(string), string name = default(string), InboundRouteFilterType? filterType = default(InboundRouteFilterType?), string filter = default(string), InboundRouteActionType? actionType = default(InboundRouteActionType?), string actionParameter = default(string), int sortOrder = default(int))
@@ -213,7 +211,7 @@ namespace ElasticEmail.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
         {
             yield break;
         }

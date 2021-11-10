@@ -34,9 +34,8 @@ namespace ElasticEmail.Model
     {
 
         /// <summary>
-        /// Campaign status
+        /// Gets or Sets Status
         /// </summary>
-        /// <value>Campaign status</value>
         [DataMember(Name = "Status", EmitDefaultValue = false)]
         public CampaignStatus? Status { get; set; }
         /// <summary>
@@ -49,15 +48,21 @@ namespace ElasticEmail.Model
         /// </summary>
         /// <param name="content">Campaign&#39;s email content. Provide multiple items to send an A/X Split Campaign.</param>
         /// <param name="name">Campaign name (required).</param>
-        /// <param name="status">Campaign status.</param>
-        /// <param name="recipients">Recipients this campaign should be sent to (required).</param>
-        /// <param name="options">Campaign sending options.</param>
+        /// <param name="status">status.</param>
+        /// <param name="recipients">recipients (required).</param>
+        /// <param name="options">options.</param>
         public Campaign(List<CampaignTemplate> content = default(List<CampaignTemplate>), string name = default(string), CampaignStatus? status = default(CampaignStatus?), CampaignRecipient recipients = default(CampaignRecipient), CampaignOptions options = default(CampaignOptions))
         {
             // to ensure "name" is required (not null)
-            this.Name = name ?? throw new ArgumentNullException("name is a required property for Campaign and cannot be null");
+            if (name == null) {
+                throw new ArgumentNullException("name is a required property for Campaign and cannot be null");
+            }
+            this.Name = name;
             // to ensure "recipients" is required (not null)
-            this.Recipients = recipients ?? throw new ArgumentNullException("recipients is a required property for Campaign and cannot be null");
+            if (recipients == null) {
+                throw new ArgumentNullException("recipients is a required property for Campaign and cannot be null");
+            }
+            this.Recipients = recipients;
             this.Content = content;
             this.Status = status;
             this.Options = options;
@@ -78,16 +83,14 @@ namespace ElasticEmail.Model
         public string Name { get; set; }
 
         /// <summary>
-        /// Recipients this campaign should be sent to
+        /// Gets or Sets Recipients
         /// </summary>
-        /// <value>Recipients this campaign should be sent to</value>
         [DataMember(Name = "Recipients", IsRequired = true, EmitDefaultValue = false)]
         public CampaignRecipient Recipients { get; set; }
 
         /// <summary>
-        /// Campaign sending options
+        /// Gets or Sets Options
         /// </summary>
-        /// <value>Campaign sending options</value>
         [DataMember(Name = "Options", EmitDefaultValue = false)]
         public CampaignOptions Options { get; set; }
 
@@ -192,7 +195,7 @@ namespace ElasticEmail.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
         {
             yield break;
         }

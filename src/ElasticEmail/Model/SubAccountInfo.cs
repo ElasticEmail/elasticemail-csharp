@@ -34,9 +34,8 @@ namespace ElasticEmail.Model
     {
 
         /// <summary>
-        /// Account&#39;s current status.
+        /// Gets or Sets Status
         /// </summary>
-        /// <value>Account&#39;s current status.</value>
         [DataMember(Name = "Status", EmitDefaultValue = false)]
         public AccountStatusEnum? Status { get; set; }
         /// <summary>
@@ -44,12 +43,12 @@ namespace ElasticEmail.Model
         /// </summary>
         /// <param name="publicAccountID">Public key for limited access to your Account such as contact/add so you can use it safely on public websites..</param>
         /// <param name="email">Proper email address..</param>
-        /// <param name="settings">SubAccount settings.</param>
+        /// <param name="settings">settings.</param>
         /// <param name="lastActivity">Date of last activity on Account.</param>
         /// <param name="emailCredits">Amount of email credits.</param>
         /// <param name="totalEmailsSent">Amount of emails sent from this Account.</param>
         /// <param name="reputation">Numeric reputation.</param>
-        /// <param name="status">Account&#39;s current status..</param>
+        /// <param name="status">status.</param>
         /// <param name="contactsCount">How many contacts this SubAccount has stored.</param>
         public SubAccountInfo(string publicAccountID = default(string), string email = default(string), SubaccountSettingsInfo settings = default(SubaccountSettingsInfo), DateTime lastActivity = default(DateTime), int emailCredits = default(int), long totalEmailsSent = default(long), double reputation = default(double), AccountStatusEnum? status = default(AccountStatusEnum?), int contactsCount = default(int))
         {
@@ -79,9 +78,8 @@ namespace ElasticEmail.Model
         public string Email { get; set; }
 
         /// <summary>
-        /// SubAccount settings
+        /// Gets or Sets Settings
         /// </summary>
-        /// <value>SubAccount settings</value>
         [DataMember(Name = "Settings", EmitDefaultValue = false)]
         public SubaccountSettingsInfo Settings { get; set; }
 
@@ -244,7 +242,7 @@ namespace ElasticEmail.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
         {
             yield break;
         }

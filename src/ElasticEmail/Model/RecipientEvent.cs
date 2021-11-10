@@ -34,16 +34,14 @@ namespace ElasticEmail.Model
     {
 
         /// <summary>
-        /// Type of an Event
+        /// Gets or Sets EventType
         /// </summary>
-        /// <value>Type of an Event</value>
         [DataMember(Name = "EventType", EmitDefaultValue = false)]
         public EventType? EventType { get; set; }
 
         /// <summary>
-        /// Message category
+        /// Gets or Sets MessageCategory
         /// </summary>
-        /// <value>Message category</value>
         [DataMember(Name = "MessageCategory", EmitDefaultValue = false)]
         public MessageCategory? MessageCategory { get; set; }
         /// <summary>
@@ -54,10 +52,10 @@ namespace ElasticEmail.Model
         /// <param name="fromEmail">Default From: email address..</param>
         /// <param name="to">Ending date for search in YYYY-MM-DDThh:mm:ss format..</param>
         /// <param name="subject">Default subject of email..</param>
-        /// <param name="eventType">Type of an Event.</param>
+        /// <param name="eventType">eventType.</param>
         /// <param name="eventDate">Creation date.</param>
         /// <param name="channelName">Name of selected channel..</param>
-        /// <param name="messageCategory">Message category.</param>
+        /// <param name="messageCategory">messageCategory.</param>
         /// <param name="nextTryOn">Date of next try.</param>
         /// <param name="message">Content of message, HTML encoded.</param>
         /// <param name="iPAddress">IP which this email was sent through.</param>
@@ -318,7 +316,7 @@ namespace ElasticEmail.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
         {
             yield break;
         }

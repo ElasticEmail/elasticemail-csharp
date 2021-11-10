@@ -27,7 +27,7 @@ using OpenAPIDateConverter = ElasticEmail.Client.OpenAPIDateConverter;
 namespace ElasticEmail.Model
 {
     /// <summary>
-    /// List of recipients (visible to others)
+    /// List of recipients
     /// </summary>
     [DataContract(Name = "EmailRecipient")]
     public partial class EmailRecipient : IEquatable<EmailRecipient>, IValidatableObject
@@ -45,7 +45,10 @@ namespace ElasticEmail.Model
         public EmailRecipient(string email = default(string), Dictionary<string, string> fields = default(Dictionary<string, string>))
         {
             // to ensure "email" is required (not null)
-            this.Email = email ?? throw new ArgumentNullException("email is a required property for EmailRecipient and cannot be null");
+            if (email == null) {
+                throw new ArgumentNullException("email is a required property for EmailRecipient and cannot be null");
+            }
+            this.Email = email;
             this.Fields = fields;
         }
 
@@ -142,7 +145,7 @@ namespace ElasticEmail.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
         {
             yield break;
         }

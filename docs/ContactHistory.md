@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**EventType** | **ContactHistEventType** | Type of event occured on this Contact. | [optional] 
+**EventType** | **ContactHistEventType** |  | [optional] 
 **EventDate** | **DateTime** | Formatted date of event. | [optional] 
 **ChannelName** | **string** | Name of channel this event occured on | [optional] 
 **TemplateName** | **string** | Name of template this event occured on | [optional] 

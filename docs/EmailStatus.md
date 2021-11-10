@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **From** | **string** | Email address this email was sent from. | [optional] 
 **To** | **string** | Email address this email was sent to. | [optional] 
 **Date** | **DateTime** | Date the email was submitted. | [optional] 
-**Status** | **LogJobStatus** | Value of email&#39;s status | [optional] 
+**Status** | **LogJobStatus** |  | [optional] 
 **StatusName** | **string** | Name of email&#39;s status | [optional] 
 **StatusChangeDate** | **DateTime** | Date of last status change. | [optional] 
 **DateSent** | **DateTime** | Date when the email was sent | [optional] 

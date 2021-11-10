@@ -34,15 +34,14 @@ namespace ElasticEmail.Model
     {
 
         /// <summary>
-        /// Type of event occured on this Contact.
+        /// Gets or Sets EventType
         /// </summary>
-        /// <value>Type of event occured on this Contact.</value>
         [DataMember(Name = "EventType", EmitDefaultValue = false)]
         public ContactHistEventType? EventType { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="ContactHistory" /> class.
         /// </summary>
-        /// <param name="eventType">Type of event occured on this Contact..</param>
+        /// <param name="eventType">eventType.</param>
         /// <param name="eventDate">Formatted date of event..</param>
         /// <param name="channelName">Name of channel this event occured on.</param>
         /// <param name="templateName">Name of template this event occured on.</param>
@@ -218,7 +217,7 @@ namespace ElasticEmail.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
         {
             yield break;
         }

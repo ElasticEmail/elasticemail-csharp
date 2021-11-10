@@ -45,9 +45,15 @@ namespace ElasticEmail.Model
         public SegmentPayload(string name = default(string), string rule = default(string))
         {
             // to ensure "name" is required (not null)
-            this.Name = name ?? throw new ArgumentNullException("name is a required property for SegmentPayload and cannot be null");
+            if (name == null) {
+                throw new ArgumentNullException("name is a required property for SegmentPayload and cannot be null");
+            }
+            this.Name = name;
             // to ensure "rule" is required (not null)
-            this.Rule = rule ?? throw new ArgumentNullException("rule is a required property for SegmentPayload and cannot be null");
+            if (rule == null) {
+                throw new ArgumentNullException("rule is a required property for SegmentPayload and cannot be null");
+            }
+            this.Rule = rule;
         }
 
         /// <summary>
@@ -142,7 +148,7 @@ namespace ElasticEmail.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
         {
             yield break;
         }

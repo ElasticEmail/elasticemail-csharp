@@ -47,7 +47,10 @@ namespace ElasticEmail.Model
         public SmtpCredentialsPayload(string name = default(string), DateTime? expires = default(DateTime?), List<string> restrictAccessToIPRange = default(List<string>), string subaccount = default(string))
         {
             // to ensure "name" is required (not null)
-            this.Name = name ?? throw new ArgumentNullException("name is a required property for SmtpCredentialsPayload and cannot be null");
+            if (name == null) {
+                throw new ArgumentNullException("name is a required property for SmtpCredentialsPayload and cannot be null");
+            }
+            this.Name = name;
             this.Expires = expires;
             this.RestrictAccessToIPRange = restrictAccessToIPRange;
             this.Subaccount = subaccount;
@@ -176,7 +179,7 @@ namespace ElasticEmail.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
         {
             yield break;
         }

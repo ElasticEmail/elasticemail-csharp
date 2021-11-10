@@ -34,9 +34,8 @@ namespace ElasticEmail.Model
     {
 
         /// <summary>
-        /// Value of email&#39;s status
+        /// Gets or Sets Status
         /// </summary>
-        /// <value>Value of email&#39;s status</value>
         [DataMember(Name = "Status", EmitDefaultValue = false)]
         public LogJobStatus? Status { get; set; }
         /// <summary>
@@ -45,7 +44,7 @@ namespace ElasticEmail.Model
         /// <param name="from">Email address this email was sent from..</param>
         /// <param name="to">Email address this email was sent to..</param>
         /// <param name="date">Date the email was submitted..</param>
-        /// <param name="status">Value of email&#39;s status.</param>
+        /// <param name="status">status.</param>
         /// <param name="statusName">Name of email&#39;s status.</param>
         /// <param name="statusChangeDate">Date of last status change..</param>
         /// <param name="dateSent">Date when the email was sent.</param>
@@ -303,7 +302,7 @@ namespace ElasticEmail.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
         {
             yield break;
         }

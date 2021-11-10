@@ -34,9 +34,8 @@ namespace ElasticEmail.Model
     {
 
         /// <summary>
-        /// In what state does this verification result currently is
+        /// Gets or Sets VerificationStatus
         /// </summary>
-        /// <value>In what state does this verification result currently is</value>
         [DataMember(Name = "VerificationStatus", EmitDefaultValue = false)]
         public VerificationStatus? VerificationStatus { get; set; }
         /// <summary>
@@ -44,8 +43,8 @@ namespace ElasticEmail.Model
         /// </summary>
         /// <param name="verificationID">Identifier of this verification result.</param>
         /// <param name="filename">Origin file name.</param>
-        /// <param name="verificationStatus">In what state does this verification result currently is.</param>
-        /// <param name="fileUploadResult">How many emails were detected in the file for verification.</param>
+        /// <param name="verificationStatus">verificationStatus.</param>
+        /// <param name="fileUploadResult">fileUploadResult.</param>
         /// <param name="dateAdded">Date of creation in YYYY-MM-DDThh:ii:ss format.</param>
         /// <param name="source">Origin file extension.</param>
         public VerificationFileResult(string verificationID = default(string), string filename = default(string), VerificationStatus? verificationStatus = default(VerificationStatus?), FileUploadResult fileUploadResult = default(FileUploadResult), DateTime dateAdded = default(DateTime), string source = default(string))
@@ -73,9 +72,8 @@ namespace ElasticEmail.Model
         public string Filename { get; set; }
 
         /// <summary>
-        /// How many emails were detected in the file for verification
+        /// Gets or Sets FileUploadResult
         /// </summary>
-        /// <value>How many emails were detected in the file for verification</value>
         [DataMember(Name = "FileUploadResult", EmitDefaultValue = false)]
         public FileUploadResult FileUploadResult { get; set; }
 
@@ -201,7 +199,7 @@ namespace ElasticEmail.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
         {
             yield break;
         }

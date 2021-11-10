@@ -40,35 +40,36 @@ namespace ElasticEmail.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="EmailMessageData" /> class.
         /// </summary>
-        /// <param name="recipients">List of recipients (visible to others) (required).</param>
-        /// <param name="content">Proper e-mail content.</param>
-        /// <param name="options">E-mail configuration.</param>
+        /// <param name="recipients">List of recipients (required).</param>
+        /// <param name="content">content.</param>
+        /// <param name="options">options.</param>
         public EmailMessageData(List<EmailRecipient> recipients = default(List<EmailRecipient>), EmailContent content = default(EmailContent), Options options = default(Options))
         {
             // to ensure "recipients" is required (not null)
-            this.Recipients = recipients ?? throw new ArgumentNullException("recipients is a required property for EmailMessageData and cannot be null");
+            if (recipients == null) {
+                throw new ArgumentNullException("recipients is a required property for EmailMessageData and cannot be null");
+            }
+            this.Recipients = recipients;
             this.Content = content;
             this.Options = options;
         }
 
         /// <summary>
-        /// List of recipients (visible to others)
+        /// List of recipients
         /// </summary>
-        /// <value>List of recipients (visible to others)</value>
+        /// <value>List of recipients</value>
         [DataMember(Name = "Recipients", IsRequired = true, EmitDefaultValue = false)]
         public List<EmailRecipient> Recipients { get; set; }
 
         /// <summary>
-        /// Proper e-mail content
+        /// Gets or Sets Content
         /// </summary>
-        /// <value>Proper e-mail content</value>
         [DataMember(Name = "Content", EmitDefaultValue = false)]
         public EmailContent Content { get; set; }
 
         /// <summary>
-        /// E-mail configuration
+        /// Gets or Sets Options
         /// </summary>
-        /// <value>E-mail configuration</value>
         [DataMember(Name = "Options", EmitDefaultValue = false)]
         public Options Options { get; set; }
 
@@ -159,7 +160,7 @@ namespace ElasticEmail.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
         {
             yield break;
         }

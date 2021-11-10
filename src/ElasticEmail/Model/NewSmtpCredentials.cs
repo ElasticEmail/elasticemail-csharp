@@ -34,16 +34,15 @@ namespace ElasticEmail.Model
     {
 
         /// <summary>
-        /// Access level of this Smtp Credential.
+        /// Gets or Sets AccessLevel
         /// </summary>
-        /// <value>Access level of this Smtp Credential.</value>
         [DataMember(Name = "AccessLevel", EmitDefaultValue = false)]
         public AccessLevel? AccessLevel { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="NewSmtpCredentials" /> class.
         /// </summary>
         /// <param name="token">Unique token to be used in the system.</param>
-        /// <param name="accessLevel">Access level of this Smtp Credential..</param>
+        /// <param name="accessLevel">accessLevel.</param>
         /// <param name="name">Name of the key..</param>
         /// <param name="dateCreated">Date this SmtpCredential was created..</param>
         /// <param name="lastUse">Date this SmtpCredential was last used..</param>
@@ -219,7 +218,7 @@ namespace ElasticEmail.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
         {
             yield break;
         }

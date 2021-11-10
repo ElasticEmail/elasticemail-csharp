@@ -5,9 +5,9 @@ Email data
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Recipients** | [**TransactionalRecipient**](TransactionalRecipient.md) | List of transactional recipients | 
-**Content** | [**EmailContent**](EmailContent.md) | Proper e-mail content | [optional] 
-**Options** | [**Options**](Options.md) | E-mail configuration | [optional] 
+**Recipients** | [**TransactionalRecipient**](TransactionalRecipient.md) |  | 
+**Content** | [**EmailContent**](EmailContent.md) |  | [optional] 
+**Options** | [**Options**](Options.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

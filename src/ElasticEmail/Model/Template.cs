@@ -34,27 +34,25 @@ namespace ElasticEmail.Model
     {
 
         /// <summary>
-        /// How the template should be edited
+        /// Gets or Sets TemplateType
         /// </summary>
-        /// <value>How the template should be edited</value>
         [DataMember(Name = "TemplateType", EmitDefaultValue = false)]
         public TemplateType? TemplateType { get; set; }
 
         /// <summary>
-        /// Visibility of a template
+        /// Gets or Sets TemplateScope
         /// </summary>
-        /// <value>Visibility of a template</value>
         [DataMember(Name = "TemplateScope", EmitDefaultValue = false)]
         public TemplateScope? TemplateScope { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="Template" /> class.
         /// </summary>
-        /// <param name="templateType">How the template should be edited.</param>
+        /// <param name="templateType">templateType.</param>
         /// <param name="name">Template name.</param>
         /// <param name="dateAdded">Date of creation in YYYY-MM-DDThh:ii:ss format.</param>
         /// <param name="subject">Default subject of email..</param>
         /// <param name="body">Email content of this template.</param>
-        /// <param name="templateScope">Visibility of a template.</param>
+        /// <param name="templateScope">templateScope.</param>
         public Template(TemplateType? templateType = default(TemplateType?), string name = default(string), DateTime dateAdded = default(DateTime), string subject = default(string), List<BodyPart> body = default(List<BodyPart>), TemplateScope? templateScope = default(TemplateScope?))
         {
             this.TemplateType = templateType;
@@ -200,7 +198,7 @@ namespace ElasticEmail.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
         {
             yield break;
         }

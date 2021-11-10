@@ -34,32 +34,30 @@ namespace ElasticEmail.Model
     {
 
         /// <summary>
-        /// Status of the given resource
+        /// Gets or Sets Status
         /// </summary>
-        /// <value>Status of the given resource</value>
         [DataMember(Name = "Status", EmitDefaultValue = false)]
         public ContactStatus? Status { get; set; }
 
         /// <summary>
-        /// From where was this contact added
+        /// Gets or Sets Source
         /// </summary>
-        /// <value>From where was this contact added</value>
         [DataMember(Name = "Source", EmitDefaultValue = false)]
         public ContactSource? Source { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="Contact" /> class.
         /// </summary>
         /// <param name="email">Proper email address..</param>
-        /// <param name="status">Status of the given resource.</param>
+        /// <param name="status">status.</param>
         /// <param name="firstName">First name..</param>
         /// <param name="lastName">Last name..</param>
         /// <param name="customFields">A key-value collection of custom contact fields which can be used in the system..</param>
         /// <param name="consent">consent.</param>
-        /// <param name="source">From where was this contact added.</param>
+        /// <param name="source">source.</param>
         /// <param name="dateAdded">Date of creation in YYYY-MM-DDThh:ii:ss format.</param>
         /// <param name="dateUpdated">Last change date.</param>
         /// <param name="statusChangeDate">Date of last status change..</param>
-        /// <param name="activity">Contact&#39;s email statistics and activity.</param>
+        /// <param name="activity">activity.</param>
         public Contact(string email = default(string), ContactStatus? status = default(ContactStatus?), string firstName = default(string), string lastName = default(string), Dictionary<string, string> customFields = default(Dictionary<string, string>), ConsentData consent = default(ConsentData), ContactSource? source = default(ContactSource?), DateTime dateAdded = default(DateTime), DateTime? dateUpdated = default(DateTime?), DateTime? statusChangeDate = default(DateTime?), ContactActivity activity = default(ContactActivity))
         {
             this.Email = email;
@@ -131,9 +129,8 @@ namespace ElasticEmail.Model
         public DateTime? StatusChangeDate { get; set; }
 
         /// <summary>
-        /// Contact&#39;s email statistics and activity
+        /// Gets or Sets Activity
         /// </summary>
-        /// <value>Contact&#39;s email statistics and activity</value>
         [DataMember(Name = "Activity", EmitDefaultValue = false)]
         public ContactActivity Activity { get; set; }
 
@@ -284,7 +281,7 @@ namespace ElasticEmail.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
         {
             yield break;
         }

@@ -34,9 +34,8 @@ namespace ElasticEmail.Model
     {
 
         /// <summary>
-        /// Does the contant consent to have their tracking data stored.
+        /// Gets or Sets ConsentTracking
         /// </summary>
-        /// <value>Does the contant consent to have their tracking data stored.</value>
         [DataMember(Name = "ConsentTracking", EmitDefaultValue = false)]
         public ConsentTracking? ConsentTracking { get; set; }
         /// <summary>
@@ -44,7 +43,7 @@ namespace ElasticEmail.Model
         /// </summary>
         /// <param name="consentIP">IP address of consent to send this contact(s) your email. If not provided your current public IP address is used for consent..</param>
         /// <param name="consentDate">Date of consent to send this contact(s) your email. If not provided current date is used for consent..</param>
-        /// <param name="consentTracking">Does the contant consent to have their tracking data stored..</param>
+        /// <param name="consentTracking">consentTracking.</param>
         public ConsentData(string consentIP = default(string), DateTime? consentDate = default(DateTime?), ConsentTracking? consentTracking = default(ConsentTracking?))
         {
             this.ConsentIP = consentIP;
@@ -150,7 +149,7 @@ namespace ElasticEmail.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
         {
             yield break;
         }

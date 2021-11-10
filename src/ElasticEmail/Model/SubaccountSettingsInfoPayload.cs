@@ -35,16 +35,15 @@ namespace ElasticEmail.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="SubaccountSettingsInfoPayload" /> class.
         /// </summary>
-        /// <param name="email">Settings related to sending emails.</param>
+        /// <param name="email">email.</param>
         public SubaccountSettingsInfoPayload(SubaccountEmailSettingsPayload email = default(SubaccountEmailSettingsPayload))
         {
             this.Email = email;
         }
 
         /// <summary>
-        /// Settings related to sending emails
+        /// Gets or Sets Email
         /// </summary>
-        /// <value>Settings related to sending emails</value>
         [DataMember(Name = "Email", EmitDefaultValue = false)]
         public SubaccountEmailSettingsPayload Email { get; set; }
 
@@ -118,7 +117,7 @@ namespace ElasticEmail.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
         {
             yield break;
         }

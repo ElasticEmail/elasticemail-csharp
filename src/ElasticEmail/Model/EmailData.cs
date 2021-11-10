@@ -35,9 +35,9 @@ namespace ElasticEmail.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="EmailData" /> class.
         /// </summary>
-        /// <param name="preview">Email details.</param>
+        /// <param name="preview">preview.</param>
         /// <param name="attachments">Attachments sent with the email.</param>
-        /// <param name="status">Status of the given resource.</param>
+        /// <param name="status">status.</param>
         public EmailData(EmailView preview = default(EmailView), List<FileInfo> attachments = default(List<FileInfo>), EmailStatus status = default(EmailStatus))
         {
             this.Preview = preview;
@@ -46,9 +46,8 @@ namespace ElasticEmail.Model
         }
 
         /// <summary>
-        /// Email details
+        /// Gets or Sets Preview
         /// </summary>
-        /// <value>Email details</value>
         [DataMember(Name = "Preview", EmitDefaultValue = false)]
         public EmailView Preview { get; set; }
 
@@ -60,9 +59,8 @@ namespace ElasticEmail.Model
         public List<FileInfo> Attachments { get; set; }
 
         /// <summary>
-        /// Status of the given resource
+        /// Gets or Sets Status
         /// </summary>
-        /// <value>Status of the given resource</value>
         [DataMember(Name = "Status", EmitDefaultValue = false)]
         public EmailStatus Status { get; set; }
 
@@ -153,7 +151,7 @@ namespace ElasticEmail.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
         {
             yield break;
         }

@@ -34,9 +34,8 @@ namespace ElasticEmail.Model
     {
 
         /// <summary>
-        /// Status of the given resource
+        /// Gets or Sets Status
         /// </summary>
-        /// <value>Status of the given resource</value>
         [DataMember(Name = "Status", EmitDefaultValue = false)]
         public ContactStatus? Status { get; set; }
         /// <summary>
@@ -48,7 +47,7 @@ namespace ElasticEmail.Model
         /// Initializes a new instance of the <see cref="ContactPayload" /> class.
         /// </summary>
         /// <param name="email">Proper email address. (required).</param>
-        /// <param name="status">Status of the given resource.</param>
+        /// <param name="status">status.</param>
         /// <param name="firstName">First name..</param>
         /// <param name="lastName">Last name..</param>
         /// <param name="customFields">A key-value collection of custom contact fields which can be used in the system. Only already existing custom fields will be saved..</param>
@@ -56,7 +55,10 @@ namespace ElasticEmail.Model
         public ContactPayload(string email = default(string), ContactStatus? status = default(ContactStatus?), string firstName = default(string), string lastName = default(string), Dictionary<string, string> customFields = default(Dictionary<string, string>), ConsentData consent = default(ConsentData))
         {
             // to ensure "email" is required (not null)
-            this.Email = email ?? throw new ArgumentNullException("email is a required property for ContactPayload and cannot be null");
+            if (email == null) {
+                throw new ArgumentNullException("email is a required property for ContactPayload and cannot be null");
+            }
+            this.Email = email;
             this.Status = status;
             this.FirstName = firstName;
             this.LastName = lastName;
@@ -207,7 +209,7 @@ namespace ElasticEmail.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
         {
             yield break;
         }

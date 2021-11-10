@@ -34,15 +34,14 @@ namespace ElasticEmail.Model
     {
 
         /// <summary>
-        /// Type of results by which to determine the winner template (content)
+        /// Gets or Sets OptimizeFor
         /// </summary>
-        /// <value>Type of results by which to determine the winner template (content)</value>
         [DataMember(Name = "OptimizeFor", EmitDefaultValue = false)]
         public SplitOptimizationType? OptimizeFor { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="SplitOptions" /> class.
         /// </summary>
-        /// <param name="optimizeFor">Type of results by which to determine the winner template (content).</param>
+        /// <param name="optimizeFor">optimizeFor.</param>
         /// <param name="optimizePeriodMinutes">For how long should the results be measured until determining the winner template (content).</param>
         public SplitOptions(SplitOptimizationType? optimizeFor = default(SplitOptimizationType?), int optimizePeriodMinutes = default(int))
         {
@@ -131,7 +130,7 @@ namespace ElasticEmail.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
         {
             yield break;
         }

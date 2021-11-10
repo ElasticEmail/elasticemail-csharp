@@ -34,19 +34,18 @@ namespace ElasticEmail.Model
     {
 
         /// <summary>
-        /// How to order email delivery - by recipients&#39; engagement score or by the time they open the most of the emails that were sent to them
+        /// Gets or Sets DeliveryOptimization
         /// </summary>
-        /// <value>How to order email delivery - by recipients&#39; engagement score or by the time they open the most of the emails that were sent to them</value>
         [DataMember(Name = "DeliveryOptimization", EmitDefaultValue = false)]
         public DeliveryOptimizationType? DeliveryOptimization { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="CampaignOptions" /> class.
         /// </summary>
-        /// <param name="deliveryOptimization">How to order email delivery - by recipients&#39; engagement score or by the time they open the most of the emails that were sent to them.</param>
+        /// <param name="deliveryOptimization">deliveryOptimization.</param>
         /// <param name="trackOpens">Should the opens be tracked? If no value has been provided, Account&#39;s default setting will be used..</param>
         /// <param name="trackClicks">Should the clicks be tracked? If no value has been provided, Account&#39;s default setting will be used..</param>
         /// <param name="scheduleFor">Date when this Campaign is scheduled to be sent on.</param>
-        /// <param name="splitOptions">Optional options for A/X split campaigns. Will be ignored if only one template content was provided.</param>
+        /// <param name="splitOptions">splitOptions.</param>
         public CampaignOptions(DeliveryOptimizationType? deliveryOptimization = default(DeliveryOptimizationType?), bool? trackOpens = default(bool?), bool? trackClicks = default(bool?), DateTime? scheduleFor = default(DateTime?), SplitOptions splitOptions = default(SplitOptions))
         {
             this.DeliveryOptimization = deliveryOptimization;
@@ -78,9 +77,8 @@ namespace ElasticEmail.Model
         public DateTime? ScheduleFor { get; set; }
 
         /// <summary>
-        /// Optional options for A/X split campaigns. Will be ignored if only one template content was provided
+        /// Gets or Sets SplitOptions
         /// </summary>
-        /// <value>Optional options for A/X split campaigns. Will be ignored if only one template content was provided</value>
         [DataMember(Name = "SplitOptions", EmitDefaultValue = false)]
         public SplitOptions SplitOptions { get; set; }
 
@@ -184,7 +182,7 @@ namespace ElasticEmail.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
         {
             yield break;
         }

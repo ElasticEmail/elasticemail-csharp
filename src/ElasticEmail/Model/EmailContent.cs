@@ -46,7 +46,7 @@ namespace ElasticEmail.Model
         /// <param name="subject">Default subject of email..</param>
         /// <param name="templateName">Name of template..</param>
         /// <param name="attachFiles">Names of previously uploaded files that should be sent as downloadable attachments.</param>
-        /// <param name="utm">Utm marketing data to be attached to every link in this e-mail..</param>
+        /// <param name="utm">utm.</param>
         public EmailContent(List<BodyPart> body = default(List<BodyPart>), Dictionary<string, string> merge = default(Dictionary<string, string>), List<MessageAttachment> attachments = default(List<MessageAttachment>), Dictionary<string, string> headers = default(Dictionary<string, string>), string postback = default(string), string envelopeFrom = default(string), string from = default(string), string replyTo = default(string), string subject = default(string), string templateName = default(string), List<string> attachFiles = default(List<string>), Utm utm = default(Utm))
         {
             this.Body = body;
@@ -141,9 +141,8 @@ namespace ElasticEmail.Model
         public List<string> AttachFiles { get; set; }
 
         /// <summary>
-        /// Utm marketing data to be attached to every link in this e-mail.
+        /// Gets or Sets Utm
         /// </summary>
-        /// <value>Utm marketing data to be attached to every link in this e-mail.</value>
         [DataMember(Name = "Utm", EmitDefaultValue = false)]
         public Utm Utm { get; set; }
 
@@ -310,7 +309,7 @@ namespace ElasticEmail.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
         {
             yield break;
         }

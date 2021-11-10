@@ -34,9 +34,8 @@ namespace ElasticEmail.Model
     {
 
         /// <summary>
-        /// Visibility of a template
+        /// Gets or Sets TemplateScope
         /// </summary>
-        /// <value>Visibility of a template</value>
         [DataMember(Name = "TemplateScope", EmitDefaultValue = false)]
         public TemplateScope? TemplateScope { get; set; }
         /// <summary>
@@ -50,11 +49,14 @@ namespace ElasticEmail.Model
         /// <param name="name">Template name (required).</param>
         /// <param name="subject">Default subject of email..</param>
         /// <param name="body">Email content of this template.</param>
-        /// <param name="templateScope">Visibility of a template.</param>
+        /// <param name="templateScope">templateScope.</param>
         public TemplatePayload(string name = default(string), string subject = default(string), List<BodyPart> body = default(List<BodyPart>), TemplateScope? templateScope = default(TemplateScope?))
         {
             // to ensure "name" is required (not null)
-            this.Name = name ?? throw new ArgumentNullException("name is a required property for TemplatePayload and cannot be null");
+            if (name == null) {
+                throw new ArgumentNullException("name is a required property for TemplatePayload and cannot be null");
+            }
+            this.Name = name;
             this.Subject = subject;
             this.Body = body;
             this.TemplateScope = templateScope;
@@ -174,7 +176,7 @@ namespace ElasticEmail.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
         {
             yield break;
         }

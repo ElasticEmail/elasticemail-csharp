@@ -43,13 +43,19 @@ namespace ElasticEmail.Model
         /// <param name="email">Proper email address. (required).</param>
         /// <param name="password">Current password. (required).</param>
         /// <param name="sendActivation">True, if you want to send activation email to this Account to confirm the creation of a new SubAccount. Otherwise, false (SubAccount will immediately be Active)..</param>
-        /// <param name="settings">SubAccount settings.</param>
+        /// <param name="settings">settings.</param>
         public SubaccountPayload(string email = default(string), string password = default(string), bool sendActivation = default(bool), SubaccountSettingsInfoPayload settings = default(SubaccountSettingsInfoPayload))
         {
             // to ensure "email" is required (not null)
-            this.Email = email ?? throw new ArgumentNullException("email is a required property for SubaccountPayload and cannot be null");
+            if (email == null) {
+                throw new ArgumentNullException("email is a required property for SubaccountPayload and cannot be null");
+            }
+            this.Email = email;
             // to ensure "password" is required (not null)
-            this.Password = password ?? throw new ArgumentNullException("password is a required property for SubaccountPayload and cannot be null");
+            if (password == null) {
+                throw new ArgumentNullException("password is a required property for SubaccountPayload and cannot be null");
+            }
+            this.Password = password;
             this.SendActivation = sendActivation;
             this.Settings = settings;
         }
@@ -76,9 +82,8 @@ namespace ElasticEmail.Model
         public bool SendActivation { get; set; }
 
         /// <summary>
-        /// SubAccount settings
+        /// Gets or Sets Settings
         /// </summary>
-        /// <value>SubAccount settings</value>
         [DataMember(Name = "Settings", EmitDefaultValue = false)]
         public SubaccountSettingsInfoPayload Settings { get; set; }
 
@@ -174,7 +179,7 @@ namespace ElasticEmail.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
         {
             yield break;
         }

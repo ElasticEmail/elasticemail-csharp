@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Email** | **string** | Proper email address. | 
-**Status** | **ContactStatus** | Status of the given resource | [optional] 
+**Status** | **ContactStatus** |  | [optional] 
 **FirstName** | **string** | First name. | [optional] 
 **LastName** | **string** | Last name. | [optional] 
 **CustomFields** | **Dictionary&lt;string, string&gt;** | A key-value collection of custom contact fields which can be used in the system. Only already existing custom fields will be saved. | [optional] 

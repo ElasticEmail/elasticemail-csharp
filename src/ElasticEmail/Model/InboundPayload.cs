@@ -34,16 +34,14 @@ namespace ElasticEmail.Model
     {
 
         /// <summary>
-        /// Type of the filter
+        /// Gets or Sets FilterType
         /// </summary>
-        /// <value>Type of the filter</value>
         [DataMember(Name = "FilterType", IsRequired = true, EmitDefaultValue = false)]
         public InboundRouteFilterType FilterType { get; set; }
 
         /// <summary>
-        /// Type of action to take
+        /// Gets or Sets ActionType
         /// </summary>
-        /// <value>Type of action to take</value>
         [DataMember(Name = "ActionType", IsRequired = true, EmitDefaultValue = false)]
         public InboundRouteActionType ActionType { get; set; }
         /// <summary>
@@ -56,16 +54,22 @@ namespace ElasticEmail.Model
         /// </summary>
         /// <param name="filter">Filter of the inbound data (required).</param>
         /// <param name="name">Name of this route (required).</param>
-        /// <param name="filterType">Type of the filter (required).</param>
-        /// <param name="actionType">Type of action to take (required).</param>
+        /// <param name="filterType">filterType (required).</param>
+        /// <param name="actionType">actionType (required).</param>
         /// <param name="emailAddress">Email to forward the inbound to.</param>
         /// <param name="httpAddress">Address to notify about the inbound.</param>
         public InboundPayload(string filter = default(string), string name = default(string), InboundRouteFilterType filterType = default(InboundRouteFilterType), InboundRouteActionType actionType = default(InboundRouteActionType), string emailAddress = default(string), string httpAddress = default(string))
         {
             // to ensure "filter" is required (not null)
-            this.Filter = filter ?? throw new ArgumentNullException("filter is a required property for InboundPayload and cannot be null");
+            if (filter == null) {
+                throw new ArgumentNullException("filter is a required property for InboundPayload and cannot be null");
+            }
+            this.Filter = filter;
             // to ensure "name" is required (not null)
-            this.Name = name ?? throw new ArgumentNullException("name is a required property for InboundPayload and cannot be null");
+            if (name == null) {
+                throw new ArgumentNullException("name is a required property for InboundPayload and cannot be null");
+            }
+            this.Name = name;
             this.FilterType = filterType;
             this.ActionType = actionType;
             this.EmailAddress = emailAddress;
@@ -206,7 +210,7 @@ namespace ElasticEmail.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
         {
             yield break;
         }

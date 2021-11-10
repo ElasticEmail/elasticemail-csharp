@@ -46,7 +46,10 @@ namespace ElasticEmail.Model
         public FilePayload(byte[] binaryContent = default(byte[]), string name = default(string), string contentType = default(string))
         {
             // to ensure "binaryContent" is required (not null)
-            this.BinaryContent = binaryContent ?? throw new ArgumentNullException("binaryContent is a required property for FilePayload and cannot be null");
+            if (binaryContent == null) {
+                throw new ArgumentNullException("binaryContent is a required property for FilePayload and cannot be null");
+            }
+            this.BinaryContent = binaryContent;
             this.Name = name;
             this.ContentType = contentType;
         }
@@ -158,7 +161,7 @@ namespace ElasticEmail.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
         {
             yield break;
         }

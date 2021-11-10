@@ -40,35 +40,35 @@ namespace ElasticEmail.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="MergeEmailPayload" /> class.
         /// </summary>
-        /// <param name="mergeFile">CSV file containing recipients with optional merge fields (required).</param>
-        /// <param name="content">Proper e-mail content.</param>
-        /// <param name="options">E-mail configuration.</param>
+        /// <param name="mergeFile">mergeFile (required).</param>
+        /// <param name="content">content.</param>
+        /// <param name="options">options.</param>
         public MergeEmailPayload(MessageAttachment mergeFile = default(MessageAttachment), EmailContent content = default(EmailContent), Options options = default(Options))
         {
             // to ensure "mergeFile" is required (not null)
-            this.MergeFile = mergeFile ?? throw new ArgumentNullException("mergeFile is a required property for MergeEmailPayload and cannot be null");
+            if (mergeFile == null) {
+                throw new ArgumentNullException("mergeFile is a required property for MergeEmailPayload and cannot be null");
+            }
+            this.MergeFile = mergeFile;
             this.Content = content;
             this.Options = options;
         }
 
         /// <summary>
-        /// CSV file containing recipients with optional merge fields
+        /// Gets or Sets MergeFile
         /// </summary>
-        /// <value>CSV file containing recipients with optional merge fields</value>
         [DataMember(Name = "MergeFile", IsRequired = true, EmitDefaultValue = false)]
         public MessageAttachment MergeFile { get; set; }
 
         /// <summary>
-        /// Proper e-mail content
+        /// Gets or Sets Content
         /// </summary>
-        /// <value>Proper e-mail content</value>
         [DataMember(Name = "Content", EmitDefaultValue = false)]
         public EmailContent Content { get; set; }
 
         /// <summary>
-        /// E-mail configuration
+        /// Gets or Sets Options
         /// </summary>
-        /// <value>E-mail configuration</value>
         [DataMember(Name = "Options", EmitDefaultValue = false)]
         public Options Options { get; set; }
 
@@ -158,7 +158,7 @@ namespace ElasticEmail.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
         {
             yield break;
         }

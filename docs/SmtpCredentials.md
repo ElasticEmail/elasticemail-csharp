@@ -5,7 +5,7 @@ SMTP Credentials info
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**AccessLevel** | **AccessLevel** | Access level of this Smtp Credential. | [optional] 
+**AccessLevel** | **AccessLevel** |  | [optional] 
 **Name** | **string** | Name of the key. | [optional] 
 **DateCreated** | **DateTime** | Date this SmtpCredential was created. | [optional] 
 **LastUse** | **DateTime?** | Date this SmtpCredential was last used. | [optional] 

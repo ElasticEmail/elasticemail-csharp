@@ -45,7 +45,10 @@ namespace ElasticEmail.Model
         public SortOrderItem(string publicInboundId = default(string), int sortOrder = default(int))
         {
             // to ensure "publicInboundId" is required (not null)
-            this.PublicInboundId = publicInboundId ?? throw new ArgumentNullException("publicInboundId is a required property for SortOrderItem and cannot be null");
+            if (publicInboundId == null) {
+                throw new ArgumentNullException("publicInboundId is a required property for SortOrderItem and cannot be null");
+            }
+            this.PublicInboundId = publicInboundId;
             this.SortOrder = sortOrder;
         }
 
@@ -139,7 +142,7 @@ namespace ElasticEmail.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
         {
             yield break;
         }

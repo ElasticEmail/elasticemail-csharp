@@ -34,9 +34,8 @@ namespace ElasticEmail.Model
     {
 
         /// <summary>
-        /// 0 for None, 1 for Raw7Bit, 2 for Raw8Bit, 3 for QuotedPrintable, 4 for Base64 (Default), 5 for Uue note that you can also provide the text version such as \&quot;Raw7Bit\&quot; for value 1. NOTE: Base64 or QuotedPrintable is recommended if you are validating your domain(s) with DKIM.
+        /// Gets or Sets Encoding
         /// </summary>
-        /// <value>0 for None, 1 for Raw7Bit, 2 for Raw8Bit, 3 for QuotedPrintable, 4 for Base64 (Default), 5 for Uue note that you can also provide the text version such as \&quot;Raw7Bit\&quot; for value 1. NOTE: Base64 or QuotedPrintable is recommended if you are validating your domain(s) with DKIM.</value>
         [DataMember(Name = "Encoding", EmitDefaultValue = false)]
         public EncodingType? Encoding { get; set; }
         /// <summary>
@@ -45,7 +44,7 @@ namespace ElasticEmail.Model
         /// <param name="timeOffset">By how long should an e-mail be delayed (in minutes). Maximum is 35 days..</param>
         /// <param name="poolName">Name of your custom IP Pool to be used in the sending process.</param>
         /// <param name="channelName">Name of selected channel..</param>
-        /// <param name="encoding">0 for None, 1 for Raw7Bit, 2 for Raw8Bit, 3 for QuotedPrintable, 4 for Base64 (Default), 5 for Uue note that you can also provide the text version such as \&quot;Raw7Bit\&quot; for value 1. NOTE: Base64 or QuotedPrintable is recommended if you are validating your domain(s) with DKIM..</param>
+        /// <param name="encoding">encoding.</param>
         /// <param name="trackOpens">Should the opens be tracked? If no value has been provided, Account&#39;s default setting will be used..</param>
         /// <param name="trackClicks">Should the clicks be tracked? If no value has been provided, Account&#39;s default setting will be used..</param>
         public Options(int? timeOffset = default(int?), string poolName = default(string), string channelName = default(string), EncodingType? encoding = default(EncodingType?), bool trackOpens = default(bool), bool trackClicks = default(bool))
@@ -197,7 +196,7 @@ namespace ElasticEmail.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
         {
             yield break;
         }
