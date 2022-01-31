@@ -107,7 +107,7 @@ namespace ElasticEmail.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class CampaignTemplate {\n");
             sb.Append("  Poolname: ").Append(Poolname).Append("\n");
             sb.Append("  From: ").Append(From).Append("\n");
@@ -147,8 +147,9 @@ namespace ElasticEmail.Model
         public bool Equals(CampaignTemplate input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Poolname == input.Poolname ||
@@ -198,19 +199,33 @@ namespace ElasticEmail.Model
             {
                 int hashCode = 41;
                 if (this.Poolname != null)
-                    hashCode = hashCode * 59 + this.Poolname.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Poolname.GetHashCode();
+                }
                 if (this.From != null)
-                    hashCode = hashCode * 59 + this.From.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.From.GetHashCode();
+                }
                 if (this.ReplyTo != null)
-                    hashCode = hashCode * 59 + this.ReplyTo.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.ReplyTo.GetHashCode();
+                }
                 if (this.Subject != null)
-                    hashCode = hashCode * 59 + this.Subject.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Subject.GetHashCode();
+                }
                 if (this.TemplateName != null)
-                    hashCode = hashCode * 59 + this.TemplateName.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.TemplateName.GetHashCode();
+                }
                 if (this.AttachFiles != null)
-                    hashCode = hashCode * 59 + this.AttachFiles.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.AttachFiles.GetHashCode();
+                }
                 if (this.Utm != null)
-                    hashCode = hashCode * 59 + this.Utm.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Utm.GetHashCode();
+                }
                 return hashCode;
             }
         }

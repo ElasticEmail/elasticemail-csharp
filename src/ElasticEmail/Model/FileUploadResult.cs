@@ -63,7 +63,7 @@ namespace ElasticEmail.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class FileUploadResult {\n");
             sb.Append("  EmailsCount: ").Append(EmailsCount).Append("\n");
             sb.Append("  DuplicatedEmailsCount: ").Append(DuplicatedEmailsCount).Append("\n");
@@ -98,8 +98,9 @@ namespace ElasticEmail.Model
         public bool Equals(FileUploadResult input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.EmailsCount == input.EmailsCount ||
@@ -120,8 +121,8 @@ namespace ElasticEmail.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                hashCode = hashCode * 59 + this.EmailsCount.GetHashCode();
-                hashCode = hashCode * 59 + this.DuplicatedEmailsCount.GetHashCode();
+                hashCode = (hashCode * 59) + this.EmailsCount.GetHashCode();
+                hashCode = (hashCode * 59) + this.DuplicatedEmailsCount.GetHashCode();
                 return hashCode;
             }
         }

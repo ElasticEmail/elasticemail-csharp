@@ -42,7 +42,7 @@ namespace Example
             // config.AddApiKeyPrefix("X-ElasticEmail-ApiKey", "Bearer");
 
             var apiInstance = new InboundRouteApi(config);
-            var id = id_example;  // string | 
+            var id = "id_example";  // string | 
 
             try
             {
@@ -193,7 +193,7 @@ namespace Example
             // config.AddApiKeyPrefix("X-ElasticEmail-ApiKey", "Bearer");
 
             var apiInstance = new InboundRouteApi(config);
-            var id = id_example;  // string | 
+            var id = "id_example";  // string | 
             var inboundPayload = new InboundPayload(); // InboundPayload | 
 
             try

@@ -604,7 +604,9 @@ namespace ElasticEmail.Api
         {
             // verify the required parameter 'transactionid' is set
             if (transactionid == null)
+            {
                 throw new ElasticEmail.Client.ApiException(400, "Missing required parameter 'transactionid' when calling EventsApi->EventsByTransactionidGet");
+            }
 
             ElasticEmail.Client.RequestOptions localVarRequestOptions = new ElasticEmail.Client.RequestOptions();
 
@@ -617,10 +619,16 @@ namespace ElasticEmail.Api
             };
 
             var localVarContentType = ElasticEmail.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = ElasticEmail.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.PathParameters.Add("transactionid", ElasticEmail.Client.ClientUtils.ParameterToString(transactionid)); // path parameter
             if (from != null)
@@ -652,11 +660,13 @@ namespace ElasticEmail.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<List<RecipientEvent>>("/events/{transactionid}", localVarRequestOptions, this.Configuration);
-
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("EventsByTransactionidGet", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -696,7 +706,9 @@ namespace ElasticEmail.Api
         {
             // verify the required parameter 'transactionid' is set
             if (transactionid == null)
+            {
                 throw new ElasticEmail.Client.ApiException(400, "Missing required parameter 'transactionid' when calling EventsApi->EventsByTransactionidGet");
+            }
 
 
             ElasticEmail.Client.RequestOptions localVarRequestOptions = new ElasticEmail.Client.RequestOptions();
@@ -709,12 +721,17 @@ namespace ElasticEmail.Api
                 "application/json"
             };
 
-
             var localVarContentType = ElasticEmail.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = ElasticEmail.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.PathParameters.Add("transactionid", ElasticEmail.Client.ClientUtils.ParameterToString(transactionid)); // path parameter
             if (from != null)
@@ -745,13 +762,15 @@ namespace ElasticEmail.Api
             }
 
             // make the HTTP request
-
             var localVarResponse = await this.AsynchronousClient.GetAsync<List<RecipientEvent>>("/events/{transactionid}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("EventsByTransactionidGet", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -791,7 +810,9 @@ namespace ElasticEmail.Api
         {
             // verify the required parameter 'name' is set
             if (name == null)
+            {
                 throw new ElasticEmail.Client.ApiException(400, "Missing required parameter 'name' when calling EventsApi->EventsChannelsByNameExportPost");
+            }
 
             ElasticEmail.Client.RequestOptions localVarRequestOptions = new ElasticEmail.Client.RequestOptions();
 
@@ -804,10 +825,16 @@ namespace ElasticEmail.Api
             };
 
             var localVarContentType = ElasticEmail.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = ElasticEmail.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.PathParameters.Add("name", ElasticEmail.Client.ClientUtils.ParameterToString(name)); // path parameter
             if (eventTypes != null)
@@ -843,11 +870,13 @@ namespace ElasticEmail.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<ExportLink>("/events/channels/{name}/export", localVarRequestOptions, this.Configuration);
-
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("EventsChannelsByNameExportPost", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -889,7 +918,9 @@ namespace ElasticEmail.Api
         {
             // verify the required parameter 'name' is set
             if (name == null)
+            {
                 throw new ElasticEmail.Client.ApiException(400, "Missing required parameter 'name' when calling EventsApi->EventsChannelsByNameExportPost");
+            }
 
 
             ElasticEmail.Client.RequestOptions localVarRequestOptions = new ElasticEmail.Client.RequestOptions();
@@ -902,12 +933,17 @@ namespace ElasticEmail.Api
                 "application/json"
             };
 
-
             var localVarContentType = ElasticEmail.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = ElasticEmail.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.PathParameters.Add("name", ElasticEmail.Client.ClientUtils.ParameterToString(name)); // path parameter
             if (eventTypes != null)
@@ -942,13 +978,15 @@ namespace ElasticEmail.Api
             }
 
             // make the HTTP request
-
             var localVarResponse = await this.AsynchronousClient.PostAsync<ExportLink>("/events/channels/{name}/export", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("EventsChannelsByNameExportPost", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -988,7 +1026,9 @@ namespace ElasticEmail.Api
         {
             // verify the required parameter 'name' is set
             if (name == null)
+            {
                 throw new ElasticEmail.Client.ApiException(400, "Missing required parameter 'name' when calling EventsApi->EventsChannelsByNameGet");
+            }
 
             ElasticEmail.Client.RequestOptions localVarRequestOptions = new ElasticEmail.Client.RequestOptions();
 
@@ -1001,10 +1041,16 @@ namespace ElasticEmail.Api
             };
 
             var localVarContentType = ElasticEmail.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = ElasticEmail.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.PathParameters.Add("name", ElasticEmail.Client.ClientUtils.ParameterToString(name)); // path parameter
             if (eventTypes != null)
@@ -1040,11 +1086,13 @@ namespace ElasticEmail.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<List<RecipientEvent>>("/events/channels/{name}", localVarRequestOptions, this.Configuration);
-
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("EventsChannelsByNameGet", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -1086,7 +1134,9 @@ namespace ElasticEmail.Api
         {
             // verify the required parameter 'name' is set
             if (name == null)
+            {
                 throw new ElasticEmail.Client.ApiException(400, "Missing required parameter 'name' when calling EventsApi->EventsChannelsByNameGet");
+            }
 
 
             ElasticEmail.Client.RequestOptions localVarRequestOptions = new ElasticEmail.Client.RequestOptions();
@@ -1099,12 +1149,17 @@ namespace ElasticEmail.Api
                 "application/json"
             };
 
-
             var localVarContentType = ElasticEmail.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = ElasticEmail.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.PathParameters.Add("name", ElasticEmail.Client.ClientUtils.ParameterToString(name)); // path parameter
             if (eventTypes != null)
@@ -1139,13 +1194,15 @@ namespace ElasticEmail.Api
             }
 
             // make the HTTP request
-
             var localVarResponse = await this.AsynchronousClient.GetAsync<List<RecipientEvent>>("/events/channels/{name}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("EventsChannelsByNameGet", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -1173,7 +1230,9 @@ namespace ElasticEmail.Api
         {
             // verify the required parameter 'id' is set
             if (id == null)
+            {
                 throw new ElasticEmail.Client.ApiException(400, "Missing required parameter 'id' when calling EventsApi->EventsChannelsExportByIdStatusGet");
+            }
 
             ElasticEmail.Client.RequestOptions localVarRequestOptions = new ElasticEmail.Client.RequestOptions();
 
@@ -1186,10 +1245,16 @@ namespace ElasticEmail.Api
             };
 
             var localVarContentType = ElasticEmail.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = ElasticEmail.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.PathParameters.Add("id", ElasticEmail.Client.ClientUtils.ParameterToString(id)); // path parameter
 
@@ -1201,11 +1266,13 @@ namespace ElasticEmail.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<ExportStatus>("/events/channels/export/{id}/status", localVarRequestOptions, this.Configuration);
-
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("EventsChannelsExportByIdStatusGet", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -1235,7 +1302,9 @@ namespace ElasticEmail.Api
         {
             // verify the required parameter 'id' is set
             if (id == null)
+            {
                 throw new ElasticEmail.Client.ApiException(400, "Missing required parameter 'id' when calling EventsApi->EventsChannelsExportByIdStatusGet");
+            }
 
 
             ElasticEmail.Client.RequestOptions localVarRequestOptions = new ElasticEmail.Client.RequestOptions();
@@ -1248,12 +1317,17 @@ namespace ElasticEmail.Api
                 "application/json"
             };
 
-
             var localVarContentType = ElasticEmail.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = ElasticEmail.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.PathParameters.Add("id", ElasticEmail.Client.ClientUtils.ParameterToString(id)); // path parameter
 
@@ -1264,13 +1338,15 @@ namespace ElasticEmail.Api
             }
 
             // make the HTTP request
-
             var localVarResponse = await this.AsynchronousClient.GetAsync<ExportStatus>("/events/channels/export/{id}/status", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("EventsChannelsExportByIdStatusGet", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -1298,7 +1374,9 @@ namespace ElasticEmail.Api
         {
             // verify the required parameter 'id' is set
             if (id == null)
+            {
                 throw new ElasticEmail.Client.ApiException(400, "Missing required parameter 'id' when calling EventsApi->EventsExportByIdStatusGet");
+            }
 
             ElasticEmail.Client.RequestOptions localVarRequestOptions = new ElasticEmail.Client.RequestOptions();
 
@@ -1311,10 +1389,16 @@ namespace ElasticEmail.Api
             };
 
             var localVarContentType = ElasticEmail.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = ElasticEmail.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.PathParameters.Add("id", ElasticEmail.Client.ClientUtils.ParameterToString(id)); // path parameter
 
@@ -1326,11 +1410,13 @@ namespace ElasticEmail.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<ExportStatus>("/events/export/{id}/status", localVarRequestOptions, this.Configuration);
-
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("EventsExportByIdStatusGet", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -1360,7 +1446,9 @@ namespace ElasticEmail.Api
         {
             // verify the required parameter 'id' is set
             if (id == null)
+            {
                 throw new ElasticEmail.Client.ApiException(400, "Missing required parameter 'id' when calling EventsApi->EventsExportByIdStatusGet");
+            }
 
 
             ElasticEmail.Client.RequestOptions localVarRequestOptions = new ElasticEmail.Client.RequestOptions();
@@ -1373,12 +1461,17 @@ namespace ElasticEmail.Api
                 "application/json"
             };
 
-
             var localVarContentType = ElasticEmail.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = ElasticEmail.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.PathParameters.Add("id", ElasticEmail.Client.ClientUtils.ParameterToString(id)); // path parameter
 
@@ -1389,13 +1482,15 @@ namespace ElasticEmail.Api
             }
 
             // make the HTTP request
-
             var localVarResponse = await this.AsynchronousClient.GetAsync<ExportStatus>("/events/export/{id}/status", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("EventsExportByIdStatusGet", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -1442,10 +1537,16 @@ namespace ElasticEmail.Api
             };
 
             var localVarContentType = ElasticEmail.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = ElasticEmail.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             if (eventTypes != null)
             {
@@ -1480,11 +1581,13 @@ namespace ElasticEmail.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<ExportLink>("/events/export", localVarRequestOptions, this.Configuration);
-
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("EventsExportPost", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -1533,12 +1636,17 @@ namespace ElasticEmail.Api
                 "application/json"
             };
 
-
             var localVarContentType = ElasticEmail.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = ElasticEmail.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             if (eventTypes != null)
             {
@@ -1572,13 +1680,15 @@ namespace ElasticEmail.Api
             }
 
             // make the HTTP request
-
             var localVarResponse = await this.AsynchronousClient.PostAsync<ExportLink>("/events/export", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("EventsExportPost", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -1625,10 +1735,16 @@ namespace ElasticEmail.Api
             };
 
             var localVarContentType = ElasticEmail.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = ElasticEmail.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             if (eventTypes != null)
             {
@@ -1663,11 +1779,13 @@ namespace ElasticEmail.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<List<RecipientEvent>>("/events", localVarRequestOptions, this.Configuration);
-
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("EventsGet", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -1716,12 +1834,17 @@ namespace ElasticEmail.Api
                 "application/json"
             };
 
-
             var localVarContentType = ElasticEmail.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = ElasticEmail.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             if (eventTypes != null)
             {
@@ -1755,13 +1878,15 @@ namespace ElasticEmail.Api
             }
 
             // make the HTTP request
-
             var localVarResponse = await this.AsynchronousClient.GetAsync<List<RecipientEvent>>("/events", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("EventsGet", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;

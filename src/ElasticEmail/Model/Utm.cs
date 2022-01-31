@@ -81,7 +81,7 @@ namespace ElasticEmail.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class Utm {\n");
             sb.Append("  Source: ").Append(Source).Append("\n");
             sb.Append("  Medium: ").Append(Medium).Append("\n");
@@ -118,8 +118,9 @@ namespace ElasticEmail.Model
         public bool Equals(Utm input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Source == input.Source ||
@@ -153,13 +154,21 @@ namespace ElasticEmail.Model
             {
                 int hashCode = 41;
                 if (this.Source != null)
-                    hashCode = hashCode * 59 + this.Source.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Source.GetHashCode();
+                }
                 if (this.Medium != null)
-                    hashCode = hashCode * 59 + this.Medium.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Medium.GetHashCode();
+                }
                 if (this.Campaign != null)
-                    hashCode = hashCode * 59 + this.Campaign.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Campaign.GetHashCode();
+                }
                 if (this.Content != null)
-                    hashCode = hashCode * 59 + this.Content.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Content.GetHashCode();
+                }
                 return hashCode;
             }
         }

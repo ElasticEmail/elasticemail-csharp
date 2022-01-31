@@ -270,7 +270,7 @@ namespace Example
             // config.AddApiKeyPrefix("X-ElasticEmail-ApiKey", "Bearer");
 
             var apiInstance = new SubAccountsApi(config);
-            var email = email_example;  // string | 
+            var email = "email_example";  // string | 
             var subaccountEmailSettings = new SubaccountEmailSettings(); // SubaccountEmailSettings | Updated Email Settings
 
             try

@@ -116,7 +116,7 @@ namespace Example
             // config.AddApiKeyPrefix("X-ElasticEmail-ApiKey", "Bearer");
 
             var apiInstance = new SegmentsApi(config);
-            var name = name_example;  // string | Name of the segment you want to load. Will load all contacts if the 'All Contacts' name has been provided
+            var name = "name_example";  // string | Name of the segment you want to load. Will load all contacts if the 'All Contacts' name has been provided
 
             try
             {

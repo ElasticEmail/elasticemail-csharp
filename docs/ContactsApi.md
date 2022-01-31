@@ -506,10 +506,10 @@ namespace Example
             // config.AddApiKeyPrefix("X-ElasticEmail-ApiKey", "Bearer");
 
             var apiInstance = new ContactsApi(config);
-            var fileFormat = ;  // ExportFileFormats? | Format of the exported file (optional) 
+            var fileFormat = (ExportFileFormats) "Csv";  // ExportFileFormats? | Format of the exported file (optional) 
             var rule = Status%20=%20Engaged;  // string | Query used for filtering. (optional) 
             var emails = new List<string>(); // List<string> | Comma delimited list of contact emails (optional) 
-            var compressionFormat = ;  // CompressionFormat? | FileResponse compression format. None or Zip. (optional) 
+            var compressionFormat = (CompressionFormat) "None";  // CompressionFormat? | FileResponse compression format. None or Zip. (optional) 
             var fileName = filename.txt;  // string | Name of your file including extension. (optional) 
 
             try
@@ -668,9 +668,9 @@ namespace Example
             // config.AddApiKeyPrefix("X-ElasticEmail-ApiKey", "Bearer");
 
             var apiInstance = new ContactsApi(config);
-            var listName = listName_example;  // string | Name of an existing list to add these contacts to (optional) 
-            var encodingName = encodingName_example;  // string | In what encoding the file is uploaded (optional) 
-            var file = BINARY_DATA_HERE;  // System.IO.Stream |  (optional) 
+            var listName = "listName_example";  // string | Name of an existing list to add these contacts to (optional) 
+            var encodingName = "encodingName_example";  // string | In what encoding the file is uploaded (optional) 
+            var file = new System.IO.MemoryStream(System.IO.File.ReadAllBytes("/path/to/file.txt"));  // System.IO.Stream |  (optional) 
 
             try
             {

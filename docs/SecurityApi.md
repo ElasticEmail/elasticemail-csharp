@@ -46,8 +46,8 @@ namespace Example
             // config.AddApiKeyPrefix("X-ElasticEmail-ApiKey", "Bearer");
 
             var apiInstance = new SecurityApi(config);
-            var name = name_example;  // string | Name of the ApiKey
-            var subaccount = subaccount_example;  // string | Email of the subaccount of which ApiKey should be deleted (optional) 
+            var name = "name_example";  // string | Name of the ApiKey
+            var subaccount = "subaccount_example";  // string | Email of the subaccount of which ApiKey should be deleted (optional) 
 
             try
             {
@@ -123,8 +123,8 @@ namespace Example
             // config.AddApiKeyPrefix("X-ElasticEmail-ApiKey", "Bearer");
 
             var apiInstance = new SecurityApi(config);
-            var name = name_example;  // string | Name of the ApiKey
-            var subaccount = subaccount_example;  // string | Email of the subaccount of which ApiKey should be loaded (optional) 
+            var name = "name_example";  // string | Name of the ApiKey
+            var subaccount = "subaccount_example";  // string | Email of the subaccount of which ApiKey should be loaded (optional) 
 
             try
             {
@@ -201,7 +201,7 @@ namespace Example
             // config.AddApiKeyPrefix("X-ElasticEmail-ApiKey", "Bearer");
 
             var apiInstance = new SecurityApi(config);
-            var name = name_example;  // string | Name of the ApiKey
+            var name = "name_example";  // string | Name of the ApiKey
             var apiKeyPayload = new ApiKeyPayload(); // ApiKeyPayload | 
 
             try
@@ -279,7 +279,7 @@ namespace Example
             // config.AddApiKeyPrefix("X-ElasticEmail-ApiKey", "Bearer");
 
             var apiInstance = new SecurityApi(config);
-            var subaccount = subaccount_example;  // string | Email of the subaccount of which ApiKeys should be loaded (optional) 
+            var subaccount = "subaccount_example";  // string | Email of the subaccount of which ApiKeys should be loaded (optional) 
 
             try
             {
@@ -431,8 +431,8 @@ namespace Example
             // config.AddApiKeyPrefix("X-ElasticEmail-ApiKey", "Bearer");
 
             var apiInstance = new SecurityApi(config);
-            var name = name_example;  // string | Name of the SMTP Credential
-            var subaccount = subaccount_example;  // string | Email of the subaccount of which credential should be deleted (optional) 
+            var name = "name_example";  // string | Name of the SMTP Credential
+            var subaccount = "subaccount_example";  // string | Email of the subaccount of which credential should be deleted (optional) 
 
             try
             {
@@ -508,8 +508,8 @@ namespace Example
             // config.AddApiKeyPrefix("X-ElasticEmail-ApiKey", "Bearer");
 
             var apiInstance = new SecurityApi(config);
-            var name = name_example;  // string | Name of the SMTP Credential
-            var subaccount = subaccount_example;  // string | Email of the subaccount of which credential should be loaded (optional) 
+            var name = "name_example";  // string | Name of the SMTP Credential
+            var subaccount = "subaccount_example";  // string | Email of the subaccount of which credential should be loaded (optional) 
 
             try
             {
@@ -586,7 +586,7 @@ namespace Example
             // config.AddApiKeyPrefix("X-ElasticEmail-ApiKey", "Bearer");
 
             var apiInstance = new SecurityApi(config);
-            var name = name_example;  // string | Name of the SMTP Credential
+            var name = "name_example";  // string | Name of the SMTP Credential
             var smtpCredentialsPayload = new SmtpCredentialsPayload(); // SmtpCredentialsPayload | 
 
             try
@@ -664,7 +664,7 @@ namespace Example
             // config.AddApiKeyPrefix("X-ElasticEmail-ApiKey", "Bearer");
 
             var apiInstance = new SecurityApi(config);
-            var subaccount = subaccount_example;  // string | Email of the subaccount of which credentials should be listed (optional) 
+            var subaccount = "subaccount_example";  // string | Email of the subaccount of which credentials should be listed (optional) 
 
             try
             {

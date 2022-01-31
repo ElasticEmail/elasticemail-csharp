@@ -46,7 +46,7 @@ namespace Example
             // config.AddApiKeyPrefix("X-ElasticEmail-ApiKey", "Bearer");
 
             var apiInstance = new VerificationsApi(config);
-            var email = email_example;  // string | Email address to verification
+            var email = "email_example";  // string | Email address to verification
 
             try
             {
@@ -121,7 +121,7 @@ namespace Example
             // config.AddApiKeyPrefix("X-ElasticEmail-ApiKey", "Bearer");
 
             var apiInstance = new VerificationsApi(config);
-            var email = email_example;  // string | Email address to view verification result of
+            var email = "email_example";  // string | Email address to view verification result of
 
             try
             {
@@ -197,7 +197,7 @@ namespace Example
             // config.AddApiKeyPrefix("X-ElasticEmail-ApiKey", "Bearer");
 
             var apiInstance = new VerificationsApi(config);
-            var email = email_example;  // string | Email address to verify
+            var email = "email_example";  // string | Email address to verify
 
             try
             {
@@ -348,7 +348,7 @@ namespace Example
             // config.AddApiKeyPrefix("X-ElasticEmail-ApiKey", "Bearer");
 
             var apiInstance = new VerificationsApi(config);
-            var id = id_example;  // string | Verification ID to download
+            var id = "id_example";  // string | Verification ID to download
 
             try
             {
@@ -424,7 +424,7 @@ namespace Example
             // config.AddApiKeyPrefix("X-ElasticEmail-ApiKey", "Bearer");
 
             var apiInstance = new VerificationsApi(config);
-            var id = id_example;  // string | ID of the Verification to display status of
+            var id = "id_example";  // string | ID of the Verification to display status of
             var limit = 56;  // int? | Maximum number of returned email verification results (optional) 
             var offset = 56;  // int? | How many result items should be returned ahead (optional) 
 
@@ -504,7 +504,7 @@ namespace Example
             // config.AddApiKeyPrefix("X-ElasticEmail-ApiKey", "Bearer");
 
             var apiInstance = new VerificationsApi(config);
-            var id = id_example;  // string | File ID to start verification
+            var id = "id_example";  // string | File ID to start verification
 
             try
             {
@@ -579,7 +579,7 @@ namespace Example
             // config.AddApiKeyPrefix("X-ElasticEmail-ApiKey", "Bearer");
 
             var apiInstance = new VerificationsApi(config);
-            var file = BINARY_DATA_HERE;  // System.IO.Stream |  (optional) 
+            var file = new System.IO.MemoryStream(System.IO.File.ReadAllBytes("/path/to/file.txt"));  // System.IO.Stream |  (optional) 
 
             try
             {

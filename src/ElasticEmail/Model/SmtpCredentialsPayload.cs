@@ -90,7 +90,7 @@ namespace ElasticEmail.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class SmtpCredentialsPayload {\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("  Expires: ").Append(Expires).Append("\n");
@@ -127,8 +127,9 @@ namespace ElasticEmail.Model
         public bool Equals(SmtpCredentialsPayload input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Name == input.Name ||
@@ -163,13 +164,21 @@ namespace ElasticEmail.Model
             {
                 int hashCode = 41;
                 if (this.Name != null)
-                    hashCode = hashCode * 59 + this.Name.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Name.GetHashCode();
+                }
                 if (this.Expires != null)
-                    hashCode = hashCode * 59 + this.Expires.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Expires.GetHashCode();
+                }
                 if (this.RestrictAccessToIPRange != null)
-                    hashCode = hashCode * 59 + this.RestrictAccessToIPRange.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.RestrictAccessToIPRange.GetHashCode();
+                }
                 if (this.Subaccount != null)
-                    hashCode = hashCode * 59 + this.Subaccount.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Subaccount.GetHashCode();
+                }
                 return hashCode;
             }
         }

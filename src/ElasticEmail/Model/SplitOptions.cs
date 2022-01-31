@@ -62,7 +62,7 @@ namespace ElasticEmail.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class SplitOptions {\n");
             sb.Append("  OptimizeFor: ").Append(OptimizeFor).Append("\n");
             sb.Append("  OptimizePeriodMinutes: ").Append(OptimizePeriodMinutes).Append("\n");
@@ -97,8 +97,9 @@ namespace ElasticEmail.Model
         public bool Equals(SplitOptions input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.OptimizeFor == input.OptimizeFor ||
@@ -119,8 +120,8 @@ namespace ElasticEmail.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                hashCode = hashCode * 59 + this.OptimizeFor.GetHashCode();
-                hashCode = hashCode * 59 + this.OptimizePeriodMinutes.GetHashCode();
+                hashCode = (hashCode * 59) + this.OptimizeFor.GetHashCode();
+                hashCode = (hashCode * 59) + this.OptimizePeriodMinutes.GetHashCode();
                 return hashCode;
             }
         }

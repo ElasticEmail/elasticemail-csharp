@@ -455,11 +455,15 @@ namespace ElasticEmail.Api
         {
             // verify the required parameter 'email' is set
             if (email == null)
+            {
                 throw new ElasticEmail.Client.ApiException(400, "Missing required parameter 'email' when calling SubAccountsApi->SubaccountsByEmailCreditsPatch");
+            }
 
             // verify the required parameter 'subaccountEmailCreditsPayload' is set
             if (subaccountEmailCreditsPayload == null)
+            {
                 throw new ElasticEmail.Client.ApiException(400, "Missing required parameter 'subaccountEmailCreditsPayload' when calling SubAccountsApi->SubaccountsByEmailCreditsPatch");
+            }
 
             ElasticEmail.Client.RequestOptions localVarRequestOptions = new ElasticEmail.Client.RequestOptions();
 
@@ -472,10 +476,16 @@ namespace ElasticEmail.Api
             };
 
             var localVarContentType = ElasticEmail.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = ElasticEmail.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.PathParameters.Add("email", ElasticEmail.Client.ClientUtils.ParameterToString(email)); // path parameter
             localVarRequestOptions.Data = subaccountEmailCreditsPayload;
@@ -488,11 +498,13 @@ namespace ElasticEmail.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Patch<Object>("/subaccounts/{email}/credits", localVarRequestOptions, this.Configuration);
-
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("SubaccountsByEmailCreditsPatch", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -523,11 +535,15 @@ namespace ElasticEmail.Api
         {
             // verify the required parameter 'email' is set
             if (email == null)
+            {
                 throw new ElasticEmail.Client.ApiException(400, "Missing required parameter 'email' when calling SubAccountsApi->SubaccountsByEmailCreditsPatch");
+            }
 
             // verify the required parameter 'subaccountEmailCreditsPayload' is set
             if (subaccountEmailCreditsPayload == null)
+            {
                 throw new ElasticEmail.Client.ApiException(400, "Missing required parameter 'subaccountEmailCreditsPayload' when calling SubAccountsApi->SubaccountsByEmailCreditsPatch");
+            }
 
 
             ElasticEmail.Client.RequestOptions localVarRequestOptions = new ElasticEmail.Client.RequestOptions();
@@ -540,12 +556,17 @@ namespace ElasticEmail.Api
             string[] _accepts = new string[] {
             };
 
-
             var localVarContentType = ElasticEmail.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = ElasticEmail.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.PathParameters.Add("email", ElasticEmail.Client.ClientUtils.ParameterToString(email)); // path parameter
             localVarRequestOptions.Data = subaccountEmailCreditsPayload;
@@ -557,13 +578,15 @@ namespace ElasticEmail.Api
             }
 
             // make the HTTP request
-
             var localVarResponse = await this.AsynchronousClient.PatchAsync<Object>("/subaccounts/{email}/credits", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("SubaccountsByEmailCreditsPatch", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -590,7 +613,9 @@ namespace ElasticEmail.Api
         {
             // verify the required parameter 'email' is set
             if (email == null)
+            {
                 throw new ElasticEmail.Client.ApiException(400, "Missing required parameter 'email' when calling SubAccountsApi->SubaccountsByEmailDelete");
+            }
 
             ElasticEmail.Client.RequestOptions localVarRequestOptions = new ElasticEmail.Client.RequestOptions();
 
@@ -602,10 +627,16 @@ namespace ElasticEmail.Api
             };
 
             var localVarContentType = ElasticEmail.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = ElasticEmail.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.PathParameters.Add("email", ElasticEmail.Client.ClientUtils.ParameterToString(email)); // path parameter
 
@@ -617,11 +648,13 @@ namespace ElasticEmail.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Delete<Object>("/subaccounts/{email}", localVarRequestOptions, this.Configuration);
-
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("SubaccountsByEmailDelete", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -650,7 +683,9 @@ namespace ElasticEmail.Api
         {
             // verify the required parameter 'email' is set
             if (email == null)
+            {
                 throw new ElasticEmail.Client.ApiException(400, "Missing required parameter 'email' when calling SubAccountsApi->SubaccountsByEmailDelete");
+            }
 
 
             ElasticEmail.Client.RequestOptions localVarRequestOptions = new ElasticEmail.Client.RequestOptions();
@@ -662,12 +697,17 @@ namespace ElasticEmail.Api
             string[] _accepts = new string[] {
             };
 
-
             var localVarContentType = ElasticEmail.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = ElasticEmail.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.PathParameters.Add("email", ElasticEmail.Client.ClientUtils.ParameterToString(email)); // path parameter
 
@@ -678,13 +718,15 @@ namespace ElasticEmail.Api
             }
 
             // make the HTTP request
-
             var localVarResponse = await this.AsynchronousClient.DeleteAsync<Object>("/subaccounts/{email}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("SubaccountsByEmailDelete", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -712,7 +754,9 @@ namespace ElasticEmail.Api
         {
             // verify the required parameter 'email' is set
             if (email == null)
+            {
                 throw new ElasticEmail.Client.ApiException(400, "Missing required parameter 'email' when calling SubAccountsApi->SubaccountsByEmailGet");
+            }
 
             ElasticEmail.Client.RequestOptions localVarRequestOptions = new ElasticEmail.Client.RequestOptions();
 
@@ -725,10 +769,16 @@ namespace ElasticEmail.Api
             };
 
             var localVarContentType = ElasticEmail.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = ElasticEmail.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.PathParameters.Add("email", ElasticEmail.Client.ClientUtils.ParameterToString(email)); // path parameter
 
@@ -740,11 +790,13 @@ namespace ElasticEmail.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<SubAccountInfo>("/subaccounts/{email}", localVarRequestOptions, this.Configuration);
-
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("SubaccountsByEmailGet", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -774,7 +826,9 @@ namespace ElasticEmail.Api
         {
             // verify the required parameter 'email' is set
             if (email == null)
+            {
                 throw new ElasticEmail.Client.ApiException(400, "Missing required parameter 'email' when calling SubAccountsApi->SubaccountsByEmailGet");
+            }
 
 
             ElasticEmail.Client.RequestOptions localVarRequestOptions = new ElasticEmail.Client.RequestOptions();
@@ -787,12 +841,17 @@ namespace ElasticEmail.Api
                 "application/json"
             };
 
-
             var localVarContentType = ElasticEmail.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = ElasticEmail.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.PathParameters.Add("email", ElasticEmail.Client.ClientUtils.ParameterToString(email)); // path parameter
 
@@ -803,13 +862,15 @@ namespace ElasticEmail.Api
             }
 
             // make the HTTP request
-
             var localVarResponse = await this.AsynchronousClient.GetAsync<SubAccountInfo>("/subaccounts/{email}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("SubaccountsByEmailGet", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -839,11 +900,15 @@ namespace ElasticEmail.Api
         {
             // verify the required parameter 'email' is set
             if (email == null)
+            {
                 throw new ElasticEmail.Client.ApiException(400, "Missing required parameter 'email' when calling SubAccountsApi->SubaccountsByEmailSettingsEmailPut");
+            }
 
             // verify the required parameter 'subaccountEmailSettings' is set
             if (subaccountEmailSettings == null)
+            {
                 throw new ElasticEmail.Client.ApiException(400, "Missing required parameter 'subaccountEmailSettings' when calling SubAccountsApi->SubaccountsByEmailSettingsEmailPut");
+            }
 
             ElasticEmail.Client.RequestOptions localVarRequestOptions = new ElasticEmail.Client.RequestOptions();
 
@@ -857,10 +922,16 @@ namespace ElasticEmail.Api
             };
 
             var localVarContentType = ElasticEmail.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = ElasticEmail.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.PathParameters.Add("email", ElasticEmail.Client.ClientUtils.ParameterToString(email)); // path parameter
             localVarRequestOptions.Data = subaccountEmailSettings;
@@ -873,11 +944,13 @@ namespace ElasticEmail.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Put<SubaccountEmailSettings>("/subaccounts/{email}/settings/email", localVarRequestOptions, this.Configuration);
-
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("SubaccountsByEmailSettingsEmailPut", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -909,11 +982,15 @@ namespace ElasticEmail.Api
         {
             // verify the required parameter 'email' is set
             if (email == null)
+            {
                 throw new ElasticEmail.Client.ApiException(400, "Missing required parameter 'email' when calling SubAccountsApi->SubaccountsByEmailSettingsEmailPut");
+            }
 
             // verify the required parameter 'subaccountEmailSettings' is set
             if (subaccountEmailSettings == null)
+            {
                 throw new ElasticEmail.Client.ApiException(400, "Missing required parameter 'subaccountEmailSettings' when calling SubAccountsApi->SubaccountsByEmailSettingsEmailPut");
+            }
 
 
             ElasticEmail.Client.RequestOptions localVarRequestOptions = new ElasticEmail.Client.RequestOptions();
@@ -927,12 +1004,17 @@ namespace ElasticEmail.Api
                 "application/json"
             };
 
-
             var localVarContentType = ElasticEmail.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = ElasticEmail.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.PathParameters.Add("email", ElasticEmail.Client.ClientUtils.ParameterToString(email)); // path parameter
             localVarRequestOptions.Data = subaccountEmailSettings;
@@ -944,13 +1026,15 @@ namespace ElasticEmail.Api
             }
 
             // make the HTTP request
-
             var localVarResponse = await this.AsynchronousClient.PutAsync<SubaccountEmailSettings>("/subaccounts/{email}/settings/email", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("SubaccountsByEmailSettingsEmailPut", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -989,10 +1073,16 @@ namespace ElasticEmail.Api
             };
 
             var localVarContentType = ElasticEmail.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = ElasticEmail.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             if (limit != null)
             {
@@ -1011,11 +1101,13 @@ namespace ElasticEmail.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<List<SubAccountInfo>>("/subaccounts", localVarRequestOptions, this.Configuration);
-
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("SubaccountsGet", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -1056,12 +1148,17 @@ namespace ElasticEmail.Api
                 "application/json"
             };
 
-
             var localVarContentType = ElasticEmail.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = ElasticEmail.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             if (limit != null)
             {
@@ -1079,13 +1176,15 @@ namespace ElasticEmail.Api
             }
 
             // make the HTTP request
-
             var localVarResponse = await this.AsynchronousClient.GetAsync<List<SubAccountInfo>>("/subaccounts", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("SubaccountsGet", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -1113,7 +1212,9 @@ namespace ElasticEmail.Api
         {
             // verify the required parameter 'subaccountPayload' is set
             if (subaccountPayload == null)
+            {
                 throw new ElasticEmail.Client.ApiException(400, "Missing required parameter 'subaccountPayload' when calling SubAccountsApi->SubaccountsPost");
+            }
 
             ElasticEmail.Client.RequestOptions localVarRequestOptions = new ElasticEmail.Client.RequestOptions();
 
@@ -1127,10 +1228,16 @@ namespace ElasticEmail.Api
             };
 
             var localVarContentType = ElasticEmail.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = ElasticEmail.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.Data = subaccountPayload;
 
@@ -1142,11 +1249,13 @@ namespace ElasticEmail.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<SubAccountInfo>("/subaccounts", localVarRequestOptions, this.Configuration);
-
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("SubaccountsPost", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -1176,7 +1285,9 @@ namespace ElasticEmail.Api
         {
             // verify the required parameter 'subaccountPayload' is set
             if (subaccountPayload == null)
+            {
                 throw new ElasticEmail.Client.ApiException(400, "Missing required parameter 'subaccountPayload' when calling SubAccountsApi->SubaccountsPost");
+            }
 
 
             ElasticEmail.Client.RequestOptions localVarRequestOptions = new ElasticEmail.Client.RequestOptions();
@@ -1190,12 +1301,17 @@ namespace ElasticEmail.Api
                 "application/json"
             };
 
-
             var localVarContentType = ElasticEmail.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = ElasticEmail.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.Data = subaccountPayload;
 
@@ -1206,13 +1322,15 @@ namespace ElasticEmail.Api
             }
 
             // make the HTTP request
-
             var localVarResponse = await this.AsynchronousClient.PostAsync<SubAccountInfo>("/subaccounts", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("SubaccountsPost", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;

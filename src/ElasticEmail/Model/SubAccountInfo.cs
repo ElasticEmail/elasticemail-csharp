@@ -124,7 +124,7 @@ namespace ElasticEmail.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class SubAccountInfo {\n");
             sb.Append("  PublicAccountID: ").Append(PublicAccountID).Append("\n");
             sb.Append("  Email: ").Append(Email).Append("\n");
@@ -166,8 +166,9 @@ namespace ElasticEmail.Model
         public bool Equals(SubAccountInfo input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.PublicAccountID == input.PublicAccountID ||
@@ -221,18 +222,26 @@ namespace ElasticEmail.Model
             {
                 int hashCode = 41;
                 if (this.PublicAccountID != null)
-                    hashCode = hashCode * 59 + this.PublicAccountID.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.PublicAccountID.GetHashCode();
+                }
                 if (this.Email != null)
-                    hashCode = hashCode * 59 + this.Email.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Email.GetHashCode();
+                }
                 if (this.Settings != null)
-                    hashCode = hashCode * 59 + this.Settings.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Settings.GetHashCode();
+                }
                 if (this.LastActivity != null)
-                    hashCode = hashCode * 59 + this.LastActivity.GetHashCode();
-                hashCode = hashCode * 59 + this.EmailCredits.GetHashCode();
-                hashCode = hashCode * 59 + this.TotalEmailsSent.GetHashCode();
-                hashCode = hashCode * 59 + this.Reputation.GetHashCode();
-                hashCode = hashCode * 59 + this.Status.GetHashCode();
-                hashCode = hashCode * 59 + this.ContactsCount.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.LastActivity.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.EmailCredits.GetHashCode();
+                hashCode = (hashCode * 59) + this.TotalEmailsSent.GetHashCode();
+                hashCode = (hashCode * 59) + this.Reputation.GetHashCode();
+                hashCode = (hashCode * 59) + this.Status.GetHashCode();
+                hashCode = (hashCode * 59) + this.ContactsCount.GetHashCode();
                 return hashCode;
             }
         }

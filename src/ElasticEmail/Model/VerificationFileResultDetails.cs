@@ -106,7 +106,7 @@ namespace ElasticEmail.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class VerificationFileResultDetails {\n");
             sb.Append("  VerificationResult: ").Append(VerificationResult).Append("\n");
             sb.Append("  VerificationID: ").Append(VerificationID).Append("\n");
@@ -146,8 +146,9 @@ namespace ElasticEmail.Model
         public bool Equals(VerificationFileResultDetails input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.VerificationResult == input.VerificationResult ||
@@ -196,18 +197,30 @@ namespace ElasticEmail.Model
             {
                 int hashCode = 41;
                 if (this.VerificationResult != null)
-                    hashCode = hashCode * 59 + this.VerificationResult.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.VerificationResult.GetHashCode();
+                }
                 if (this.VerificationID != null)
-                    hashCode = hashCode * 59 + this.VerificationID.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.VerificationID.GetHashCode();
+                }
                 if (this.Filename != null)
-                    hashCode = hashCode * 59 + this.Filename.GetHashCode();
-                hashCode = hashCode * 59 + this.VerificationStatus.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Filename.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.VerificationStatus.GetHashCode();
                 if (this.FileUploadResult != null)
-                    hashCode = hashCode * 59 + this.FileUploadResult.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.FileUploadResult.GetHashCode();
+                }
                 if (this.DateAdded != null)
-                    hashCode = hashCode * 59 + this.DateAdded.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.DateAdded.GetHashCode();
+                }
                 if (this.Source != null)
-                    hashCode = hashCode * 59 + this.Source.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Source.GetHashCode();
+                }
                 return hashCode;
             }
         }

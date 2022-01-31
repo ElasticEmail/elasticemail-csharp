@@ -107,7 +107,7 @@ namespace ElasticEmail.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class ContactHistory {\n");
             sb.Append("  EventType: ").Append(EventType).Append("\n");
             sb.Append("  EventDate: ").Append(EventDate).Append("\n");
@@ -147,8 +147,9 @@ namespace ElasticEmail.Model
         public bool Equals(ContactHistory input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.EventType == input.EventType ||
@@ -195,19 +196,31 @@ namespace ElasticEmail.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                hashCode = hashCode * 59 + this.EventType.GetHashCode();
+                hashCode = (hashCode * 59) + this.EventType.GetHashCode();
                 if (this.EventDate != null)
-                    hashCode = hashCode * 59 + this.EventDate.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.EventDate.GetHashCode();
+                }
                 if (this.ChannelName != null)
-                    hashCode = hashCode * 59 + this.ChannelName.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.ChannelName.GetHashCode();
+                }
                 if (this.TemplateName != null)
-                    hashCode = hashCode * 59 + this.TemplateName.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.TemplateName.GetHashCode();
+                }
                 if (this.IPAddress != null)
-                    hashCode = hashCode * 59 + this.IPAddress.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.IPAddress.GetHashCode();
+                }
                 if (this.Country != null)
-                    hashCode = hashCode * 59 + this.Country.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Country.GetHashCode();
+                }
                 if (this.Data != null)
-                    hashCode = hashCode * 59 + this.Data.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Data.GetHashCode();
+                }
                 return hashCode;
             }
         }

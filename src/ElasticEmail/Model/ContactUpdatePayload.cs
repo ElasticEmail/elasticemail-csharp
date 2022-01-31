@@ -72,7 +72,7 @@ namespace ElasticEmail.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class ContactUpdatePayload {\n");
             sb.Append("  FirstName: ").Append(FirstName).Append("\n");
             sb.Append("  LastName: ").Append(LastName).Append("\n");
@@ -108,8 +108,9 @@ namespace ElasticEmail.Model
         public bool Equals(ContactUpdatePayload input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.FirstName == input.FirstName ||
@@ -139,11 +140,17 @@ namespace ElasticEmail.Model
             {
                 int hashCode = 41;
                 if (this.FirstName != null)
-                    hashCode = hashCode * 59 + this.FirstName.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.FirstName.GetHashCode();
+                }
                 if (this.LastName != null)
-                    hashCode = hashCode * 59 + this.LastName.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.LastName.GetHashCode();
+                }
                 if (this.CustomFields != null)
-                    hashCode = hashCode * 59 + this.CustomFields.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.CustomFields.GetHashCode();
+                }
                 return hashCode;
             }
         }

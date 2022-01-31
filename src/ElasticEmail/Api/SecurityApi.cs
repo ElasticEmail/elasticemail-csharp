@@ -643,7 +643,9 @@ namespace ElasticEmail.Api
         {
             // verify the required parameter 'name' is set
             if (name == null)
+            {
                 throw new ElasticEmail.Client.ApiException(400, "Missing required parameter 'name' when calling SecurityApi->SecurityApikeysByNameDelete");
+            }
 
             ElasticEmail.Client.RequestOptions localVarRequestOptions = new ElasticEmail.Client.RequestOptions();
 
@@ -655,10 +657,16 @@ namespace ElasticEmail.Api
             };
 
             var localVarContentType = ElasticEmail.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = ElasticEmail.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.PathParameters.Add("name", ElasticEmail.Client.ClientUtils.ParameterToString(name)); // path parameter
             if (subaccount != null)
@@ -674,11 +682,13 @@ namespace ElasticEmail.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Delete<Object>("/security/apikeys/{name}", localVarRequestOptions, this.Configuration);
-
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("SecurityApikeysByNameDelete", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -709,7 +719,9 @@ namespace ElasticEmail.Api
         {
             // verify the required parameter 'name' is set
             if (name == null)
+            {
                 throw new ElasticEmail.Client.ApiException(400, "Missing required parameter 'name' when calling SecurityApi->SecurityApikeysByNameDelete");
+            }
 
 
             ElasticEmail.Client.RequestOptions localVarRequestOptions = new ElasticEmail.Client.RequestOptions();
@@ -721,12 +733,17 @@ namespace ElasticEmail.Api
             string[] _accepts = new string[] {
             };
 
-
             var localVarContentType = ElasticEmail.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = ElasticEmail.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.PathParameters.Add("name", ElasticEmail.Client.ClientUtils.ParameterToString(name)); // path parameter
             if (subaccount != null)
@@ -741,13 +758,15 @@ namespace ElasticEmail.Api
             }
 
             // make the HTTP request
-
             var localVarResponse = await this.AsynchronousClient.DeleteAsync<Object>("/security/apikeys/{name}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("SecurityApikeysByNameDelete", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -777,7 +796,9 @@ namespace ElasticEmail.Api
         {
             // verify the required parameter 'name' is set
             if (name == null)
+            {
                 throw new ElasticEmail.Client.ApiException(400, "Missing required parameter 'name' when calling SecurityApi->SecurityApikeysByNameGet");
+            }
 
             ElasticEmail.Client.RequestOptions localVarRequestOptions = new ElasticEmail.Client.RequestOptions();
 
@@ -790,10 +811,16 @@ namespace ElasticEmail.Api
             };
 
             var localVarContentType = ElasticEmail.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = ElasticEmail.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.PathParameters.Add("name", ElasticEmail.Client.ClientUtils.ParameterToString(name)); // path parameter
             if (subaccount != null)
@@ -809,11 +836,13 @@ namespace ElasticEmail.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<ApiKey>("/security/apikeys/{name}", localVarRequestOptions, this.Configuration);
-
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("SecurityApikeysByNameGet", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -845,7 +874,9 @@ namespace ElasticEmail.Api
         {
             // verify the required parameter 'name' is set
             if (name == null)
+            {
                 throw new ElasticEmail.Client.ApiException(400, "Missing required parameter 'name' when calling SecurityApi->SecurityApikeysByNameGet");
+            }
 
 
             ElasticEmail.Client.RequestOptions localVarRequestOptions = new ElasticEmail.Client.RequestOptions();
@@ -858,12 +889,17 @@ namespace ElasticEmail.Api
                 "application/json"
             };
 
-
             var localVarContentType = ElasticEmail.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = ElasticEmail.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.PathParameters.Add("name", ElasticEmail.Client.ClientUtils.ParameterToString(name)); // path parameter
             if (subaccount != null)
@@ -878,13 +914,15 @@ namespace ElasticEmail.Api
             }
 
             // make the HTTP request
-
             var localVarResponse = await this.AsynchronousClient.GetAsync<ApiKey>("/security/apikeys/{name}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("SecurityApikeysByNameGet", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -914,11 +952,15 @@ namespace ElasticEmail.Api
         {
             // verify the required parameter 'name' is set
             if (name == null)
+            {
                 throw new ElasticEmail.Client.ApiException(400, "Missing required parameter 'name' when calling SecurityApi->SecurityApikeysByNamePut");
+            }
 
             // verify the required parameter 'apiKeyPayload' is set
             if (apiKeyPayload == null)
+            {
                 throw new ElasticEmail.Client.ApiException(400, "Missing required parameter 'apiKeyPayload' when calling SecurityApi->SecurityApikeysByNamePut");
+            }
 
             ElasticEmail.Client.RequestOptions localVarRequestOptions = new ElasticEmail.Client.RequestOptions();
 
@@ -932,10 +974,16 @@ namespace ElasticEmail.Api
             };
 
             var localVarContentType = ElasticEmail.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = ElasticEmail.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.PathParameters.Add("name", ElasticEmail.Client.ClientUtils.ParameterToString(name)); // path parameter
             localVarRequestOptions.Data = apiKeyPayload;
@@ -948,11 +996,13 @@ namespace ElasticEmail.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Put<ApiKey>("/security/apikeys/{name}", localVarRequestOptions, this.Configuration);
-
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("SecurityApikeysByNamePut", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -984,11 +1034,15 @@ namespace ElasticEmail.Api
         {
             // verify the required parameter 'name' is set
             if (name == null)
+            {
                 throw new ElasticEmail.Client.ApiException(400, "Missing required parameter 'name' when calling SecurityApi->SecurityApikeysByNamePut");
+            }
 
             // verify the required parameter 'apiKeyPayload' is set
             if (apiKeyPayload == null)
+            {
                 throw new ElasticEmail.Client.ApiException(400, "Missing required parameter 'apiKeyPayload' when calling SecurityApi->SecurityApikeysByNamePut");
+            }
 
 
             ElasticEmail.Client.RequestOptions localVarRequestOptions = new ElasticEmail.Client.RequestOptions();
@@ -1002,12 +1056,17 @@ namespace ElasticEmail.Api
                 "application/json"
             };
 
-
             var localVarContentType = ElasticEmail.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = ElasticEmail.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.PathParameters.Add("name", ElasticEmail.Client.ClientUtils.ParameterToString(name)); // path parameter
             localVarRequestOptions.Data = apiKeyPayload;
@@ -1019,13 +1078,15 @@ namespace ElasticEmail.Api
             }
 
             // make the HTTP request
-
             var localVarResponse = await this.AsynchronousClient.PutAsync<ApiKey>("/security/apikeys/{name}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("SecurityApikeysByNamePut", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -1062,10 +1123,16 @@ namespace ElasticEmail.Api
             };
 
             var localVarContentType = ElasticEmail.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = ElasticEmail.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             if (subaccount != null)
             {
@@ -1080,11 +1147,13 @@ namespace ElasticEmail.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<List<ApiKey>>("/security/apikeys", localVarRequestOptions, this.Configuration);
-
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("SecurityApikeysGet", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -1123,12 +1192,17 @@ namespace ElasticEmail.Api
                 "application/json"
             };
 
-
             var localVarContentType = ElasticEmail.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = ElasticEmail.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             if (subaccount != null)
             {
@@ -1142,13 +1216,15 @@ namespace ElasticEmail.Api
             }
 
             // make the HTTP request
-
             var localVarResponse = await this.AsynchronousClient.GetAsync<List<ApiKey>>("/security/apikeys", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("SecurityApikeysGet", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -1176,7 +1252,9 @@ namespace ElasticEmail.Api
         {
             // verify the required parameter 'apiKeyPayload' is set
             if (apiKeyPayload == null)
+            {
                 throw new ElasticEmail.Client.ApiException(400, "Missing required parameter 'apiKeyPayload' when calling SecurityApi->SecurityApikeysPost");
+            }
 
             ElasticEmail.Client.RequestOptions localVarRequestOptions = new ElasticEmail.Client.RequestOptions();
 
@@ -1190,10 +1268,16 @@ namespace ElasticEmail.Api
             };
 
             var localVarContentType = ElasticEmail.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = ElasticEmail.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.Data = apiKeyPayload;
 
@@ -1205,11 +1289,13 @@ namespace ElasticEmail.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<NewApiKey>("/security/apikeys", localVarRequestOptions, this.Configuration);
-
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("SecurityApikeysPost", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -1239,7 +1325,9 @@ namespace ElasticEmail.Api
         {
             // verify the required parameter 'apiKeyPayload' is set
             if (apiKeyPayload == null)
+            {
                 throw new ElasticEmail.Client.ApiException(400, "Missing required parameter 'apiKeyPayload' when calling SecurityApi->SecurityApikeysPost");
+            }
 
 
             ElasticEmail.Client.RequestOptions localVarRequestOptions = new ElasticEmail.Client.RequestOptions();
@@ -1253,12 +1341,17 @@ namespace ElasticEmail.Api
                 "application/json"
             };
 
-
             var localVarContentType = ElasticEmail.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = ElasticEmail.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.Data = apiKeyPayload;
 
@@ -1269,13 +1362,15 @@ namespace ElasticEmail.Api
             }
 
             // make the HTTP request
-
             var localVarResponse = await this.AsynchronousClient.PostAsync<NewApiKey>("/security/apikeys", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("SecurityApikeysPost", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -1304,7 +1399,9 @@ namespace ElasticEmail.Api
         {
             // verify the required parameter 'name' is set
             if (name == null)
+            {
                 throw new ElasticEmail.Client.ApiException(400, "Missing required parameter 'name' when calling SecurityApi->SecuritySmtpByNameDelete");
+            }
 
             ElasticEmail.Client.RequestOptions localVarRequestOptions = new ElasticEmail.Client.RequestOptions();
 
@@ -1316,10 +1413,16 @@ namespace ElasticEmail.Api
             };
 
             var localVarContentType = ElasticEmail.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = ElasticEmail.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.PathParameters.Add("name", ElasticEmail.Client.ClientUtils.ParameterToString(name)); // path parameter
             if (subaccount != null)
@@ -1335,11 +1438,13 @@ namespace ElasticEmail.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Delete<Object>("/security/smtp/{name}", localVarRequestOptions, this.Configuration);
-
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("SecuritySmtpByNameDelete", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -1370,7 +1475,9 @@ namespace ElasticEmail.Api
         {
             // verify the required parameter 'name' is set
             if (name == null)
+            {
                 throw new ElasticEmail.Client.ApiException(400, "Missing required parameter 'name' when calling SecurityApi->SecuritySmtpByNameDelete");
+            }
 
 
             ElasticEmail.Client.RequestOptions localVarRequestOptions = new ElasticEmail.Client.RequestOptions();
@@ -1382,12 +1489,17 @@ namespace ElasticEmail.Api
             string[] _accepts = new string[] {
             };
 
-
             var localVarContentType = ElasticEmail.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = ElasticEmail.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.PathParameters.Add("name", ElasticEmail.Client.ClientUtils.ParameterToString(name)); // path parameter
             if (subaccount != null)
@@ -1402,13 +1514,15 @@ namespace ElasticEmail.Api
             }
 
             // make the HTTP request
-
             var localVarResponse = await this.AsynchronousClient.DeleteAsync<Object>("/security/smtp/{name}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("SecuritySmtpByNameDelete", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -1438,7 +1552,9 @@ namespace ElasticEmail.Api
         {
             // verify the required parameter 'name' is set
             if (name == null)
+            {
                 throw new ElasticEmail.Client.ApiException(400, "Missing required parameter 'name' when calling SecurityApi->SecuritySmtpByNameGet");
+            }
 
             ElasticEmail.Client.RequestOptions localVarRequestOptions = new ElasticEmail.Client.RequestOptions();
 
@@ -1451,10 +1567,16 @@ namespace ElasticEmail.Api
             };
 
             var localVarContentType = ElasticEmail.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = ElasticEmail.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.PathParameters.Add("name", ElasticEmail.Client.ClientUtils.ParameterToString(name)); // path parameter
             if (subaccount != null)
@@ -1470,11 +1592,13 @@ namespace ElasticEmail.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<SmtpCredentials>("/security/smtp/{name}", localVarRequestOptions, this.Configuration);
-
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("SecuritySmtpByNameGet", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -1506,7 +1630,9 @@ namespace ElasticEmail.Api
         {
             // verify the required parameter 'name' is set
             if (name == null)
+            {
                 throw new ElasticEmail.Client.ApiException(400, "Missing required parameter 'name' when calling SecurityApi->SecuritySmtpByNameGet");
+            }
 
 
             ElasticEmail.Client.RequestOptions localVarRequestOptions = new ElasticEmail.Client.RequestOptions();
@@ -1519,12 +1645,17 @@ namespace ElasticEmail.Api
                 "application/json"
             };
 
-
             var localVarContentType = ElasticEmail.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = ElasticEmail.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.PathParameters.Add("name", ElasticEmail.Client.ClientUtils.ParameterToString(name)); // path parameter
             if (subaccount != null)
@@ -1539,13 +1670,15 @@ namespace ElasticEmail.Api
             }
 
             // make the HTTP request
-
             var localVarResponse = await this.AsynchronousClient.GetAsync<SmtpCredentials>("/security/smtp/{name}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("SecuritySmtpByNameGet", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -1575,11 +1708,15 @@ namespace ElasticEmail.Api
         {
             // verify the required parameter 'name' is set
             if (name == null)
+            {
                 throw new ElasticEmail.Client.ApiException(400, "Missing required parameter 'name' when calling SecurityApi->SecuritySmtpByNamePut");
+            }
 
             // verify the required parameter 'smtpCredentialsPayload' is set
             if (smtpCredentialsPayload == null)
+            {
                 throw new ElasticEmail.Client.ApiException(400, "Missing required parameter 'smtpCredentialsPayload' when calling SecurityApi->SecuritySmtpByNamePut");
+            }
 
             ElasticEmail.Client.RequestOptions localVarRequestOptions = new ElasticEmail.Client.RequestOptions();
 
@@ -1593,10 +1730,16 @@ namespace ElasticEmail.Api
             };
 
             var localVarContentType = ElasticEmail.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = ElasticEmail.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.PathParameters.Add("name", ElasticEmail.Client.ClientUtils.ParameterToString(name)); // path parameter
             localVarRequestOptions.Data = smtpCredentialsPayload;
@@ -1609,11 +1752,13 @@ namespace ElasticEmail.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Put<SmtpCredentials>("/security/smtp/{name}", localVarRequestOptions, this.Configuration);
-
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("SecuritySmtpByNamePut", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -1645,11 +1790,15 @@ namespace ElasticEmail.Api
         {
             // verify the required parameter 'name' is set
             if (name == null)
+            {
                 throw new ElasticEmail.Client.ApiException(400, "Missing required parameter 'name' when calling SecurityApi->SecuritySmtpByNamePut");
+            }
 
             // verify the required parameter 'smtpCredentialsPayload' is set
             if (smtpCredentialsPayload == null)
+            {
                 throw new ElasticEmail.Client.ApiException(400, "Missing required parameter 'smtpCredentialsPayload' when calling SecurityApi->SecuritySmtpByNamePut");
+            }
 
 
             ElasticEmail.Client.RequestOptions localVarRequestOptions = new ElasticEmail.Client.RequestOptions();
@@ -1663,12 +1812,17 @@ namespace ElasticEmail.Api
                 "application/json"
             };
 
-
             var localVarContentType = ElasticEmail.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = ElasticEmail.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.PathParameters.Add("name", ElasticEmail.Client.ClientUtils.ParameterToString(name)); // path parameter
             localVarRequestOptions.Data = smtpCredentialsPayload;
@@ -1680,13 +1834,15 @@ namespace ElasticEmail.Api
             }
 
             // make the HTTP request
-
             var localVarResponse = await this.AsynchronousClient.PutAsync<SmtpCredentials>("/security/smtp/{name}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("SecuritySmtpByNamePut", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -1723,10 +1879,16 @@ namespace ElasticEmail.Api
             };
 
             var localVarContentType = ElasticEmail.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = ElasticEmail.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             if (subaccount != null)
             {
@@ -1741,11 +1903,13 @@ namespace ElasticEmail.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<List<SmtpCredentials>>("/security/smtp", localVarRequestOptions, this.Configuration);
-
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("SecuritySmtpGet", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -1784,12 +1948,17 @@ namespace ElasticEmail.Api
                 "application/json"
             };
 
-
             var localVarContentType = ElasticEmail.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = ElasticEmail.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             if (subaccount != null)
             {
@@ -1803,13 +1972,15 @@ namespace ElasticEmail.Api
             }
 
             // make the HTTP request
-
             var localVarResponse = await this.AsynchronousClient.GetAsync<List<SmtpCredentials>>("/security/smtp", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("SecuritySmtpGet", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -1837,7 +2008,9 @@ namespace ElasticEmail.Api
         {
             // verify the required parameter 'smtpCredentialsPayload' is set
             if (smtpCredentialsPayload == null)
+            {
                 throw new ElasticEmail.Client.ApiException(400, "Missing required parameter 'smtpCredentialsPayload' when calling SecurityApi->SecuritySmtpPost");
+            }
 
             ElasticEmail.Client.RequestOptions localVarRequestOptions = new ElasticEmail.Client.RequestOptions();
 
@@ -1851,10 +2024,16 @@ namespace ElasticEmail.Api
             };
 
             var localVarContentType = ElasticEmail.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = ElasticEmail.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.Data = smtpCredentialsPayload;
 
@@ -1866,11 +2045,13 @@ namespace ElasticEmail.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<NewSmtpCredentials>("/security/smtp", localVarRequestOptions, this.Configuration);
-
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("SecuritySmtpPost", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -1900,7 +2081,9 @@ namespace ElasticEmail.Api
         {
             // verify the required parameter 'smtpCredentialsPayload' is set
             if (smtpCredentialsPayload == null)
+            {
                 throw new ElasticEmail.Client.ApiException(400, "Missing required parameter 'smtpCredentialsPayload' when calling SecurityApi->SecuritySmtpPost");
+            }
 
 
             ElasticEmail.Client.RequestOptions localVarRequestOptions = new ElasticEmail.Client.RequestOptions();
@@ -1914,12 +2097,17 @@ namespace ElasticEmail.Api
                 "application/json"
             };
 
-
             var localVarContentType = ElasticEmail.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = ElasticEmail.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.Data = smtpCredentialsPayload;
 
@@ -1930,13 +2118,15 @@ namespace ElasticEmail.Api
             }
 
             // make the HTTP request
-
             var localVarResponse = await this.AsynchronousClient.PostAsync<NewSmtpCredentials>("/security/smtp", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("SecuritySmtpPost", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;

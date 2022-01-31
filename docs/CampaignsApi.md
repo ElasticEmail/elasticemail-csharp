@@ -41,7 +41,7 @@ namespace Example
             // config.AddApiKeyPrefix("X-ElasticEmail-ApiKey", "Bearer");
 
             var apiInstance = new CampaignsApi(config);
-            var name = name_example;  // string | Name of Campaign to delete
+            var name = "name_example";  // string | Name of Campaign to delete
 
             try
             {
@@ -116,7 +116,7 @@ namespace Example
             // config.AddApiKeyPrefix("X-ElasticEmail-ApiKey", "Bearer");
 
             var apiInstance = new CampaignsApi(config);
-            var name = name_example;  // string | Name of Campaign to get
+            var name = "name_example";  // string | Name of Campaign to get
 
             try
             {
@@ -192,7 +192,7 @@ namespace Example
             // config.AddApiKeyPrefix("X-ElasticEmail-ApiKey", "Bearer");
 
             var apiInstance = new CampaignsApi(config);
-            var name = name_example;  // string | Name of Campaign to update
+            var name = "name_example";  // string | Name of Campaign to update
             var campaign = new Campaign(); // Campaign | JSON representation of a campaign
 
             try
@@ -270,7 +270,7 @@ namespace Example
             // config.AddApiKeyPrefix("X-ElasticEmail-ApiKey", "Bearer");
 
             var apiInstance = new CampaignsApi(config);
-            var search = search_example;  // string | Text fragment used for searching in Campaign name (using the 'contains' rule) (optional) 
+            var search = "search_example";  // string | Text fragment used for searching in Campaign name (using the 'contains' rule) (optional) 
             var offset = 20;  // int? | How many items should be returned ahead. (optional) 
             var limit = 100;  // int? | Maximum number of returned items. (optional) 
 

@@ -90,7 +90,7 @@ namespace ElasticEmail.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class FileInfo {\n");
             sb.Append("  FileName: ").Append(FileName).Append("\n");
             sb.Append("  Size: ").Append(Size).Append("\n");
@@ -128,8 +128,9 @@ namespace ElasticEmail.Model
         public bool Equals(FileInfo input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.FileName == input.FileName ||
@@ -168,15 +169,25 @@ namespace ElasticEmail.Model
             {
                 int hashCode = 41;
                 if (this.FileName != null)
-                    hashCode = hashCode * 59 + this.FileName.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.FileName.GetHashCode();
+                }
                 if (this.Size != null)
-                    hashCode = hashCode * 59 + this.Size.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Size.GetHashCode();
+                }
                 if (this.DateAdded != null)
-                    hashCode = hashCode * 59 + this.DateAdded.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.DateAdded.GetHashCode();
+                }
                 if (this.ExpirationDate != null)
-                    hashCode = hashCode * 59 + this.ExpirationDate.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.ExpirationDate.GetHashCode();
+                }
                 if (this.ContentType != null)
-                    hashCode = hashCode * 59 + this.ContentType.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.ContentType.GetHashCode();
+                }
                 return hashCode;
             }
         }

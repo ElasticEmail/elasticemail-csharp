@@ -78,7 +78,7 @@ namespace ElasticEmail.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class MergeEmailPayload {\n");
             sb.Append("  MergeFile: ").Append(MergeFile).Append("\n");
             sb.Append("  Content: ").Append(Content).Append("\n");
@@ -114,8 +114,9 @@ namespace ElasticEmail.Model
         public bool Equals(MergeEmailPayload input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.MergeFile == input.MergeFile ||
@@ -144,11 +145,17 @@ namespace ElasticEmail.Model
             {
                 int hashCode = 41;
                 if (this.MergeFile != null)
-                    hashCode = hashCode * 59 + this.MergeFile.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.MergeFile.GetHashCode();
+                }
                 if (this.Content != null)
-                    hashCode = hashCode * 59 + this.Content.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Content.GetHashCode();
+                }
                 if (this.Options != null)
-                    hashCode = hashCode * 59 + this.Options.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Options.GetHashCode();
+                }
                 return hashCode;
             }
         }

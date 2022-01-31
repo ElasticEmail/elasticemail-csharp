@@ -72,7 +72,7 @@ namespace ElasticEmail.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class SortOrderItem {\n");
             sb.Append("  PublicInboundId: ").Append(PublicInboundId).Append("\n");
             sb.Append("  SortOrder: ").Append(SortOrder).Append("\n");
@@ -107,8 +107,9 @@ namespace ElasticEmail.Model
         public bool Equals(SortOrderItem input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.PublicInboundId == input.PublicInboundId ||
@@ -131,8 +132,10 @@ namespace ElasticEmail.Model
             {
                 int hashCode = 41;
                 if (this.PublicInboundId != null)
-                    hashCode = hashCode * 59 + this.PublicInboundId.GetHashCode();
-                hashCode = hashCode * 59 + this.SortOrder.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.PublicInboundId.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.SortOrder.GetHashCode();
                 return hashCode;
             }
         }

@@ -99,7 +99,7 @@ namespace ElasticEmail.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class ApiKey {\n");
             sb.Append("  AccessLevel: ").Append(AccessLevel).Append("\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
@@ -138,8 +138,9 @@ namespace ElasticEmail.Model
         public bool Equals(ApiKey input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.AccessLevel == input.AccessLevel ||
@@ -185,17 +186,29 @@ namespace ElasticEmail.Model
             {
                 int hashCode = 41;
                 if (this.AccessLevel != null)
-                    hashCode = hashCode * 59 + this.AccessLevel.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.AccessLevel.GetHashCode();
+                }
                 if (this.Name != null)
-                    hashCode = hashCode * 59 + this.Name.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Name.GetHashCode();
+                }
                 if (this.DateCreated != null)
-                    hashCode = hashCode * 59 + this.DateCreated.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.DateCreated.GetHashCode();
+                }
                 if (this.LastUse != null)
-                    hashCode = hashCode * 59 + this.LastUse.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.LastUse.GetHashCode();
+                }
                 if (this.Expires != null)
-                    hashCode = hashCode * 59 + this.Expires.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Expires.GetHashCode();
+                }
                 if (this.RestrictAccessToIPRange != null)
-                    hashCode = hashCode * 59 + this.RestrictAccessToIPRange.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.RestrictAccessToIPRange.GetHashCode();
+                }
                 return hashCode;
             }
         }

@@ -97,7 +97,7 @@ namespace ElasticEmail.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class Template {\n");
             sb.Append("  TemplateType: ").Append(TemplateType).Append("\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
@@ -136,8 +136,9 @@ namespace ElasticEmail.Model
         public bool Equals(Template input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.TemplateType == input.TemplateType ||
@@ -179,16 +180,24 @@ namespace ElasticEmail.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                hashCode = hashCode * 59 + this.TemplateType.GetHashCode();
+                hashCode = (hashCode * 59) + this.TemplateType.GetHashCode();
                 if (this.Name != null)
-                    hashCode = hashCode * 59 + this.Name.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Name.GetHashCode();
+                }
                 if (this.DateAdded != null)
-                    hashCode = hashCode * 59 + this.DateAdded.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.DateAdded.GetHashCode();
+                }
                 if (this.Subject != null)
-                    hashCode = hashCode * 59 + this.Subject.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Subject.GetHashCode();
+                }
                 if (this.Body != null)
-                    hashCode = hashCode * 59 + this.Body.GetHashCode();
-                hashCode = hashCode * 59 + this.TemplateScope.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Body.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.TemplateScope.GetHashCode();
                 return hashCode;
             }
         }

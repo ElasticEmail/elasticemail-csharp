@@ -44,9 +44,9 @@ namespace Example
 
             var apiInstance = new EventsApi(config);
             var transactionid = TransactionID;  // string | ID number of transaction
-            var from = 2013-10-20T19:20:30+01:00;  // DateTime? | Starting date for search in YYYY-MM-DDThh:mm:ss format. (optional) 
-            var to = 2013-10-20T19:20:30+01:00;  // DateTime? | Ending date for search in YYYY-MM-DDThh:mm:ss format. (optional) 
-            var orderBy = ;  // EventsOrderBy? |  (optional) 
+            var from = DateTime.Parse("2013-10-20T19:20:30+01:00");  // DateTime? | Starting date for search in YYYY-MM-DDThh:mm:ss format. (optional) 
+            var to = DateTime.Parse("2013-10-20T19:20:30+01:00");  // DateTime? | Ending date for search in YYYY-MM-DDThh:mm:ss format. (optional) 
+            var orderBy = (EventsOrderBy) "DateDescending";  // EventsOrderBy? |  (optional) 
             var limit = 100;  // int? | Maximum number of returned items. (optional) 
             var offset = 20;  // int? | How many items should be returned ahead. (optional) 
 
@@ -131,10 +131,10 @@ namespace Example
             var apiInstance = new EventsApi(config);
             var name = Channel01;  // string | Name of selected channel.
             var eventTypes = new List<EventType>(); // List<EventType> | Types of Events to return (optional) 
-            var from = 2013-10-20T19:20:30+01:00;  // DateTime? | Starting date for search in YYYY-MM-DDThh:mm:ss format. (optional) 
-            var to = 2013-10-20T19:20:30+01:00;  // DateTime? | Ending date for search in YYYY-MM-DDThh:mm:ss format. (optional) 
-            var fileFormat = ;  // ExportFileFormats? | Format of the exported file (optional) 
-            var compressionFormat = ;  // CompressionFormat? | FileResponse compression format. None or Zip. (optional) 
+            var from = DateTime.Parse("2013-10-20T19:20:30+01:00");  // DateTime? | Starting date for search in YYYY-MM-DDThh:mm:ss format. (optional) 
+            var to = DateTime.Parse("2013-10-20T19:20:30+01:00");  // DateTime? | Ending date for search in YYYY-MM-DDThh:mm:ss format. (optional) 
+            var fileFormat = (ExportFileFormats) "Csv";  // ExportFileFormats? | Format of the exported file (optional) 
+            var compressionFormat = (CompressionFormat) "None";  // CompressionFormat? | FileResponse compression format. None or Zip. (optional) 
             var fileName = filename.txt;  // string | Name of your file including extension. (optional) 
 
             try
@@ -219,9 +219,9 @@ namespace Example
             var apiInstance = new EventsApi(config);
             var name = Channel01;  // string | Name of selected channel.
             var eventTypes = new List<EventType>(); // List<EventType> | Types of Events to return (optional) 
-            var from = 2013-10-20T19:20:30+01:00;  // DateTime? | Starting date for search in YYYY-MM-DDThh:mm:ss format. (optional) 
-            var to = 2013-10-20T19:20:30+01:00;  // DateTime? | Ending date for search in YYYY-MM-DDThh:mm:ss format. (optional) 
-            var orderBy = ;  // EventsOrderBy? |  (optional) 
+            var from = DateTime.Parse("2013-10-20T19:20:30+01:00");  // DateTime? | Starting date for search in YYYY-MM-DDThh:mm:ss format. (optional) 
+            var to = DateTime.Parse("2013-10-20T19:20:30+01:00");  // DateTime? | Ending date for search in YYYY-MM-DDThh:mm:ss format. (optional) 
+            var orderBy = (EventsOrderBy) "DateDescending";  // EventsOrderBy? |  (optional) 
             var limit = 56;  // int? | How many items to load. Maximum for this request is 1000 items (optional) 
             var offset = 20;  // int? | How many items should be returned ahead. (optional) 
 
@@ -458,10 +458,10 @@ namespace Example
 
             var apiInstance = new EventsApi(config);
             var eventTypes = new List<EventType>(); // List<EventType> | Types of Events to return (optional) 
-            var from = 2013-10-20T19:20:30+01:00;  // DateTime? | Starting date for search in YYYY-MM-DDThh:mm:ss format. (optional) 
-            var to = 2013-10-20T19:20:30+01:00;  // DateTime? | Ending date for search in YYYY-MM-DDThh:mm:ss format. (optional) 
-            var fileFormat = ;  // ExportFileFormats? | Format of the exported file (optional) 
-            var compressionFormat = ;  // CompressionFormat? | FileResponse compression format. None or Zip. (optional) 
+            var from = DateTime.Parse("2013-10-20T19:20:30+01:00");  // DateTime? | Starting date for search in YYYY-MM-DDThh:mm:ss format. (optional) 
+            var to = DateTime.Parse("2013-10-20T19:20:30+01:00");  // DateTime? | Ending date for search in YYYY-MM-DDThh:mm:ss format. (optional) 
+            var fileFormat = (ExportFileFormats) "Csv";  // ExportFileFormats? | Format of the exported file (optional) 
+            var compressionFormat = (CompressionFormat) "None";  // CompressionFormat? | FileResponse compression format. None or Zip. (optional) 
             var fileName = filename.txt;  // string | Name of your file including extension. (optional) 
 
             try
@@ -544,9 +544,9 @@ namespace Example
 
             var apiInstance = new EventsApi(config);
             var eventTypes = new List<EventType>(); // List<EventType> | Types of Events to return (optional) 
-            var from = 2013-10-20T19:20:30+01:00;  // DateTime? | Starting date for search in YYYY-MM-DDThh:mm:ss format. (optional) 
-            var to = 2013-10-20T19:20:30+01:00;  // DateTime? | Ending date for search in YYYY-MM-DDThh:mm:ss format. (optional) 
-            var orderBy = ;  // EventsOrderBy? |  (optional) 
+            var from = DateTime.Parse("2013-10-20T19:20:30+01:00");  // DateTime? | Starting date for search in YYYY-MM-DDThh:mm:ss format. (optional) 
+            var to = DateTime.Parse("2013-10-20T19:20:30+01:00");  // DateTime? | Ending date for search in YYYY-MM-DDThh:mm:ss format. (optional) 
+            var orderBy = (EventsOrderBy) "DateDescending";  // EventsOrderBy? |  (optional) 
             var limit = 56;  // int? | How many items to load. Maximum for this request is 1000 items (optional) 
             var offset = 20;  // int? | How many items should be returned ahead. (optional) 
 

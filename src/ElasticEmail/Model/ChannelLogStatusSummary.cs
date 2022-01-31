@@ -171,7 +171,7 @@ namespace ElasticEmail.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class ChannelLogStatusSummary {\n");
             sb.Append("  ChannelName: ").Append(ChannelName).Append("\n");
             sb.Append("  Recipients: ").Append(Recipients).Append("\n");
@@ -218,8 +218,9 @@ namespace ElasticEmail.Model
         public bool Equals(ChannelLogStatusSummary input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.ChannelName == input.ChannelName ||
@@ -290,20 +291,22 @@ namespace ElasticEmail.Model
             {
                 int hashCode = 41;
                 if (this.ChannelName != null)
-                    hashCode = hashCode * 59 + this.ChannelName.GetHashCode();
-                hashCode = hashCode * 59 + this.Recipients.GetHashCode();
-                hashCode = hashCode * 59 + this.EmailTotal.GetHashCode();
-                hashCode = hashCode * 59 + this.SmsTotal.GetHashCode();
-                hashCode = hashCode * 59 + this.Delivered.GetHashCode();
-                hashCode = hashCode * 59 + this.Bounced.GetHashCode();
-                hashCode = hashCode * 59 + this.InProgress.GetHashCode();
-                hashCode = hashCode * 59 + this.Opened.GetHashCode();
-                hashCode = hashCode * 59 + this.Clicked.GetHashCode();
-                hashCode = hashCode * 59 + this.Unsubscribed.GetHashCode();
-                hashCode = hashCode * 59 + this.Complaints.GetHashCode();
-                hashCode = hashCode * 59 + this.Inbound.GetHashCode();
-                hashCode = hashCode * 59 + this.ManualCancel.GetHashCode();
-                hashCode = hashCode * 59 + this.NotDelivered.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.ChannelName.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.Recipients.GetHashCode();
+                hashCode = (hashCode * 59) + this.EmailTotal.GetHashCode();
+                hashCode = (hashCode * 59) + this.SmsTotal.GetHashCode();
+                hashCode = (hashCode * 59) + this.Delivered.GetHashCode();
+                hashCode = (hashCode * 59) + this.Bounced.GetHashCode();
+                hashCode = (hashCode * 59) + this.InProgress.GetHashCode();
+                hashCode = (hashCode * 59) + this.Opened.GetHashCode();
+                hashCode = (hashCode * 59) + this.Clicked.GetHashCode();
+                hashCode = (hashCode * 59) + this.Unsubscribed.GetHashCode();
+                hashCode = (hashCode * 59) + this.Complaints.GetHashCode();
+                hashCode = (hashCode * 59) + this.Inbound.GetHashCode();
+                hashCode = (hashCode * 59) + this.ManualCancel.GetHashCode();
+                hashCode = (hashCode * 59) + this.NotDelivered.GetHashCode();
                 return hashCode;
             }
         }

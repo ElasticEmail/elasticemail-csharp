@@ -76,7 +76,7 @@ namespace ElasticEmail.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class BodyPart {\n");
             sb.Append("  ContentType: ").Append(ContentType).Append("\n");
             sb.Append("  Content: ").Append(Content).Append("\n");
@@ -112,8 +112,9 @@ namespace ElasticEmail.Model
         public bool Equals(BodyPart input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.ContentType == input.ContentType ||
@@ -140,11 +141,15 @@ namespace ElasticEmail.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                hashCode = hashCode * 59 + this.ContentType.GetHashCode();
+                hashCode = (hashCode * 59) + this.ContentType.GetHashCode();
                 if (this.Content != null)
-                    hashCode = hashCode * 59 + this.Content.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Content.GetHashCode();
+                }
                 if (this.Charset != null)
-                    hashCode = hashCode * 59 + this.Charset.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Charset.GetHashCode();
+                }
                 return hashCode;
             }
         }

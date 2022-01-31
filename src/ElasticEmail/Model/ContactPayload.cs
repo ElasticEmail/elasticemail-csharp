@@ -106,7 +106,7 @@ namespace ElasticEmail.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class ContactPayload {\n");
             sb.Append("  Email: ").Append(Email).Append("\n");
             sb.Append("  Status: ").Append(Status).Append("\n");
@@ -145,8 +145,9 @@ namespace ElasticEmail.Model
         public bool Equals(ContactPayload input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Email == input.Email ||
@@ -190,16 +191,26 @@ namespace ElasticEmail.Model
             {
                 int hashCode = 41;
                 if (this.Email != null)
-                    hashCode = hashCode * 59 + this.Email.GetHashCode();
-                hashCode = hashCode * 59 + this.Status.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Email.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.Status.GetHashCode();
                 if (this.FirstName != null)
-                    hashCode = hashCode * 59 + this.FirstName.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.FirstName.GetHashCode();
+                }
                 if (this.LastName != null)
-                    hashCode = hashCode * 59 + this.LastName.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.LastName.GetHashCode();
+                }
                 if (this.CustomFields != null)
-                    hashCode = hashCode * 59 + this.CustomFields.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.CustomFields.GetHashCode();
+                }
                 if (this.Consent != null)
-                    hashCode = hashCode * 59 + this.Consent.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Consent.GetHashCode();
+                }
                 return hashCode;
             }
         }

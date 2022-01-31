@@ -41,7 +41,7 @@ namespace Example
             // config.AddApiKeyPrefix("X-ElasticEmail-ApiKey", "Bearer");
 
             var apiInstance = new StatisticsApi(config);
-            var name = name_example;  // string | The name of the campaign to get.
+            var name = "name_example";  // string | The name of the campaign to get.
 
             try
             {
@@ -195,7 +195,7 @@ namespace Example
             // config.AddApiKeyPrefix("X-ElasticEmail-ApiKey", "Bearer");
 
             var apiInstance = new StatisticsApi(config);
-            var name = name_example;  // string | The name of the channel to get.
+            var name = "name_example";  // string | The name of the channel to get.
 
             try
             {
@@ -349,8 +349,8 @@ namespace Example
             // config.AddApiKeyPrefix("X-ElasticEmail-ApiKey", "Bearer");
 
             var apiInstance = new StatisticsApi(config);
-            var from = 2013-10-20T19:20:30+01:00;  // DateTime | Starting date for search in YYYY-MM-DDThh:mm:ss format.
-            var to = 2013-10-20T19:20:30+01:00;  // DateTime? | Ending date for search in YYYY-MM-DDThh:mm:ss format. (optional) 
+            var from = DateTime.Parse("2013-10-20T19:20:30+01:00");  // DateTime | Starting date for search in YYYY-MM-DDThh:mm:ss format.
+            var to = DateTime.Parse("2013-10-20T19:20:30+01:00");  // DateTime? | Ending date for search in YYYY-MM-DDThh:mm:ss format. (optional) 
 
             try
             {

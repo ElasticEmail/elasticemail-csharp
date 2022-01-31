@@ -152,7 +152,7 @@ namespace ElasticEmail.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class EmailContent {\n");
             sb.Append("  Body: ").Append(Body).Append("\n");
             sb.Append("  Merge: ").Append(Merge).Append("\n");
@@ -197,8 +197,9 @@ namespace ElasticEmail.Model
         public bool Equals(EmailContent input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Body == input.Body ||
@@ -277,29 +278,53 @@ namespace ElasticEmail.Model
             {
                 int hashCode = 41;
                 if (this.Body != null)
-                    hashCode = hashCode * 59 + this.Body.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Body.GetHashCode();
+                }
                 if (this.Merge != null)
-                    hashCode = hashCode * 59 + this.Merge.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Merge.GetHashCode();
+                }
                 if (this.Attachments != null)
-                    hashCode = hashCode * 59 + this.Attachments.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Attachments.GetHashCode();
+                }
                 if (this.Headers != null)
-                    hashCode = hashCode * 59 + this.Headers.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Headers.GetHashCode();
+                }
                 if (this.Postback != null)
-                    hashCode = hashCode * 59 + this.Postback.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Postback.GetHashCode();
+                }
                 if (this.EnvelopeFrom != null)
-                    hashCode = hashCode * 59 + this.EnvelopeFrom.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.EnvelopeFrom.GetHashCode();
+                }
                 if (this.From != null)
-                    hashCode = hashCode * 59 + this.From.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.From.GetHashCode();
+                }
                 if (this.ReplyTo != null)
-                    hashCode = hashCode * 59 + this.ReplyTo.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.ReplyTo.GetHashCode();
+                }
                 if (this.Subject != null)
-                    hashCode = hashCode * 59 + this.Subject.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Subject.GetHashCode();
+                }
                 if (this.TemplateName != null)
-                    hashCode = hashCode * 59 + this.TemplateName.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.TemplateName.GetHashCode();
+                }
                 if (this.AttachFiles != null)
-                    hashCode = hashCode * 59 + this.AttachFiles.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.AttachFiles.GetHashCode();
+                }
                 if (this.Utm != null)
-                    hashCode = hashCode * 59 + this.Utm.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Utm.GetHashCode();
+                }
                 return hashCode;
             }
         }

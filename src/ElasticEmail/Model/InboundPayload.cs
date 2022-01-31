@@ -110,7 +110,7 @@ namespace ElasticEmail.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class InboundPayload {\n");
             sb.Append("  Filter: ").Append(Filter).Append("\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
@@ -149,8 +149,9 @@ namespace ElasticEmail.Model
         public bool Equals(InboundPayload input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Filter == input.Filter ||
@@ -192,15 +193,23 @@ namespace ElasticEmail.Model
             {
                 int hashCode = 41;
                 if (this.Filter != null)
-                    hashCode = hashCode * 59 + this.Filter.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Filter.GetHashCode();
+                }
                 if (this.Name != null)
-                    hashCode = hashCode * 59 + this.Name.GetHashCode();
-                hashCode = hashCode * 59 + this.FilterType.GetHashCode();
-                hashCode = hashCode * 59 + this.ActionType.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Name.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.FilterType.GetHashCode();
+                hashCode = (hashCode * 59) + this.ActionType.GetHashCode();
                 if (this.EmailAddress != null)
-                    hashCode = hashCode * 59 + this.EmailAddress.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.EmailAddress.GetHashCode();
+                }
                 if (this.HttpAddress != null)
-                    hashCode = hashCode * 59 + this.HttpAddress.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.HttpAddress.GetHashCode();
+                }
                 return hashCode;
             }
         }

@@ -100,7 +100,7 @@ namespace ElasticEmail.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class Campaign {\n");
             sb.Append("  Content: ").Append(Content).Append("\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
@@ -138,8 +138,9 @@ namespace ElasticEmail.Model
         public bool Equals(Campaign input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Content == input.Content ||
@@ -178,14 +179,22 @@ namespace ElasticEmail.Model
             {
                 int hashCode = 41;
                 if (this.Content != null)
-                    hashCode = hashCode * 59 + this.Content.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Content.GetHashCode();
+                }
                 if (this.Name != null)
-                    hashCode = hashCode * 59 + this.Name.GetHashCode();
-                hashCode = hashCode * 59 + this.Status.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Name.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.Status.GetHashCode();
                 if (this.Recipients != null)
-                    hashCode = hashCode * 59 + this.Recipients.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Recipients.GetHashCode();
+                }
                 if (this.Options != null)
-                    hashCode = hashCode * 59 + this.Options.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Options.GetHashCode();
+                }
                 return hashCode;
             }
         }

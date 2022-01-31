@@ -81,7 +81,7 @@ namespace ElasticEmail.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class FilePayload {\n");
             sb.Append("  BinaryContent: ").Append(BinaryContent).Append("\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
@@ -117,8 +117,9 @@ namespace ElasticEmail.Model
         public bool Equals(FilePayload input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.BinaryContent == input.BinaryContent ||
@@ -147,11 +148,17 @@ namespace ElasticEmail.Model
             {
                 int hashCode = 41;
                 if (this.BinaryContent != null)
-                    hashCode = hashCode * 59 + this.BinaryContent.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.BinaryContent.GetHashCode();
+                }
                 if (this.Name != null)
-                    hashCode = hashCode * 59 + this.Name.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Name.GetHashCode();
+                }
                 if (this.ContentType != null)
-                    hashCode = hashCode * 59 + this.ContentType.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.ContentType.GetHashCode();
+                }
                 return hashCode;
             }
         }

@@ -81,7 +81,7 @@ namespace ElasticEmail.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class TransactionalRecipient {\n");
             sb.Append("  To: ").Append(To).Append("\n");
             sb.Append("  CC: ").Append(CC).Append("\n");
@@ -117,8 +117,9 @@ namespace ElasticEmail.Model
         public bool Equals(TransactionalRecipient input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.To == input.To ||
@@ -150,11 +151,17 @@ namespace ElasticEmail.Model
             {
                 int hashCode = 41;
                 if (this.To != null)
-                    hashCode = hashCode * 59 + this.To.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.To.GetHashCode();
+                }
                 if (this.CC != null)
-                    hashCode = hashCode * 59 + this.CC.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.CC.GetHashCode();
+                }
                 if (this.BCC != null)
-                    hashCode = hashCode * 59 + this.BCC.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.BCC.GetHashCode();
+                }
                 return hashCode;
             }
         }

@@ -152,7 +152,7 @@ namespace ElasticEmail.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class EmailStatus {\n");
             sb.Append("  From: ").Append(From).Append("\n");
             sb.Append("  To: ").Append(To).Append("\n");
@@ -197,8 +197,9 @@ namespace ElasticEmail.Model
         public bool Equals(EmailStatus input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.From == input.From ||
@@ -271,28 +272,50 @@ namespace ElasticEmail.Model
             {
                 int hashCode = 41;
                 if (this.From != null)
-                    hashCode = hashCode * 59 + this.From.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.From.GetHashCode();
+                }
                 if (this.To != null)
-                    hashCode = hashCode * 59 + this.To.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.To.GetHashCode();
+                }
                 if (this.Date != null)
-                    hashCode = hashCode * 59 + this.Date.GetHashCode();
-                hashCode = hashCode * 59 + this.Status.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Date.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.Status.GetHashCode();
                 if (this.StatusName != null)
-                    hashCode = hashCode * 59 + this.StatusName.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.StatusName.GetHashCode();
+                }
                 if (this.StatusChangeDate != null)
-                    hashCode = hashCode * 59 + this.StatusChangeDate.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.StatusChangeDate.GetHashCode();
+                }
                 if (this.DateSent != null)
-                    hashCode = hashCode * 59 + this.DateSent.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.DateSent.GetHashCode();
+                }
                 if (this.DateOpened != null)
-                    hashCode = hashCode * 59 + this.DateOpened.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.DateOpened.GetHashCode();
+                }
                 if (this.DateClicked != null)
-                    hashCode = hashCode * 59 + this.DateClicked.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.DateClicked.GetHashCode();
+                }
                 if (this.ErrorMessage != null)
-                    hashCode = hashCode * 59 + this.ErrorMessage.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.ErrorMessage.GetHashCode();
+                }
                 if (this.TransactionID != null)
-                    hashCode = hashCode * 59 + this.TransactionID.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.TransactionID.GetHashCode();
+                }
                 if (this.EnvelopeFrom != null)
-                    hashCode = hashCode * 59 + this.EnvelopeFrom.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.EnvelopeFrom.GetHashCode();
+                }
                 return hashCode;
             }
         }

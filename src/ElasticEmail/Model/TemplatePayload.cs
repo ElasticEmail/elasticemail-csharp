@@ -89,7 +89,7 @@ namespace ElasticEmail.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class TemplatePayload {\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("  Subject: ").Append(Subject).Append("\n");
@@ -126,8 +126,9 @@ namespace ElasticEmail.Model
         public bool Equals(TemplatePayload input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Name == input.Name ||
@@ -161,12 +162,18 @@ namespace ElasticEmail.Model
             {
                 int hashCode = 41;
                 if (this.Name != null)
-                    hashCode = hashCode * 59 + this.Name.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Name.GetHashCode();
+                }
                 if (this.Subject != null)
-                    hashCode = hashCode * 59 + this.Subject.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Subject.GetHashCode();
+                }
                 if (this.Body != null)
-                    hashCode = hashCode * 59 + this.Body.GetHashCode();
-                hashCode = hashCode * 59 + this.TemplateScope.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Body.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.TemplateScope.GetHashCode();
                 return hashCode;
             }
         }

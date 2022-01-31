@@ -42,7 +42,8 @@ namespace ElasticEmail.Model
         /// <param name="maxContacts">Maximum number of contacts the Account can have. 0 means that parent account&#39;s limit is used..</param>
         /// <param name="enablePrivateIPPurchase">Can the SubAccount purchase Private IP for themselves.</param>
         /// <param name="poolName">Name of your custom IP Pool to be used in the sending process.</param>
-        public SubaccountEmailSettings(int monthlyRefillCredits = default(int), bool requiresEmailCredits = default(bool), int emailSizeLimit = default(int), int dailySendLimit = default(int), int maxContacts = default(int), bool enablePrivateIPPurchase = default(bool), string poolName = default(string))
+        /// <param name="validSenderDomainOnly">validSenderDomainOnly.</param>
+        public SubaccountEmailSettings(int monthlyRefillCredits = default(int), bool requiresEmailCredits = default(bool), int emailSizeLimit = default(int), int dailySendLimit = default(int), int maxContacts = default(int), bool enablePrivateIPPurchase = default(bool), string poolName = default(string), bool? validSenderDomainOnly = default(bool?))
         {
             this.MonthlyRefillCredits = monthlyRefillCredits;
             this.RequiresEmailCredits = requiresEmailCredits;
@@ -51,6 +52,7 @@ namespace ElasticEmail.Model
             this.MaxContacts = maxContacts;
             this.EnablePrivateIPPurchase = enablePrivateIPPurchase;
             this.PoolName = poolName;
+            this.ValidSenderDomainOnly = validSenderDomainOnly;
         }
 
         /// <summary>
@@ -103,12 +105,18 @@ namespace ElasticEmail.Model
         public string PoolName { get; set; }
 
         /// <summary>
+        /// Gets or Sets ValidSenderDomainOnly
+        /// </summary>
+        [DataMember(Name = "ValidSenderDomainOnly", EmitDefaultValue = true)]
+        public bool? ValidSenderDomainOnly { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class SubaccountEmailSettings {\n");
             sb.Append("  MonthlyRefillCredits: ").Append(MonthlyRefillCredits).Append("\n");
             sb.Append("  RequiresEmailCredits: ").Append(RequiresEmailCredits).Append("\n");
@@ -117,6 +125,7 @@ namespace ElasticEmail.Model
             sb.Append("  MaxContacts: ").Append(MaxContacts).Append("\n");
             sb.Append("  EnablePrivateIPPurchase: ").Append(EnablePrivateIPPurchase).Append("\n");
             sb.Append("  PoolName: ").Append(PoolName).Append("\n");
+            sb.Append("  ValidSenderDomainOnly: ").Append(ValidSenderDomainOnly).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -148,8 +157,9 @@ namespace ElasticEmail.Model
         public bool Equals(SubaccountEmailSettings input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.MonthlyRefillCredits == input.MonthlyRefillCredits ||
@@ -179,6 +189,11 @@ namespace ElasticEmail.Model
                     this.PoolName == input.PoolName ||
                     (this.PoolName != null &&
                     this.PoolName.Equals(input.PoolName))
+                ) && 
+                (
+                    this.ValidSenderDomainOnly == input.ValidSenderDomainOnly ||
+                    (this.ValidSenderDomainOnly != null &&
+                    this.ValidSenderDomainOnly.Equals(input.ValidSenderDomainOnly))
                 );
         }
 
@@ -191,14 +206,20 @@ namespace ElasticEmail.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                hashCode = hashCode * 59 + this.MonthlyRefillCredits.GetHashCode();
-                hashCode = hashCode * 59 + this.RequiresEmailCredits.GetHashCode();
-                hashCode = hashCode * 59 + this.EmailSizeLimit.GetHashCode();
-                hashCode = hashCode * 59 + this.DailySendLimit.GetHashCode();
-                hashCode = hashCode * 59 + this.MaxContacts.GetHashCode();
-                hashCode = hashCode * 59 + this.EnablePrivateIPPurchase.GetHashCode();
+                hashCode = (hashCode * 59) + this.MonthlyRefillCredits.GetHashCode();
+                hashCode = (hashCode * 59) + this.RequiresEmailCredits.GetHashCode();
+                hashCode = (hashCode * 59) + this.EmailSizeLimit.GetHashCode();
+                hashCode = (hashCode * 59) + this.DailySendLimit.GetHashCode();
+                hashCode = (hashCode * 59) + this.MaxContacts.GetHashCode();
+                hashCode = (hashCode * 59) + this.EnablePrivateIPPurchase.GetHashCode();
                 if (this.PoolName != null)
-                    hashCode = hashCode * 59 + this.PoolName.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.PoolName.GetHashCode();
+                }
+                if (this.ValidSenderDomainOnly != null)
+                {
+                    hashCode = (hashCode * 59) + this.ValidSenderDomainOnly.GetHashCode();
+                }
                 return hashCode;
             }
         }

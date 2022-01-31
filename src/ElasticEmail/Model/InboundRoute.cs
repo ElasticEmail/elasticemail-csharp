@@ -105,7 +105,7 @@ namespace ElasticEmail.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class InboundRoute {\n");
             sb.Append("  PublicId: ").Append(PublicId).Append("\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
@@ -145,8 +145,9 @@ namespace ElasticEmail.Model
         public bool Equals(InboundRoute input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.PublicId == input.PublicId ||
@@ -192,16 +193,24 @@ namespace ElasticEmail.Model
             {
                 int hashCode = 41;
                 if (this.PublicId != null)
-                    hashCode = hashCode * 59 + this.PublicId.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.PublicId.GetHashCode();
+                }
                 if (this.Name != null)
-                    hashCode = hashCode * 59 + this.Name.GetHashCode();
-                hashCode = hashCode * 59 + this.FilterType.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Name.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.FilterType.GetHashCode();
                 if (this.Filter != null)
-                    hashCode = hashCode * 59 + this.Filter.GetHashCode();
-                hashCode = hashCode * 59 + this.ActionType.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Filter.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.ActionType.GetHashCode();
                 if (this.ActionParameter != null)
-                    hashCode = hashCode * 59 + this.ActionParameter.GetHashCode();
-                hashCode = hashCode * 59 + this.SortOrder.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.ActionParameter.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.SortOrder.GetHashCode();
                 return hashCode;
             }
         }

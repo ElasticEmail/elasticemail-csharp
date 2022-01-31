@@ -68,7 +68,7 @@ namespace ElasticEmail.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class SubaccountEmailCreditsPayload {\n");
             sb.Append("  Credits: ").Append(Credits).Append("\n");
             sb.Append("  Notes: ").Append(Notes).Append("\n");
@@ -103,8 +103,9 @@ namespace ElasticEmail.Model
         public bool Equals(SubaccountEmailCreditsPayload input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Credits == input.Credits ||
@@ -126,9 +127,11 @@ namespace ElasticEmail.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                hashCode = hashCode * 59 + this.Credits.GetHashCode();
+                hashCode = (hashCode * 59) + this.Credits.GetHashCode();
                 if (this.Notes != null)
-                    hashCode = hashCode * 59 + this.Notes.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Notes.GetHashCode();
+                }
                 return hashCode;
             }
         }

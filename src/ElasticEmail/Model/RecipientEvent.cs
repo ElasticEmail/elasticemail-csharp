@@ -160,7 +160,7 @@ namespace ElasticEmail.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class RecipientEvent {\n");
             sb.Append("  TransactionID: ").Append(TransactionID).Append("\n");
             sb.Append("  MsgID: ").Append(MsgID).Append("\n");
@@ -206,8 +206,9 @@ namespace ElasticEmail.Model
         public bool Equals(RecipientEvent input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.TransactionID == input.TransactionID ||
@@ -284,29 +285,51 @@ namespace ElasticEmail.Model
             {
                 int hashCode = 41;
                 if (this.TransactionID != null)
-                    hashCode = hashCode * 59 + this.TransactionID.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.TransactionID.GetHashCode();
+                }
                 if (this.MsgID != null)
-                    hashCode = hashCode * 59 + this.MsgID.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.MsgID.GetHashCode();
+                }
                 if (this.FromEmail != null)
-                    hashCode = hashCode * 59 + this.FromEmail.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.FromEmail.GetHashCode();
+                }
                 if (this.To != null)
-                    hashCode = hashCode * 59 + this.To.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.To.GetHashCode();
+                }
                 if (this.Subject != null)
-                    hashCode = hashCode * 59 + this.Subject.GetHashCode();
-                hashCode = hashCode * 59 + this.EventType.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Subject.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.EventType.GetHashCode();
                 if (this.EventDate != null)
-                    hashCode = hashCode * 59 + this.EventDate.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.EventDate.GetHashCode();
+                }
                 if (this.ChannelName != null)
-                    hashCode = hashCode * 59 + this.ChannelName.GetHashCode();
-                hashCode = hashCode * 59 + this.MessageCategory.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.ChannelName.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.MessageCategory.GetHashCode();
                 if (this.NextTryOn != null)
-                    hashCode = hashCode * 59 + this.NextTryOn.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.NextTryOn.GetHashCode();
+                }
                 if (this.Message != null)
-                    hashCode = hashCode * 59 + this.Message.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Message.GetHashCode();
+                }
                 if (this.IPAddress != null)
-                    hashCode = hashCode * 59 + this.IPAddress.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.IPAddress.GetHashCode();
+                }
                 if (this.PoolName != null)
-                    hashCode = hashCode * 59 + this.PoolName.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.PoolName.GetHashCode();
+                }
                 return hashCode;
             }
         }

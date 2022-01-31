@@ -63,7 +63,7 @@ namespace ElasticEmail.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class CampaignRecipient {\n");
             sb.Append("  ListNames: ").Append(ListNames).Append("\n");
             sb.Append("  SegmentNames: ").Append(SegmentNames).Append("\n");
@@ -98,8 +98,9 @@ namespace ElasticEmail.Model
         public bool Equals(CampaignRecipient input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.ListNames == input.ListNames ||
@@ -125,9 +126,13 @@ namespace ElasticEmail.Model
             {
                 int hashCode = 41;
                 if (this.ListNames != null)
-                    hashCode = hashCode * 59 + this.ListNames.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.ListNames.GetHashCode();
+                }
                 if (this.SegmentNames != null)
-                    hashCode = hashCode * 59 + this.SegmentNames.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.SegmentNames.GetHashCode();
+                }
                 return hashCode;
             }
         }

@@ -3,7 +3,7 @@
   <PropertyGroup>
     <AssemblyName>ElasticEmail.Test</AssemblyName>
     <RootNamespace>ElasticEmail.Test</RootNamespace>
-    <TargetFramework>netcoreapp2.0</TargetFramework>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
     <IsPackable>false</IsPackable>
   </PropertyGroup>
 

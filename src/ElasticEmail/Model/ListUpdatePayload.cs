@@ -63,7 +63,7 @@ namespace ElasticEmail.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class ListUpdatePayload {\n");
             sb.Append("  NewListName: ").Append(NewListName).Append("\n");
             sb.Append("  AllowUnsubscribe: ").Append(AllowUnsubscribe).Append("\n");
@@ -98,8 +98,9 @@ namespace ElasticEmail.Model
         public bool Equals(ListUpdatePayload input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.NewListName == input.NewListName ||
@@ -122,8 +123,10 @@ namespace ElasticEmail.Model
             {
                 int hashCode = 41;
                 if (this.NewListName != null)
-                    hashCode = hashCode * 59 + this.NewListName.GetHashCode();
-                hashCode = hashCode * 59 + this.AllowUnsubscribe.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.NewListName.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.AllowUnsubscribe.GetHashCode();
                 return hashCode;
             }
         }

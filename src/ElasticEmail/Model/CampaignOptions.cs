@@ -88,7 +88,7 @@ namespace ElasticEmail.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class CampaignOptions {\n");
             sb.Append("  DeliveryOptimization: ").Append(DeliveryOptimization).Append("\n");
             sb.Append("  TrackOpens: ").Append(TrackOpens).Append("\n");
@@ -126,8 +126,9 @@ namespace ElasticEmail.Model
         public bool Equals(CampaignOptions input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.DeliveryOptimization == input.DeliveryOptimization ||
@@ -164,15 +165,23 @@ namespace ElasticEmail.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                hashCode = hashCode * 59 + this.DeliveryOptimization.GetHashCode();
+                hashCode = (hashCode * 59) + this.DeliveryOptimization.GetHashCode();
                 if (this.TrackOpens != null)
-                    hashCode = hashCode * 59 + this.TrackOpens.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.TrackOpens.GetHashCode();
+                }
                 if (this.TrackClicks != null)
-                    hashCode = hashCode * 59 + this.TrackClicks.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.TrackClicks.GetHashCode();
+                }
                 if (this.ScheduleFor != null)
-                    hashCode = hashCode * 59 + this.ScheduleFor.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.ScheduleFor.GetHashCode();
+                }
                 if (this.SplitOptions != null)
-                    hashCode = hashCode * 59 + this.SplitOptions.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.SplitOptions.GetHashCode();
+                }
                 return hashCode;
             }
         }

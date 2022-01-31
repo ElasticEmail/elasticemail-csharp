@@ -40,7 +40,7 @@ namespace Example
             // config.AddApiKeyPrefix("X-ElasticEmail-ApiKey", "Bearer");
 
             var apiInstance = new EmailsApi(config);
-            var msgid = msgid_example;  // string | Message identifier
+            var msgid = "msgid_example";  // string | Message identifier
 
             try
             {

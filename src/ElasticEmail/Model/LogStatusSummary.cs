@@ -162,7 +162,7 @@ namespace ElasticEmail.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class LogStatusSummary {\n");
             sb.Append("  Recipients: ").Append(Recipients).Append("\n");
             sb.Append("  EmailTotal: ").Append(EmailTotal).Append("\n");
@@ -208,8 +208,9 @@ namespace ElasticEmail.Model
         public bool Equals(LogStatusSummary input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Recipients == input.Recipients ||
@@ -274,19 +275,19 @@ namespace ElasticEmail.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                hashCode = hashCode * 59 + this.Recipients.GetHashCode();
-                hashCode = hashCode * 59 + this.EmailTotal.GetHashCode();
-                hashCode = hashCode * 59 + this.SmsTotal.GetHashCode();
-                hashCode = hashCode * 59 + this.Delivered.GetHashCode();
-                hashCode = hashCode * 59 + this.Bounced.GetHashCode();
-                hashCode = hashCode * 59 + this.InProgress.GetHashCode();
-                hashCode = hashCode * 59 + this.Opened.GetHashCode();
-                hashCode = hashCode * 59 + this.Clicked.GetHashCode();
-                hashCode = hashCode * 59 + this.Unsubscribed.GetHashCode();
-                hashCode = hashCode * 59 + this.Complaints.GetHashCode();
-                hashCode = hashCode * 59 + this.Inbound.GetHashCode();
-                hashCode = hashCode * 59 + this.ManualCancel.GetHashCode();
-                hashCode = hashCode * 59 + this.NotDelivered.GetHashCode();
+                hashCode = (hashCode * 59) + this.Recipients.GetHashCode();
+                hashCode = (hashCode * 59) + this.EmailTotal.GetHashCode();
+                hashCode = (hashCode * 59) + this.SmsTotal.GetHashCode();
+                hashCode = (hashCode * 59) + this.Delivered.GetHashCode();
+                hashCode = (hashCode * 59) + this.Bounced.GetHashCode();
+                hashCode = (hashCode * 59) + this.InProgress.GetHashCode();
+                hashCode = (hashCode * 59) + this.Opened.GetHashCode();
+                hashCode = (hashCode * 59) + this.Clicked.GetHashCode();
+                hashCode = (hashCode * 59) + this.Unsubscribed.GetHashCode();
+                hashCode = (hashCode * 59) + this.Complaints.GetHashCode();
+                hashCode = (hashCode * 59) + this.Inbound.GetHashCode();
+                hashCode = (hashCode * 59) + this.ManualCancel.GetHashCode();
+                hashCode = (hashCode * 59) + this.NotDelivered.GetHashCode();
                 return hashCode;
             }
         }

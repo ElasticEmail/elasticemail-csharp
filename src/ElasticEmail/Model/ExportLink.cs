@@ -63,7 +63,7 @@ namespace ElasticEmail.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class ExportLink {\n");
             sb.Append("  Link: ").Append(Link).Append("\n");
             sb.Append("  PublicExportID: ").Append(PublicExportID).Append("\n");
@@ -98,8 +98,9 @@ namespace ElasticEmail.Model
         public bool Equals(ExportLink input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Link == input.Link ||
@@ -123,9 +124,13 @@ namespace ElasticEmail.Model
             {
                 int hashCode = 41;
                 if (this.Link != null)
-                    hashCode = hashCode * 59 + this.Link.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Link.GetHashCode();
+                }
                 if (this.PublicExportID != null)
-                    hashCode = hashCode * 59 + this.PublicExportID.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.PublicExportID.GetHashCode();
+                }
                 return hashCode;
             }
         }

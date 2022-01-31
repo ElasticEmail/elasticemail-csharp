@@ -144,7 +144,7 @@ namespace ElasticEmail.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class ContactActivity {\n");
             sb.Append("  TotalSent: ").Append(TotalSent).Append("\n");
             sb.Append("  TotalOpened: ").Append(TotalOpened).Append("\n");
@@ -188,8 +188,9 @@ namespace ElasticEmail.Model
         public bool Equals(ContactActivity input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.TotalSent == input.TotalSent ||
@@ -253,24 +254,38 @@ namespace ElasticEmail.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                hashCode = hashCode * 59 + this.TotalSent.GetHashCode();
-                hashCode = hashCode * 59 + this.TotalOpened.GetHashCode();
-                hashCode = hashCode * 59 + this.TotalClicked.GetHashCode();
-                hashCode = hashCode * 59 + this.TotalFailed.GetHashCode();
+                hashCode = (hashCode * 59) + this.TotalSent.GetHashCode();
+                hashCode = (hashCode * 59) + this.TotalOpened.GetHashCode();
+                hashCode = (hashCode * 59) + this.TotalClicked.GetHashCode();
+                hashCode = (hashCode * 59) + this.TotalFailed.GetHashCode();
                 if (this.LastSent != null)
-                    hashCode = hashCode * 59 + this.LastSent.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.LastSent.GetHashCode();
+                }
                 if (this.LastOpened != null)
-                    hashCode = hashCode * 59 + this.LastOpened.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.LastOpened.GetHashCode();
+                }
                 if (this.LastClicked != null)
-                    hashCode = hashCode * 59 + this.LastClicked.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.LastClicked.GetHashCode();
+                }
                 if (this.LastFailed != null)
-                    hashCode = hashCode * 59 + this.LastFailed.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.LastFailed.GetHashCode();
+                }
                 if (this.LastIP != null)
-                    hashCode = hashCode * 59 + this.LastIP.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.LastIP.GetHashCode();
+                }
                 if (this.ErrorCode != null)
-                    hashCode = hashCode * 59 + this.ErrorCode.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.ErrorCode.GetHashCode();
+                }
                 if (this.FriendlyErrorMessage != null)
-                    hashCode = hashCode * 59 + this.FriendlyErrorMessage.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.FriendlyErrorMessage.GetHashCode();
+                }
                 return hashCode;
             }
         }

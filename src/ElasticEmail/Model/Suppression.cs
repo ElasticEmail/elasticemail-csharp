@@ -81,7 +81,7 @@ namespace ElasticEmail.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class Suppression {\n");
             sb.Append("  Email: ").Append(Email).Append("\n");
             sb.Append("  FriendlyErrorMessage: ").Append(FriendlyErrorMessage).Append("\n");
@@ -118,8 +118,9 @@ namespace ElasticEmail.Model
         public bool Equals(Suppression input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Email == input.Email ||
@@ -153,13 +154,21 @@ namespace ElasticEmail.Model
             {
                 int hashCode = 41;
                 if (this.Email != null)
-                    hashCode = hashCode * 59 + this.Email.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Email.GetHashCode();
+                }
                 if (this.FriendlyErrorMessage != null)
-                    hashCode = hashCode * 59 + this.FriendlyErrorMessage.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.FriendlyErrorMessage.GetHashCode();
+                }
                 if (this.ErrorCode != null)
-                    hashCode = hashCode * 59 + this.ErrorCode.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.ErrorCode.GetHashCode();
+                }
                 if (this.DateUpdated != null)
-                    hashCode = hashCode * 59 + this.DateUpdated.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.DateUpdated.GetHashCode();
+                }
                 return hashCode;
             }
         }

@@ -71,7 +71,7 @@ namespace ElasticEmail.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class ConsentData {\n");
             sb.Append("  ConsentIP: ").Append(ConsentIP).Append("\n");
             sb.Append("  ConsentDate: ").Append(ConsentDate).Append("\n");
@@ -107,8 +107,9 @@ namespace ElasticEmail.Model
         public bool Equals(ConsentData input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.ConsentIP == input.ConsentIP ||
@@ -136,10 +137,14 @@ namespace ElasticEmail.Model
             {
                 int hashCode = 41;
                 if (this.ConsentIP != null)
-                    hashCode = hashCode * 59 + this.ConsentIP.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.ConsentIP.GetHashCode();
+                }
                 if (this.ConsentDate != null)
-                    hashCode = hashCode * 59 + this.ConsentDate.GetHashCode();
-                hashCode = hashCode * 59 + this.ConsentTracking.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.ConsentDate.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.ConsentTracking.GetHashCode();
                 return hashCode;
             }
         }

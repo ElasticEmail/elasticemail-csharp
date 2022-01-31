@@ -125,7 +125,7 @@ namespace ElasticEmail.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class EmailValidationResult {\n");
             sb.Append("  Account: ").Append(Account).Append("\n");
             sb.Append("  Domain: ").Append(Domain).Append("\n");
@@ -167,8 +167,9 @@ namespace ElasticEmail.Model
         public bool Equals(EmailValidationResult input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Account == input.Account ||
@@ -224,20 +225,32 @@ namespace ElasticEmail.Model
             {
                 int hashCode = 41;
                 if (this.Account != null)
-                    hashCode = hashCode * 59 + this.Account.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Account.GetHashCode();
+                }
                 if (this.Domain != null)
-                    hashCode = hashCode * 59 + this.Domain.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Domain.GetHashCode();
+                }
                 if (this.Email != null)
-                    hashCode = hashCode * 59 + this.Email.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Email.GetHashCode();
+                }
                 if (this.SuggestedSpelling != null)
-                    hashCode = hashCode * 59 + this.SuggestedSpelling.GetHashCode();
-                hashCode = hashCode * 59 + this.Disposable.GetHashCode();
-                hashCode = hashCode * 59 + this.Role.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.SuggestedSpelling.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.Disposable.GetHashCode();
+                hashCode = (hashCode * 59) + this.Role.GetHashCode();
                 if (this.Reason != null)
-                    hashCode = hashCode * 59 + this.Reason.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Reason.GetHashCode();
+                }
                 if (this.DateAdded != null)
-                    hashCode = hashCode * 59 + this.DateAdded.GetHashCode();
-                hashCode = hashCode * 59 + this.Result.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.DateAdded.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.Result.GetHashCode();
                 return hashCode;
             }
         }
