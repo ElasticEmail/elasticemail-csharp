@@ -9,7 +9,7 @@
     <Authors>OpenAPI</Authors>
     <Company>OpenAPI</Company>
     <AssemblyTitle>OpenAPI Library</AssemblyTitle>
-    <Description>A library generated from a OpenAPI doc</Description>
+    <Description>The C# library for the Elastic Email REST API</Description>
     <Copyright>No Copyright</Copyright>
     <RootNamespace>ElasticEmail</RootNamespace>
     <Version>4.0.16</Version>
