@@ -19,6 +19,7 @@
     <RepositoryType>git</RepositoryType>
     <PackageReleaseNotes>upgrade openapigenerator to 5.4.0</PackageReleaseNotes>
     <PackageTags>mailing, email, elasticemail, smtp</PackageTags>
+    <PackageIcon>ee-logo.png</PackageIcon>
   </PropertyGroup>
 
   <ItemGroup>
