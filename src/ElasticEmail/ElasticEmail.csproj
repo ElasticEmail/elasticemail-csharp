@@ -19,7 +19,16 @@
     <RepositoryType>git</RepositoryType>
     <PackageReleaseNotes>updated descriptions</PackageReleaseNotes>
     <PackageTags>mailing, email, elasticemail, smtp</PackageTags>
+    <PackageIcon>ee-logo.png</PackageIcon>
+    <PackageProjectUrl>https://github.com/ElasticEmail/elasticemail-csharp</PackageProjectUrl>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="ee-logo.png">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="JsonSubTypes" Version="1.8.0" />
