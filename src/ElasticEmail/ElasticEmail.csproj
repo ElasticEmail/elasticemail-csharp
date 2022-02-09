@@ -12,12 +12,12 @@
     <Description>The C# library for the Elastic Email REST API. This API is based on the REST API architecture, allowing the user to easily manage their data with this resource-based approach. To start using this API, you will need your Access Token. Remember to keep it safe.</Description>
     <Copyright>No Copyright</Copyright>
     <RootNamespace>ElasticEmail</RootNamespace>
-    <Version>4.0.17</Version>
+    <Version>4.0.18</Version>
     <DocumentationFile>bin\$(Configuration)\$(TargetFramework)\ElasticEmail.xml</DocumentationFile>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <RepositoryUrl>https://github.com/elasticemail/elasticemail-csharp.git</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
-    <PackageReleaseNotes>updated descriptions</PackageReleaseNotes>
+    <PackageReleaseNotes>updated version</PackageReleaseNotes>
     <PackageTags>mailing, email, elasticemail, smtp</PackageTags>
     <PackageIcon>ee-logo.png</PackageIcon>
     <PackageProjectUrl>https://github.com/ElasticEmail/elasticemail-csharp</PackageProjectUrl>
