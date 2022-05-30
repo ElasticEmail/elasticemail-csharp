@@ -35,8 +35,9 @@ namespace ElasticEmail.Api
         /// </remarks>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns></returns>
-        void InboundrouteByIdDelete(string id);
+        void InboundrouteByIdDelete(string id, int operationIndex = 0);
 
         /// <summary>
         /// Delete Route
@@ -46,8 +47,9 @@ namespace ElasticEmail.Api
         /// </remarks>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> InboundrouteByIdDeleteWithHttpInfo(string id);
+        ApiResponse<Object> InboundrouteByIdDeleteWithHttpInfo(string id, int operationIndex = 0);
         /// <summary>
         /// Get Route
         /// </summary>
@@ -56,8 +58,9 @@ namespace ElasticEmail.Api
         /// </remarks>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">ID number of your attachment</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>InboundRoute</returns>
-        InboundRoute InboundrouteByIdGet(string id);
+        InboundRoute InboundrouteByIdGet(string id, int operationIndex = 0);
 
         /// <summary>
         /// Get Route
@@ -67,8 +70,9 @@ namespace ElasticEmail.Api
         /// </remarks>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">ID number of your attachment</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of InboundRoute</returns>
-        ApiResponse<InboundRoute> InboundrouteByIdGetWithHttpInfo(string id);
+        ApiResponse<InboundRoute> InboundrouteByIdGetWithHttpInfo(string id, int operationIndex = 0);
         /// <summary>
         /// Update Route
         /// </summary>
@@ -78,8 +82,9 @@ namespace ElasticEmail.Api
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id"></param>
         /// <param name="inboundPayload"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>InboundRoute</returns>
-        InboundRoute InboundrouteByIdPut(string id, InboundPayload inboundPayload);
+        InboundRoute InboundrouteByIdPut(string id, InboundPayload inboundPayload, int operationIndex = 0);
 
         /// <summary>
         /// Update Route
@@ -90,8 +95,9 @@ namespace ElasticEmail.Api
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id"></param>
         /// <param name="inboundPayload"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of InboundRoute</returns>
-        ApiResponse<InboundRoute> InboundrouteByIdPutWithHttpInfo(string id, InboundPayload inboundPayload);
+        ApiResponse<InboundRoute> InboundrouteByIdPutWithHttpInfo(string id, InboundPayload inboundPayload, int operationIndex = 0);
         /// <summary>
         /// Get Routes
         /// </summary>
@@ -99,8 +105,9 @@ namespace ElasticEmail.Api
         /// Get all your Inbound Routes. Required Access Level: ViewSettings
         /// </remarks>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>List&lt;InboundRoute&gt;</returns>
-        List<InboundRoute> InboundrouteGet();
+        List<InboundRoute> InboundrouteGet(int operationIndex = 0);
 
         /// <summary>
         /// Get Routes
@@ -109,8 +116,9 @@ namespace ElasticEmail.Api
         /// Get all your Inbound Routes. Required Access Level: ViewSettings
         /// </remarks>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of List&lt;InboundRoute&gt;</returns>
-        ApiResponse<List<InboundRoute>> InboundrouteGetWithHttpInfo();
+        ApiResponse<List<InboundRoute>> InboundrouteGetWithHttpInfo(int operationIndex = 0);
         /// <summary>
         /// Update Sorting
         /// </summary>
@@ -119,8 +127,9 @@ namespace ElasticEmail.Api
         /// </remarks>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="sortOrderItem">Change the ordering of inbound routes for when matching the inbound</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>List&lt;InboundRoute&gt;</returns>
-        List<InboundRoute> InboundrouteOrderPut(List<SortOrderItem> sortOrderItem);
+        List<InboundRoute> InboundrouteOrderPut(List<SortOrderItem> sortOrderItem, int operationIndex = 0);
 
         /// <summary>
         /// Update Sorting
@@ -130,8 +139,9 @@ namespace ElasticEmail.Api
         /// </remarks>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="sortOrderItem">Change the ordering of inbound routes for when matching the inbound</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of List&lt;InboundRoute&gt;</returns>
-        ApiResponse<List<InboundRoute>> InboundrouteOrderPutWithHttpInfo(List<SortOrderItem> sortOrderItem);
+        ApiResponse<List<InboundRoute>> InboundrouteOrderPutWithHttpInfo(List<SortOrderItem> sortOrderItem, int operationIndex = 0);
         /// <summary>
         /// Create Route
         /// </summary>
@@ -140,8 +150,9 @@ namespace ElasticEmail.Api
         /// </remarks>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="inboundPayload"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>InboundRoute</returns>
-        InboundRoute InboundroutePost(InboundPayload inboundPayload);
+        InboundRoute InboundroutePost(InboundPayload inboundPayload, int operationIndex = 0);
 
         /// <summary>
         /// Create Route
@@ -151,8 +162,9 @@ namespace ElasticEmail.Api
         /// </remarks>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="inboundPayload"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of InboundRoute</returns>
-        ApiResponse<InboundRoute> InboundroutePostWithHttpInfo(InboundPayload inboundPayload);
+        ApiResponse<InboundRoute> InboundroutePostWithHttpInfo(InboundPayload inboundPayload, int operationIndex = 0);
         #endregion Synchronous Operations
     }
 
@@ -170,9 +182,10 @@ namespace ElasticEmail.Api
         /// </remarks>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task InboundrouteByIdDeleteAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task InboundrouteByIdDeleteAsync(string id, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Delete Route
@@ -182,9 +195,10 @@ namespace ElasticEmail.Api
         /// </remarks>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> InboundrouteByIdDeleteWithHttpInfoAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Object>> InboundrouteByIdDeleteWithHttpInfoAsync(string id, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Get Route
         /// </summary>
@@ -193,9 +207,10 @@ namespace ElasticEmail.Api
         /// </remarks>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">ID number of your attachment</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of InboundRoute</returns>
-        System.Threading.Tasks.Task<InboundRoute> InboundrouteByIdGetAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<InboundRoute> InboundrouteByIdGetAsync(string id, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Get Route
@@ -205,9 +220,10 @@ namespace ElasticEmail.Api
         /// </remarks>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">ID number of your attachment</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (InboundRoute)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InboundRoute>> InboundrouteByIdGetWithHttpInfoAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<InboundRoute>> InboundrouteByIdGetWithHttpInfoAsync(string id, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Update Route
         /// </summary>
@@ -217,9 +233,10 @@ namespace ElasticEmail.Api
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id"></param>
         /// <param name="inboundPayload"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of InboundRoute</returns>
-        System.Threading.Tasks.Task<InboundRoute> InboundrouteByIdPutAsync(string id, InboundPayload inboundPayload, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<InboundRoute> InboundrouteByIdPutAsync(string id, InboundPayload inboundPayload, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Update Route
@@ -230,9 +247,10 @@ namespace ElasticEmail.Api
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id"></param>
         /// <param name="inboundPayload"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (InboundRoute)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InboundRoute>> InboundrouteByIdPutWithHttpInfoAsync(string id, InboundPayload inboundPayload, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<InboundRoute>> InboundrouteByIdPutWithHttpInfoAsync(string id, InboundPayload inboundPayload, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Get Routes
         /// </summary>
@@ -240,9 +258,10 @@ namespace ElasticEmail.Api
         /// Get all your Inbound Routes. Required Access Level: ViewSettings
         /// </remarks>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;InboundRoute&gt;</returns>
-        System.Threading.Tasks.Task<List<InboundRoute>> InboundrouteGetAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<List<InboundRoute>> InboundrouteGetAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Get Routes
@@ -251,9 +270,10 @@ namespace ElasticEmail.Api
         /// Get all your Inbound Routes. Required Access Level: ViewSettings
         /// </remarks>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;InboundRoute&gt;)</returns>
-        System.Threading.Tasks.Task<ApiResponse<List<InboundRoute>>> InboundrouteGetWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<List<InboundRoute>>> InboundrouteGetWithHttpInfoAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Update Sorting
         /// </summary>
@@ -262,9 +282,10 @@ namespace ElasticEmail.Api
         /// </remarks>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="sortOrderItem">Change the ordering of inbound routes for when matching the inbound</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;InboundRoute&gt;</returns>
-        System.Threading.Tasks.Task<List<InboundRoute>> InboundrouteOrderPutAsync(List<SortOrderItem> sortOrderItem, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<List<InboundRoute>> InboundrouteOrderPutAsync(List<SortOrderItem> sortOrderItem, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Update Sorting
@@ -274,9 +295,10 @@ namespace ElasticEmail.Api
         /// </remarks>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="sortOrderItem">Change the ordering of inbound routes for when matching the inbound</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;InboundRoute&gt;)</returns>
-        System.Threading.Tasks.Task<ApiResponse<List<InboundRoute>>> InboundrouteOrderPutWithHttpInfoAsync(List<SortOrderItem> sortOrderItem, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<List<InboundRoute>>> InboundrouteOrderPutWithHttpInfoAsync(List<SortOrderItem> sortOrderItem, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Create Route
         /// </summary>
@@ -285,9 +307,10 @@ namespace ElasticEmail.Api
         /// </remarks>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="inboundPayload"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of InboundRoute</returns>
-        System.Threading.Tasks.Task<InboundRoute> InboundroutePostAsync(InboundPayload inboundPayload, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<InboundRoute> InboundroutePostAsync(InboundPayload inboundPayload, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Create Route
@@ -297,9 +320,10 @@ namespace ElasticEmail.Api
         /// </remarks>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="inboundPayload"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (InboundRoute)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InboundRoute>> InboundroutePostWithHttpInfoAsync(InboundPayload inboundPayload, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<InboundRoute>> InboundroutePostWithHttpInfoAsync(InboundPayload inboundPayload, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         #endregion Asynchronous Operations
     }
 
@@ -425,8 +449,9 @@ namespace ElasticEmail.Api
         /// </summary>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns></returns>
-        public void InboundrouteByIdDelete(string id)
+        public void InboundrouteByIdDelete(string id, int operationIndex = 0)
         {
             InboundrouteByIdDeleteWithHttpInfo(id);
         }
@@ -436,8 +461,9 @@ namespace ElasticEmail.Api
         /// </summary>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        public ElasticEmail.Client.ApiResponse<Object> InboundrouteByIdDeleteWithHttpInfo(string id)
+        public ElasticEmail.Client.ApiResponse<Object> InboundrouteByIdDeleteWithHttpInfo(string id, int operationIndex = 0)
         {
             // verify the required parameter 'id' is set
             if (id == null)
@@ -467,6 +493,9 @@ namespace ElasticEmail.Api
             }
 
             localVarRequestOptions.PathParameters.Add("id", ElasticEmail.Client.ClientUtils.ParameterToString(id)); // path parameter
+
+            localVarRequestOptions.Operation = "InboundRouteApi.InboundrouteByIdDelete";
+            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (apikey) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-ElasticEmail-ApiKey")))
@@ -493,11 +522,12 @@ namespace ElasticEmail.Api
         /// </summary>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task InboundrouteByIdDeleteAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task InboundrouteByIdDeleteAsync(string id, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            await InboundrouteByIdDeleteWithHttpInfoAsync(id, cancellationToken).ConfigureAwait(false);
+            await InboundrouteByIdDeleteWithHttpInfoAsync(id, operationIndex, cancellationToken).ConfigureAwait(false);
         }
 
         /// <summary>
@@ -505,9 +535,10 @@ namespace ElasticEmail.Api
         /// </summary>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<ElasticEmail.Client.ApiResponse<Object>> InboundrouteByIdDeleteWithHttpInfoAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ElasticEmail.Client.ApiResponse<Object>> InboundrouteByIdDeleteWithHttpInfoAsync(string id, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'id' is set
             if (id == null)
@@ -538,6 +569,9 @@ namespace ElasticEmail.Api
             }
 
             localVarRequestOptions.PathParameters.Add("id", ElasticEmail.Client.ClientUtils.ParameterToString(id)); // path parameter
+
+            localVarRequestOptions.Operation = "InboundRouteApi.InboundrouteByIdDelete";
+            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (apikey) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-ElasticEmail-ApiKey")))
@@ -565,8 +599,9 @@ namespace ElasticEmail.Api
         /// </summary>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">ID number of your attachment</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>InboundRoute</returns>
-        public InboundRoute InboundrouteByIdGet(string id)
+        public InboundRoute InboundrouteByIdGet(string id, int operationIndex = 0)
         {
             ElasticEmail.Client.ApiResponse<InboundRoute> localVarResponse = InboundrouteByIdGetWithHttpInfo(id);
             return localVarResponse.Data;
@@ -577,8 +612,9 @@ namespace ElasticEmail.Api
         /// </summary>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">ID number of your attachment</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of InboundRoute</returns>
-        public ElasticEmail.Client.ApiResponse<InboundRoute> InboundrouteByIdGetWithHttpInfo(string id)
+        public ElasticEmail.Client.ApiResponse<InboundRoute> InboundrouteByIdGetWithHttpInfo(string id, int operationIndex = 0)
         {
             // verify the required parameter 'id' is set
             if (id == null)
@@ -609,6 +645,9 @@ namespace ElasticEmail.Api
             }
 
             localVarRequestOptions.PathParameters.Add("id", ElasticEmail.Client.ClientUtils.ParameterToString(id)); // path parameter
+
+            localVarRequestOptions.Operation = "InboundRouteApi.InboundrouteByIdGet";
+            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (apikey) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-ElasticEmail-ApiKey")))
@@ -635,11 +674,12 @@ namespace ElasticEmail.Api
         /// </summary>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">ID number of your attachment</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of InboundRoute</returns>
-        public async System.Threading.Tasks.Task<InboundRoute> InboundrouteByIdGetAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<InboundRoute> InboundrouteByIdGetAsync(string id, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            ElasticEmail.Client.ApiResponse<InboundRoute> localVarResponse = await InboundrouteByIdGetWithHttpInfoAsync(id, cancellationToken).ConfigureAwait(false);
+            ElasticEmail.Client.ApiResponse<InboundRoute> localVarResponse = await InboundrouteByIdGetWithHttpInfoAsync(id, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -648,9 +688,10 @@ namespace ElasticEmail.Api
         /// </summary>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">ID number of your attachment</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (InboundRoute)</returns>
-        public async System.Threading.Tasks.Task<ElasticEmail.Client.ApiResponse<InboundRoute>> InboundrouteByIdGetWithHttpInfoAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ElasticEmail.Client.ApiResponse<InboundRoute>> InboundrouteByIdGetWithHttpInfoAsync(string id, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'id' is set
             if (id == null)
@@ -682,6 +723,9 @@ namespace ElasticEmail.Api
             }
 
             localVarRequestOptions.PathParameters.Add("id", ElasticEmail.Client.ClientUtils.ParameterToString(id)); // path parameter
+
+            localVarRequestOptions.Operation = "InboundRouteApi.InboundrouteByIdGet";
+            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (apikey) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-ElasticEmail-ApiKey")))
@@ -710,8 +754,9 @@ namespace ElasticEmail.Api
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id"></param>
         /// <param name="inboundPayload"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>InboundRoute</returns>
-        public InboundRoute InboundrouteByIdPut(string id, InboundPayload inboundPayload)
+        public InboundRoute InboundrouteByIdPut(string id, InboundPayload inboundPayload, int operationIndex = 0)
         {
             ElasticEmail.Client.ApiResponse<InboundRoute> localVarResponse = InboundrouteByIdPutWithHttpInfo(id, inboundPayload);
             return localVarResponse.Data;
@@ -723,8 +768,9 @@ namespace ElasticEmail.Api
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id"></param>
         /// <param name="inboundPayload"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of InboundRoute</returns>
-        public ElasticEmail.Client.ApiResponse<InboundRoute> InboundrouteByIdPutWithHttpInfo(string id, InboundPayload inboundPayload)
+        public ElasticEmail.Client.ApiResponse<InboundRoute> InboundrouteByIdPutWithHttpInfo(string id, InboundPayload inboundPayload, int operationIndex = 0)
         {
             // verify the required parameter 'id' is set
             if (id == null)
@@ -763,6 +809,9 @@ namespace ElasticEmail.Api
 
             localVarRequestOptions.PathParameters.Add("id", ElasticEmail.Client.ClientUtils.ParameterToString(id)); // path parameter
             localVarRequestOptions.Data = inboundPayload;
+
+            localVarRequestOptions.Operation = "InboundRouteApi.InboundrouteByIdPut";
+            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (apikey) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-ElasticEmail-ApiKey")))
@@ -790,11 +839,12 @@ namespace ElasticEmail.Api
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id"></param>
         /// <param name="inboundPayload"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of InboundRoute</returns>
-        public async System.Threading.Tasks.Task<InboundRoute> InboundrouteByIdPutAsync(string id, InboundPayload inboundPayload, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<InboundRoute> InboundrouteByIdPutAsync(string id, InboundPayload inboundPayload, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            ElasticEmail.Client.ApiResponse<InboundRoute> localVarResponse = await InboundrouteByIdPutWithHttpInfoAsync(id, inboundPayload, cancellationToken).ConfigureAwait(false);
+            ElasticEmail.Client.ApiResponse<InboundRoute> localVarResponse = await InboundrouteByIdPutWithHttpInfoAsync(id, inboundPayload, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -804,9 +854,10 @@ namespace ElasticEmail.Api
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id"></param>
         /// <param name="inboundPayload"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (InboundRoute)</returns>
-        public async System.Threading.Tasks.Task<ElasticEmail.Client.ApiResponse<InboundRoute>> InboundrouteByIdPutWithHttpInfoAsync(string id, InboundPayload inboundPayload, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ElasticEmail.Client.ApiResponse<InboundRoute>> InboundrouteByIdPutWithHttpInfoAsync(string id, InboundPayload inboundPayload, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'id' is set
             if (id == null)
@@ -847,6 +898,9 @@ namespace ElasticEmail.Api
             localVarRequestOptions.PathParameters.Add("id", ElasticEmail.Client.ClientUtils.ParameterToString(id)); // path parameter
             localVarRequestOptions.Data = inboundPayload;
 
+            localVarRequestOptions.Operation = "InboundRouteApi.InboundrouteByIdPut";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
             // authentication (apikey) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-ElasticEmail-ApiKey")))
             {
@@ -872,8 +926,9 @@ namespace ElasticEmail.Api
         /// Get Routes Get all your Inbound Routes. Required Access Level: ViewSettings
         /// </summary>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>List&lt;InboundRoute&gt;</returns>
-        public List<InboundRoute> InboundrouteGet()
+        public List<InboundRoute> InboundrouteGet(int operationIndex = 0)
         {
             ElasticEmail.Client.ApiResponse<List<InboundRoute>> localVarResponse = InboundrouteGetWithHttpInfo();
             return localVarResponse.Data;
@@ -883,8 +938,9 @@ namespace ElasticEmail.Api
         /// Get Routes Get all your Inbound Routes. Required Access Level: ViewSettings
         /// </summary>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of List&lt;InboundRoute&gt;</returns>
-        public ElasticEmail.Client.ApiResponse<List<InboundRoute>> InboundrouteGetWithHttpInfo()
+        public ElasticEmail.Client.ApiResponse<List<InboundRoute>> InboundrouteGetWithHttpInfo(int operationIndex = 0)
         {
             ElasticEmail.Client.RequestOptions localVarRequestOptions = new ElasticEmail.Client.RequestOptions();
 
@@ -908,6 +964,9 @@ namespace ElasticEmail.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
+
+            localVarRequestOptions.Operation = "InboundRouteApi.InboundrouteGet";
+            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (apikey) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-ElasticEmail-ApiKey")))
@@ -933,11 +992,12 @@ namespace ElasticEmail.Api
         /// Get Routes Get all your Inbound Routes. Required Access Level: ViewSettings
         /// </summary>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;InboundRoute&gt;</returns>
-        public async System.Threading.Tasks.Task<List<InboundRoute>> InboundrouteGetAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<List<InboundRoute>> InboundrouteGetAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            ElasticEmail.Client.ApiResponse<List<InboundRoute>> localVarResponse = await InboundrouteGetWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
+            ElasticEmail.Client.ApiResponse<List<InboundRoute>> localVarResponse = await InboundrouteGetWithHttpInfoAsync(operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -945,9 +1005,10 @@ namespace ElasticEmail.Api
         /// Get Routes Get all your Inbound Routes. Required Access Level: ViewSettings
         /// </summary>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;InboundRoute&gt;)</returns>
-        public async System.Threading.Tasks.Task<ElasticEmail.Client.ApiResponse<List<InboundRoute>>> InboundrouteGetWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ElasticEmail.Client.ApiResponse<List<InboundRoute>>> InboundrouteGetWithHttpInfoAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             ElasticEmail.Client.RequestOptions localVarRequestOptions = new ElasticEmail.Client.RequestOptions();
@@ -972,6 +1033,9 @@ namespace ElasticEmail.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
+
+            localVarRequestOptions.Operation = "InboundRouteApi.InboundrouteGet";
+            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (apikey) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-ElasticEmail-ApiKey")))
@@ -999,8 +1063,9 @@ namespace ElasticEmail.Api
         /// </summary>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="sortOrderItem">Change the ordering of inbound routes for when matching the inbound</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>List&lt;InboundRoute&gt;</returns>
-        public List<InboundRoute> InboundrouteOrderPut(List<SortOrderItem> sortOrderItem)
+        public List<InboundRoute> InboundrouteOrderPut(List<SortOrderItem> sortOrderItem, int operationIndex = 0)
         {
             ElasticEmail.Client.ApiResponse<List<InboundRoute>> localVarResponse = InboundrouteOrderPutWithHttpInfo(sortOrderItem);
             return localVarResponse.Data;
@@ -1011,8 +1076,9 @@ namespace ElasticEmail.Api
         /// </summary>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="sortOrderItem">Change the ordering of inbound routes for when matching the inbound</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of List&lt;InboundRoute&gt;</returns>
-        public ElasticEmail.Client.ApiResponse<List<InboundRoute>> InboundrouteOrderPutWithHttpInfo(List<SortOrderItem> sortOrderItem)
+        public ElasticEmail.Client.ApiResponse<List<InboundRoute>> InboundrouteOrderPutWithHttpInfo(List<SortOrderItem> sortOrderItem, int operationIndex = 0)
         {
             // verify the required parameter 'sortOrderItem' is set
             if (sortOrderItem == null)
@@ -1044,6 +1110,9 @@ namespace ElasticEmail.Api
             }
 
             localVarRequestOptions.Data = sortOrderItem;
+
+            localVarRequestOptions.Operation = "InboundRouteApi.InboundrouteOrderPut";
+            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (apikey) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-ElasticEmail-ApiKey")))
@@ -1070,11 +1139,12 @@ namespace ElasticEmail.Api
         /// </summary>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="sortOrderItem">Change the ordering of inbound routes for when matching the inbound</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;InboundRoute&gt;</returns>
-        public async System.Threading.Tasks.Task<List<InboundRoute>> InboundrouteOrderPutAsync(List<SortOrderItem> sortOrderItem, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<List<InboundRoute>> InboundrouteOrderPutAsync(List<SortOrderItem> sortOrderItem, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            ElasticEmail.Client.ApiResponse<List<InboundRoute>> localVarResponse = await InboundrouteOrderPutWithHttpInfoAsync(sortOrderItem, cancellationToken).ConfigureAwait(false);
+            ElasticEmail.Client.ApiResponse<List<InboundRoute>> localVarResponse = await InboundrouteOrderPutWithHttpInfoAsync(sortOrderItem, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1083,9 +1153,10 @@ namespace ElasticEmail.Api
         /// </summary>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="sortOrderItem">Change the ordering of inbound routes for when matching the inbound</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;InboundRoute&gt;)</returns>
-        public async System.Threading.Tasks.Task<ElasticEmail.Client.ApiResponse<List<InboundRoute>>> InboundrouteOrderPutWithHttpInfoAsync(List<SortOrderItem> sortOrderItem, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ElasticEmail.Client.ApiResponse<List<InboundRoute>>> InboundrouteOrderPutWithHttpInfoAsync(List<SortOrderItem> sortOrderItem, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'sortOrderItem' is set
             if (sortOrderItem == null)
@@ -1118,6 +1189,9 @@ namespace ElasticEmail.Api
             }
 
             localVarRequestOptions.Data = sortOrderItem;
+
+            localVarRequestOptions.Operation = "InboundRouteApi.InboundrouteOrderPut";
+            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (apikey) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-ElasticEmail-ApiKey")))
@@ -1145,8 +1219,9 @@ namespace ElasticEmail.Api
         /// </summary>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="inboundPayload"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>InboundRoute</returns>
-        public InboundRoute InboundroutePost(InboundPayload inboundPayload)
+        public InboundRoute InboundroutePost(InboundPayload inboundPayload, int operationIndex = 0)
         {
             ElasticEmail.Client.ApiResponse<InboundRoute> localVarResponse = InboundroutePostWithHttpInfo(inboundPayload);
             return localVarResponse.Data;
@@ -1157,8 +1232,9 @@ namespace ElasticEmail.Api
         /// </summary>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="inboundPayload"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of InboundRoute</returns>
-        public ElasticEmail.Client.ApiResponse<InboundRoute> InboundroutePostWithHttpInfo(InboundPayload inboundPayload)
+        public ElasticEmail.Client.ApiResponse<InboundRoute> InboundroutePostWithHttpInfo(InboundPayload inboundPayload, int operationIndex = 0)
         {
             // verify the required parameter 'inboundPayload' is set
             if (inboundPayload == null)
@@ -1190,6 +1266,9 @@ namespace ElasticEmail.Api
             }
 
             localVarRequestOptions.Data = inboundPayload;
+
+            localVarRequestOptions.Operation = "InboundRouteApi.InboundroutePost";
+            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (apikey) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-ElasticEmail-ApiKey")))
@@ -1216,11 +1295,12 @@ namespace ElasticEmail.Api
         /// </summary>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="inboundPayload"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of InboundRoute</returns>
-        public async System.Threading.Tasks.Task<InboundRoute> InboundroutePostAsync(InboundPayload inboundPayload, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<InboundRoute> InboundroutePostAsync(InboundPayload inboundPayload, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            ElasticEmail.Client.ApiResponse<InboundRoute> localVarResponse = await InboundroutePostWithHttpInfoAsync(inboundPayload, cancellationToken).ConfigureAwait(false);
+            ElasticEmail.Client.ApiResponse<InboundRoute> localVarResponse = await InboundroutePostWithHttpInfoAsync(inboundPayload, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1229,9 +1309,10 @@ namespace ElasticEmail.Api
         /// </summary>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="inboundPayload"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (InboundRoute)</returns>
-        public async System.Threading.Tasks.Task<ElasticEmail.Client.ApiResponse<InboundRoute>> InboundroutePostWithHttpInfoAsync(InboundPayload inboundPayload, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ElasticEmail.Client.ApiResponse<InboundRoute>> InboundroutePostWithHttpInfoAsync(InboundPayload inboundPayload, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'inboundPayload' is set
             if (inboundPayload == null)
@@ -1264,6 +1345,9 @@ namespace ElasticEmail.Api
             }
 
             localVarRequestOptions.Data = inboundPayload;
+
+            localVarRequestOptions.Operation = "InboundRouteApi.InboundroutePost";
+            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (apikey) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-ElasticEmail-ApiKey")))

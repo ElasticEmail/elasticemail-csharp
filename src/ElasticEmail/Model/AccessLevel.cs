@@ -312,7 +312,31 @@ namespace ElasticEmail.Model
         /// Enum ViewInbound for value: ViewInbound
         /// </summary>
         [EnumMember(Value = "ViewInbound")]
-        ViewInbound = 47
+        ViewInbound = 47,
+
+        /// <summary>
+        /// Enum ModifyLandingPages for value: ModifyLandingPages
+        /// </summary>
+        [EnumMember(Value = "ModifyLandingPages")]
+        ModifyLandingPages = 48,
+
+        /// <summary>
+        /// Enum ViewLandingPages for value: ViewLandingPages
+        /// </summary>
+        [EnumMember(Value = "ViewLandingPages")]
+        ViewLandingPages = 49,
+
+        /// <summary>
+        /// Enum ModifySuppressions for value: ModifySuppressions
+        /// </summary>
+        [EnumMember(Value = "ModifySuppressions")]
+        ModifySuppressions = 50,
+
+        /// <summary>
+        /// Enum ViewSuppressions for value: ViewSuppressions
+        /// </summary>
+        [EnumMember(Value = "ViewSuppressions")]
+        ViewSuppressions = 51
 
     }
 

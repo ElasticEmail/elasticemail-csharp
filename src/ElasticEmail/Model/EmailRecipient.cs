@@ -45,7 +45,8 @@ namespace ElasticEmail.Model
         public EmailRecipient(string email = default(string), Dictionary<string, string> fields = default(Dictionary<string, string>))
         {
             // to ensure "email" is required (not null)
-            if (email == null) {
+            if (email == null)
+            {
                 throw new ArgumentNullException("email is a required property for EmailRecipient and cannot be null");
             }
             this.Email = email;

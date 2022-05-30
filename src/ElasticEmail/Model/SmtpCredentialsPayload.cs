@@ -47,7 +47,8 @@ namespace ElasticEmail.Model
         public SmtpCredentialsPayload(string name = default(string), DateTime? expires = default(DateTime?), List<string> restrictAccessToIPRange = default(List<string>), string subaccount = default(string))
         {
             // to ensure "name" is required (not null)
-            if (name == null) {
+            if (name == null)
+            {
                 throw new ArgumentNullException("name is a required property for SmtpCredentialsPayload and cannot be null");
             }
             this.Name = name;

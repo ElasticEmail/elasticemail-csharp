@@ -46,7 +46,8 @@ namespace ElasticEmail.Model
         public MessageAttachment(byte[] binaryContent = default(byte[]), string name = default(string), string contentType = default(string))
         {
             // to ensure "binaryContent" is required (not null)
-            if (binaryContent == null) {
+            if (binaryContent == null)
+            {
                 throw new ArgumentNullException("binaryContent is a required property for MessageAttachment and cannot be null");
             }
             this.BinaryContent = binaryContent;

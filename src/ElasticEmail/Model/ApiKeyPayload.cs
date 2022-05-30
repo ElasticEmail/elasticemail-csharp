@@ -48,12 +48,14 @@ namespace ElasticEmail.Model
         public ApiKeyPayload(string name = default(string), List<AccessLevel> accessLevel = default(List<AccessLevel>), DateTime? expires = default(DateTime?), List<string> restrictAccessToIPRange = default(List<string>), string subaccount = default(string))
         {
             // to ensure "name" is required (not null)
-            if (name == null) {
+            if (name == null)
+            {
                 throw new ArgumentNullException("name is a required property for ApiKeyPayload and cannot be null");
             }
             this.Name = name;
             // to ensure "accessLevel" is required (not null)
-            if (accessLevel == null) {
+            if (accessLevel == null)
+            {
                 throw new ArgumentNullException("accessLevel is a required property for ApiKeyPayload and cannot be null");
             }
             this.AccessLevel = accessLevel;

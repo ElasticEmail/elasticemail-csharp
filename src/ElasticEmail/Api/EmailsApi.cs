@@ -35,8 +35,9 @@ namespace ElasticEmail.Api
         /// </remarks>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="msgid">Message identifier</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>EmailData</returns>
-        EmailData EmailsByMsgidViewGet(string msgid);
+        EmailData EmailsByMsgidViewGet(string msgid, int operationIndex = 0);
 
         /// <summary>
         /// View Email
@@ -46,8 +47,9 @@ namespace ElasticEmail.Api
         /// </remarks>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="msgid">Message identifier</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of EmailData</returns>
-        ApiResponse<EmailData> EmailsByMsgidViewGetWithHttpInfo(string msgid);
+        ApiResponse<EmailData> EmailsByMsgidViewGetWithHttpInfo(string msgid, int operationIndex = 0);
         /// <summary>
         /// Send Bulk Emails CSV
         /// </summary>
@@ -56,8 +58,9 @@ namespace ElasticEmail.Api
         /// </remarks>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="mergeEmailPayload">Email data</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>EmailSend</returns>
-        EmailSend EmailsMergefilePost(MergeEmailPayload mergeEmailPayload);
+        EmailSend EmailsMergefilePost(MergeEmailPayload mergeEmailPayload, int operationIndex = 0);
 
         /// <summary>
         /// Send Bulk Emails CSV
@@ -67,8 +70,9 @@ namespace ElasticEmail.Api
         /// </remarks>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="mergeEmailPayload">Email data</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of EmailSend</returns>
-        ApiResponse<EmailSend> EmailsMergefilePostWithHttpInfo(MergeEmailPayload mergeEmailPayload);
+        ApiResponse<EmailSend> EmailsMergefilePostWithHttpInfo(MergeEmailPayload mergeEmailPayload, int operationIndex = 0);
         /// <summary>
         /// Send Bulk Emails
         /// </summary>
@@ -77,8 +81,9 @@ namespace ElasticEmail.Api
         /// </remarks>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="emailMessageData">Email data</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>EmailSend</returns>
-        EmailSend EmailsPost(EmailMessageData emailMessageData);
+        EmailSend EmailsPost(EmailMessageData emailMessageData, int operationIndex = 0);
 
         /// <summary>
         /// Send Bulk Emails
@@ -88,8 +93,9 @@ namespace ElasticEmail.Api
         /// </remarks>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="emailMessageData">Email data</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of EmailSend</returns>
-        ApiResponse<EmailSend> EmailsPostWithHttpInfo(EmailMessageData emailMessageData);
+        ApiResponse<EmailSend> EmailsPostWithHttpInfo(EmailMessageData emailMessageData, int operationIndex = 0);
         /// <summary>
         /// Send Transactional Email
         /// </summary>
@@ -98,8 +104,9 @@ namespace ElasticEmail.Api
         /// </remarks>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="emailTransactionalMessageData">Email data</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>EmailSend</returns>
-        EmailSend EmailsTransactionalPost(EmailTransactionalMessageData emailTransactionalMessageData);
+        EmailSend EmailsTransactionalPost(EmailTransactionalMessageData emailTransactionalMessageData, int operationIndex = 0);
 
         /// <summary>
         /// Send Transactional Email
@@ -109,8 +116,9 @@ namespace ElasticEmail.Api
         /// </remarks>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="emailTransactionalMessageData">Email data</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of EmailSend</returns>
-        ApiResponse<EmailSend> EmailsTransactionalPostWithHttpInfo(EmailTransactionalMessageData emailTransactionalMessageData);
+        ApiResponse<EmailSend> EmailsTransactionalPostWithHttpInfo(EmailTransactionalMessageData emailTransactionalMessageData, int operationIndex = 0);
         #endregion Synchronous Operations
     }
 
@@ -128,9 +136,10 @@ namespace ElasticEmail.Api
         /// </remarks>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="msgid">Message identifier</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of EmailData</returns>
-        System.Threading.Tasks.Task<EmailData> EmailsByMsgidViewGetAsync(string msgid, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<EmailData> EmailsByMsgidViewGetAsync(string msgid, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// View Email
@@ -140,9 +149,10 @@ namespace ElasticEmail.Api
         /// </remarks>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="msgid">Message identifier</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (EmailData)</returns>
-        System.Threading.Tasks.Task<ApiResponse<EmailData>> EmailsByMsgidViewGetWithHttpInfoAsync(string msgid, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<EmailData>> EmailsByMsgidViewGetWithHttpInfoAsync(string msgid, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Send Bulk Emails CSV
         /// </summary>
@@ -151,9 +161,10 @@ namespace ElasticEmail.Api
         /// </remarks>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="mergeEmailPayload">Email data</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of EmailSend</returns>
-        System.Threading.Tasks.Task<EmailSend> EmailsMergefilePostAsync(MergeEmailPayload mergeEmailPayload, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<EmailSend> EmailsMergefilePostAsync(MergeEmailPayload mergeEmailPayload, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Send Bulk Emails CSV
@@ -163,9 +174,10 @@ namespace ElasticEmail.Api
         /// </remarks>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="mergeEmailPayload">Email data</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (EmailSend)</returns>
-        System.Threading.Tasks.Task<ApiResponse<EmailSend>> EmailsMergefilePostWithHttpInfoAsync(MergeEmailPayload mergeEmailPayload, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<EmailSend>> EmailsMergefilePostWithHttpInfoAsync(MergeEmailPayload mergeEmailPayload, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Send Bulk Emails
         /// </summary>
@@ -174,9 +186,10 @@ namespace ElasticEmail.Api
         /// </remarks>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="emailMessageData">Email data</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of EmailSend</returns>
-        System.Threading.Tasks.Task<EmailSend> EmailsPostAsync(EmailMessageData emailMessageData, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<EmailSend> EmailsPostAsync(EmailMessageData emailMessageData, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Send Bulk Emails
@@ -186,9 +199,10 @@ namespace ElasticEmail.Api
         /// </remarks>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="emailMessageData">Email data</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (EmailSend)</returns>
-        System.Threading.Tasks.Task<ApiResponse<EmailSend>> EmailsPostWithHttpInfoAsync(EmailMessageData emailMessageData, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<EmailSend>> EmailsPostWithHttpInfoAsync(EmailMessageData emailMessageData, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Send Transactional Email
         /// </summary>
@@ -197,9 +211,10 @@ namespace ElasticEmail.Api
         /// </remarks>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="emailTransactionalMessageData">Email data</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of EmailSend</returns>
-        System.Threading.Tasks.Task<EmailSend> EmailsTransactionalPostAsync(EmailTransactionalMessageData emailTransactionalMessageData, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<EmailSend> EmailsTransactionalPostAsync(EmailTransactionalMessageData emailTransactionalMessageData, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Send Transactional Email
@@ -209,9 +224,10 @@ namespace ElasticEmail.Api
         /// </remarks>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="emailTransactionalMessageData">Email data</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (EmailSend)</returns>
-        System.Threading.Tasks.Task<ApiResponse<EmailSend>> EmailsTransactionalPostWithHttpInfoAsync(EmailTransactionalMessageData emailTransactionalMessageData, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<EmailSend>> EmailsTransactionalPostWithHttpInfoAsync(EmailTransactionalMessageData emailTransactionalMessageData, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         #endregion Asynchronous Operations
     }
 
@@ -337,8 +353,9 @@ namespace ElasticEmail.Api
         /// </summary>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="msgid">Message identifier</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>EmailData</returns>
-        public EmailData EmailsByMsgidViewGet(string msgid)
+        public EmailData EmailsByMsgidViewGet(string msgid, int operationIndex = 0)
         {
             ElasticEmail.Client.ApiResponse<EmailData> localVarResponse = EmailsByMsgidViewGetWithHttpInfo(msgid);
             return localVarResponse.Data;
@@ -349,8 +366,9 @@ namespace ElasticEmail.Api
         /// </summary>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="msgid">Message identifier</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of EmailData</returns>
-        public ElasticEmail.Client.ApiResponse<EmailData> EmailsByMsgidViewGetWithHttpInfo(string msgid)
+        public ElasticEmail.Client.ApiResponse<EmailData> EmailsByMsgidViewGetWithHttpInfo(string msgid, int operationIndex = 0)
         {
             // verify the required parameter 'msgid' is set
             if (msgid == null)
@@ -381,6 +399,9 @@ namespace ElasticEmail.Api
             }
 
             localVarRequestOptions.PathParameters.Add("msgid", ElasticEmail.Client.ClientUtils.ParameterToString(msgid)); // path parameter
+
+            localVarRequestOptions.Operation = "EmailsApi.EmailsByMsgidViewGet";
+            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (apikey) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-ElasticEmail-ApiKey")))
@@ -407,11 +428,12 @@ namespace ElasticEmail.Api
         /// </summary>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="msgid">Message identifier</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of EmailData</returns>
-        public async System.Threading.Tasks.Task<EmailData> EmailsByMsgidViewGetAsync(string msgid, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<EmailData> EmailsByMsgidViewGetAsync(string msgid, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            ElasticEmail.Client.ApiResponse<EmailData> localVarResponse = await EmailsByMsgidViewGetWithHttpInfoAsync(msgid, cancellationToken).ConfigureAwait(false);
+            ElasticEmail.Client.ApiResponse<EmailData> localVarResponse = await EmailsByMsgidViewGetWithHttpInfoAsync(msgid, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -420,9 +442,10 @@ namespace ElasticEmail.Api
         /// </summary>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="msgid">Message identifier</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (EmailData)</returns>
-        public async System.Threading.Tasks.Task<ElasticEmail.Client.ApiResponse<EmailData>> EmailsByMsgidViewGetWithHttpInfoAsync(string msgid, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ElasticEmail.Client.ApiResponse<EmailData>> EmailsByMsgidViewGetWithHttpInfoAsync(string msgid, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'msgid' is set
             if (msgid == null)
@@ -454,6 +477,9 @@ namespace ElasticEmail.Api
             }
 
             localVarRequestOptions.PathParameters.Add("msgid", ElasticEmail.Client.ClientUtils.ParameterToString(msgid)); // path parameter
+
+            localVarRequestOptions.Operation = "EmailsApi.EmailsByMsgidViewGet";
+            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (apikey) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-ElasticEmail-ApiKey")))
@@ -481,8 +507,9 @@ namespace ElasticEmail.Api
         /// </summary>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="mergeEmailPayload">Email data</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>EmailSend</returns>
-        public EmailSend EmailsMergefilePost(MergeEmailPayload mergeEmailPayload)
+        public EmailSend EmailsMergefilePost(MergeEmailPayload mergeEmailPayload, int operationIndex = 0)
         {
             ElasticEmail.Client.ApiResponse<EmailSend> localVarResponse = EmailsMergefilePostWithHttpInfo(mergeEmailPayload);
             return localVarResponse.Data;
@@ -493,8 +520,9 @@ namespace ElasticEmail.Api
         /// </summary>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="mergeEmailPayload">Email data</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of EmailSend</returns>
-        public ElasticEmail.Client.ApiResponse<EmailSend> EmailsMergefilePostWithHttpInfo(MergeEmailPayload mergeEmailPayload)
+        public ElasticEmail.Client.ApiResponse<EmailSend> EmailsMergefilePostWithHttpInfo(MergeEmailPayload mergeEmailPayload, int operationIndex = 0)
         {
             // verify the required parameter 'mergeEmailPayload' is set
             if (mergeEmailPayload == null)
@@ -526,6 +554,9 @@ namespace ElasticEmail.Api
             }
 
             localVarRequestOptions.Data = mergeEmailPayload;
+
+            localVarRequestOptions.Operation = "EmailsApi.EmailsMergefilePost";
+            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (apikey) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-ElasticEmail-ApiKey")))
@@ -552,11 +583,12 @@ namespace ElasticEmail.Api
         /// </summary>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="mergeEmailPayload">Email data</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of EmailSend</returns>
-        public async System.Threading.Tasks.Task<EmailSend> EmailsMergefilePostAsync(MergeEmailPayload mergeEmailPayload, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<EmailSend> EmailsMergefilePostAsync(MergeEmailPayload mergeEmailPayload, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            ElasticEmail.Client.ApiResponse<EmailSend> localVarResponse = await EmailsMergefilePostWithHttpInfoAsync(mergeEmailPayload, cancellationToken).ConfigureAwait(false);
+            ElasticEmail.Client.ApiResponse<EmailSend> localVarResponse = await EmailsMergefilePostWithHttpInfoAsync(mergeEmailPayload, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -565,9 +597,10 @@ namespace ElasticEmail.Api
         /// </summary>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="mergeEmailPayload">Email data</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (EmailSend)</returns>
-        public async System.Threading.Tasks.Task<ElasticEmail.Client.ApiResponse<EmailSend>> EmailsMergefilePostWithHttpInfoAsync(MergeEmailPayload mergeEmailPayload, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ElasticEmail.Client.ApiResponse<EmailSend>> EmailsMergefilePostWithHttpInfoAsync(MergeEmailPayload mergeEmailPayload, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'mergeEmailPayload' is set
             if (mergeEmailPayload == null)
@@ -600,6 +633,9 @@ namespace ElasticEmail.Api
             }
 
             localVarRequestOptions.Data = mergeEmailPayload;
+
+            localVarRequestOptions.Operation = "EmailsApi.EmailsMergefilePost";
+            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (apikey) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-ElasticEmail-ApiKey")))
@@ -627,8 +663,9 @@ namespace ElasticEmail.Api
         /// </summary>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="emailMessageData">Email data</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>EmailSend</returns>
-        public EmailSend EmailsPost(EmailMessageData emailMessageData)
+        public EmailSend EmailsPost(EmailMessageData emailMessageData, int operationIndex = 0)
         {
             ElasticEmail.Client.ApiResponse<EmailSend> localVarResponse = EmailsPostWithHttpInfo(emailMessageData);
             return localVarResponse.Data;
@@ -639,8 +676,9 @@ namespace ElasticEmail.Api
         /// </summary>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="emailMessageData">Email data</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of EmailSend</returns>
-        public ElasticEmail.Client.ApiResponse<EmailSend> EmailsPostWithHttpInfo(EmailMessageData emailMessageData)
+        public ElasticEmail.Client.ApiResponse<EmailSend> EmailsPostWithHttpInfo(EmailMessageData emailMessageData, int operationIndex = 0)
         {
             // verify the required parameter 'emailMessageData' is set
             if (emailMessageData == null)
@@ -672,6 +710,9 @@ namespace ElasticEmail.Api
             }
 
             localVarRequestOptions.Data = emailMessageData;
+
+            localVarRequestOptions.Operation = "EmailsApi.EmailsPost";
+            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (apikey) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-ElasticEmail-ApiKey")))
@@ -698,11 +739,12 @@ namespace ElasticEmail.Api
         /// </summary>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="emailMessageData">Email data</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of EmailSend</returns>
-        public async System.Threading.Tasks.Task<EmailSend> EmailsPostAsync(EmailMessageData emailMessageData, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<EmailSend> EmailsPostAsync(EmailMessageData emailMessageData, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            ElasticEmail.Client.ApiResponse<EmailSend> localVarResponse = await EmailsPostWithHttpInfoAsync(emailMessageData, cancellationToken).ConfigureAwait(false);
+            ElasticEmail.Client.ApiResponse<EmailSend> localVarResponse = await EmailsPostWithHttpInfoAsync(emailMessageData, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -711,9 +753,10 @@ namespace ElasticEmail.Api
         /// </summary>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="emailMessageData">Email data</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (EmailSend)</returns>
-        public async System.Threading.Tasks.Task<ElasticEmail.Client.ApiResponse<EmailSend>> EmailsPostWithHttpInfoAsync(EmailMessageData emailMessageData, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ElasticEmail.Client.ApiResponse<EmailSend>> EmailsPostWithHttpInfoAsync(EmailMessageData emailMessageData, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'emailMessageData' is set
             if (emailMessageData == null)
@@ -746,6 +789,9 @@ namespace ElasticEmail.Api
             }
 
             localVarRequestOptions.Data = emailMessageData;
+
+            localVarRequestOptions.Operation = "EmailsApi.EmailsPost";
+            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (apikey) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-ElasticEmail-ApiKey")))
@@ -773,8 +819,9 @@ namespace ElasticEmail.Api
         /// </summary>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="emailTransactionalMessageData">Email data</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>EmailSend</returns>
-        public EmailSend EmailsTransactionalPost(EmailTransactionalMessageData emailTransactionalMessageData)
+        public EmailSend EmailsTransactionalPost(EmailTransactionalMessageData emailTransactionalMessageData, int operationIndex = 0)
         {
             ElasticEmail.Client.ApiResponse<EmailSend> localVarResponse = EmailsTransactionalPostWithHttpInfo(emailTransactionalMessageData);
             return localVarResponse.Data;
@@ -785,8 +832,9 @@ namespace ElasticEmail.Api
         /// </summary>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="emailTransactionalMessageData">Email data</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of EmailSend</returns>
-        public ElasticEmail.Client.ApiResponse<EmailSend> EmailsTransactionalPostWithHttpInfo(EmailTransactionalMessageData emailTransactionalMessageData)
+        public ElasticEmail.Client.ApiResponse<EmailSend> EmailsTransactionalPostWithHttpInfo(EmailTransactionalMessageData emailTransactionalMessageData, int operationIndex = 0)
         {
             // verify the required parameter 'emailTransactionalMessageData' is set
             if (emailTransactionalMessageData == null)
@@ -818,6 +866,9 @@ namespace ElasticEmail.Api
             }
 
             localVarRequestOptions.Data = emailTransactionalMessageData;
+
+            localVarRequestOptions.Operation = "EmailsApi.EmailsTransactionalPost";
+            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (apikey) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-ElasticEmail-ApiKey")))
@@ -844,11 +895,12 @@ namespace ElasticEmail.Api
         /// </summary>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="emailTransactionalMessageData">Email data</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of EmailSend</returns>
-        public async System.Threading.Tasks.Task<EmailSend> EmailsTransactionalPostAsync(EmailTransactionalMessageData emailTransactionalMessageData, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<EmailSend> EmailsTransactionalPostAsync(EmailTransactionalMessageData emailTransactionalMessageData, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            ElasticEmail.Client.ApiResponse<EmailSend> localVarResponse = await EmailsTransactionalPostWithHttpInfoAsync(emailTransactionalMessageData, cancellationToken).ConfigureAwait(false);
+            ElasticEmail.Client.ApiResponse<EmailSend> localVarResponse = await EmailsTransactionalPostWithHttpInfoAsync(emailTransactionalMessageData, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -857,9 +909,10 @@ namespace ElasticEmail.Api
         /// </summary>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="emailTransactionalMessageData">Email data</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (EmailSend)</returns>
-        public async System.Threading.Tasks.Task<ElasticEmail.Client.ApiResponse<EmailSend>> EmailsTransactionalPostWithHttpInfoAsync(EmailTransactionalMessageData emailTransactionalMessageData, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ElasticEmail.Client.ApiResponse<EmailSend>> EmailsTransactionalPostWithHttpInfoAsync(EmailTransactionalMessageData emailTransactionalMessageData, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'emailTransactionalMessageData' is set
             if (emailTransactionalMessageData == null)
@@ -892,6 +945,9 @@ namespace ElasticEmail.Api
             }
 
             localVarRequestOptions.Data = emailTransactionalMessageData;
+
+            localVarRequestOptions.Operation = "EmailsApi.EmailsTransactionalPost";
+            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (apikey) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-ElasticEmail-ApiKey")))

@@ -35,8 +35,9 @@ namespace ElasticEmail.Api
         /// </remarks>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">Name of Campaign to delete</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns></returns>
-        void CampaignsByNameDelete(string name);
+        void CampaignsByNameDelete(string name, int operationIndex = 0);
 
         /// <summary>
         /// Delete Campaign
@@ -46,8 +47,9 @@ namespace ElasticEmail.Api
         /// </remarks>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">Name of Campaign to delete</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> CampaignsByNameDeleteWithHttpInfo(string name);
+        ApiResponse<Object> CampaignsByNameDeleteWithHttpInfo(string name, int operationIndex = 0);
         /// <summary>
         /// Load Campaign
         /// </summary>
@@ -56,8 +58,9 @@ namespace ElasticEmail.Api
         /// </remarks>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">Name of Campaign to get</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>Campaign</returns>
-        Campaign CampaignsByNameGet(string name);
+        Campaign CampaignsByNameGet(string name, int operationIndex = 0);
 
         /// <summary>
         /// Load Campaign
@@ -67,8 +70,9 @@ namespace ElasticEmail.Api
         /// </remarks>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">Name of Campaign to get</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of Campaign</returns>
-        ApiResponse<Campaign> CampaignsByNameGetWithHttpInfo(string name);
+        ApiResponse<Campaign> CampaignsByNameGetWithHttpInfo(string name, int operationIndex = 0);
         /// <summary>
         /// Update Campaign
         /// </summary>
@@ -78,8 +82,9 @@ namespace ElasticEmail.Api
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">Name of Campaign to update</param>
         /// <param name="campaign">JSON representation of a campaign</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>Campaign</returns>
-        Campaign CampaignsByNamePut(string name, Campaign campaign);
+        Campaign CampaignsByNamePut(string name, Campaign campaign, int operationIndex = 0);
 
         /// <summary>
         /// Update Campaign
@@ -90,8 +95,9 @@ namespace ElasticEmail.Api
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">Name of Campaign to update</param>
         /// <param name="campaign">JSON representation of a campaign</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of Campaign</returns>
-        ApiResponse<Campaign> CampaignsByNamePutWithHttpInfo(string name, Campaign campaign);
+        ApiResponse<Campaign> CampaignsByNamePutWithHttpInfo(string name, Campaign campaign, int operationIndex = 0);
         /// <summary>
         /// Load Campaigns
         /// </summary>
@@ -102,8 +108,9 @@ namespace ElasticEmail.Api
         /// <param name="search">Text fragment used for searching in Campaign name (using the &#39;contains&#39; rule) (optional)</param>
         /// <param name="offset">How many items should be returned ahead. (optional)</param>
         /// <param name="limit">Maximum number of returned items. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>List&lt;Campaign&gt;</returns>
-        List<Campaign> CampaignsGet(string search = default(string), int? offset = default(int?), int? limit = default(int?));
+        List<Campaign> CampaignsGet(string search = default(string), int? offset = default(int?), int? limit = default(int?), int operationIndex = 0);
 
         /// <summary>
         /// Load Campaigns
@@ -115,8 +122,9 @@ namespace ElasticEmail.Api
         /// <param name="search">Text fragment used for searching in Campaign name (using the &#39;contains&#39; rule) (optional)</param>
         /// <param name="offset">How many items should be returned ahead. (optional)</param>
         /// <param name="limit">Maximum number of returned items. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of List&lt;Campaign&gt;</returns>
-        ApiResponse<List<Campaign>> CampaignsGetWithHttpInfo(string search = default(string), int? offset = default(int?), int? limit = default(int?));
+        ApiResponse<List<Campaign>> CampaignsGetWithHttpInfo(string search = default(string), int? offset = default(int?), int? limit = default(int?), int operationIndex = 0);
         /// <summary>
         /// Add Campaign
         /// </summary>
@@ -125,8 +133,9 @@ namespace ElasticEmail.Api
         /// </remarks>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaign">JSON representation of a campaign</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>Campaign</returns>
-        Campaign CampaignsPost(Campaign campaign);
+        Campaign CampaignsPost(Campaign campaign, int operationIndex = 0);
 
         /// <summary>
         /// Add Campaign
@@ -136,8 +145,9 @@ namespace ElasticEmail.Api
         /// </remarks>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaign">JSON representation of a campaign</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of Campaign</returns>
-        ApiResponse<Campaign> CampaignsPostWithHttpInfo(Campaign campaign);
+        ApiResponse<Campaign> CampaignsPostWithHttpInfo(Campaign campaign, int operationIndex = 0);
         #endregion Synchronous Operations
     }
 
@@ -155,9 +165,10 @@ namespace ElasticEmail.Api
         /// </remarks>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">Name of Campaign to delete</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task CampaignsByNameDeleteAsync(string name, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task CampaignsByNameDeleteAsync(string name, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Delete Campaign
@@ -167,9 +178,10 @@ namespace ElasticEmail.Api
         /// </remarks>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">Name of Campaign to delete</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> CampaignsByNameDeleteWithHttpInfoAsync(string name, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Object>> CampaignsByNameDeleteWithHttpInfoAsync(string name, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Load Campaign
         /// </summary>
@@ -178,9 +190,10 @@ namespace ElasticEmail.Api
         /// </remarks>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">Name of Campaign to get</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Campaign</returns>
-        System.Threading.Tasks.Task<Campaign> CampaignsByNameGetAsync(string name, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<Campaign> CampaignsByNameGetAsync(string name, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Load Campaign
@@ -190,9 +203,10 @@ namespace ElasticEmail.Api
         /// </remarks>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">Name of Campaign to get</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Campaign)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Campaign>> CampaignsByNameGetWithHttpInfoAsync(string name, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Campaign>> CampaignsByNameGetWithHttpInfoAsync(string name, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Update Campaign
         /// </summary>
@@ -202,9 +216,10 @@ namespace ElasticEmail.Api
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">Name of Campaign to update</param>
         /// <param name="campaign">JSON representation of a campaign</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Campaign</returns>
-        System.Threading.Tasks.Task<Campaign> CampaignsByNamePutAsync(string name, Campaign campaign, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<Campaign> CampaignsByNamePutAsync(string name, Campaign campaign, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Update Campaign
@@ -215,9 +230,10 @@ namespace ElasticEmail.Api
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">Name of Campaign to update</param>
         /// <param name="campaign">JSON representation of a campaign</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Campaign)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Campaign>> CampaignsByNamePutWithHttpInfoAsync(string name, Campaign campaign, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Campaign>> CampaignsByNamePutWithHttpInfoAsync(string name, Campaign campaign, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Load Campaigns
         /// </summary>
@@ -228,9 +244,10 @@ namespace ElasticEmail.Api
         /// <param name="search">Text fragment used for searching in Campaign name (using the &#39;contains&#39; rule) (optional)</param>
         /// <param name="offset">How many items should be returned ahead. (optional)</param>
         /// <param name="limit">Maximum number of returned items. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;Campaign&gt;</returns>
-        System.Threading.Tasks.Task<List<Campaign>> CampaignsGetAsync(string search = default(string), int? offset = default(int?), int? limit = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<List<Campaign>> CampaignsGetAsync(string search = default(string), int? offset = default(int?), int? limit = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Load Campaigns
@@ -242,9 +259,10 @@ namespace ElasticEmail.Api
         /// <param name="search">Text fragment used for searching in Campaign name (using the &#39;contains&#39; rule) (optional)</param>
         /// <param name="offset">How many items should be returned ahead. (optional)</param>
         /// <param name="limit">Maximum number of returned items. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;Campaign&gt;)</returns>
-        System.Threading.Tasks.Task<ApiResponse<List<Campaign>>> CampaignsGetWithHttpInfoAsync(string search = default(string), int? offset = default(int?), int? limit = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<List<Campaign>>> CampaignsGetWithHttpInfoAsync(string search = default(string), int? offset = default(int?), int? limit = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Add Campaign
         /// </summary>
@@ -253,9 +271,10 @@ namespace ElasticEmail.Api
         /// </remarks>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaign">JSON representation of a campaign</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Campaign</returns>
-        System.Threading.Tasks.Task<Campaign> CampaignsPostAsync(Campaign campaign, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<Campaign> CampaignsPostAsync(Campaign campaign, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Add Campaign
@@ -265,9 +284,10 @@ namespace ElasticEmail.Api
         /// </remarks>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaign">JSON representation of a campaign</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Campaign)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Campaign>> CampaignsPostWithHttpInfoAsync(Campaign campaign, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Campaign>> CampaignsPostWithHttpInfoAsync(Campaign campaign, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         #endregion Asynchronous Operations
     }
 
@@ -393,8 +413,9 @@ namespace ElasticEmail.Api
         /// </summary>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">Name of Campaign to delete</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns></returns>
-        public void CampaignsByNameDelete(string name)
+        public void CampaignsByNameDelete(string name, int operationIndex = 0)
         {
             CampaignsByNameDeleteWithHttpInfo(name);
         }
@@ -404,8 +425,9 @@ namespace ElasticEmail.Api
         /// </summary>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">Name of Campaign to delete</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        public ElasticEmail.Client.ApiResponse<Object> CampaignsByNameDeleteWithHttpInfo(string name)
+        public ElasticEmail.Client.ApiResponse<Object> CampaignsByNameDeleteWithHttpInfo(string name, int operationIndex = 0)
         {
             // verify the required parameter 'name' is set
             if (name == null)
@@ -435,6 +457,9 @@ namespace ElasticEmail.Api
             }
 
             localVarRequestOptions.PathParameters.Add("name", ElasticEmail.Client.ClientUtils.ParameterToString(name)); // path parameter
+
+            localVarRequestOptions.Operation = "CampaignsApi.CampaignsByNameDelete";
+            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (apikey) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-ElasticEmail-ApiKey")))
@@ -461,11 +486,12 @@ namespace ElasticEmail.Api
         /// </summary>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">Name of Campaign to delete</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task CampaignsByNameDeleteAsync(string name, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task CampaignsByNameDeleteAsync(string name, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            await CampaignsByNameDeleteWithHttpInfoAsync(name, cancellationToken).ConfigureAwait(false);
+            await CampaignsByNameDeleteWithHttpInfoAsync(name, operationIndex, cancellationToken).ConfigureAwait(false);
         }
 
         /// <summary>
@@ -473,9 +499,10 @@ namespace ElasticEmail.Api
         /// </summary>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">Name of Campaign to delete</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<ElasticEmail.Client.ApiResponse<Object>> CampaignsByNameDeleteWithHttpInfoAsync(string name, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ElasticEmail.Client.ApiResponse<Object>> CampaignsByNameDeleteWithHttpInfoAsync(string name, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'name' is set
             if (name == null)
@@ -506,6 +533,9 @@ namespace ElasticEmail.Api
             }
 
             localVarRequestOptions.PathParameters.Add("name", ElasticEmail.Client.ClientUtils.ParameterToString(name)); // path parameter
+
+            localVarRequestOptions.Operation = "CampaignsApi.CampaignsByNameDelete";
+            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (apikey) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-ElasticEmail-ApiKey")))
@@ -533,8 +563,9 @@ namespace ElasticEmail.Api
         /// </summary>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">Name of Campaign to get</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>Campaign</returns>
-        public Campaign CampaignsByNameGet(string name)
+        public Campaign CampaignsByNameGet(string name, int operationIndex = 0)
         {
             ElasticEmail.Client.ApiResponse<Campaign> localVarResponse = CampaignsByNameGetWithHttpInfo(name);
             return localVarResponse.Data;
@@ -545,8 +576,9 @@ namespace ElasticEmail.Api
         /// </summary>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">Name of Campaign to get</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of Campaign</returns>
-        public ElasticEmail.Client.ApiResponse<Campaign> CampaignsByNameGetWithHttpInfo(string name)
+        public ElasticEmail.Client.ApiResponse<Campaign> CampaignsByNameGetWithHttpInfo(string name, int operationIndex = 0)
         {
             // verify the required parameter 'name' is set
             if (name == null)
@@ -577,6 +609,9 @@ namespace ElasticEmail.Api
             }
 
             localVarRequestOptions.PathParameters.Add("name", ElasticEmail.Client.ClientUtils.ParameterToString(name)); // path parameter
+
+            localVarRequestOptions.Operation = "CampaignsApi.CampaignsByNameGet";
+            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (apikey) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-ElasticEmail-ApiKey")))
@@ -603,11 +638,12 @@ namespace ElasticEmail.Api
         /// </summary>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">Name of Campaign to get</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Campaign</returns>
-        public async System.Threading.Tasks.Task<Campaign> CampaignsByNameGetAsync(string name, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Campaign> CampaignsByNameGetAsync(string name, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            ElasticEmail.Client.ApiResponse<Campaign> localVarResponse = await CampaignsByNameGetWithHttpInfoAsync(name, cancellationToken).ConfigureAwait(false);
+            ElasticEmail.Client.ApiResponse<Campaign> localVarResponse = await CampaignsByNameGetWithHttpInfoAsync(name, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -616,9 +652,10 @@ namespace ElasticEmail.Api
         /// </summary>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">Name of Campaign to get</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Campaign)</returns>
-        public async System.Threading.Tasks.Task<ElasticEmail.Client.ApiResponse<Campaign>> CampaignsByNameGetWithHttpInfoAsync(string name, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ElasticEmail.Client.ApiResponse<Campaign>> CampaignsByNameGetWithHttpInfoAsync(string name, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'name' is set
             if (name == null)
@@ -650,6 +687,9 @@ namespace ElasticEmail.Api
             }
 
             localVarRequestOptions.PathParameters.Add("name", ElasticEmail.Client.ClientUtils.ParameterToString(name)); // path parameter
+
+            localVarRequestOptions.Operation = "CampaignsApi.CampaignsByNameGet";
+            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (apikey) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-ElasticEmail-ApiKey")))
@@ -678,8 +718,9 @@ namespace ElasticEmail.Api
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">Name of Campaign to update</param>
         /// <param name="campaign">JSON representation of a campaign</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>Campaign</returns>
-        public Campaign CampaignsByNamePut(string name, Campaign campaign)
+        public Campaign CampaignsByNamePut(string name, Campaign campaign, int operationIndex = 0)
         {
             ElasticEmail.Client.ApiResponse<Campaign> localVarResponse = CampaignsByNamePutWithHttpInfo(name, campaign);
             return localVarResponse.Data;
@@ -691,8 +732,9 @@ namespace ElasticEmail.Api
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">Name of Campaign to update</param>
         /// <param name="campaign">JSON representation of a campaign</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of Campaign</returns>
-        public ElasticEmail.Client.ApiResponse<Campaign> CampaignsByNamePutWithHttpInfo(string name, Campaign campaign)
+        public ElasticEmail.Client.ApiResponse<Campaign> CampaignsByNamePutWithHttpInfo(string name, Campaign campaign, int operationIndex = 0)
         {
             // verify the required parameter 'name' is set
             if (name == null)
@@ -731,6 +773,9 @@ namespace ElasticEmail.Api
 
             localVarRequestOptions.PathParameters.Add("name", ElasticEmail.Client.ClientUtils.ParameterToString(name)); // path parameter
             localVarRequestOptions.Data = campaign;
+
+            localVarRequestOptions.Operation = "CampaignsApi.CampaignsByNamePut";
+            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (apikey) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-ElasticEmail-ApiKey")))
@@ -758,11 +803,12 @@ namespace ElasticEmail.Api
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">Name of Campaign to update</param>
         /// <param name="campaign">JSON representation of a campaign</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Campaign</returns>
-        public async System.Threading.Tasks.Task<Campaign> CampaignsByNamePutAsync(string name, Campaign campaign, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Campaign> CampaignsByNamePutAsync(string name, Campaign campaign, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            ElasticEmail.Client.ApiResponse<Campaign> localVarResponse = await CampaignsByNamePutWithHttpInfoAsync(name, campaign, cancellationToken).ConfigureAwait(false);
+            ElasticEmail.Client.ApiResponse<Campaign> localVarResponse = await CampaignsByNamePutWithHttpInfoAsync(name, campaign, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -772,9 +818,10 @@ namespace ElasticEmail.Api
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">Name of Campaign to update</param>
         /// <param name="campaign">JSON representation of a campaign</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Campaign)</returns>
-        public async System.Threading.Tasks.Task<ElasticEmail.Client.ApiResponse<Campaign>> CampaignsByNamePutWithHttpInfoAsync(string name, Campaign campaign, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ElasticEmail.Client.ApiResponse<Campaign>> CampaignsByNamePutWithHttpInfoAsync(string name, Campaign campaign, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'name' is set
             if (name == null)
@@ -814,6 +861,9 @@ namespace ElasticEmail.Api
 
             localVarRequestOptions.PathParameters.Add("name", ElasticEmail.Client.ClientUtils.ParameterToString(name)); // path parameter
             localVarRequestOptions.Data = campaign;
+
+            localVarRequestOptions.Operation = "CampaignsApi.CampaignsByNamePut";
+            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (apikey) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-ElasticEmail-ApiKey")))
@@ -843,8 +893,9 @@ namespace ElasticEmail.Api
         /// <param name="search">Text fragment used for searching in Campaign name (using the &#39;contains&#39; rule) (optional)</param>
         /// <param name="offset">How many items should be returned ahead. (optional)</param>
         /// <param name="limit">Maximum number of returned items. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>List&lt;Campaign&gt;</returns>
-        public List<Campaign> CampaignsGet(string search = default(string), int? offset = default(int?), int? limit = default(int?))
+        public List<Campaign> CampaignsGet(string search = default(string), int? offset = default(int?), int? limit = default(int?), int operationIndex = 0)
         {
             ElasticEmail.Client.ApiResponse<List<Campaign>> localVarResponse = CampaignsGetWithHttpInfo(search, offset, limit);
             return localVarResponse.Data;
@@ -857,8 +908,9 @@ namespace ElasticEmail.Api
         /// <param name="search">Text fragment used for searching in Campaign name (using the &#39;contains&#39; rule) (optional)</param>
         /// <param name="offset">How many items should be returned ahead. (optional)</param>
         /// <param name="limit">Maximum number of returned items. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of List&lt;Campaign&gt;</returns>
-        public ElasticEmail.Client.ApiResponse<List<Campaign>> CampaignsGetWithHttpInfo(string search = default(string), int? offset = default(int?), int? limit = default(int?))
+        public ElasticEmail.Client.ApiResponse<List<Campaign>> CampaignsGetWithHttpInfo(string search = default(string), int? offset = default(int?), int? limit = default(int?), int operationIndex = 0)
         {
             ElasticEmail.Client.RequestOptions localVarRequestOptions = new ElasticEmail.Client.RequestOptions();
 
@@ -894,6 +946,9 @@ namespace ElasticEmail.Api
             {
                 localVarRequestOptions.QueryParameters.Add(ElasticEmail.Client.ClientUtils.ParameterToMultiMap("", "limit", limit));
             }
+
+            localVarRequestOptions.Operation = "CampaignsApi.CampaignsGet";
+            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (apikey) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-ElasticEmail-ApiKey")))
@@ -922,11 +977,12 @@ namespace ElasticEmail.Api
         /// <param name="search">Text fragment used for searching in Campaign name (using the &#39;contains&#39; rule) (optional)</param>
         /// <param name="offset">How many items should be returned ahead. (optional)</param>
         /// <param name="limit">Maximum number of returned items. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;Campaign&gt;</returns>
-        public async System.Threading.Tasks.Task<List<Campaign>> CampaignsGetAsync(string search = default(string), int? offset = default(int?), int? limit = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<List<Campaign>> CampaignsGetAsync(string search = default(string), int? offset = default(int?), int? limit = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            ElasticEmail.Client.ApiResponse<List<Campaign>> localVarResponse = await CampaignsGetWithHttpInfoAsync(search, offset, limit, cancellationToken).ConfigureAwait(false);
+            ElasticEmail.Client.ApiResponse<List<Campaign>> localVarResponse = await CampaignsGetWithHttpInfoAsync(search, offset, limit, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -937,9 +993,10 @@ namespace ElasticEmail.Api
         /// <param name="search">Text fragment used for searching in Campaign name (using the &#39;contains&#39; rule) (optional)</param>
         /// <param name="offset">How many items should be returned ahead. (optional)</param>
         /// <param name="limit">Maximum number of returned items. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;Campaign&gt;)</returns>
-        public async System.Threading.Tasks.Task<ElasticEmail.Client.ApiResponse<List<Campaign>>> CampaignsGetWithHttpInfoAsync(string search = default(string), int? offset = default(int?), int? limit = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ElasticEmail.Client.ApiResponse<List<Campaign>>> CampaignsGetWithHttpInfoAsync(string search = default(string), int? offset = default(int?), int? limit = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             ElasticEmail.Client.RequestOptions localVarRequestOptions = new ElasticEmail.Client.RequestOptions();
@@ -977,6 +1034,9 @@ namespace ElasticEmail.Api
                 localVarRequestOptions.QueryParameters.Add(ElasticEmail.Client.ClientUtils.ParameterToMultiMap("", "limit", limit));
             }
 
+            localVarRequestOptions.Operation = "CampaignsApi.CampaignsGet";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
             // authentication (apikey) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-ElasticEmail-ApiKey")))
             {
@@ -1003,8 +1063,9 @@ namespace ElasticEmail.Api
         /// </summary>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaign">JSON representation of a campaign</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>Campaign</returns>
-        public Campaign CampaignsPost(Campaign campaign)
+        public Campaign CampaignsPost(Campaign campaign, int operationIndex = 0)
         {
             ElasticEmail.Client.ApiResponse<Campaign> localVarResponse = CampaignsPostWithHttpInfo(campaign);
             return localVarResponse.Data;
@@ -1015,8 +1076,9 @@ namespace ElasticEmail.Api
         /// </summary>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaign">JSON representation of a campaign</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of Campaign</returns>
-        public ElasticEmail.Client.ApiResponse<Campaign> CampaignsPostWithHttpInfo(Campaign campaign)
+        public ElasticEmail.Client.ApiResponse<Campaign> CampaignsPostWithHttpInfo(Campaign campaign, int operationIndex = 0)
         {
             // verify the required parameter 'campaign' is set
             if (campaign == null)
@@ -1048,6 +1110,9 @@ namespace ElasticEmail.Api
             }
 
             localVarRequestOptions.Data = campaign;
+
+            localVarRequestOptions.Operation = "CampaignsApi.CampaignsPost";
+            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (apikey) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-ElasticEmail-ApiKey")))
@@ -1074,11 +1139,12 @@ namespace ElasticEmail.Api
         /// </summary>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaign">JSON representation of a campaign</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Campaign</returns>
-        public async System.Threading.Tasks.Task<Campaign> CampaignsPostAsync(Campaign campaign, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Campaign> CampaignsPostAsync(Campaign campaign, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            ElasticEmail.Client.ApiResponse<Campaign> localVarResponse = await CampaignsPostWithHttpInfoAsync(campaign, cancellationToken).ConfigureAwait(false);
+            ElasticEmail.Client.ApiResponse<Campaign> localVarResponse = await CampaignsPostWithHttpInfoAsync(campaign, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1087,9 +1153,10 @@ namespace ElasticEmail.Api
         /// </summary>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaign">JSON representation of a campaign</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Campaign)</returns>
-        public async System.Threading.Tasks.Task<ElasticEmail.Client.ApiResponse<Campaign>> CampaignsPostWithHttpInfoAsync(Campaign campaign, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ElasticEmail.Client.ApiResponse<Campaign>> CampaignsPostWithHttpInfoAsync(Campaign campaign, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'campaign' is set
             if (campaign == null)
@@ -1122,6 +1189,9 @@ namespace ElasticEmail.Api
             }
 
             localVarRequestOptions.Data = campaign;
+
+            localVarRequestOptions.Operation = "CampaignsApi.CampaignsPost";
+            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (apikey) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-ElasticEmail-ApiKey")))

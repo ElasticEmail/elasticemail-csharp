@@ -35,8 +35,9 @@ namespace ElasticEmail.Api
         /// </remarks>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">Name of your segment.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns></returns>
-        void SegmentsByNameDelete(string name);
+        void SegmentsByNameDelete(string name, int operationIndex = 0);
 
         /// <summary>
         /// Delete Segment
@@ -46,8 +47,9 @@ namespace ElasticEmail.Api
         /// </remarks>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">Name of your segment.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> SegmentsByNameDeleteWithHttpInfo(string name);
+        ApiResponse<Object> SegmentsByNameDeleteWithHttpInfo(string name, int operationIndex = 0);
         /// <summary>
         /// Load Segment
         /// </summary>
@@ -56,8 +58,9 @@ namespace ElasticEmail.Api
         /// </remarks>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">Name of the segment you want to load. Will load all contacts if the &#39;All Contacts&#39; name has been provided</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>Segment</returns>
-        Segment SegmentsByNameGet(string name);
+        Segment SegmentsByNameGet(string name, int operationIndex = 0);
 
         /// <summary>
         /// Load Segment
@@ -67,8 +70,9 @@ namespace ElasticEmail.Api
         /// </remarks>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">Name of the segment you want to load. Will load all contacts if the &#39;All Contacts&#39; name has been provided</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of Segment</returns>
-        ApiResponse<Segment> SegmentsByNameGetWithHttpInfo(string name);
+        ApiResponse<Segment> SegmentsByNameGetWithHttpInfo(string name, int operationIndex = 0);
         /// <summary>
         /// Update Segment
         /// </summary>
@@ -78,8 +82,9 @@ namespace ElasticEmail.Api
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">Name of your segment.</param>
         /// <param name="segmentPayload"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>Segment</returns>
-        Segment SegmentsByNamePut(string name, SegmentPayload segmentPayload);
+        Segment SegmentsByNamePut(string name, SegmentPayload segmentPayload, int operationIndex = 0);
 
         /// <summary>
         /// Update Segment
@@ -90,8 +95,9 @@ namespace ElasticEmail.Api
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">Name of your segment.</param>
         /// <param name="segmentPayload"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of Segment</returns>
-        ApiResponse<Segment> SegmentsByNamePutWithHttpInfo(string name, SegmentPayload segmentPayload);
+        ApiResponse<Segment> SegmentsByNamePutWithHttpInfo(string name, SegmentPayload segmentPayload, int operationIndex = 0);
         /// <summary>
         /// Load Segments
         /// </summary>
@@ -101,8 +107,9 @@ namespace ElasticEmail.Api
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="limit">Maximum number of returned items. (optional)</param>
         /// <param name="offset">How many items should be returned ahead. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>List&lt;Segment&gt;</returns>
-        List<Segment> SegmentsGet(int? limit = default(int?), int? offset = default(int?));
+        List<Segment> SegmentsGet(int? limit = default(int?), int? offset = default(int?), int operationIndex = 0);
 
         /// <summary>
         /// Load Segments
@@ -113,8 +120,9 @@ namespace ElasticEmail.Api
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="limit">Maximum number of returned items. (optional)</param>
         /// <param name="offset">How many items should be returned ahead. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of List&lt;Segment&gt;</returns>
-        ApiResponse<List<Segment>> SegmentsGetWithHttpInfo(int? limit = default(int?), int? offset = default(int?));
+        ApiResponse<List<Segment>> SegmentsGetWithHttpInfo(int? limit = default(int?), int? offset = default(int?), int operationIndex = 0);
         /// <summary>
         /// Add Segment
         /// </summary>
@@ -123,8 +131,9 @@ namespace ElasticEmail.Api
         /// </remarks>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="segmentPayload"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>Segment</returns>
-        Segment SegmentsPost(SegmentPayload segmentPayload);
+        Segment SegmentsPost(SegmentPayload segmentPayload, int operationIndex = 0);
 
         /// <summary>
         /// Add Segment
@@ -134,8 +143,9 @@ namespace ElasticEmail.Api
         /// </remarks>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="segmentPayload"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of Segment</returns>
-        ApiResponse<Segment> SegmentsPostWithHttpInfo(SegmentPayload segmentPayload);
+        ApiResponse<Segment> SegmentsPostWithHttpInfo(SegmentPayload segmentPayload, int operationIndex = 0);
         #endregion Synchronous Operations
     }
 
@@ -153,9 +163,10 @@ namespace ElasticEmail.Api
         /// </remarks>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">Name of your segment.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task SegmentsByNameDeleteAsync(string name, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task SegmentsByNameDeleteAsync(string name, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Delete Segment
@@ -165,9 +176,10 @@ namespace ElasticEmail.Api
         /// </remarks>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">Name of your segment.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> SegmentsByNameDeleteWithHttpInfoAsync(string name, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Object>> SegmentsByNameDeleteWithHttpInfoAsync(string name, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Load Segment
         /// </summary>
@@ -176,9 +188,10 @@ namespace ElasticEmail.Api
         /// </remarks>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">Name of the segment you want to load. Will load all contacts if the &#39;All Contacts&#39; name has been provided</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Segment</returns>
-        System.Threading.Tasks.Task<Segment> SegmentsByNameGetAsync(string name, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<Segment> SegmentsByNameGetAsync(string name, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Load Segment
@@ -188,9 +201,10 @@ namespace ElasticEmail.Api
         /// </remarks>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">Name of the segment you want to load. Will load all contacts if the &#39;All Contacts&#39; name has been provided</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Segment)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Segment>> SegmentsByNameGetWithHttpInfoAsync(string name, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Segment>> SegmentsByNameGetWithHttpInfoAsync(string name, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Update Segment
         /// </summary>
@@ -200,9 +214,10 @@ namespace ElasticEmail.Api
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">Name of your segment.</param>
         /// <param name="segmentPayload"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Segment</returns>
-        System.Threading.Tasks.Task<Segment> SegmentsByNamePutAsync(string name, SegmentPayload segmentPayload, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<Segment> SegmentsByNamePutAsync(string name, SegmentPayload segmentPayload, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Update Segment
@@ -213,9 +228,10 @@ namespace ElasticEmail.Api
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">Name of your segment.</param>
         /// <param name="segmentPayload"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Segment)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Segment>> SegmentsByNamePutWithHttpInfoAsync(string name, SegmentPayload segmentPayload, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Segment>> SegmentsByNamePutWithHttpInfoAsync(string name, SegmentPayload segmentPayload, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Load Segments
         /// </summary>
@@ -225,9 +241,10 @@ namespace ElasticEmail.Api
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="limit">Maximum number of returned items. (optional)</param>
         /// <param name="offset">How many items should be returned ahead. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;Segment&gt;</returns>
-        System.Threading.Tasks.Task<List<Segment>> SegmentsGetAsync(int? limit = default(int?), int? offset = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<List<Segment>> SegmentsGetAsync(int? limit = default(int?), int? offset = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Load Segments
@@ -238,9 +255,10 @@ namespace ElasticEmail.Api
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="limit">Maximum number of returned items. (optional)</param>
         /// <param name="offset">How many items should be returned ahead. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;Segment&gt;)</returns>
-        System.Threading.Tasks.Task<ApiResponse<List<Segment>>> SegmentsGetWithHttpInfoAsync(int? limit = default(int?), int? offset = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<List<Segment>>> SegmentsGetWithHttpInfoAsync(int? limit = default(int?), int? offset = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Add Segment
         /// </summary>
@@ -249,9 +267,10 @@ namespace ElasticEmail.Api
         /// </remarks>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="segmentPayload"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Segment</returns>
-        System.Threading.Tasks.Task<Segment> SegmentsPostAsync(SegmentPayload segmentPayload, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<Segment> SegmentsPostAsync(SegmentPayload segmentPayload, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Add Segment
@@ -261,9 +280,10 @@ namespace ElasticEmail.Api
         /// </remarks>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="segmentPayload"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Segment)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Segment>> SegmentsPostWithHttpInfoAsync(SegmentPayload segmentPayload, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Segment>> SegmentsPostWithHttpInfoAsync(SegmentPayload segmentPayload, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         #endregion Asynchronous Operations
     }
 
@@ -389,8 +409,9 @@ namespace ElasticEmail.Api
         /// </summary>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">Name of your segment.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns></returns>
-        public void SegmentsByNameDelete(string name)
+        public void SegmentsByNameDelete(string name, int operationIndex = 0)
         {
             SegmentsByNameDeleteWithHttpInfo(name);
         }
@@ -400,8 +421,9 @@ namespace ElasticEmail.Api
         /// </summary>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">Name of your segment.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        public ElasticEmail.Client.ApiResponse<Object> SegmentsByNameDeleteWithHttpInfo(string name)
+        public ElasticEmail.Client.ApiResponse<Object> SegmentsByNameDeleteWithHttpInfo(string name, int operationIndex = 0)
         {
             // verify the required parameter 'name' is set
             if (name == null)
@@ -431,6 +453,9 @@ namespace ElasticEmail.Api
             }
 
             localVarRequestOptions.PathParameters.Add("name", ElasticEmail.Client.ClientUtils.ParameterToString(name)); // path parameter
+
+            localVarRequestOptions.Operation = "SegmentsApi.SegmentsByNameDelete";
+            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (apikey) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-ElasticEmail-ApiKey")))
@@ -457,11 +482,12 @@ namespace ElasticEmail.Api
         /// </summary>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">Name of your segment.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task SegmentsByNameDeleteAsync(string name, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task SegmentsByNameDeleteAsync(string name, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            await SegmentsByNameDeleteWithHttpInfoAsync(name, cancellationToken).ConfigureAwait(false);
+            await SegmentsByNameDeleteWithHttpInfoAsync(name, operationIndex, cancellationToken).ConfigureAwait(false);
         }
 
         /// <summary>
@@ -469,9 +495,10 @@ namespace ElasticEmail.Api
         /// </summary>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">Name of your segment.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<ElasticEmail.Client.ApiResponse<Object>> SegmentsByNameDeleteWithHttpInfoAsync(string name, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ElasticEmail.Client.ApiResponse<Object>> SegmentsByNameDeleteWithHttpInfoAsync(string name, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'name' is set
             if (name == null)
@@ -502,6 +529,9 @@ namespace ElasticEmail.Api
             }
 
             localVarRequestOptions.PathParameters.Add("name", ElasticEmail.Client.ClientUtils.ParameterToString(name)); // path parameter
+
+            localVarRequestOptions.Operation = "SegmentsApi.SegmentsByNameDelete";
+            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (apikey) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-ElasticEmail-ApiKey")))
@@ -529,8 +559,9 @@ namespace ElasticEmail.Api
         /// </summary>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">Name of the segment you want to load. Will load all contacts if the &#39;All Contacts&#39; name has been provided</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>Segment</returns>
-        public Segment SegmentsByNameGet(string name)
+        public Segment SegmentsByNameGet(string name, int operationIndex = 0)
         {
             ElasticEmail.Client.ApiResponse<Segment> localVarResponse = SegmentsByNameGetWithHttpInfo(name);
             return localVarResponse.Data;
@@ -541,8 +572,9 @@ namespace ElasticEmail.Api
         /// </summary>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">Name of the segment you want to load. Will load all contacts if the &#39;All Contacts&#39; name has been provided</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of Segment</returns>
-        public ElasticEmail.Client.ApiResponse<Segment> SegmentsByNameGetWithHttpInfo(string name)
+        public ElasticEmail.Client.ApiResponse<Segment> SegmentsByNameGetWithHttpInfo(string name, int operationIndex = 0)
         {
             // verify the required parameter 'name' is set
             if (name == null)
@@ -573,6 +605,9 @@ namespace ElasticEmail.Api
             }
 
             localVarRequestOptions.PathParameters.Add("name", ElasticEmail.Client.ClientUtils.ParameterToString(name)); // path parameter
+
+            localVarRequestOptions.Operation = "SegmentsApi.SegmentsByNameGet";
+            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (apikey) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-ElasticEmail-ApiKey")))
@@ -599,11 +634,12 @@ namespace ElasticEmail.Api
         /// </summary>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">Name of the segment you want to load. Will load all contacts if the &#39;All Contacts&#39; name has been provided</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Segment</returns>
-        public async System.Threading.Tasks.Task<Segment> SegmentsByNameGetAsync(string name, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Segment> SegmentsByNameGetAsync(string name, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            ElasticEmail.Client.ApiResponse<Segment> localVarResponse = await SegmentsByNameGetWithHttpInfoAsync(name, cancellationToken).ConfigureAwait(false);
+            ElasticEmail.Client.ApiResponse<Segment> localVarResponse = await SegmentsByNameGetWithHttpInfoAsync(name, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -612,9 +648,10 @@ namespace ElasticEmail.Api
         /// </summary>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">Name of the segment you want to load. Will load all contacts if the &#39;All Contacts&#39; name has been provided</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Segment)</returns>
-        public async System.Threading.Tasks.Task<ElasticEmail.Client.ApiResponse<Segment>> SegmentsByNameGetWithHttpInfoAsync(string name, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ElasticEmail.Client.ApiResponse<Segment>> SegmentsByNameGetWithHttpInfoAsync(string name, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'name' is set
             if (name == null)
@@ -646,6 +683,9 @@ namespace ElasticEmail.Api
             }
 
             localVarRequestOptions.PathParameters.Add("name", ElasticEmail.Client.ClientUtils.ParameterToString(name)); // path parameter
+
+            localVarRequestOptions.Operation = "SegmentsApi.SegmentsByNameGet";
+            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (apikey) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-ElasticEmail-ApiKey")))
@@ -674,8 +714,9 @@ namespace ElasticEmail.Api
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">Name of your segment.</param>
         /// <param name="segmentPayload"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>Segment</returns>
-        public Segment SegmentsByNamePut(string name, SegmentPayload segmentPayload)
+        public Segment SegmentsByNamePut(string name, SegmentPayload segmentPayload, int operationIndex = 0)
         {
             ElasticEmail.Client.ApiResponse<Segment> localVarResponse = SegmentsByNamePutWithHttpInfo(name, segmentPayload);
             return localVarResponse.Data;
@@ -687,8 +728,9 @@ namespace ElasticEmail.Api
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">Name of your segment.</param>
         /// <param name="segmentPayload"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of Segment</returns>
-        public ElasticEmail.Client.ApiResponse<Segment> SegmentsByNamePutWithHttpInfo(string name, SegmentPayload segmentPayload)
+        public ElasticEmail.Client.ApiResponse<Segment> SegmentsByNamePutWithHttpInfo(string name, SegmentPayload segmentPayload, int operationIndex = 0)
         {
             // verify the required parameter 'name' is set
             if (name == null)
@@ -727,6 +769,9 @@ namespace ElasticEmail.Api
 
             localVarRequestOptions.PathParameters.Add("name", ElasticEmail.Client.ClientUtils.ParameterToString(name)); // path parameter
             localVarRequestOptions.Data = segmentPayload;
+
+            localVarRequestOptions.Operation = "SegmentsApi.SegmentsByNamePut";
+            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (apikey) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-ElasticEmail-ApiKey")))
@@ -754,11 +799,12 @@ namespace ElasticEmail.Api
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">Name of your segment.</param>
         /// <param name="segmentPayload"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Segment</returns>
-        public async System.Threading.Tasks.Task<Segment> SegmentsByNamePutAsync(string name, SegmentPayload segmentPayload, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Segment> SegmentsByNamePutAsync(string name, SegmentPayload segmentPayload, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            ElasticEmail.Client.ApiResponse<Segment> localVarResponse = await SegmentsByNamePutWithHttpInfoAsync(name, segmentPayload, cancellationToken).ConfigureAwait(false);
+            ElasticEmail.Client.ApiResponse<Segment> localVarResponse = await SegmentsByNamePutWithHttpInfoAsync(name, segmentPayload, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -768,9 +814,10 @@ namespace ElasticEmail.Api
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">Name of your segment.</param>
         /// <param name="segmentPayload"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Segment)</returns>
-        public async System.Threading.Tasks.Task<ElasticEmail.Client.ApiResponse<Segment>> SegmentsByNamePutWithHttpInfoAsync(string name, SegmentPayload segmentPayload, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ElasticEmail.Client.ApiResponse<Segment>> SegmentsByNamePutWithHttpInfoAsync(string name, SegmentPayload segmentPayload, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'name' is set
             if (name == null)
@@ -810,6 +857,9 @@ namespace ElasticEmail.Api
 
             localVarRequestOptions.PathParameters.Add("name", ElasticEmail.Client.ClientUtils.ParameterToString(name)); // path parameter
             localVarRequestOptions.Data = segmentPayload;
+
+            localVarRequestOptions.Operation = "SegmentsApi.SegmentsByNamePut";
+            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (apikey) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-ElasticEmail-ApiKey")))
@@ -838,8 +888,9 @@ namespace ElasticEmail.Api
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="limit">Maximum number of returned items. (optional)</param>
         /// <param name="offset">How many items should be returned ahead. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>List&lt;Segment&gt;</returns>
-        public List<Segment> SegmentsGet(int? limit = default(int?), int? offset = default(int?))
+        public List<Segment> SegmentsGet(int? limit = default(int?), int? offset = default(int?), int operationIndex = 0)
         {
             ElasticEmail.Client.ApiResponse<List<Segment>> localVarResponse = SegmentsGetWithHttpInfo(limit, offset);
             return localVarResponse.Data;
@@ -851,8 +902,9 @@ namespace ElasticEmail.Api
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="limit">Maximum number of returned items. (optional)</param>
         /// <param name="offset">How many items should be returned ahead. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of List&lt;Segment&gt;</returns>
-        public ElasticEmail.Client.ApiResponse<List<Segment>> SegmentsGetWithHttpInfo(int? limit = default(int?), int? offset = default(int?))
+        public ElasticEmail.Client.ApiResponse<List<Segment>> SegmentsGetWithHttpInfo(int? limit = default(int?), int? offset = default(int?), int operationIndex = 0)
         {
             ElasticEmail.Client.RequestOptions localVarRequestOptions = new ElasticEmail.Client.RequestOptions();
 
@@ -884,6 +936,9 @@ namespace ElasticEmail.Api
             {
                 localVarRequestOptions.QueryParameters.Add(ElasticEmail.Client.ClientUtils.ParameterToMultiMap("", "offset", offset));
             }
+
+            localVarRequestOptions.Operation = "SegmentsApi.SegmentsGet";
+            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (apikey) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-ElasticEmail-ApiKey")))
@@ -911,11 +966,12 @@ namespace ElasticEmail.Api
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="limit">Maximum number of returned items. (optional)</param>
         /// <param name="offset">How many items should be returned ahead. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;Segment&gt;</returns>
-        public async System.Threading.Tasks.Task<List<Segment>> SegmentsGetAsync(int? limit = default(int?), int? offset = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<List<Segment>> SegmentsGetAsync(int? limit = default(int?), int? offset = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            ElasticEmail.Client.ApiResponse<List<Segment>> localVarResponse = await SegmentsGetWithHttpInfoAsync(limit, offset, cancellationToken).ConfigureAwait(false);
+            ElasticEmail.Client.ApiResponse<List<Segment>> localVarResponse = await SegmentsGetWithHttpInfoAsync(limit, offset, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -925,9 +981,10 @@ namespace ElasticEmail.Api
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="limit">Maximum number of returned items. (optional)</param>
         /// <param name="offset">How many items should be returned ahead. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;Segment&gt;)</returns>
-        public async System.Threading.Tasks.Task<ElasticEmail.Client.ApiResponse<List<Segment>>> SegmentsGetWithHttpInfoAsync(int? limit = default(int?), int? offset = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ElasticEmail.Client.ApiResponse<List<Segment>>> SegmentsGetWithHttpInfoAsync(int? limit = default(int?), int? offset = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             ElasticEmail.Client.RequestOptions localVarRequestOptions = new ElasticEmail.Client.RequestOptions();
@@ -961,6 +1018,9 @@ namespace ElasticEmail.Api
                 localVarRequestOptions.QueryParameters.Add(ElasticEmail.Client.ClientUtils.ParameterToMultiMap("", "offset", offset));
             }
 
+            localVarRequestOptions.Operation = "SegmentsApi.SegmentsGet";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
             // authentication (apikey) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-ElasticEmail-ApiKey")))
             {
@@ -987,8 +1047,9 @@ namespace ElasticEmail.Api
         /// </summary>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="segmentPayload"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>Segment</returns>
-        public Segment SegmentsPost(SegmentPayload segmentPayload)
+        public Segment SegmentsPost(SegmentPayload segmentPayload, int operationIndex = 0)
         {
             ElasticEmail.Client.ApiResponse<Segment> localVarResponse = SegmentsPostWithHttpInfo(segmentPayload);
             return localVarResponse.Data;
@@ -999,8 +1060,9 @@ namespace ElasticEmail.Api
         /// </summary>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="segmentPayload"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of Segment</returns>
-        public ElasticEmail.Client.ApiResponse<Segment> SegmentsPostWithHttpInfo(SegmentPayload segmentPayload)
+        public ElasticEmail.Client.ApiResponse<Segment> SegmentsPostWithHttpInfo(SegmentPayload segmentPayload, int operationIndex = 0)
         {
             // verify the required parameter 'segmentPayload' is set
             if (segmentPayload == null)
@@ -1032,6 +1094,9 @@ namespace ElasticEmail.Api
             }
 
             localVarRequestOptions.Data = segmentPayload;
+
+            localVarRequestOptions.Operation = "SegmentsApi.SegmentsPost";
+            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (apikey) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-ElasticEmail-ApiKey")))
@@ -1058,11 +1123,12 @@ namespace ElasticEmail.Api
         /// </summary>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="segmentPayload"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Segment</returns>
-        public async System.Threading.Tasks.Task<Segment> SegmentsPostAsync(SegmentPayload segmentPayload, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Segment> SegmentsPostAsync(SegmentPayload segmentPayload, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            ElasticEmail.Client.ApiResponse<Segment> localVarResponse = await SegmentsPostWithHttpInfoAsync(segmentPayload, cancellationToken).ConfigureAwait(false);
+            ElasticEmail.Client.ApiResponse<Segment> localVarResponse = await SegmentsPostWithHttpInfoAsync(segmentPayload, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1071,9 +1137,10 @@ namespace ElasticEmail.Api
         /// </summary>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="segmentPayload"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Segment)</returns>
-        public async System.Threading.Tasks.Task<ElasticEmail.Client.ApiResponse<Segment>> SegmentsPostWithHttpInfoAsync(SegmentPayload segmentPayload, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ElasticEmail.Client.ApiResponse<Segment>> SegmentsPostWithHttpInfoAsync(SegmentPayload segmentPayload, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'segmentPayload' is set
             if (segmentPayload == null)
@@ -1106,6 +1173,9 @@ namespace ElasticEmail.Api
             }
 
             localVarRequestOptions.Data = segmentPayload;
+
+            localVarRequestOptions.Operation = "SegmentsApi.SegmentsPost";
+            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (apikey) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-ElasticEmail-ApiKey")))

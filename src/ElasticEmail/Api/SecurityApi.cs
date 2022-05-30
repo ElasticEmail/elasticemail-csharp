@@ -36,8 +36,9 @@ namespace ElasticEmail.Api
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">Name of the ApiKey</param>
         /// <param name="subaccount">Email of the subaccount of which ApiKey should be deleted (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns></returns>
-        void SecurityApikeysByNameDelete(string name, string subaccount = default(string));
+        void SecurityApikeysByNameDelete(string name, string subaccount = default(string), int operationIndex = 0);
 
         /// <summary>
         /// Delete ApiKey
@@ -48,8 +49,9 @@ namespace ElasticEmail.Api
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">Name of the ApiKey</param>
         /// <param name="subaccount">Email of the subaccount of which ApiKey should be deleted (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> SecurityApikeysByNameDeleteWithHttpInfo(string name, string subaccount = default(string));
+        ApiResponse<Object> SecurityApikeysByNameDeleteWithHttpInfo(string name, string subaccount = default(string), int operationIndex = 0);
         /// <summary>
         /// Load ApiKey
         /// </summary>
@@ -59,8 +61,9 @@ namespace ElasticEmail.Api
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">Name of the ApiKey</param>
         /// <param name="subaccount">Email of the subaccount of which ApiKey should be loaded (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiKey</returns>
-        ApiKey SecurityApikeysByNameGet(string name, string subaccount = default(string));
+        ApiKey SecurityApikeysByNameGet(string name, string subaccount = default(string), int operationIndex = 0);
 
         /// <summary>
         /// Load ApiKey
@@ -71,8 +74,9 @@ namespace ElasticEmail.Api
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">Name of the ApiKey</param>
         /// <param name="subaccount">Email of the subaccount of which ApiKey should be loaded (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of ApiKey</returns>
-        ApiResponse<ApiKey> SecurityApikeysByNameGetWithHttpInfo(string name, string subaccount = default(string));
+        ApiResponse<ApiKey> SecurityApikeysByNameGetWithHttpInfo(string name, string subaccount = default(string), int operationIndex = 0);
         /// <summary>
         /// Update ApiKey
         /// </summary>
@@ -82,8 +86,9 @@ namespace ElasticEmail.Api
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">Name of the ApiKey</param>
         /// <param name="apiKeyPayload"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiKey</returns>
-        ApiKey SecurityApikeysByNamePut(string name, ApiKeyPayload apiKeyPayload);
+        ApiKey SecurityApikeysByNamePut(string name, ApiKeyPayload apiKeyPayload, int operationIndex = 0);
 
         /// <summary>
         /// Update ApiKey
@@ -94,8 +99,9 @@ namespace ElasticEmail.Api
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">Name of the ApiKey</param>
         /// <param name="apiKeyPayload"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of ApiKey</returns>
-        ApiResponse<ApiKey> SecurityApikeysByNamePutWithHttpInfo(string name, ApiKeyPayload apiKeyPayload);
+        ApiResponse<ApiKey> SecurityApikeysByNamePutWithHttpInfo(string name, ApiKeyPayload apiKeyPayload, int operationIndex = 0);
         /// <summary>
         /// List ApiKeys
         /// </summary>
@@ -104,8 +110,9 @@ namespace ElasticEmail.Api
         /// </remarks>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="subaccount">Email of the subaccount of which ApiKeys should be loaded (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>List&lt;ApiKey&gt;</returns>
-        List<ApiKey> SecurityApikeysGet(string subaccount = default(string));
+        List<ApiKey> SecurityApikeysGet(string subaccount = default(string), int operationIndex = 0);
 
         /// <summary>
         /// List ApiKeys
@@ -115,8 +122,9 @@ namespace ElasticEmail.Api
         /// </remarks>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="subaccount">Email of the subaccount of which ApiKeys should be loaded (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of List&lt;ApiKey&gt;</returns>
-        ApiResponse<List<ApiKey>> SecurityApikeysGetWithHttpInfo(string subaccount = default(string));
+        ApiResponse<List<ApiKey>> SecurityApikeysGetWithHttpInfo(string subaccount = default(string), int operationIndex = 0);
         /// <summary>
         /// Add ApiKey
         /// </summary>
@@ -125,8 +133,9 @@ namespace ElasticEmail.Api
         /// </remarks>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="apiKeyPayload"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>NewApiKey</returns>
-        NewApiKey SecurityApikeysPost(ApiKeyPayload apiKeyPayload);
+        NewApiKey SecurityApikeysPost(ApiKeyPayload apiKeyPayload, int operationIndex = 0);
 
         /// <summary>
         /// Add ApiKey
@@ -136,8 +145,9 @@ namespace ElasticEmail.Api
         /// </remarks>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="apiKeyPayload"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of NewApiKey</returns>
-        ApiResponse<NewApiKey> SecurityApikeysPostWithHttpInfo(ApiKeyPayload apiKeyPayload);
+        ApiResponse<NewApiKey> SecurityApikeysPostWithHttpInfo(ApiKeyPayload apiKeyPayload, int operationIndex = 0);
         /// <summary>
         /// Delete SMTP Credential
         /// </summary>
@@ -147,8 +157,9 @@ namespace ElasticEmail.Api
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">Name of the SMTP Credential</param>
         /// <param name="subaccount">Email of the subaccount of which credential should be deleted (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns></returns>
-        void SecuritySmtpByNameDelete(string name, string subaccount = default(string));
+        void SecuritySmtpByNameDelete(string name, string subaccount = default(string), int operationIndex = 0);
 
         /// <summary>
         /// Delete SMTP Credential
@@ -159,8 +170,9 @@ namespace ElasticEmail.Api
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">Name of the SMTP Credential</param>
         /// <param name="subaccount">Email of the subaccount of which credential should be deleted (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> SecuritySmtpByNameDeleteWithHttpInfo(string name, string subaccount = default(string));
+        ApiResponse<Object> SecuritySmtpByNameDeleteWithHttpInfo(string name, string subaccount = default(string), int operationIndex = 0);
         /// <summary>
         /// Load SMTP Credential
         /// </summary>
@@ -170,8 +182,9 @@ namespace ElasticEmail.Api
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">Name of the SMTP Credential</param>
         /// <param name="subaccount">Email of the subaccount of which credential should be loaded (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>SmtpCredentials</returns>
-        SmtpCredentials SecuritySmtpByNameGet(string name, string subaccount = default(string));
+        SmtpCredentials SecuritySmtpByNameGet(string name, string subaccount = default(string), int operationIndex = 0);
 
         /// <summary>
         /// Load SMTP Credential
@@ -182,8 +195,9 @@ namespace ElasticEmail.Api
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">Name of the SMTP Credential</param>
         /// <param name="subaccount">Email of the subaccount of which credential should be loaded (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of SmtpCredentials</returns>
-        ApiResponse<SmtpCredentials> SecuritySmtpByNameGetWithHttpInfo(string name, string subaccount = default(string));
+        ApiResponse<SmtpCredentials> SecuritySmtpByNameGetWithHttpInfo(string name, string subaccount = default(string), int operationIndex = 0);
         /// <summary>
         /// Update SMTP Credential
         /// </summary>
@@ -193,8 +207,9 @@ namespace ElasticEmail.Api
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">Name of the SMTP Credential</param>
         /// <param name="smtpCredentialsPayload"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>SmtpCredentials</returns>
-        SmtpCredentials SecuritySmtpByNamePut(string name, SmtpCredentialsPayload smtpCredentialsPayload);
+        SmtpCredentials SecuritySmtpByNamePut(string name, SmtpCredentialsPayload smtpCredentialsPayload, int operationIndex = 0);
 
         /// <summary>
         /// Update SMTP Credential
@@ -205,8 +220,9 @@ namespace ElasticEmail.Api
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">Name of the SMTP Credential</param>
         /// <param name="smtpCredentialsPayload"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of SmtpCredentials</returns>
-        ApiResponse<SmtpCredentials> SecuritySmtpByNamePutWithHttpInfo(string name, SmtpCredentialsPayload smtpCredentialsPayload);
+        ApiResponse<SmtpCredentials> SecuritySmtpByNamePutWithHttpInfo(string name, SmtpCredentialsPayload smtpCredentialsPayload, int operationIndex = 0);
         /// <summary>
         /// List SMTP Credentials
         /// </summary>
@@ -215,8 +231,9 @@ namespace ElasticEmail.Api
         /// </remarks>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="subaccount">Email of the subaccount of which credentials should be listed (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>List&lt;SmtpCredentials&gt;</returns>
-        List<SmtpCredentials> SecuritySmtpGet(string subaccount = default(string));
+        List<SmtpCredentials> SecuritySmtpGet(string subaccount = default(string), int operationIndex = 0);
 
         /// <summary>
         /// List SMTP Credentials
@@ -226,8 +243,9 @@ namespace ElasticEmail.Api
         /// </remarks>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="subaccount">Email of the subaccount of which credentials should be listed (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of List&lt;SmtpCredentials&gt;</returns>
-        ApiResponse<List<SmtpCredentials>> SecuritySmtpGetWithHttpInfo(string subaccount = default(string));
+        ApiResponse<List<SmtpCredentials>> SecuritySmtpGetWithHttpInfo(string subaccount = default(string), int operationIndex = 0);
         /// <summary>
         /// Add SMTP Credential
         /// </summary>
@@ -236,8 +254,9 @@ namespace ElasticEmail.Api
         /// </remarks>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="smtpCredentialsPayload"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>NewSmtpCredentials</returns>
-        NewSmtpCredentials SecuritySmtpPost(SmtpCredentialsPayload smtpCredentialsPayload);
+        NewSmtpCredentials SecuritySmtpPost(SmtpCredentialsPayload smtpCredentialsPayload, int operationIndex = 0);
 
         /// <summary>
         /// Add SMTP Credential
@@ -247,8 +266,9 @@ namespace ElasticEmail.Api
         /// </remarks>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="smtpCredentialsPayload"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of NewSmtpCredentials</returns>
-        ApiResponse<NewSmtpCredentials> SecuritySmtpPostWithHttpInfo(SmtpCredentialsPayload smtpCredentialsPayload);
+        ApiResponse<NewSmtpCredentials> SecuritySmtpPostWithHttpInfo(SmtpCredentialsPayload smtpCredentialsPayload, int operationIndex = 0);
         #endregion Synchronous Operations
     }
 
@@ -267,9 +287,10 @@ namespace ElasticEmail.Api
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">Name of the ApiKey</param>
         /// <param name="subaccount">Email of the subaccount of which ApiKey should be deleted (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task SecurityApikeysByNameDeleteAsync(string name, string subaccount = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task SecurityApikeysByNameDeleteAsync(string name, string subaccount = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Delete ApiKey
@@ -280,9 +301,10 @@ namespace ElasticEmail.Api
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">Name of the ApiKey</param>
         /// <param name="subaccount">Email of the subaccount of which ApiKey should be deleted (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> SecurityApikeysByNameDeleteWithHttpInfoAsync(string name, string subaccount = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Object>> SecurityApikeysByNameDeleteWithHttpInfoAsync(string name, string subaccount = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Load ApiKey
         /// </summary>
@@ -292,9 +314,10 @@ namespace ElasticEmail.Api
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">Name of the ApiKey</param>
         /// <param name="subaccount">Email of the subaccount of which ApiKey should be loaded (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiKey</returns>
-        System.Threading.Tasks.Task<ApiKey> SecurityApikeysByNameGetAsync(string name, string subaccount = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiKey> SecurityApikeysByNameGetAsync(string name, string subaccount = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Load ApiKey
@@ -305,9 +328,10 @@ namespace ElasticEmail.Api
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">Name of the ApiKey</param>
         /// <param name="subaccount">Email of the subaccount of which ApiKey should be loaded (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ApiKey)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ApiKey>> SecurityApikeysByNameGetWithHttpInfoAsync(string name, string subaccount = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<ApiKey>> SecurityApikeysByNameGetWithHttpInfoAsync(string name, string subaccount = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Update ApiKey
         /// </summary>
@@ -317,9 +341,10 @@ namespace ElasticEmail.Api
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">Name of the ApiKey</param>
         /// <param name="apiKeyPayload"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiKey</returns>
-        System.Threading.Tasks.Task<ApiKey> SecurityApikeysByNamePutAsync(string name, ApiKeyPayload apiKeyPayload, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiKey> SecurityApikeysByNamePutAsync(string name, ApiKeyPayload apiKeyPayload, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Update ApiKey
@@ -330,9 +355,10 @@ namespace ElasticEmail.Api
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">Name of the ApiKey</param>
         /// <param name="apiKeyPayload"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ApiKey)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ApiKey>> SecurityApikeysByNamePutWithHttpInfoAsync(string name, ApiKeyPayload apiKeyPayload, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<ApiKey>> SecurityApikeysByNamePutWithHttpInfoAsync(string name, ApiKeyPayload apiKeyPayload, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// List ApiKeys
         /// </summary>
@@ -341,9 +367,10 @@ namespace ElasticEmail.Api
         /// </remarks>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="subaccount">Email of the subaccount of which ApiKeys should be loaded (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;ApiKey&gt;</returns>
-        System.Threading.Tasks.Task<List<ApiKey>> SecurityApikeysGetAsync(string subaccount = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<List<ApiKey>> SecurityApikeysGetAsync(string subaccount = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// List ApiKeys
@@ -353,9 +380,10 @@ namespace ElasticEmail.Api
         /// </remarks>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="subaccount">Email of the subaccount of which ApiKeys should be loaded (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;ApiKey&gt;)</returns>
-        System.Threading.Tasks.Task<ApiResponse<List<ApiKey>>> SecurityApikeysGetWithHttpInfoAsync(string subaccount = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<List<ApiKey>>> SecurityApikeysGetWithHttpInfoAsync(string subaccount = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Add ApiKey
         /// </summary>
@@ -364,9 +392,10 @@ namespace ElasticEmail.Api
         /// </remarks>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="apiKeyPayload"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of NewApiKey</returns>
-        System.Threading.Tasks.Task<NewApiKey> SecurityApikeysPostAsync(ApiKeyPayload apiKeyPayload, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<NewApiKey> SecurityApikeysPostAsync(ApiKeyPayload apiKeyPayload, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Add ApiKey
@@ -376,9 +405,10 @@ namespace ElasticEmail.Api
         /// </remarks>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="apiKeyPayload"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (NewApiKey)</returns>
-        System.Threading.Tasks.Task<ApiResponse<NewApiKey>> SecurityApikeysPostWithHttpInfoAsync(ApiKeyPayload apiKeyPayload, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<NewApiKey>> SecurityApikeysPostWithHttpInfoAsync(ApiKeyPayload apiKeyPayload, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Delete SMTP Credential
         /// </summary>
@@ -388,9 +418,10 @@ namespace ElasticEmail.Api
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">Name of the SMTP Credential</param>
         /// <param name="subaccount">Email of the subaccount of which credential should be deleted (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task SecuritySmtpByNameDeleteAsync(string name, string subaccount = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task SecuritySmtpByNameDeleteAsync(string name, string subaccount = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Delete SMTP Credential
@@ -401,9 +432,10 @@ namespace ElasticEmail.Api
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">Name of the SMTP Credential</param>
         /// <param name="subaccount">Email of the subaccount of which credential should be deleted (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> SecuritySmtpByNameDeleteWithHttpInfoAsync(string name, string subaccount = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Object>> SecuritySmtpByNameDeleteWithHttpInfoAsync(string name, string subaccount = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Load SMTP Credential
         /// </summary>
@@ -413,9 +445,10 @@ namespace ElasticEmail.Api
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">Name of the SMTP Credential</param>
         /// <param name="subaccount">Email of the subaccount of which credential should be loaded (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of SmtpCredentials</returns>
-        System.Threading.Tasks.Task<SmtpCredentials> SecuritySmtpByNameGetAsync(string name, string subaccount = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<SmtpCredentials> SecuritySmtpByNameGetAsync(string name, string subaccount = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Load SMTP Credential
@@ -426,9 +459,10 @@ namespace ElasticEmail.Api
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">Name of the SMTP Credential</param>
         /// <param name="subaccount">Email of the subaccount of which credential should be loaded (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (SmtpCredentials)</returns>
-        System.Threading.Tasks.Task<ApiResponse<SmtpCredentials>> SecuritySmtpByNameGetWithHttpInfoAsync(string name, string subaccount = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<SmtpCredentials>> SecuritySmtpByNameGetWithHttpInfoAsync(string name, string subaccount = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Update SMTP Credential
         /// </summary>
@@ -438,9 +472,10 @@ namespace ElasticEmail.Api
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">Name of the SMTP Credential</param>
         /// <param name="smtpCredentialsPayload"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of SmtpCredentials</returns>
-        System.Threading.Tasks.Task<SmtpCredentials> SecuritySmtpByNamePutAsync(string name, SmtpCredentialsPayload smtpCredentialsPayload, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<SmtpCredentials> SecuritySmtpByNamePutAsync(string name, SmtpCredentialsPayload smtpCredentialsPayload, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Update SMTP Credential
@@ -451,9 +486,10 @@ namespace ElasticEmail.Api
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">Name of the SMTP Credential</param>
         /// <param name="smtpCredentialsPayload"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (SmtpCredentials)</returns>
-        System.Threading.Tasks.Task<ApiResponse<SmtpCredentials>> SecuritySmtpByNamePutWithHttpInfoAsync(string name, SmtpCredentialsPayload smtpCredentialsPayload, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<SmtpCredentials>> SecuritySmtpByNamePutWithHttpInfoAsync(string name, SmtpCredentialsPayload smtpCredentialsPayload, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// List SMTP Credentials
         /// </summary>
@@ -462,9 +498,10 @@ namespace ElasticEmail.Api
         /// </remarks>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="subaccount">Email of the subaccount of which credentials should be listed (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;SmtpCredentials&gt;</returns>
-        System.Threading.Tasks.Task<List<SmtpCredentials>> SecuritySmtpGetAsync(string subaccount = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<List<SmtpCredentials>> SecuritySmtpGetAsync(string subaccount = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// List SMTP Credentials
@@ -474,9 +511,10 @@ namespace ElasticEmail.Api
         /// </remarks>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="subaccount">Email of the subaccount of which credentials should be listed (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;SmtpCredentials&gt;)</returns>
-        System.Threading.Tasks.Task<ApiResponse<List<SmtpCredentials>>> SecuritySmtpGetWithHttpInfoAsync(string subaccount = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<List<SmtpCredentials>>> SecuritySmtpGetWithHttpInfoAsync(string subaccount = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Add SMTP Credential
         /// </summary>
@@ -485,9 +523,10 @@ namespace ElasticEmail.Api
         /// </remarks>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="smtpCredentialsPayload"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of NewSmtpCredentials</returns>
-        System.Threading.Tasks.Task<NewSmtpCredentials> SecuritySmtpPostAsync(SmtpCredentialsPayload smtpCredentialsPayload, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<NewSmtpCredentials> SecuritySmtpPostAsync(SmtpCredentialsPayload smtpCredentialsPayload, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Add SMTP Credential
@@ -497,9 +536,10 @@ namespace ElasticEmail.Api
         /// </remarks>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="smtpCredentialsPayload"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (NewSmtpCredentials)</returns>
-        System.Threading.Tasks.Task<ApiResponse<NewSmtpCredentials>> SecuritySmtpPostWithHttpInfoAsync(SmtpCredentialsPayload smtpCredentialsPayload, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<NewSmtpCredentials>> SecuritySmtpPostWithHttpInfoAsync(SmtpCredentialsPayload smtpCredentialsPayload, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         #endregion Asynchronous Operations
     }
 
@@ -626,8 +666,9 @@ namespace ElasticEmail.Api
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">Name of the ApiKey</param>
         /// <param name="subaccount">Email of the subaccount of which ApiKey should be deleted (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns></returns>
-        public void SecurityApikeysByNameDelete(string name, string subaccount = default(string))
+        public void SecurityApikeysByNameDelete(string name, string subaccount = default(string), int operationIndex = 0)
         {
             SecurityApikeysByNameDeleteWithHttpInfo(name, subaccount);
         }
@@ -638,8 +679,9 @@ namespace ElasticEmail.Api
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">Name of the ApiKey</param>
         /// <param name="subaccount">Email of the subaccount of which ApiKey should be deleted (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        public ElasticEmail.Client.ApiResponse<Object> SecurityApikeysByNameDeleteWithHttpInfo(string name, string subaccount = default(string))
+        public ElasticEmail.Client.ApiResponse<Object> SecurityApikeysByNameDeleteWithHttpInfo(string name, string subaccount = default(string), int operationIndex = 0)
         {
             // verify the required parameter 'name' is set
             if (name == null)
@@ -673,6 +715,9 @@ namespace ElasticEmail.Api
             {
                 localVarRequestOptions.QueryParameters.Add(ElasticEmail.Client.ClientUtils.ParameterToMultiMap("", "subaccount", subaccount));
             }
+
+            localVarRequestOptions.Operation = "SecurityApi.SecurityApikeysByNameDelete";
+            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (apikey) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-ElasticEmail-ApiKey")))
@@ -700,11 +745,12 @@ namespace ElasticEmail.Api
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">Name of the ApiKey</param>
         /// <param name="subaccount">Email of the subaccount of which ApiKey should be deleted (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task SecurityApikeysByNameDeleteAsync(string name, string subaccount = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task SecurityApikeysByNameDeleteAsync(string name, string subaccount = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            await SecurityApikeysByNameDeleteWithHttpInfoAsync(name, subaccount, cancellationToken).ConfigureAwait(false);
+            await SecurityApikeysByNameDeleteWithHttpInfoAsync(name, subaccount, operationIndex, cancellationToken).ConfigureAwait(false);
         }
 
         /// <summary>
@@ -713,9 +759,10 @@ namespace ElasticEmail.Api
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">Name of the ApiKey</param>
         /// <param name="subaccount">Email of the subaccount of which ApiKey should be deleted (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<ElasticEmail.Client.ApiResponse<Object>> SecurityApikeysByNameDeleteWithHttpInfoAsync(string name, string subaccount = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ElasticEmail.Client.ApiResponse<Object>> SecurityApikeysByNameDeleteWithHttpInfoAsync(string name, string subaccount = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'name' is set
             if (name == null)
@@ -750,6 +797,9 @@ namespace ElasticEmail.Api
             {
                 localVarRequestOptions.QueryParameters.Add(ElasticEmail.Client.ClientUtils.ParameterToMultiMap("", "subaccount", subaccount));
             }
+
+            localVarRequestOptions.Operation = "SecurityApi.SecurityApikeysByNameDelete";
+            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (apikey) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-ElasticEmail-ApiKey")))
@@ -778,8 +828,9 @@ namespace ElasticEmail.Api
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">Name of the ApiKey</param>
         /// <param name="subaccount">Email of the subaccount of which ApiKey should be loaded (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiKey</returns>
-        public ApiKey SecurityApikeysByNameGet(string name, string subaccount = default(string))
+        public ApiKey SecurityApikeysByNameGet(string name, string subaccount = default(string), int operationIndex = 0)
         {
             ElasticEmail.Client.ApiResponse<ApiKey> localVarResponse = SecurityApikeysByNameGetWithHttpInfo(name, subaccount);
             return localVarResponse.Data;
@@ -791,8 +842,9 @@ namespace ElasticEmail.Api
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">Name of the ApiKey</param>
         /// <param name="subaccount">Email of the subaccount of which ApiKey should be loaded (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of ApiKey</returns>
-        public ElasticEmail.Client.ApiResponse<ApiKey> SecurityApikeysByNameGetWithHttpInfo(string name, string subaccount = default(string))
+        public ElasticEmail.Client.ApiResponse<ApiKey> SecurityApikeysByNameGetWithHttpInfo(string name, string subaccount = default(string), int operationIndex = 0)
         {
             // verify the required parameter 'name' is set
             if (name == null)
@@ -827,6 +879,9 @@ namespace ElasticEmail.Api
             {
                 localVarRequestOptions.QueryParameters.Add(ElasticEmail.Client.ClientUtils.ParameterToMultiMap("", "subaccount", subaccount));
             }
+
+            localVarRequestOptions.Operation = "SecurityApi.SecurityApikeysByNameGet";
+            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (apikey) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-ElasticEmail-ApiKey")))
@@ -854,11 +909,12 @@ namespace ElasticEmail.Api
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">Name of the ApiKey</param>
         /// <param name="subaccount">Email of the subaccount of which ApiKey should be loaded (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiKey</returns>
-        public async System.Threading.Tasks.Task<ApiKey> SecurityApikeysByNameGetAsync(string name, string subaccount = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ApiKey> SecurityApikeysByNameGetAsync(string name, string subaccount = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            ElasticEmail.Client.ApiResponse<ApiKey> localVarResponse = await SecurityApikeysByNameGetWithHttpInfoAsync(name, subaccount, cancellationToken).ConfigureAwait(false);
+            ElasticEmail.Client.ApiResponse<ApiKey> localVarResponse = await SecurityApikeysByNameGetWithHttpInfoAsync(name, subaccount, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -868,9 +924,10 @@ namespace ElasticEmail.Api
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">Name of the ApiKey</param>
         /// <param name="subaccount">Email of the subaccount of which ApiKey should be loaded (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ApiKey)</returns>
-        public async System.Threading.Tasks.Task<ElasticEmail.Client.ApiResponse<ApiKey>> SecurityApikeysByNameGetWithHttpInfoAsync(string name, string subaccount = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ElasticEmail.Client.ApiResponse<ApiKey>> SecurityApikeysByNameGetWithHttpInfoAsync(string name, string subaccount = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'name' is set
             if (name == null)
@@ -906,6 +963,9 @@ namespace ElasticEmail.Api
             {
                 localVarRequestOptions.QueryParameters.Add(ElasticEmail.Client.ClientUtils.ParameterToMultiMap("", "subaccount", subaccount));
             }
+
+            localVarRequestOptions.Operation = "SecurityApi.SecurityApikeysByNameGet";
+            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (apikey) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-ElasticEmail-ApiKey")))
@@ -934,8 +994,9 @@ namespace ElasticEmail.Api
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">Name of the ApiKey</param>
         /// <param name="apiKeyPayload"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiKey</returns>
-        public ApiKey SecurityApikeysByNamePut(string name, ApiKeyPayload apiKeyPayload)
+        public ApiKey SecurityApikeysByNamePut(string name, ApiKeyPayload apiKeyPayload, int operationIndex = 0)
         {
             ElasticEmail.Client.ApiResponse<ApiKey> localVarResponse = SecurityApikeysByNamePutWithHttpInfo(name, apiKeyPayload);
             return localVarResponse.Data;
@@ -947,8 +1008,9 @@ namespace ElasticEmail.Api
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">Name of the ApiKey</param>
         /// <param name="apiKeyPayload"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of ApiKey</returns>
-        public ElasticEmail.Client.ApiResponse<ApiKey> SecurityApikeysByNamePutWithHttpInfo(string name, ApiKeyPayload apiKeyPayload)
+        public ElasticEmail.Client.ApiResponse<ApiKey> SecurityApikeysByNamePutWithHttpInfo(string name, ApiKeyPayload apiKeyPayload, int operationIndex = 0)
         {
             // verify the required parameter 'name' is set
             if (name == null)
@@ -987,6 +1049,9 @@ namespace ElasticEmail.Api
 
             localVarRequestOptions.PathParameters.Add("name", ElasticEmail.Client.ClientUtils.ParameterToString(name)); // path parameter
             localVarRequestOptions.Data = apiKeyPayload;
+
+            localVarRequestOptions.Operation = "SecurityApi.SecurityApikeysByNamePut";
+            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (apikey) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-ElasticEmail-ApiKey")))
@@ -1014,11 +1079,12 @@ namespace ElasticEmail.Api
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">Name of the ApiKey</param>
         /// <param name="apiKeyPayload"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiKey</returns>
-        public async System.Threading.Tasks.Task<ApiKey> SecurityApikeysByNamePutAsync(string name, ApiKeyPayload apiKeyPayload, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ApiKey> SecurityApikeysByNamePutAsync(string name, ApiKeyPayload apiKeyPayload, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            ElasticEmail.Client.ApiResponse<ApiKey> localVarResponse = await SecurityApikeysByNamePutWithHttpInfoAsync(name, apiKeyPayload, cancellationToken).ConfigureAwait(false);
+            ElasticEmail.Client.ApiResponse<ApiKey> localVarResponse = await SecurityApikeysByNamePutWithHttpInfoAsync(name, apiKeyPayload, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1028,9 +1094,10 @@ namespace ElasticEmail.Api
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">Name of the ApiKey</param>
         /// <param name="apiKeyPayload"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ApiKey)</returns>
-        public async System.Threading.Tasks.Task<ElasticEmail.Client.ApiResponse<ApiKey>> SecurityApikeysByNamePutWithHttpInfoAsync(string name, ApiKeyPayload apiKeyPayload, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ElasticEmail.Client.ApiResponse<ApiKey>> SecurityApikeysByNamePutWithHttpInfoAsync(string name, ApiKeyPayload apiKeyPayload, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'name' is set
             if (name == null)
@@ -1071,6 +1138,9 @@ namespace ElasticEmail.Api
             localVarRequestOptions.PathParameters.Add("name", ElasticEmail.Client.ClientUtils.ParameterToString(name)); // path parameter
             localVarRequestOptions.Data = apiKeyPayload;
 
+            localVarRequestOptions.Operation = "SecurityApi.SecurityApikeysByNamePut";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
             // authentication (apikey) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-ElasticEmail-ApiKey")))
             {
@@ -1097,8 +1167,9 @@ namespace ElasticEmail.Api
         /// </summary>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="subaccount">Email of the subaccount of which ApiKeys should be loaded (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>List&lt;ApiKey&gt;</returns>
-        public List<ApiKey> SecurityApikeysGet(string subaccount = default(string))
+        public List<ApiKey> SecurityApikeysGet(string subaccount = default(string), int operationIndex = 0)
         {
             ElasticEmail.Client.ApiResponse<List<ApiKey>> localVarResponse = SecurityApikeysGetWithHttpInfo(subaccount);
             return localVarResponse.Data;
@@ -1109,8 +1180,9 @@ namespace ElasticEmail.Api
         /// </summary>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="subaccount">Email of the subaccount of which ApiKeys should be loaded (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of List&lt;ApiKey&gt;</returns>
-        public ElasticEmail.Client.ApiResponse<List<ApiKey>> SecurityApikeysGetWithHttpInfo(string subaccount = default(string))
+        public ElasticEmail.Client.ApiResponse<List<ApiKey>> SecurityApikeysGetWithHttpInfo(string subaccount = default(string), int operationIndex = 0)
         {
             ElasticEmail.Client.RequestOptions localVarRequestOptions = new ElasticEmail.Client.RequestOptions();
 
@@ -1138,6 +1210,9 @@ namespace ElasticEmail.Api
             {
                 localVarRequestOptions.QueryParameters.Add(ElasticEmail.Client.ClientUtils.ParameterToMultiMap("", "subaccount", subaccount));
             }
+
+            localVarRequestOptions.Operation = "SecurityApi.SecurityApikeysGet";
+            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (apikey) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-ElasticEmail-ApiKey")))
@@ -1164,11 +1239,12 @@ namespace ElasticEmail.Api
         /// </summary>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="subaccount">Email of the subaccount of which ApiKeys should be loaded (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;ApiKey&gt;</returns>
-        public async System.Threading.Tasks.Task<List<ApiKey>> SecurityApikeysGetAsync(string subaccount = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<List<ApiKey>> SecurityApikeysGetAsync(string subaccount = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            ElasticEmail.Client.ApiResponse<List<ApiKey>> localVarResponse = await SecurityApikeysGetWithHttpInfoAsync(subaccount, cancellationToken).ConfigureAwait(false);
+            ElasticEmail.Client.ApiResponse<List<ApiKey>> localVarResponse = await SecurityApikeysGetWithHttpInfoAsync(subaccount, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1177,9 +1253,10 @@ namespace ElasticEmail.Api
         /// </summary>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="subaccount">Email of the subaccount of which ApiKeys should be loaded (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;ApiKey&gt;)</returns>
-        public async System.Threading.Tasks.Task<ElasticEmail.Client.ApiResponse<List<ApiKey>>> SecurityApikeysGetWithHttpInfoAsync(string subaccount = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ElasticEmail.Client.ApiResponse<List<ApiKey>>> SecurityApikeysGetWithHttpInfoAsync(string subaccount = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             ElasticEmail.Client.RequestOptions localVarRequestOptions = new ElasticEmail.Client.RequestOptions();
@@ -1208,6 +1285,9 @@ namespace ElasticEmail.Api
             {
                 localVarRequestOptions.QueryParameters.Add(ElasticEmail.Client.ClientUtils.ParameterToMultiMap("", "subaccount", subaccount));
             }
+
+            localVarRequestOptions.Operation = "SecurityApi.SecurityApikeysGet";
+            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (apikey) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-ElasticEmail-ApiKey")))
@@ -1235,8 +1315,9 @@ namespace ElasticEmail.Api
         /// </summary>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="apiKeyPayload"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>NewApiKey</returns>
-        public NewApiKey SecurityApikeysPost(ApiKeyPayload apiKeyPayload)
+        public NewApiKey SecurityApikeysPost(ApiKeyPayload apiKeyPayload, int operationIndex = 0)
         {
             ElasticEmail.Client.ApiResponse<NewApiKey> localVarResponse = SecurityApikeysPostWithHttpInfo(apiKeyPayload);
             return localVarResponse.Data;
@@ -1247,8 +1328,9 @@ namespace ElasticEmail.Api
         /// </summary>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="apiKeyPayload"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of NewApiKey</returns>
-        public ElasticEmail.Client.ApiResponse<NewApiKey> SecurityApikeysPostWithHttpInfo(ApiKeyPayload apiKeyPayload)
+        public ElasticEmail.Client.ApiResponse<NewApiKey> SecurityApikeysPostWithHttpInfo(ApiKeyPayload apiKeyPayload, int operationIndex = 0)
         {
             // verify the required parameter 'apiKeyPayload' is set
             if (apiKeyPayload == null)
@@ -1280,6 +1362,9 @@ namespace ElasticEmail.Api
             }
 
             localVarRequestOptions.Data = apiKeyPayload;
+
+            localVarRequestOptions.Operation = "SecurityApi.SecurityApikeysPost";
+            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (apikey) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-ElasticEmail-ApiKey")))
@@ -1306,11 +1391,12 @@ namespace ElasticEmail.Api
         /// </summary>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="apiKeyPayload"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of NewApiKey</returns>
-        public async System.Threading.Tasks.Task<NewApiKey> SecurityApikeysPostAsync(ApiKeyPayload apiKeyPayload, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<NewApiKey> SecurityApikeysPostAsync(ApiKeyPayload apiKeyPayload, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            ElasticEmail.Client.ApiResponse<NewApiKey> localVarResponse = await SecurityApikeysPostWithHttpInfoAsync(apiKeyPayload, cancellationToken).ConfigureAwait(false);
+            ElasticEmail.Client.ApiResponse<NewApiKey> localVarResponse = await SecurityApikeysPostWithHttpInfoAsync(apiKeyPayload, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1319,9 +1405,10 @@ namespace ElasticEmail.Api
         /// </summary>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="apiKeyPayload"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (NewApiKey)</returns>
-        public async System.Threading.Tasks.Task<ElasticEmail.Client.ApiResponse<NewApiKey>> SecurityApikeysPostWithHttpInfoAsync(ApiKeyPayload apiKeyPayload, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ElasticEmail.Client.ApiResponse<NewApiKey>> SecurityApikeysPostWithHttpInfoAsync(ApiKeyPayload apiKeyPayload, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'apiKeyPayload' is set
             if (apiKeyPayload == null)
@@ -1354,6 +1441,9 @@ namespace ElasticEmail.Api
             }
 
             localVarRequestOptions.Data = apiKeyPayload;
+
+            localVarRequestOptions.Operation = "SecurityApi.SecurityApikeysPost";
+            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (apikey) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-ElasticEmail-ApiKey")))
@@ -1382,8 +1472,9 @@ namespace ElasticEmail.Api
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">Name of the SMTP Credential</param>
         /// <param name="subaccount">Email of the subaccount of which credential should be deleted (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns></returns>
-        public void SecuritySmtpByNameDelete(string name, string subaccount = default(string))
+        public void SecuritySmtpByNameDelete(string name, string subaccount = default(string), int operationIndex = 0)
         {
             SecuritySmtpByNameDeleteWithHttpInfo(name, subaccount);
         }
@@ -1394,8 +1485,9 @@ namespace ElasticEmail.Api
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">Name of the SMTP Credential</param>
         /// <param name="subaccount">Email of the subaccount of which credential should be deleted (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        public ElasticEmail.Client.ApiResponse<Object> SecuritySmtpByNameDeleteWithHttpInfo(string name, string subaccount = default(string))
+        public ElasticEmail.Client.ApiResponse<Object> SecuritySmtpByNameDeleteWithHttpInfo(string name, string subaccount = default(string), int operationIndex = 0)
         {
             // verify the required parameter 'name' is set
             if (name == null)
@@ -1429,6 +1521,9 @@ namespace ElasticEmail.Api
             {
                 localVarRequestOptions.QueryParameters.Add(ElasticEmail.Client.ClientUtils.ParameterToMultiMap("", "subaccount", subaccount));
             }
+
+            localVarRequestOptions.Operation = "SecurityApi.SecuritySmtpByNameDelete";
+            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (apikey) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-ElasticEmail-ApiKey")))
@@ -1456,11 +1551,12 @@ namespace ElasticEmail.Api
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">Name of the SMTP Credential</param>
         /// <param name="subaccount">Email of the subaccount of which credential should be deleted (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task SecuritySmtpByNameDeleteAsync(string name, string subaccount = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task SecuritySmtpByNameDeleteAsync(string name, string subaccount = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            await SecuritySmtpByNameDeleteWithHttpInfoAsync(name, subaccount, cancellationToken).ConfigureAwait(false);
+            await SecuritySmtpByNameDeleteWithHttpInfoAsync(name, subaccount, operationIndex, cancellationToken).ConfigureAwait(false);
         }
 
         /// <summary>
@@ -1469,9 +1565,10 @@ namespace ElasticEmail.Api
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">Name of the SMTP Credential</param>
         /// <param name="subaccount">Email of the subaccount of which credential should be deleted (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<ElasticEmail.Client.ApiResponse<Object>> SecuritySmtpByNameDeleteWithHttpInfoAsync(string name, string subaccount = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ElasticEmail.Client.ApiResponse<Object>> SecuritySmtpByNameDeleteWithHttpInfoAsync(string name, string subaccount = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'name' is set
             if (name == null)
@@ -1506,6 +1603,9 @@ namespace ElasticEmail.Api
             {
                 localVarRequestOptions.QueryParameters.Add(ElasticEmail.Client.ClientUtils.ParameterToMultiMap("", "subaccount", subaccount));
             }
+
+            localVarRequestOptions.Operation = "SecurityApi.SecuritySmtpByNameDelete";
+            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (apikey) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-ElasticEmail-ApiKey")))
@@ -1534,8 +1634,9 @@ namespace ElasticEmail.Api
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">Name of the SMTP Credential</param>
         /// <param name="subaccount">Email of the subaccount of which credential should be loaded (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>SmtpCredentials</returns>
-        public SmtpCredentials SecuritySmtpByNameGet(string name, string subaccount = default(string))
+        public SmtpCredentials SecuritySmtpByNameGet(string name, string subaccount = default(string), int operationIndex = 0)
         {
             ElasticEmail.Client.ApiResponse<SmtpCredentials> localVarResponse = SecuritySmtpByNameGetWithHttpInfo(name, subaccount);
             return localVarResponse.Data;
@@ -1547,8 +1648,9 @@ namespace ElasticEmail.Api
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">Name of the SMTP Credential</param>
         /// <param name="subaccount">Email of the subaccount of which credential should be loaded (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of SmtpCredentials</returns>
-        public ElasticEmail.Client.ApiResponse<SmtpCredentials> SecuritySmtpByNameGetWithHttpInfo(string name, string subaccount = default(string))
+        public ElasticEmail.Client.ApiResponse<SmtpCredentials> SecuritySmtpByNameGetWithHttpInfo(string name, string subaccount = default(string), int operationIndex = 0)
         {
             // verify the required parameter 'name' is set
             if (name == null)
@@ -1583,6 +1685,9 @@ namespace ElasticEmail.Api
             {
                 localVarRequestOptions.QueryParameters.Add(ElasticEmail.Client.ClientUtils.ParameterToMultiMap("", "subaccount", subaccount));
             }
+
+            localVarRequestOptions.Operation = "SecurityApi.SecuritySmtpByNameGet";
+            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (apikey) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-ElasticEmail-ApiKey")))
@@ -1610,11 +1715,12 @@ namespace ElasticEmail.Api
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">Name of the SMTP Credential</param>
         /// <param name="subaccount">Email of the subaccount of which credential should be loaded (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of SmtpCredentials</returns>
-        public async System.Threading.Tasks.Task<SmtpCredentials> SecuritySmtpByNameGetAsync(string name, string subaccount = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<SmtpCredentials> SecuritySmtpByNameGetAsync(string name, string subaccount = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            ElasticEmail.Client.ApiResponse<SmtpCredentials> localVarResponse = await SecuritySmtpByNameGetWithHttpInfoAsync(name, subaccount, cancellationToken).ConfigureAwait(false);
+            ElasticEmail.Client.ApiResponse<SmtpCredentials> localVarResponse = await SecuritySmtpByNameGetWithHttpInfoAsync(name, subaccount, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1624,9 +1730,10 @@ namespace ElasticEmail.Api
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">Name of the SMTP Credential</param>
         /// <param name="subaccount">Email of the subaccount of which credential should be loaded (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (SmtpCredentials)</returns>
-        public async System.Threading.Tasks.Task<ElasticEmail.Client.ApiResponse<SmtpCredentials>> SecuritySmtpByNameGetWithHttpInfoAsync(string name, string subaccount = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ElasticEmail.Client.ApiResponse<SmtpCredentials>> SecuritySmtpByNameGetWithHttpInfoAsync(string name, string subaccount = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'name' is set
             if (name == null)
@@ -1662,6 +1769,9 @@ namespace ElasticEmail.Api
             {
                 localVarRequestOptions.QueryParameters.Add(ElasticEmail.Client.ClientUtils.ParameterToMultiMap("", "subaccount", subaccount));
             }
+
+            localVarRequestOptions.Operation = "SecurityApi.SecuritySmtpByNameGet";
+            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (apikey) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-ElasticEmail-ApiKey")))
@@ -1690,8 +1800,9 @@ namespace ElasticEmail.Api
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">Name of the SMTP Credential</param>
         /// <param name="smtpCredentialsPayload"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>SmtpCredentials</returns>
-        public SmtpCredentials SecuritySmtpByNamePut(string name, SmtpCredentialsPayload smtpCredentialsPayload)
+        public SmtpCredentials SecuritySmtpByNamePut(string name, SmtpCredentialsPayload smtpCredentialsPayload, int operationIndex = 0)
         {
             ElasticEmail.Client.ApiResponse<SmtpCredentials> localVarResponse = SecuritySmtpByNamePutWithHttpInfo(name, smtpCredentialsPayload);
             return localVarResponse.Data;
@@ -1703,8 +1814,9 @@ namespace ElasticEmail.Api
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">Name of the SMTP Credential</param>
         /// <param name="smtpCredentialsPayload"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of SmtpCredentials</returns>
-        public ElasticEmail.Client.ApiResponse<SmtpCredentials> SecuritySmtpByNamePutWithHttpInfo(string name, SmtpCredentialsPayload smtpCredentialsPayload)
+        public ElasticEmail.Client.ApiResponse<SmtpCredentials> SecuritySmtpByNamePutWithHttpInfo(string name, SmtpCredentialsPayload smtpCredentialsPayload, int operationIndex = 0)
         {
             // verify the required parameter 'name' is set
             if (name == null)
@@ -1743,6 +1855,9 @@ namespace ElasticEmail.Api
 
             localVarRequestOptions.PathParameters.Add("name", ElasticEmail.Client.ClientUtils.ParameterToString(name)); // path parameter
             localVarRequestOptions.Data = smtpCredentialsPayload;
+
+            localVarRequestOptions.Operation = "SecurityApi.SecuritySmtpByNamePut";
+            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (apikey) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-ElasticEmail-ApiKey")))
@@ -1770,11 +1885,12 @@ namespace ElasticEmail.Api
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">Name of the SMTP Credential</param>
         /// <param name="smtpCredentialsPayload"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of SmtpCredentials</returns>
-        public async System.Threading.Tasks.Task<SmtpCredentials> SecuritySmtpByNamePutAsync(string name, SmtpCredentialsPayload smtpCredentialsPayload, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<SmtpCredentials> SecuritySmtpByNamePutAsync(string name, SmtpCredentialsPayload smtpCredentialsPayload, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            ElasticEmail.Client.ApiResponse<SmtpCredentials> localVarResponse = await SecuritySmtpByNamePutWithHttpInfoAsync(name, smtpCredentialsPayload, cancellationToken).ConfigureAwait(false);
+            ElasticEmail.Client.ApiResponse<SmtpCredentials> localVarResponse = await SecuritySmtpByNamePutWithHttpInfoAsync(name, smtpCredentialsPayload, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1784,9 +1900,10 @@ namespace ElasticEmail.Api
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">Name of the SMTP Credential</param>
         /// <param name="smtpCredentialsPayload"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (SmtpCredentials)</returns>
-        public async System.Threading.Tasks.Task<ElasticEmail.Client.ApiResponse<SmtpCredentials>> SecuritySmtpByNamePutWithHttpInfoAsync(string name, SmtpCredentialsPayload smtpCredentialsPayload, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ElasticEmail.Client.ApiResponse<SmtpCredentials>> SecuritySmtpByNamePutWithHttpInfoAsync(string name, SmtpCredentialsPayload smtpCredentialsPayload, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'name' is set
             if (name == null)
@@ -1827,6 +1944,9 @@ namespace ElasticEmail.Api
             localVarRequestOptions.PathParameters.Add("name", ElasticEmail.Client.ClientUtils.ParameterToString(name)); // path parameter
             localVarRequestOptions.Data = smtpCredentialsPayload;
 
+            localVarRequestOptions.Operation = "SecurityApi.SecuritySmtpByNamePut";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
             // authentication (apikey) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-ElasticEmail-ApiKey")))
             {
@@ -1853,8 +1973,9 @@ namespace ElasticEmail.Api
         /// </summary>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="subaccount">Email of the subaccount of which credentials should be listed (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>List&lt;SmtpCredentials&gt;</returns>
-        public List<SmtpCredentials> SecuritySmtpGet(string subaccount = default(string))
+        public List<SmtpCredentials> SecuritySmtpGet(string subaccount = default(string), int operationIndex = 0)
         {
             ElasticEmail.Client.ApiResponse<List<SmtpCredentials>> localVarResponse = SecuritySmtpGetWithHttpInfo(subaccount);
             return localVarResponse.Data;
@@ -1865,8 +1986,9 @@ namespace ElasticEmail.Api
         /// </summary>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="subaccount">Email of the subaccount of which credentials should be listed (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of List&lt;SmtpCredentials&gt;</returns>
-        public ElasticEmail.Client.ApiResponse<List<SmtpCredentials>> SecuritySmtpGetWithHttpInfo(string subaccount = default(string))
+        public ElasticEmail.Client.ApiResponse<List<SmtpCredentials>> SecuritySmtpGetWithHttpInfo(string subaccount = default(string), int operationIndex = 0)
         {
             ElasticEmail.Client.RequestOptions localVarRequestOptions = new ElasticEmail.Client.RequestOptions();
 
@@ -1894,6 +2016,9 @@ namespace ElasticEmail.Api
             {
                 localVarRequestOptions.QueryParameters.Add(ElasticEmail.Client.ClientUtils.ParameterToMultiMap("", "subaccount", subaccount));
             }
+
+            localVarRequestOptions.Operation = "SecurityApi.SecuritySmtpGet";
+            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (apikey) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-ElasticEmail-ApiKey")))
@@ -1920,11 +2045,12 @@ namespace ElasticEmail.Api
         /// </summary>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="subaccount">Email of the subaccount of which credentials should be listed (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;SmtpCredentials&gt;</returns>
-        public async System.Threading.Tasks.Task<List<SmtpCredentials>> SecuritySmtpGetAsync(string subaccount = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<List<SmtpCredentials>> SecuritySmtpGetAsync(string subaccount = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            ElasticEmail.Client.ApiResponse<List<SmtpCredentials>> localVarResponse = await SecuritySmtpGetWithHttpInfoAsync(subaccount, cancellationToken).ConfigureAwait(false);
+            ElasticEmail.Client.ApiResponse<List<SmtpCredentials>> localVarResponse = await SecuritySmtpGetWithHttpInfoAsync(subaccount, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1933,9 +2059,10 @@ namespace ElasticEmail.Api
         /// </summary>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="subaccount">Email of the subaccount of which credentials should be listed (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;SmtpCredentials&gt;)</returns>
-        public async System.Threading.Tasks.Task<ElasticEmail.Client.ApiResponse<List<SmtpCredentials>>> SecuritySmtpGetWithHttpInfoAsync(string subaccount = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ElasticEmail.Client.ApiResponse<List<SmtpCredentials>>> SecuritySmtpGetWithHttpInfoAsync(string subaccount = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             ElasticEmail.Client.RequestOptions localVarRequestOptions = new ElasticEmail.Client.RequestOptions();
@@ -1964,6 +2091,9 @@ namespace ElasticEmail.Api
             {
                 localVarRequestOptions.QueryParameters.Add(ElasticEmail.Client.ClientUtils.ParameterToMultiMap("", "subaccount", subaccount));
             }
+
+            localVarRequestOptions.Operation = "SecurityApi.SecuritySmtpGet";
+            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (apikey) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-ElasticEmail-ApiKey")))
@@ -1991,8 +2121,9 @@ namespace ElasticEmail.Api
         /// </summary>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="smtpCredentialsPayload"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>NewSmtpCredentials</returns>
-        public NewSmtpCredentials SecuritySmtpPost(SmtpCredentialsPayload smtpCredentialsPayload)
+        public NewSmtpCredentials SecuritySmtpPost(SmtpCredentialsPayload smtpCredentialsPayload, int operationIndex = 0)
         {
             ElasticEmail.Client.ApiResponse<NewSmtpCredentials> localVarResponse = SecuritySmtpPostWithHttpInfo(smtpCredentialsPayload);
             return localVarResponse.Data;
@@ -2003,8 +2134,9 @@ namespace ElasticEmail.Api
         /// </summary>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="smtpCredentialsPayload"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of NewSmtpCredentials</returns>
-        public ElasticEmail.Client.ApiResponse<NewSmtpCredentials> SecuritySmtpPostWithHttpInfo(SmtpCredentialsPayload smtpCredentialsPayload)
+        public ElasticEmail.Client.ApiResponse<NewSmtpCredentials> SecuritySmtpPostWithHttpInfo(SmtpCredentialsPayload smtpCredentialsPayload, int operationIndex = 0)
         {
             // verify the required parameter 'smtpCredentialsPayload' is set
             if (smtpCredentialsPayload == null)
@@ -2036,6 +2168,9 @@ namespace ElasticEmail.Api
             }
 
             localVarRequestOptions.Data = smtpCredentialsPayload;
+
+            localVarRequestOptions.Operation = "SecurityApi.SecuritySmtpPost";
+            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (apikey) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-ElasticEmail-ApiKey")))
@@ -2062,11 +2197,12 @@ namespace ElasticEmail.Api
         /// </summary>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="smtpCredentialsPayload"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of NewSmtpCredentials</returns>
-        public async System.Threading.Tasks.Task<NewSmtpCredentials> SecuritySmtpPostAsync(SmtpCredentialsPayload smtpCredentialsPayload, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<NewSmtpCredentials> SecuritySmtpPostAsync(SmtpCredentialsPayload smtpCredentialsPayload, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            ElasticEmail.Client.ApiResponse<NewSmtpCredentials> localVarResponse = await SecuritySmtpPostWithHttpInfoAsync(smtpCredentialsPayload, cancellationToken).ConfigureAwait(false);
+            ElasticEmail.Client.ApiResponse<NewSmtpCredentials> localVarResponse = await SecuritySmtpPostWithHttpInfoAsync(smtpCredentialsPayload, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -2075,9 +2211,10 @@ namespace ElasticEmail.Api
         /// </summary>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="smtpCredentialsPayload"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (NewSmtpCredentials)</returns>
-        public async System.Threading.Tasks.Task<ElasticEmail.Client.ApiResponse<NewSmtpCredentials>> SecuritySmtpPostWithHttpInfoAsync(SmtpCredentialsPayload smtpCredentialsPayload, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ElasticEmail.Client.ApiResponse<NewSmtpCredentials>> SecuritySmtpPostWithHttpInfoAsync(SmtpCredentialsPayload smtpCredentialsPayload, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'smtpCredentialsPayload' is set
             if (smtpCredentialsPayload == null)
@@ -2110,6 +2247,9 @@ namespace ElasticEmail.Api
             }
 
             localVarRequestOptions.Data = smtpCredentialsPayload;
+
+            localVarRequestOptions.Operation = "SecurityApi.SecuritySmtpPost";
+            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (apikey) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-ElasticEmail-ApiKey")))

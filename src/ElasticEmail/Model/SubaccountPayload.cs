@@ -47,12 +47,14 @@ namespace ElasticEmail.Model
         public SubaccountPayload(string email = default(string), string password = default(string), bool sendActivation = default(bool), SubaccountSettingsInfoPayload settings = default(SubaccountSettingsInfoPayload))
         {
             // to ensure "email" is required (not null)
-            if (email == null) {
+            if (email == null)
+            {
                 throw new ArgumentNullException("email is a required property for SubaccountPayload and cannot be null");
             }
             this.Email = email;
             // to ensure "password" is required (not null)
-            if (password == null) {
+            if (password == null)
+            {
                 throw new ArgumentNullException("password is a required property for SubaccountPayload and cannot be null");
             }
             this.Password = password;

@@ -46,7 +46,8 @@ namespace ElasticEmail.Model
         public ListPayload(string listName = default(string), bool allowUnsubscribe = default(bool), List<string> emails = default(List<string>))
         {
             // to ensure "listName" is required (not null)
-            if (listName == null) {
+            if (listName == null)
+            {
                 throw new ArgumentNullException("listName is a required property for ListPayload and cannot be null");
             }
             this.ListName = listName;

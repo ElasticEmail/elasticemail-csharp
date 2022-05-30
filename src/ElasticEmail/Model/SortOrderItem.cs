@@ -45,7 +45,8 @@ namespace ElasticEmail.Model
         public SortOrderItem(string publicInboundId = default(string), int sortOrder = default(int))
         {
             // to ensure "publicInboundId" is required (not null)
-            if (publicInboundId == null) {
+            if (publicInboundId == null)
+            {
                 throw new ArgumentNullException("publicInboundId is a required property for SortOrderItem and cannot be null");
             }
             this.PublicInboundId = publicInboundId;

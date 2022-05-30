@@ -46,7 +46,8 @@ namespace ElasticEmail.Model
         public EmailMessageData(List<EmailRecipient> recipients = default(List<EmailRecipient>), EmailContent content = default(EmailContent), Options options = default(Options))
         {
             // to ensure "recipients" is required (not null)
-            if (recipients == null) {
+            if (recipients == null)
+            {
                 throw new ArgumentNullException("recipients is a required property for EmailMessageData and cannot be null");
             }
             this.Recipients = recipients;

@@ -35,8 +35,9 @@ namespace ElasticEmail.Api
         /// </remarks>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">Name of template.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns></returns>
-        void TemplatesByNameDelete(string name);
+        void TemplatesByNameDelete(string name, int operationIndex = 0);
 
         /// <summary>
         /// Delete Template
@@ -46,8 +47,9 @@ namespace ElasticEmail.Api
         /// </remarks>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">Name of template.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> TemplatesByNameDeleteWithHttpInfo(string name);
+        ApiResponse<Object> TemplatesByNameDeleteWithHttpInfo(string name, int operationIndex = 0);
         /// <summary>
         /// Load Template
         /// </summary>
@@ -56,8 +58,9 @@ namespace ElasticEmail.Api
         /// </remarks>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">Name of template.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>Template</returns>
-        Template TemplatesByNameGet(string name);
+        Template TemplatesByNameGet(string name, int operationIndex = 0);
 
         /// <summary>
         /// Load Template
@@ -67,8 +70,9 @@ namespace ElasticEmail.Api
         /// </remarks>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">Name of template.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of Template</returns>
-        ApiResponse<Template> TemplatesByNameGetWithHttpInfo(string name);
+        ApiResponse<Template> TemplatesByNameGetWithHttpInfo(string name, int operationIndex = 0);
         /// <summary>
         /// Update Template
         /// </summary>
@@ -78,8 +82,9 @@ namespace ElasticEmail.Api
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">Name of template.</param>
         /// <param name="templatePayload"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>Template</returns>
-        Template TemplatesByNamePut(string name, TemplatePayload templatePayload);
+        Template TemplatesByNamePut(string name, TemplatePayload templatePayload, int operationIndex = 0);
 
         /// <summary>
         /// Update Template
@@ -90,8 +95,9 @@ namespace ElasticEmail.Api
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">Name of template.</param>
         /// <param name="templatePayload"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of Template</returns>
-        ApiResponse<Template> TemplatesByNamePutWithHttpInfo(string name, TemplatePayload templatePayload);
+        ApiResponse<Template> TemplatesByNamePutWithHttpInfo(string name, TemplatePayload templatePayload, int operationIndex = 0);
         /// <summary>
         /// Load Templates
         /// </summary>
@@ -103,8 +109,9 @@ namespace ElasticEmail.Api
         /// <param name="templateTypes">Return templates with specified type only (optional)</param>
         /// <param name="limit">Maximum number of returned items. (optional)</param>
         /// <param name="offset">How many items should be returned ahead. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>List&lt;Template&gt;</returns>
-        List<Template> TemplatesGet(List<TemplateScope> scopeType, List<TemplateType> templateTypes = default(List<TemplateType>), int? limit = default(int?), int? offset = default(int?));
+        List<Template> TemplatesGet(List<TemplateScope> scopeType, List<TemplateType> templateTypes = default(List<TemplateType>), int? limit = default(int?), int? offset = default(int?), int operationIndex = 0);
 
         /// <summary>
         /// Load Templates
@@ -117,8 +124,9 @@ namespace ElasticEmail.Api
         /// <param name="templateTypes">Return templates with specified type only (optional)</param>
         /// <param name="limit">Maximum number of returned items. (optional)</param>
         /// <param name="offset">How many items should be returned ahead. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of List&lt;Template&gt;</returns>
-        ApiResponse<List<Template>> TemplatesGetWithHttpInfo(List<TemplateScope> scopeType, List<TemplateType> templateTypes = default(List<TemplateType>), int? limit = default(int?), int? offset = default(int?));
+        ApiResponse<List<Template>> TemplatesGetWithHttpInfo(List<TemplateScope> scopeType, List<TemplateType> templateTypes = default(List<TemplateType>), int? limit = default(int?), int? offset = default(int?), int operationIndex = 0);
         /// <summary>
         /// Add Template
         /// </summary>
@@ -127,8 +135,9 @@ namespace ElasticEmail.Api
         /// </remarks>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="templatePayload"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>Template</returns>
-        Template TemplatesPost(TemplatePayload templatePayload);
+        Template TemplatesPost(TemplatePayload templatePayload, int operationIndex = 0);
 
         /// <summary>
         /// Add Template
@@ -138,8 +147,9 @@ namespace ElasticEmail.Api
         /// </remarks>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="templatePayload"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of Template</returns>
-        ApiResponse<Template> TemplatesPostWithHttpInfo(TemplatePayload templatePayload);
+        ApiResponse<Template> TemplatesPostWithHttpInfo(TemplatePayload templatePayload, int operationIndex = 0);
         #endregion Synchronous Operations
     }
 
@@ -157,9 +167,10 @@ namespace ElasticEmail.Api
         /// </remarks>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">Name of template.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task TemplatesByNameDeleteAsync(string name, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task TemplatesByNameDeleteAsync(string name, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Delete Template
@@ -169,9 +180,10 @@ namespace ElasticEmail.Api
         /// </remarks>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">Name of template.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> TemplatesByNameDeleteWithHttpInfoAsync(string name, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Object>> TemplatesByNameDeleteWithHttpInfoAsync(string name, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Load Template
         /// </summary>
@@ -180,9 +192,10 @@ namespace ElasticEmail.Api
         /// </remarks>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">Name of template.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Template</returns>
-        System.Threading.Tasks.Task<Template> TemplatesByNameGetAsync(string name, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<Template> TemplatesByNameGetAsync(string name, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Load Template
@@ -192,9 +205,10 @@ namespace ElasticEmail.Api
         /// </remarks>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">Name of template.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Template)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Template>> TemplatesByNameGetWithHttpInfoAsync(string name, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Template>> TemplatesByNameGetWithHttpInfoAsync(string name, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Update Template
         /// </summary>
@@ -204,9 +218,10 @@ namespace ElasticEmail.Api
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">Name of template.</param>
         /// <param name="templatePayload"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Template</returns>
-        System.Threading.Tasks.Task<Template> TemplatesByNamePutAsync(string name, TemplatePayload templatePayload, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<Template> TemplatesByNamePutAsync(string name, TemplatePayload templatePayload, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Update Template
@@ -217,9 +232,10 @@ namespace ElasticEmail.Api
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">Name of template.</param>
         /// <param name="templatePayload"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Template)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Template>> TemplatesByNamePutWithHttpInfoAsync(string name, TemplatePayload templatePayload, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Template>> TemplatesByNamePutWithHttpInfoAsync(string name, TemplatePayload templatePayload, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Load Templates
         /// </summary>
@@ -231,9 +247,10 @@ namespace ElasticEmail.Api
         /// <param name="templateTypes">Return templates with specified type only (optional)</param>
         /// <param name="limit">Maximum number of returned items. (optional)</param>
         /// <param name="offset">How many items should be returned ahead. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;Template&gt;</returns>
-        System.Threading.Tasks.Task<List<Template>> TemplatesGetAsync(List<TemplateScope> scopeType, List<TemplateType> templateTypes = default(List<TemplateType>), int? limit = default(int?), int? offset = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<List<Template>> TemplatesGetAsync(List<TemplateScope> scopeType, List<TemplateType> templateTypes = default(List<TemplateType>), int? limit = default(int?), int? offset = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Load Templates
@@ -246,9 +263,10 @@ namespace ElasticEmail.Api
         /// <param name="templateTypes">Return templates with specified type only (optional)</param>
         /// <param name="limit">Maximum number of returned items. (optional)</param>
         /// <param name="offset">How many items should be returned ahead. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;Template&gt;)</returns>
-        System.Threading.Tasks.Task<ApiResponse<List<Template>>> TemplatesGetWithHttpInfoAsync(List<TemplateScope> scopeType, List<TemplateType> templateTypes = default(List<TemplateType>), int? limit = default(int?), int? offset = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<List<Template>>> TemplatesGetWithHttpInfoAsync(List<TemplateScope> scopeType, List<TemplateType> templateTypes = default(List<TemplateType>), int? limit = default(int?), int? offset = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Add Template
         /// </summary>
@@ -257,9 +275,10 @@ namespace ElasticEmail.Api
         /// </remarks>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="templatePayload"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Template</returns>
-        System.Threading.Tasks.Task<Template> TemplatesPostAsync(TemplatePayload templatePayload, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<Template> TemplatesPostAsync(TemplatePayload templatePayload, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Add Template
@@ -269,9 +288,10 @@ namespace ElasticEmail.Api
         /// </remarks>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="templatePayload"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Template)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Template>> TemplatesPostWithHttpInfoAsync(TemplatePayload templatePayload, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Template>> TemplatesPostWithHttpInfoAsync(TemplatePayload templatePayload, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         #endregion Asynchronous Operations
     }
 
@@ -397,8 +417,9 @@ namespace ElasticEmail.Api
         /// </summary>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">Name of template.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns></returns>
-        public void TemplatesByNameDelete(string name)
+        public void TemplatesByNameDelete(string name, int operationIndex = 0)
         {
             TemplatesByNameDeleteWithHttpInfo(name);
         }
@@ -408,8 +429,9 @@ namespace ElasticEmail.Api
         /// </summary>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">Name of template.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        public ElasticEmail.Client.ApiResponse<Object> TemplatesByNameDeleteWithHttpInfo(string name)
+        public ElasticEmail.Client.ApiResponse<Object> TemplatesByNameDeleteWithHttpInfo(string name, int operationIndex = 0)
         {
             // verify the required parameter 'name' is set
             if (name == null)
@@ -439,6 +461,9 @@ namespace ElasticEmail.Api
             }
 
             localVarRequestOptions.PathParameters.Add("name", ElasticEmail.Client.ClientUtils.ParameterToString(name)); // path parameter
+
+            localVarRequestOptions.Operation = "TemplatesApi.TemplatesByNameDelete";
+            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (apikey) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-ElasticEmail-ApiKey")))
@@ -465,11 +490,12 @@ namespace ElasticEmail.Api
         /// </summary>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">Name of template.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task TemplatesByNameDeleteAsync(string name, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task TemplatesByNameDeleteAsync(string name, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            await TemplatesByNameDeleteWithHttpInfoAsync(name, cancellationToken).ConfigureAwait(false);
+            await TemplatesByNameDeleteWithHttpInfoAsync(name, operationIndex, cancellationToken).ConfigureAwait(false);
         }
 
         /// <summary>
@@ -477,9 +503,10 @@ namespace ElasticEmail.Api
         /// </summary>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">Name of template.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<ElasticEmail.Client.ApiResponse<Object>> TemplatesByNameDeleteWithHttpInfoAsync(string name, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ElasticEmail.Client.ApiResponse<Object>> TemplatesByNameDeleteWithHttpInfoAsync(string name, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'name' is set
             if (name == null)
@@ -510,6 +537,9 @@ namespace ElasticEmail.Api
             }
 
             localVarRequestOptions.PathParameters.Add("name", ElasticEmail.Client.ClientUtils.ParameterToString(name)); // path parameter
+
+            localVarRequestOptions.Operation = "TemplatesApi.TemplatesByNameDelete";
+            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (apikey) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-ElasticEmail-ApiKey")))
@@ -537,8 +567,9 @@ namespace ElasticEmail.Api
         /// </summary>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">Name of template.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>Template</returns>
-        public Template TemplatesByNameGet(string name)
+        public Template TemplatesByNameGet(string name, int operationIndex = 0)
         {
             ElasticEmail.Client.ApiResponse<Template> localVarResponse = TemplatesByNameGetWithHttpInfo(name);
             return localVarResponse.Data;
@@ -549,8 +580,9 @@ namespace ElasticEmail.Api
         /// </summary>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">Name of template.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of Template</returns>
-        public ElasticEmail.Client.ApiResponse<Template> TemplatesByNameGetWithHttpInfo(string name)
+        public ElasticEmail.Client.ApiResponse<Template> TemplatesByNameGetWithHttpInfo(string name, int operationIndex = 0)
         {
             // verify the required parameter 'name' is set
             if (name == null)
@@ -581,6 +613,9 @@ namespace ElasticEmail.Api
             }
 
             localVarRequestOptions.PathParameters.Add("name", ElasticEmail.Client.ClientUtils.ParameterToString(name)); // path parameter
+
+            localVarRequestOptions.Operation = "TemplatesApi.TemplatesByNameGet";
+            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (apikey) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-ElasticEmail-ApiKey")))
@@ -607,11 +642,12 @@ namespace ElasticEmail.Api
         /// </summary>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">Name of template.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Template</returns>
-        public async System.Threading.Tasks.Task<Template> TemplatesByNameGetAsync(string name, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Template> TemplatesByNameGetAsync(string name, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            ElasticEmail.Client.ApiResponse<Template> localVarResponse = await TemplatesByNameGetWithHttpInfoAsync(name, cancellationToken).ConfigureAwait(false);
+            ElasticEmail.Client.ApiResponse<Template> localVarResponse = await TemplatesByNameGetWithHttpInfoAsync(name, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -620,9 +656,10 @@ namespace ElasticEmail.Api
         /// </summary>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">Name of template.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Template)</returns>
-        public async System.Threading.Tasks.Task<ElasticEmail.Client.ApiResponse<Template>> TemplatesByNameGetWithHttpInfoAsync(string name, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ElasticEmail.Client.ApiResponse<Template>> TemplatesByNameGetWithHttpInfoAsync(string name, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'name' is set
             if (name == null)
@@ -654,6 +691,9 @@ namespace ElasticEmail.Api
             }
 
             localVarRequestOptions.PathParameters.Add("name", ElasticEmail.Client.ClientUtils.ParameterToString(name)); // path parameter
+
+            localVarRequestOptions.Operation = "TemplatesApi.TemplatesByNameGet";
+            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (apikey) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-ElasticEmail-ApiKey")))
@@ -682,8 +722,9 @@ namespace ElasticEmail.Api
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">Name of template.</param>
         /// <param name="templatePayload"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>Template</returns>
-        public Template TemplatesByNamePut(string name, TemplatePayload templatePayload)
+        public Template TemplatesByNamePut(string name, TemplatePayload templatePayload, int operationIndex = 0)
         {
             ElasticEmail.Client.ApiResponse<Template> localVarResponse = TemplatesByNamePutWithHttpInfo(name, templatePayload);
             return localVarResponse.Data;
@@ -695,8 +736,9 @@ namespace ElasticEmail.Api
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">Name of template.</param>
         /// <param name="templatePayload"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of Template</returns>
-        public ElasticEmail.Client.ApiResponse<Template> TemplatesByNamePutWithHttpInfo(string name, TemplatePayload templatePayload)
+        public ElasticEmail.Client.ApiResponse<Template> TemplatesByNamePutWithHttpInfo(string name, TemplatePayload templatePayload, int operationIndex = 0)
         {
             // verify the required parameter 'name' is set
             if (name == null)
@@ -735,6 +777,9 @@ namespace ElasticEmail.Api
 
             localVarRequestOptions.PathParameters.Add("name", ElasticEmail.Client.ClientUtils.ParameterToString(name)); // path parameter
             localVarRequestOptions.Data = templatePayload;
+
+            localVarRequestOptions.Operation = "TemplatesApi.TemplatesByNamePut";
+            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (apikey) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-ElasticEmail-ApiKey")))
@@ -762,11 +807,12 @@ namespace ElasticEmail.Api
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">Name of template.</param>
         /// <param name="templatePayload"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Template</returns>
-        public async System.Threading.Tasks.Task<Template> TemplatesByNamePutAsync(string name, TemplatePayload templatePayload, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Template> TemplatesByNamePutAsync(string name, TemplatePayload templatePayload, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            ElasticEmail.Client.ApiResponse<Template> localVarResponse = await TemplatesByNamePutWithHttpInfoAsync(name, templatePayload, cancellationToken).ConfigureAwait(false);
+            ElasticEmail.Client.ApiResponse<Template> localVarResponse = await TemplatesByNamePutWithHttpInfoAsync(name, templatePayload, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -776,9 +822,10 @@ namespace ElasticEmail.Api
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">Name of template.</param>
         /// <param name="templatePayload"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Template)</returns>
-        public async System.Threading.Tasks.Task<ElasticEmail.Client.ApiResponse<Template>> TemplatesByNamePutWithHttpInfoAsync(string name, TemplatePayload templatePayload, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ElasticEmail.Client.ApiResponse<Template>> TemplatesByNamePutWithHttpInfoAsync(string name, TemplatePayload templatePayload, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'name' is set
             if (name == null)
@@ -818,6 +865,9 @@ namespace ElasticEmail.Api
 
             localVarRequestOptions.PathParameters.Add("name", ElasticEmail.Client.ClientUtils.ParameterToString(name)); // path parameter
             localVarRequestOptions.Data = templatePayload;
+
+            localVarRequestOptions.Operation = "TemplatesApi.TemplatesByNamePut";
+            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (apikey) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-ElasticEmail-ApiKey")))
@@ -848,8 +898,9 @@ namespace ElasticEmail.Api
         /// <param name="templateTypes">Return templates with specified type only (optional)</param>
         /// <param name="limit">Maximum number of returned items. (optional)</param>
         /// <param name="offset">How many items should be returned ahead. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>List&lt;Template&gt;</returns>
-        public List<Template> TemplatesGet(List<TemplateScope> scopeType, List<TemplateType> templateTypes = default(List<TemplateType>), int? limit = default(int?), int? offset = default(int?))
+        public List<Template> TemplatesGet(List<TemplateScope> scopeType, List<TemplateType> templateTypes = default(List<TemplateType>), int? limit = default(int?), int? offset = default(int?), int operationIndex = 0)
         {
             ElasticEmail.Client.ApiResponse<List<Template>> localVarResponse = TemplatesGetWithHttpInfo(scopeType, templateTypes, limit, offset);
             return localVarResponse.Data;
@@ -863,8 +914,9 @@ namespace ElasticEmail.Api
         /// <param name="templateTypes">Return templates with specified type only (optional)</param>
         /// <param name="limit">Maximum number of returned items. (optional)</param>
         /// <param name="offset">How many items should be returned ahead. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of List&lt;Template&gt;</returns>
-        public ElasticEmail.Client.ApiResponse<List<Template>> TemplatesGetWithHttpInfo(List<TemplateScope> scopeType, List<TemplateType> templateTypes = default(List<TemplateType>), int? limit = default(int?), int? offset = default(int?))
+        public ElasticEmail.Client.ApiResponse<List<Template>> TemplatesGetWithHttpInfo(List<TemplateScope> scopeType, List<TemplateType> templateTypes = default(List<TemplateType>), int? limit = default(int?), int? offset = default(int?), int operationIndex = 0)
         {
             // verify the required parameter 'scopeType' is set
             if (scopeType == null)
@@ -907,6 +959,9 @@ namespace ElasticEmail.Api
             {
                 localVarRequestOptions.QueryParameters.Add(ElasticEmail.Client.ClientUtils.ParameterToMultiMap("", "offset", offset));
             }
+
+            localVarRequestOptions.Operation = "TemplatesApi.TemplatesGet";
+            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (apikey) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-ElasticEmail-ApiKey")))
@@ -936,11 +991,12 @@ namespace ElasticEmail.Api
         /// <param name="templateTypes">Return templates with specified type only (optional)</param>
         /// <param name="limit">Maximum number of returned items. (optional)</param>
         /// <param name="offset">How many items should be returned ahead. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;Template&gt;</returns>
-        public async System.Threading.Tasks.Task<List<Template>> TemplatesGetAsync(List<TemplateScope> scopeType, List<TemplateType> templateTypes = default(List<TemplateType>), int? limit = default(int?), int? offset = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<List<Template>> TemplatesGetAsync(List<TemplateScope> scopeType, List<TemplateType> templateTypes = default(List<TemplateType>), int? limit = default(int?), int? offset = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            ElasticEmail.Client.ApiResponse<List<Template>> localVarResponse = await TemplatesGetWithHttpInfoAsync(scopeType, templateTypes, limit, offset, cancellationToken).ConfigureAwait(false);
+            ElasticEmail.Client.ApiResponse<List<Template>> localVarResponse = await TemplatesGetWithHttpInfoAsync(scopeType, templateTypes, limit, offset, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -952,9 +1008,10 @@ namespace ElasticEmail.Api
         /// <param name="templateTypes">Return templates with specified type only (optional)</param>
         /// <param name="limit">Maximum number of returned items. (optional)</param>
         /// <param name="offset">How many items should be returned ahead. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;Template&gt;)</returns>
-        public async System.Threading.Tasks.Task<ElasticEmail.Client.ApiResponse<List<Template>>> TemplatesGetWithHttpInfoAsync(List<TemplateScope> scopeType, List<TemplateType> templateTypes = default(List<TemplateType>), int? limit = default(int?), int? offset = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ElasticEmail.Client.ApiResponse<List<Template>>> TemplatesGetWithHttpInfoAsync(List<TemplateScope> scopeType, List<TemplateType> templateTypes = default(List<TemplateType>), int? limit = default(int?), int? offset = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'scopeType' is set
             if (scopeType == null)
@@ -999,6 +1056,9 @@ namespace ElasticEmail.Api
                 localVarRequestOptions.QueryParameters.Add(ElasticEmail.Client.ClientUtils.ParameterToMultiMap("", "offset", offset));
             }
 
+            localVarRequestOptions.Operation = "TemplatesApi.TemplatesGet";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
             // authentication (apikey) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-ElasticEmail-ApiKey")))
             {
@@ -1025,8 +1085,9 @@ namespace ElasticEmail.Api
         /// </summary>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="templatePayload"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>Template</returns>
-        public Template TemplatesPost(TemplatePayload templatePayload)
+        public Template TemplatesPost(TemplatePayload templatePayload, int operationIndex = 0)
         {
             ElasticEmail.Client.ApiResponse<Template> localVarResponse = TemplatesPostWithHttpInfo(templatePayload);
             return localVarResponse.Data;
@@ -1037,8 +1098,9 @@ namespace ElasticEmail.Api
         /// </summary>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="templatePayload"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of Template</returns>
-        public ElasticEmail.Client.ApiResponse<Template> TemplatesPostWithHttpInfo(TemplatePayload templatePayload)
+        public ElasticEmail.Client.ApiResponse<Template> TemplatesPostWithHttpInfo(TemplatePayload templatePayload, int operationIndex = 0)
         {
             // verify the required parameter 'templatePayload' is set
             if (templatePayload == null)
@@ -1070,6 +1132,9 @@ namespace ElasticEmail.Api
             }
 
             localVarRequestOptions.Data = templatePayload;
+
+            localVarRequestOptions.Operation = "TemplatesApi.TemplatesPost";
+            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (apikey) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-ElasticEmail-ApiKey")))
@@ -1096,11 +1161,12 @@ namespace ElasticEmail.Api
         /// </summary>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="templatePayload"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Template</returns>
-        public async System.Threading.Tasks.Task<Template> TemplatesPostAsync(TemplatePayload templatePayload, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Template> TemplatesPostAsync(TemplatePayload templatePayload, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            ElasticEmail.Client.ApiResponse<Template> localVarResponse = await TemplatesPostWithHttpInfoAsync(templatePayload, cancellationToken).ConfigureAwait(false);
+            ElasticEmail.Client.ApiResponse<Template> localVarResponse = await TemplatesPostWithHttpInfoAsync(templatePayload, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1109,9 +1175,10 @@ namespace ElasticEmail.Api
         /// </summary>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="templatePayload"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Template)</returns>
-        public async System.Threading.Tasks.Task<ElasticEmail.Client.ApiResponse<Template>> TemplatesPostWithHttpInfoAsync(TemplatePayload templatePayload, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ElasticEmail.Client.ApiResponse<Template>> TemplatesPostWithHttpInfoAsync(TemplatePayload templatePayload, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'templatePayload' is set
             if (templatePayload == null)
@@ -1144,6 +1211,9 @@ namespace ElasticEmail.Api
             }
 
             localVarRequestOptions.Data = templatePayload;
+
+            localVarRequestOptions.Operation = "TemplatesApi.TemplatesPost";
+            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (apikey) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-ElasticEmail-ApiKey")))

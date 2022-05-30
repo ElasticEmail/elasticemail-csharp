@@ -46,7 +46,8 @@ namespace ElasticEmail.Model
         public MergeEmailPayload(MessageAttachment mergeFile = default(MessageAttachment), EmailContent content = default(EmailContent), Options options = default(Options))
         {
             // to ensure "mergeFile" is required (not null)
-            if (mergeFile == null) {
+            if (mergeFile == null)
+            {
                 throw new ArgumentNullException("mergeFile is a required property for MergeEmailPayload and cannot be null");
             }
             this.MergeFile = mergeFile;

@@ -36,8 +36,9 @@ namespace ElasticEmail.Api
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="email">Email address of Sub-Account</param>
         /// <param name="subaccountEmailCreditsPayload">Amount of email credits to add or subtract from the current SubAccount email credits pool (positive or negative value)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns></returns>
-        void SubaccountsByEmailCreditsPatch(string email, SubaccountEmailCreditsPayload subaccountEmailCreditsPayload);
+        void SubaccountsByEmailCreditsPatch(string email, SubaccountEmailCreditsPayload subaccountEmailCreditsPayload, int operationIndex = 0);
 
         /// <summary>
         /// Add, Subtract Email Credits
@@ -48,8 +49,9 @@ namespace ElasticEmail.Api
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="email">Email address of Sub-Account</param>
         /// <param name="subaccountEmailCreditsPayload">Amount of email credits to add or subtract from the current SubAccount email credits pool (positive or negative value)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> SubaccountsByEmailCreditsPatchWithHttpInfo(string email, SubaccountEmailCreditsPayload subaccountEmailCreditsPayload);
+        ApiResponse<Object> SubaccountsByEmailCreditsPatchWithHttpInfo(string email, SubaccountEmailCreditsPayload subaccountEmailCreditsPayload, int operationIndex = 0);
         /// <summary>
         /// Delete SubAccount
         /// </summary>
@@ -58,8 +60,9 @@ namespace ElasticEmail.Api
         /// </remarks>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="email">Email address of Sub-Account</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns></returns>
-        void SubaccountsByEmailDelete(string email);
+        void SubaccountsByEmailDelete(string email, int operationIndex = 0);
 
         /// <summary>
         /// Delete SubAccount
@@ -69,8 +72,9 @@ namespace ElasticEmail.Api
         /// </remarks>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="email">Email address of Sub-Account</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> SubaccountsByEmailDeleteWithHttpInfo(string email);
+        ApiResponse<Object> SubaccountsByEmailDeleteWithHttpInfo(string email, int operationIndex = 0);
         /// <summary>
         /// Load SubAccount
         /// </summary>
@@ -79,8 +83,9 @@ namespace ElasticEmail.Api
         /// </remarks>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="email">Email address of Sub-Account</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>SubAccountInfo</returns>
-        SubAccountInfo SubaccountsByEmailGet(string email);
+        SubAccountInfo SubaccountsByEmailGet(string email, int operationIndex = 0);
 
         /// <summary>
         /// Load SubAccount
@@ -90,8 +95,9 @@ namespace ElasticEmail.Api
         /// </remarks>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="email">Email address of Sub-Account</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of SubAccountInfo</returns>
-        ApiResponse<SubAccountInfo> SubaccountsByEmailGetWithHttpInfo(string email);
+        ApiResponse<SubAccountInfo> SubaccountsByEmailGetWithHttpInfo(string email, int operationIndex = 0);
         /// <summary>
         /// Update SubAccount Email Settings
         /// </summary>
@@ -101,8 +107,9 @@ namespace ElasticEmail.Api
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="email"></param>
         /// <param name="subaccountEmailSettings">Updated Email Settings</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>SubaccountEmailSettings</returns>
-        SubaccountEmailSettings SubaccountsByEmailSettingsEmailPut(string email, SubaccountEmailSettings subaccountEmailSettings);
+        SubaccountEmailSettings SubaccountsByEmailSettingsEmailPut(string email, SubaccountEmailSettings subaccountEmailSettings, int operationIndex = 0);
 
         /// <summary>
         /// Update SubAccount Email Settings
@@ -113,8 +120,9 @@ namespace ElasticEmail.Api
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="email"></param>
         /// <param name="subaccountEmailSettings">Updated Email Settings</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of SubaccountEmailSettings</returns>
-        ApiResponse<SubaccountEmailSettings> SubaccountsByEmailSettingsEmailPutWithHttpInfo(string email, SubaccountEmailSettings subaccountEmailSettings);
+        ApiResponse<SubaccountEmailSettings> SubaccountsByEmailSettingsEmailPutWithHttpInfo(string email, SubaccountEmailSettings subaccountEmailSettings, int operationIndex = 0);
         /// <summary>
         /// Load SubAccounts
         /// </summary>
@@ -124,8 +132,9 @@ namespace ElasticEmail.Api
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="limit">Maximum number of returned items. (optional)</param>
         /// <param name="offset">How many items should be returned ahead. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>List&lt;SubAccountInfo&gt;</returns>
-        List<SubAccountInfo> SubaccountsGet(int? limit = default(int?), int? offset = default(int?));
+        List<SubAccountInfo> SubaccountsGet(int? limit = default(int?), int? offset = default(int?), int operationIndex = 0);
 
         /// <summary>
         /// Load SubAccounts
@@ -136,8 +145,9 @@ namespace ElasticEmail.Api
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="limit">Maximum number of returned items. (optional)</param>
         /// <param name="offset">How many items should be returned ahead. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of List&lt;SubAccountInfo&gt;</returns>
-        ApiResponse<List<SubAccountInfo>> SubaccountsGetWithHttpInfo(int? limit = default(int?), int? offset = default(int?));
+        ApiResponse<List<SubAccountInfo>> SubaccountsGetWithHttpInfo(int? limit = default(int?), int? offset = default(int?), int operationIndex = 0);
         /// <summary>
         /// Add SubAccount
         /// </summary>
@@ -146,8 +156,9 @@ namespace ElasticEmail.Api
         /// </remarks>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="subaccountPayload"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>SubAccountInfo</returns>
-        SubAccountInfo SubaccountsPost(SubaccountPayload subaccountPayload);
+        SubAccountInfo SubaccountsPost(SubaccountPayload subaccountPayload, int operationIndex = 0);
 
         /// <summary>
         /// Add SubAccount
@@ -157,8 +168,9 @@ namespace ElasticEmail.Api
         /// </remarks>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="subaccountPayload"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of SubAccountInfo</returns>
-        ApiResponse<SubAccountInfo> SubaccountsPostWithHttpInfo(SubaccountPayload subaccountPayload);
+        ApiResponse<SubAccountInfo> SubaccountsPostWithHttpInfo(SubaccountPayload subaccountPayload, int operationIndex = 0);
         #endregion Synchronous Operations
     }
 
@@ -177,9 +189,10 @@ namespace ElasticEmail.Api
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="email">Email address of Sub-Account</param>
         /// <param name="subaccountEmailCreditsPayload">Amount of email credits to add or subtract from the current SubAccount email credits pool (positive or negative value)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task SubaccountsByEmailCreditsPatchAsync(string email, SubaccountEmailCreditsPayload subaccountEmailCreditsPayload, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task SubaccountsByEmailCreditsPatchAsync(string email, SubaccountEmailCreditsPayload subaccountEmailCreditsPayload, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Add, Subtract Email Credits
@@ -190,9 +203,10 @@ namespace ElasticEmail.Api
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="email">Email address of Sub-Account</param>
         /// <param name="subaccountEmailCreditsPayload">Amount of email credits to add or subtract from the current SubAccount email credits pool (positive or negative value)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> SubaccountsByEmailCreditsPatchWithHttpInfoAsync(string email, SubaccountEmailCreditsPayload subaccountEmailCreditsPayload, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Object>> SubaccountsByEmailCreditsPatchWithHttpInfoAsync(string email, SubaccountEmailCreditsPayload subaccountEmailCreditsPayload, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Delete SubAccount
         /// </summary>
@@ -201,9 +215,10 @@ namespace ElasticEmail.Api
         /// </remarks>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="email">Email address of Sub-Account</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task SubaccountsByEmailDeleteAsync(string email, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task SubaccountsByEmailDeleteAsync(string email, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Delete SubAccount
@@ -213,9 +228,10 @@ namespace ElasticEmail.Api
         /// </remarks>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="email">Email address of Sub-Account</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> SubaccountsByEmailDeleteWithHttpInfoAsync(string email, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Object>> SubaccountsByEmailDeleteWithHttpInfoAsync(string email, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Load SubAccount
         /// </summary>
@@ -224,9 +240,10 @@ namespace ElasticEmail.Api
         /// </remarks>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="email">Email address of Sub-Account</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of SubAccountInfo</returns>
-        System.Threading.Tasks.Task<SubAccountInfo> SubaccountsByEmailGetAsync(string email, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<SubAccountInfo> SubaccountsByEmailGetAsync(string email, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Load SubAccount
@@ -236,9 +253,10 @@ namespace ElasticEmail.Api
         /// </remarks>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="email">Email address of Sub-Account</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (SubAccountInfo)</returns>
-        System.Threading.Tasks.Task<ApiResponse<SubAccountInfo>> SubaccountsByEmailGetWithHttpInfoAsync(string email, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<SubAccountInfo>> SubaccountsByEmailGetWithHttpInfoAsync(string email, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Update SubAccount Email Settings
         /// </summary>
@@ -248,9 +266,10 @@ namespace ElasticEmail.Api
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="email"></param>
         /// <param name="subaccountEmailSettings">Updated Email Settings</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of SubaccountEmailSettings</returns>
-        System.Threading.Tasks.Task<SubaccountEmailSettings> SubaccountsByEmailSettingsEmailPutAsync(string email, SubaccountEmailSettings subaccountEmailSettings, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<SubaccountEmailSettings> SubaccountsByEmailSettingsEmailPutAsync(string email, SubaccountEmailSettings subaccountEmailSettings, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Update SubAccount Email Settings
@@ -261,9 +280,10 @@ namespace ElasticEmail.Api
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="email"></param>
         /// <param name="subaccountEmailSettings">Updated Email Settings</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (SubaccountEmailSettings)</returns>
-        System.Threading.Tasks.Task<ApiResponse<SubaccountEmailSettings>> SubaccountsByEmailSettingsEmailPutWithHttpInfoAsync(string email, SubaccountEmailSettings subaccountEmailSettings, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<SubaccountEmailSettings>> SubaccountsByEmailSettingsEmailPutWithHttpInfoAsync(string email, SubaccountEmailSettings subaccountEmailSettings, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Load SubAccounts
         /// </summary>
@@ -273,9 +293,10 @@ namespace ElasticEmail.Api
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="limit">Maximum number of returned items. (optional)</param>
         /// <param name="offset">How many items should be returned ahead. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;SubAccountInfo&gt;</returns>
-        System.Threading.Tasks.Task<List<SubAccountInfo>> SubaccountsGetAsync(int? limit = default(int?), int? offset = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<List<SubAccountInfo>> SubaccountsGetAsync(int? limit = default(int?), int? offset = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Load SubAccounts
@@ -286,9 +307,10 @@ namespace ElasticEmail.Api
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="limit">Maximum number of returned items. (optional)</param>
         /// <param name="offset">How many items should be returned ahead. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;SubAccountInfo&gt;)</returns>
-        System.Threading.Tasks.Task<ApiResponse<List<SubAccountInfo>>> SubaccountsGetWithHttpInfoAsync(int? limit = default(int?), int? offset = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<List<SubAccountInfo>>> SubaccountsGetWithHttpInfoAsync(int? limit = default(int?), int? offset = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Add SubAccount
         /// </summary>
@@ -297,9 +319,10 @@ namespace ElasticEmail.Api
         /// </remarks>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="subaccountPayload"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of SubAccountInfo</returns>
-        System.Threading.Tasks.Task<SubAccountInfo> SubaccountsPostAsync(SubaccountPayload subaccountPayload, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<SubAccountInfo> SubaccountsPostAsync(SubaccountPayload subaccountPayload, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Add SubAccount
@@ -309,9 +332,10 @@ namespace ElasticEmail.Api
         /// </remarks>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="subaccountPayload"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (SubAccountInfo)</returns>
-        System.Threading.Tasks.Task<ApiResponse<SubAccountInfo>> SubaccountsPostWithHttpInfoAsync(SubaccountPayload subaccountPayload, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<SubAccountInfo>> SubaccountsPostWithHttpInfoAsync(SubaccountPayload subaccountPayload, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         #endregion Asynchronous Operations
     }
 
@@ -438,8 +462,9 @@ namespace ElasticEmail.Api
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="email">Email address of Sub-Account</param>
         /// <param name="subaccountEmailCreditsPayload">Amount of email credits to add or subtract from the current SubAccount email credits pool (positive or negative value)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns></returns>
-        public void SubaccountsByEmailCreditsPatch(string email, SubaccountEmailCreditsPayload subaccountEmailCreditsPayload)
+        public void SubaccountsByEmailCreditsPatch(string email, SubaccountEmailCreditsPayload subaccountEmailCreditsPayload, int operationIndex = 0)
         {
             SubaccountsByEmailCreditsPatchWithHttpInfo(email, subaccountEmailCreditsPayload);
         }
@@ -450,8 +475,9 @@ namespace ElasticEmail.Api
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="email">Email address of Sub-Account</param>
         /// <param name="subaccountEmailCreditsPayload">Amount of email credits to add or subtract from the current SubAccount email credits pool (positive or negative value)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        public ElasticEmail.Client.ApiResponse<Object> SubaccountsByEmailCreditsPatchWithHttpInfo(string email, SubaccountEmailCreditsPayload subaccountEmailCreditsPayload)
+        public ElasticEmail.Client.ApiResponse<Object> SubaccountsByEmailCreditsPatchWithHttpInfo(string email, SubaccountEmailCreditsPayload subaccountEmailCreditsPayload, int operationIndex = 0)
         {
             // verify the required parameter 'email' is set
             if (email == null)
@@ -489,6 +515,9 @@ namespace ElasticEmail.Api
 
             localVarRequestOptions.PathParameters.Add("email", ElasticEmail.Client.ClientUtils.ParameterToString(email)); // path parameter
             localVarRequestOptions.Data = subaccountEmailCreditsPayload;
+
+            localVarRequestOptions.Operation = "SubAccountsApi.SubaccountsByEmailCreditsPatch";
+            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (apikey) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-ElasticEmail-ApiKey")))
@@ -516,11 +545,12 @@ namespace ElasticEmail.Api
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="email">Email address of Sub-Account</param>
         /// <param name="subaccountEmailCreditsPayload">Amount of email credits to add or subtract from the current SubAccount email credits pool (positive or negative value)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task SubaccountsByEmailCreditsPatchAsync(string email, SubaccountEmailCreditsPayload subaccountEmailCreditsPayload, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task SubaccountsByEmailCreditsPatchAsync(string email, SubaccountEmailCreditsPayload subaccountEmailCreditsPayload, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            await SubaccountsByEmailCreditsPatchWithHttpInfoAsync(email, subaccountEmailCreditsPayload, cancellationToken).ConfigureAwait(false);
+            await SubaccountsByEmailCreditsPatchWithHttpInfoAsync(email, subaccountEmailCreditsPayload, operationIndex, cancellationToken).ConfigureAwait(false);
         }
 
         /// <summary>
@@ -529,9 +559,10 @@ namespace ElasticEmail.Api
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="email">Email address of Sub-Account</param>
         /// <param name="subaccountEmailCreditsPayload">Amount of email credits to add or subtract from the current SubAccount email credits pool (positive or negative value)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<ElasticEmail.Client.ApiResponse<Object>> SubaccountsByEmailCreditsPatchWithHttpInfoAsync(string email, SubaccountEmailCreditsPayload subaccountEmailCreditsPayload, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ElasticEmail.Client.ApiResponse<Object>> SubaccountsByEmailCreditsPatchWithHttpInfoAsync(string email, SubaccountEmailCreditsPayload subaccountEmailCreditsPayload, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'email' is set
             if (email == null)
@@ -571,6 +602,9 @@ namespace ElasticEmail.Api
             localVarRequestOptions.PathParameters.Add("email", ElasticEmail.Client.ClientUtils.ParameterToString(email)); // path parameter
             localVarRequestOptions.Data = subaccountEmailCreditsPayload;
 
+            localVarRequestOptions.Operation = "SubAccountsApi.SubaccountsByEmailCreditsPatch";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
             // authentication (apikey) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-ElasticEmail-ApiKey")))
             {
@@ -597,8 +631,9 @@ namespace ElasticEmail.Api
         /// </summary>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="email">Email address of Sub-Account</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns></returns>
-        public void SubaccountsByEmailDelete(string email)
+        public void SubaccountsByEmailDelete(string email, int operationIndex = 0)
         {
             SubaccountsByEmailDeleteWithHttpInfo(email);
         }
@@ -608,8 +643,9 @@ namespace ElasticEmail.Api
         /// </summary>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="email">Email address of Sub-Account</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        public ElasticEmail.Client.ApiResponse<Object> SubaccountsByEmailDeleteWithHttpInfo(string email)
+        public ElasticEmail.Client.ApiResponse<Object> SubaccountsByEmailDeleteWithHttpInfo(string email, int operationIndex = 0)
         {
             // verify the required parameter 'email' is set
             if (email == null)
@@ -639,6 +675,9 @@ namespace ElasticEmail.Api
             }
 
             localVarRequestOptions.PathParameters.Add("email", ElasticEmail.Client.ClientUtils.ParameterToString(email)); // path parameter
+
+            localVarRequestOptions.Operation = "SubAccountsApi.SubaccountsByEmailDelete";
+            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (apikey) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-ElasticEmail-ApiKey")))
@@ -665,11 +704,12 @@ namespace ElasticEmail.Api
         /// </summary>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="email">Email address of Sub-Account</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task SubaccountsByEmailDeleteAsync(string email, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task SubaccountsByEmailDeleteAsync(string email, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            await SubaccountsByEmailDeleteWithHttpInfoAsync(email, cancellationToken).ConfigureAwait(false);
+            await SubaccountsByEmailDeleteWithHttpInfoAsync(email, operationIndex, cancellationToken).ConfigureAwait(false);
         }
 
         /// <summary>
@@ -677,9 +717,10 @@ namespace ElasticEmail.Api
         /// </summary>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="email">Email address of Sub-Account</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<ElasticEmail.Client.ApiResponse<Object>> SubaccountsByEmailDeleteWithHttpInfoAsync(string email, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ElasticEmail.Client.ApiResponse<Object>> SubaccountsByEmailDeleteWithHttpInfoAsync(string email, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'email' is set
             if (email == null)
@@ -710,6 +751,9 @@ namespace ElasticEmail.Api
             }
 
             localVarRequestOptions.PathParameters.Add("email", ElasticEmail.Client.ClientUtils.ParameterToString(email)); // path parameter
+
+            localVarRequestOptions.Operation = "SubAccountsApi.SubaccountsByEmailDelete";
+            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (apikey) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-ElasticEmail-ApiKey")))
@@ -737,8 +781,9 @@ namespace ElasticEmail.Api
         /// </summary>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="email">Email address of Sub-Account</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>SubAccountInfo</returns>
-        public SubAccountInfo SubaccountsByEmailGet(string email)
+        public SubAccountInfo SubaccountsByEmailGet(string email, int operationIndex = 0)
         {
             ElasticEmail.Client.ApiResponse<SubAccountInfo> localVarResponse = SubaccountsByEmailGetWithHttpInfo(email);
             return localVarResponse.Data;
@@ -749,8 +794,9 @@ namespace ElasticEmail.Api
         /// </summary>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="email">Email address of Sub-Account</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of SubAccountInfo</returns>
-        public ElasticEmail.Client.ApiResponse<SubAccountInfo> SubaccountsByEmailGetWithHttpInfo(string email)
+        public ElasticEmail.Client.ApiResponse<SubAccountInfo> SubaccountsByEmailGetWithHttpInfo(string email, int operationIndex = 0)
         {
             // verify the required parameter 'email' is set
             if (email == null)
@@ -781,6 +827,9 @@ namespace ElasticEmail.Api
             }
 
             localVarRequestOptions.PathParameters.Add("email", ElasticEmail.Client.ClientUtils.ParameterToString(email)); // path parameter
+
+            localVarRequestOptions.Operation = "SubAccountsApi.SubaccountsByEmailGet";
+            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (apikey) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-ElasticEmail-ApiKey")))
@@ -807,11 +856,12 @@ namespace ElasticEmail.Api
         /// </summary>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="email">Email address of Sub-Account</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of SubAccountInfo</returns>
-        public async System.Threading.Tasks.Task<SubAccountInfo> SubaccountsByEmailGetAsync(string email, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<SubAccountInfo> SubaccountsByEmailGetAsync(string email, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            ElasticEmail.Client.ApiResponse<SubAccountInfo> localVarResponse = await SubaccountsByEmailGetWithHttpInfoAsync(email, cancellationToken).ConfigureAwait(false);
+            ElasticEmail.Client.ApiResponse<SubAccountInfo> localVarResponse = await SubaccountsByEmailGetWithHttpInfoAsync(email, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -820,9 +870,10 @@ namespace ElasticEmail.Api
         /// </summary>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="email">Email address of Sub-Account</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (SubAccountInfo)</returns>
-        public async System.Threading.Tasks.Task<ElasticEmail.Client.ApiResponse<SubAccountInfo>> SubaccountsByEmailGetWithHttpInfoAsync(string email, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ElasticEmail.Client.ApiResponse<SubAccountInfo>> SubaccountsByEmailGetWithHttpInfoAsync(string email, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'email' is set
             if (email == null)
@@ -854,6 +905,9 @@ namespace ElasticEmail.Api
             }
 
             localVarRequestOptions.PathParameters.Add("email", ElasticEmail.Client.ClientUtils.ParameterToString(email)); // path parameter
+
+            localVarRequestOptions.Operation = "SubAccountsApi.SubaccountsByEmailGet";
+            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (apikey) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-ElasticEmail-ApiKey")))
@@ -882,8 +936,9 @@ namespace ElasticEmail.Api
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="email"></param>
         /// <param name="subaccountEmailSettings">Updated Email Settings</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>SubaccountEmailSettings</returns>
-        public SubaccountEmailSettings SubaccountsByEmailSettingsEmailPut(string email, SubaccountEmailSettings subaccountEmailSettings)
+        public SubaccountEmailSettings SubaccountsByEmailSettingsEmailPut(string email, SubaccountEmailSettings subaccountEmailSettings, int operationIndex = 0)
         {
             ElasticEmail.Client.ApiResponse<SubaccountEmailSettings> localVarResponse = SubaccountsByEmailSettingsEmailPutWithHttpInfo(email, subaccountEmailSettings);
             return localVarResponse.Data;
@@ -895,8 +950,9 @@ namespace ElasticEmail.Api
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="email"></param>
         /// <param name="subaccountEmailSettings">Updated Email Settings</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of SubaccountEmailSettings</returns>
-        public ElasticEmail.Client.ApiResponse<SubaccountEmailSettings> SubaccountsByEmailSettingsEmailPutWithHttpInfo(string email, SubaccountEmailSettings subaccountEmailSettings)
+        public ElasticEmail.Client.ApiResponse<SubaccountEmailSettings> SubaccountsByEmailSettingsEmailPutWithHttpInfo(string email, SubaccountEmailSettings subaccountEmailSettings, int operationIndex = 0)
         {
             // verify the required parameter 'email' is set
             if (email == null)
@@ -935,6 +991,9 @@ namespace ElasticEmail.Api
 
             localVarRequestOptions.PathParameters.Add("email", ElasticEmail.Client.ClientUtils.ParameterToString(email)); // path parameter
             localVarRequestOptions.Data = subaccountEmailSettings;
+
+            localVarRequestOptions.Operation = "SubAccountsApi.SubaccountsByEmailSettingsEmailPut";
+            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (apikey) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-ElasticEmail-ApiKey")))
@@ -962,11 +1021,12 @@ namespace ElasticEmail.Api
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="email"></param>
         /// <param name="subaccountEmailSettings">Updated Email Settings</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of SubaccountEmailSettings</returns>
-        public async System.Threading.Tasks.Task<SubaccountEmailSettings> SubaccountsByEmailSettingsEmailPutAsync(string email, SubaccountEmailSettings subaccountEmailSettings, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<SubaccountEmailSettings> SubaccountsByEmailSettingsEmailPutAsync(string email, SubaccountEmailSettings subaccountEmailSettings, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            ElasticEmail.Client.ApiResponse<SubaccountEmailSettings> localVarResponse = await SubaccountsByEmailSettingsEmailPutWithHttpInfoAsync(email, subaccountEmailSettings, cancellationToken).ConfigureAwait(false);
+            ElasticEmail.Client.ApiResponse<SubaccountEmailSettings> localVarResponse = await SubaccountsByEmailSettingsEmailPutWithHttpInfoAsync(email, subaccountEmailSettings, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -976,9 +1036,10 @@ namespace ElasticEmail.Api
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="email"></param>
         /// <param name="subaccountEmailSettings">Updated Email Settings</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (SubaccountEmailSettings)</returns>
-        public async System.Threading.Tasks.Task<ElasticEmail.Client.ApiResponse<SubaccountEmailSettings>> SubaccountsByEmailSettingsEmailPutWithHttpInfoAsync(string email, SubaccountEmailSettings subaccountEmailSettings, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ElasticEmail.Client.ApiResponse<SubaccountEmailSettings>> SubaccountsByEmailSettingsEmailPutWithHttpInfoAsync(string email, SubaccountEmailSettings subaccountEmailSettings, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'email' is set
             if (email == null)
@@ -1018,6 +1079,9 @@ namespace ElasticEmail.Api
 
             localVarRequestOptions.PathParameters.Add("email", ElasticEmail.Client.ClientUtils.ParameterToString(email)); // path parameter
             localVarRequestOptions.Data = subaccountEmailSettings;
+
+            localVarRequestOptions.Operation = "SubAccountsApi.SubaccountsByEmailSettingsEmailPut";
+            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (apikey) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-ElasticEmail-ApiKey")))
@@ -1046,8 +1110,9 @@ namespace ElasticEmail.Api
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="limit">Maximum number of returned items. (optional)</param>
         /// <param name="offset">How many items should be returned ahead. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>List&lt;SubAccountInfo&gt;</returns>
-        public List<SubAccountInfo> SubaccountsGet(int? limit = default(int?), int? offset = default(int?))
+        public List<SubAccountInfo> SubaccountsGet(int? limit = default(int?), int? offset = default(int?), int operationIndex = 0)
         {
             ElasticEmail.Client.ApiResponse<List<SubAccountInfo>> localVarResponse = SubaccountsGetWithHttpInfo(limit, offset);
             return localVarResponse.Data;
@@ -1059,8 +1124,9 @@ namespace ElasticEmail.Api
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="limit">Maximum number of returned items. (optional)</param>
         /// <param name="offset">How many items should be returned ahead. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of List&lt;SubAccountInfo&gt;</returns>
-        public ElasticEmail.Client.ApiResponse<List<SubAccountInfo>> SubaccountsGetWithHttpInfo(int? limit = default(int?), int? offset = default(int?))
+        public ElasticEmail.Client.ApiResponse<List<SubAccountInfo>> SubaccountsGetWithHttpInfo(int? limit = default(int?), int? offset = default(int?), int operationIndex = 0)
         {
             ElasticEmail.Client.RequestOptions localVarRequestOptions = new ElasticEmail.Client.RequestOptions();
 
@@ -1092,6 +1158,9 @@ namespace ElasticEmail.Api
             {
                 localVarRequestOptions.QueryParameters.Add(ElasticEmail.Client.ClientUtils.ParameterToMultiMap("", "offset", offset));
             }
+
+            localVarRequestOptions.Operation = "SubAccountsApi.SubaccountsGet";
+            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (apikey) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-ElasticEmail-ApiKey")))
@@ -1119,11 +1188,12 @@ namespace ElasticEmail.Api
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="limit">Maximum number of returned items. (optional)</param>
         /// <param name="offset">How many items should be returned ahead. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;SubAccountInfo&gt;</returns>
-        public async System.Threading.Tasks.Task<List<SubAccountInfo>> SubaccountsGetAsync(int? limit = default(int?), int? offset = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<List<SubAccountInfo>> SubaccountsGetAsync(int? limit = default(int?), int? offset = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            ElasticEmail.Client.ApiResponse<List<SubAccountInfo>> localVarResponse = await SubaccountsGetWithHttpInfoAsync(limit, offset, cancellationToken).ConfigureAwait(false);
+            ElasticEmail.Client.ApiResponse<List<SubAccountInfo>> localVarResponse = await SubaccountsGetWithHttpInfoAsync(limit, offset, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1133,9 +1203,10 @@ namespace ElasticEmail.Api
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="limit">Maximum number of returned items. (optional)</param>
         /// <param name="offset">How many items should be returned ahead. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;SubAccountInfo&gt;)</returns>
-        public async System.Threading.Tasks.Task<ElasticEmail.Client.ApiResponse<List<SubAccountInfo>>> SubaccountsGetWithHttpInfoAsync(int? limit = default(int?), int? offset = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ElasticEmail.Client.ApiResponse<List<SubAccountInfo>>> SubaccountsGetWithHttpInfoAsync(int? limit = default(int?), int? offset = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             ElasticEmail.Client.RequestOptions localVarRequestOptions = new ElasticEmail.Client.RequestOptions();
@@ -1169,6 +1240,9 @@ namespace ElasticEmail.Api
                 localVarRequestOptions.QueryParameters.Add(ElasticEmail.Client.ClientUtils.ParameterToMultiMap("", "offset", offset));
             }
 
+            localVarRequestOptions.Operation = "SubAccountsApi.SubaccountsGet";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
             // authentication (apikey) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-ElasticEmail-ApiKey")))
             {
@@ -1195,8 +1269,9 @@ namespace ElasticEmail.Api
         /// </summary>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="subaccountPayload"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>SubAccountInfo</returns>
-        public SubAccountInfo SubaccountsPost(SubaccountPayload subaccountPayload)
+        public SubAccountInfo SubaccountsPost(SubaccountPayload subaccountPayload, int operationIndex = 0)
         {
             ElasticEmail.Client.ApiResponse<SubAccountInfo> localVarResponse = SubaccountsPostWithHttpInfo(subaccountPayload);
             return localVarResponse.Data;
@@ -1207,8 +1282,9 @@ namespace ElasticEmail.Api
         /// </summary>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="subaccountPayload"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of SubAccountInfo</returns>
-        public ElasticEmail.Client.ApiResponse<SubAccountInfo> SubaccountsPostWithHttpInfo(SubaccountPayload subaccountPayload)
+        public ElasticEmail.Client.ApiResponse<SubAccountInfo> SubaccountsPostWithHttpInfo(SubaccountPayload subaccountPayload, int operationIndex = 0)
         {
             // verify the required parameter 'subaccountPayload' is set
             if (subaccountPayload == null)
@@ -1240,6 +1316,9 @@ namespace ElasticEmail.Api
             }
 
             localVarRequestOptions.Data = subaccountPayload;
+
+            localVarRequestOptions.Operation = "SubAccountsApi.SubaccountsPost";
+            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (apikey) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-ElasticEmail-ApiKey")))
@@ -1266,11 +1345,12 @@ namespace ElasticEmail.Api
         /// </summary>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="subaccountPayload"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of SubAccountInfo</returns>
-        public async System.Threading.Tasks.Task<SubAccountInfo> SubaccountsPostAsync(SubaccountPayload subaccountPayload, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<SubAccountInfo> SubaccountsPostAsync(SubaccountPayload subaccountPayload, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            ElasticEmail.Client.ApiResponse<SubAccountInfo> localVarResponse = await SubaccountsPostWithHttpInfoAsync(subaccountPayload, cancellationToken).ConfigureAwait(false);
+            ElasticEmail.Client.ApiResponse<SubAccountInfo> localVarResponse = await SubaccountsPostWithHttpInfoAsync(subaccountPayload, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1279,9 +1359,10 @@ namespace ElasticEmail.Api
         /// </summary>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="subaccountPayload"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (SubAccountInfo)</returns>
-        public async System.Threading.Tasks.Task<ElasticEmail.Client.ApiResponse<SubAccountInfo>> SubaccountsPostWithHttpInfoAsync(SubaccountPayload subaccountPayload, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ElasticEmail.Client.ApiResponse<SubAccountInfo>> SubaccountsPostWithHttpInfoAsync(SubaccountPayload subaccountPayload, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'subaccountPayload' is set
             if (subaccountPayload == null)
@@ -1314,6 +1395,9 @@ namespace ElasticEmail.Api
             }
 
             localVarRequestOptions.Data = subaccountPayload;
+
+            localVarRequestOptions.Operation = "SubAccountsApi.SubaccountsPost";
+            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (apikey) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-ElasticEmail-ApiKey")))

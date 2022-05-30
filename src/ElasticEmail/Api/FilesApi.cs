@@ -35,8 +35,9 @@ namespace ElasticEmail.Api
         /// </remarks>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">Name of your file including extension.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns></returns>
-        void FilesByNameDelete(string name);
+        void FilesByNameDelete(string name, int operationIndex = 0);
 
         /// <summary>
         /// Delete File
@@ -46,8 +47,9 @@ namespace ElasticEmail.Api
         /// </remarks>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">Name of your file including extension.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> FilesByNameDeleteWithHttpInfo(string name);
+        ApiResponse<Object> FilesByNameDeleteWithHttpInfo(string name, int operationIndex = 0);
         /// <summary>
         /// Download File
         /// </summary>
@@ -56,8 +58,9 @@ namespace ElasticEmail.Api
         /// </remarks>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">Name of your file including extension.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>System.IO.Stream</returns>
-        System.IO.Stream FilesByNameGet(string name);
+        System.IO.Stream FilesByNameGet(string name, int operationIndex = 0);
 
         /// <summary>
         /// Download File
@@ -67,8 +70,9 @@ namespace ElasticEmail.Api
         /// </remarks>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">Name of your file including extension.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of System.IO.Stream</returns>
-        ApiResponse<System.IO.Stream> FilesByNameGetWithHttpInfo(string name);
+        ApiResponse<System.IO.Stream> FilesByNameGetWithHttpInfo(string name, int operationIndex = 0);
         /// <summary>
         /// Load File Details
         /// </summary>
@@ -77,8 +81,9 @@ namespace ElasticEmail.Api
         /// </remarks>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">Name of your file including extension.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>FileInfo</returns>
-        FileInfo FilesByNameInfoGet(string name);
+        FileInfo FilesByNameInfoGet(string name, int operationIndex = 0);
 
         /// <summary>
         /// Load File Details
@@ -88,8 +93,9 @@ namespace ElasticEmail.Api
         /// </remarks>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">Name of your file including extension.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of FileInfo</returns>
-        ApiResponse<FileInfo> FilesByNameInfoGetWithHttpInfo(string name);
+        ApiResponse<FileInfo> FilesByNameInfoGetWithHttpInfo(string name, int operationIndex = 0);
         /// <summary>
         /// List Files
         /// </summary>
@@ -99,8 +105,9 @@ namespace ElasticEmail.Api
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="limit">Maximum number of returned items. (optional)</param>
         /// <param name="offset">How many items should be returned ahead. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>List&lt;FileInfo&gt;</returns>
-        List<FileInfo> FilesGet(int? limit = default(int?), int? offset = default(int?));
+        List<FileInfo> FilesGet(int? limit = default(int?), int? offset = default(int?), int operationIndex = 0);
 
         /// <summary>
         /// List Files
@@ -111,8 +118,9 @@ namespace ElasticEmail.Api
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="limit">Maximum number of returned items. (optional)</param>
         /// <param name="offset">How many items should be returned ahead. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of List&lt;FileInfo&gt;</returns>
-        ApiResponse<List<FileInfo>> FilesGetWithHttpInfo(int? limit = default(int?), int? offset = default(int?));
+        ApiResponse<List<FileInfo>> FilesGetWithHttpInfo(int? limit = default(int?), int? offset = default(int?), int operationIndex = 0);
         /// <summary>
         /// Upload File
         /// </summary>
@@ -122,8 +130,9 @@ namespace ElasticEmail.Api
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="filePayload"></param>
         /// <param name="expiresAfterDays">After how many days should the file be deleted. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>FileInfo</returns>
-        FileInfo FilesPost(FilePayload filePayload, int? expiresAfterDays = default(int?));
+        FileInfo FilesPost(FilePayload filePayload, int? expiresAfterDays = default(int?), int operationIndex = 0);
 
         /// <summary>
         /// Upload File
@@ -134,8 +143,9 @@ namespace ElasticEmail.Api
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="filePayload"></param>
         /// <param name="expiresAfterDays">After how many days should the file be deleted. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of FileInfo</returns>
-        ApiResponse<FileInfo> FilesPostWithHttpInfo(FilePayload filePayload, int? expiresAfterDays = default(int?));
+        ApiResponse<FileInfo> FilesPostWithHttpInfo(FilePayload filePayload, int? expiresAfterDays = default(int?), int operationIndex = 0);
         #endregion Synchronous Operations
     }
 
@@ -153,9 +163,10 @@ namespace ElasticEmail.Api
         /// </remarks>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">Name of your file including extension.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task FilesByNameDeleteAsync(string name, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task FilesByNameDeleteAsync(string name, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Delete File
@@ -165,9 +176,10 @@ namespace ElasticEmail.Api
         /// </remarks>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">Name of your file including extension.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> FilesByNameDeleteWithHttpInfoAsync(string name, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Object>> FilesByNameDeleteWithHttpInfoAsync(string name, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Download File
         /// </summary>
@@ -176,9 +188,10 @@ namespace ElasticEmail.Api
         /// </remarks>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">Name of your file including extension.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of System.IO.Stream</returns>
-        System.Threading.Tasks.Task<System.IO.Stream> FilesByNameGetAsync(string name, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<System.IO.Stream> FilesByNameGetAsync(string name, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Download File
@@ -188,9 +201,10 @@ namespace ElasticEmail.Api
         /// </remarks>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">Name of your file including extension.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (System.IO.Stream)</returns>
-        System.Threading.Tasks.Task<ApiResponse<System.IO.Stream>> FilesByNameGetWithHttpInfoAsync(string name, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<System.IO.Stream>> FilesByNameGetWithHttpInfoAsync(string name, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Load File Details
         /// </summary>
@@ -199,9 +213,10 @@ namespace ElasticEmail.Api
         /// </remarks>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">Name of your file including extension.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of FileInfo</returns>
-        System.Threading.Tasks.Task<FileInfo> FilesByNameInfoGetAsync(string name, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<FileInfo> FilesByNameInfoGetAsync(string name, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Load File Details
@@ -211,9 +226,10 @@ namespace ElasticEmail.Api
         /// </remarks>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">Name of your file including extension.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (FileInfo)</returns>
-        System.Threading.Tasks.Task<ApiResponse<FileInfo>> FilesByNameInfoGetWithHttpInfoAsync(string name, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<FileInfo>> FilesByNameInfoGetWithHttpInfoAsync(string name, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// List Files
         /// </summary>
@@ -223,9 +239,10 @@ namespace ElasticEmail.Api
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="limit">Maximum number of returned items. (optional)</param>
         /// <param name="offset">How many items should be returned ahead. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;FileInfo&gt;</returns>
-        System.Threading.Tasks.Task<List<FileInfo>> FilesGetAsync(int? limit = default(int?), int? offset = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<List<FileInfo>> FilesGetAsync(int? limit = default(int?), int? offset = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// List Files
@@ -236,9 +253,10 @@ namespace ElasticEmail.Api
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="limit">Maximum number of returned items. (optional)</param>
         /// <param name="offset">How many items should be returned ahead. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;FileInfo&gt;)</returns>
-        System.Threading.Tasks.Task<ApiResponse<List<FileInfo>>> FilesGetWithHttpInfoAsync(int? limit = default(int?), int? offset = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<List<FileInfo>>> FilesGetWithHttpInfoAsync(int? limit = default(int?), int? offset = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Upload File
         /// </summary>
@@ -248,9 +266,10 @@ namespace ElasticEmail.Api
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="filePayload"></param>
         /// <param name="expiresAfterDays">After how many days should the file be deleted. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of FileInfo</returns>
-        System.Threading.Tasks.Task<FileInfo> FilesPostAsync(FilePayload filePayload, int? expiresAfterDays = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<FileInfo> FilesPostAsync(FilePayload filePayload, int? expiresAfterDays = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Upload File
@@ -261,9 +280,10 @@ namespace ElasticEmail.Api
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="filePayload"></param>
         /// <param name="expiresAfterDays">After how many days should the file be deleted. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (FileInfo)</returns>
-        System.Threading.Tasks.Task<ApiResponse<FileInfo>> FilesPostWithHttpInfoAsync(FilePayload filePayload, int? expiresAfterDays = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<FileInfo>> FilesPostWithHttpInfoAsync(FilePayload filePayload, int? expiresAfterDays = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         #endregion Asynchronous Operations
     }
 
@@ -389,8 +409,9 @@ namespace ElasticEmail.Api
         /// </summary>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">Name of your file including extension.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns></returns>
-        public void FilesByNameDelete(string name)
+        public void FilesByNameDelete(string name, int operationIndex = 0)
         {
             FilesByNameDeleteWithHttpInfo(name);
         }
@@ -400,8 +421,9 @@ namespace ElasticEmail.Api
         /// </summary>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">Name of your file including extension.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        public ElasticEmail.Client.ApiResponse<Object> FilesByNameDeleteWithHttpInfo(string name)
+        public ElasticEmail.Client.ApiResponse<Object> FilesByNameDeleteWithHttpInfo(string name, int operationIndex = 0)
         {
             // verify the required parameter 'name' is set
             if (name == null)
@@ -431,6 +453,9 @@ namespace ElasticEmail.Api
             }
 
             localVarRequestOptions.PathParameters.Add("name", ElasticEmail.Client.ClientUtils.ParameterToString(name)); // path parameter
+
+            localVarRequestOptions.Operation = "FilesApi.FilesByNameDelete";
+            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (apikey) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-ElasticEmail-ApiKey")))
@@ -457,11 +482,12 @@ namespace ElasticEmail.Api
         /// </summary>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">Name of your file including extension.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task FilesByNameDeleteAsync(string name, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task FilesByNameDeleteAsync(string name, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            await FilesByNameDeleteWithHttpInfoAsync(name, cancellationToken).ConfigureAwait(false);
+            await FilesByNameDeleteWithHttpInfoAsync(name, operationIndex, cancellationToken).ConfigureAwait(false);
         }
 
         /// <summary>
@@ -469,9 +495,10 @@ namespace ElasticEmail.Api
         /// </summary>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">Name of your file including extension.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<ElasticEmail.Client.ApiResponse<Object>> FilesByNameDeleteWithHttpInfoAsync(string name, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ElasticEmail.Client.ApiResponse<Object>> FilesByNameDeleteWithHttpInfoAsync(string name, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'name' is set
             if (name == null)
@@ -502,6 +529,9 @@ namespace ElasticEmail.Api
             }
 
             localVarRequestOptions.PathParameters.Add("name", ElasticEmail.Client.ClientUtils.ParameterToString(name)); // path parameter
+
+            localVarRequestOptions.Operation = "FilesApi.FilesByNameDelete";
+            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (apikey) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-ElasticEmail-ApiKey")))
@@ -529,8 +559,9 @@ namespace ElasticEmail.Api
         /// </summary>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">Name of your file including extension.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>System.IO.Stream</returns>
-        public System.IO.Stream FilesByNameGet(string name)
+        public System.IO.Stream FilesByNameGet(string name, int operationIndex = 0)
         {
             ElasticEmail.Client.ApiResponse<System.IO.Stream> localVarResponse = FilesByNameGetWithHttpInfo(name);
             return localVarResponse.Data;
@@ -541,8 +572,9 @@ namespace ElasticEmail.Api
         /// </summary>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">Name of your file including extension.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of System.IO.Stream</returns>
-        public ElasticEmail.Client.ApiResponse<System.IO.Stream> FilesByNameGetWithHttpInfo(string name)
+        public ElasticEmail.Client.ApiResponse<System.IO.Stream> FilesByNameGetWithHttpInfo(string name, int operationIndex = 0)
         {
             // verify the required parameter 'name' is set
             if (name == null)
@@ -573,6 +605,9 @@ namespace ElasticEmail.Api
             }
 
             localVarRequestOptions.PathParameters.Add("name", ElasticEmail.Client.ClientUtils.ParameterToString(name)); // path parameter
+
+            localVarRequestOptions.Operation = "FilesApi.FilesByNameGet";
+            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (apikey) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-ElasticEmail-ApiKey")))
@@ -599,11 +634,12 @@ namespace ElasticEmail.Api
         /// </summary>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">Name of your file including extension.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of System.IO.Stream</returns>
-        public async System.Threading.Tasks.Task<System.IO.Stream> FilesByNameGetAsync(string name, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<System.IO.Stream> FilesByNameGetAsync(string name, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            ElasticEmail.Client.ApiResponse<System.IO.Stream> localVarResponse = await FilesByNameGetWithHttpInfoAsync(name, cancellationToken).ConfigureAwait(false);
+            ElasticEmail.Client.ApiResponse<System.IO.Stream> localVarResponse = await FilesByNameGetWithHttpInfoAsync(name, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -612,9 +648,10 @@ namespace ElasticEmail.Api
         /// </summary>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">Name of your file including extension.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (System.IO.Stream)</returns>
-        public async System.Threading.Tasks.Task<ElasticEmail.Client.ApiResponse<System.IO.Stream>> FilesByNameGetWithHttpInfoAsync(string name, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ElasticEmail.Client.ApiResponse<System.IO.Stream>> FilesByNameGetWithHttpInfoAsync(string name, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'name' is set
             if (name == null)
@@ -646,6 +683,9 @@ namespace ElasticEmail.Api
             }
 
             localVarRequestOptions.PathParameters.Add("name", ElasticEmail.Client.ClientUtils.ParameterToString(name)); // path parameter
+
+            localVarRequestOptions.Operation = "FilesApi.FilesByNameGet";
+            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (apikey) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-ElasticEmail-ApiKey")))
@@ -673,8 +713,9 @@ namespace ElasticEmail.Api
         /// </summary>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">Name of your file including extension.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>FileInfo</returns>
-        public FileInfo FilesByNameInfoGet(string name)
+        public FileInfo FilesByNameInfoGet(string name, int operationIndex = 0)
         {
             ElasticEmail.Client.ApiResponse<FileInfo> localVarResponse = FilesByNameInfoGetWithHttpInfo(name);
             return localVarResponse.Data;
@@ -685,8 +726,9 @@ namespace ElasticEmail.Api
         /// </summary>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">Name of your file including extension.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of FileInfo</returns>
-        public ElasticEmail.Client.ApiResponse<FileInfo> FilesByNameInfoGetWithHttpInfo(string name)
+        public ElasticEmail.Client.ApiResponse<FileInfo> FilesByNameInfoGetWithHttpInfo(string name, int operationIndex = 0)
         {
             // verify the required parameter 'name' is set
             if (name == null)
@@ -717,6 +759,9 @@ namespace ElasticEmail.Api
             }
 
             localVarRequestOptions.PathParameters.Add("name", ElasticEmail.Client.ClientUtils.ParameterToString(name)); // path parameter
+
+            localVarRequestOptions.Operation = "FilesApi.FilesByNameInfoGet";
+            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (apikey) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-ElasticEmail-ApiKey")))
@@ -743,11 +788,12 @@ namespace ElasticEmail.Api
         /// </summary>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">Name of your file including extension.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of FileInfo</returns>
-        public async System.Threading.Tasks.Task<FileInfo> FilesByNameInfoGetAsync(string name, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<FileInfo> FilesByNameInfoGetAsync(string name, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            ElasticEmail.Client.ApiResponse<FileInfo> localVarResponse = await FilesByNameInfoGetWithHttpInfoAsync(name, cancellationToken).ConfigureAwait(false);
+            ElasticEmail.Client.ApiResponse<FileInfo> localVarResponse = await FilesByNameInfoGetWithHttpInfoAsync(name, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -756,9 +802,10 @@ namespace ElasticEmail.Api
         /// </summary>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">Name of your file including extension.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (FileInfo)</returns>
-        public async System.Threading.Tasks.Task<ElasticEmail.Client.ApiResponse<FileInfo>> FilesByNameInfoGetWithHttpInfoAsync(string name, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ElasticEmail.Client.ApiResponse<FileInfo>> FilesByNameInfoGetWithHttpInfoAsync(string name, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'name' is set
             if (name == null)
@@ -790,6 +837,9 @@ namespace ElasticEmail.Api
             }
 
             localVarRequestOptions.PathParameters.Add("name", ElasticEmail.Client.ClientUtils.ParameterToString(name)); // path parameter
+
+            localVarRequestOptions.Operation = "FilesApi.FilesByNameInfoGet";
+            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (apikey) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-ElasticEmail-ApiKey")))
@@ -818,8 +868,9 @@ namespace ElasticEmail.Api
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="limit">Maximum number of returned items. (optional)</param>
         /// <param name="offset">How many items should be returned ahead. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>List&lt;FileInfo&gt;</returns>
-        public List<FileInfo> FilesGet(int? limit = default(int?), int? offset = default(int?))
+        public List<FileInfo> FilesGet(int? limit = default(int?), int? offset = default(int?), int operationIndex = 0)
         {
             ElasticEmail.Client.ApiResponse<List<FileInfo>> localVarResponse = FilesGetWithHttpInfo(limit, offset);
             return localVarResponse.Data;
@@ -831,8 +882,9 @@ namespace ElasticEmail.Api
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="limit">Maximum number of returned items. (optional)</param>
         /// <param name="offset">How many items should be returned ahead. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of List&lt;FileInfo&gt;</returns>
-        public ElasticEmail.Client.ApiResponse<List<FileInfo>> FilesGetWithHttpInfo(int? limit = default(int?), int? offset = default(int?))
+        public ElasticEmail.Client.ApiResponse<List<FileInfo>> FilesGetWithHttpInfo(int? limit = default(int?), int? offset = default(int?), int operationIndex = 0)
         {
             ElasticEmail.Client.RequestOptions localVarRequestOptions = new ElasticEmail.Client.RequestOptions();
 
@@ -864,6 +916,9 @@ namespace ElasticEmail.Api
             {
                 localVarRequestOptions.QueryParameters.Add(ElasticEmail.Client.ClientUtils.ParameterToMultiMap("", "offset", offset));
             }
+
+            localVarRequestOptions.Operation = "FilesApi.FilesGet";
+            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (apikey) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-ElasticEmail-ApiKey")))
@@ -891,11 +946,12 @@ namespace ElasticEmail.Api
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="limit">Maximum number of returned items. (optional)</param>
         /// <param name="offset">How many items should be returned ahead. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;FileInfo&gt;</returns>
-        public async System.Threading.Tasks.Task<List<FileInfo>> FilesGetAsync(int? limit = default(int?), int? offset = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<List<FileInfo>> FilesGetAsync(int? limit = default(int?), int? offset = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            ElasticEmail.Client.ApiResponse<List<FileInfo>> localVarResponse = await FilesGetWithHttpInfoAsync(limit, offset, cancellationToken).ConfigureAwait(false);
+            ElasticEmail.Client.ApiResponse<List<FileInfo>> localVarResponse = await FilesGetWithHttpInfoAsync(limit, offset, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -905,9 +961,10 @@ namespace ElasticEmail.Api
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="limit">Maximum number of returned items. (optional)</param>
         /// <param name="offset">How many items should be returned ahead. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;FileInfo&gt;)</returns>
-        public async System.Threading.Tasks.Task<ElasticEmail.Client.ApiResponse<List<FileInfo>>> FilesGetWithHttpInfoAsync(int? limit = default(int?), int? offset = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ElasticEmail.Client.ApiResponse<List<FileInfo>>> FilesGetWithHttpInfoAsync(int? limit = default(int?), int? offset = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             ElasticEmail.Client.RequestOptions localVarRequestOptions = new ElasticEmail.Client.RequestOptions();
@@ -940,6 +997,9 @@ namespace ElasticEmail.Api
             {
                 localVarRequestOptions.QueryParameters.Add(ElasticEmail.Client.ClientUtils.ParameterToMultiMap("", "offset", offset));
             }
+
+            localVarRequestOptions.Operation = "FilesApi.FilesGet";
+            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (apikey) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-ElasticEmail-ApiKey")))
@@ -968,8 +1028,9 @@ namespace ElasticEmail.Api
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="filePayload"></param>
         /// <param name="expiresAfterDays">After how many days should the file be deleted. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>FileInfo</returns>
-        public FileInfo FilesPost(FilePayload filePayload, int? expiresAfterDays = default(int?))
+        public FileInfo FilesPost(FilePayload filePayload, int? expiresAfterDays = default(int?), int operationIndex = 0)
         {
             ElasticEmail.Client.ApiResponse<FileInfo> localVarResponse = FilesPostWithHttpInfo(filePayload, expiresAfterDays);
             return localVarResponse.Data;
@@ -981,8 +1042,9 @@ namespace ElasticEmail.Api
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="filePayload"></param>
         /// <param name="expiresAfterDays">After how many days should the file be deleted. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of FileInfo</returns>
-        public ElasticEmail.Client.ApiResponse<FileInfo> FilesPostWithHttpInfo(FilePayload filePayload, int? expiresAfterDays = default(int?))
+        public ElasticEmail.Client.ApiResponse<FileInfo> FilesPostWithHttpInfo(FilePayload filePayload, int? expiresAfterDays = default(int?), int operationIndex = 0)
         {
             // verify the required parameter 'filePayload' is set
             if (filePayload == null)
@@ -1018,6 +1080,9 @@ namespace ElasticEmail.Api
                 localVarRequestOptions.QueryParameters.Add(ElasticEmail.Client.ClientUtils.ParameterToMultiMap("", "expiresAfterDays", expiresAfterDays));
             }
             localVarRequestOptions.Data = filePayload;
+
+            localVarRequestOptions.Operation = "FilesApi.FilesPost";
+            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (apikey) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-ElasticEmail-ApiKey")))
@@ -1045,11 +1110,12 @@ namespace ElasticEmail.Api
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="filePayload"></param>
         /// <param name="expiresAfterDays">After how many days should the file be deleted. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of FileInfo</returns>
-        public async System.Threading.Tasks.Task<FileInfo> FilesPostAsync(FilePayload filePayload, int? expiresAfterDays = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<FileInfo> FilesPostAsync(FilePayload filePayload, int? expiresAfterDays = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            ElasticEmail.Client.ApiResponse<FileInfo> localVarResponse = await FilesPostWithHttpInfoAsync(filePayload, expiresAfterDays, cancellationToken).ConfigureAwait(false);
+            ElasticEmail.Client.ApiResponse<FileInfo> localVarResponse = await FilesPostWithHttpInfoAsync(filePayload, expiresAfterDays, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1059,9 +1125,10 @@ namespace ElasticEmail.Api
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="filePayload"></param>
         /// <param name="expiresAfterDays">After how many days should the file be deleted. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (FileInfo)</returns>
-        public async System.Threading.Tasks.Task<ElasticEmail.Client.ApiResponse<FileInfo>> FilesPostWithHttpInfoAsync(FilePayload filePayload, int? expiresAfterDays = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ElasticEmail.Client.ApiResponse<FileInfo>> FilesPostWithHttpInfoAsync(FilePayload filePayload, int? expiresAfterDays = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'filePayload' is set
             if (filePayload == null)
@@ -1098,6 +1165,9 @@ namespace ElasticEmail.Api
                 localVarRequestOptions.QueryParameters.Add(ElasticEmail.Client.ClientUtils.ParameterToMultiMap("", "expiresAfterDays", expiresAfterDays));
             }
             localVarRequestOptions.Data = filePayload;
+
+            localVarRequestOptions.Operation = "FilesApi.FilesPost";
+            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (apikey) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-ElasticEmail-ApiKey")))

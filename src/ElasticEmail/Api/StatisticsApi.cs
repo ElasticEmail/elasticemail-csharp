@@ -35,8 +35,9 @@ namespace ElasticEmail.Api
         /// </remarks>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">The name of the campaign to get.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ChannelLogStatusSummary</returns>
-        ChannelLogStatusSummary StatisticsCampaignsByNameGet(string name);
+        ChannelLogStatusSummary StatisticsCampaignsByNameGet(string name, int operationIndex = 0);
 
         /// <summary>
         /// Load Campaign Stats
@@ -46,8 +47,9 @@ namespace ElasticEmail.Api
         /// </remarks>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">The name of the campaign to get.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of ChannelLogStatusSummary</returns>
-        ApiResponse<ChannelLogStatusSummary> StatisticsCampaignsByNameGetWithHttpInfo(string name);
+        ApiResponse<ChannelLogStatusSummary> StatisticsCampaignsByNameGetWithHttpInfo(string name, int operationIndex = 0);
         /// <summary>
         /// Load Campaigns Stats
         /// </summary>
@@ -57,8 +59,9 @@ namespace ElasticEmail.Api
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="limit">Maximum number of returned items. (optional)</param>
         /// <param name="offset">How many items should be returned ahead. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>List&lt;ChannelLogStatusSummary&gt;</returns>
-        List<ChannelLogStatusSummary> StatisticsCampaignsGet(int? limit = default(int?), int? offset = default(int?));
+        List<ChannelLogStatusSummary> StatisticsCampaignsGet(int? limit = default(int?), int? offset = default(int?), int operationIndex = 0);
 
         /// <summary>
         /// Load Campaigns Stats
@@ -69,8 +72,9 @@ namespace ElasticEmail.Api
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="limit">Maximum number of returned items. (optional)</param>
         /// <param name="offset">How many items should be returned ahead. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of List&lt;ChannelLogStatusSummary&gt;</returns>
-        ApiResponse<List<ChannelLogStatusSummary>> StatisticsCampaignsGetWithHttpInfo(int? limit = default(int?), int? offset = default(int?));
+        ApiResponse<List<ChannelLogStatusSummary>> StatisticsCampaignsGetWithHttpInfo(int? limit = default(int?), int? offset = default(int?), int operationIndex = 0);
         /// <summary>
         /// Load Channel Stats
         /// </summary>
@@ -79,8 +83,9 @@ namespace ElasticEmail.Api
         /// </remarks>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">The name of the channel to get.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ChannelLogStatusSummary</returns>
-        ChannelLogStatusSummary StatisticsChannelsByNameGet(string name);
+        ChannelLogStatusSummary StatisticsChannelsByNameGet(string name, int operationIndex = 0);
 
         /// <summary>
         /// Load Channel Stats
@@ -90,8 +95,9 @@ namespace ElasticEmail.Api
         /// </remarks>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">The name of the channel to get.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of ChannelLogStatusSummary</returns>
-        ApiResponse<ChannelLogStatusSummary> StatisticsChannelsByNameGetWithHttpInfo(string name);
+        ApiResponse<ChannelLogStatusSummary> StatisticsChannelsByNameGetWithHttpInfo(string name, int operationIndex = 0);
         /// <summary>
         /// Load Channels Stats
         /// </summary>
@@ -101,8 +107,9 @@ namespace ElasticEmail.Api
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="limit">Maximum number of returned items. (optional)</param>
         /// <param name="offset">How many items should be returned ahead. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>List&lt;ChannelLogStatusSummary&gt;</returns>
-        List<ChannelLogStatusSummary> StatisticsChannelsGet(int? limit = default(int?), int? offset = default(int?));
+        List<ChannelLogStatusSummary> StatisticsChannelsGet(int? limit = default(int?), int? offset = default(int?), int operationIndex = 0);
 
         /// <summary>
         /// Load Channels Stats
@@ -113,8 +120,9 @@ namespace ElasticEmail.Api
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="limit">Maximum number of returned items. (optional)</param>
         /// <param name="offset">How many items should be returned ahead. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of List&lt;ChannelLogStatusSummary&gt;</returns>
-        ApiResponse<List<ChannelLogStatusSummary>> StatisticsChannelsGetWithHttpInfo(int? limit = default(int?), int? offset = default(int?));
+        ApiResponse<List<ChannelLogStatusSummary>> StatisticsChannelsGetWithHttpInfo(int? limit = default(int?), int? offset = default(int?), int operationIndex = 0);
         /// <summary>
         /// Load Statistics
         /// </summary>
@@ -124,8 +132,9 @@ namespace ElasticEmail.Api
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="from">Starting date for search in YYYY-MM-DDThh:mm:ss format.</param>
         /// <param name="to">Ending date for search in YYYY-MM-DDThh:mm:ss format. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>LogStatusSummary</returns>
-        LogStatusSummary StatisticsGet(DateTime from, DateTime? to = default(DateTime?));
+        LogStatusSummary StatisticsGet(DateTime from, DateTime? to = default(DateTime?), int operationIndex = 0);
 
         /// <summary>
         /// Load Statistics
@@ -136,8 +145,9 @@ namespace ElasticEmail.Api
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="from">Starting date for search in YYYY-MM-DDThh:mm:ss format.</param>
         /// <param name="to">Ending date for search in YYYY-MM-DDThh:mm:ss format. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of LogStatusSummary</returns>
-        ApiResponse<LogStatusSummary> StatisticsGetWithHttpInfo(DateTime from, DateTime? to = default(DateTime?));
+        ApiResponse<LogStatusSummary> StatisticsGetWithHttpInfo(DateTime from, DateTime? to = default(DateTime?), int operationIndex = 0);
         #endregion Synchronous Operations
     }
 
@@ -155,9 +165,10 @@ namespace ElasticEmail.Api
         /// </remarks>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">The name of the campaign to get.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ChannelLogStatusSummary</returns>
-        System.Threading.Tasks.Task<ChannelLogStatusSummary> StatisticsCampaignsByNameGetAsync(string name, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ChannelLogStatusSummary> StatisticsCampaignsByNameGetAsync(string name, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Load Campaign Stats
@@ -167,9 +178,10 @@ namespace ElasticEmail.Api
         /// </remarks>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">The name of the campaign to get.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ChannelLogStatusSummary)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ChannelLogStatusSummary>> StatisticsCampaignsByNameGetWithHttpInfoAsync(string name, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<ChannelLogStatusSummary>> StatisticsCampaignsByNameGetWithHttpInfoAsync(string name, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Load Campaigns Stats
         /// </summary>
@@ -179,9 +191,10 @@ namespace ElasticEmail.Api
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="limit">Maximum number of returned items. (optional)</param>
         /// <param name="offset">How many items should be returned ahead. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;ChannelLogStatusSummary&gt;</returns>
-        System.Threading.Tasks.Task<List<ChannelLogStatusSummary>> StatisticsCampaignsGetAsync(int? limit = default(int?), int? offset = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<List<ChannelLogStatusSummary>> StatisticsCampaignsGetAsync(int? limit = default(int?), int? offset = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Load Campaigns Stats
@@ -192,9 +205,10 @@ namespace ElasticEmail.Api
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="limit">Maximum number of returned items. (optional)</param>
         /// <param name="offset">How many items should be returned ahead. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;ChannelLogStatusSummary&gt;)</returns>
-        System.Threading.Tasks.Task<ApiResponse<List<ChannelLogStatusSummary>>> StatisticsCampaignsGetWithHttpInfoAsync(int? limit = default(int?), int? offset = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<List<ChannelLogStatusSummary>>> StatisticsCampaignsGetWithHttpInfoAsync(int? limit = default(int?), int? offset = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Load Channel Stats
         /// </summary>
@@ -203,9 +217,10 @@ namespace ElasticEmail.Api
         /// </remarks>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">The name of the channel to get.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ChannelLogStatusSummary</returns>
-        System.Threading.Tasks.Task<ChannelLogStatusSummary> StatisticsChannelsByNameGetAsync(string name, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ChannelLogStatusSummary> StatisticsChannelsByNameGetAsync(string name, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Load Channel Stats
@@ -215,9 +230,10 @@ namespace ElasticEmail.Api
         /// </remarks>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">The name of the channel to get.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ChannelLogStatusSummary)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ChannelLogStatusSummary>> StatisticsChannelsByNameGetWithHttpInfoAsync(string name, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<ChannelLogStatusSummary>> StatisticsChannelsByNameGetWithHttpInfoAsync(string name, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Load Channels Stats
         /// </summary>
@@ -227,9 +243,10 @@ namespace ElasticEmail.Api
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="limit">Maximum number of returned items. (optional)</param>
         /// <param name="offset">How many items should be returned ahead. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;ChannelLogStatusSummary&gt;</returns>
-        System.Threading.Tasks.Task<List<ChannelLogStatusSummary>> StatisticsChannelsGetAsync(int? limit = default(int?), int? offset = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<List<ChannelLogStatusSummary>> StatisticsChannelsGetAsync(int? limit = default(int?), int? offset = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Load Channels Stats
@@ -240,9 +257,10 @@ namespace ElasticEmail.Api
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="limit">Maximum number of returned items. (optional)</param>
         /// <param name="offset">How many items should be returned ahead. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;ChannelLogStatusSummary&gt;)</returns>
-        System.Threading.Tasks.Task<ApiResponse<List<ChannelLogStatusSummary>>> StatisticsChannelsGetWithHttpInfoAsync(int? limit = default(int?), int? offset = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<List<ChannelLogStatusSummary>>> StatisticsChannelsGetWithHttpInfoAsync(int? limit = default(int?), int? offset = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Load Statistics
         /// </summary>
@@ -252,9 +270,10 @@ namespace ElasticEmail.Api
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="from">Starting date for search in YYYY-MM-DDThh:mm:ss format.</param>
         /// <param name="to">Ending date for search in YYYY-MM-DDThh:mm:ss format. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of LogStatusSummary</returns>
-        System.Threading.Tasks.Task<LogStatusSummary> StatisticsGetAsync(DateTime from, DateTime? to = default(DateTime?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<LogStatusSummary> StatisticsGetAsync(DateTime from, DateTime? to = default(DateTime?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Load Statistics
@@ -265,9 +284,10 @@ namespace ElasticEmail.Api
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="from">Starting date for search in YYYY-MM-DDThh:mm:ss format.</param>
         /// <param name="to">Ending date for search in YYYY-MM-DDThh:mm:ss format. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (LogStatusSummary)</returns>
-        System.Threading.Tasks.Task<ApiResponse<LogStatusSummary>> StatisticsGetWithHttpInfoAsync(DateTime from, DateTime? to = default(DateTime?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<LogStatusSummary>> StatisticsGetWithHttpInfoAsync(DateTime from, DateTime? to = default(DateTime?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         #endregion Asynchronous Operations
     }
 
@@ -393,8 +413,9 @@ namespace ElasticEmail.Api
         /// </summary>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">The name of the campaign to get.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ChannelLogStatusSummary</returns>
-        public ChannelLogStatusSummary StatisticsCampaignsByNameGet(string name)
+        public ChannelLogStatusSummary StatisticsCampaignsByNameGet(string name, int operationIndex = 0)
         {
             ElasticEmail.Client.ApiResponse<ChannelLogStatusSummary> localVarResponse = StatisticsCampaignsByNameGetWithHttpInfo(name);
             return localVarResponse.Data;
@@ -405,8 +426,9 @@ namespace ElasticEmail.Api
         /// </summary>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">The name of the campaign to get.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of ChannelLogStatusSummary</returns>
-        public ElasticEmail.Client.ApiResponse<ChannelLogStatusSummary> StatisticsCampaignsByNameGetWithHttpInfo(string name)
+        public ElasticEmail.Client.ApiResponse<ChannelLogStatusSummary> StatisticsCampaignsByNameGetWithHttpInfo(string name, int operationIndex = 0)
         {
             // verify the required parameter 'name' is set
             if (name == null)
@@ -437,6 +459,9 @@ namespace ElasticEmail.Api
             }
 
             localVarRequestOptions.PathParameters.Add("name", ElasticEmail.Client.ClientUtils.ParameterToString(name)); // path parameter
+
+            localVarRequestOptions.Operation = "StatisticsApi.StatisticsCampaignsByNameGet";
+            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (apikey) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-ElasticEmail-ApiKey")))
@@ -463,11 +488,12 @@ namespace ElasticEmail.Api
         /// </summary>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">The name of the campaign to get.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ChannelLogStatusSummary</returns>
-        public async System.Threading.Tasks.Task<ChannelLogStatusSummary> StatisticsCampaignsByNameGetAsync(string name, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ChannelLogStatusSummary> StatisticsCampaignsByNameGetAsync(string name, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            ElasticEmail.Client.ApiResponse<ChannelLogStatusSummary> localVarResponse = await StatisticsCampaignsByNameGetWithHttpInfoAsync(name, cancellationToken).ConfigureAwait(false);
+            ElasticEmail.Client.ApiResponse<ChannelLogStatusSummary> localVarResponse = await StatisticsCampaignsByNameGetWithHttpInfoAsync(name, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -476,9 +502,10 @@ namespace ElasticEmail.Api
         /// </summary>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">The name of the campaign to get.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ChannelLogStatusSummary)</returns>
-        public async System.Threading.Tasks.Task<ElasticEmail.Client.ApiResponse<ChannelLogStatusSummary>> StatisticsCampaignsByNameGetWithHttpInfoAsync(string name, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ElasticEmail.Client.ApiResponse<ChannelLogStatusSummary>> StatisticsCampaignsByNameGetWithHttpInfoAsync(string name, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'name' is set
             if (name == null)
@@ -510,6 +537,9 @@ namespace ElasticEmail.Api
             }
 
             localVarRequestOptions.PathParameters.Add("name", ElasticEmail.Client.ClientUtils.ParameterToString(name)); // path parameter
+
+            localVarRequestOptions.Operation = "StatisticsApi.StatisticsCampaignsByNameGet";
+            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (apikey) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-ElasticEmail-ApiKey")))
@@ -538,8 +568,9 @@ namespace ElasticEmail.Api
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="limit">Maximum number of returned items. (optional)</param>
         /// <param name="offset">How many items should be returned ahead. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>List&lt;ChannelLogStatusSummary&gt;</returns>
-        public List<ChannelLogStatusSummary> StatisticsCampaignsGet(int? limit = default(int?), int? offset = default(int?))
+        public List<ChannelLogStatusSummary> StatisticsCampaignsGet(int? limit = default(int?), int? offset = default(int?), int operationIndex = 0)
         {
             ElasticEmail.Client.ApiResponse<List<ChannelLogStatusSummary>> localVarResponse = StatisticsCampaignsGetWithHttpInfo(limit, offset);
             return localVarResponse.Data;
@@ -551,8 +582,9 @@ namespace ElasticEmail.Api
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="limit">Maximum number of returned items. (optional)</param>
         /// <param name="offset">How many items should be returned ahead. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of List&lt;ChannelLogStatusSummary&gt;</returns>
-        public ElasticEmail.Client.ApiResponse<List<ChannelLogStatusSummary>> StatisticsCampaignsGetWithHttpInfo(int? limit = default(int?), int? offset = default(int?))
+        public ElasticEmail.Client.ApiResponse<List<ChannelLogStatusSummary>> StatisticsCampaignsGetWithHttpInfo(int? limit = default(int?), int? offset = default(int?), int operationIndex = 0)
         {
             ElasticEmail.Client.RequestOptions localVarRequestOptions = new ElasticEmail.Client.RequestOptions();
 
@@ -584,6 +616,9 @@ namespace ElasticEmail.Api
             {
                 localVarRequestOptions.QueryParameters.Add(ElasticEmail.Client.ClientUtils.ParameterToMultiMap("", "offset", offset));
             }
+
+            localVarRequestOptions.Operation = "StatisticsApi.StatisticsCampaignsGet";
+            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (apikey) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-ElasticEmail-ApiKey")))
@@ -611,11 +646,12 @@ namespace ElasticEmail.Api
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="limit">Maximum number of returned items. (optional)</param>
         /// <param name="offset">How many items should be returned ahead. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;ChannelLogStatusSummary&gt;</returns>
-        public async System.Threading.Tasks.Task<List<ChannelLogStatusSummary>> StatisticsCampaignsGetAsync(int? limit = default(int?), int? offset = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<List<ChannelLogStatusSummary>> StatisticsCampaignsGetAsync(int? limit = default(int?), int? offset = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            ElasticEmail.Client.ApiResponse<List<ChannelLogStatusSummary>> localVarResponse = await StatisticsCampaignsGetWithHttpInfoAsync(limit, offset, cancellationToken).ConfigureAwait(false);
+            ElasticEmail.Client.ApiResponse<List<ChannelLogStatusSummary>> localVarResponse = await StatisticsCampaignsGetWithHttpInfoAsync(limit, offset, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -625,9 +661,10 @@ namespace ElasticEmail.Api
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="limit">Maximum number of returned items. (optional)</param>
         /// <param name="offset">How many items should be returned ahead. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;ChannelLogStatusSummary&gt;)</returns>
-        public async System.Threading.Tasks.Task<ElasticEmail.Client.ApiResponse<List<ChannelLogStatusSummary>>> StatisticsCampaignsGetWithHttpInfoAsync(int? limit = default(int?), int? offset = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ElasticEmail.Client.ApiResponse<List<ChannelLogStatusSummary>>> StatisticsCampaignsGetWithHttpInfoAsync(int? limit = default(int?), int? offset = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             ElasticEmail.Client.RequestOptions localVarRequestOptions = new ElasticEmail.Client.RequestOptions();
@@ -661,6 +698,9 @@ namespace ElasticEmail.Api
                 localVarRequestOptions.QueryParameters.Add(ElasticEmail.Client.ClientUtils.ParameterToMultiMap("", "offset", offset));
             }
 
+            localVarRequestOptions.Operation = "StatisticsApi.StatisticsCampaignsGet";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
             // authentication (apikey) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-ElasticEmail-ApiKey")))
             {
@@ -687,8 +727,9 @@ namespace ElasticEmail.Api
         /// </summary>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">The name of the channel to get.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ChannelLogStatusSummary</returns>
-        public ChannelLogStatusSummary StatisticsChannelsByNameGet(string name)
+        public ChannelLogStatusSummary StatisticsChannelsByNameGet(string name, int operationIndex = 0)
         {
             ElasticEmail.Client.ApiResponse<ChannelLogStatusSummary> localVarResponse = StatisticsChannelsByNameGetWithHttpInfo(name);
             return localVarResponse.Data;
@@ -699,8 +740,9 @@ namespace ElasticEmail.Api
         /// </summary>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">The name of the channel to get.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of ChannelLogStatusSummary</returns>
-        public ElasticEmail.Client.ApiResponse<ChannelLogStatusSummary> StatisticsChannelsByNameGetWithHttpInfo(string name)
+        public ElasticEmail.Client.ApiResponse<ChannelLogStatusSummary> StatisticsChannelsByNameGetWithHttpInfo(string name, int operationIndex = 0)
         {
             // verify the required parameter 'name' is set
             if (name == null)
@@ -731,6 +773,9 @@ namespace ElasticEmail.Api
             }
 
             localVarRequestOptions.PathParameters.Add("name", ElasticEmail.Client.ClientUtils.ParameterToString(name)); // path parameter
+
+            localVarRequestOptions.Operation = "StatisticsApi.StatisticsChannelsByNameGet";
+            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (apikey) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-ElasticEmail-ApiKey")))
@@ -757,11 +802,12 @@ namespace ElasticEmail.Api
         /// </summary>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">The name of the channel to get.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ChannelLogStatusSummary</returns>
-        public async System.Threading.Tasks.Task<ChannelLogStatusSummary> StatisticsChannelsByNameGetAsync(string name, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ChannelLogStatusSummary> StatisticsChannelsByNameGetAsync(string name, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            ElasticEmail.Client.ApiResponse<ChannelLogStatusSummary> localVarResponse = await StatisticsChannelsByNameGetWithHttpInfoAsync(name, cancellationToken).ConfigureAwait(false);
+            ElasticEmail.Client.ApiResponse<ChannelLogStatusSummary> localVarResponse = await StatisticsChannelsByNameGetWithHttpInfoAsync(name, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -770,9 +816,10 @@ namespace ElasticEmail.Api
         /// </summary>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">The name of the channel to get.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ChannelLogStatusSummary)</returns>
-        public async System.Threading.Tasks.Task<ElasticEmail.Client.ApiResponse<ChannelLogStatusSummary>> StatisticsChannelsByNameGetWithHttpInfoAsync(string name, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ElasticEmail.Client.ApiResponse<ChannelLogStatusSummary>> StatisticsChannelsByNameGetWithHttpInfoAsync(string name, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'name' is set
             if (name == null)
@@ -804,6 +851,9 @@ namespace ElasticEmail.Api
             }
 
             localVarRequestOptions.PathParameters.Add("name", ElasticEmail.Client.ClientUtils.ParameterToString(name)); // path parameter
+
+            localVarRequestOptions.Operation = "StatisticsApi.StatisticsChannelsByNameGet";
+            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (apikey) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-ElasticEmail-ApiKey")))
@@ -832,8 +882,9 @@ namespace ElasticEmail.Api
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="limit">Maximum number of returned items. (optional)</param>
         /// <param name="offset">How many items should be returned ahead. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>List&lt;ChannelLogStatusSummary&gt;</returns>
-        public List<ChannelLogStatusSummary> StatisticsChannelsGet(int? limit = default(int?), int? offset = default(int?))
+        public List<ChannelLogStatusSummary> StatisticsChannelsGet(int? limit = default(int?), int? offset = default(int?), int operationIndex = 0)
         {
             ElasticEmail.Client.ApiResponse<List<ChannelLogStatusSummary>> localVarResponse = StatisticsChannelsGetWithHttpInfo(limit, offset);
             return localVarResponse.Data;
@@ -845,8 +896,9 @@ namespace ElasticEmail.Api
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="limit">Maximum number of returned items. (optional)</param>
         /// <param name="offset">How many items should be returned ahead. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of List&lt;ChannelLogStatusSummary&gt;</returns>
-        public ElasticEmail.Client.ApiResponse<List<ChannelLogStatusSummary>> StatisticsChannelsGetWithHttpInfo(int? limit = default(int?), int? offset = default(int?))
+        public ElasticEmail.Client.ApiResponse<List<ChannelLogStatusSummary>> StatisticsChannelsGetWithHttpInfo(int? limit = default(int?), int? offset = default(int?), int operationIndex = 0)
         {
             ElasticEmail.Client.RequestOptions localVarRequestOptions = new ElasticEmail.Client.RequestOptions();
 
@@ -878,6 +930,9 @@ namespace ElasticEmail.Api
             {
                 localVarRequestOptions.QueryParameters.Add(ElasticEmail.Client.ClientUtils.ParameterToMultiMap("", "offset", offset));
             }
+
+            localVarRequestOptions.Operation = "StatisticsApi.StatisticsChannelsGet";
+            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (apikey) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-ElasticEmail-ApiKey")))
@@ -905,11 +960,12 @@ namespace ElasticEmail.Api
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="limit">Maximum number of returned items. (optional)</param>
         /// <param name="offset">How many items should be returned ahead. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;ChannelLogStatusSummary&gt;</returns>
-        public async System.Threading.Tasks.Task<List<ChannelLogStatusSummary>> StatisticsChannelsGetAsync(int? limit = default(int?), int? offset = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<List<ChannelLogStatusSummary>> StatisticsChannelsGetAsync(int? limit = default(int?), int? offset = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            ElasticEmail.Client.ApiResponse<List<ChannelLogStatusSummary>> localVarResponse = await StatisticsChannelsGetWithHttpInfoAsync(limit, offset, cancellationToken).ConfigureAwait(false);
+            ElasticEmail.Client.ApiResponse<List<ChannelLogStatusSummary>> localVarResponse = await StatisticsChannelsGetWithHttpInfoAsync(limit, offset, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -919,9 +975,10 @@ namespace ElasticEmail.Api
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="limit">Maximum number of returned items. (optional)</param>
         /// <param name="offset">How many items should be returned ahead. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;ChannelLogStatusSummary&gt;)</returns>
-        public async System.Threading.Tasks.Task<ElasticEmail.Client.ApiResponse<List<ChannelLogStatusSummary>>> StatisticsChannelsGetWithHttpInfoAsync(int? limit = default(int?), int? offset = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ElasticEmail.Client.ApiResponse<List<ChannelLogStatusSummary>>> StatisticsChannelsGetWithHttpInfoAsync(int? limit = default(int?), int? offset = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             ElasticEmail.Client.RequestOptions localVarRequestOptions = new ElasticEmail.Client.RequestOptions();
@@ -954,6 +1011,9 @@ namespace ElasticEmail.Api
             {
                 localVarRequestOptions.QueryParameters.Add(ElasticEmail.Client.ClientUtils.ParameterToMultiMap("", "offset", offset));
             }
+
+            localVarRequestOptions.Operation = "StatisticsApi.StatisticsChannelsGet";
+            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (apikey) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-ElasticEmail-ApiKey")))
@@ -982,8 +1042,9 @@ namespace ElasticEmail.Api
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="from">Starting date for search in YYYY-MM-DDThh:mm:ss format.</param>
         /// <param name="to">Ending date for search in YYYY-MM-DDThh:mm:ss format. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>LogStatusSummary</returns>
-        public LogStatusSummary StatisticsGet(DateTime from, DateTime? to = default(DateTime?))
+        public LogStatusSummary StatisticsGet(DateTime from, DateTime? to = default(DateTime?), int operationIndex = 0)
         {
             ElasticEmail.Client.ApiResponse<LogStatusSummary> localVarResponse = StatisticsGetWithHttpInfo(from, to);
             return localVarResponse.Data;
@@ -995,8 +1056,9 @@ namespace ElasticEmail.Api
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="from">Starting date for search in YYYY-MM-DDThh:mm:ss format.</param>
         /// <param name="to">Ending date for search in YYYY-MM-DDThh:mm:ss format. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of LogStatusSummary</returns>
-        public ElasticEmail.Client.ApiResponse<LogStatusSummary> StatisticsGetWithHttpInfo(DateTime from, DateTime? to = default(DateTime?))
+        public ElasticEmail.Client.ApiResponse<LogStatusSummary> StatisticsGetWithHttpInfo(DateTime from, DateTime? to = default(DateTime?), int operationIndex = 0)
         {
             ElasticEmail.Client.RequestOptions localVarRequestOptions = new ElasticEmail.Client.RequestOptions();
 
@@ -1025,6 +1087,9 @@ namespace ElasticEmail.Api
             {
                 localVarRequestOptions.QueryParameters.Add(ElasticEmail.Client.ClientUtils.ParameterToMultiMap("", "to", to));
             }
+
+            localVarRequestOptions.Operation = "StatisticsApi.StatisticsGet";
+            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (apikey) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-ElasticEmail-ApiKey")))
@@ -1052,11 +1117,12 @@ namespace ElasticEmail.Api
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="from">Starting date for search in YYYY-MM-DDThh:mm:ss format.</param>
         /// <param name="to">Ending date for search in YYYY-MM-DDThh:mm:ss format. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of LogStatusSummary</returns>
-        public async System.Threading.Tasks.Task<LogStatusSummary> StatisticsGetAsync(DateTime from, DateTime? to = default(DateTime?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<LogStatusSummary> StatisticsGetAsync(DateTime from, DateTime? to = default(DateTime?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            ElasticEmail.Client.ApiResponse<LogStatusSummary> localVarResponse = await StatisticsGetWithHttpInfoAsync(from, to, cancellationToken).ConfigureAwait(false);
+            ElasticEmail.Client.ApiResponse<LogStatusSummary> localVarResponse = await StatisticsGetWithHttpInfoAsync(from, to, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1066,9 +1132,10 @@ namespace ElasticEmail.Api
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="from">Starting date for search in YYYY-MM-DDThh:mm:ss format.</param>
         /// <param name="to">Ending date for search in YYYY-MM-DDThh:mm:ss format. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (LogStatusSummary)</returns>
-        public async System.Threading.Tasks.Task<ElasticEmail.Client.ApiResponse<LogStatusSummary>> StatisticsGetWithHttpInfoAsync(DateTime from, DateTime? to = default(DateTime?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ElasticEmail.Client.ApiResponse<LogStatusSummary>> StatisticsGetWithHttpInfoAsync(DateTime from, DateTime? to = default(DateTime?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             ElasticEmail.Client.RequestOptions localVarRequestOptions = new ElasticEmail.Client.RequestOptions();
@@ -1098,6 +1165,9 @@ namespace ElasticEmail.Api
             {
                 localVarRequestOptions.QueryParameters.Add(ElasticEmail.Client.ClientUtils.ParameterToMultiMap("", "to", to));
             }
+
+            localVarRequestOptions.Operation = "StatisticsApi.StatisticsGet";
+            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (apikey) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-ElasticEmail-ApiKey")))

@@ -31,268 +31,292 @@ namespace ElasticEmail.Api
         /// Get Bounce List
         /// </summary>
         /// <remarks>
-        /// Retrieve your list of bounced emails. Required Access Level: ViewContacts
+        /// Retrieve your list of bounced emails. Required Access Level: ViewContacts, ViewSuppressions
         /// </remarks>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="search">Text fragment used for searching. (optional)</param>
         /// <param name="limit">Maximum number of returned items. (optional)</param>
         /// <param name="offset">How many items should be returned ahead. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>List&lt;Suppression&gt;</returns>
-        List<Suppression> SuppressionsBouncesGet(string search = default(string), int? limit = default(int?), int? offset = default(int?));
+        List<Suppression> SuppressionsBouncesGet(string search = default(string), int? limit = default(int?), int? offset = default(int?), int operationIndex = 0);
 
         /// <summary>
         /// Get Bounce List
         /// </summary>
         /// <remarks>
-        /// Retrieve your list of bounced emails. Required Access Level: ViewContacts
+        /// Retrieve your list of bounced emails. Required Access Level: ViewContacts, ViewSuppressions
         /// </remarks>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="search">Text fragment used for searching. (optional)</param>
         /// <param name="limit">Maximum number of returned items. (optional)</param>
         /// <param name="offset">How many items should be returned ahead. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of List&lt;Suppression&gt;</returns>
-        ApiResponse<List<Suppression>> SuppressionsBouncesGetWithHttpInfo(string search = default(string), int? limit = default(int?), int? offset = default(int?));
+        ApiResponse<List<Suppression>> SuppressionsBouncesGetWithHttpInfo(string search = default(string), int? limit = default(int?), int? offset = default(int?), int operationIndex = 0);
         /// <summary>
         /// Add Bounces Async
         /// </summary>
         /// <remarks>
-        /// Add Bounced. Required Access Level: ModifyContacts
+        /// Add Bounced. Required Access Level: ModifyContacts, ModifySuppressions
         /// </remarks>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="file"> (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns></returns>
-        void SuppressionsBouncesImportPost(System.IO.Stream file = default(System.IO.Stream));
+        void SuppressionsBouncesImportPost(System.IO.Stream file = default(System.IO.Stream), int operationIndex = 0);
 
         /// <summary>
         /// Add Bounces Async
         /// </summary>
         /// <remarks>
-        /// Add Bounced. Required Access Level: ModifyContacts
+        /// Add Bounced. Required Access Level: ModifyContacts, ModifySuppressions
         /// </remarks>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="file"> (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> SuppressionsBouncesImportPostWithHttpInfo(System.IO.Stream file = default(System.IO.Stream));
+        ApiResponse<Object> SuppressionsBouncesImportPostWithHttpInfo(System.IO.Stream file = default(System.IO.Stream), int operationIndex = 0);
         /// <summary>
         /// Add Bounces
         /// </summary>
         /// <remarks>
-        /// Add Bounced. Required Access Level: ModifyContacts
+        /// Add Bounced. Required Access Level: ModifyContacts, ModifySuppressions
         /// </remarks>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody">Emails to add as bounces. Limited to 1000 per request</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>List&lt;Suppression&gt;</returns>
-        List<Suppression> SuppressionsBouncesPost(List<string> requestBody);
+        List<Suppression> SuppressionsBouncesPost(List<string> requestBody, int operationIndex = 0);
 
         /// <summary>
         /// Add Bounces
         /// </summary>
         /// <remarks>
-        /// Add Bounced. Required Access Level: ModifyContacts
+        /// Add Bounced. Required Access Level: ModifyContacts, ModifySuppressions
         /// </remarks>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody">Emails to add as bounces. Limited to 1000 per request</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of List&lt;Suppression&gt;</returns>
-        ApiResponse<List<Suppression>> SuppressionsBouncesPostWithHttpInfo(List<string> requestBody);
+        ApiResponse<List<Suppression>> SuppressionsBouncesPostWithHttpInfo(List<string> requestBody, int operationIndex = 0);
         /// <summary>
         /// Delete Suppression
         /// </summary>
         /// <remarks>
-        /// Delete Suppression. Required Access Level: ViewContacts
+        /// Delete Suppression. Required Access Level: ViewContacts, ViewSuppressions
         /// </remarks>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="email">Proper email address.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns></returns>
-        void SuppressionsByEmailDelete(string email);
+        void SuppressionsByEmailDelete(string email, int operationIndex = 0);
 
         /// <summary>
         /// Delete Suppression
         /// </summary>
         /// <remarks>
-        /// Delete Suppression. Required Access Level: ViewContacts
+        /// Delete Suppression. Required Access Level: ViewContacts, ViewSuppressions
         /// </remarks>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="email">Proper email address.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> SuppressionsByEmailDeleteWithHttpInfo(string email);
+        ApiResponse<Object> SuppressionsByEmailDeleteWithHttpInfo(string email, int operationIndex = 0);
         /// <summary>
         /// Get Suppression
         /// </summary>
         /// <remarks>
-        /// Retrieve your suppression. Required Access Level: ViewContacts
+        /// Retrieve your suppression. Required Access Level: ViewContacts, ViewSuppressions
         /// </remarks>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="email">Proper email address.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>Suppression</returns>
-        Suppression SuppressionsByEmailGet(string email);
+        Suppression SuppressionsByEmailGet(string email, int operationIndex = 0);
 
         /// <summary>
         /// Get Suppression
         /// </summary>
         /// <remarks>
-        /// Retrieve your suppression. Required Access Level: ViewContacts
+        /// Retrieve your suppression. Required Access Level: ViewContacts, ViewSuppressions
         /// </remarks>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="email">Proper email address.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of Suppression</returns>
-        ApiResponse<Suppression> SuppressionsByEmailGetWithHttpInfo(string email);
+        ApiResponse<Suppression> SuppressionsByEmailGetWithHttpInfo(string email, int operationIndex = 0);
         /// <summary>
         /// Get Complaints List
         /// </summary>
         /// <remarks>
-        /// Retrieve your list of complaints. Required Access Level: ViewContacts
+        /// Retrieve your list of complaints. Required Access Level: ViewContacts, ViewSuppressions
         /// </remarks>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="search">Text fragment used for searching. (optional)</param>
         /// <param name="limit">Maximum number of returned items. (optional)</param>
         /// <param name="offset">How many items should be returned ahead. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>List&lt;Suppression&gt;</returns>
-        List<Suppression> SuppressionsComplaintsGet(string search = default(string), int? limit = default(int?), int? offset = default(int?));
+        List<Suppression> SuppressionsComplaintsGet(string search = default(string), int? limit = default(int?), int? offset = default(int?), int operationIndex = 0);
 
         /// <summary>
         /// Get Complaints List
         /// </summary>
         /// <remarks>
-        /// Retrieve your list of complaints. Required Access Level: ViewContacts
+        /// Retrieve your list of complaints. Required Access Level: ViewContacts, ViewSuppressions
         /// </remarks>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="search">Text fragment used for searching. (optional)</param>
         /// <param name="limit">Maximum number of returned items. (optional)</param>
         /// <param name="offset">How many items should be returned ahead. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of List&lt;Suppression&gt;</returns>
-        ApiResponse<List<Suppression>> SuppressionsComplaintsGetWithHttpInfo(string search = default(string), int? limit = default(int?), int? offset = default(int?));
+        ApiResponse<List<Suppression>> SuppressionsComplaintsGetWithHttpInfo(string search = default(string), int? limit = default(int?), int? offset = default(int?), int operationIndex = 0);
         /// <summary>
         /// Add Complaints Async
         /// </summary>
         /// <remarks>
-        /// Add Complaints. Required Access Level: ModifyContacts
+        /// Add Complaints. Required Access Level: ModifyContacts, ModifySuppressions
         /// </remarks>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="file"> (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns></returns>
-        void SuppressionsComplaintsImportPost(System.IO.Stream file = default(System.IO.Stream));
+        void SuppressionsComplaintsImportPost(System.IO.Stream file = default(System.IO.Stream), int operationIndex = 0);
 
         /// <summary>
         /// Add Complaints Async
         /// </summary>
         /// <remarks>
-        /// Add Complaints. Required Access Level: ModifyContacts
+        /// Add Complaints. Required Access Level: ModifyContacts, ModifySuppressions
         /// </remarks>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="file"> (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> SuppressionsComplaintsImportPostWithHttpInfo(System.IO.Stream file = default(System.IO.Stream));
+        ApiResponse<Object> SuppressionsComplaintsImportPostWithHttpInfo(System.IO.Stream file = default(System.IO.Stream), int operationIndex = 0);
         /// <summary>
         /// Add Complaints
         /// </summary>
         /// <remarks>
-        /// Add Complaints. Required Access Level: ModifyContacts
+        /// Add Complaints. Required Access Level: ModifyContacts, ModifySuppressions
         /// </remarks>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody">Emails to add as complaints. Limited to 1000 per request</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>List&lt;Suppression&gt;</returns>
-        List<Suppression> SuppressionsComplaintsPost(List<string> requestBody);
+        List<Suppression> SuppressionsComplaintsPost(List<string> requestBody, int operationIndex = 0);
 
         /// <summary>
         /// Add Complaints
         /// </summary>
         /// <remarks>
-        /// Add Complaints. Required Access Level: ModifyContacts
+        /// Add Complaints. Required Access Level: ModifyContacts, ModifySuppressions
         /// </remarks>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody">Emails to add as complaints. Limited to 1000 per request</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of List&lt;Suppression&gt;</returns>
-        ApiResponse<List<Suppression>> SuppressionsComplaintsPostWithHttpInfo(List<string> requestBody);
+        ApiResponse<List<Suppression>> SuppressionsComplaintsPostWithHttpInfo(List<string> requestBody, int operationIndex = 0);
         /// <summary>
         /// Get Suppressions
         /// </summary>
         /// <remarks>
-        /// Retrieve your suppressions. Required Access Level: ViewContacts
+        /// Retrieve your suppressions. Required Access Level: ViewContacts, ViewSuppressions
         /// </remarks>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="limit">Maximum number of returned items. (optional)</param>
         /// <param name="offset">How many items should be returned ahead. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>List&lt;Suppression&gt;</returns>
-        List<Suppression> SuppressionsGet(int? limit = default(int?), int? offset = default(int?));
+        List<Suppression> SuppressionsGet(int? limit = default(int?), int? offset = default(int?), int operationIndex = 0);
 
         /// <summary>
         /// Get Suppressions
         /// </summary>
         /// <remarks>
-        /// Retrieve your suppressions. Required Access Level: ViewContacts
+        /// Retrieve your suppressions. Required Access Level: ViewContacts, ViewSuppressions
         /// </remarks>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="limit">Maximum number of returned items. (optional)</param>
         /// <param name="offset">How many items should be returned ahead. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of List&lt;Suppression&gt;</returns>
-        ApiResponse<List<Suppression>> SuppressionsGetWithHttpInfo(int? limit = default(int?), int? offset = default(int?));
+        ApiResponse<List<Suppression>> SuppressionsGetWithHttpInfo(int? limit = default(int?), int? offset = default(int?), int operationIndex = 0);
         /// <summary>
         /// Get Unsubscribes List
         /// </summary>
         /// <remarks>
-        /// Retrieve your list of unsubscribes. Required Access Level: ViewContacts
+        /// Retrieve your list of unsubscribes. Required Access Level: ViewContacts, ViewSuppressions
         /// </remarks>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="search">Text fragment used for searching. (optional)</param>
         /// <param name="limit">Maximum number of returned items. (optional)</param>
         /// <param name="offset">How many items should be returned ahead. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>List&lt;Suppression&gt;</returns>
-        List<Suppression> SuppressionsUnsubscribesGet(string search = default(string), int? limit = default(int?), int? offset = default(int?));
+        List<Suppression> SuppressionsUnsubscribesGet(string search = default(string), int? limit = default(int?), int? offset = default(int?), int operationIndex = 0);
 
         /// <summary>
         /// Get Unsubscribes List
         /// </summary>
         /// <remarks>
-        /// Retrieve your list of unsubscribes. Required Access Level: ViewContacts
+        /// Retrieve your list of unsubscribes. Required Access Level: ViewContacts, ViewSuppressions
         /// </remarks>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="search">Text fragment used for searching. (optional)</param>
         /// <param name="limit">Maximum number of returned items. (optional)</param>
         /// <param name="offset">How many items should be returned ahead. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of List&lt;Suppression&gt;</returns>
-        ApiResponse<List<Suppression>> SuppressionsUnsubscribesGetWithHttpInfo(string search = default(string), int? limit = default(int?), int? offset = default(int?));
+        ApiResponse<List<Suppression>> SuppressionsUnsubscribesGetWithHttpInfo(string search = default(string), int? limit = default(int?), int? offset = default(int?), int operationIndex = 0);
         /// <summary>
         /// Add Unsubscribes Async
         /// </summary>
         /// <remarks>
-        /// Add Unsubscribes. Required Access Level: ModifyContacts
+        /// Add Unsubscribes. Required Access Level: ModifyContacts, ModifySuppressions
         /// </remarks>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="file"> (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns></returns>
-        void SuppressionsUnsubscribesImportPost(System.IO.Stream file = default(System.IO.Stream));
+        void SuppressionsUnsubscribesImportPost(System.IO.Stream file = default(System.IO.Stream), int operationIndex = 0);
 
         /// <summary>
         /// Add Unsubscribes Async
         /// </summary>
         /// <remarks>
-        /// Add Unsubscribes. Required Access Level: ModifyContacts
+        /// Add Unsubscribes. Required Access Level: ModifyContacts, ModifySuppressions
         /// </remarks>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="file"> (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> SuppressionsUnsubscribesImportPostWithHttpInfo(System.IO.Stream file = default(System.IO.Stream));
+        ApiResponse<Object> SuppressionsUnsubscribesImportPostWithHttpInfo(System.IO.Stream file = default(System.IO.Stream), int operationIndex = 0);
         /// <summary>
         /// Add Unsubscribes
         /// </summary>
         /// <remarks>
-        /// Add Unsubscribes. Required Access Level: ModifyContacts
+        /// Add Unsubscribes. Required Access Level: ModifyContacts, ModifySuppressions
         /// </remarks>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody">Emails to add as unsubscribes. Limited to 1000 per request</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>List&lt;Suppression&gt;</returns>
-        List<Suppression> SuppressionsUnsubscribesPost(List<string> requestBody);
+        List<Suppression> SuppressionsUnsubscribesPost(List<string> requestBody, int operationIndex = 0);
 
         /// <summary>
         /// Add Unsubscribes
         /// </summary>
         /// <remarks>
-        /// Add Unsubscribes. Required Access Level: ModifyContacts
+        /// Add Unsubscribes. Required Access Level: ModifyContacts, ModifySuppressions
         /// </remarks>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody">Emails to add as unsubscribes. Limited to 1000 per request</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of List&lt;Suppression&gt;</returns>
-        ApiResponse<List<Suppression>> SuppressionsUnsubscribesPostWithHttpInfo(List<string> requestBody);
+        ApiResponse<List<Suppression>> SuppressionsUnsubscribesPostWithHttpInfo(List<string> requestBody, int operationIndex = 0);
         #endregion Synchronous Operations
     }
 
@@ -306,292 +330,316 @@ namespace ElasticEmail.Api
         /// Get Bounce List
         /// </summary>
         /// <remarks>
-        /// Retrieve your list of bounced emails. Required Access Level: ViewContacts
+        /// Retrieve your list of bounced emails. Required Access Level: ViewContacts, ViewSuppressions
         /// </remarks>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="search">Text fragment used for searching. (optional)</param>
         /// <param name="limit">Maximum number of returned items. (optional)</param>
         /// <param name="offset">How many items should be returned ahead. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;Suppression&gt;</returns>
-        System.Threading.Tasks.Task<List<Suppression>> SuppressionsBouncesGetAsync(string search = default(string), int? limit = default(int?), int? offset = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<List<Suppression>> SuppressionsBouncesGetAsync(string search = default(string), int? limit = default(int?), int? offset = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Get Bounce List
         /// </summary>
         /// <remarks>
-        /// Retrieve your list of bounced emails. Required Access Level: ViewContacts
+        /// Retrieve your list of bounced emails. Required Access Level: ViewContacts, ViewSuppressions
         /// </remarks>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="search">Text fragment used for searching. (optional)</param>
         /// <param name="limit">Maximum number of returned items. (optional)</param>
         /// <param name="offset">How many items should be returned ahead. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;Suppression&gt;)</returns>
-        System.Threading.Tasks.Task<ApiResponse<List<Suppression>>> SuppressionsBouncesGetWithHttpInfoAsync(string search = default(string), int? limit = default(int?), int? offset = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<List<Suppression>>> SuppressionsBouncesGetWithHttpInfoAsync(string search = default(string), int? limit = default(int?), int? offset = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Add Bounces Async
         /// </summary>
         /// <remarks>
-        /// Add Bounced. Required Access Level: ModifyContacts
+        /// Add Bounced. Required Access Level: ModifyContacts, ModifySuppressions
         /// </remarks>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="file"> (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task SuppressionsBouncesImportPostAsync(System.IO.Stream file = default(System.IO.Stream), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task SuppressionsBouncesImportPostAsync(System.IO.Stream file = default(System.IO.Stream), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Add Bounces Async
         /// </summary>
         /// <remarks>
-        /// Add Bounced. Required Access Level: ModifyContacts
+        /// Add Bounced. Required Access Level: ModifyContacts, ModifySuppressions
         /// </remarks>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="file"> (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> SuppressionsBouncesImportPostWithHttpInfoAsync(System.IO.Stream file = default(System.IO.Stream), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Object>> SuppressionsBouncesImportPostWithHttpInfoAsync(System.IO.Stream file = default(System.IO.Stream), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Add Bounces
         /// </summary>
         /// <remarks>
-        /// Add Bounced. Required Access Level: ModifyContacts
+        /// Add Bounced. Required Access Level: ModifyContacts, ModifySuppressions
         /// </remarks>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody">Emails to add as bounces. Limited to 1000 per request</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;Suppression&gt;</returns>
-        System.Threading.Tasks.Task<List<Suppression>> SuppressionsBouncesPostAsync(List<string> requestBody, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<List<Suppression>> SuppressionsBouncesPostAsync(List<string> requestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Add Bounces
         /// </summary>
         /// <remarks>
-        /// Add Bounced. Required Access Level: ModifyContacts
+        /// Add Bounced. Required Access Level: ModifyContacts, ModifySuppressions
         /// </remarks>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody">Emails to add as bounces. Limited to 1000 per request</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;Suppression&gt;)</returns>
-        System.Threading.Tasks.Task<ApiResponse<List<Suppression>>> SuppressionsBouncesPostWithHttpInfoAsync(List<string> requestBody, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<List<Suppression>>> SuppressionsBouncesPostWithHttpInfoAsync(List<string> requestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Delete Suppression
         /// </summary>
         /// <remarks>
-        /// Delete Suppression. Required Access Level: ViewContacts
+        /// Delete Suppression. Required Access Level: ViewContacts, ViewSuppressions
         /// </remarks>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="email">Proper email address.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task SuppressionsByEmailDeleteAsync(string email, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task SuppressionsByEmailDeleteAsync(string email, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Delete Suppression
         /// </summary>
         /// <remarks>
-        /// Delete Suppression. Required Access Level: ViewContacts
+        /// Delete Suppression. Required Access Level: ViewContacts, ViewSuppressions
         /// </remarks>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="email">Proper email address.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> SuppressionsByEmailDeleteWithHttpInfoAsync(string email, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Object>> SuppressionsByEmailDeleteWithHttpInfoAsync(string email, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Get Suppression
         /// </summary>
         /// <remarks>
-        /// Retrieve your suppression. Required Access Level: ViewContacts
+        /// Retrieve your suppression. Required Access Level: ViewContacts, ViewSuppressions
         /// </remarks>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="email">Proper email address.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Suppression</returns>
-        System.Threading.Tasks.Task<Suppression> SuppressionsByEmailGetAsync(string email, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<Suppression> SuppressionsByEmailGetAsync(string email, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Get Suppression
         /// </summary>
         /// <remarks>
-        /// Retrieve your suppression. Required Access Level: ViewContacts
+        /// Retrieve your suppression. Required Access Level: ViewContacts, ViewSuppressions
         /// </remarks>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="email">Proper email address.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Suppression)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Suppression>> SuppressionsByEmailGetWithHttpInfoAsync(string email, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Suppression>> SuppressionsByEmailGetWithHttpInfoAsync(string email, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Get Complaints List
         /// </summary>
         /// <remarks>
-        /// Retrieve your list of complaints. Required Access Level: ViewContacts
+        /// Retrieve your list of complaints. Required Access Level: ViewContacts, ViewSuppressions
         /// </remarks>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="search">Text fragment used for searching. (optional)</param>
         /// <param name="limit">Maximum number of returned items. (optional)</param>
         /// <param name="offset">How many items should be returned ahead. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;Suppression&gt;</returns>
-        System.Threading.Tasks.Task<List<Suppression>> SuppressionsComplaintsGetAsync(string search = default(string), int? limit = default(int?), int? offset = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<List<Suppression>> SuppressionsComplaintsGetAsync(string search = default(string), int? limit = default(int?), int? offset = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Get Complaints List
         /// </summary>
         /// <remarks>
-        /// Retrieve your list of complaints. Required Access Level: ViewContacts
+        /// Retrieve your list of complaints. Required Access Level: ViewContacts, ViewSuppressions
         /// </remarks>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="search">Text fragment used for searching. (optional)</param>
         /// <param name="limit">Maximum number of returned items. (optional)</param>
         /// <param name="offset">How many items should be returned ahead. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;Suppression&gt;)</returns>
-        System.Threading.Tasks.Task<ApiResponse<List<Suppression>>> SuppressionsComplaintsGetWithHttpInfoAsync(string search = default(string), int? limit = default(int?), int? offset = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<List<Suppression>>> SuppressionsComplaintsGetWithHttpInfoAsync(string search = default(string), int? limit = default(int?), int? offset = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Add Complaints Async
         /// </summary>
         /// <remarks>
-        /// Add Complaints. Required Access Level: ModifyContacts
+        /// Add Complaints. Required Access Level: ModifyContacts, ModifySuppressions
         /// </remarks>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="file"> (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task SuppressionsComplaintsImportPostAsync(System.IO.Stream file = default(System.IO.Stream), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task SuppressionsComplaintsImportPostAsync(System.IO.Stream file = default(System.IO.Stream), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Add Complaints Async
         /// </summary>
         /// <remarks>
-        /// Add Complaints. Required Access Level: ModifyContacts
+        /// Add Complaints. Required Access Level: ModifyContacts, ModifySuppressions
         /// </remarks>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="file"> (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> SuppressionsComplaintsImportPostWithHttpInfoAsync(System.IO.Stream file = default(System.IO.Stream), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Object>> SuppressionsComplaintsImportPostWithHttpInfoAsync(System.IO.Stream file = default(System.IO.Stream), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Add Complaints
         /// </summary>
         /// <remarks>
-        /// Add Complaints. Required Access Level: ModifyContacts
+        /// Add Complaints. Required Access Level: ModifyContacts, ModifySuppressions
         /// </remarks>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody">Emails to add as complaints. Limited to 1000 per request</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;Suppression&gt;</returns>
-        System.Threading.Tasks.Task<List<Suppression>> SuppressionsComplaintsPostAsync(List<string> requestBody, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<List<Suppression>> SuppressionsComplaintsPostAsync(List<string> requestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Add Complaints
         /// </summary>
         /// <remarks>
-        /// Add Complaints. Required Access Level: ModifyContacts
+        /// Add Complaints. Required Access Level: ModifyContacts, ModifySuppressions
         /// </remarks>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody">Emails to add as complaints. Limited to 1000 per request</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;Suppression&gt;)</returns>
-        System.Threading.Tasks.Task<ApiResponse<List<Suppression>>> SuppressionsComplaintsPostWithHttpInfoAsync(List<string> requestBody, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<List<Suppression>>> SuppressionsComplaintsPostWithHttpInfoAsync(List<string> requestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Get Suppressions
         /// </summary>
         /// <remarks>
-        /// Retrieve your suppressions. Required Access Level: ViewContacts
+        /// Retrieve your suppressions. Required Access Level: ViewContacts, ViewSuppressions
         /// </remarks>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="limit">Maximum number of returned items. (optional)</param>
         /// <param name="offset">How many items should be returned ahead. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;Suppression&gt;</returns>
-        System.Threading.Tasks.Task<List<Suppression>> SuppressionsGetAsync(int? limit = default(int?), int? offset = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<List<Suppression>> SuppressionsGetAsync(int? limit = default(int?), int? offset = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Get Suppressions
         /// </summary>
         /// <remarks>
-        /// Retrieve your suppressions. Required Access Level: ViewContacts
+        /// Retrieve your suppressions. Required Access Level: ViewContacts, ViewSuppressions
         /// </remarks>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="limit">Maximum number of returned items. (optional)</param>
         /// <param name="offset">How many items should be returned ahead. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;Suppression&gt;)</returns>
-        System.Threading.Tasks.Task<ApiResponse<List<Suppression>>> SuppressionsGetWithHttpInfoAsync(int? limit = default(int?), int? offset = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<List<Suppression>>> SuppressionsGetWithHttpInfoAsync(int? limit = default(int?), int? offset = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Get Unsubscribes List
         /// </summary>
         /// <remarks>
-        /// Retrieve your list of unsubscribes. Required Access Level: ViewContacts
+        /// Retrieve your list of unsubscribes. Required Access Level: ViewContacts, ViewSuppressions
         /// </remarks>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="search">Text fragment used for searching. (optional)</param>
         /// <param name="limit">Maximum number of returned items. (optional)</param>
         /// <param name="offset">How many items should be returned ahead. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;Suppression&gt;</returns>
-        System.Threading.Tasks.Task<List<Suppression>> SuppressionsUnsubscribesGetAsync(string search = default(string), int? limit = default(int?), int? offset = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<List<Suppression>> SuppressionsUnsubscribesGetAsync(string search = default(string), int? limit = default(int?), int? offset = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Get Unsubscribes List
         /// </summary>
         /// <remarks>
-        /// Retrieve your list of unsubscribes. Required Access Level: ViewContacts
+        /// Retrieve your list of unsubscribes. Required Access Level: ViewContacts, ViewSuppressions
         /// </remarks>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="search">Text fragment used for searching. (optional)</param>
         /// <param name="limit">Maximum number of returned items. (optional)</param>
         /// <param name="offset">How many items should be returned ahead. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;Suppression&gt;)</returns>
-        System.Threading.Tasks.Task<ApiResponse<List<Suppression>>> SuppressionsUnsubscribesGetWithHttpInfoAsync(string search = default(string), int? limit = default(int?), int? offset = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<List<Suppression>>> SuppressionsUnsubscribesGetWithHttpInfoAsync(string search = default(string), int? limit = default(int?), int? offset = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Add Unsubscribes Async
         /// </summary>
         /// <remarks>
-        /// Add Unsubscribes. Required Access Level: ModifyContacts
+        /// Add Unsubscribes. Required Access Level: ModifyContacts, ModifySuppressions
         /// </remarks>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="file"> (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task SuppressionsUnsubscribesImportPostAsync(System.IO.Stream file = default(System.IO.Stream), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task SuppressionsUnsubscribesImportPostAsync(System.IO.Stream file = default(System.IO.Stream), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Add Unsubscribes Async
         /// </summary>
         /// <remarks>
-        /// Add Unsubscribes. Required Access Level: ModifyContacts
+        /// Add Unsubscribes. Required Access Level: ModifyContacts, ModifySuppressions
         /// </remarks>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="file"> (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> SuppressionsUnsubscribesImportPostWithHttpInfoAsync(System.IO.Stream file = default(System.IO.Stream), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Object>> SuppressionsUnsubscribesImportPostWithHttpInfoAsync(System.IO.Stream file = default(System.IO.Stream), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Add Unsubscribes
         /// </summary>
         /// <remarks>
-        /// Add Unsubscribes. Required Access Level: ModifyContacts
+        /// Add Unsubscribes. Required Access Level: ModifyContacts, ModifySuppressions
         /// </remarks>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody">Emails to add as unsubscribes. Limited to 1000 per request</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;Suppression&gt;</returns>
-        System.Threading.Tasks.Task<List<Suppression>> SuppressionsUnsubscribesPostAsync(List<string> requestBody, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<List<Suppression>> SuppressionsUnsubscribesPostAsync(List<string> requestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Add Unsubscribes
         /// </summary>
         /// <remarks>
-        /// Add Unsubscribes. Required Access Level: ModifyContacts
+        /// Add Unsubscribes. Required Access Level: ModifyContacts, ModifySuppressions
         /// </remarks>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody">Emails to add as unsubscribes. Limited to 1000 per request</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;Suppression&gt;)</returns>
-        System.Threading.Tasks.Task<ApiResponse<List<Suppression>>> SuppressionsUnsubscribesPostWithHttpInfoAsync(List<string> requestBody, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<List<Suppression>>> SuppressionsUnsubscribesPostWithHttpInfoAsync(List<string> requestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         #endregion Asynchronous Operations
     }
 
@@ -713,28 +761,30 @@ namespace ElasticEmail.Api
         }
 
         /// <summary>
-        /// Get Bounce List Retrieve your list of bounced emails. Required Access Level: ViewContacts
+        /// Get Bounce List Retrieve your list of bounced emails. Required Access Level: ViewContacts, ViewSuppressions
         /// </summary>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="search">Text fragment used for searching. (optional)</param>
         /// <param name="limit">Maximum number of returned items. (optional)</param>
         /// <param name="offset">How many items should be returned ahead. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>List&lt;Suppression&gt;</returns>
-        public List<Suppression> SuppressionsBouncesGet(string search = default(string), int? limit = default(int?), int? offset = default(int?))
+        public List<Suppression> SuppressionsBouncesGet(string search = default(string), int? limit = default(int?), int? offset = default(int?), int operationIndex = 0)
         {
             ElasticEmail.Client.ApiResponse<List<Suppression>> localVarResponse = SuppressionsBouncesGetWithHttpInfo(search, limit, offset);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Get Bounce List Retrieve your list of bounced emails. Required Access Level: ViewContacts
+        /// Get Bounce List Retrieve your list of bounced emails. Required Access Level: ViewContacts, ViewSuppressions
         /// </summary>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="search">Text fragment used for searching. (optional)</param>
         /// <param name="limit">Maximum number of returned items. (optional)</param>
         /// <param name="offset">How many items should be returned ahead. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of List&lt;Suppression&gt;</returns>
-        public ElasticEmail.Client.ApiResponse<List<Suppression>> SuppressionsBouncesGetWithHttpInfo(string search = default(string), int? limit = default(int?), int? offset = default(int?))
+        public ElasticEmail.Client.ApiResponse<List<Suppression>> SuppressionsBouncesGetWithHttpInfo(string search = default(string), int? limit = default(int?), int? offset = default(int?), int operationIndex = 0)
         {
             ElasticEmail.Client.RequestOptions localVarRequestOptions = new ElasticEmail.Client.RequestOptions();
 
@@ -770,6 +820,9 @@ namespace ElasticEmail.Api
             {
                 localVarRequestOptions.QueryParameters.Add(ElasticEmail.Client.ClientUtils.ParameterToMultiMap("", "offset", offset));
             }
+
+            localVarRequestOptions.Operation = "SuppressionsApi.SuppressionsBouncesGet";
+            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (apikey) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-ElasticEmail-ApiKey")))
@@ -792,30 +845,32 @@ namespace ElasticEmail.Api
         }
 
         /// <summary>
-        /// Get Bounce List Retrieve your list of bounced emails. Required Access Level: ViewContacts
+        /// Get Bounce List Retrieve your list of bounced emails. Required Access Level: ViewContacts, ViewSuppressions
         /// </summary>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="search">Text fragment used for searching. (optional)</param>
         /// <param name="limit">Maximum number of returned items. (optional)</param>
         /// <param name="offset">How many items should be returned ahead. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;Suppression&gt;</returns>
-        public async System.Threading.Tasks.Task<List<Suppression>> SuppressionsBouncesGetAsync(string search = default(string), int? limit = default(int?), int? offset = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<List<Suppression>> SuppressionsBouncesGetAsync(string search = default(string), int? limit = default(int?), int? offset = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            ElasticEmail.Client.ApiResponse<List<Suppression>> localVarResponse = await SuppressionsBouncesGetWithHttpInfoAsync(search, limit, offset, cancellationToken).ConfigureAwait(false);
+            ElasticEmail.Client.ApiResponse<List<Suppression>> localVarResponse = await SuppressionsBouncesGetWithHttpInfoAsync(search, limit, offset, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Get Bounce List Retrieve your list of bounced emails. Required Access Level: ViewContacts
+        /// Get Bounce List Retrieve your list of bounced emails. Required Access Level: ViewContacts, ViewSuppressions
         /// </summary>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="search">Text fragment used for searching. (optional)</param>
         /// <param name="limit">Maximum number of returned items. (optional)</param>
         /// <param name="offset">How many items should be returned ahead. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;Suppression&gt;)</returns>
-        public async System.Threading.Tasks.Task<ElasticEmail.Client.ApiResponse<List<Suppression>>> SuppressionsBouncesGetWithHttpInfoAsync(string search = default(string), int? limit = default(int?), int? offset = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ElasticEmail.Client.ApiResponse<List<Suppression>>> SuppressionsBouncesGetWithHttpInfoAsync(string search = default(string), int? limit = default(int?), int? offset = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             ElasticEmail.Client.RequestOptions localVarRequestOptions = new ElasticEmail.Client.RequestOptions();
@@ -852,6 +907,9 @@ namespace ElasticEmail.Api
             {
                 localVarRequestOptions.QueryParameters.Add(ElasticEmail.Client.ClientUtils.ParameterToMultiMap("", "offset", offset));
             }
+
+            localVarRequestOptions.Operation = "SuppressionsApi.SuppressionsBouncesGet";
+            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (apikey) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-ElasticEmail-ApiKey")))
@@ -875,23 +933,25 @@ namespace ElasticEmail.Api
         }
 
         /// <summary>
-        /// Add Bounces Async Add Bounced. Required Access Level: ModifyContacts
+        /// Add Bounces Async Add Bounced. Required Access Level: ModifyContacts, ModifySuppressions
         /// </summary>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="file"> (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns></returns>
-        public void SuppressionsBouncesImportPost(System.IO.Stream file = default(System.IO.Stream))
+        public void SuppressionsBouncesImportPost(System.IO.Stream file = default(System.IO.Stream), int operationIndex = 0)
         {
             SuppressionsBouncesImportPostWithHttpInfo(file);
         }
 
         /// <summary>
-        /// Add Bounces Async Add Bounced. Required Access Level: ModifyContacts
+        /// Add Bounces Async Add Bounced. Required Access Level: ModifyContacts, ModifySuppressions
         /// </summary>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="file"> (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        public ElasticEmail.Client.ApiResponse<Object> SuppressionsBouncesImportPostWithHttpInfo(System.IO.Stream file = default(System.IO.Stream))
+        public ElasticEmail.Client.ApiResponse<Object> SuppressionsBouncesImportPostWithHttpInfo(System.IO.Stream file = default(System.IO.Stream), int operationIndex = 0)
         {
             ElasticEmail.Client.RequestOptions localVarRequestOptions = new ElasticEmail.Client.RequestOptions();
 
@@ -919,6 +979,9 @@ namespace ElasticEmail.Api
             {
                 localVarRequestOptions.FileParameters.Add("file", file);
             }
+
+            localVarRequestOptions.Operation = "SuppressionsApi.SuppressionsBouncesImportPost";
+            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (apikey) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-ElasticEmail-ApiKey")))
@@ -941,25 +1004,27 @@ namespace ElasticEmail.Api
         }
 
         /// <summary>
-        /// Add Bounces Async Add Bounced. Required Access Level: ModifyContacts
+        /// Add Bounces Async Add Bounced. Required Access Level: ModifyContacts, ModifySuppressions
         /// </summary>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="file"> (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task SuppressionsBouncesImportPostAsync(System.IO.Stream file = default(System.IO.Stream), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task SuppressionsBouncesImportPostAsync(System.IO.Stream file = default(System.IO.Stream), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            await SuppressionsBouncesImportPostWithHttpInfoAsync(file, cancellationToken).ConfigureAwait(false);
+            await SuppressionsBouncesImportPostWithHttpInfoAsync(file, operationIndex, cancellationToken).ConfigureAwait(false);
         }
 
         /// <summary>
-        /// Add Bounces Async Add Bounced. Required Access Level: ModifyContacts
+        /// Add Bounces Async Add Bounced. Required Access Level: ModifyContacts, ModifySuppressions
         /// </summary>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="file"> (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<ElasticEmail.Client.ApiResponse<Object>> SuppressionsBouncesImportPostWithHttpInfoAsync(System.IO.Stream file = default(System.IO.Stream), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ElasticEmail.Client.ApiResponse<Object>> SuppressionsBouncesImportPostWithHttpInfoAsync(System.IO.Stream file = default(System.IO.Stream), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             ElasticEmail.Client.RequestOptions localVarRequestOptions = new ElasticEmail.Client.RequestOptions();
@@ -988,6 +1053,9 @@ namespace ElasticEmail.Api
             {
                 localVarRequestOptions.FileParameters.Add("file", file);
             }
+
+            localVarRequestOptions.Operation = "SuppressionsApi.SuppressionsBouncesImportPost";
+            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (apikey) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-ElasticEmail-ApiKey")))
@@ -1011,24 +1079,26 @@ namespace ElasticEmail.Api
         }
 
         /// <summary>
-        /// Add Bounces Add Bounced. Required Access Level: ModifyContacts
+        /// Add Bounces Add Bounced. Required Access Level: ModifyContacts, ModifySuppressions
         /// </summary>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody">Emails to add as bounces. Limited to 1000 per request</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>List&lt;Suppression&gt;</returns>
-        public List<Suppression> SuppressionsBouncesPost(List<string> requestBody)
+        public List<Suppression> SuppressionsBouncesPost(List<string> requestBody, int operationIndex = 0)
         {
             ElasticEmail.Client.ApiResponse<List<Suppression>> localVarResponse = SuppressionsBouncesPostWithHttpInfo(requestBody);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Add Bounces Add Bounced. Required Access Level: ModifyContacts
+        /// Add Bounces Add Bounced. Required Access Level: ModifyContacts, ModifySuppressions
         /// </summary>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody">Emails to add as bounces. Limited to 1000 per request</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of List&lt;Suppression&gt;</returns>
-        public ElasticEmail.Client.ApiResponse<List<Suppression>> SuppressionsBouncesPostWithHttpInfo(List<string> requestBody)
+        public ElasticEmail.Client.ApiResponse<List<Suppression>> SuppressionsBouncesPostWithHttpInfo(List<string> requestBody, int operationIndex = 0)
         {
             // verify the required parameter 'requestBody' is set
             if (requestBody == null)
@@ -1060,6 +1130,9 @@ namespace ElasticEmail.Api
             }
 
             localVarRequestOptions.Data = requestBody;
+
+            localVarRequestOptions.Operation = "SuppressionsApi.SuppressionsBouncesPost";
+            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (apikey) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-ElasticEmail-ApiKey")))
@@ -1082,26 +1155,28 @@ namespace ElasticEmail.Api
         }
 
         /// <summary>
-        /// Add Bounces Add Bounced. Required Access Level: ModifyContacts
+        /// Add Bounces Add Bounced. Required Access Level: ModifyContacts, ModifySuppressions
         /// </summary>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody">Emails to add as bounces. Limited to 1000 per request</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;Suppression&gt;</returns>
-        public async System.Threading.Tasks.Task<List<Suppression>> SuppressionsBouncesPostAsync(List<string> requestBody, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<List<Suppression>> SuppressionsBouncesPostAsync(List<string> requestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            ElasticEmail.Client.ApiResponse<List<Suppression>> localVarResponse = await SuppressionsBouncesPostWithHttpInfoAsync(requestBody, cancellationToken).ConfigureAwait(false);
+            ElasticEmail.Client.ApiResponse<List<Suppression>> localVarResponse = await SuppressionsBouncesPostWithHttpInfoAsync(requestBody, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Add Bounces Add Bounced. Required Access Level: ModifyContacts
+        /// Add Bounces Add Bounced. Required Access Level: ModifyContacts, ModifySuppressions
         /// </summary>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody">Emails to add as bounces. Limited to 1000 per request</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;Suppression&gt;)</returns>
-        public async System.Threading.Tasks.Task<ElasticEmail.Client.ApiResponse<List<Suppression>>> SuppressionsBouncesPostWithHttpInfoAsync(List<string> requestBody, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ElasticEmail.Client.ApiResponse<List<Suppression>>> SuppressionsBouncesPostWithHttpInfoAsync(List<string> requestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'requestBody' is set
             if (requestBody == null)
@@ -1134,6 +1209,9 @@ namespace ElasticEmail.Api
             }
 
             localVarRequestOptions.Data = requestBody;
+
+            localVarRequestOptions.Operation = "SuppressionsApi.SuppressionsBouncesPost";
+            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (apikey) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-ElasticEmail-ApiKey")))
@@ -1157,23 +1235,25 @@ namespace ElasticEmail.Api
         }
 
         /// <summary>
-        /// Delete Suppression Delete Suppression. Required Access Level: ViewContacts
+        /// Delete Suppression Delete Suppression. Required Access Level: ViewContacts, ViewSuppressions
         /// </summary>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="email">Proper email address.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns></returns>
-        public void SuppressionsByEmailDelete(string email)
+        public void SuppressionsByEmailDelete(string email, int operationIndex = 0)
         {
             SuppressionsByEmailDeleteWithHttpInfo(email);
         }
 
         /// <summary>
-        /// Delete Suppression Delete Suppression. Required Access Level: ViewContacts
+        /// Delete Suppression Delete Suppression. Required Access Level: ViewContacts, ViewSuppressions
         /// </summary>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="email">Proper email address.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        public ElasticEmail.Client.ApiResponse<Object> SuppressionsByEmailDeleteWithHttpInfo(string email)
+        public ElasticEmail.Client.ApiResponse<Object> SuppressionsByEmailDeleteWithHttpInfo(string email, int operationIndex = 0)
         {
             // verify the required parameter 'email' is set
             if (email == null)
@@ -1203,6 +1283,9 @@ namespace ElasticEmail.Api
             }
 
             localVarRequestOptions.PathParameters.Add("email", ElasticEmail.Client.ClientUtils.ParameterToString(email)); // path parameter
+
+            localVarRequestOptions.Operation = "SuppressionsApi.SuppressionsByEmailDelete";
+            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (apikey) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-ElasticEmail-ApiKey")))
@@ -1225,25 +1308,27 @@ namespace ElasticEmail.Api
         }
 
         /// <summary>
-        /// Delete Suppression Delete Suppression. Required Access Level: ViewContacts
+        /// Delete Suppression Delete Suppression. Required Access Level: ViewContacts, ViewSuppressions
         /// </summary>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="email">Proper email address.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task SuppressionsByEmailDeleteAsync(string email, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task SuppressionsByEmailDeleteAsync(string email, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            await SuppressionsByEmailDeleteWithHttpInfoAsync(email, cancellationToken).ConfigureAwait(false);
+            await SuppressionsByEmailDeleteWithHttpInfoAsync(email, operationIndex, cancellationToken).ConfigureAwait(false);
         }
 
         /// <summary>
-        /// Delete Suppression Delete Suppression. Required Access Level: ViewContacts
+        /// Delete Suppression Delete Suppression. Required Access Level: ViewContacts, ViewSuppressions
         /// </summary>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="email">Proper email address.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<ElasticEmail.Client.ApiResponse<Object>> SuppressionsByEmailDeleteWithHttpInfoAsync(string email, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ElasticEmail.Client.ApiResponse<Object>> SuppressionsByEmailDeleteWithHttpInfoAsync(string email, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'email' is set
             if (email == null)
@@ -1274,6 +1359,9 @@ namespace ElasticEmail.Api
             }
 
             localVarRequestOptions.PathParameters.Add("email", ElasticEmail.Client.ClientUtils.ParameterToString(email)); // path parameter
+
+            localVarRequestOptions.Operation = "SuppressionsApi.SuppressionsByEmailDelete";
+            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (apikey) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-ElasticEmail-ApiKey")))
@@ -1297,24 +1385,26 @@ namespace ElasticEmail.Api
         }
 
         /// <summary>
-        /// Get Suppression Retrieve your suppression. Required Access Level: ViewContacts
+        /// Get Suppression Retrieve your suppression. Required Access Level: ViewContacts, ViewSuppressions
         /// </summary>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="email">Proper email address.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>Suppression</returns>
-        public Suppression SuppressionsByEmailGet(string email)
+        public Suppression SuppressionsByEmailGet(string email, int operationIndex = 0)
         {
             ElasticEmail.Client.ApiResponse<Suppression> localVarResponse = SuppressionsByEmailGetWithHttpInfo(email);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Get Suppression Retrieve your suppression. Required Access Level: ViewContacts
+        /// Get Suppression Retrieve your suppression. Required Access Level: ViewContacts, ViewSuppressions
         /// </summary>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="email">Proper email address.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of Suppression</returns>
-        public ElasticEmail.Client.ApiResponse<Suppression> SuppressionsByEmailGetWithHttpInfo(string email)
+        public ElasticEmail.Client.ApiResponse<Suppression> SuppressionsByEmailGetWithHttpInfo(string email, int operationIndex = 0)
         {
             // verify the required parameter 'email' is set
             if (email == null)
@@ -1345,6 +1435,9 @@ namespace ElasticEmail.Api
             }
 
             localVarRequestOptions.PathParameters.Add("email", ElasticEmail.Client.ClientUtils.ParameterToString(email)); // path parameter
+
+            localVarRequestOptions.Operation = "SuppressionsApi.SuppressionsByEmailGet";
+            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (apikey) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-ElasticEmail-ApiKey")))
@@ -1367,26 +1460,28 @@ namespace ElasticEmail.Api
         }
 
         /// <summary>
-        /// Get Suppression Retrieve your suppression. Required Access Level: ViewContacts
+        /// Get Suppression Retrieve your suppression. Required Access Level: ViewContacts, ViewSuppressions
         /// </summary>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="email">Proper email address.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Suppression</returns>
-        public async System.Threading.Tasks.Task<Suppression> SuppressionsByEmailGetAsync(string email, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Suppression> SuppressionsByEmailGetAsync(string email, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            ElasticEmail.Client.ApiResponse<Suppression> localVarResponse = await SuppressionsByEmailGetWithHttpInfoAsync(email, cancellationToken).ConfigureAwait(false);
+            ElasticEmail.Client.ApiResponse<Suppression> localVarResponse = await SuppressionsByEmailGetWithHttpInfoAsync(email, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Get Suppression Retrieve your suppression. Required Access Level: ViewContacts
+        /// Get Suppression Retrieve your suppression. Required Access Level: ViewContacts, ViewSuppressions
         /// </summary>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="email">Proper email address.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Suppression)</returns>
-        public async System.Threading.Tasks.Task<ElasticEmail.Client.ApiResponse<Suppression>> SuppressionsByEmailGetWithHttpInfoAsync(string email, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ElasticEmail.Client.ApiResponse<Suppression>> SuppressionsByEmailGetWithHttpInfoAsync(string email, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'email' is set
             if (email == null)
@@ -1418,6 +1513,9 @@ namespace ElasticEmail.Api
             }
 
             localVarRequestOptions.PathParameters.Add("email", ElasticEmail.Client.ClientUtils.ParameterToString(email)); // path parameter
+
+            localVarRequestOptions.Operation = "SuppressionsApi.SuppressionsByEmailGet";
+            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (apikey) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-ElasticEmail-ApiKey")))
@@ -1441,28 +1539,30 @@ namespace ElasticEmail.Api
         }
 
         /// <summary>
-        /// Get Complaints List Retrieve your list of complaints. Required Access Level: ViewContacts
+        /// Get Complaints List Retrieve your list of complaints. Required Access Level: ViewContacts, ViewSuppressions
         /// </summary>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="search">Text fragment used for searching. (optional)</param>
         /// <param name="limit">Maximum number of returned items. (optional)</param>
         /// <param name="offset">How many items should be returned ahead. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>List&lt;Suppression&gt;</returns>
-        public List<Suppression> SuppressionsComplaintsGet(string search = default(string), int? limit = default(int?), int? offset = default(int?))
+        public List<Suppression> SuppressionsComplaintsGet(string search = default(string), int? limit = default(int?), int? offset = default(int?), int operationIndex = 0)
         {
             ElasticEmail.Client.ApiResponse<List<Suppression>> localVarResponse = SuppressionsComplaintsGetWithHttpInfo(search, limit, offset);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Get Complaints List Retrieve your list of complaints. Required Access Level: ViewContacts
+        /// Get Complaints List Retrieve your list of complaints. Required Access Level: ViewContacts, ViewSuppressions
         /// </summary>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="search">Text fragment used for searching. (optional)</param>
         /// <param name="limit">Maximum number of returned items. (optional)</param>
         /// <param name="offset">How many items should be returned ahead. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of List&lt;Suppression&gt;</returns>
-        public ElasticEmail.Client.ApiResponse<List<Suppression>> SuppressionsComplaintsGetWithHttpInfo(string search = default(string), int? limit = default(int?), int? offset = default(int?))
+        public ElasticEmail.Client.ApiResponse<List<Suppression>> SuppressionsComplaintsGetWithHttpInfo(string search = default(string), int? limit = default(int?), int? offset = default(int?), int operationIndex = 0)
         {
             ElasticEmail.Client.RequestOptions localVarRequestOptions = new ElasticEmail.Client.RequestOptions();
 
@@ -1498,6 +1598,9 @@ namespace ElasticEmail.Api
             {
                 localVarRequestOptions.QueryParameters.Add(ElasticEmail.Client.ClientUtils.ParameterToMultiMap("", "offset", offset));
             }
+
+            localVarRequestOptions.Operation = "SuppressionsApi.SuppressionsComplaintsGet";
+            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (apikey) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-ElasticEmail-ApiKey")))
@@ -1520,30 +1623,32 @@ namespace ElasticEmail.Api
         }
 
         /// <summary>
-        /// Get Complaints List Retrieve your list of complaints. Required Access Level: ViewContacts
+        /// Get Complaints List Retrieve your list of complaints. Required Access Level: ViewContacts, ViewSuppressions
         /// </summary>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="search">Text fragment used for searching. (optional)</param>
         /// <param name="limit">Maximum number of returned items. (optional)</param>
         /// <param name="offset">How many items should be returned ahead. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;Suppression&gt;</returns>
-        public async System.Threading.Tasks.Task<List<Suppression>> SuppressionsComplaintsGetAsync(string search = default(string), int? limit = default(int?), int? offset = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<List<Suppression>> SuppressionsComplaintsGetAsync(string search = default(string), int? limit = default(int?), int? offset = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            ElasticEmail.Client.ApiResponse<List<Suppression>> localVarResponse = await SuppressionsComplaintsGetWithHttpInfoAsync(search, limit, offset, cancellationToken).ConfigureAwait(false);
+            ElasticEmail.Client.ApiResponse<List<Suppression>> localVarResponse = await SuppressionsComplaintsGetWithHttpInfoAsync(search, limit, offset, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Get Complaints List Retrieve your list of complaints. Required Access Level: ViewContacts
+        /// Get Complaints List Retrieve your list of complaints. Required Access Level: ViewContacts, ViewSuppressions
         /// </summary>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="search">Text fragment used for searching. (optional)</param>
         /// <param name="limit">Maximum number of returned items. (optional)</param>
         /// <param name="offset">How many items should be returned ahead. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;Suppression&gt;)</returns>
-        public async System.Threading.Tasks.Task<ElasticEmail.Client.ApiResponse<List<Suppression>>> SuppressionsComplaintsGetWithHttpInfoAsync(string search = default(string), int? limit = default(int?), int? offset = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ElasticEmail.Client.ApiResponse<List<Suppression>>> SuppressionsComplaintsGetWithHttpInfoAsync(string search = default(string), int? limit = default(int?), int? offset = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             ElasticEmail.Client.RequestOptions localVarRequestOptions = new ElasticEmail.Client.RequestOptions();
@@ -1580,6 +1685,9 @@ namespace ElasticEmail.Api
             {
                 localVarRequestOptions.QueryParameters.Add(ElasticEmail.Client.ClientUtils.ParameterToMultiMap("", "offset", offset));
             }
+
+            localVarRequestOptions.Operation = "SuppressionsApi.SuppressionsComplaintsGet";
+            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (apikey) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-ElasticEmail-ApiKey")))
@@ -1603,23 +1711,25 @@ namespace ElasticEmail.Api
         }
 
         /// <summary>
-        /// Add Complaints Async Add Complaints. Required Access Level: ModifyContacts
+        /// Add Complaints Async Add Complaints. Required Access Level: ModifyContacts, ModifySuppressions
         /// </summary>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="file"> (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns></returns>
-        public void SuppressionsComplaintsImportPost(System.IO.Stream file = default(System.IO.Stream))
+        public void SuppressionsComplaintsImportPost(System.IO.Stream file = default(System.IO.Stream), int operationIndex = 0)
         {
             SuppressionsComplaintsImportPostWithHttpInfo(file);
         }
 
         /// <summary>
-        /// Add Complaints Async Add Complaints. Required Access Level: ModifyContacts
+        /// Add Complaints Async Add Complaints. Required Access Level: ModifyContacts, ModifySuppressions
         /// </summary>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="file"> (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        public ElasticEmail.Client.ApiResponse<Object> SuppressionsComplaintsImportPostWithHttpInfo(System.IO.Stream file = default(System.IO.Stream))
+        public ElasticEmail.Client.ApiResponse<Object> SuppressionsComplaintsImportPostWithHttpInfo(System.IO.Stream file = default(System.IO.Stream), int operationIndex = 0)
         {
             ElasticEmail.Client.RequestOptions localVarRequestOptions = new ElasticEmail.Client.RequestOptions();
 
@@ -1647,6 +1757,9 @@ namespace ElasticEmail.Api
             {
                 localVarRequestOptions.FileParameters.Add("file", file);
             }
+
+            localVarRequestOptions.Operation = "SuppressionsApi.SuppressionsComplaintsImportPost";
+            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (apikey) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-ElasticEmail-ApiKey")))
@@ -1669,25 +1782,27 @@ namespace ElasticEmail.Api
         }
 
         /// <summary>
-        /// Add Complaints Async Add Complaints. Required Access Level: ModifyContacts
+        /// Add Complaints Async Add Complaints. Required Access Level: ModifyContacts, ModifySuppressions
         /// </summary>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="file"> (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task SuppressionsComplaintsImportPostAsync(System.IO.Stream file = default(System.IO.Stream), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task SuppressionsComplaintsImportPostAsync(System.IO.Stream file = default(System.IO.Stream), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            await SuppressionsComplaintsImportPostWithHttpInfoAsync(file, cancellationToken).ConfigureAwait(false);
+            await SuppressionsComplaintsImportPostWithHttpInfoAsync(file, operationIndex, cancellationToken).ConfigureAwait(false);
         }
 
         /// <summary>
-        /// Add Complaints Async Add Complaints. Required Access Level: ModifyContacts
+        /// Add Complaints Async Add Complaints. Required Access Level: ModifyContacts, ModifySuppressions
         /// </summary>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="file"> (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<ElasticEmail.Client.ApiResponse<Object>> SuppressionsComplaintsImportPostWithHttpInfoAsync(System.IO.Stream file = default(System.IO.Stream), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ElasticEmail.Client.ApiResponse<Object>> SuppressionsComplaintsImportPostWithHttpInfoAsync(System.IO.Stream file = default(System.IO.Stream), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             ElasticEmail.Client.RequestOptions localVarRequestOptions = new ElasticEmail.Client.RequestOptions();
@@ -1716,6 +1831,9 @@ namespace ElasticEmail.Api
             {
                 localVarRequestOptions.FileParameters.Add("file", file);
             }
+
+            localVarRequestOptions.Operation = "SuppressionsApi.SuppressionsComplaintsImportPost";
+            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (apikey) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-ElasticEmail-ApiKey")))
@@ -1739,24 +1857,26 @@ namespace ElasticEmail.Api
         }
 
         /// <summary>
-        /// Add Complaints Add Complaints. Required Access Level: ModifyContacts
+        /// Add Complaints Add Complaints. Required Access Level: ModifyContacts, ModifySuppressions
         /// </summary>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody">Emails to add as complaints. Limited to 1000 per request</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>List&lt;Suppression&gt;</returns>
-        public List<Suppression> SuppressionsComplaintsPost(List<string> requestBody)
+        public List<Suppression> SuppressionsComplaintsPost(List<string> requestBody, int operationIndex = 0)
         {
             ElasticEmail.Client.ApiResponse<List<Suppression>> localVarResponse = SuppressionsComplaintsPostWithHttpInfo(requestBody);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Add Complaints Add Complaints. Required Access Level: ModifyContacts
+        /// Add Complaints Add Complaints. Required Access Level: ModifyContacts, ModifySuppressions
         /// </summary>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody">Emails to add as complaints. Limited to 1000 per request</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of List&lt;Suppression&gt;</returns>
-        public ElasticEmail.Client.ApiResponse<List<Suppression>> SuppressionsComplaintsPostWithHttpInfo(List<string> requestBody)
+        public ElasticEmail.Client.ApiResponse<List<Suppression>> SuppressionsComplaintsPostWithHttpInfo(List<string> requestBody, int operationIndex = 0)
         {
             // verify the required parameter 'requestBody' is set
             if (requestBody == null)
@@ -1788,6 +1908,9 @@ namespace ElasticEmail.Api
             }
 
             localVarRequestOptions.Data = requestBody;
+
+            localVarRequestOptions.Operation = "SuppressionsApi.SuppressionsComplaintsPost";
+            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (apikey) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-ElasticEmail-ApiKey")))
@@ -1810,26 +1933,28 @@ namespace ElasticEmail.Api
         }
 
         /// <summary>
-        /// Add Complaints Add Complaints. Required Access Level: ModifyContacts
+        /// Add Complaints Add Complaints. Required Access Level: ModifyContacts, ModifySuppressions
         /// </summary>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody">Emails to add as complaints. Limited to 1000 per request</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;Suppression&gt;</returns>
-        public async System.Threading.Tasks.Task<List<Suppression>> SuppressionsComplaintsPostAsync(List<string> requestBody, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<List<Suppression>> SuppressionsComplaintsPostAsync(List<string> requestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            ElasticEmail.Client.ApiResponse<List<Suppression>> localVarResponse = await SuppressionsComplaintsPostWithHttpInfoAsync(requestBody, cancellationToken).ConfigureAwait(false);
+            ElasticEmail.Client.ApiResponse<List<Suppression>> localVarResponse = await SuppressionsComplaintsPostWithHttpInfoAsync(requestBody, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Add Complaints Add Complaints. Required Access Level: ModifyContacts
+        /// Add Complaints Add Complaints. Required Access Level: ModifyContacts, ModifySuppressions
         /// </summary>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody">Emails to add as complaints. Limited to 1000 per request</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;Suppression&gt;)</returns>
-        public async System.Threading.Tasks.Task<ElasticEmail.Client.ApiResponse<List<Suppression>>> SuppressionsComplaintsPostWithHttpInfoAsync(List<string> requestBody, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ElasticEmail.Client.ApiResponse<List<Suppression>>> SuppressionsComplaintsPostWithHttpInfoAsync(List<string> requestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'requestBody' is set
             if (requestBody == null)
@@ -1862,6 +1987,9 @@ namespace ElasticEmail.Api
             }
 
             localVarRequestOptions.Data = requestBody;
+
+            localVarRequestOptions.Operation = "SuppressionsApi.SuppressionsComplaintsPost";
+            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (apikey) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-ElasticEmail-ApiKey")))
@@ -1885,26 +2013,28 @@ namespace ElasticEmail.Api
         }
 
         /// <summary>
-        /// Get Suppressions Retrieve your suppressions. Required Access Level: ViewContacts
+        /// Get Suppressions Retrieve your suppressions. Required Access Level: ViewContacts, ViewSuppressions
         /// </summary>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="limit">Maximum number of returned items. (optional)</param>
         /// <param name="offset">How many items should be returned ahead. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>List&lt;Suppression&gt;</returns>
-        public List<Suppression> SuppressionsGet(int? limit = default(int?), int? offset = default(int?))
+        public List<Suppression> SuppressionsGet(int? limit = default(int?), int? offset = default(int?), int operationIndex = 0)
         {
             ElasticEmail.Client.ApiResponse<List<Suppression>> localVarResponse = SuppressionsGetWithHttpInfo(limit, offset);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Get Suppressions Retrieve your suppressions. Required Access Level: ViewContacts
+        /// Get Suppressions Retrieve your suppressions. Required Access Level: ViewContacts, ViewSuppressions
         /// </summary>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="limit">Maximum number of returned items. (optional)</param>
         /// <param name="offset">How many items should be returned ahead. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of List&lt;Suppression&gt;</returns>
-        public ElasticEmail.Client.ApiResponse<List<Suppression>> SuppressionsGetWithHttpInfo(int? limit = default(int?), int? offset = default(int?))
+        public ElasticEmail.Client.ApiResponse<List<Suppression>> SuppressionsGetWithHttpInfo(int? limit = default(int?), int? offset = default(int?), int operationIndex = 0)
         {
             ElasticEmail.Client.RequestOptions localVarRequestOptions = new ElasticEmail.Client.RequestOptions();
 
@@ -1936,6 +2066,9 @@ namespace ElasticEmail.Api
             {
                 localVarRequestOptions.QueryParameters.Add(ElasticEmail.Client.ClientUtils.ParameterToMultiMap("", "offset", offset));
             }
+
+            localVarRequestOptions.Operation = "SuppressionsApi.SuppressionsGet";
+            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (apikey) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-ElasticEmail-ApiKey")))
@@ -1958,28 +2091,30 @@ namespace ElasticEmail.Api
         }
 
         /// <summary>
-        /// Get Suppressions Retrieve your suppressions. Required Access Level: ViewContacts
+        /// Get Suppressions Retrieve your suppressions. Required Access Level: ViewContacts, ViewSuppressions
         /// </summary>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="limit">Maximum number of returned items. (optional)</param>
         /// <param name="offset">How many items should be returned ahead. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;Suppression&gt;</returns>
-        public async System.Threading.Tasks.Task<List<Suppression>> SuppressionsGetAsync(int? limit = default(int?), int? offset = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<List<Suppression>> SuppressionsGetAsync(int? limit = default(int?), int? offset = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            ElasticEmail.Client.ApiResponse<List<Suppression>> localVarResponse = await SuppressionsGetWithHttpInfoAsync(limit, offset, cancellationToken).ConfigureAwait(false);
+            ElasticEmail.Client.ApiResponse<List<Suppression>> localVarResponse = await SuppressionsGetWithHttpInfoAsync(limit, offset, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Get Suppressions Retrieve your suppressions. Required Access Level: ViewContacts
+        /// Get Suppressions Retrieve your suppressions. Required Access Level: ViewContacts, ViewSuppressions
         /// </summary>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="limit">Maximum number of returned items. (optional)</param>
         /// <param name="offset">How many items should be returned ahead. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;Suppression&gt;)</returns>
-        public async System.Threading.Tasks.Task<ElasticEmail.Client.ApiResponse<List<Suppression>>> SuppressionsGetWithHttpInfoAsync(int? limit = default(int?), int? offset = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ElasticEmail.Client.ApiResponse<List<Suppression>>> SuppressionsGetWithHttpInfoAsync(int? limit = default(int?), int? offset = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             ElasticEmail.Client.RequestOptions localVarRequestOptions = new ElasticEmail.Client.RequestOptions();
@@ -2012,6 +2147,9 @@ namespace ElasticEmail.Api
             {
                 localVarRequestOptions.QueryParameters.Add(ElasticEmail.Client.ClientUtils.ParameterToMultiMap("", "offset", offset));
             }
+
+            localVarRequestOptions.Operation = "SuppressionsApi.SuppressionsGet";
+            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (apikey) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-ElasticEmail-ApiKey")))
@@ -2035,28 +2173,30 @@ namespace ElasticEmail.Api
         }
 
         /// <summary>
-        /// Get Unsubscribes List Retrieve your list of unsubscribes. Required Access Level: ViewContacts
+        /// Get Unsubscribes List Retrieve your list of unsubscribes. Required Access Level: ViewContacts, ViewSuppressions
         /// </summary>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="search">Text fragment used for searching. (optional)</param>
         /// <param name="limit">Maximum number of returned items. (optional)</param>
         /// <param name="offset">How many items should be returned ahead. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>List&lt;Suppression&gt;</returns>
-        public List<Suppression> SuppressionsUnsubscribesGet(string search = default(string), int? limit = default(int?), int? offset = default(int?))
+        public List<Suppression> SuppressionsUnsubscribesGet(string search = default(string), int? limit = default(int?), int? offset = default(int?), int operationIndex = 0)
         {
             ElasticEmail.Client.ApiResponse<List<Suppression>> localVarResponse = SuppressionsUnsubscribesGetWithHttpInfo(search, limit, offset);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Get Unsubscribes List Retrieve your list of unsubscribes. Required Access Level: ViewContacts
+        /// Get Unsubscribes List Retrieve your list of unsubscribes. Required Access Level: ViewContacts, ViewSuppressions
         /// </summary>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="search">Text fragment used for searching. (optional)</param>
         /// <param name="limit">Maximum number of returned items. (optional)</param>
         /// <param name="offset">How many items should be returned ahead. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of List&lt;Suppression&gt;</returns>
-        public ElasticEmail.Client.ApiResponse<List<Suppression>> SuppressionsUnsubscribesGetWithHttpInfo(string search = default(string), int? limit = default(int?), int? offset = default(int?))
+        public ElasticEmail.Client.ApiResponse<List<Suppression>> SuppressionsUnsubscribesGetWithHttpInfo(string search = default(string), int? limit = default(int?), int? offset = default(int?), int operationIndex = 0)
         {
             ElasticEmail.Client.RequestOptions localVarRequestOptions = new ElasticEmail.Client.RequestOptions();
 
@@ -2092,6 +2232,9 @@ namespace ElasticEmail.Api
             {
                 localVarRequestOptions.QueryParameters.Add(ElasticEmail.Client.ClientUtils.ParameterToMultiMap("", "offset", offset));
             }
+
+            localVarRequestOptions.Operation = "SuppressionsApi.SuppressionsUnsubscribesGet";
+            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (apikey) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-ElasticEmail-ApiKey")))
@@ -2114,30 +2257,32 @@ namespace ElasticEmail.Api
         }
 
         /// <summary>
-        /// Get Unsubscribes List Retrieve your list of unsubscribes. Required Access Level: ViewContacts
+        /// Get Unsubscribes List Retrieve your list of unsubscribes. Required Access Level: ViewContacts, ViewSuppressions
         /// </summary>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="search">Text fragment used for searching. (optional)</param>
         /// <param name="limit">Maximum number of returned items. (optional)</param>
         /// <param name="offset">How many items should be returned ahead. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;Suppression&gt;</returns>
-        public async System.Threading.Tasks.Task<List<Suppression>> SuppressionsUnsubscribesGetAsync(string search = default(string), int? limit = default(int?), int? offset = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<List<Suppression>> SuppressionsUnsubscribesGetAsync(string search = default(string), int? limit = default(int?), int? offset = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            ElasticEmail.Client.ApiResponse<List<Suppression>> localVarResponse = await SuppressionsUnsubscribesGetWithHttpInfoAsync(search, limit, offset, cancellationToken).ConfigureAwait(false);
+            ElasticEmail.Client.ApiResponse<List<Suppression>> localVarResponse = await SuppressionsUnsubscribesGetWithHttpInfoAsync(search, limit, offset, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Get Unsubscribes List Retrieve your list of unsubscribes. Required Access Level: ViewContacts
+        /// Get Unsubscribes List Retrieve your list of unsubscribes. Required Access Level: ViewContacts, ViewSuppressions
         /// </summary>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="search">Text fragment used for searching. (optional)</param>
         /// <param name="limit">Maximum number of returned items. (optional)</param>
         /// <param name="offset">How many items should be returned ahead. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;Suppression&gt;)</returns>
-        public async System.Threading.Tasks.Task<ElasticEmail.Client.ApiResponse<List<Suppression>>> SuppressionsUnsubscribesGetWithHttpInfoAsync(string search = default(string), int? limit = default(int?), int? offset = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ElasticEmail.Client.ApiResponse<List<Suppression>>> SuppressionsUnsubscribesGetWithHttpInfoAsync(string search = default(string), int? limit = default(int?), int? offset = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             ElasticEmail.Client.RequestOptions localVarRequestOptions = new ElasticEmail.Client.RequestOptions();
@@ -2174,6 +2319,9 @@ namespace ElasticEmail.Api
             {
                 localVarRequestOptions.QueryParameters.Add(ElasticEmail.Client.ClientUtils.ParameterToMultiMap("", "offset", offset));
             }
+
+            localVarRequestOptions.Operation = "SuppressionsApi.SuppressionsUnsubscribesGet";
+            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (apikey) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-ElasticEmail-ApiKey")))
@@ -2197,23 +2345,25 @@ namespace ElasticEmail.Api
         }
 
         /// <summary>
-        /// Add Unsubscribes Async Add Unsubscribes. Required Access Level: ModifyContacts
+        /// Add Unsubscribes Async Add Unsubscribes. Required Access Level: ModifyContacts, ModifySuppressions
         /// </summary>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="file"> (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns></returns>
-        public void SuppressionsUnsubscribesImportPost(System.IO.Stream file = default(System.IO.Stream))
+        public void SuppressionsUnsubscribesImportPost(System.IO.Stream file = default(System.IO.Stream), int operationIndex = 0)
         {
             SuppressionsUnsubscribesImportPostWithHttpInfo(file);
         }
 
         /// <summary>
-        /// Add Unsubscribes Async Add Unsubscribes. Required Access Level: ModifyContacts
+        /// Add Unsubscribes Async Add Unsubscribes. Required Access Level: ModifyContacts, ModifySuppressions
         /// </summary>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="file"> (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        public ElasticEmail.Client.ApiResponse<Object> SuppressionsUnsubscribesImportPostWithHttpInfo(System.IO.Stream file = default(System.IO.Stream))
+        public ElasticEmail.Client.ApiResponse<Object> SuppressionsUnsubscribesImportPostWithHttpInfo(System.IO.Stream file = default(System.IO.Stream), int operationIndex = 0)
         {
             ElasticEmail.Client.RequestOptions localVarRequestOptions = new ElasticEmail.Client.RequestOptions();
 
@@ -2241,6 +2391,9 @@ namespace ElasticEmail.Api
             {
                 localVarRequestOptions.FileParameters.Add("file", file);
             }
+
+            localVarRequestOptions.Operation = "SuppressionsApi.SuppressionsUnsubscribesImportPost";
+            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (apikey) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-ElasticEmail-ApiKey")))
@@ -2263,25 +2416,27 @@ namespace ElasticEmail.Api
         }
 
         /// <summary>
-        /// Add Unsubscribes Async Add Unsubscribes. Required Access Level: ModifyContacts
+        /// Add Unsubscribes Async Add Unsubscribes. Required Access Level: ModifyContacts, ModifySuppressions
         /// </summary>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="file"> (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task SuppressionsUnsubscribesImportPostAsync(System.IO.Stream file = default(System.IO.Stream), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task SuppressionsUnsubscribesImportPostAsync(System.IO.Stream file = default(System.IO.Stream), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            await SuppressionsUnsubscribesImportPostWithHttpInfoAsync(file, cancellationToken).ConfigureAwait(false);
+            await SuppressionsUnsubscribesImportPostWithHttpInfoAsync(file, operationIndex, cancellationToken).ConfigureAwait(false);
         }
 
         /// <summary>
-        /// Add Unsubscribes Async Add Unsubscribes. Required Access Level: ModifyContacts
+        /// Add Unsubscribes Async Add Unsubscribes. Required Access Level: ModifyContacts, ModifySuppressions
         /// </summary>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="file"> (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<ElasticEmail.Client.ApiResponse<Object>> SuppressionsUnsubscribesImportPostWithHttpInfoAsync(System.IO.Stream file = default(System.IO.Stream), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ElasticEmail.Client.ApiResponse<Object>> SuppressionsUnsubscribesImportPostWithHttpInfoAsync(System.IO.Stream file = default(System.IO.Stream), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             ElasticEmail.Client.RequestOptions localVarRequestOptions = new ElasticEmail.Client.RequestOptions();
@@ -2310,6 +2465,9 @@ namespace ElasticEmail.Api
             {
                 localVarRequestOptions.FileParameters.Add("file", file);
             }
+
+            localVarRequestOptions.Operation = "SuppressionsApi.SuppressionsUnsubscribesImportPost";
+            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (apikey) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-ElasticEmail-ApiKey")))
@@ -2333,24 +2491,26 @@ namespace ElasticEmail.Api
         }
 
         /// <summary>
-        /// Add Unsubscribes Add Unsubscribes. Required Access Level: ModifyContacts
+        /// Add Unsubscribes Add Unsubscribes. Required Access Level: ModifyContacts, ModifySuppressions
         /// </summary>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody">Emails to add as unsubscribes. Limited to 1000 per request</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>List&lt;Suppression&gt;</returns>
-        public List<Suppression> SuppressionsUnsubscribesPost(List<string> requestBody)
+        public List<Suppression> SuppressionsUnsubscribesPost(List<string> requestBody, int operationIndex = 0)
         {
             ElasticEmail.Client.ApiResponse<List<Suppression>> localVarResponse = SuppressionsUnsubscribesPostWithHttpInfo(requestBody);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Add Unsubscribes Add Unsubscribes. Required Access Level: ModifyContacts
+        /// Add Unsubscribes Add Unsubscribes. Required Access Level: ModifyContacts, ModifySuppressions
         /// </summary>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody">Emails to add as unsubscribes. Limited to 1000 per request</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of List&lt;Suppression&gt;</returns>
-        public ElasticEmail.Client.ApiResponse<List<Suppression>> SuppressionsUnsubscribesPostWithHttpInfo(List<string> requestBody)
+        public ElasticEmail.Client.ApiResponse<List<Suppression>> SuppressionsUnsubscribesPostWithHttpInfo(List<string> requestBody, int operationIndex = 0)
         {
             // verify the required parameter 'requestBody' is set
             if (requestBody == null)
@@ -2382,6 +2542,9 @@ namespace ElasticEmail.Api
             }
 
             localVarRequestOptions.Data = requestBody;
+
+            localVarRequestOptions.Operation = "SuppressionsApi.SuppressionsUnsubscribesPost";
+            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (apikey) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-ElasticEmail-ApiKey")))
@@ -2404,26 +2567,28 @@ namespace ElasticEmail.Api
         }
 
         /// <summary>
-        /// Add Unsubscribes Add Unsubscribes. Required Access Level: ModifyContacts
+        /// Add Unsubscribes Add Unsubscribes. Required Access Level: ModifyContacts, ModifySuppressions
         /// </summary>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody">Emails to add as unsubscribes. Limited to 1000 per request</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;Suppression&gt;</returns>
-        public async System.Threading.Tasks.Task<List<Suppression>> SuppressionsUnsubscribesPostAsync(List<string> requestBody, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<List<Suppression>> SuppressionsUnsubscribesPostAsync(List<string> requestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            ElasticEmail.Client.ApiResponse<List<Suppression>> localVarResponse = await SuppressionsUnsubscribesPostWithHttpInfoAsync(requestBody, cancellationToken).ConfigureAwait(false);
+            ElasticEmail.Client.ApiResponse<List<Suppression>> localVarResponse = await SuppressionsUnsubscribesPostWithHttpInfoAsync(requestBody, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Add Unsubscribes Add Unsubscribes. Required Access Level: ModifyContacts
+        /// Add Unsubscribes Add Unsubscribes. Required Access Level: ModifyContacts, ModifySuppressions
         /// </summary>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody">Emails to add as unsubscribes. Limited to 1000 per request</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;Suppression&gt;)</returns>
-        public async System.Threading.Tasks.Task<ElasticEmail.Client.ApiResponse<List<Suppression>>> SuppressionsUnsubscribesPostWithHttpInfoAsync(List<string> requestBody, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ElasticEmail.Client.ApiResponse<List<Suppression>>> SuppressionsUnsubscribesPostWithHttpInfoAsync(List<string> requestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'requestBody' is set
             if (requestBody == null)
@@ -2456,6 +2621,9 @@ namespace ElasticEmail.Api
             }
 
             localVarRequestOptions.Data = requestBody;
+
+            localVarRequestOptions.Operation = "SuppressionsApi.SuppressionsUnsubscribesPost";
+            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (apikey) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-ElasticEmail-ApiKey")))

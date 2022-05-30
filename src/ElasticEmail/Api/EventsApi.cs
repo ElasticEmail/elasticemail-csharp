@@ -40,8 +40,9 @@ namespace ElasticEmail.Api
         /// <param name="orderBy"> (optional)</param>
         /// <param name="limit">Maximum number of returned items. (optional)</param>
         /// <param name="offset">How many items should be returned ahead. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>List&lt;RecipientEvent&gt;</returns>
-        List<RecipientEvent> EventsByTransactionidGet(string transactionid, DateTime? from = default(DateTime?), DateTime? to = default(DateTime?), EventsOrderBy? orderBy = default(EventsOrderBy?), int? limit = default(int?), int? offset = default(int?));
+        List<RecipientEvent> EventsByTransactionidGet(string transactionid, DateTime? from = default(DateTime?), DateTime? to = default(DateTime?), EventsOrderBy? orderBy = default(EventsOrderBy?), int? limit = default(int?), int? offset = default(int?), int operationIndex = 0);
 
         /// <summary>
         /// Load Email Events
@@ -56,8 +57,9 @@ namespace ElasticEmail.Api
         /// <param name="orderBy"> (optional)</param>
         /// <param name="limit">Maximum number of returned items. (optional)</param>
         /// <param name="offset">How many items should be returned ahead. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of List&lt;RecipientEvent&gt;</returns>
-        ApiResponse<List<RecipientEvent>> EventsByTransactionidGetWithHttpInfo(string transactionid, DateTime? from = default(DateTime?), DateTime? to = default(DateTime?), EventsOrderBy? orderBy = default(EventsOrderBy?), int? limit = default(int?), int? offset = default(int?));
+        ApiResponse<List<RecipientEvent>> EventsByTransactionidGetWithHttpInfo(string transactionid, DateTime? from = default(DateTime?), DateTime? to = default(DateTime?), EventsOrderBy? orderBy = default(EventsOrderBy?), int? limit = default(int?), int? offset = default(int?), int operationIndex = 0);
         /// <summary>
         /// Export Channel Events
         /// </summary>
@@ -72,8 +74,9 @@ namespace ElasticEmail.Api
         /// <param name="fileFormat">Format of the exported file (optional)</param>
         /// <param name="compressionFormat">FileResponse compression format. None or Zip. (optional)</param>
         /// <param name="fileName">Name of your file including extension. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ExportLink</returns>
-        ExportLink EventsChannelsByNameExportPost(string name, List<EventType> eventTypes = default(List<EventType>), DateTime? from = default(DateTime?), DateTime? to = default(DateTime?), ExportFileFormats? fileFormat = default(ExportFileFormats?), CompressionFormat? compressionFormat = default(CompressionFormat?), string fileName = default(string));
+        ExportLink EventsChannelsByNameExportPost(string name, List<EventType> eventTypes = default(List<EventType>), DateTime? from = default(DateTime?), DateTime? to = default(DateTime?), ExportFileFormats? fileFormat = default(ExportFileFormats?), CompressionFormat? compressionFormat = default(CompressionFormat?), string fileName = default(string), int operationIndex = 0);
 
         /// <summary>
         /// Export Channel Events
@@ -89,8 +92,9 @@ namespace ElasticEmail.Api
         /// <param name="fileFormat">Format of the exported file (optional)</param>
         /// <param name="compressionFormat">FileResponse compression format. None or Zip. (optional)</param>
         /// <param name="fileName">Name of your file including extension. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of ExportLink</returns>
-        ApiResponse<ExportLink> EventsChannelsByNameExportPostWithHttpInfo(string name, List<EventType> eventTypes = default(List<EventType>), DateTime? from = default(DateTime?), DateTime? to = default(DateTime?), ExportFileFormats? fileFormat = default(ExportFileFormats?), CompressionFormat? compressionFormat = default(CompressionFormat?), string fileName = default(string));
+        ApiResponse<ExportLink> EventsChannelsByNameExportPostWithHttpInfo(string name, List<EventType> eventTypes = default(List<EventType>), DateTime? from = default(DateTime?), DateTime? to = default(DateTime?), ExportFileFormats? fileFormat = default(ExportFileFormats?), CompressionFormat? compressionFormat = default(CompressionFormat?), string fileName = default(string), int operationIndex = 0);
         /// <summary>
         /// Load Channel Events
         /// </summary>
@@ -105,8 +109,9 @@ namespace ElasticEmail.Api
         /// <param name="orderBy"> (optional)</param>
         /// <param name="limit">How many items to load. Maximum for this request is 1000 items (optional)</param>
         /// <param name="offset">How many items should be returned ahead. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>List&lt;RecipientEvent&gt;</returns>
-        List<RecipientEvent> EventsChannelsByNameGet(string name, List<EventType> eventTypes = default(List<EventType>), DateTime? from = default(DateTime?), DateTime? to = default(DateTime?), EventsOrderBy? orderBy = default(EventsOrderBy?), int? limit = default(int?), int? offset = default(int?));
+        List<RecipientEvent> EventsChannelsByNameGet(string name, List<EventType> eventTypes = default(List<EventType>), DateTime? from = default(DateTime?), DateTime? to = default(DateTime?), EventsOrderBy? orderBy = default(EventsOrderBy?), int? limit = default(int?), int? offset = default(int?), int operationIndex = 0);
 
         /// <summary>
         /// Load Channel Events
@@ -122,8 +127,9 @@ namespace ElasticEmail.Api
         /// <param name="orderBy"> (optional)</param>
         /// <param name="limit">How many items to load. Maximum for this request is 1000 items (optional)</param>
         /// <param name="offset">How many items should be returned ahead. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of List&lt;RecipientEvent&gt;</returns>
-        ApiResponse<List<RecipientEvent>> EventsChannelsByNameGetWithHttpInfo(string name, List<EventType> eventTypes = default(List<EventType>), DateTime? from = default(DateTime?), DateTime? to = default(DateTime?), EventsOrderBy? orderBy = default(EventsOrderBy?), int? limit = default(int?), int? offset = default(int?));
+        ApiResponse<List<RecipientEvent>> EventsChannelsByNameGetWithHttpInfo(string name, List<EventType> eventTypes = default(List<EventType>), DateTime? from = default(DateTime?), DateTime? to = default(DateTime?), EventsOrderBy? orderBy = default(EventsOrderBy?), int? limit = default(int?), int? offset = default(int?), int operationIndex = 0);
         /// <summary>
         /// Check Channel Export Status
         /// </summary>
@@ -132,8 +138,9 @@ namespace ElasticEmail.Api
         /// </remarks>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">ID of the exported file</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ExportStatus</returns>
-        ExportStatus EventsChannelsExportByIdStatusGet(string id);
+        ExportStatus EventsChannelsExportByIdStatusGet(string id, int operationIndex = 0);
 
         /// <summary>
         /// Check Channel Export Status
@@ -143,8 +150,9 @@ namespace ElasticEmail.Api
         /// </remarks>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">ID of the exported file</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of ExportStatus</returns>
-        ApiResponse<ExportStatus> EventsChannelsExportByIdStatusGetWithHttpInfo(string id);
+        ApiResponse<ExportStatus> EventsChannelsExportByIdStatusGetWithHttpInfo(string id, int operationIndex = 0);
         /// <summary>
         /// Check Export Status
         /// </summary>
@@ -153,8 +161,9 @@ namespace ElasticEmail.Api
         /// </remarks>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">ID of the exported file</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ExportStatus</returns>
-        ExportStatus EventsExportByIdStatusGet(string id);
+        ExportStatus EventsExportByIdStatusGet(string id, int operationIndex = 0);
 
         /// <summary>
         /// Check Export Status
@@ -164,8 +173,9 @@ namespace ElasticEmail.Api
         /// </remarks>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">ID of the exported file</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of ExportStatus</returns>
-        ApiResponse<ExportStatus> EventsExportByIdStatusGetWithHttpInfo(string id);
+        ApiResponse<ExportStatus> EventsExportByIdStatusGetWithHttpInfo(string id, int operationIndex = 0);
         /// <summary>
         /// Export Events
         /// </summary>
@@ -179,8 +189,9 @@ namespace ElasticEmail.Api
         /// <param name="fileFormat">Format of the exported file (optional)</param>
         /// <param name="compressionFormat">FileResponse compression format. None or Zip. (optional)</param>
         /// <param name="fileName">Name of your file including extension. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ExportLink</returns>
-        ExportLink EventsExportPost(List<EventType> eventTypes = default(List<EventType>), DateTime? from = default(DateTime?), DateTime? to = default(DateTime?), ExportFileFormats? fileFormat = default(ExportFileFormats?), CompressionFormat? compressionFormat = default(CompressionFormat?), string fileName = default(string));
+        ExportLink EventsExportPost(List<EventType> eventTypes = default(List<EventType>), DateTime? from = default(DateTime?), DateTime? to = default(DateTime?), ExportFileFormats? fileFormat = default(ExportFileFormats?), CompressionFormat? compressionFormat = default(CompressionFormat?), string fileName = default(string), int operationIndex = 0);
 
         /// <summary>
         /// Export Events
@@ -195,8 +206,9 @@ namespace ElasticEmail.Api
         /// <param name="fileFormat">Format of the exported file (optional)</param>
         /// <param name="compressionFormat">FileResponse compression format. None or Zip. (optional)</param>
         /// <param name="fileName">Name of your file including extension. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of ExportLink</returns>
-        ApiResponse<ExportLink> EventsExportPostWithHttpInfo(List<EventType> eventTypes = default(List<EventType>), DateTime? from = default(DateTime?), DateTime? to = default(DateTime?), ExportFileFormats? fileFormat = default(ExportFileFormats?), CompressionFormat? compressionFormat = default(CompressionFormat?), string fileName = default(string));
+        ApiResponse<ExportLink> EventsExportPostWithHttpInfo(List<EventType> eventTypes = default(List<EventType>), DateTime? from = default(DateTime?), DateTime? to = default(DateTime?), ExportFileFormats? fileFormat = default(ExportFileFormats?), CompressionFormat? compressionFormat = default(CompressionFormat?), string fileName = default(string), int operationIndex = 0);
         /// <summary>
         /// Load Events
         /// </summary>
@@ -210,8 +222,9 @@ namespace ElasticEmail.Api
         /// <param name="orderBy"> (optional)</param>
         /// <param name="limit">How many items to load. Maximum for this request is 1000 items (optional)</param>
         /// <param name="offset">How many items should be returned ahead. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>List&lt;RecipientEvent&gt;</returns>
-        List<RecipientEvent> EventsGet(List<EventType> eventTypes = default(List<EventType>), DateTime? from = default(DateTime?), DateTime? to = default(DateTime?), EventsOrderBy? orderBy = default(EventsOrderBy?), int? limit = default(int?), int? offset = default(int?));
+        List<RecipientEvent> EventsGet(List<EventType> eventTypes = default(List<EventType>), DateTime? from = default(DateTime?), DateTime? to = default(DateTime?), EventsOrderBy? orderBy = default(EventsOrderBy?), int? limit = default(int?), int? offset = default(int?), int operationIndex = 0);
 
         /// <summary>
         /// Load Events
@@ -226,8 +239,9 @@ namespace ElasticEmail.Api
         /// <param name="orderBy"> (optional)</param>
         /// <param name="limit">How many items to load. Maximum for this request is 1000 items (optional)</param>
         /// <param name="offset">How many items should be returned ahead. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of List&lt;RecipientEvent&gt;</returns>
-        ApiResponse<List<RecipientEvent>> EventsGetWithHttpInfo(List<EventType> eventTypes = default(List<EventType>), DateTime? from = default(DateTime?), DateTime? to = default(DateTime?), EventsOrderBy? orderBy = default(EventsOrderBy?), int? limit = default(int?), int? offset = default(int?));
+        ApiResponse<List<RecipientEvent>> EventsGetWithHttpInfo(List<EventType> eventTypes = default(List<EventType>), DateTime? from = default(DateTime?), DateTime? to = default(DateTime?), EventsOrderBy? orderBy = default(EventsOrderBy?), int? limit = default(int?), int? offset = default(int?), int operationIndex = 0);
         #endregion Synchronous Operations
     }
 
@@ -250,9 +264,10 @@ namespace ElasticEmail.Api
         /// <param name="orderBy"> (optional)</param>
         /// <param name="limit">Maximum number of returned items. (optional)</param>
         /// <param name="offset">How many items should be returned ahead. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;RecipientEvent&gt;</returns>
-        System.Threading.Tasks.Task<List<RecipientEvent>> EventsByTransactionidGetAsync(string transactionid, DateTime? from = default(DateTime?), DateTime? to = default(DateTime?), EventsOrderBy? orderBy = default(EventsOrderBy?), int? limit = default(int?), int? offset = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<List<RecipientEvent>> EventsByTransactionidGetAsync(string transactionid, DateTime? from = default(DateTime?), DateTime? to = default(DateTime?), EventsOrderBy? orderBy = default(EventsOrderBy?), int? limit = default(int?), int? offset = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Load Email Events
@@ -267,9 +282,10 @@ namespace ElasticEmail.Api
         /// <param name="orderBy"> (optional)</param>
         /// <param name="limit">Maximum number of returned items. (optional)</param>
         /// <param name="offset">How many items should be returned ahead. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;RecipientEvent&gt;)</returns>
-        System.Threading.Tasks.Task<ApiResponse<List<RecipientEvent>>> EventsByTransactionidGetWithHttpInfoAsync(string transactionid, DateTime? from = default(DateTime?), DateTime? to = default(DateTime?), EventsOrderBy? orderBy = default(EventsOrderBy?), int? limit = default(int?), int? offset = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<List<RecipientEvent>>> EventsByTransactionidGetWithHttpInfoAsync(string transactionid, DateTime? from = default(DateTime?), DateTime? to = default(DateTime?), EventsOrderBy? orderBy = default(EventsOrderBy?), int? limit = default(int?), int? offset = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Export Channel Events
         /// </summary>
@@ -284,9 +300,10 @@ namespace ElasticEmail.Api
         /// <param name="fileFormat">Format of the exported file (optional)</param>
         /// <param name="compressionFormat">FileResponse compression format. None or Zip. (optional)</param>
         /// <param name="fileName">Name of your file including extension. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ExportLink</returns>
-        System.Threading.Tasks.Task<ExportLink> EventsChannelsByNameExportPostAsync(string name, List<EventType> eventTypes = default(List<EventType>), DateTime? from = default(DateTime?), DateTime? to = default(DateTime?), ExportFileFormats? fileFormat = default(ExportFileFormats?), CompressionFormat? compressionFormat = default(CompressionFormat?), string fileName = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ExportLink> EventsChannelsByNameExportPostAsync(string name, List<EventType> eventTypes = default(List<EventType>), DateTime? from = default(DateTime?), DateTime? to = default(DateTime?), ExportFileFormats? fileFormat = default(ExportFileFormats?), CompressionFormat? compressionFormat = default(CompressionFormat?), string fileName = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Export Channel Events
@@ -302,9 +319,10 @@ namespace ElasticEmail.Api
         /// <param name="fileFormat">Format of the exported file (optional)</param>
         /// <param name="compressionFormat">FileResponse compression format. None or Zip. (optional)</param>
         /// <param name="fileName">Name of your file including extension. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ExportLink)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ExportLink>> EventsChannelsByNameExportPostWithHttpInfoAsync(string name, List<EventType> eventTypes = default(List<EventType>), DateTime? from = default(DateTime?), DateTime? to = default(DateTime?), ExportFileFormats? fileFormat = default(ExportFileFormats?), CompressionFormat? compressionFormat = default(CompressionFormat?), string fileName = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<ExportLink>> EventsChannelsByNameExportPostWithHttpInfoAsync(string name, List<EventType> eventTypes = default(List<EventType>), DateTime? from = default(DateTime?), DateTime? to = default(DateTime?), ExportFileFormats? fileFormat = default(ExportFileFormats?), CompressionFormat? compressionFormat = default(CompressionFormat?), string fileName = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Load Channel Events
         /// </summary>
@@ -319,9 +337,10 @@ namespace ElasticEmail.Api
         /// <param name="orderBy"> (optional)</param>
         /// <param name="limit">How many items to load. Maximum for this request is 1000 items (optional)</param>
         /// <param name="offset">How many items should be returned ahead. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;RecipientEvent&gt;</returns>
-        System.Threading.Tasks.Task<List<RecipientEvent>> EventsChannelsByNameGetAsync(string name, List<EventType> eventTypes = default(List<EventType>), DateTime? from = default(DateTime?), DateTime? to = default(DateTime?), EventsOrderBy? orderBy = default(EventsOrderBy?), int? limit = default(int?), int? offset = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<List<RecipientEvent>> EventsChannelsByNameGetAsync(string name, List<EventType> eventTypes = default(List<EventType>), DateTime? from = default(DateTime?), DateTime? to = default(DateTime?), EventsOrderBy? orderBy = default(EventsOrderBy?), int? limit = default(int?), int? offset = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Load Channel Events
@@ -337,9 +356,10 @@ namespace ElasticEmail.Api
         /// <param name="orderBy"> (optional)</param>
         /// <param name="limit">How many items to load. Maximum for this request is 1000 items (optional)</param>
         /// <param name="offset">How many items should be returned ahead. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;RecipientEvent&gt;)</returns>
-        System.Threading.Tasks.Task<ApiResponse<List<RecipientEvent>>> EventsChannelsByNameGetWithHttpInfoAsync(string name, List<EventType> eventTypes = default(List<EventType>), DateTime? from = default(DateTime?), DateTime? to = default(DateTime?), EventsOrderBy? orderBy = default(EventsOrderBy?), int? limit = default(int?), int? offset = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<List<RecipientEvent>>> EventsChannelsByNameGetWithHttpInfoAsync(string name, List<EventType> eventTypes = default(List<EventType>), DateTime? from = default(DateTime?), DateTime? to = default(DateTime?), EventsOrderBy? orderBy = default(EventsOrderBy?), int? limit = default(int?), int? offset = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Check Channel Export Status
         /// </summary>
@@ -348,9 +368,10 @@ namespace ElasticEmail.Api
         /// </remarks>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">ID of the exported file</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ExportStatus</returns>
-        System.Threading.Tasks.Task<ExportStatus> EventsChannelsExportByIdStatusGetAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ExportStatus> EventsChannelsExportByIdStatusGetAsync(string id, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Check Channel Export Status
@@ -360,9 +381,10 @@ namespace ElasticEmail.Api
         /// </remarks>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">ID of the exported file</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ExportStatus)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ExportStatus>> EventsChannelsExportByIdStatusGetWithHttpInfoAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<ExportStatus>> EventsChannelsExportByIdStatusGetWithHttpInfoAsync(string id, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Check Export Status
         /// </summary>
@@ -371,9 +393,10 @@ namespace ElasticEmail.Api
         /// </remarks>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">ID of the exported file</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ExportStatus</returns>
-        System.Threading.Tasks.Task<ExportStatus> EventsExportByIdStatusGetAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ExportStatus> EventsExportByIdStatusGetAsync(string id, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Check Export Status
@@ -383,9 +406,10 @@ namespace ElasticEmail.Api
         /// </remarks>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">ID of the exported file</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ExportStatus)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ExportStatus>> EventsExportByIdStatusGetWithHttpInfoAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<ExportStatus>> EventsExportByIdStatusGetWithHttpInfoAsync(string id, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Export Events
         /// </summary>
@@ -399,9 +423,10 @@ namespace ElasticEmail.Api
         /// <param name="fileFormat">Format of the exported file (optional)</param>
         /// <param name="compressionFormat">FileResponse compression format. None or Zip. (optional)</param>
         /// <param name="fileName">Name of your file including extension. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ExportLink</returns>
-        System.Threading.Tasks.Task<ExportLink> EventsExportPostAsync(List<EventType> eventTypes = default(List<EventType>), DateTime? from = default(DateTime?), DateTime? to = default(DateTime?), ExportFileFormats? fileFormat = default(ExportFileFormats?), CompressionFormat? compressionFormat = default(CompressionFormat?), string fileName = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ExportLink> EventsExportPostAsync(List<EventType> eventTypes = default(List<EventType>), DateTime? from = default(DateTime?), DateTime? to = default(DateTime?), ExportFileFormats? fileFormat = default(ExportFileFormats?), CompressionFormat? compressionFormat = default(CompressionFormat?), string fileName = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Export Events
@@ -416,9 +441,10 @@ namespace ElasticEmail.Api
         /// <param name="fileFormat">Format of the exported file (optional)</param>
         /// <param name="compressionFormat">FileResponse compression format. None or Zip. (optional)</param>
         /// <param name="fileName">Name of your file including extension. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ExportLink)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ExportLink>> EventsExportPostWithHttpInfoAsync(List<EventType> eventTypes = default(List<EventType>), DateTime? from = default(DateTime?), DateTime? to = default(DateTime?), ExportFileFormats? fileFormat = default(ExportFileFormats?), CompressionFormat? compressionFormat = default(CompressionFormat?), string fileName = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<ExportLink>> EventsExportPostWithHttpInfoAsync(List<EventType> eventTypes = default(List<EventType>), DateTime? from = default(DateTime?), DateTime? to = default(DateTime?), ExportFileFormats? fileFormat = default(ExportFileFormats?), CompressionFormat? compressionFormat = default(CompressionFormat?), string fileName = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Load Events
         /// </summary>
@@ -432,9 +458,10 @@ namespace ElasticEmail.Api
         /// <param name="orderBy"> (optional)</param>
         /// <param name="limit">How many items to load. Maximum for this request is 1000 items (optional)</param>
         /// <param name="offset">How many items should be returned ahead. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;RecipientEvent&gt;</returns>
-        System.Threading.Tasks.Task<List<RecipientEvent>> EventsGetAsync(List<EventType> eventTypes = default(List<EventType>), DateTime? from = default(DateTime?), DateTime? to = default(DateTime?), EventsOrderBy? orderBy = default(EventsOrderBy?), int? limit = default(int?), int? offset = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<List<RecipientEvent>> EventsGetAsync(List<EventType> eventTypes = default(List<EventType>), DateTime? from = default(DateTime?), DateTime? to = default(DateTime?), EventsOrderBy? orderBy = default(EventsOrderBy?), int? limit = default(int?), int? offset = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Load Events
@@ -449,9 +476,10 @@ namespace ElasticEmail.Api
         /// <param name="orderBy"> (optional)</param>
         /// <param name="limit">How many items to load. Maximum for this request is 1000 items (optional)</param>
         /// <param name="offset">How many items should be returned ahead. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;RecipientEvent&gt;)</returns>
-        System.Threading.Tasks.Task<ApiResponse<List<RecipientEvent>>> EventsGetWithHttpInfoAsync(List<EventType> eventTypes = default(List<EventType>), DateTime? from = default(DateTime?), DateTime? to = default(DateTime?), EventsOrderBy? orderBy = default(EventsOrderBy?), int? limit = default(int?), int? offset = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<List<RecipientEvent>>> EventsGetWithHttpInfoAsync(List<EventType> eventTypes = default(List<EventType>), DateTime? from = default(DateTime?), DateTime? to = default(DateTime?), EventsOrderBy? orderBy = default(EventsOrderBy?), int? limit = default(int?), int? offset = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         #endregion Asynchronous Operations
     }
 
@@ -582,8 +610,9 @@ namespace ElasticEmail.Api
         /// <param name="orderBy"> (optional)</param>
         /// <param name="limit">Maximum number of returned items. (optional)</param>
         /// <param name="offset">How many items should be returned ahead. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>List&lt;RecipientEvent&gt;</returns>
-        public List<RecipientEvent> EventsByTransactionidGet(string transactionid, DateTime? from = default(DateTime?), DateTime? to = default(DateTime?), EventsOrderBy? orderBy = default(EventsOrderBy?), int? limit = default(int?), int? offset = default(int?))
+        public List<RecipientEvent> EventsByTransactionidGet(string transactionid, DateTime? from = default(DateTime?), DateTime? to = default(DateTime?), EventsOrderBy? orderBy = default(EventsOrderBy?), int? limit = default(int?), int? offset = default(int?), int operationIndex = 0)
         {
             ElasticEmail.Client.ApiResponse<List<RecipientEvent>> localVarResponse = EventsByTransactionidGetWithHttpInfo(transactionid, from, to, orderBy, limit, offset);
             return localVarResponse.Data;
@@ -599,8 +628,9 @@ namespace ElasticEmail.Api
         /// <param name="orderBy"> (optional)</param>
         /// <param name="limit">Maximum number of returned items. (optional)</param>
         /// <param name="offset">How many items should be returned ahead. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of List&lt;RecipientEvent&gt;</returns>
-        public ElasticEmail.Client.ApiResponse<List<RecipientEvent>> EventsByTransactionidGetWithHttpInfo(string transactionid, DateTime? from = default(DateTime?), DateTime? to = default(DateTime?), EventsOrderBy? orderBy = default(EventsOrderBy?), int? limit = default(int?), int? offset = default(int?))
+        public ElasticEmail.Client.ApiResponse<List<RecipientEvent>> EventsByTransactionidGetWithHttpInfo(string transactionid, DateTime? from = default(DateTime?), DateTime? to = default(DateTime?), EventsOrderBy? orderBy = default(EventsOrderBy?), int? limit = default(int?), int? offset = default(int?), int operationIndex = 0)
         {
             // verify the required parameter 'transactionid' is set
             if (transactionid == null)
@@ -651,6 +681,9 @@ namespace ElasticEmail.Api
             {
                 localVarRequestOptions.QueryParameters.Add(ElasticEmail.Client.ClientUtils.ParameterToMultiMap("", "offset", offset));
             }
+
+            localVarRequestOptions.Operation = "EventsApi.EventsByTransactionidGet";
+            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (apikey) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-ElasticEmail-ApiKey")))
@@ -682,11 +715,12 @@ namespace ElasticEmail.Api
         /// <param name="orderBy"> (optional)</param>
         /// <param name="limit">Maximum number of returned items. (optional)</param>
         /// <param name="offset">How many items should be returned ahead. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;RecipientEvent&gt;</returns>
-        public async System.Threading.Tasks.Task<List<RecipientEvent>> EventsByTransactionidGetAsync(string transactionid, DateTime? from = default(DateTime?), DateTime? to = default(DateTime?), EventsOrderBy? orderBy = default(EventsOrderBy?), int? limit = default(int?), int? offset = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<List<RecipientEvent>> EventsByTransactionidGetAsync(string transactionid, DateTime? from = default(DateTime?), DateTime? to = default(DateTime?), EventsOrderBy? orderBy = default(EventsOrderBy?), int? limit = default(int?), int? offset = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            ElasticEmail.Client.ApiResponse<List<RecipientEvent>> localVarResponse = await EventsByTransactionidGetWithHttpInfoAsync(transactionid, from, to, orderBy, limit, offset, cancellationToken).ConfigureAwait(false);
+            ElasticEmail.Client.ApiResponse<List<RecipientEvent>> localVarResponse = await EventsByTransactionidGetWithHttpInfoAsync(transactionid, from, to, orderBy, limit, offset, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -700,9 +734,10 @@ namespace ElasticEmail.Api
         /// <param name="orderBy"> (optional)</param>
         /// <param name="limit">Maximum number of returned items. (optional)</param>
         /// <param name="offset">How many items should be returned ahead. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;RecipientEvent&gt;)</returns>
-        public async System.Threading.Tasks.Task<ElasticEmail.Client.ApiResponse<List<RecipientEvent>>> EventsByTransactionidGetWithHttpInfoAsync(string transactionid, DateTime? from = default(DateTime?), DateTime? to = default(DateTime?), EventsOrderBy? orderBy = default(EventsOrderBy?), int? limit = default(int?), int? offset = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ElasticEmail.Client.ApiResponse<List<RecipientEvent>>> EventsByTransactionidGetWithHttpInfoAsync(string transactionid, DateTime? from = default(DateTime?), DateTime? to = default(DateTime?), EventsOrderBy? orderBy = default(EventsOrderBy?), int? limit = default(int?), int? offset = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'transactionid' is set
             if (transactionid == null)
@@ -754,6 +789,9 @@ namespace ElasticEmail.Api
             {
                 localVarRequestOptions.QueryParameters.Add(ElasticEmail.Client.ClientUtils.ParameterToMultiMap("", "offset", offset));
             }
+
+            localVarRequestOptions.Operation = "EventsApi.EventsByTransactionidGet";
+            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (apikey) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-ElasticEmail-ApiKey")))
@@ -787,8 +825,9 @@ namespace ElasticEmail.Api
         /// <param name="fileFormat">Format of the exported file (optional)</param>
         /// <param name="compressionFormat">FileResponse compression format. None or Zip. (optional)</param>
         /// <param name="fileName">Name of your file including extension. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ExportLink</returns>
-        public ExportLink EventsChannelsByNameExportPost(string name, List<EventType> eventTypes = default(List<EventType>), DateTime? from = default(DateTime?), DateTime? to = default(DateTime?), ExportFileFormats? fileFormat = default(ExportFileFormats?), CompressionFormat? compressionFormat = default(CompressionFormat?), string fileName = default(string))
+        public ExportLink EventsChannelsByNameExportPost(string name, List<EventType> eventTypes = default(List<EventType>), DateTime? from = default(DateTime?), DateTime? to = default(DateTime?), ExportFileFormats? fileFormat = default(ExportFileFormats?), CompressionFormat? compressionFormat = default(CompressionFormat?), string fileName = default(string), int operationIndex = 0)
         {
             ElasticEmail.Client.ApiResponse<ExportLink> localVarResponse = EventsChannelsByNameExportPostWithHttpInfo(name, eventTypes, from, to, fileFormat, compressionFormat, fileName);
             return localVarResponse.Data;
@@ -805,8 +844,9 @@ namespace ElasticEmail.Api
         /// <param name="fileFormat">Format of the exported file (optional)</param>
         /// <param name="compressionFormat">FileResponse compression format. None or Zip. (optional)</param>
         /// <param name="fileName">Name of your file including extension. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of ExportLink</returns>
-        public ElasticEmail.Client.ApiResponse<ExportLink> EventsChannelsByNameExportPostWithHttpInfo(string name, List<EventType> eventTypes = default(List<EventType>), DateTime? from = default(DateTime?), DateTime? to = default(DateTime?), ExportFileFormats? fileFormat = default(ExportFileFormats?), CompressionFormat? compressionFormat = default(CompressionFormat?), string fileName = default(string))
+        public ElasticEmail.Client.ApiResponse<ExportLink> EventsChannelsByNameExportPostWithHttpInfo(string name, List<EventType> eventTypes = default(List<EventType>), DateTime? from = default(DateTime?), DateTime? to = default(DateTime?), ExportFileFormats? fileFormat = default(ExportFileFormats?), CompressionFormat? compressionFormat = default(CompressionFormat?), string fileName = default(string), int operationIndex = 0)
         {
             // verify the required parameter 'name' is set
             if (name == null)
@@ -861,6 +901,9 @@ namespace ElasticEmail.Api
             {
                 localVarRequestOptions.QueryParameters.Add(ElasticEmail.Client.ClientUtils.ParameterToMultiMap("", "fileName", fileName));
             }
+
+            localVarRequestOptions.Operation = "EventsApi.EventsChannelsByNameExportPost";
+            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (apikey) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-ElasticEmail-ApiKey")))
@@ -893,11 +936,12 @@ namespace ElasticEmail.Api
         /// <param name="fileFormat">Format of the exported file (optional)</param>
         /// <param name="compressionFormat">FileResponse compression format. None or Zip. (optional)</param>
         /// <param name="fileName">Name of your file including extension. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ExportLink</returns>
-        public async System.Threading.Tasks.Task<ExportLink> EventsChannelsByNameExportPostAsync(string name, List<EventType> eventTypes = default(List<EventType>), DateTime? from = default(DateTime?), DateTime? to = default(DateTime?), ExportFileFormats? fileFormat = default(ExportFileFormats?), CompressionFormat? compressionFormat = default(CompressionFormat?), string fileName = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ExportLink> EventsChannelsByNameExportPostAsync(string name, List<EventType> eventTypes = default(List<EventType>), DateTime? from = default(DateTime?), DateTime? to = default(DateTime?), ExportFileFormats? fileFormat = default(ExportFileFormats?), CompressionFormat? compressionFormat = default(CompressionFormat?), string fileName = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            ElasticEmail.Client.ApiResponse<ExportLink> localVarResponse = await EventsChannelsByNameExportPostWithHttpInfoAsync(name, eventTypes, from, to, fileFormat, compressionFormat, fileName, cancellationToken).ConfigureAwait(false);
+            ElasticEmail.Client.ApiResponse<ExportLink> localVarResponse = await EventsChannelsByNameExportPostWithHttpInfoAsync(name, eventTypes, from, to, fileFormat, compressionFormat, fileName, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -912,9 +956,10 @@ namespace ElasticEmail.Api
         /// <param name="fileFormat">Format of the exported file (optional)</param>
         /// <param name="compressionFormat">FileResponse compression format. None or Zip. (optional)</param>
         /// <param name="fileName">Name of your file including extension. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ExportLink)</returns>
-        public async System.Threading.Tasks.Task<ElasticEmail.Client.ApiResponse<ExportLink>> EventsChannelsByNameExportPostWithHttpInfoAsync(string name, List<EventType> eventTypes = default(List<EventType>), DateTime? from = default(DateTime?), DateTime? to = default(DateTime?), ExportFileFormats? fileFormat = default(ExportFileFormats?), CompressionFormat? compressionFormat = default(CompressionFormat?), string fileName = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ElasticEmail.Client.ApiResponse<ExportLink>> EventsChannelsByNameExportPostWithHttpInfoAsync(string name, List<EventType> eventTypes = default(List<EventType>), DateTime? from = default(DateTime?), DateTime? to = default(DateTime?), ExportFileFormats? fileFormat = default(ExportFileFormats?), CompressionFormat? compressionFormat = default(CompressionFormat?), string fileName = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'name' is set
             if (name == null)
@@ -970,6 +1015,9 @@ namespace ElasticEmail.Api
             {
                 localVarRequestOptions.QueryParameters.Add(ElasticEmail.Client.ClientUtils.ParameterToMultiMap("", "fileName", fileName));
             }
+
+            localVarRequestOptions.Operation = "EventsApi.EventsChannelsByNameExportPost";
+            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (apikey) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-ElasticEmail-ApiKey")))
@@ -1003,8 +1051,9 @@ namespace ElasticEmail.Api
         /// <param name="orderBy"> (optional)</param>
         /// <param name="limit">How many items to load. Maximum for this request is 1000 items (optional)</param>
         /// <param name="offset">How many items should be returned ahead. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>List&lt;RecipientEvent&gt;</returns>
-        public List<RecipientEvent> EventsChannelsByNameGet(string name, List<EventType> eventTypes = default(List<EventType>), DateTime? from = default(DateTime?), DateTime? to = default(DateTime?), EventsOrderBy? orderBy = default(EventsOrderBy?), int? limit = default(int?), int? offset = default(int?))
+        public List<RecipientEvent> EventsChannelsByNameGet(string name, List<EventType> eventTypes = default(List<EventType>), DateTime? from = default(DateTime?), DateTime? to = default(DateTime?), EventsOrderBy? orderBy = default(EventsOrderBy?), int? limit = default(int?), int? offset = default(int?), int operationIndex = 0)
         {
             ElasticEmail.Client.ApiResponse<List<RecipientEvent>> localVarResponse = EventsChannelsByNameGetWithHttpInfo(name, eventTypes, from, to, orderBy, limit, offset);
             return localVarResponse.Data;
@@ -1021,8 +1070,9 @@ namespace ElasticEmail.Api
         /// <param name="orderBy"> (optional)</param>
         /// <param name="limit">How many items to load. Maximum for this request is 1000 items (optional)</param>
         /// <param name="offset">How many items should be returned ahead. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of List&lt;RecipientEvent&gt;</returns>
-        public ElasticEmail.Client.ApiResponse<List<RecipientEvent>> EventsChannelsByNameGetWithHttpInfo(string name, List<EventType> eventTypes = default(List<EventType>), DateTime? from = default(DateTime?), DateTime? to = default(DateTime?), EventsOrderBy? orderBy = default(EventsOrderBy?), int? limit = default(int?), int? offset = default(int?))
+        public ElasticEmail.Client.ApiResponse<List<RecipientEvent>> EventsChannelsByNameGetWithHttpInfo(string name, List<EventType> eventTypes = default(List<EventType>), DateTime? from = default(DateTime?), DateTime? to = default(DateTime?), EventsOrderBy? orderBy = default(EventsOrderBy?), int? limit = default(int?), int? offset = default(int?), int operationIndex = 0)
         {
             // verify the required parameter 'name' is set
             if (name == null)
@@ -1077,6 +1127,9 @@ namespace ElasticEmail.Api
             {
                 localVarRequestOptions.QueryParameters.Add(ElasticEmail.Client.ClientUtils.ParameterToMultiMap("", "offset", offset));
             }
+
+            localVarRequestOptions.Operation = "EventsApi.EventsChannelsByNameGet";
+            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (apikey) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-ElasticEmail-ApiKey")))
@@ -1109,11 +1162,12 @@ namespace ElasticEmail.Api
         /// <param name="orderBy"> (optional)</param>
         /// <param name="limit">How many items to load. Maximum for this request is 1000 items (optional)</param>
         /// <param name="offset">How many items should be returned ahead. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;RecipientEvent&gt;</returns>
-        public async System.Threading.Tasks.Task<List<RecipientEvent>> EventsChannelsByNameGetAsync(string name, List<EventType> eventTypes = default(List<EventType>), DateTime? from = default(DateTime?), DateTime? to = default(DateTime?), EventsOrderBy? orderBy = default(EventsOrderBy?), int? limit = default(int?), int? offset = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<List<RecipientEvent>> EventsChannelsByNameGetAsync(string name, List<EventType> eventTypes = default(List<EventType>), DateTime? from = default(DateTime?), DateTime? to = default(DateTime?), EventsOrderBy? orderBy = default(EventsOrderBy?), int? limit = default(int?), int? offset = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            ElasticEmail.Client.ApiResponse<List<RecipientEvent>> localVarResponse = await EventsChannelsByNameGetWithHttpInfoAsync(name, eventTypes, from, to, orderBy, limit, offset, cancellationToken).ConfigureAwait(false);
+            ElasticEmail.Client.ApiResponse<List<RecipientEvent>> localVarResponse = await EventsChannelsByNameGetWithHttpInfoAsync(name, eventTypes, from, to, orderBy, limit, offset, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1128,9 +1182,10 @@ namespace ElasticEmail.Api
         /// <param name="orderBy"> (optional)</param>
         /// <param name="limit">How many items to load. Maximum for this request is 1000 items (optional)</param>
         /// <param name="offset">How many items should be returned ahead. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;RecipientEvent&gt;)</returns>
-        public async System.Threading.Tasks.Task<ElasticEmail.Client.ApiResponse<List<RecipientEvent>>> EventsChannelsByNameGetWithHttpInfoAsync(string name, List<EventType> eventTypes = default(List<EventType>), DateTime? from = default(DateTime?), DateTime? to = default(DateTime?), EventsOrderBy? orderBy = default(EventsOrderBy?), int? limit = default(int?), int? offset = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ElasticEmail.Client.ApiResponse<List<RecipientEvent>>> EventsChannelsByNameGetWithHttpInfoAsync(string name, List<EventType> eventTypes = default(List<EventType>), DateTime? from = default(DateTime?), DateTime? to = default(DateTime?), EventsOrderBy? orderBy = default(EventsOrderBy?), int? limit = default(int?), int? offset = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'name' is set
             if (name == null)
@@ -1187,6 +1242,9 @@ namespace ElasticEmail.Api
                 localVarRequestOptions.QueryParameters.Add(ElasticEmail.Client.ClientUtils.ParameterToMultiMap("", "offset", offset));
             }
 
+            localVarRequestOptions.Operation = "EventsApi.EventsChannelsByNameGet";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
             // authentication (apikey) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-ElasticEmail-ApiKey")))
             {
@@ -1213,8 +1271,9 @@ namespace ElasticEmail.Api
         /// </summary>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">ID of the exported file</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ExportStatus</returns>
-        public ExportStatus EventsChannelsExportByIdStatusGet(string id)
+        public ExportStatus EventsChannelsExportByIdStatusGet(string id, int operationIndex = 0)
         {
             ElasticEmail.Client.ApiResponse<ExportStatus> localVarResponse = EventsChannelsExportByIdStatusGetWithHttpInfo(id);
             return localVarResponse.Data;
@@ -1225,8 +1284,9 @@ namespace ElasticEmail.Api
         /// </summary>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">ID of the exported file</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of ExportStatus</returns>
-        public ElasticEmail.Client.ApiResponse<ExportStatus> EventsChannelsExportByIdStatusGetWithHttpInfo(string id)
+        public ElasticEmail.Client.ApiResponse<ExportStatus> EventsChannelsExportByIdStatusGetWithHttpInfo(string id, int operationIndex = 0)
         {
             // verify the required parameter 'id' is set
             if (id == null)
@@ -1257,6 +1317,9 @@ namespace ElasticEmail.Api
             }
 
             localVarRequestOptions.PathParameters.Add("id", ElasticEmail.Client.ClientUtils.ParameterToString(id)); // path parameter
+
+            localVarRequestOptions.Operation = "EventsApi.EventsChannelsExportByIdStatusGet";
+            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (apikey) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-ElasticEmail-ApiKey")))
@@ -1283,11 +1346,12 @@ namespace ElasticEmail.Api
         /// </summary>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">ID of the exported file</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ExportStatus</returns>
-        public async System.Threading.Tasks.Task<ExportStatus> EventsChannelsExportByIdStatusGetAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ExportStatus> EventsChannelsExportByIdStatusGetAsync(string id, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            ElasticEmail.Client.ApiResponse<ExportStatus> localVarResponse = await EventsChannelsExportByIdStatusGetWithHttpInfoAsync(id, cancellationToken).ConfigureAwait(false);
+            ElasticEmail.Client.ApiResponse<ExportStatus> localVarResponse = await EventsChannelsExportByIdStatusGetWithHttpInfoAsync(id, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1296,9 +1360,10 @@ namespace ElasticEmail.Api
         /// </summary>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">ID of the exported file</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ExportStatus)</returns>
-        public async System.Threading.Tasks.Task<ElasticEmail.Client.ApiResponse<ExportStatus>> EventsChannelsExportByIdStatusGetWithHttpInfoAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ElasticEmail.Client.ApiResponse<ExportStatus>> EventsChannelsExportByIdStatusGetWithHttpInfoAsync(string id, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'id' is set
             if (id == null)
@@ -1330,6 +1395,9 @@ namespace ElasticEmail.Api
             }
 
             localVarRequestOptions.PathParameters.Add("id", ElasticEmail.Client.ClientUtils.ParameterToString(id)); // path parameter
+
+            localVarRequestOptions.Operation = "EventsApi.EventsChannelsExportByIdStatusGet";
+            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (apikey) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-ElasticEmail-ApiKey")))
@@ -1357,8 +1425,9 @@ namespace ElasticEmail.Api
         /// </summary>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">ID of the exported file</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ExportStatus</returns>
-        public ExportStatus EventsExportByIdStatusGet(string id)
+        public ExportStatus EventsExportByIdStatusGet(string id, int operationIndex = 0)
         {
             ElasticEmail.Client.ApiResponse<ExportStatus> localVarResponse = EventsExportByIdStatusGetWithHttpInfo(id);
             return localVarResponse.Data;
@@ -1369,8 +1438,9 @@ namespace ElasticEmail.Api
         /// </summary>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">ID of the exported file</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of ExportStatus</returns>
-        public ElasticEmail.Client.ApiResponse<ExportStatus> EventsExportByIdStatusGetWithHttpInfo(string id)
+        public ElasticEmail.Client.ApiResponse<ExportStatus> EventsExportByIdStatusGetWithHttpInfo(string id, int operationIndex = 0)
         {
             // verify the required parameter 'id' is set
             if (id == null)
@@ -1401,6 +1471,9 @@ namespace ElasticEmail.Api
             }
 
             localVarRequestOptions.PathParameters.Add("id", ElasticEmail.Client.ClientUtils.ParameterToString(id)); // path parameter
+
+            localVarRequestOptions.Operation = "EventsApi.EventsExportByIdStatusGet";
+            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (apikey) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-ElasticEmail-ApiKey")))
@@ -1427,11 +1500,12 @@ namespace ElasticEmail.Api
         /// </summary>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">ID of the exported file</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ExportStatus</returns>
-        public async System.Threading.Tasks.Task<ExportStatus> EventsExportByIdStatusGetAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ExportStatus> EventsExportByIdStatusGetAsync(string id, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            ElasticEmail.Client.ApiResponse<ExportStatus> localVarResponse = await EventsExportByIdStatusGetWithHttpInfoAsync(id, cancellationToken).ConfigureAwait(false);
+            ElasticEmail.Client.ApiResponse<ExportStatus> localVarResponse = await EventsExportByIdStatusGetWithHttpInfoAsync(id, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1440,9 +1514,10 @@ namespace ElasticEmail.Api
         /// </summary>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">ID of the exported file</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ExportStatus)</returns>
-        public async System.Threading.Tasks.Task<ElasticEmail.Client.ApiResponse<ExportStatus>> EventsExportByIdStatusGetWithHttpInfoAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ElasticEmail.Client.ApiResponse<ExportStatus>> EventsExportByIdStatusGetWithHttpInfoAsync(string id, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'id' is set
             if (id == null)
@@ -1474,6 +1549,9 @@ namespace ElasticEmail.Api
             }
 
             localVarRequestOptions.PathParameters.Add("id", ElasticEmail.Client.ClientUtils.ParameterToString(id)); // path parameter
+
+            localVarRequestOptions.Operation = "EventsApi.EventsExportByIdStatusGet";
+            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (apikey) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-ElasticEmail-ApiKey")))
@@ -1506,8 +1584,9 @@ namespace ElasticEmail.Api
         /// <param name="fileFormat">Format of the exported file (optional)</param>
         /// <param name="compressionFormat">FileResponse compression format. None or Zip. (optional)</param>
         /// <param name="fileName">Name of your file including extension. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ExportLink</returns>
-        public ExportLink EventsExportPost(List<EventType> eventTypes = default(List<EventType>), DateTime? from = default(DateTime?), DateTime? to = default(DateTime?), ExportFileFormats? fileFormat = default(ExportFileFormats?), CompressionFormat? compressionFormat = default(CompressionFormat?), string fileName = default(string))
+        public ExportLink EventsExportPost(List<EventType> eventTypes = default(List<EventType>), DateTime? from = default(DateTime?), DateTime? to = default(DateTime?), ExportFileFormats? fileFormat = default(ExportFileFormats?), CompressionFormat? compressionFormat = default(CompressionFormat?), string fileName = default(string), int operationIndex = 0)
         {
             ElasticEmail.Client.ApiResponse<ExportLink> localVarResponse = EventsExportPostWithHttpInfo(eventTypes, from, to, fileFormat, compressionFormat, fileName);
             return localVarResponse.Data;
@@ -1523,8 +1602,9 @@ namespace ElasticEmail.Api
         /// <param name="fileFormat">Format of the exported file (optional)</param>
         /// <param name="compressionFormat">FileResponse compression format. None or Zip. (optional)</param>
         /// <param name="fileName">Name of your file including extension. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of ExportLink</returns>
-        public ElasticEmail.Client.ApiResponse<ExportLink> EventsExportPostWithHttpInfo(List<EventType> eventTypes = default(List<EventType>), DateTime? from = default(DateTime?), DateTime? to = default(DateTime?), ExportFileFormats? fileFormat = default(ExportFileFormats?), CompressionFormat? compressionFormat = default(CompressionFormat?), string fileName = default(string))
+        public ElasticEmail.Client.ApiResponse<ExportLink> EventsExportPostWithHttpInfo(List<EventType> eventTypes = default(List<EventType>), DateTime? from = default(DateTime?), DateTime? to = default(DateTime?), ExportFileFormats? fileFormat = default(ExportFileFormats?), CompressionFormat? compressionFormat = default(CompressionFormat?), string fileName = default(string), int operationIndex = 0)
         {
             ElasticEmail.Client.RequestOptions localVarRequestOptions = new ElasticEmail.Client.RequestOptions();
 
@@ -1572,6 +1652,9 @@ namespace ElasticEmail.Api
             {
                 localVarRequestOptions.QueryParameters.Add(ElasticEmail.Client.ClientUtils.ParameterToMultiMap("", "fileName", fileName));
             }
+
+            localVarRequestOptions.Operation = "EventsApi.EventsExportPost";
+            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (apikey) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-ElasticEmail-ApiKey")))
@@ -1603,11 +1686,12 @@ namespace ElasticEmail.Api
         /// <param name="fileFormat">Format of the exported file (optional)</param>
         /// <param name="compressionFormat">FileResponse compression format. None or Zip. (optional)</param>
         /// <param name="fileName">Name of your file including extension. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ExportLink</returns>
-        public async System.Threading.Tasks.Task<ExportLink> EventsExportPostAsync(List<EventType> eventTypes = default(List<EventType>), DateTime? from = default(DateTime?), DateTime? to = default(DateTime?), ExportFileFormats? fileFormat = default(ExportFileFormats?), CompressionFormat? compressionFormat = default(CompressionFormat?), string fileName = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ExportLink> EventsExportPostAsync(List<EventType> eventTypes = default(List<EventType>), DateTime? from = default(DateTime?), DateTime? to = default(DateTime?), ExportFileFormats? fileFormat = default(ExportFileFormats?), CompressionFormat? compressionFormat = default(CompressionFormat?), string fileName = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            ElasticEmail.Client.ApiResponse<ExportLink> localVarResponse = await EventsExportPostWithHttpInfoAsync(eventTypes, from, to, fileFormat, compressionFormat, fileName, cancellationToken).ConfigureAwait(false);
+            ElasticEmail.Client.ApiResponse<ExportLink> localVarResponse = await EventsExportPostWithHttpInfoAsync(eventTypes, from, to, fileFormat, compressionFormat, fileName, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1621,9 +1705,10 @@ namespace ElasticEmail.Api
         /// <param name="fileFormat">Format of the exported file (optional)</param>
         /// <param name="compressionFormat">FileResponse compression format. None or Zip. (optional)</param>
         /// <param name="fileName">Name of your file including extension. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ExportLink)</returns>
-        public async System.Threading.Tasks.Task<ElasticEmail.Client.ApiResponse<ExportLink>> EventsExportPostWithHttpInfoAsync(List<EventType> eventTypes = default(List<EventType>), DateTime? from = default(DateTime?), DateTime? to = default(DateTime?), ExportFileFormats? fileFormat = default(ExportFileFormats?), CompressionFormat? compressionFormat = default(CompressionFormat?), string fileName = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ElasticEmail.Client.ApiResponse<ExportLink>> EventsExportPostWithHttpInfoAsync(List<EventType> eventTypes = default(List<EventType>), DateTime? from = default(DateTime?), DateTime? to = default(DateTime?), ExportFileFormats? fileFormat = default(ExportFileFormats?), CompressionFormat? compressionFormat = default(CompressionFormat?), string fileName = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             ElasticEmail.Client.RequestOptions localVarRequestOptions = new ElasticEmail.Client.RequestOptions();
@@ -1672,6 +1757,9 @@ namespace ElasticEmail.Api
             {
                 localVarRequestOptions.QueryParameters.Add(ElasticEmail.Client.ClientUtils.ParameterToMultiMap("", "fileName", fileName));
             }
+
+            localVarRequestOptions.Operation = "EventsApi.EventsExportPost";
+            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (apikey) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-ElasticEmail-ApiKey")))
@@ -1704,8 +1792,9 @@ namespace ElasticEmail.Api
         /// <param name="orderBy"> (optional)</param>
         /// <param name="limit">How many items to load. Maximum for this request is 1000 items (optional)</param>
         /// <param name="offset">How many items should be returned ahead. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>List&lt;RecipientEvent&gt;</returns>
-        public List<RecipientEvent> EventsGet(List<EventType> eventTypes = default(List<EventType>), DateTime? from = default(DateTime?), DateTime? to = default(DateTime?), EventsOrderBy? orderBy = default(EventsOrderBy?), int? limit = default(int?), int? offset = default(int?))
+        public List<RecipientEvent> EventsGet(List<EventType> eventTypes = default(List<EventType>), DateTime? from = default(DateTime?), DateTime? to = default(DateTime?), EventsOrderBy? orderBy = default(EventsOrderBy?), int? limit = default(int?), int? offset = default(int?), int operationIndex = 0)
         {
             ElasticEmail.Client.ApiResponse<List<RecipientEvent>> localVarResponse = EventsGetWithHttpInfo(eventTypes, from, to, orderBy, limit, offset);
             return localVarResponse.Data;
@@ -1721,8 +1810,9 @@ namespace ElasticEmail.Api
         /// <param name="orderBy"> (optional)</param>
         /// <param name="limit">How many items to load. Maximum for this request is 1000 items (optional)</param>
         /// <param name="offset">How many items should be returned ahead. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of List&lt;RecipientEvent&gt;</returns>
-        public ElasticEmail.Client.ApiResponse<List<RecipientEvent>> EventsGetWithHttpInfo(List<EventType> eventTypes = default(List<EventType>), DateTime? from = default(DateTime?), DateTime? to = default(DateTime?), EventsOrderBy? orderBy = default(EventsOrderBy?), int? limit = default(int?), int? offset = default(int?))
+        public ElasticEmail.Client.ApiResponse<List<RecipientEvent>> EventsGetWithHttpInfo(List<EventType> eventTypes = default(List<EventType>), DateTime? from = default(DateTime?), DateTime? to = default(DateTime?), EventsOrderBy? orderBy = default(EventsOrderBy?), int? limit = default(int?), int? offset = default(int?), int operationIndex = 0)
         {
             ElasticEmail.Client.RequestOptions localVarRequestOptions = new ElasticEmail.Client.RequestOptions();
 
@@ -1770,6 +1860,9 @@ namespace ElasticEmail.Api
             {
                 localVarRequestOptions.QueryParameters.Add(ElasticEmail.Client.ClientUtils.ParameterToMultiMap("", "offset", offset));
             }
+
+            localVarRequestOptions.Operation = "EventsApi.EventsGet";
+            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (apikey) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-ElasticEmail-ApiKey")))
@@ -1801,11 +1894,12 @@ namespace ElasticEmail.Api
         /// <param name="orderBy"> (optional)</param>
         /// <param name="limit">How many items to load. Maximum for this request is 1000 items (optional)</param>
         /// <param name="offset">How many items should be returned ahead. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;RecipientEvent&gt;</returns>
-        public async System.Threading.Tasks.Task<List<RecipientEvent>> EventsGetAsync(List<EventType> eventTypes = default(List<EventType>), DateTime? from = default(DateTime?), DateTime? to = default(DateTime?), EventsOrderBy? orderBy = default(EventsOrderBy?), int? limit = default(int?), int? offset = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<List<RecipientEvent>> EventsGetAsync(List<EventType> eventTypes = default(List<EventType>), DateTime? from = default(DateTime?), DateTime? to = default(DateTime?), EventsOrderBy? orderBy = default(EventsOrderBy?), int? limit = default(int?), int? offset = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            ElasticEmail.Client.ApiResponse<List<RecipientEvent>> localVarResponse = await EventsGetWithHttpInfoAsync(eventTypes, from, to, orderBy, limit, offset, cancellationToken).ConfigureAwait(false);
+            ElasticEmail.Client.ApiResponse<List<RecipientEvent>> localVarResponse = await EventsGetWithHttpInfoAsync(eventTypes, from, to, orderBy, limit, offset, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1819,9 +1913,10 @@ namespace ElasticEmail.Api
         /// <param name="orderBy"> (optional)</param>
         /// <param name="limit">How many items to load. Maximum for this request is 1000 items (optional)</param>
         /// <param name="offset">How many items should be returned ahead. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;RecipientEvent&gt;)</returns>
-        public async System.Threading.Tasks.Task<ElasticEmail.Client.ApiResponse<List<RecipientEvent>>> EventsGetWithHttpInfoAsync(List<EventType> eventTypes = default(List<EventType>), DateTime? from = default(DateTime?), DateTime? to = default(DateTime?), EventsOrderBy? orderBy = default(EventsOrderBy?), int? limit = default(int?), int? offset = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ElasticEmail.Client.ApiResponse<List<RecipientEvent>>> EventsGetWithHttpInfoAsync(List<EventType> eventTypes = default(List<EventType>), DateTime? from = default(DateTime?), DateTime? to = default(DateTime?), EventsOrderBy? orderBy = default(EventsOrderBy?), int? limit = default(int?), int? offset = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             ElasticEmail.Client.RequestOptions localVarRequestOptions = new ElasticEmail.Client.RequestOptions();
@@ -1870,6 +1965,9 @@ namespace ElasticEmail.Api
             {
                 localVarRequestOptions.QueryParameters.Add(ElasticEmail.Client.ClientUtils.ParameterToMultiMap("", "offset", offset));
             }
+
+            localVarRequestOptions.Operation = "EventsApi.EventsGet";
+            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (apikey) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-ElasticEmail-ApiKey")))

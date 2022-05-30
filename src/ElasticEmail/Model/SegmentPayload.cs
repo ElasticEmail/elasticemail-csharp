@@ -45,12 +45,14 @@ namespace ElasticEmail.Model
         public SegmentPayload(string name = default(string), string rule = default(string))
         {
             // to ensure "name" is required (not null)
-            if (name == null) {
+            if (name == null)
+            {
                 throw new ArgumentNullException("name is a required property for SegmentPayload and cannot be null");
             }
             this.Name = name;
             // to ensure "rule" is required (not null)
-            if (rule == null) {
+            if (rule == null)
+            {
                 throw new ArgumentNullException("rule is a required property for SegmentPayload and cannot be null");
             }
             this.Rule = rule;

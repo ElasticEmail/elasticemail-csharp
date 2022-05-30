@@ -55,7 +55,8 @@ namespace ElasticEmail.Model
         public ContactPayload(string email = default(string), ContactStatus? status = default(ContactStatus?), string firstName = default(string), string lastName = default(string), Dictionary<string, string> customFields = default(Dictionary<string, string>), ConsentData consent = default(ConsentData))
         {
             // to ensure "email" is required (not null)
-            if (email == null) {
+            if (email == null)
+            {
                 throw new ArgumentNullException("email is a required property for ContactPayload and cannot be null");
             }
             this.Email = email;

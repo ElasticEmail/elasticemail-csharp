@@ -54,12 +54,14 @@ namespace ElasticEmail.Model
         public Campaign(List<CampaignTemplate> content = default(List<CampaignTemplate>), string name = default(string), CampaignStatus? status = default(CampaignStatus?), CampaignRecipient recipients = default(CampaignRecipient), CampaignOptions options = default(CampaignOptions))
         {
             // to ensure "name" is required (not null)
-            if (name == null) {
+            if (name == null)
+            {
                 throw new ArgumentNullException("name is a required property for Campaign and cannot be null");
             }
             this.Name = name;
             // to ensure "recipients" is required (not null)
-            if (recipients == null) {
+            if (recipients == null)
+            {
                 throw new ArgumentNullException("recipients is a required property for Campaign and cannot be null");
             }
             this.Recipients = recipients;

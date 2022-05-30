@@ -61,12 +61,14 @@ namespace ElasticEmail.Model
         public InboundPayload(string filter = default(string), string name = default(string), InboundRouteFilterType filterType = default(InboundRouteFilterType), InboundRouteActionType actionType = default(InboundRouteActionType), string emailAddress = default(string), string httpAddress = default(string))
         {
             // to ensure "filter" is required (not null)
-            if (filter == null) {
+            if (filter == null)
+            {
                 throw new ArgumentNullException("filter is a required property for InboundPayload and cannot be null");
             }
             this.Filter = filter;
             // to ensure "name" is required (not null)
-            if (name == null) {
+            if (name == null)
+            {
                 throw new ArgumentNullException("name is a required property for InboundPayload and cannot be null");
             }
             this.Name = name;

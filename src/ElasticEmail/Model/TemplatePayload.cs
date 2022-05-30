@@ -53,7 +53,8 @@ namespace ElasticEmail.Model
         public TemplatePayload(string name = default(string), string subject = default(string), List<BodyPart> body = default(List<BodyPart>), TemplateScope? templateScope = default(TemplateScope?))
         {
             // to ensure "name" is required (not null)
-            if (name == null) {
+            if (name == null)
+            {
                 throw new ArgumentNullException("name is a required property for TemplatePayload and cannot be null");
             }
             this.Name = name;

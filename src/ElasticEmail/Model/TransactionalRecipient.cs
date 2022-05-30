@@ -46,7 +46,8 @@ namespace ElasticEmail.Model
         public TransactionalRecipient(List<string> to = default(List<string>), List<string> cC = default(List<string>), List<string> bCC = default(List<string>))
         {
             // to ensure "to" is required (not null)
-            if (to == null) {
+            if (to == null)
+            {
                 throw new ArgumentNullException("to is a required property for TransactionalRecipient and cannot be null");
             }
             this.To = to;

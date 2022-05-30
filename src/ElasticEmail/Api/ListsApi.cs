@@ -36,8 +36,9 @@ namespace ElasticEmail.Api
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">Name of your list.</param>
         /// <param name="emailsPayload">Provide either rule or a list of emails, not both.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ContactsList</returns>
-        ContactsList ListsByNameContactsPost(string name, EmailsPayload emailsPayload);
+        ContactsList ListsByNameContactsPost(string name, EmailsPayload emailsPayload, int operationIndex = 0);
 
         /// <summary>
         /// Add Contacts to List
@@ -48,8 +49,9 @@ namespace ElasticEmail.Api
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">Name of your list.</param>
         /// <param name="emailsPayload">Provide either rule or a list of emails, not both.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of ContactsList</returns>
-        ApiResponse<ContactsList> ListsByNameContactsPostWithHttpInfo(string name, EmailsPayload emailsPayload);
+        ApiResponse<ContactsList> ListsByNameContactsPostWithHttpInfo(string name, EmailsPayload emailsPayload, int operationIndex = 0);
         /// <summary>
         /// Remove Contacts from List
         /// </summary>
@@ -59,8 +61,9 @@ namespace ElasticEmail.Api
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">Name of your list.</param>
         /// <param name="emailsPayload">Provide either rule or a list of emails, not both.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns></returns>
-        void ListsByNameContactsRemovePost(string name, EmailsPayload emailsPayload);
+        void ListsByNameContactsRemovePost(string name, EmailsPayload emailsPayload, int operationIndex = 0);
 
         /// <summary>
         /// Remove Contacts from List
@@ -71,8 +74,9 @@ namespace ElasticEmail.Api
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">Name of your list.</param>
         /// <param name="emailsPayload">Provide either rule or a list of emails, not both.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> ListsByNameContactsRemovePostWithHttpInfo(string name, EmailsPayload emailsPayload);
+        ApiResponse<Object> ListsByNameContactsRemovePostWithHttpInfo(string name, EmailsPayload emailsPayload, int operationIndex = 0);
         /// <summary>
         /// Delete List
         /// </summary>
@@ -81,8 +85,9 @@ namespace ElasticEmail.Api
         /// </remarks>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">Name of your list.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns></returns>
-        void ListsByNameDelete(string name);
+        void ListsByNameDelete(string name, int operationIndex = 0);
 
         /// <summary>
         /// Delete List
@@ -92,8 +97,9 @@ namespace ElasticEmail.Api
         /// </remarks>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">Name of your list.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> ListsByNameDeleteWithHttpInfo(string name);
+        ApiResponse<Object> ListsByNameDeleteWithHttpInfo(string name, int operationIndex = 0);
         /// <summary>
         /// Load List
         /// </summary>
@@ -102,8 +108,9 @@ namespace ElasticEmail.Api
         /// </remarks>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">Name of your list.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ContactsList</returns>
-        ContactsList ListsByNameGet(string name);
+        ContactsList ListsByNameGet(string name, int operationIndex = 0);
 
         /// <summary>
         /// Load List
@@ -113,8 +120,9 @@ namespace ElasticEmail.Api
         /// </remarks>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">Name of your list.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of ContactsList</returns>
-        ApiResponse<ContactsList> ListsByNameGetWithHttpInfo(string name);
+        ApiResponse<ContactsList> ListsByNameGetWithHttpInfo(string name, int operationIndex = 0);
         /// <summary>
         /// Update List
         /// </summary>
@@ -124,8 +132,9 @@ namespace ElasticEmail.Api
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">Name of your list.</param>
         /// <param name="listUpdatePayload"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ContactsList</returns>
-        ContactsList ListsByNamePut(string name, ListUpdatePayload listUpdatePayload);
+        ContactsList ListsByNamePut(string name, ListUpdatePayload listUpdatePayload, int operationIndex = 0);
 
         /// <summary>
         /// Update List
@@ -136,8 +145,9 @@ namespace ElasticEmail.Api
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">Name of your list.</param>
         /// <param name="listUpdatePayload"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of ContactsList</returns>
-        ApiResponse<ContactsList> ListsByNamePutWithHttpInfo(string name, ListUpdatePayload listUpdatePayload);
+        ApiResponse<ContactsList> ListsByNamePutWithHttpInfo(string name, ListUpdatePayload listUpdatePayload, int operationIndex = 0);
         /// <summary>
         /// Load Lists
         /// </summary>
@@ -147,8 +157,9 @@ namespace ElasticEmail.Api
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="limit">Maximum number of returned items. (optional)</param>
         /// <param name="offset">How many items should be returned ahead. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>List&lt;ContactsList&gt;</returns>
-        List<ContactsList> ListsGet(int? limit = default(int?), int? offset = default(int?));
+        List<ContactsList> ListsGet(int? limit = default(int?), int? offset = default(int?), int operationIndex = 0);
 
         /// <summary>
         /// Load Lists
@@ -159,8 +170,9 @@ namespace ElasticEmail.Api
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="limit">Maximum number of returned items. (optional)</param>
         /// <param name="offset">How many items should be returned ahead. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of List&lt;ContactsList&gt;</returns>
-        ApiResponse<List<ContactsList>> ListsGetWithHttpInfo(int? limit = default(int?), int? offset = default(int?));
+        ApiResponse<List<ContactsList>> ListsGetWithHttpInfo(int? limit = default(int?), int? offset = default(int?), int operationIndex = 0);
         /// <summary>
         /// Add List
         /// </summary>
@@ -169,8 +181,9 @@ namespace ElasticEmail.Api
         /// </remarks>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="listPayload"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ContactsList</returns>
-        ContactsList ListsPost(ListPayload listPayload);
+        ContactsList ListsPost(ListPayload listPayload, int operationIndex = 0);
 
         /// <summary>
         /// Add List
@@ -180,8 +193,9 @@ namespace ElasticEmail.Api
         /// </remarks>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="listPayload"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of ContactsList</returns>
-        ApiResponse<ContactsList> ListsPostWithHttpInfo(ListPayload listPayload);
+        ApiResponse<ContactsList> ListsPostWithHttpInfo(ListPayload listPayload, int operationIndex = 0);
         #endregion Synchronous Operations
     }
 
@@ -200,9 +214,10 @@ namespace ElasticEmail.Api
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">Name of your list.</param>
         /// <param name="emailsPayload">Provide either rule or a list of emails, not both.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ContactsList</returns>
-        System.Threading.Tasks.Task<ContactsList> ListsByNameContactsPostAsync(string name, EmailsPayload emailsPayload, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ContactsList> ListsByNameContactsPostAsync(string name, EmailsPayload emailsPayload, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Add Contacts to List
@@ -213,9 +228,10 @@ namespace ElasticEmail.Api
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">Name of your list.</param>
         /// <param name="emailsPayload">Provide either rule or a list of emails, not both.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ContactsList)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ContactsList>> ListsByNameContactsPostWithHttpInfoAsync(string name, EmailsPayload emailsPayload, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<ContactsList>> ListsByNameContactsPostWithHttpInfoAsync(string name, EmailsPayload emailsPayload, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Remove Contacts from List
         /// </summary>
@@ -225,9 +241,10 @@ namespace ElasticEmail.Api
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">Name of your list.</param>
         /// <param name="emailsPayload">Provide either rule or a list of emails, not both.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task ListsByNameContactsRemovePostAsync(string name, EmailsPayload emailsPayload, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task ListsByNameContactsRemovePostAsync(string name, EmailsPayload emailsPayload, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Remove Contacts from List
@@ -238,9 +255,10 @@ namespace ElasticEmail.Api
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">Name of your list.</param>
         /// <param name="emailsPayload">Provide either rule or a list of emails, not both.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> ListsByNameContactsRemovePostWithHttpInfoAsync(string name, EmailsPayload emailsPayload, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Object>> ListsByNameContactsRemovePostWithHttpInfoAsync(string name, EmailsPayload emailsPayload, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Delete List
         /// </summary>
@@ -249,9 +267,10 @@ namespace ElasticEmail.Api
         /// </remarks>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">Name of your list.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task ListsByNameDeleteAsync(string name, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task ListsByNameDeleteAsync(string name, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Delete List
@@ -261,9 +280,10 @@ namespace ElasticEmail.Api
         /// </remarks>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">Name of your list.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> ListsByNameDeleteWithHttpInfoAsync(string name, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Object>> ListsByNameDeleteWithHttpInfoAsync(string name, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Load List
         /// </summary>
@@ -272,9 +292,10 @@ namespace ElasticEmail.Api
         /// </remarks>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">Name of your list.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ContactsList</returns>
-        System.Threading.Tasks.Task<ContactsList> ListsByNameGetAsync(string name, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ContactsList> ListsByNameGetAsync(string name, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Load List
@@ -284,9 +305,10 @@ namespace ElasticEmail.Api
         /// </remarks>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">Name of your list.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ContactsList)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ContactsList>> ListsByNameGetWithHttpInfoAsync(string name, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<ContactsList>> ListsByNameGetWithHttpInfoAsync(string name, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Update List
         /// </summary>
@@ -296,9 +318,10 @@ namespace ElasticEmail.Api
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">Name of your list.</param>
         /// <param name="listUpdatePayload"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ContactsList</returns>
-        System.Threading.Tasks.Task<ContactsList> ListsByNamePutAsync(string name, ListUpdatePayload listUpdatePayload, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ContactsList> ListsByNamePutAsync(string name, ListUpdatePayload listUpdatePayload, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Update List
@@ -309,9 +332,10 @@ namespace ElasticEmail.Api
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">Name of your list.</param>
         /// <param name="listUpdatePayload"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ContactsList)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ContactsList>> ListsByNamePutWithHttpInfoAsync(string name, ListUpdatePayload listUpdatePayload, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<ContactsList>> ListsByNamePutWithHttpInfoAsync(string name, ListUpdatePayload listUpdatePayload, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Load Lists
         /// </summary>
@@ -321,9 +345,10 @@ namespace ElasticEmail.Api
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="limit">Maximum number of returned items. (optional)</param>
         /// <param name="offset">How many items should be returned ahead. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;ContactsList&gt;</returns>
-        System.Threading.Tasks.Task<List<ContactsList>> ListsGetAsync(int? limit = default(int?), int? offset = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<List<ContactsList>> ListsGetAsync(int? limit = default(int?), int? offset = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Load Lists
@@ -334,9 +359,10 @@ namespace ElasticEmail.Api
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="limit">Maximum number of returned items. (optional)</param>
         /// <param name="offset">How many items should be returned ahead. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;ContactsList&gt;)</returns>
-        System.Threading.Tasks.Task<ApiResponse<List<ContactsList>>> ListsGetWithHttpInfoAsync(int? limit = default(int?), int? offset = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<List<ContactsList>>> ListsGetWithHttpInfoAsync(int? limit = default(int?), int? offset = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Add List
         /// </summary>
@@ -345,9 +371,10 @@ namespace ElasticEmail.Api
         /// </remarks>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="listPayload"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ContactsList</returns>
-        System.Threading.Tasks.Task<ContactsList> ListsPostAsync(ListPayload listPayload, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ContactsList> ListsPostAsync(ListPayload listPayload, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Add List
@@ -357,9 +384,10 @@ namespace ElasticEmail.Api
         /// </remarks>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="listPayload"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ContactsList)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ContactsList>> ListsPostWithHttpInfoAsync(ListPayload listPayload, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<ContactsList>> ListsPostWithHttpInfoAsync(ListPayload listPayload, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         #endregion Asynchronous Operations
     }
 
@@ -486,8 +514,9 @@ namespace ElasticEmail.Api
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">Name of your list.</param>
         /// <param name="emailsPayload">Provide either rule or a list of emails, not both.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ContactsList</returns>
-        public ContactsList ListsByNameContactsPost(string name, EmailsPayload emailsPayload)
+        public ContactsList ListsByNameContactsPost(string name, EmailsPayload emailsPayload, int operationIndex = 0)
         {
             ElasticEmail.Client.ApiResponse<ContactsList> localVarResponse = ListsByNameContactsPostWithHttpInfo(name, emailsPayload);
             return localVarResponse.Data;
@@ -499,8 +528,9 @@ namespace ElasticEmail.Api
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">Name of your list.</param>
         /// <param name="emailsPayload">Provide either rule or a list of emails, not both.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of ContactsList</returns>
-        public ElasticEmail.Client.ApiResponse<ContactsList> ListsByNameContactsPostWithHttpInfo(string name, EmailsPayload emailsPayload)
+        public ElasticEmail.Client.ApiResponse<ContactsList> ListsByNameContactsPostWithHttpInfo(string name, EmailsPayload emailsPayload, int operationIndex = 0)
         {
             // verify the required parameter 'name' is set
             if (name == null)
@@ -539,6 +569,9 @@ namespace ElasticEmail.Api
 
             localVarRequestOptions.PathParameters.Add("name", ElasticEmail.Client.ClientUtils.ParameterToString(name)); // path parameter
             localVarRequestOptions.Data = emailsPayload;
+
+            localVarRequestOptions.Operation = "ListsApi.ListsByNameContactsPost";
+            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (apikey) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-ElasticEmail-ApiKey")))
@@ -566,11 +599,12 @@ namespace ElasticEmail.Api
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">Name of your list.</param>
         /// <param name="emailsPayload">Provide either rule or a list of emails, not both.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ContactsList</returns>
-        public async System.Threading.Tasks.Task<ContactsList> ListsByNameContactsPostAsync(string name, EmailsPayload emailsPayload, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ContactsList> ListsByNameContactsPostAsync(string name, EmailsPayload emailsPayload, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            ElasticEmail.Client.ApiResponse<ContactsList> localVarResponse = await ListsByNameContactsPostWithHttpInfoAsync(name, emailsPayload, cancellationToken).ConfigureAwait(false);
+            ElasticEmail.Client.ApiResponse<ContactsList> localVarResponse = await ListsByNameContactsPostWithHttpInfoAsync(name, emailsPayload, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -580,9 +614,10 @@ namespace ElasticEmail.Api
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">Name of your list.</param>
         /// <param name="emailsPayload">Provide either rule or a list of emails, not both.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ContactsList)</returns>
-        public async System.Threading.Tasks.Task<ElasticEmail.Client.ApiResponse<ContactsList>> ListsByNameContactsPostWithHttpInfoAsync(string name, EmailsPayload emailsPayload, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ElasticEmail.Client.ApiResponse<ContactsList>> ListsByNameContactsPostWithHttpInfoAsync(string name, EmailsPayload emailsPayload, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'name' is set
             if (name == null)
@@ -622,6 +657,9 @@ namespace ElasticEmail.Api
 
             localVarRequestOptions.PathParameters.Add("name", ElasticEmail.Client.ClientUtils.ParameterToString(name)); // path parameter
             localVarRequestOptions.Data = emailsPayload;
+
+            localVarRequestOptions.Operation = "ListsApi.ListsByNameContactsPost";
+            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (apikey) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-ElasticEmail-ApiKey")))
@@ -650,8 +688,9 @@ namespace ElasticEmail.Api
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">Name of your list.</param>
         /// <param name="emailsPayload">Provide either rule or a list of emails, not both.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns></returns>
-        public void ListsByNameContactsRemovePost(string name, EmailsPayload emailsPayload)
+        public void ListsByNameContactsRemovePost(string name, EmailsPayload emailsPayload, int operationIndex = 0)
         {
             ListsByNameContactsRemovePostWithHttpInfo(name, emailsPayload);
         }
@@ -662,8 +701,9 @@ namespace ElasticEmail.Api
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">Name of your list.</param>
         /// <param name="emailsPayload">Provide either rule or a list of emails, not both.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        public ElasticEmail.Client.ApiResponse<Object> ListsByNameContactsRemovePostWithHttpInfo(string name, EmailsPayload emailsPayload)
+        public ElasticEmail.Client.ApiResponse<Object> ListsByNameContactsRemovePostWithHttpInfo(string name, EmailsPayload emailsPayload, int operationIndex = 0)
         {
             // verify the required parameter 'name' is set
             if (name == null)
@@ -701,6 +741,9 @@ namespace ElasticEmail.Api
 
             localVarRequestOptions.PathParameters.Add("name", ElasticEmail.Client.ClientUtils.ParameterToString(name)); // path parameter
             localVarRequestOptions.Data = emailsPayload;
+
+            localVarRequestOptions.Operation = "ListsApi.ListsByNameContactsRemovePost";
+            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (apikey) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-ElasticEmail-ApiKey")))
@@ -728,11 +771,12 @@ namespace ElasticEmail.Api
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">Name of your list.</param>
         /// <param name="emailsPayload">Provide either rule or a list of emails, not both.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task ListsByNameContactsRemovePostAsync(string name, EmailsPayload emailsPayload, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task ListsByNameContactsRemovePostAsync(string name, EmailsPayload emailsPayload, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            await ListsByNameContactsRemovePostWithHttpInfoAsync(name, emailsPayload, cancellationToken).ConfigureAwait(false);
+            await ListsByNameContactsRemovePostWithHttpInfoAsync(name, emailsPayload, operationIndex, cancellationToken).ConfigureAwait(false);
         }
 
         /// <summary>
@@ -741,9 +785,10 @@ namespace ElasticEmail.Api
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">Name of your list.</param>
         /// <param name="emailsPayload">Provide either rule or a list of emails, not both.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<ElasticEmail.Client.ApiResponse<Object>> ListsByNameContactsRemovePostWithHttpInfoAsync(string name, EmailsPayload emailsPayload, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ElasticEmail.Client.ApiResponse<Object>> ListsByNameContactsRemovePostWithHttpInfoAsync(string name, EmailsPayload emailsPayload, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'name' is set
             if (name == null)
@@ -783,6 +828,9 @@ namespace ElasticEmail.Api
             localVarRequestOptions.PathParameters.Add("name", ElasticEmail.Client.ClientUtils.ParameterToString(name)); // path parameter
             localVarRequestOptions.Data = emailsPayload;
 
+            localVarRequestOptions.Operation = "ListsApi.ListsByNameContactsRemovePost";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
             // authentication (apikey) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-ElasticEmail-ApiKey")))
             {
@@ -809,8 +857,9 @@ namespace ElasticEmail.Api
         /// </summary>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">Name of your list.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns></returns>
-        public void ListsByNameDelete(string name)
+        public void ListsByNameDelete(string name, int operationIndex = 0)
         {
             ListsByNameDeleteWithHttpInfo(name);
         }
@@ -820,8 +869,9 @@ namespace ElasticEmail.Api
         /// </summary>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">Name of your list.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        public ElasticEmail.Client.ApiResponse<Object> ListsByNameDeleteWithHttpInfo(string name)
+        public ElasticEmail.Client.ApiResponse<Object> ListsByNameDeleteWithHttpInfo(string name, int operationIndex = 0)
         {
             // verify the required parameter 'name' is set
             if (name == null)
@@ -851,6 +901,9 @@ namespace ElasticEmail.Api
             }
 
             localVarRequestOptions.PathParameters.Add("name", ElasticEmail.Client.ClientUtils.ParameterToString(name)); // path parameter
+
+            localVarRequestOptions.Operation = "ListsApi.ListsByNameDelete";
+            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (apikey) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-ElasticEmail-ApiKey")))
@@ -877,11 +930,12 @@ namespace ElasticEmail.Api
         /// </summary>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">Name of your list.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task ListsByNameDeleteAsync(string name, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task ListsByNameDeleteAsync(string name, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            await ListsByNameDeleteWithHttpInfoAsync(name, cancellationToken).ConfigureAwait(false);
+            await ListsByNameDeleteWithHttpInfoAsync(name, operationIndex, cancellationToken).ConfigureAwait(false);
         }
 
         /// <summary>
@@ -889,9 +943,10 @@ namespace ElasticEmail.Api
         /// </summary>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">Name of your list.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<ElasticEmail.Client.ApiResponse<Object>> ListsByNameDeleteWithHttpInfoAsync(string name, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ElasticEmail.Client.ApiResponse<Object>> ListsByNameDeleteWithHttpInfoAsync(string name, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'name' is set
             if (name == null)
@@ -922,6 +977,9 @@ namespace ElasticEmail.Api
             }
 
             localVarRequestOptions.PathParameters.Add("name", ElasticEmail.Client.ClientUtils.ParameterToString(name)); // path parameter
+
+            localVarRequestOptions.Operation = "ListsApi.ListsByNameDelete";
+            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (apikey) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-ElasticEmail-ApiKey")))
@@ -949,8 +1007,9 @@ namespace ElasticEmail.Api
         /// </summary>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">Name of your list.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ContactsList</returns>
-        public ContactsList ListsByNameGet(string name)
+        public ContactsList ListsByNameGet(string name, int operationIndex = 0)
         {
             ElasticEmail.Client.ApiResponse<ContactsList> localVarResponse = ListsByNameGetWithHttpInfo(name);
             return localVarResponse.Data;
@@ -961,8 +1020,9 @@ namespace ElasticEmail.Api
         /// </summary>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">Name of your list.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of ContactsList</returns>
-        public ElasticEmail.Client.ApiResponse<ContactsList> ListsByNameGetWithHttpInfo(string name)
+        public ElasticEmail.Client.ApiResponse<ContactsList> ListsByNameGetWithHttpInfo(string name, int operationIndex = 0)
         {
             // verify the required parameter 'name' is set
             if (name == null)
@@ -993,6 +1053,9 @@ namespace ElasticEmail.Api
             }
 
             localVarRequestOptions.PathParameters.Add("name", ElasticEmail.Client.ClientUtils.ParameterToString(name)); // path parameter
+
+            localVarRequestOptions.Operation = "ListsApi.ListsByNameGet";
+            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (apikey) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-ElasticEmail-ApiKey")))
@@ -1019,11 +1082,12 @@ namespace ElasticEmail.Api
         /// </summary>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">Name of your list.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ContactsList</returns>
-        public async System.Threading.Tasks.Task<ContactsList> ListsByNameGetAsync(string name, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ContactsList> ListsByNameGetAsync(string name, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            ElasticEmail.Client.ApiResponse<ContactsList> localVarResponse = await ListsByNameGetWithHttpInfoAsync(name, cancellationToken).ConfigureAwait(false);
+            ElasticEmail.Client.ApiResponse<ContactsList> localVarResponse = await ListsByNameGetWithHttpInfoAsync(name, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1032,9 +1096,10 @@ namespace ElasticEmail.Api
         /// </summary>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">Name of your list.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ContactsList)</returns>
-        public async System.Threading.Tasks.Task<ElasticEmail.Client.ApiResponse<ContactsList>> ListsByNameGetWithHttpInfoAsync(string name, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ElasticEmail.Client.ApiResponse<ContactsList>> ListsByNameGetWithHttpInfoAsync(string name, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'name' is set
             if (name == null)
@@ -1066,6 +1131,9 @@ namespace ElasticEmail.Api
             }
 
             localVarRequestOptions.PathParameters.Add("name", ElasticEmail.Client.ClientUtils.ParameterToString(name)); // path parameter
+
+            localVarRequestOptions.Operation = "ListsApi.ListsByNameGet";
+            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (apikey) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-ElasticEmail-ApiKey")))
@@ -1094,8 +1162,9 @@ namespace ElasticEmail.Api
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">Name of your list.</param>
         /// <param name="listUpdatePayload"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ContactsList</returns>
-        public ContactsList ListsByNamePut(string name, ListUpdatePayload listUpdatePayload)
+        public ContactsList ListsByNamePut(string name, ListUpdatePayload listUpdatePayload, int operationIndex = 0)
         {
             ElasticEmail.Client.ApiResponse<ContactsList> localVarResponse = ListsByNamePutWithHttpInfo(name, listUpdatePayload);
             return localVarResponse.Data;
@@ -1107,8 +1176,9 @@ namespace ElasticEmail.Api
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">Name of your list.</param>
         /// <param name="listUpdatePayload"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of ContactsList</returns>
-        public ElasticEmail.Client.ApiResponse<ContactsList> ListsByNamePutWithHttpInfo(string name, ListUpdatePayload listUpdatePayload)
+        public ElasticEmail.Client.ApiResponse<ContactsList> ListsByNamePutWithHttpInfo(string name, ListUpdatePayload listUpdatePayload, int operationIndex = 0)
         {
             // verify the required parameter 'name' is set
             if (name == null)
@@ -1147,6 +1217,9 @@ namespace ElasticEmail.Api
 
             localVarRequestOptions.PathParameters.Add("name", ElasticEmail.Client.ClientUtils.ParameterToString(name)); // path parameter
             localVarRequestOptions.Data = listUpdatePayload;
+
+            localVarRequestOptions.Operation = "ListsApi.ListsByNamePut";
+            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (apikey) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-ElasticEmail-ApiKey")))
@@ -1174,11 +1247,12 @@ namespace ElasticEmail.Api
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">Name of your list.</param>
         /// <param name="listUpdatePayload"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ContactsList</returns>
-        public async System.Threading.Tasks.Task<ContactsList> ListsByNamePutAsync(string name, ListUpdatePayload listUpdatePayload, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ContactsList> ListsByNamePutAsync(string name, ListUpdatePayload listUpdatePayload, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            ElasticEmail.Client.ApiResponse<ContactsList> localVarResponse = await ListsByNamePutWithHttpInfoAsync(name, listUpdatePayload, cancellationToken).ConfigureAwait(false);
+            ElasticEmail.Client.ApiResponse<ContactsList> localVarResponse = await ListsByNamePutWithHttpInfoAsync(name, listUpdatePayload, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1188,9 +1262,10 @@ namespace ElasticEmail.Api
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">Name of your list.</param>
         /// <param name="listUpdatePayload"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ContactsList)</returns>
-        public async System.Threading.Tasks.Task<ElasticEmail.Client.ApiResponse<ContactsList>> ListsByNamePutWithHttpInfoAsync(string name, ListUpdatePayload listUpdatePayload, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ElasticEmail.Client.ApiResponse<ContactsList>> ListsByNamePutWithHttpInfoAsync(string name, ListUpdatePayload listUpdatePayload, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'name' is set
             if (name == null)
@@ -1230,6 +1305,9 @@ namespace ElasticEmail.Api
 
             localVarRequestOptions.PathParameters.Add("name", ElasticEmail.Client.ClientUtils.ParameterToString(name)); // path parameter
             localVarRequestOptions.Data = listUpdatePayload;
+
+            localVarRequestOptions.Operation = "ListsApi.ListsByNamePut";
+            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (apikey) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-ElasticEmail-ApiKey")))
@@ -1258,8 +1336,9 @@ namespace ElasticEmail.Api
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="limit">Maximum number of returned items. (optional)</param>
         /// <param name="offset">How many items should be returned ahead. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>List&lt;ContactsList&gt;</returns>
-        public List<ContactsList> ListsGet(int? limit = default(int?), int? offset = default(int?))
+        public List<ContactsList> ListsGet(int? limit = default(int?), int? offset = default(int?), int operationIndex = 0)
         {
             ElasticEmail.Client.ApiResponse<List<ContactsList>> localVarResponse = ListsGetWithHttpInfo(limit, offset);
             return localVarResponse.Data;
@@ -1271,8 +1350,9 @@ namespace ElasticEmail.Api
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="limit">Maximum number of returned items. (optional)</param>
         /// <param name="offset">How many items should be returned ahead. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of List&lt;ContactsList&gt;</returns>
-        public ElasticEmail.Client.ApiResponse<List<ContactsList>> ListsGetWithHttpInfo(int? limit = default(int?), int? offset = default(int?))
+        public ElasticEmail.Client.ApiResponse<List<ContactsList>> ListsGetWithHttpInfo(int? limit = default(int?), int? offset = default(int?), int operationIndex = 0)
         {
             ElasticEmail.Client.RequestOptions localVarRequestOptions = new ElasticEmail.Client.RequestOptions();
 
@@ -1304,6 +1384,9 @@ namespace ElasticEmail.Api
             {
                 localVarRequestOptions.QueryParameters.Add(ElasticEmail.Client.ClientUtils.ParameterToMultiMap("", "offset", offset));
             }
+
+            localVarRequestOptions.Operation = "ListsApi.ListsGet";
+            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (apikey) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-ElasticEmail-ApiKey")))
@@ -1331,11 +1414,12 @@ namespace ElasticEmail.Api
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="limit">Maximum number of returned items. (optional)</param>
         /// <param name="offset">How many items should be returned ahead. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;ContactsList&gt;</returns>
-        public async System.Threading.Tasks.Task<List<ContactsList>> ListsGetAsync(int? limit = default(int?), int? offset = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<List<ContactsList>> ListsGetAsync(int? limit = default(int?), int? offset = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            ElasticEmail.Client.ApiResponse<List<ContactsList>> localVarResponse = await ListsGetWithHttpInfoAsync(limit, offset, cancellationToken).ConfigureAwait(false);
+            ElasticEmail.Client.ApiResponse<List<ContactsList>> localVarResponse = await ListsGetWithHttpInfoAsync(limit, offset, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1345,9 +1429,10 @@ namespace ElasticEmail.Api
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="limit">Maximum number of returned items. (optional)</param>
         /// <param name="offset">How many items should be returned ahead. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;ContactsList&gt;)</returns>
-        public async System.Threading.Tasks.Task<ElasticEmail.Client.ApiResponse<List<ContactsList>>> ListsGetWithHttpInfoAsync(int? limit = default(int?), int? offset = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ElasticEmail.Client.ApiResponse<List<ContactsList>>> ListsGetWithHttpInfoAsync(int? limit = default(int?), int? offset = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             ElasticEmail.Client.RequestOptions localVarRequestOptions = new ElasticEmail.Client.RequestOptions();
@@ -1381,6 +1466,9 @@ namespace ElasticEmail.Api
                 localVarRequestOptions.QueryParameters.Add(ElasticEmail.Client.ClientUtils.ParameterToMultiMap("", "offset", offset));
             }
 
+            localVarRequestOptions.Operation = "ListsApi.ListsGet";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
             // authentication (apikey) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-ElasticEmail-ApiKey")))
             {
@@ -1407,8 +1495,9 @@ namespace ElasticEmail.Api
         /// </summary>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="listPayload"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ContactsList</returns>
-        public ContactsList ListsPost(ListPayload listPayload)
+        public ContactsList ListsPost(ListPayload listPayload, int operationIndex = 0)
         {
             ElasticEmail.Client.ApiResponse<ContactsList> localVarResponse = ListsPostWithHttpInfo(listPayload);
             return localVarResponse.Data;
@@ -1419,8 +1508,9 @@ namespace ElasticEmail.Api
         /// </summary>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="listPayload"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of ContactsList</returns>
-        public ElasticEmail.Client.ApiResponse<ContactsList> ListsPostWithHttpInfo(ListPayload listPayload)
+        public ElasticEmail.Client.ApiResponse<ContactsList> ListsPostWithHttpInfo(ListPayload listPayload, int operationIndex = 0)
         {
             // verify the required parameter 'listPayload' is set
             if (listPayload == null)
@@ -1452,6 +1542,9 @@ namespace ElasticEmail.Api
             }
 
             localVarRequestOptions.Data = listPayload;
+
+            localVarRequestOptions.Operation = "ListsApi.ListsPost";
+            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (apikey) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-ElasticEmail-ApiKey")))
@@ -1478,11 +1571,12 @@ namespace ElasticEmail.Api
         /// </summary>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="listPayload"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ContactsList</returns>
-        public async System.Threading.Tasks.Task<ContactsList> ListsPostAsync(ListPayload listPayload, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ContactsList> ListsPostAsync(ListPayload listPayload, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            ElasticEmail.Client.ApiResponse<ContactsList> localVarResponse = await ListsPostWithHttpInfoAsync(listPayload, cancellationToken).ConfigureAwait(false);
+            ElasticEmail.Client.ApiResponse<ContactsList> localVarResponse = await ListsPostWithHttpInfoAsync(listPayload, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1491,9 +1585,10 @@ namespace ElasticEmail.Api
         /// </summary>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="listPayload"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ContactsList)</returns>
-        public async System.Threading.Tasks.Task<ElasticEmail.Client.ApiResponse<ContactsList>> ListsPostWithHttpInfoAsync(ListPayload listPayload, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ElasticEmail.Client.ApiResponse<ContactsList>> ListsPostWithHttpInfoAsync(ListPayload listPayload, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'listPayload' is set
             if (listPayload == null)
@@ -1526,6 +1621,9 @@ namespace ElasticEmail.Api
             }
 
             localVarRequestOptions.Data = listPayload;
+
+            localVarRequestOptions.Operation = "ListsApi.ListsPost";
+            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (apikey) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-ElasticEmail-ApiKey")))
