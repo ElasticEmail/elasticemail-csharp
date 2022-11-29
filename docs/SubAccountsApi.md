@@ -2,15 +2,14 @@
 
 All URIs are relative to *https://api.elasticemail.com/v4*
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**SubaccountsByEmailCreditsPatch**](SubAccountsApi.md#subaccountsbyemailcreditspatch) | **PATCH** /subaccounts/{email}/credits | Add, Subtract Email Credits
-[**SubaccountsByEmailDelete**](SubAccountsApi.md#subaccountsbyemaildelete) | **DELETE** /subaccounts/{email} | Delete SubAccount
-[**SubaccountsByEmailGet**](SubAccountsApi.md#subaccountsbyemailget) | **GET** /subaccounts/{email} | Load SubAccount
-[**SubaccountsByEmailSettingsEmailPut**](SubAccountsApi.md#subaccountsbyemailsettingsemailput) | **PUT** /subaccounts/{email}/settings/email | Update SubAccount Email Settings
-[**SubaccountsGet**](SubAccountsApi.md#subaccountsget) | **GET** /subaccounts | Load SubAccounts
-[**SubaccountsPost**](SubAccountsApi.md#subaccountspost) | **POST** /subaccounts | Add SubAccount
-
+| Method | HTTP request | Description |
+|--------|--------------|-------------|
+| [**SubaccountsByEmailCreditsPatch**](SubAccountsApi.md#subaccountsbyemailcreditspatch) | **PATCH** /subaccounts/{email}/credits | Add, Subtract Email Credits |
+| [**SubaccountsByEmailDelete**](SubAccountsApi.md#subaccountsbyemaildelete) | **DELETE** /subaccounts/{email} | Delete SubAccount |
+| [**SubaccountsByEmailGet**](SubAccountsApi.md#subaccountsbyemailget) | **GET** /subaccounts/{email} | Load SubAccount |
+| [**SubaccountsByEmailSettingsEmailPut**](SubAccountsApi.md#subaccountsbyemailsettingsemailput) | **PUT** /subaccounts/{email}/settings/email | Update SubAccount Email Settings |
+| [**SubaccountsGet**](SubAccountsApi.md#subaccountsget) | **GET** /subaccounts | Load SubAccounts |
+| [**SubaccountsPost**](SubAccountsApi.md#subaccountspost) | **POST** /subaccounts | Add SubAccount |
 
 <a name="subaccountsbyemailcreditspatch"></a>
 # **SubaccountsByEmailCreditsPatch**
@@ -52,8 +51,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling SubAccountsApi.SubaccountsByEmailCreditsPatch: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling SubAccountsApi.SubaccountsByEmailCreditsPatch: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -61,12 +60,29 @@ namespace Example
 }
 ```
 
+#### Using the SubaccountsByEmailCreditsPatchWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Add, Subtract Email Credits
+    apiInstance.SubaccountsByEmailCreditsPatchWithHttpInfo(email, subaccountEmailCreditsPayload);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling SubAccountsApi.SubaccountsByEmailCreditsPatchWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **email** | **string**| Email address of Sub-Account | 
- **subaccountEmailCreditsPayload** | [**SubaccountEmailCreditsPayload**](SubaccountEmailCreditsPayload.md)| Amount of email credits to add or subtract from the current SubAccount email credits pool (positive or negative value) | 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **email** | **string** | Email address of Sub-Account |  |
+| **subaccountEmailCreditsPayload** | [**SubaccountEmailCreditsPayload**](SubaccountEmailCreditsPayload.md) | Amount of email credits to add or subtract from the current SubAccount email credits pool (positive or negative value) |  |
 
 ### Return type
 
@@ -128,8 +144,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling SubAccountsApi.SubaccountsByEmailDelete: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling SubAccountsApi.SubaccountsByEmailDelete: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -137,11 +153,28 @@ namespace Example
 }
 ```
 
+#### Using the SubaccountsByEmailDeleteWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Delete SubAccount
+    apiInstance.SubaccountsByEmailDeleteWithHttpInfo(email);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling SubAccountsApi.SubaccountsByEmailDeleteWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **email** | **string**| Email address of Sub-Account | 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **email** | **string** | Email address of Sub-Account |  |
 
 ### Return type
 
@@ -204,8 +237,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling SubAccountsApi.SubaccountsByEmailGet: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling SubAccountsApi.SubaccountsByEmailGet: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -213,11 +246,31 @@ namespace Example
 }
 ```
 
+#### Using the SubaccountsByEmailGetWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Load SubAccount
+    ApiResponse<SubAccountInfo> response = apiInstance.SubaccountsByEmailGetWithHttpInfo(email);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling SubAccountsApi.SubaccountsByEmailGetWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **email** | **string**| Email address of Sub-Account | 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **email** | **string** | Email address of Sub-Account |  |
 
 ### Return type
 
@@ -281,8 +334,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling SubAccountsApi.SubaccountsByEmailSettingsEmailPut: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling SubAccountsApi.SubaccountsByEmailSettingsEmailPut: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -290,12 +343,32 @@ namespace Example
 }
 ```
 
+#### Using the SubaccountsByEmailSettingsEmailPutWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Update SubAccount Email Settings
+    ApiResponse<SubaccountEmailSettings> response = apiInstance.SubaccountsByEmailSettingsEmailPutWithHttpInfo(email, subaccountEmailSettings);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling SubAccountsApi.SubaccountsByEmailSettingsEmailPutWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **email** | **string**|  | 
- **subaccountEmailSettings** | [**SubaccountEmailSettings**](SubaccountEmailSettings.md)| Updated Email Settings | 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **email** | **string** |  |  |
+| **subaccountEmailSettings** | [**SubaccountEmailSettings**](SubaccountEmailSettings.md) | Updated Email Settings |  |
 
 ### Return type
 
@@ -359,8 +432,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling SubAccountsApi.SubaccountsGet: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling SubAccountsApi.SubaccountsGet: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -368,12 +441,32 @@ namespace Example
 }
 ```
 
+#### Using the SubaccountsGetWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Load SubAccounts
+    ApiResponse<List<SubAccountInfo>> response = apiInstance.SubaccountsGetWithHttpInfo(limit, offset);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling SubAccountsApi.SubaccountsGetWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **limit** | **int?**| Maximum number of returned items. | [optional] 
- **offset** | **int?**| How many items should be returned ahead. | [optional] 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **limit** | **int?** | Maximum number of returned items. | [optional]  |
+| **offset** | **int?** | How many items should be returned ahead. | [optional]  |
 
 ### Return type
 
@@ -436,8 +529,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling SubAccountsApi.SubaccountsPost: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling SubAccountsApi.SubaccountsPost: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -445,11 +538,31 @@ namespace Example
 }
 ```
 
+#### Using the SubaccountsPostWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Add SubAccount
+    ApiResponse<SubAccountInfo> response = apiInstance.SubaccountsPostWithHttpInfo(subaccountPayload);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling SubAccountsApi.SubaccountsPostWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **subaccountPayload** | [**SubaccountPayload**](SubaccountPayload.md)|  | 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **subaccountPayload** | [**SubaccountPayload**](SubaccountPayload.md) |  |  |
 
 ### Return type
 

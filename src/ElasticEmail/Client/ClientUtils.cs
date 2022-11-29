@@ -1,7 +1,7 @@
 /*
  * Elastic Email REST API
  *
- * This API is based on the REST API architecture, allowing the user to easily manage their data with this resource-based approach.    Every API call is established on which specific request type (GET, POST, PUT, DELETE) will be used.    The API has a limit of 20 concurrent connections and a hard timeout of 600 seconds per request.    To start using this API, you will need your Access Token (available <a target=\"_blank\" href=\"https://elasticemail.com/account#/settings/new/manage-api\">here</a>). Remember to keep it safe. Required access levels are listed in the given request’s description.    Downloadable library clients can be found in our Github repository <a target=\"_blank\" href=\"https://github.com/ElasticEmail?tab=repositories&q=%22rest+api%22+in%3Areadme\">here</a>
+ * This API is based on the REST API architecture, allowing the user to easily manage their data with this resource-based approach.    Every API call is established on which specific request type (GET, POST, PUT, DELETE) will be used.    The API has a limit of 20 concurrent connections and a hard timeout of 600 seconds per request.    To start using this API, you will need your Access Token (available <a target=\"_blank\" href=\"https://app.elasticemail.com/marketing/settings/new/manage-api\">here</a>). Remember to keep it safe. Required access levels are listed in the given request’s description.    Downloadable library clients can be found in our Github repository <a target=\"_blank\" href=\"https://github.com/ElasticEmail?tab=repositories&q=%22rest+api%22+in%3Areadme\">here</a>
  *
  * The version of the OpenAPI document: 4.0.0
  * Contact: support@elasticemail.com
@@ -14,6 +14,7 @@ using System.Collections;
 using System.Globalization;
 using System.IO;
 using System.Linq;
+using System.Runtime.Serialization;
 using System.Text;
 using System.Text.RegularExpressions;
 
@@ -103,8 +104,20 @@ namespace ElasticEmail.Client
                 return boolean ? "true" : "false";
             if (obj is ICollection collection)
                 return string.Join(",", collection.Cast<object>());
+            if (obj is Enum && HasEnumMemberAttrValue(obj))
+                return GetEnumMemberAttrValue(obj);
 
             return Convert.ToString(obj, CultureInfo.InvariantCulture);
+        }
+
+        /// <summary>
+        /// Serializes the given object when not null. Otherwise return null.
+        /// </summary>
+        /// <param name="obj">The object to serialize.</param>
+        /// <returns>Serialized string.</returns>
+        public static string Serialize(object obj)
+        {
+            return obj != null ? Newtonsoft.Json.JsonConvert.SerializeObject(obj) : null;
         }
 
         /// <summary>
@@ -190,6 +203,41 @@ namespace ElasticEmail.Client
             if (string.IsNullOrWhiteSpace(mime)) return false;
 
             return JsonRegex.IsMatch(mime) || mime.Equals("application/json-patch+json");
+        }
+
+        /// <summary>
+        /// Is the Enum decorated with EnumMember Attribute
+        /// </summary>
+        /// <param name="enumVal"></param>
+        /// <returns>true if found</returns>
+        private static bool HasEnumMemberAttrValue(object enumVal)
+        {
+            if (enumVal == null)
+                throw new ArgumentNullException(nameof(enumVal));
+            var enumType = enumVal.GetType();
+            var memInfo = enumType.GetMember(enumVal.ToString() ?? throw new InvalidOperationException());
+            var attr = memInfo.FirstOrDefault()?.GetCustomAttributes(false).OfType<EnumMemberAttribute>().FirstOrDefault();
+            if (attr != null) return true;
+                return false;
+        }
+
+        /// <summary>
+        /// Get the EnumMember value
+        /// </summary>
+        /// <param name="enumVal"></param>
+        /// <returns>EnumMember value as string otherwise null</returns>
+        private static string GetEnumMemberAttrValue(object enumVal)
+        {
+            if (enumVal == null)
+                throw new ArgumentNullException(nameof(enumVal));
+            var enumType = enumVal.GetType();
+            var memInfo = enumType.GetMember(enumVal.ToString() ?? throw new InvalidOperationException());
+            var attr = memInfo.FirstOrDefault()?.GetCustomAttributes(false).OfType<EnumMemberAttribute>().FirstOrDefault();
+            if (attr != null)
+            {
+                return attr.Value;
+            }
+            return null;
         }
     }
 }

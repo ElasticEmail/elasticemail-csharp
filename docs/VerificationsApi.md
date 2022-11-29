@@ -2,19 +2,18 @@
 
 All URIs are relative to *https://api.elasticemail.com/v4*
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**VerificationsByEmailDelete**](VerificationsApi.md#verificationsbyemaildelete) | **DELETE** /verifications/{email} | Delete Email Verification Result
-[**VerificationsByEmailGet**](VerificationsApi.md#verificationsbyemailget) | **GET** /verifications/{email} | Get Email Verification Result
-[**VerificationsByEmailPost**](VerificationsApi.md#verificationsbyemailpost) | **POST** /verifications/{email} | Verify Email
-[**VerificationsFilesByIdDelete**](VerificationsApi.md#verificationsfilesbyiddelete) | **DELETE** /verifications/files/{id} | Delete File Verification Result
-[**VerificationsFilesByIdResultDownloadGet**](VerificationsApi.md#verificationsfilesbyidresultdownloadget) | **GET** /verifications/files/{id}/result/download | Download File Verification Result
-[**VerificationsFilesByIdResultGet**](VerificationsApi.md#verificationsfilesbyidresultget) | **GET** /verifications/files/{id}/result | Get Detailed File Verification Result
-[**VerificationsFilesByIdVerificationPost**](VerificationsApi.md#verificationsfilesbyidverificationpost) | **POST** /verifications/files/{id}/verification | Start verification
-[**VerificationsFilesPost**](VerificationsApi.md#verificationsfilespost) | **POST** /verifications/files | Upload File with Emails
-[**VerificationsFilesResultGet**](VerificationsApi.md#verificationsfilesresultget) | **GET** /verifications/files/result | Get Files Verification Results
-[**VerificationsGet**](VerificationsApi.md#verificationsget) | **GET** /verifications | Get Emails Verification Results
-
+| Method | HTTP request | Description |
+|--------|--------------|-------------|
+| [**VerificationsByEmailDelete**](VerificationsApi.md#verificationsbyemaildelete) | **DELETE** /verifications/{email} | Delete Email Verification Result |
+| [**VerificationsByEmailGet**](VerificationsApi.md#verificationsbyemailget) | **GET** /verifications/{email} | Get Email Verification Result |
+| [**VerificationsByEmailPost**](VerificationsApi.md#verificationsbyemailpost) | **POST** /verifications/{email} | Verify Email |
+| [**VerificationsFilesByIdDelete**](VerificationsApi.md#verificationsfilesbyiddelete) | **DELETE** /verifications/files/{id} | Delete File Verification Result |
+| [**VerificationsFilesByIdResultDownloadGet**](VerificationsApi.md#verificationsfilesbyidresultdownloadget) | **GET** /verifications/files/{id}/result/download | Download File Verification Result |
+| [**VerificationsFilesByIdResultGet**](VerificationsApi.md#verificationsfilesbyidresultget) | **GET** /verifications/files/{id}/result | Get Detailed File Verification Result |
+| [**VerificationsFilesByIdVerificationPost**](VerificationsApi.md#verificationsfilesbyidverificationpost) | **POST** /verifications/files/{id}/verification | Start verification |
+| [**VerificationsFilesPost**](VerificationsApi.md#verificationsfilespost) | **POST** /verifications/files | Upload File with Emails |
+| [**VerificationsFilesResultGet**](VerificationsApi.md#verificationsfilesresultget) | **GET** /verifications/files/result | Get Files Verification Results |
+| [**VerificationsGet**](VerificationsApi.md#verificationsget) | **GET** /verifications | Get Emails Verification Results |
 
 <a name="verificationsbyemaildelete"></a>
 # **VerificationsByEmailDelete**
@@ -55,8 +54,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling VerificationsApi.VerificationsByEmailDelete: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling VerificationsApi.VerificationsByEmailDelete: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -64,11 +63,28 @@ namespace Example
 }
 ```
 
+#### Using the VerificationsByEmailDeleteWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Delete Email Verification Result
+    apiInstance.VerificationsByEmailDeleteWithHttpInfo(email);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling VerificationsApi.VerificationsByEmailDeleteWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **email** | **string**| Email address to verification | 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **email** | **string** | Email address to verification |  |
 
 ### Return type
 
@@ -97,7 +113,7 @@ void (empty response body)
 
 Get Email Verification Result
 
-Returns a result of verified email. Required Access Level: ViewEmailVerifications
+Returns a result of verified email. Required Access Level: VerifyEmails, ViewEmailVerifications
 
 ### Example
 ```csharp
@@ -131,8 +147,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling VerificationsApi.VerificationsByEmailGet: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling VerificationsApi.VerificationsByEmailGet: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -140,11 +156,31 @@ namespace Example
 }
 ```
 
+#### Using the VerificationsByEmailGetWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Get Email Verification Result
+    ApiResponse<EmailValidationResult> response = apiInstance.VerificationsByEmailGetWithHttpInfo(email);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling VerificationsApi.VerificationsByEmailGetWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **email** | **string**| Email address to view verification result of | 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **email** | **string** | Email address to view verification result of |  |
 
 ### Return type
 
@@ -207,8 +243,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling VerificationsApi.VerificationsByEmailPost: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling VerificationsApi.VerificationsByEmailPost: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -216,11 +252,31 @@ namespace Example
 }
 ```
 
+#### Using the VerificationsByEmailPostWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Verify Email
+    ApiResponse<EmailValidationResult> response = apiInstance.VerificationsByEmailPostWithHttpInfo(email);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling VerificationsApi.VerificationsByEmailPostWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **email** | **string**| Email address to verify | 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **email** | **string** | Email address to verify |  |
 
 ### Return type
 
@@ -282,8 +338,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling VerificationsApi.VerificationsFilesByIdDelete: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling VerificationsApi.VerificationsFilesByIdDelete: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -291,11 +347,28 @@ namespace Example
 }
 ```
 
+#### Using the VerificationsFilesByIdDeleteWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Delete File Verification Result
+    apiInstance.VerificationsFilesByIdDeleteWithHttpInfo(id);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling VerificationsApi.VerificationsFilesByIdDeleteWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **string**| ID of the exported file | 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **id** | **string** | ID of the exported file |  |
 
 ### Return type
 
@@ -358,8 +431,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling VerificationsApi.VerificationsFilesByIdResultDownloadGet: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling VerificationsApi.VerificationsFilesByIdResultDownloadGet: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -367,11 +440,31 @@ namespace Example
 }
 ```
 
+#### Using the VerificationsFilesByIdResultDownloadGetWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Download File Verification Result
+    ApiResponse<System.IO.Stream> response = apiInstance.VerificationsFilesByIdResultDownloadGetWithHttpInfo(id);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling VerificationsApi.VerificationsFilesByIdResultDownloadGetWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **string**| Verification ID to download | 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **id** | **string** | Verification ID to download |  |
 
 ### Return type
 
@@ -384,7 +477,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/_*
+ - **Accept**: application/*
 
 
 ### HTTP response details
@@ -400,7 +493,7 @@ Name | Type | Description  | Notes
 
 Get Detailed File Verification Result
 
-Returns status and results (if verified) of file with given ID. Required Access Level: ViewEmailVerifications
+Returns status and results (if verified) of file with given ID. Required Access Level: VerifyEmails, ViewEmailVerifications
 
 ### Example
 ```csharp
@@ -436,8 +529,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling VerificationsApi.VerificationsFilesByIdResultGet: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling VerificationsApi.VerificationsFilesByIdResultGet: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -445,13 +538,33 @@ namespace Example
 }
 ```
 
+#### Using the VerificationsFilesByIdResultGetWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Get Detailed File Verification Result
+    ApiResponse<VerificationFileResultDetails> response = apiInstance.VerificationsFilesByIdResultGetWithHttpInfo(id, limit, offset);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling VerificationsApi.VerificationsFilesByIdResultGetWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **string**| ID of the Verification to display status of | 
- **limit** | **int?**| Maximum number of returned email verification results | [optional] 
- **offset** | **int?**| How many result items should be returned ahead | [optional] 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **id** | **string** | ID of the Verification to display status of |  |
+| **limit** | **int?** | Maximum number of returned email verification results | [optional]  |
+| **offset** | **int?** | How many result items should be returned ahead | [optional]  |
 
 ### Return type
 
@@ -513,8 +626,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling VerificationsApi.VerificationsFilesByIdVerificationPost: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling VerificationsApi.VerificationsFilesByIdVerificationPost: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -522,11 +635,28 @@ namespace Example
 }
 ```
 
+#### Using the VerificationsFilesByIdVerificationPostWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Start verification
+    apiInstance.VerificationsFilesByIdVerificationPostWithHttpInfo(id);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling VerificationsApi.VerificationsFilesByIdVerificationPostWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **string**| File ID to start verification | 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **id** | **string** | File ID to start verification |  |
 
 ### Return type
 
@@ -589,8 +719,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling VerificationsApi.VerificationsFilesPost: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling VerificationsApi.VerificationsFilesPost: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -598,11 +728,31 @@ namespace Example
 }
 ```
 
+#### Using the VerificationsFilesPostWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Upload File with Emails
+    ApiResponse<VerificationFileResult> response = apiInstance.VerificationsFilesPostWithHttpInfo(file);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling VerificationsApi.VerificationsFilesPostWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **file** | **System.IO.Stream****System.IO.Stream**|  | [optional] 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **file** | **System.IO.Stream****System.IO.Stream** |  | [optional]  |
 
 ### Return type
 
@@ -631,7 +781,7 @@ Name | Type | Description  | Notes
 
 Get Files Verification Results
 
-Returns a list of uploaded files, their statuses and results. Required Access Level: ViewEmailVerifications
+Returns a list of uploaded files, their statuses and results. Required Access Level: VerifyEmails, ViewEmailVerifications
 
 ### Example
 ```csharp
@@ -664,8 +814,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling VerificationsApi.VerificationsFilesResultGet: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling VerificationsApi.VerificationsFilesResultGet: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -673,9 +823,28 @@ namespace Example
 }
 ```
 
+#### Using the VerificationsFilesResultGetWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Get Files Verification Results
+    ApiResponse<List<VerificationFileResult>> response = apiInstance.VerificationsFilesResultGetWithHttpInfo();
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling VerificationsApi.VerificationsFilesResultGetWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 This endpoint does not need any parameter.
-
 ### Return type
 
 [**List&lt;VerificationFileResult&gt;**](VerificationFileResult.md)
@@ -703,7 +872,7 @@ This endpoint does not need any parameter.
 
 Get Emails Verification Results
 
-Returns a results of all verified single emails. Required Access Level: ViewEmailVerifications
+Returns a results of all verified single emails. Required Access Level: VerifyEmails, ViewEmailVerifications
 
 ### Example
 ```csharp
@@ -738,8 +907,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling VerificationsApi.VerificationsGet: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling VerificationsApi.VerificationsGet: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -747,12 +916,32 @@ namespace Example
 }
 ```
 
+#### Using the VerificationsGetWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Get Emails Verification Results
+    ApiResponse<List<EmailValidationResult>> response = apiInstance.VerificationsGetWithHttpInfo(limit, offset);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling VerificationsApi.VerificationsGetWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **limit** | **int?**| Maximum number of returned items. | [optional] 
- **offset** | **int?**| How many items should be returned ahead. | [optional] 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **limit** | **int?** | Maximum number of returned items. | [optional]  |
+| **offset** | **int?** | How many items should be returned ahead. | [optional]  |
 
 ### Return type
 

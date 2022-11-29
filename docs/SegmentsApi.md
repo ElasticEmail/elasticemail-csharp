@@ -2,14 +2,13 @@
 
 All URIs are relative to *https://api.elasticemail.com/v4*
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**SegmentsByNameDelete**](SegmentsApi.md#segmentsbynamedelete) | **DELETE** /segments/{name} | Delete Segment
-[**SegmentsByNameGet**](SegmentsApi.md#segmentsbynameget) | **GET** /segments/{name} | Load Segment
-[**SegmentsByNamePut**](SegmentsApi.md#segmentsbynameput) | **PUT** /segments/{name} | Update Segment
-[**SegmentsGet**](SegmentsApi.md#segmentsget) | **GET** /segments | Load Segments
-[**SegmentsPost**](SegmentsApi.md#segmentspost) | **POST** /segments | Add Segment
-
+| Method | HTTP request | Description |
+|--------|--------------|-------------|
+| [**SegmentsByNameDelete**](SegmentsApi.md#segmentsbynamedelete) | **DELETE** /segments/{name} | Delete Segment |
+| [**SegmentsByNameGet**](SegmentsApi.md#segmentsbynameget) | **GET** /segments/{name} | Load Segment |
+| [**SegmentsByNamePut**](SegmentsApi.md#segmentsbynameput) | **PUT** /segments/{name} | Update Segment |
+| [**SegmentsGet**](SegmentsApi.md#segmentsget) | **GET** /segments | Load Segments |
+| [**SegmentsPost**](SegmentsApi.md#segmentspost) | **POST** /segments | Add Segment |
 
 <a name="segmentsbynamedelete"></a>
 # **SegmentsByNameDelete**
@@ -50,8 +49,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling SegmentsApi.SegmentsByNameDelete: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling SegmentsApi.SegmentsByNameDelete: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -59,11 +58,28 @@ namespace Example
 }
 ```
 
+#### Using the SegmentsByNameDeleteWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Delete Segment
+    apiInstance.SegmentsByNameDeleteWithHttpInfo(name);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling SegmentsApi.SegmentsByNameDeleteWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **name** | **string**| Name of your segment. | 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **name** | **string** | Name of your segment. |  |
 
 ### Return type
 
@@ -126,8 +142,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling SegmentsApi.SegmentsByNameGet: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling SegmentsApi.SegmentsByNameGet: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -135,11 +151,31 @@ namespace Example
 }
 ```
 
+#### Using the SegmentsByNameGetWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Load Segment
+    ApiResponse<Segment> response = apiInstance.SegmentsByNameGetWithHttpInfo(name);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling SegmentsApi.SegmentsByNameGetWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **name** | **string**| Name of the segment you want to load. Will load all contacts if the &#39;All Contacts&#39; name has been provided | 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **name** | **string** | Name of the segment you want to load. Will load all contacts if the &#39;All Contacts&#39; name has been provided |  |
 
 ### Return type
 
@@ -203,8 +239,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling SegmentsApi.SegmentsByNamePut: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling SegmentsApi.SegmentsByNamePut: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -212,12 +248,32 @@ namespace Example
 }
 ```
 
+#### Using the SegmentsByNamePutWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Update Segment
+    ApiResponse<Segment> response = apiInstance.SegmentsByNamePutWithHttpInfo(name, segmentPayload);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling SegmentsApi.SegmentsByNamePutWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **name** | **string**| Name of your segment. | 
- **segmentPayload** | [**SegmentPayload**](SegmentPayload.md)|  | 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **name** | **string** | Name of your segment. |  |
+| **segmentPayload** | [**SegmentPayload**](SegmentPayload.md) |  |  |
 
 ### Return type
 
@@ -281,8 +337,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling SegmentsApi.SegmentsGet: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling SegmentsApi.SegmentsGet: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -290,12 +346,32 @@ namespace Example
 }
 ```
 
+#### Using the SegmentsGetWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Load Segments
+    ApiResponse<List<Segment>> response = apiInstance.SegmentsGetWithHttpInfo(limit, offset);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling SegmentsApi.SegmentsGetWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **limit** | **int?**| Maximum number of returned items. | [optional] 
- **offset** | **int?**| How many items should be returned ahead. | [optional] 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **limit** | **int?** | Maximum number of returned items. | [optional]  |
+| **offset** | **int?** | How many items should be returned ahead. | [optional]  |
 
 ### Return type
 
@@ -358,8 +434,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling SegmentsApi.SegmentsPost: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling SegmentsApi.SegmentsPost: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -367,11 +443,31 @@ namespace Example
 }
 ```
 
+#### Using the SegmentsPostWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Add Segment
+    ApiResponse<Segment> response = apiInstance.SegmentsPostWithHttpInfo(segmentPayload);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling SegmentsApi.SegmentsPostWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **segmentPayload** | [**SegmentPayload**](SegmentPayload.md)|  | 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **segmentPayload** | [**SegmentPayload**](SegmentPayload.md) |  |  |
 
 ### Return type
 

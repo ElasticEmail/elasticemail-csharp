@@ -2,14 +2,13 @@
 
 All URIs are relative to *https://api.elasticemail.com/v4*
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**CampaignsByNameDelete**](CampaignsApi.md#campaignsbynamedelete) | **DELETE** /campaigns/{name} | Delete Campaign
-[**CampaignsByNameGet**](CampaignsApi.md#campaignsbynameget) | **GET** /campaigns/{name} | Load Campaign
-[**CampaignsByNamePut**](CampaignsApi.md#campaignsbynameput) | **PUT** /campaigns/{name} | Update Campaign
-[**CampaignsGet**](CampaignsApi.md#campaignsget) | **GET** /campaigns | Load Campaigns
-[**CampaignsPost**](CampaignsApi.md#campaignspost) | **POST** /campaigns | Add Campaign
-
+| Method | HTTP request | Description |
+|--------|--------------|-------------|
+| [**CampaignsByNameDelete**](CampaignsApi.md#campaignsbynamedelete) | **DELETE** /campaigns/{name} | Delete Campaign |
+| [**CampaignsByNameGet**](CampaignsApi.md#campaignsbynameget) | **GET** /campaigns/{name} | Load Campaign |
+| [**CampaignsByNamePut**](CampaignsApi.md#campaignsbynameput) | **PUT** /campaigns/{name} | Update Campaign |
+| [**CampaignsGet**](CampaignsApi.md#campaignsget) | **GET** /campaigns | Load Campaigns |
+| [**CampaignsPost**](CampaignsApi.md#campaignspost) | **POST** /campaigns | Add Campaign |
 
 <a name="campaignsbynamedelete"></a>
 # **CampaignsByNameDelete**
@@ -50,8 +49,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling CampaignsApi.CampaignsByNameDelete: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling CampaignsApi.CampaignsByNameDelete: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -59,11 +58,28 @@ namespace Example
 }
 ```
 
+#### Using the CampaignsByNameDeleteWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Delete Campaign
+    apiInstance.CampaignsByNameDeleteWithHttpInfo(name);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling CampaignsApi.CampaignsByNameDeleteWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **name** | **string**| Name of Campaign to delete | 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **name** | **string** | Name of Campaign to delete |  |
 
 ### Return type
 
@@ -126,8 +142,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling CampaignsApi.CampaignsByNameGet: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling CampaignsApi.CampaignsByNameGet: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -135,11 +151,31 @@ namespace Example
 }
 ```
 
+#### Using the CampaignsByNameGetWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Load Campaign
+    ApiResponse<Campaign> response = apiInstance.CampaignsByNameGetWithHttpInfo(name);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling CampaignsApi.CampaignsByNameGetWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **name** | **string**| Name of Campaign to get | 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **name** | **string** | Name of Campaign to get |  |
 
 ### Return type
 
@@ -203,8 +239,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling CampaignsApi.CampaignsByNamePut: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling CampaignsApi.CampaignsByNamePut: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -212,12 +248,32 @@ namespace Example
 }
 ```
 
+#### Using the CampaignsByNamePutWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Update Campaign
+    ApiResponse<Campaign> response = apiInstance.CampaignsByNamePutWithHttpInfo(name, campaign);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling CampaignsApi.CampaignsByNamePutWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **name** | **string**| Name of Campaign to update | 
- **campaign** | [**Campaign**](Campaign.md)| JSON representation of a campaign | 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **name** | **string** | Name of Campaign to update |  |
+| **campaign** | [**Campaign**](Campaign.md) | JSON representation of a campaign |  |
 
 ### Return type
 
@@ -282,8 +338,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling CampaignsApi.CampaignsGet: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling CampaignsApi.CampaignsGet: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -291,13 +347,33 @@ namespace Example
 }
 ```
 
+#### Using the CampaignsGetWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Load Campaigns
+    ApiResponse<List<Campaign>> response = apiInstance.CampaignsGetWithHttpInfo(search, offset, limit);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling CampaignsApi.CampaignsGetWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **search** | **string**| Text fragment used for searching in Campaign name (using the &#39;contains&#39; rule) | [optional] 
- **offset** | **int?**| How many items should be returned ahead. | [optional] 
- **limit** | **int?**| Maximum number of returned items. | [optional] 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **search** | **string** | Text fragment used for searching in Campaign name (using the &#39;contains&#39; rule) | [optional]  |
+| **offset** | **int?** | How many items should be returned ahead. | [optional]  |
+| **limit** | **int?** | Maximum number of returned items. | [optional]  |
 
 ### Return type
 
@@ -360,8 +436,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling CampaignsApi.CampaignsPost: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling CampaignsApi.CampaignsPost: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -369,11 +445,31 @@ namespace Example
 }
 ```
 
+#### Using the CampaignsPostWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Add Campaign
+    ApiResponse<Campaign> response = apiInstance.CampaignsPostWithHttpInfo(campaign);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling CampaignsApi.CampaignsPostWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **campaign** | [**Campaign**](Campaign.md)| JSON representation of a campaign | 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **campaign** | [**Campaign**](Campaign.md) | JSON representation of a campaign |  |
 
 ### Return type
 

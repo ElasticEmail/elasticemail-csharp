@@ -2,21 +2,20 @@
 
 All URIs are relative to *https://api.elasticemail.com/v4*
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**SuppressionsBouncesGet**](SuppressionsApi.md#suppressionsbouncesget) | **GET** /suppressions/bounces | Get Bounce List
-[**SuppressionsBouncesImportPost**](SuppressionsApi.md#suppressionsbouncesimportpost) | **POST** /suppressions/bounces/import | Add Bounces Async
-[**SuppressionsBouncesPost**](SuppressionsApi.md#suppressionsbouncespost) | **POST** /suppressions/bounces | Add Bounces
-[**SuppressionsByEmailDelete**](SuppressionsApi.md#suppressionsbyemaildelete) | **DELETE** /suppressions/{email} | Delete Suppression
-[**SuppressionsByEmailGet**](SuppressionsApi.md#suppressionsbyemailget) | **GET** /suppressions/{email} | Get Suppression
-[**SuppressionsComplaintsGet**](SuppressionsApi.md#suppressionscomplaintsget) | **GET** /suppressions/complaints | Get Complaints List
-[**SuppressionsComplaintsImportPost**](SuppressionsApi.md#suppressionscomplaintsimportpost) | **POST** /suppressions/complaints/import | Add Complaints Async
-[**SuppressionsComplaintsPost**](SuppressionsApi.md#suppressionscomplaintspost) | **POST** /suppressions/complaints | Add Complaints
-[**SuppressionsGet**](SuppressionsApi.md#suppressionsget) | **GET** /suppressions | Get Suppressions
-[**SuppressionsUnsubscribesGet**](SuppressionsApi.md#suppressionsunsubscribesget) | **GET** /suppressions/unsubscribes | Get Unsubscribes List
-[**SuppressionsUnsubscribesImportPost**](SuppressionsApi.md#suppressionsunsubscribesimportpost) | **POST** /suppressions/unsubscribes/import | Add Unsubscribes Async
-[**SuppressionsUnsubscribesPost**](SuppressionsApi.md#suppressionsunsubscribespost) | **POST** /suppressions/unsubscribes | Add Unsubscribes
-
+| Method | HTTP request | Description |
+|--------|--------------|-------------|
+| [**SuppressionsBouncesGet**](SuppressionsApi.md#suppressionsbouncesget) | **GET** /suppressions/bounces | Get Bounce List |
+| [**SuppressionsBouncesImportPost**](SuppressionsApi.md#suppressionsbouncesimportpost) | **POST** /suppressions/bounces/import | Add Bounces Async |
+| [**SuppressionsBouncesPost**](SuppressionsApi.md#suppressionsbouncespost) | **POST** /suppressions/bounces | Add Bounces |
+| [**SuppressionsByEmailDelete**](SuppressionsApi.md#suppressionsbyemaildelete) | **DELETE** /suppressions/{email} | Delete Suppression |
+| [**SuppressionsByEmailGet**](SuppressionsApi.md#suppressionsbyemailget) | **GET** /suppressions/{email} | Get Suppression |
+| [**SuppressionsComplaintsGet**](SuppressionsApi.md#suppressionscomplaintsget) | **GET** /suppressions/complaints | Get Complaints List |
+| [**SuppressionsComplaintsImportPost**](SuppressionsApi.md#suppressionscomplaintsimportpost) | **POST** /suppressions/complaints/import | Add Complaints Async |
+| [**SuppressionsComplaintsPost**](SuppressionsApi.md#suppressionscomplaintspost) | **POST** /suppressions/complaints | Add Complaints |
+| [**SuppressionsGet**](SuppressionsApi.md#suppressionsget) | **GET** /suppressions | Get Suppressions |
+| [**SuppressionsUnsubscribesGet**](SuppressionsApi.md#suppressionsunsubscribesget) | **GET** /suppressions/unsubscribes | Get Unsubscribes List |
+| [**SuppressionsUnsubscribesImportPost**](SuppressionsApi.md#suppressionsunsubscribesimportpost) | **POST** /suppressions/unsubscribes/import | Add Unsubscribes Async |
+| [**SuppressionsUnsubscribesPost**](SuppressionsApi.md#suppressionsunsubscribespost) | **POST** /suppressions/unsubscribes | Add Unsubscribes |
 
 <a name="suppressionsbouncesget"></a>
 # **SuppressionsBouncesGet**
@@ -60,8 +59,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling SuppressionsApi.SuppressionsBouncesGet: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling SuppressionsApi.SuppressionsBouncesGet: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -69,13 +68,33 @@ namespace Example
 }
 ```
 
+#### Using the SuppressionsBouncesGetWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Get Bounce List
+    ApiResponse<List<Suppression>> response = apiInstance.SuppressionsBouncesGetWithHttpInfo(search, limit, offset);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling SuppressionsApi.SuppressionsBouncesGetWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **search** | **string**| Text fragment used for searching. | [optional] 
- **limit** | **int?**| Maximum number of returned items. | [optional] 
- **offset** | **int?**| How many items should be returned ahead. | [optional] 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **search** | **string** | Text fragment used for searching. | [optional]  |
+| **limit** | **int?** | Maximum number of returned items. | [optional]  |
+| **offset** | **int?** | How many items should be returned ahead. | [optional]  |
 
 ### Return type
 
@@ -137,8 +156,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling SuppressionsApi.SuppressionsBouncesImportPost: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling SuppressionsApi.SuppressionsBouncesImportPost: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -146,11 +165,28 @@ namespace Example
 }
 ```
 
+#### Using the SuppressionsBouncesImportPostWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Add Bounces Async
+    apiInstance.SuppressionsBouncesImportPostWithHttpInfo(file);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling SuppressionsApi.SuppressionsBouncesImportPostWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **file** | **System.IO.Stream****System.IO.Stream**|  | [optional] 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **file** | **System.IO.Stream****System.IO.Stream** |  | [optional]  |
 
 ### Return type
 
@@ -213,8 +249,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling SuppressionsApi.SuppressionsBouncesPost: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling SuppressionsApi.SuppressionsBouncesPost: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -222,11 +258,31 @@ namespace Example
 }
 ```
 
+#### Using the SuppressionsBouncesPostWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Add Bounces
+    ApiResponse<List<Suppression>> response = apiInstance.SuppressionsBouncesPostWithHttpInfo(requestBody);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling SuppressionsApi.SuppressionsBouncesPostWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **requestBody** | [**List&lt;string&gt;**](string.md)| Emails to add as bounces. Limited to 1000 per request | 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **requestBody** | [**List&lt;string&gt;**](string.md) | Emails to add as bounces. Limited to 1000 per request |  |
 
 ### Return type
 
@@ -288,8 +344,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling SuppressionsApi.SuppressionsByEmailDelete: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling SuppressionsApi.SuppressionsByEmailDelete: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -297,11 +353,28 @@ namespace Example
 }
 ```
 
+#### Using the SuppressionsByEmailDeleteWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Delete Suppression
+    apiInstance.SuppressionsByEmailDeleteWithHttpInfo(email);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling SuppressionsApi.SuppressionsByEmailDeleteWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **email** | **string**| Proper email address. | 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **email** | **string** | Proper email address. |  |
 
 ### Return type
 
@@ -364,8 +437,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling SuppressionsApi.SuppressionsByEmailGet: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling SuppressionsApi.SuppressionsByEmailGet: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -373,11 +446,31 @@ namespace Example
 }
 ```
 
+#### Using the SuppressionsByEmailGetWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Get Suppression
+    ApiResponse<Suppression> response = apiInstance.SuppressionsByEmailGetWithHttpInfo(email);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling SuppressionsApi.SuppressionsByEmailGetWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **email** | **string**| Proper email address. | 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **email** | **string** | Proper email address. |  |
 
 ### Return type
 
@@ -442,8 +535,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling SuppressionsApi.SuppressionsComplaintsGet: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling SuppressionsApi.SuppressionsComplaintsGet: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -451,13 +544,33 @@ namespace Example
 }
 ```
 
+#### Using the SuppressionsComplaintsGetWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Get Complaints List
+    ApiResponse<List<Suppression>> response = apiInstance.SuppressionsComplaintsGetWithHttpInfo(search, limit, offset);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling SuppressionsApi.SuppressionsComplaintsGetWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **search** | **string**| Text fragment used for searching. | [optional] 
- **limit** | **int?**| Maximum number of returned items. | [optional] 
- **offset** | **int?**| How many items should be returned ahead. | [optional] 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **search** | **string** | Text fragment used for searching. | [optional]  |
+| **limit** | **int?** | Maximum number of returned items. | [optional]  |
+| **offset** | **int?** | How many items should be returned ahead. | [optional]  |
 
 ### Return type
 
@@ -519,8 +632,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling SuppressionsApi.SuppressionsComplaintsImportPost: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling SuppressionsApi.SuppressionsComplaintsImportPost: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -528,11 +641,28 @@ namespace Example
 }
 ```
 
+#### Using the SuppressionsComplaintsImportPostWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Add Complaints Async
+    apiInstance.SuppressionsComplaintsImportPostWithHttpInfo(file);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling SuppressionsApi.SuppressionsComplaintsImportPostWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **file** | **System.IO.Stream****System.IO.Stream**|  | [optional] 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **file** | **System.IO.Stream****System.IO.Stream** |  | [optional]  |
 
 ### Return type
 
@@ -595,8 +725,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling SuppressionsApi.SuppressionsComplaintsPost: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling SuppressionsApi.SuppressionsComplaintsPost: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -604,11 +734,31 @@ namespace Example
 }
 ```
 
+#### Using the SuppressionsComplaintsPostWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Add Complaints
+    ApiResponse<List<Suppression>> response = apiInstance.SuppressionsComplaintsPostWithHttpInfo(requestBody);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling SuppressionsApi.SuppressionsComplaintsPostWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **requestBody** | [**List&lt;string&gt;**](string.md)| Emails to add as complaints. Limited to 1000 per request | 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **requestBody** | [**List&lt;string&gt;**](string.md) | Emails to add as complaints. Limited to 1000 per request |  |
 
 ### Return type
 
@@ -672,8 +822,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling SuppressionsApi.SuppressionsGet: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling SuppressionsApi.SuppressionsGet: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -681,12 +831,32 @@ namespace Example
 }
 ```
 
+#### Using the SuppressionsGetWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Get Suppressions
+    ApiResponse<List<Suppression>> response = apiInstance.SuppressionsGetWithHttpInfo(limit, offset);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling SuppressionsApi.SuppressionsGetWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **limit** | **int?**| Maximum number of returned items. | [optional] 
- **offset** | **int?**| How many items should be returned ahead. | [optional] 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **limit** | **int?** | Maximum number of returned items. | [optional]  |
+| **offset** | **int?** | How many items should be returned ahead. | [optional]  |
 
 ### Return type
 
@@ -751,8 +921,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling SuppressionsApi.SuppressionsUnsubscribesGet: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling SuppressionsApi.SuppressionsUnsubscribesGet: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -760,13 +930,33 @@ namespace Example
 }
 ```
 
+#### Using the SuppressionsUnsubscribesGetWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Get Unsubscribes List
+    ApiResponse<List<Suppression>> response = apiInstance.SuppressionsUnsubscribesGetWithHttpInfo(search, limit, offset);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling SuppressionsApi.SuppressionsUnsubscribesGetWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **search** | **string**| Text fragment used for searching. | [optional] 
- **limit** | **int?**| Maximum number of returned items. | [optional] 
- **offset** | **int?**| How many items should be returned ahead. | [optional] 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **search** | **string** | Text fragment used for searching. | [optional]  |
+| **limit** | **int?** | Maximum number of returned items. | [optional]  |
+| **offset** | **int?** | How many items should be returned ahead. | [optional]  |
 
 ### Return type
 
@@ -828,8 +1018,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling SuppressionsApi.SuppressionsUnsubscribesImportPost: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling SuppressionsApi.SuppressionsUnsubscribesImportPost: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -837,11 +1027,28 @@ namespace Example
 }
 ```
 
+#### Using the SuppressionsUnsubscribesImportPostWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Add Unsubscribes Async
+    apiInstance.SuppressionsUnsubscribesImportPostWithHttpInfo(file);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling SuppressionsApi.SuppressionsUnsubscribesImportPostWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **file** | **System.IO.Stream****System.IO.Stream**|  | [optional] 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **file** | **System.IO.Stream****System.IO.Stream** |  | [optional]  |
 
 ### Return type
 
@@ -904,8 +1111,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling SuppressionsApi.SuppressionsUnsubscribesPost: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling SuppressionsApi.SuppressionsUnsubscribesPost: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -913,11 +1120,31 @@ namespace Example
 }
 ```
 
+#### Using the SuppressionsUnsubscribesPostWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Add Unsubscribes
+    ApiResponse<List<Suppression>> response = apiInstance.SuppressionsUnsubscribesPostWithHttpInfo(requestBody);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling SuppressionsApi.SuppressionsUnsubscribesPostWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **requestBody** | [**List&lt;string&gt;**](string.md)| Emails to add as unsubscribes. Limited to 1000 per request | 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **requestBody** | [**List&lt;string&gt;**](string.md) | Emails to add as unsubscribes. Limited to 1000 per request |  |
 
 ### Return type
 

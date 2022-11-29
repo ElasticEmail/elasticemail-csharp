@@ -2,16 +2,15 @@
 
 All URIs are relative to *https://api.elasticemail.com/v4*
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**ListsByNameContactsPost**](ListsApi.md#listsbynamecontactspost) | **POST** /lists/{name}/contacts | Add Contacts to List
-[**ListsByNameContactsRemovePost**](ListsApi.md#listsbynamecontactsremovepost) | **POST** /lists/{name}/contacts/remove | Remove Contacts from List
-[**ListsByNameDelete**](ListsApi.md#listsbynamedelete) | **DELETE** /lists/{name} | Delete List
-[**ListsByNameGet**](ListsApi.md#listsbynameget) | **GET** /lists/{name} | Load List
-[**ListsByNamePut**](ListsApi.md#listsbynameput) | **PUT** /lists/{name} | Update List
-[**ListsGet**](ListsApi.md#listsget) | **GET** /lists | Load Lists
-[**ListsPost**](ListsApi.md#listspost) | **POST** /lists | Add List
-
+| Method | HTTP request | Description |
+|--------|--------------|-------------|
+| [**ListsByNameContactsPost**](ListsApi.md#listsbynamecontactspost) | **POST** /lists/{name}/contacts | Add Contacts to List |
+| [**ListsByNameContactsRemovePost**](ListsApi.md#listsbynamecontactsremovepost) | **POST** /lists/{name}/contacts/remove | Remove Contacts from List |
+| [**ListsByNameDelete**](ListsApi.md#listsbynamedelete) | **DELETE** /lists/{name} | Delete List |
+| [**ListsByNameGet**](ListsApi.md#listsbynameget) | **GET** /lists/{name} | Load List |
+| [**ListsByNamePut**](ListsApi.md#listsbynameput) | **PUT** /lists/{name} | Update List |
+| [**ListsGet**](ListsApi.md#listsget) | **GET** /lists | Load Lists |
+| [**ListsPost**](ListsApi.md#listspost) | **POST** /lists | Add List |
 
 <a name="listsbynamecontactspost"></a>
 # **ListsByNameContactsPost**
@@ -54,8 +53,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling ListsApi.ListsByNameContactsPost: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling ListsApi.ListsByNameContactsPost: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -63,12 +62,32 @@ namespace Example
 }
 ```
 
+#### Using the ListsByNameContactsPostWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Add Contacts to List
+    ApiResponse<ContactsList> response = apiInstance.ListsByNameContactsPostWithHttpInfo(name, emailsPayload);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling ListsApi.ListsByNameContactsPostWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **name** | **string**| Name of your list. | 
- **emailsPayload** | [**EmailsPayload**](EmailsPayload.md)| Provide either rule or a list of emails, not both. | 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **name** | **string** | Name of your list. |  |
+| **emailsPayload** | [**EmailsPayload**](EmailsPayload.md) | Provide either rule or a list of emails, not both. |  |
 
 ### Return type
 
@@ -131,8 +150,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling ListsApi.ListsByNameContactsRemovePost: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling ListsApi.ListsByNameContactsRemovePost: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -140,12 +159,29 @@ namespace Example
 }
 ```
 
+#### Using the ListsByNameContactsRemovePostWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Remove Contacts from List
+    apiInstance.ListsByNameContactsRemovePostWithHttpInfo(name, emailsPayload);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling ListsApi.ListsByNameContactsRemovePostWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **name** | **string**| Name of your list. | 
- **emailsPayload** | [**EmailsPayload**](EmailsPayload.md)| Provide either rule or a list of emails, not both. | 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **name** | **string** | Name of your list. |  |
+| **emailsPayload** | [**EmailsPayload**](EmailsPayload.md) | Provide either rule or a list of emails, not both. |  |
 
 ### Return type
 
@@ -207,8 +243,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling ListsApi.ListsByNameDelete: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling ListsApi.ListsByNameDelete: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -216,11 +252,28 @@ namespace Example
 }
 ```
 
+#### Using the ListsByNameDeleteWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Delete List
+    apiInstance.ListsByNameDeleteWithHttpInfo(name);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling ListsApi.ListsByNameDeleteWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **name** | **string**| Name of your list. | 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **name** | **string** | Name of your list. |  |
 
 ### Return type
 
@@ -283,8 +336,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling ListsApi.ListsByNameGet: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling ListsApi.ListsByNameGet: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -292,11 +345,31 @@ namespace Example
 }
 ```
 
+#### Using the ListsByNameGetWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Load List
+    ApiResponse<ContactsList> response = apiInstance.ListsByNameGetWithHttpInfo(name);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling ListsApi.ListsByNameGetWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **name** | **string**| Name of your list. | 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **name** | **string** | Name of your list. |  |
 
 ### Return type
 
@@ -360,8 +433,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling ListsApi.ListsByNamePut: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling ListsApi.ListsByNamePut: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -369,12 +442,32 @@ namespace Example
 }
 ```
 
+#### Using the ListsByNamePutWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Update List
+    ApiResponse<ContactsList> response = apiInstance.ListsByNamePutWithHttpInfo(name, listUpdatePayload);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling ListsApi.ListsByNamePutWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **name** | **string**| Name of your list. | 
- **listUpdatePayload** | [**ListUpdatePayload**](ListUpdatePayload.md)|  | 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **name** | **string** | Name of your list. |  |
+| **listUpdatePayload** | [**ListUpdatePayload**](ListUpdatePayload.md) |  |  |
 
 ### Return type
 
@@ -438,8 +531,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling ListsApi.ListsGet: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling ListsApi.ListsGet: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -447,12 +540,32 @@ namespace Example
 }
 ```
 
+#### Using the ListsGetWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Load Lists
+    ApiResponse<List<ContactsList>> response = apiInstance.ListsGetWithHttpInfo(limit, offset);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling ListsApi.ListsGetWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **limit** | **int?**| Maximum number of returned items. | [optional] 
- **offset** | **int?**| How many items should be returned ahead. | [optional] 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **limit** | **int?** | Maximum number of returned items. | [optional]  |
+| **offset** | **int?** | How many items should be returned ahead. | [optional]  |
 
 ### Return type
 
@@ -515,8 +628,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling ListsApi.ListsPost: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling ListsApi.ListsPost: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -524,11 +637,31 @@ namespace Example
 }
 ```
 
+#### Using the ListsPostWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Add List
+    ApiResponse<ContactsList> response = apiInstance.ListsPostWithHttpInfo(listPayload);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling ListsApi.ListsPostWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **listPayload** | [**ListPayload**](ListPayload.md)|  | 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **listPayload** | [**ListPayload**](ListPayload.md) |  |  |
 
 ### Return type
 

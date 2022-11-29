@@ -2,14 +2,13 @@
 
 All URIs are relative to *https://api.elasticemail.com/v4*
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**StatisticsCampaignsByNameGet**](StatisticsApi.md#statisticscampaignsbynameget) | **GET** /statistics/campaigns/{name} | Load Campaign Stats
-[**StatisticsCampaignsGet**](StatisticsApi.md#statisticscampaignsget) | **GET** /statistics/campaigns | Load Campaigns Stats
-[**StatisticsChannelsByNameGet**](StatisticsApi.md#statisticschannelsbynameget) | **GET** /statistics/channels/{name} | Load Channel Stats
-[**StatisticsChannelsGet**](StatisticsApi.md#statisticschannelsget) | **GET** /statistics/channels | Load Channels Stats
-[**StatisticsGet**](StatisticsApi.md#statisticsget) | **GET** /statistics | Load Statistics
-
+| Method | HTTP request | Description |
+|--------|--------------|-------------|
+| [**StatisticsCampaignsByNameGet**](StatisticsApi.md#statisticscampaignsbynameget) | **GET** /statistics/campaigns/{name} | Load Campaign Stats |
+| [**StatisticsCampaignsGet**](StatisticsApi.md#statisticscampaignsget) | **GET** /statistics/campaigns | Load Campaigns Stats |
+| [**StatisticsChannelsByNameGet**](StatisticsApi.md#statisticschannelsbynameget) | **GET** /statistics/channels/{name} | Load Channel Stats |
+| [**StatisticsChannelsGet**](StatisticsApi.md#statisticschannelsget) | **GET** /statistics/channels | Load Channels Stats |
+| [**StatisticsGet**](StatisticsApi.md#statisticsget) | **GET** /statistics | Load Statistics |
 
 <a name="statisticscampaignsbynameget"></a>
 # **StatisticsCampaignsByNameGet**
@@ -51,8 +50,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling StatisticsApi.StatisticsCampaignsByNameGet: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling StatisticsApi.StatisticsCampaignsByNameGet: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -60,11 +59,31 @@ namespace Example
 }
 ```
 
+#### Using the StatisticsCampaignsByNameGetWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Load Campaign Stats
+    ApiResponse<ChannelLogStatusSummary> response = apiInstance.StatisticsCampaignsByNameGetWithHttpInfo(name);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling StatisticsApi.StatisticsCampaignsByNameGetWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **name** | **string**| The name of the campaign to get. | 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **name** | **string** | The name of the campaign to get. |  |
 
 ### Return type
 
@@ -128,8 +147,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling StatisticsApi.StatisticsCampaignsGet: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling StatisticsApi.StatisticsCampaignsGet: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -137,12 +156,32 @@ namespace Example
 }
 ```
 
+#### Using the StatisticsCampaignsGetWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Load Campaigns Stats
+    ApiResponse<List<ChannelLogStatusSummary>> response = apiInstance.StatisticsCampaignsGetWithHttpInfo(limit, offset);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling StatisticsApi.StatisticsCampaignsGetWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **limit** | **int?**| Maximum number of returned items. | [optional] 
- **offset** | **int?**| How many items should be returned ahead. | [optional] 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **limit** | **int?** | Maximum number of returned items. | [optional]  |
+| **offset** | **int?** | How many items should be returned ahead. | [optional]  |
 
 ### Return type
 
@@ -205,8 +244,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling StatisticsApi.StatisticsChannelsByNameGet: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling StatisticsApi.StatisticsChannelsByNameGet: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -214,11 +253,31 @@ namespace Example
 }
 ```
 
+#### Using the StatisticsChannelsByNameGetWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Load Channel Stats
+    ApiResponse<ChannelLogStatusSummary> response = apiInstance.StatisticsChannelsByNameGetWithHttpInfo(name);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling StatisticsApi.StatisticsChannelsByNameGetWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **name** | **string**| The name of the channel to get. | 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **name** | **string** | The name of the channel to get. |  |
 
 ### Return type
 
@@ -282,8 +341,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling StatisticsApi.StatisticsChannelsGet: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling StatisticsApi.StatisticsChannelsGet: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -291,12 +350,32 @@ namespace Example
 }
 ```
 
+#### Using the StatisticsChannelsGetWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Load Channels Stats
+    ApiResponse<List<ChannelLogStatusSummary>> response = apiInstance.StatisticsChannelsGetWithHttpInfo(limit, offset);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling StatisticsApi.StatisticsChannelsGetWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **limit** | **int?**| Maximum number of returned items. | [optional] 
- **offset** | **int?**| How many items should be returned ahead. | [optional] 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **limit** | **int?** | Maximum number of returned items. | [optional]  |
+| **offset** | **int?** | How many items should be returned ahead. | [optional]  |
 
 ### Return type
 
@@ -360,8 +439,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling StatisticsApi.StatisticsGet: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling StatisticsApi.StatisticsGet: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -369,12 +448,32 @@ namespace Example
 }
 ```
 
+#### Using the StatisticsGetWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Load Statistics
+    ApiResponse<LogStatusSummary> response = apiInstance.StatisticsGetWithHttpInfo(from, to);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling StatisticsApi.StatisticsGetWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **from** | **DateTime**| Starting date for search in YYYY-MM-DDThh:mm:ss format. | 
- **to** | **DateTime?**| Ending date for search in YYYY-MM-DDThh:mm:ss format. | [optional] 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **from** | **DateTime** | Starting date for search in YYYY-MM-DDThh:mm:ss format. |  |
+| **to** | **DateTime?** | Ending date for search in YYYY-MM-DDThh:mm:ss format. | [optional]  |
 
 ### Return type
 

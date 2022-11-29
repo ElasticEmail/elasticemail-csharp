@@ -2,16 +2,15 @@
 
 All URIs are relative to *https://api.elasticemail.com/v4*
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**EventsByTransactionidGet**](EventsApi.md#eventsbytransactionidget) | **GET** /events/{transactionid} | Load Email Events
-[**EventsChannelsByNameExportPost**](EventsApi.md#eventschannelsbynameexportpost) | **POST** /events/channels/{name}/export | Export Channel Events
-[**EventsChannelsByNameGet**](EventsApi.md#eventschannelsbynameget) | **GET** /events/channels/{name} | Load Channel Events
-[**EventsChannelsExportByIdStatusGet**](EventsApi.md#eventschannelsexportbyidstatusget) | **GET** /events/channels/export/{id}/status | Check Channel Export Status
-[**EventsExportByIdStatusGet**](EventsApi.md#eventsexportbyidstatusget) | **GET** /events/export/{id}/status | Check Export Status
-[**EventsExportPost**](EventsApi.md#eventsexportpost) | **POST** /events/export | Export Events
-[**EventsGet**](EventsApi.md#eventsget) | **GET** /events | Load Events
-
+| Method | HTTP request | Description |
+|--------|--------------|-------------|
+| [**EventsByTransactionidGet**](EventsApi.md#eventsbytransactionidget) | **GET** /events/{transactionid} | Load Email Events |
+| [**EventsChannelsByNameExportPost**](EventsApi.md#eventschannelsbynameexportpost) | **POST** /events/channels/{name}/export | Export Channel Events |
+| [**EventsChannelsByNameGet**](EventsApi.md#eventschannelsbynameget) | **GET** /events/channels/{name} | Load Channel Events |
+| [**EventsChannelsExportByIdStatusGet**](EventsApi.md#eventschannelsexportbyidstatusget) | **GET** /events/channels/export/{id}/status | Check Channel Export Status |
+| [**EventsExportByIdStatusGet**](EventsApi.md#eventsexportbyidstatusget) | **GET** /events/export/{id}/status | Check Export Status |
+| [**EventsExportPost**](EventsApi.md#eventsexportpost) | **POST** /events/export | Export Events |
+| [**EventsGet**](EventsApi.md#eventsget) | **GET** /events | Load Events |
 
 <a name="eventsbytransactionidget"></a>
 # **EventsByTransactionidGet**
@@ -58,8 +57,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling EventsApi.EventsByTransactionidGet: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling EventsApi.EventsByTransactionidGet: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -67,16 +66,36 @@ namespace Example
 }
 ```
 
+#### Using the EventsByTransactionidGetWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Load Email Events
+    ApiResponse<List<RecipientEvent>> response = apiInstance.EventsByTransactionidGetWithHttpInfo(transactionid, from, to, orderBy, limit, offset);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling EventsApi.EventsByTransactionidGetWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **transactionid** | **string**| ID number of transaction | 
- **from** | **DateTime?**| Starting date for search in YYYY-MM-DDThh:mm:ss format. | [optional] 
- **to** | **DateTime?**| Ending date for search in YYYY-MM-DDThh:mm:ss format. | [optional] 
- **orderBy** | **EventsOrderBy?**|  | [optional] 
- **limit** | **int?**| Maximum number of returned items. | [optional] 
- **offset** | **int?**| How many items should be returned ahead. | [optional] 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **transactionid** | **string** | ID number of transaction |  |
+| **from** | **DateTime?** | Starting date for search in YYYY-MM-DDThh:mm:ss format. | [optional]  |
+| **to** | **DateTime?** | Ending date for search in YYYY-MM-DDThh:mm:ss format. | [optional]  |
+| **orderBy** | **EventsOrderBy?** |  | [optional]  |
+| **limit** | **int?** | Maximum number of returned items. | [optional]  |
+| **offset** | **int?** | How many items should be returned ahead. | [optional]  |
 
 ### Return type
 
@@ -145,8 +164,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling EventsApi.EventsChannelsByNameExportPost: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling EventsApi.EventsChannelsByNameExportPost: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -154,17 +173,37 @@ namespace Example
 }
 ```
 
+#### Using the EventsChannelsByNameExportPostWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Export Channel Events
+    ApiResponse<ExportLink> response = apiInstance.EventsChannelsByNameExportPostWithHttpInfo(name, eventTypes, from, to, fileFormat, compressionFormat, fileName);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling EventsApi.EventsChannelsByNameExportPostWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **name** | **string**| Name of selected channel. | 
- **eventTypes** | [**List&lt;EventType&gt;**](EventType.md)| Types of Events to return | [optional] 
- **from** | **DateTime?**| Starting date for search in YYYY-MM-DDThh:mm:ss format. | [optional] 
- **to** | **DateTime?**| Ending date for search in YYYY-MM-DDThh:mm:ss format. | [optional] 
- **fileFormat** | **ExportFileFormats?**| Format of the exported file | [optional] 
- **compressionFormat** | **CompressionFormat?**| FileResponse compression format. None or Zip. | [optional] 
- **fileName** | **string**| Name of your file including extension. | [optional] 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **name** | **string** | Name of selected channel. |  |
+| **eventTypes** | [**List&lt;EventType&gt;**](EventType.md) | Types of Events to return | [optional]  |
+| **from** | **DateTime?** | Starting date for search in YYYY-MM-DDThh:mm:ss format. | [optional]  |
+| **to** | **DateTime?** | Ending date for search in YYYY-MM-DDThh:mm:ss format. | [optional]  |
+| **fileFormat** | **ExportFileFormats?** | Format of the exported file | [optional]  |
+| **compressionFormat** | **CompressionFormat?** | FileResponse compression format. None or Zip. | [optional]  |
+| **fileName** | **string** | Name of your file including extension. | [optional]  |
 
 ### Return type
 
@@ -233,8 +272,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling EventsApi.EventsChannelsByNameGet: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling EventsApi.EventsChannelsByNameGet: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -242,17 +281,37 @@ namespace Example
 }
 ```
 
+#### Using the EventsChannelsByNameGetWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Load Channel Events
+    ApiResponse<List<RecipientEvent>> response = apiInstance.EventsChannelsByNameGetWithHttpInfo(name, eventTypes, from, to, orderBy, limit, offset);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling EventsApi.EventsChannelsByNameGetWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **name** | **string**| Name of selected channel. | 
- **eventTypes** | [**List&lt;EventType&gt;**](EventType.md)| Types of Events to return | [optional] 
- **from** | **DateTime?**| Starting date for search in YYYY-MM-DDThh:mm:ss format. | [optional] 
- **to** | **DateTime?**| Ending date for search in YYYY-MM-DDThh:mm:ss format. | [optional] 
- **orderBy** | **EventsOrderBy?**|  | [optional] 
- **limit** | **int?**| How many items to load. Maximum for this request is 1000 items | [optional] 
- **offset** | **int?**| How many items should be returned ahead. | [optional] 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **name** | **string** | Name of selected channel. |  |
+| **eventTypes** | [**List&lt;EventType&gt;**](EventType.md) | Types of Events to return | [optional]  |
+| **from** | **DateTime?** | Starting date for search in YYYY-MM-DDThh:mm:ss format. | [optional]  |
+| **to** | **DateTime?** | Ending date for search in YYYY-MM-DDThh:mm:ss format. | [optional]  |
+| **orderBy** | **EventsOrderBy?** |  | [optional]  |
+| **limit** | **int?** | How many items to load. Maximum for this request is 1000 items | [optional]  |
+| **offset** | **int?** | How many items should be returned ahead. | [optional]  |
 
 ### Return type
 
@@ -315,8 +374,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling EventsApi.EventsChannelsExportByIdStatusGet: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling EventsApi.EventsChannelsExportByIdStatusGet: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -324,11 +383,31 @@ namespace Example
 }
 ```
 
+#### Using the EventsChannelsExportByIdStatusGetWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Check Channel Export Status
+    ApiResponse<ExportStatus> response = apiInstance.EventsChannelsExportByIdStatusGetWithHttpInfo(id);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling EventsApi.EventsChannelsExportByIdStatusGetWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **string**| ID of the exported file | 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **id** | **string** | ID of the exported file |  |
 
 ### Return type
 
@@ -391,8 +470,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling EventsApi.EventsExportByIdStatusGet: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling EventsApi.EventsExportByIdStatusGet: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -400,11 +479,31 @@ namespace Example
 }
 ```
 
+#### Using the EventsExportByIdStatusGetWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Check Export Status
+    ApiResponse<ExportStatus> response = apiInstance.EventsExportByIdStatusGetWithHttpInfo(id);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling EventsApi.EventsExportByIdStatusGetWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **string**| ID of the exported file | 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **id** | **string** | ID of the exported file |  |
 
 ### Return type
 
@@ -472,8 +571,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling EventsApi.EventsExportPost: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling EventsApi.EventsExportPost: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -481,16 +580,36 @@ namespace Example
 }
 ```
 
+#### Using the EventsExportPostWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Export Events
+    ApiResponse<ExportLink> response = apiInstance.EventsExportPostWithHttpInfo(eventTypes, from, to, fileFormat, compressionFormat, fileName);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling EventsApi.EventsExportPostWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **eventTypes** | [**List&lt;EventType&gt;**](EventType.md)| Types of Events to return | [optional] 
- **from** | **DateTime?**| Starting date for search in YYYY-MM-DDThh:mm:ss format. | [optional] 
- **to** | **DateTime?**| Ending date for search in YYYY-MM-DDThh:mm:ss format. | [optional] 
- **fileFormat** | **ExportFileFormats?**| Format of the exported file | [optional] 
- **compressionFormat** | **CompressionFormat?**| FileResponse compression format. None or Zip. | [optional] 
- **fileName** | **string**| Name of your file including extension. | [optional] 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **eventTypes** | [**List&lt;EventType&gt;**](EventType.md) | Types of Events to return | [optional]  |
+| **from** | **DateTime?** | Starting date for search in YYYY-MM-DDThh:mm:ss format. | [optional]  |
+| **to** | **DateTime?** | Ending date for search in YYYY-MM-DDThh:mm:ss format. | [optional]  |
+| **fileFormat** | **ExportFileFormats?** | Format of the exported file | [optional]  |
+| **compressionFormat** | **CompressionFormat?** | FileResponse compression format. None or Zip. | [optional]  |
+| **fileName** | **string** | Name of your file including extension. | [optional]  |
 
 ### Return type
 
@@ -558,8 +677,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling EventsApi.EventsGet: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling EventsApi.EventsGet: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -567,16 +686,36 @@ namespace Example
 }
 ```
 
+#### Using the EventsGetWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Load Events
+    ApiResponse<List<RecipientEvent>> response = apiInstance.EventsGetWithHttpInfo(eventTypes, from, to, orderBy, limit, offset);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling EventsApi.EventsGetWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **eventTypes** | [**List&lt;EventType&gt;**](EventType.md)| Types of Events to return | [optional] 
- **from** | **DateTime?**| Starting date for search in YYYY-MM-DDThh:mm:ss format. | [optional] 
- **to** | **DateTime?**| Ending date for search in YYYY-MM-DDThh:mm:ss format. | [optional] 
- **orderBy** | **EventsOrderBy?**|  | [optional] 
- **limit** | **int?**| How many items to load. Maximum for this request is 1000 items | [optional] 
- **offset** | **int?**| How many items should be returned ahead. | [optional] 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **eventTypes** | [**List&lt;EventType&gt;**](EventType.md) | Types of Events to return | [optional]  |
+| **from** | **DateTime?** | Starting date for search in YYYY-MM-DDThh:mm:ss format. | [optional]  |
+| **to** | **DateTime?** | Ending date for search in YYYY-MM-DDThh:mm:ss format. | [optional]  |
+| **orderBy** | **EventsOrderBy?** |  | [optional]  |
+| **limit** | **int?** | How many items to load. Maximum for this request is 1000 items | [optional]  |
+| **offset** | **int?** | How many items should be returned ahead. | [optional]  |
 
 ### Return type
 

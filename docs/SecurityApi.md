@@ -2,19 +2,18 @@
 
 All URIs are relative to *https://api.elasticemail.com/v4*
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**SecurityApikeysByNameDelete**](SecurityApi.md#securityapikeysbynamedelete) | **DELETE** /security/apikeys/{name} | Delete ApiKey
-[**SecurityApikeysByNameGet**](SecurityApi.md#securityapikeysbynameget) | **GET** /security/apikeys/{name} | Load ApiKey
-[**SecurityApikeysByNamePut**](SecurityApi.md#securityapikeysbynameput) | **PUT** /security/apikeys/{name} | Update ApiKey
-[**SecurityApikeysGet**](SecurityApi.md#securityapikeysget) | **GET** /security/apikeys | List ApiKeys
-[**SecurityApikeysPost**](SecurityApi.md#securityapikeyspost) | **POST** /security/apikeys | Add ApiKey
-[**SecuritySmtpByNameDelete**](SecurityApi.md#securitysmtpbynamedelete) | **DELETE** /security/smtp/{name} | Delete SMTP Credential
-[**SecuritySmtpByNameGet**](SecurityApi.md#securitysmtpbynameget) | **GET** /security/smtp/{name} | Load SMTP Credential
-[**SecuritySmtpByNamePut**](SecurityApi.md#securitysmtpbynameput) | **PUT** /security/smtp/{name} | Update SMTP Credential
-[**SecuritySmtpGet**](SecurityApi.md#securitysmtpget) | **GET** /security/smtp | List SMTP Credentials
-[**SecuritySmtpPost**](SecurityApi.md#securitysmtppost) | **POST** /security/smtp | Add SMTP Credential
-
+| Method | HTTP request | Description |
+|--------|--------------|-------------|
+| [**SecurityApikeysByNameDelete**](SecurityApi.md#securityapikeysbynamedelete) | **DELETE** /security/apikeys/{name} | Delete ApiKey |
+| [**SecurityApikeysByNameGet**](SecurityApi.md#securityapikeysbynameget) | **GET** /security/apikeys/{name} | Load ApiKey |
+| [**SecurityApikeysByNamePut**](SecurityApi.md#securityapikeysbynameput) | **PUT** /security/apikeys/{name} | Update ApiKey |
+| [**SecurityApikeysGet**](SecurityApi.md#securityapikeysget) | **GET** /security/apikeys | List ApiKeys |
+| [**SecurityApikeysPost**](SecurityApi.md#securityapikeyspost) | **POST** /security/apikeys | Add ApiKey |
+| [**SecuritySmtpByNameDelete**](SecurityApi.md#securitysmtpbynamedelete) | **DELETE** /security/smtp/{name} | Delete SMTP Credential |
+| [**SecuritySmtpByNameGet**](SecurityApi.md#securitysmtpbynameget) | **GET** /security/smtp/{name} | Load SMTP Credential |
+| [**SecuritySmtpByNamePut**](SecurityApi.md#securitysmtpbynameput) | **PUT** /security/smtp/{name} | Update SMTP Credential |
+| [**SecuritySmtpGet**](SecurityApi.md#securitysmtpget) | **GET** /security/smtp | List SMTP Credentials |
+| [**SecuritySmtpPost**](SecurityApi.md#securitysmtppost) | **POST** /security/smtp | Add SMTP Credential |
 
 <a name="securityapikeysbynamedelete"></a>
 # **SecurityApikeysByNameDelete**
@@ -56,8 +55,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling SecurityApi.SecurityApikeysByNameDelete: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling SecurityApi.SecurityApikeysByNameDelete: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -65,12 +64,29 @@ namespace Example
 }
 ```
 
+#### Using the SecurityApikeysByNameDeleteWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Delete ApiKey
+    apiInstance.SecurityApikeysByNameDeleteWithHttpInfo(name, subaccount);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling SecurityApi.SecurityApikeysByNameDeleteWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **name** | **string**| Name of the ApiKey | 
- **subaccount** | **string**| Email of the subaccount of which ApiKey should be deleted | [optional] 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **name** | **string** | Name of the ApiKey |  |
+| **subaccount** | **string** | Email of the subaccount of which ApiKey should be deleted | [optional]  |
 
 ### Return type
 
@@ -134,8 +150,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling SecurityApi.SecurityApikeysByNameGet: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling SecurityApi.SecurityApikeysByNameGet: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -143,12 +159,32 @@ namespace Example
 }
 ```
 
+#### Using the SecurityApikeysByNameGetWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Load ApiKey
+    ApiResponse<ApiKey> response = apiInstance.SecurityApikeysByNameGetWithHttpInfo(name, subaccount);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling SecurityApi.SecurityApikeysByNameGetWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **name** | **string**| Name of the ApiKey | 
- **subaccount** | **string**| Email of the subaccount of which ApiKey should be loaded | [optional] 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **name** | **string** | Name of the ApiKey |  |
+| **subaccount** | **string** | Email of the subaccount of which ApiKey should be loaded | [optional]  |
 
 ### Return type
 
@@ -212,8 +248,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling SecurityApi.SecurityApikeysByNamePut: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling SecurityApi.SecurityApikeysByNamePut: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -221,12 +257,32 @@ namespace Example
 }
 ```
 
+#### Using the SecurityApikeysByNamePutWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Update ApiKey
+    ApiResponse<ApiKey> response = apiInstance.SecurityApikeysByNamePutWithHttpInfo(name, apiKeyPayload);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling SecurityApi.SecurityApikeysByNamePutWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **name** | **string**| Name of the ApiKey | 
- **apiKeyPayload** | [**ApiKeyPayload**](ApiKeyPayload.md)|  | 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **name** | **string** | Name of the ApiKey |  |
+| **apiKeyPayload** | [**ApiKeyPayload**](ApiKeyPayload.md) |  |  |
 
 ### Return type
 
@@ -289,8 +345,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling SecurityApi.SecurityApikeysGet: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling SecurityApi.SecurityApikeysGet: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -298,11 +354,31 @@ namespace Example
 }
 ```
 
+#### Using the SecurityApikeysGetWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // List ApiKeys
+    ApiResponse<List<ApiKey>> response = apiInstance.SecurityApikeysGetWithHttpInfo(subaccount);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling SecurityApi.SecurityApikeysGetWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **subaccount** | **string**| Email of the subaccount of which ApiKeys should be loaded | [optional] 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **subaccount** | **string** | Email of the subaccount of which ApiKeys should be loaded | [optional]  |
 
 ### Return type
 
@@ -365,8 +441,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling SecurityApi.SecurityApikeysPost: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling SecurityApi.SecurityApikeysPost: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -374,11 +450,31 @@ namespace Example
 }
 ```
 
+#### Using the SecurityApikeysPostWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Add ApiKey
+    ApiResponse<NewApiKey> response = apiInstance.SecurityApikeysPostWithHttpInfo(apiKeyPayload);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling SecurityApi.SecurityApikeysPostWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **apiKeyPayload** | [**ApiKeyPayload**](ApiKeyPayload.md)|  | 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **apiKeyPayload** | [**ApiKeyPayload**](ApiKeyPayload.md) |  |  |
 
 ### Return type
 
@@ -441,8 +537,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling SecurityApi.SecuritySmtpByNameDelete: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling SecurityApi.SecuritySmtpByNameDelete: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -450,12 +546,29 @@ namespace Example
 }
 ```
 
+#### Using the SecuritySmtpByNameDeleteWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Delete SMTP Credential
+    apiInstance.SecuritySmtpByNameDeleteWithHttpInfo(name, subaccount);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling SecurityApi.SecuritySmtpByNameDeleteWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **name** | **string**| Name of the SMTP Credential | 
- **subaccount** | **string**| Email of the subaccount of which credential should be deleted | [optional] 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **name** | **string** | Name of the SMTP Credential |  |
+| **subaccount** | **string** | Email of the subaccount of which credential should be deleted | [optional]  |
 
 ### Return type
 
@@ -519,8 +632,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling SecurityApi.SecuritySmtpByNameGet: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling SecurityApi.SecuritySmtpByNameGet: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -528,12 +641,32 @@ namespace Example
 }
 ```
 
+#### Using the SecuritySmtpByNameGetWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Load SMTP Credential
+    ApiResponse<SmtpCredentials> response = apiInstance.SecuritySmtpByNameGetWithHttpInfo(name, subaccount);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling SecurityApi.SecuritySmtpByNameGetWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **name** | **string**| Name of the SMTP Credential | 
- **subaccount** | **string**| Email of the subaccount of which credential should be loaded | [optional] 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **name** | **string** | Name of the SMTP Credential |  |
+| **subaccount** | **string** | Email of the subaccount of which credential should be loaded | [optional]  |
 
 ### Return type
 
@@ -597,8 +730,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling SecurityApi.SecuritySmtpByNamePut: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling SecurityApi.SecuritySmtpByNamePut: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -606,12 +739,32 @@ namespace Example
 }
 ```
 
+#### Using the SecuritySmtpByNamePutWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Update SMTP Credential
+    ApiResponse<SmtpCredentials> response = apiInstance.SecuritySmtpByNamePutWithHttpInfo(name, smtpCredentialsPayload);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling SecurityApi.SecuritySmtpByNamePutWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **name** | **string**| Name of the SMTP Credential | 
- **smtpCredentialsPayload** | [**SmtpCredentialsPayload**](SmtpCredentialsPayload.md)|  | 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **name** | **string** | Name of the SMTP Credential |  |
+| **smtpCredentialsPayload** | [**SmtpCredentialsPayload**](SmtpCredentialsPayload.md) |  |  |
 
 ### Return type
 
@@ -674,8 +827,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling SecurityApi.SecuritySmtpGet: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling SecurityApi.SecuritySmtpGet: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -683,11 +836,31 @@ namespace Example
 }
 ```
 
+#### Using the SecuritySmtpGetWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // List SMTP Credentials
+    ApiResponse<List<SmtpCredentials>> response = apiInstance.SecuritySmtpGetWithHttpInfo(subaccount);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling SecurityApi.SecuritySmtpGetWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **subaccount** | **string**| Email of the subaccount of which credentials should be listed | [optional] 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **subaccount** | **string** | Email of the subaccount of which credentials should be listed | [optional]  |
 
 ### Return type
 
@@ -750,8 +923,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling SecurityApi.SecuritySmtpPost: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling SecurityApi.SecuritySmtpPost: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -759,11 +932,31 @@ namespace Example
 }
 ```
 
+#### Using the SecuritySmtpPostWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Add SMTP Credential
+    ApiResponse<NewSmtpCredentials> response = apiInstance.SecuritySmtpPostWithHttpInfo(smtpCredentialsPayload);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling SecurityApi.SecuritySmtpPostWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **smtpCredentialsPayload** | [**SmtpCredentialsPayload**](SmtpCredentialsPayload.md)|  | 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **smtpCredentialsPayload** | [**SmtpCredentialsPayload**](SmtpCredentialsPayload.md) |  |  |
 
 ### Return type
 

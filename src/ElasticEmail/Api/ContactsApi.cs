@@ -1,7 +1,7 @@
 /*
  * Elastic Email REST API
  *
- * This API is based on the REST API architecture, allowing the user to easily manage their data with this resource-based approach.    Every API call is established on which specific request type (GET, POST, PUT, DELETE) will be used.    The API has a limit of 20 concurrent connections and a hard timeout of 600 seconds per request.    To start using this API, you will need your Access Token (available <a target=\"_blank\" href=\"https://elasticemail.com/account#/settings/new/manage-api\">here</a>). Remember to keep it safe. Required access levels are listed in the given request’s description.    Downloadable library clients can be found in our Github repository <a target=\"_blank\" href=\"https://github.com/ElasticEmail?tab=repositories&q=%22rest+api%22+in%3Areadme\">here</a>
+ * This API is based on the REST API architecture, allowing the user to easily manage their data with this resource-based approach.    Every API call is established on which specific request type (GET, POST, PUT, DELETE) will be used.    The API has a limit of 20 concurrent connections and a hard timeout of 600 seconds per request.    To start using this API, you will need your Access Token (available <a target=\"_blank\" href=\"https://app.elasticemail.com/marketing/settings/new/manage-api\">here</a>). Remember to keep it safe. Required access levels are listed in the given request’s description.    Downloadable library clients can be found in our Github repository <a target=\"_blank\" href=\"https://github.com/ElasticEmail?tab=repositories&q=%22rest+api%22+in%3Areadme\">here</a>
  *
  * The version of the OpenAPI document: 4.0.0
  * Contact: support@elasticemail.com
@@ -73,33 +73,6 @@ namespace ElasticEmail.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of Contact</returns>
         ApiResponse<Contact> ContactsByEmailGetWithHttpInfo(string email, int operationIndex = 0);
-        /// <summary>
-        /// Load History
-        /// </summary>
-        /// <remarks>
-        /// Returns detailed history of specified Contact. Required Access Level: ViewContacts
-        /// </remarks>
-        /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="email">Proper email address.</param>
-        /// <param name="limit">Maximum number of returned items. (optional)</param>
-        /// <param name="offset">How many items should be returned ahead. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>List&lt;ContactHistory&gt;</returns>
-        List<ContactHistory> ContactsByEmailHistoryGet(string email, int? limit = default(int?), int? offset = default(int?), int operationIndex = 0);
-
-        /// <summary>
-        /// Load History
-        /// </summary>
-        /// <remarks>
-        /// Returns detailed history of specified Contact. Required Access Level: ViewContacts
-        /// </remarks>
-        /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="email">Proper email address.</param>
-        /// <param name="limit">Maximum number of returned items. (optional)</param>
-        /// <param name="offset">How many items should be returned ahead. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of List&lt;ContactHistory&gt;</returns>
-        ApiResponse<List<ContactHistory>> ContactsByEmailHistoryGetWithHttpInfo(string email, int? limit = default(int?), int? offset = default(int?), int operationIndex = 0);
         /// <summary>
         /// Update Contact
         /// </summary>
@@ -236,10 +209,11 @@ namespace ElasticEmail.Api
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="listName">Name of an existing list to add these contacts to (optional)</param>
         /// <param name="encodingName">In what encoding the file is uploaded (optional)</param>
+        /// <param name="fileUrl">Optional url of csv to import (optional)</param>
         /// <param name="file"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns></returns>
-        void ContactsImportPost(string listName = default(string), string encodingName = default(string), System.IO.Stream file = default(System.IO.Stream), int operationIndex = 0);
+        void ContactsImportPost(string listName = default(string), string encodingName = default(string), string fileUrl = default(string), System.IO.Stream file = default(System.IO.Stream), int operationIndex = 0);
 
         /// <summary>
         /// Upload Contacts
@@ -250,10 +224,11 @@ namespace ElasticEmail.Api
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="listName">Name of an existing list to add these contacts to (optional)</param>
         /// <param name="encodingName">In what encoding the file is uploaded (optional)</param>
+        /// <param name="fileUrl">Optional url of csv to import (optional)</param>
         /// <param name="file"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> ContactsImportPostWithHttpInfo(string listName = default(string), string encodingName = default(string), System.IO.Stream file = default(System.IO.Stream), int operationIndex = 0);
+        ApiResponse<Object> ContactsImportPostWithHttpInfo(string listName = default(string), string encodingName = default(string), string fileUrl = default(string), System.IO.Stream file = default(System.IO.Stream), int operationIndex = 0);
         /// <summary>
         /// Add Contact
         /// </summary>
@@ -338,35 +313,6 @@ namespace ElasticEmail.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Contact)</returns>
         System.Threading.Tasks.Task<ApiResponse<Contact>> ContactsByEmailGetWithHttpInfoAsync(string email, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-        /// <summary>
-        /// Load History
-        /// </summary>
-        /// <remarks>
-        /// Returns detailed history of specified Contact. Required Access Level: ViewContacts
-        /// </remarks>
-        /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="email">Proper email address.</param>
-        /// <param name="limit">Maximum number of returned items. (optional)</param>
-        /// <param name="offset">How many items should be returned ahead. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of List&lt;ContactHistory&gt;</returns>
-        System.Threading.Tasks.Task<List<ContactHistory>> ContactsByEmailHistoryGetAsync(string email, int? limit = default(int?), int? offset = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-
-        /// <summary>
-        /// Load History
-        /// </summary>
-        /// <remarks>
-        /// Returns detailed history of specified Contact. Required Access Level: ViewContacts
-        /// </remarks>
-        /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="email">Proper email address.</param>
-        /// <param name="limit">Maximum number of returned items. (optional)</param>
-        /// <param name="offset">How many items should be returned ahead. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (List&lt;ContactHistory&gt;)</returns>
-        System.Threading.Tasks.Task<ApiResponse<List<ContactHistory>>> ContactsByEmailHistoryGetWithHttpInfoAsync(string email, int? limit = default(int?), int? offset = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Update Contact
         /// </summary>
@@ -513,11 +459,12 @@ namespace ElasticEmail.Api
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="listName">Name of an existing list to add these contacts to (optional)</param>
         /// <param name="encodingName">In what encoding the file is uploaded (optional)</param>
+        /// <param name="fileUrl">Optional url of csv to import (optional)</param>
         /// <param name="file"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task ContactsImportPostAsync(string listName = default(string), string encodingName = default(string), System.IO.Stream file = default(System.IO.Stream), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task ContactsImportPostAsync(string listName = default(string), string encodingName = default(string), string fileUrl = default(string), System.IO.Stream file = default(System.IO.Stream), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Upload Contacts
@@ -528,11 +475,12 @@ namespace ElasticEmail.Api
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="listName">Name of an existing list to add these contacts to (optional)</param>
         /// <param name="encodingName">In what encoding the file is uploaded (optional)</param>
+        /// <param name="fileUrl">Optional url of csv to import (optional)</param>
         /// <param name="file"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> ContactsImportPostWithHttpInfoAsync(string listName = default(string), string encodingName = default(string), System.IO.Stream file = default(System.IO.Stream), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Object>> ContactsImportPostWithHttpInfoAsync(string listName = default(string), string encodingName = default(string), string fileUrl = default(string), System.IO.Stream file = default(System.IO.Stream), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Add Contact
         /// </summary>
@@ -975,184 +923,6 @@ namespace ElasticEmail.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("ContactsByEmailGet", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// Load History Returns detailed history of specified Contact. Required Access Level: ViewContacts
-        /// </summary>
-        /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="email">Proper email address.</param>
-        /// <param name="limit">Maximum number of returned items. (optional)</param>
-        /// <param name="offset">How many items should be returned ahead. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>List&lt;ContactHistory&gt;</returns>
-        public List<ContactHistory> ContactsByEmailHistoryGet(string email, int? limit = default(int?), int? offset = default(int?), int operationIndex = 0)
-        {
-            ElasticEmail.Client.ApiResponse<List<ContactHistory>> localVarResponse = ContactsByEmailHistoryGetWithHttpInfo(email, limit, offset);
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Load History Returns detailed history of specified Contact. Required Access Level: ViewContacts
-        /// </summary>
-        /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="email">Proper email address.</param>
-        /// <param name="limit">Maximum number of returned items. (optional)</param>
-        /// <param name="offset">How many items should be returned ahead. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of List&lt;ContactHistory&gt;</returns>
-        public ElasticEmail.Client.ApiResponse<List<ContactHistory>> ContactsByEmailHistoryGetWithHttpInfo(string email, int? limit = default(int?), int? offset = default(int?), int operationIndex = 0)
-        {
-            // verify the required parameter 'email' is set
-            if (email == null)
-            {
-                throw new ElasticEmail.Client.ApiException(400, "Missing required parameter 'email' when calling ContactsApi->ContactsByEmailHistoryGet");
-            }
-
-            ElasticEmail.Client.RequestOptions localVarRequestOptions = new ElasticEmail.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
-
-            var localVarContentType = ElasticEmail.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
-
-            var localVarAccept = ElasticEmail.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
-
-            localVarRequestOptions.PathParameters.Add("email", ElasticEmail.Client.ClientUtils.ParameterToString(email)); // path parameter
-            if (limit != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(ElasticEmail.Client.ClientUtils.ParameterToMultiMap("", "limit", limit));
-            }
-            if (offset != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(ElasticEmail.Client.ClientUtils.ParameterToMultiMap("", "offset", offset));
-            }
-
-            localVarRequestOptions.Operation = "ContactsApi.ContactsByEmailHistoryGet";
-            localVarRequestOptions.OperationIndex = operationIndex;
-
-            // authentication (apikey) required
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-ElasticEmail-ApiKey")))
-            {
-                localVarRequestOptions.HeaderParameters.Add("X-ElasticEmail-ApiKey", this.Configuration.GetApiKeyWithPrefix("X-ElasticEmail-ApiKey"));
-            }
-
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<List<ContactHistory>>("/contacts/{email}/history", localVarRequestOptions, this.Configuration);
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("ContactsByEmailHistoryGet", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// Load History Returns detailed history of specified Contact. Required Access Level: ViewContacts
-        /// </summary>
-        /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="email">Proper email address.</param>
-        /// <param name="limit">Maximum number of returned items. (optional)</param>
-        /// <param name="offset">How many items should be returned ahead. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of List&lt;ContactHistory&gt;</returns>
-        public async System.Threading.Tasks.Task<List<ContactHistory>> ContactsByEmailHistoryGetAsync(string email, int? limit = default(int?), int? offset = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
-        {
-            ElasticEmail.Client.ApiResponse<List<ContactHistory>> localVarResponse = await ContactsByEmailHistoryGetWithHttpInfoAsync(email, limit, offset, operationIndex, cancellationToken).ConfigureAwait(false);
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Load History Returns detailed history of specified Contact. Required Access Level: ViewContacts
-        /// </summary>
-        /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="email">Proper email address.</param>
-        /// <param name="limit">Maximum number of returned items. (optional)</param>
-        /// <param name="offset">How many items should be returned ahead. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (List&lt;ContactHistory&gt;)</returns>
-        public async System.Threading.Tasks.Task<ElasticEmail.Client.ApiResponse<List<ContactHistory>>> ContactsByEmailHistoryGetWithHttpInfoAsync(string email, int? limit = default(int?), int? offset = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
-        {
-            // verify the required parameter 'email' is set
-            if (email == null)
-            {
-                throw new ElasticEmail.Client.ApiException(400, "Missing required parameter 'email' when calling ContactsApi->ContactsByEmailHistoryGet");
-            }
-
-
-            ElasticEmail.Client.RequestOptions localVarRequestOptions = new ElasticEmail.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
-
-            var localVarContentType = ElasticEmail.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
-
-            var localVarAccept = ElasticEmail.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
-
-            localVarRequestOptions.PathParameters.Add("email", ElasticEmail.Client.ClientUtils.ParameterToString(email)); // path parameter
-            if (limit != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(ElasticEmail.Client.ClientUtils.ParameterToMultiMap("", "limit", limit));
-            }
-            if (offset != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(ElasticEmail.Client.ClientUtils.ParameterToMultiMap("", "offset", offset));
-            }
-
-            localVarRequestOptions.Operation = "ContactsApi.ContactsByEmailHistoryGet";
-            localVarRequestOptions.OperationIndex = operationIndex;
-
-            // authentication (apikey) required
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-ElasticEmail-ApiKey")))
-            {
-                localVarRequestOptions.HeaderParameters.Add("X-ElasticEmail-ApiKey", this.Configuration.GetApiKeyWithPrefix("X-ElasticEmail-ApiKey"));
-            }
-
-            // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<List<ContactHistory>>("/contacts/{email}/history", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("ContactsByEmailHistoryGet", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;
@@ -2004,12 +1774,13 @@ namespace ElasticEmail.Api
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="listName">Name of an existing list to add these contacts to (optional)</param>
         /// <param name="encodingName">In what encoding the file is uploaded (optional)</param>
+        /// <param name="fileUrl">Optional url of csv to import (optional)</param>
         /// <param name="file"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns></returns>
-        public void ContactsImportPost(string listName = default(string), string encodingName = default(string), System.IO.Stream file = default(System.IO.Stream), int operationIndex = 0)
+        public void ContactsImportPost(string listName = default(string), string encodingName = default(string), string fileUrl = default(string), System.IO.Stream file = default(System.IO.Stream), int operationIndex = 0)
         {
-            ContactsImportPostWithHttpInfo(listName, encodingName, file);
+            ContactsImportPostWithHttpInfo(listName, encodingName, fileUrl, file);
         }
 
         /// <summary>
@@ -2018,10 +1789,11 @@ namespace ElasticEmail.Api
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="listName">Name of an existing list to add these contacts to (optional)</param>
         /// <param name="encodingName">In what encoding the file is uploaded (optional)</param>
+        /// <param name="fileUrl">Optional url of csv to import (optional)</param>
         /// <param name="file"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        public ElasticEmail.Client.ApiResponse<Object> ContactsImportPostWithHttpInfo(string listName = default(string), string encodingName = default(string), System.IO.Stream file = default(System.IO.Stream), int operationIndex = 0)
+        public ElasticEmail.Client.ApiResponse<Object> ContactsImportPostWithHttpInfo(string listName = default(string), string encodingName = default(string), string fileUrl = default(string), System.IO.Stream file = default(System.IO.Stream), int operationIndex = 0)
         {
             ElasticEmail.Client.RequestOptions localVarRequestOptions = new ElasticEmail.Client.RequestOptions();
 
@@ -2052,6 +1824,10 @@ namespace ElasticEmail.Api
             if (encodingName != null)
             {
                 localVarRequestOptions.QueryParameters.Add(ElasticEmail.Client.ClientUtils.ParameterToMultiMap("", "encodingName", encodingName));
+            }
+            if (fileUrl != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ElasticEmail.Client.ClientUtils.ParameterToMultiMap("", "fileUrl", fileUrl));
             }
             if (file != null)
             {
@@ -2087,13 +1863,14 @@ namespace ElasticEmail.Api
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="listName">Name of an existing list to add these contacts to (optional)</param>
         /// <param name="encodingName">In what encoding the file is uploaded (optional)</param>
+        /// <param name="fileUrl">Optional url of csv to import (optional)</param>
         /// <param name="file"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task ContactsImportPostAsync(string listName = default(string), string encodingName = default(string), System.IO.Stream file = default(System.IO.Stream), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task ContactsImportPostAsync(string listName = default(string), string encodingName = default(string), string fileUrl = default(string), System.IO.Stream file = default(System.IO.Stream), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            await ContactsImportPostWithHttpInfoAsync(listName, encodingName, file, operationIndex, cancellationToken).ConfigureAwait(false);
+            await ContactsImportPostWithHttpInfoAsync(listName, encodingName, fileUrl, file, operationIndex, cancellationToken).ConfigureAwait(false);
         }
 
         /// <summary>
@@ -2102,11 +1879,12 @@ namespace ElasticEmail.Api
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="listName">Name of an existing list to add these contacts to (optional)</param>
         /// <param name="encodingName">In what encoding the file is uploaded (optional)</param>
+        /// <param name="fileUrl">Optional url of csv to import (optional)</param>
         /// <param name="file"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<ElasticEmail.Client.ApiResponse<Object>> ContactsImportPostWithHttpInfoAsync(string listName = default(string), string encodingName = default(string), System.IO.Stream file = default(System.IO.Stream), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ElasticEmail.Client.ApiResponse<Object>> ContactsImportPostWithHttpInfoAsync(string listName = default(string), string encodingName = default(string), string fileUrl = default(string), System.IO.Stream file = default(System.IO.Stream), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             ElasticEmail.Client.RequestOptions localVarRequestOptions = new ElasticEmail.Client.RequestOptions();
@@ -2138,6 +1916,10 @@ namespace ElasticEmail.Api
             if (encodingName != null)
             {
                 localVarRequestOptions.QueryParameters.Add(ElasticEmail.Client.ClientUtils.ParameterToMultiMap("", "encodingName", encodingName));
+            }
+            if (fileUrl != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ElasticEmail.Client.ClientUtils.ParameterToMultiMap("", "fileUrl", fileUrl));
             }
             if (file != null)
             {

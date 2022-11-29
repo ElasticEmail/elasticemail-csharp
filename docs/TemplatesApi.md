@@ -2,14 +2,13 @@
 
 All URIs are relative to *https://api.elasticemail.com/v4*
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**TemplatesByNameDelete**](TemplatesApi.md#templatesbynamedelete) | **DELETE** /templates/{name} | Delete Template
-[**TemplatesByNameGet**](TemplatesApi.md#templatesbynameget) | **GET** /templates/{name} | Load Template
-[**TemplatesByNamePut**](TemplatesApi.md#templatesbynameput) | **PUT** /templates/{name} | Update Template
-[**TemplatesGet**](TemplatesApi.md#templatesget) | **GET** /templates | Load Templates
-[**TemplatesPost**](TemplatesApi.md#templatespost) | **POST** /templates | Add Template
-
+| Method | HTTP request | Description |
+|--------|--------------|-------------|
+| [**TemplatesByNameDelete**](TemplatesApi.md#templatesbynamedelete) | **DELETE** /templates/{name} | Delete Template |
+| [**TemplatesByNameGet**](TemplatesApi.md#templatesbynameget) | **GET** /templates/{name} | Load Template |
+| [**TemplatesByNamePut**](TemplatesApi.md#templatesbynameput) | **PUT** /templates/{name} | Update Template |
+| [**TemplatesGet**](TemplatesApi.md#templatesget) | **GET** /templates | Load Templates |
+| [**TemplatesPost**](TemplatesApi.md#templatespost) | **POST** /templates | Add Template |
 
 <a name="templatesbynamedelete"></a>
 # **TemplatesByNameDelete**
@@ -50,8 +49,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling TemplatesApi.TemplatesByNameDelete: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling TemplatesApi.TemplatesByNameDelete: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -59,11 +58,28 @@ namespace Example
 }
 ```
 
+#### Using the TemplatesByNameDeleteWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Delete Template
+    apiInstance.TemplatesByNameDeleteWithHttpInfo(name);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling TemplatesApi.TemplatesByNameDeleteWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **name** | **string**| Name of template. | 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **name** | **string** | Name of template. |  |
 
 ### Return type
 
@@ -126,8 +142,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling TemplatesApi.TemplatesByNameGet: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling TemplatesApi.TemplatesByNameGet: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -135,11 +151,31 @@ namespace Example
 }
 ```
 
+#### Using the TemplatesByNameGetWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Load Template
+    ApiResponse<Template> response = apiInstance.TemplatesByNameGetWithHttpInfo(name);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling TemplatesApi.TemplatesByNameGetWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **name** | **string**| Name of template. | 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **name** | **string** | Name of template. |  |
 
 ### Return type
 
@@ -203,8 +239,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling TemplatesApi.TemplatesByNamePut: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling TemplatesApi.TemplatesByNamePut: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -212,12 +248,32 @@ namespace Example
 }
 ```
 
+#### Using the TemplatesByNamePutWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Update Template
+    ApiResponse<Template> response = apiInstance.TemplatesByNamePutWithHttpInfo(name, templatePayload);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling TemplatesApi.TemplatesByNamePutWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **name** | **string**| Name of template. | 
- **templatePayload** | [**TemplatePayload**](TemplatePayload.md)|  | 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **name** | **string** | Name of template. |  |
+| **templatePayload** | [**TemplatePayload**](TemplatePayload.md) |  |  |
 
 ### Return type
 
@@ -283,8 +339,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling TemplatesApi.TemplatesGet: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling TemplatesApi.TemplatesGet: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -292,14 +348,34 @@ namespace Example
 }
 ```
 
+#### Using the TemplatesGetWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Load Templates
+    ApiResponse<List<Template>> response = apiInstance.TemplatesGetWithHttpInfo(scopeType, templateTypes, limit, offset);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling TemplatesApi.TemplatesGetWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **scopeType** | [**List&lt;TemplateScope&gt;**](TemplateScope.md)| Return templates with specified scope only | 
- **templateTypes** | [**List&lt;TemplateType&gt;**](TemplateType.md)| Return templates with specified type only | [optional] 
- **limit** | **int?**| Maximum number of returned items. | [optional] 
- **offset** | **int?**| How many items should be returned ahead. | [optional] 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **scopeType** | [**List&lt;TemplateScope&gt;**](TemplateScope.md) | Return templates with specified scope only |  |
+| **templateTypes** | [**List&lt;TemplateType&gt;**](TemplateType.md) | Return templates with specified type only | [optional]  |
+| **limit** | **int?** | Maximum number of returned items. | [optional]  |
+| **offset** | **int?** | How many items should be returned ahead. | [optional]  |
 
 ### Return type
 
@@ -362,8 +438,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling TemplatesApi.TemplatesPost: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling TemplatesApi.TemplatesPost: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -371,11 +447,31 @@ namespace Example
 }
 ```
 
+#### Using the TemplatesPostWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Add Template
+    ApiResponse<Template> response = apiInstance.TemplatesPostWithHttpInfo(templatePayload);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling TemplatesApi.TemplatesPostWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **templatePayload** | [**TemplatePayload**](TemplatePayload.md)|  | 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **templatePayload** | [**TemplatePayload**](TemplatePayload.md) |  |  |
 
 ### Return type
 

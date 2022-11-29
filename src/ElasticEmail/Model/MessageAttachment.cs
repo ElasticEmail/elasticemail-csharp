@@ -1,7 +1,7 @@
 /*
  * Elastic Email REST API
  *
- * This API is based on the REST API architecture, allowing the user to easily manage their data with this resource-based approach.    Every API call is established on which specific request type (GET, POST, PUT, DELETE) will be used.    The API has a limit of 20 concurrent connections and a hard timeout of 600 seconds per request.    To start using this API, you will need your Access Token (available <a target=\"_blank\" href=\"https://elasticemail.com/account#/settings/new/manage-api\">here</a>). Remember to keep it safe. Required access levels are listed in the given request’s description.    Downloadable library clients can be found in our Github repository <a target=\"_blank\" href=\"https://github.com/ElasticEmail?tab=repositories&q=%22rest+api%22+in%3Areadme\">here</a>
+ * This API is based on the REST API architecture, allowing the user to easily manage their data with this resource-based approach.    Every API call is established on which specific request type (GET, POST, PUT, DELETE) will be used.    The API has a limit of 20 concurrent connections and a hard timeout of 600 seconds per request.    To start using this API, you will need your Access Token (available <a target=\"_blank\" href=\"https://app.elasticemail.com/marketing/settings/new/manage-api\">here</a>). Remember to keep it safe. Required access levels are listed in the given request’s description.    Downloadable library clients can be found in our Github repository <a target=\"_blank\" href=\"https://github.com/ElasticEmail?tab=repositories&q=%22rest+api%22+in%3Areadme\">here</a>
  *
  * The version of the OpenAPI document: 4.0.0
  * Contact: support@elasticemail.com
@@ -41,7 +41,7 @@ namespace ElasticEmail.Model
         /// Initializes a new instance of the <see cref="MessageAttachment" /> class.
         /// </summary>
         /// <param name="binaryContent">File&#39;s content as byte array (or a Base64 string) (required).</param>
-        /// <param name="name">Display name of the file.</param>
+        /// <param name="name">Display name of the file (required).</param>
         /// <param name="contentType">MIME content type.</param>
         public MessageAttachment(byte[] binaryContent = default(byte[]), string name = default(string), string contentType = default(string))
         {
@@ -51,6 +51,11 @@ namespace ElasticEmail.Model
                 throw new ArgumentNullException("binaryContent is a required property for MessageAttachment and cannot be null");
             }
             this.BinaryContent = binaryContent;
+            // to ensure "name" is required (not null)
+            if (name == null)
+            {
+                throw new ArgumentNullException("name is a required property for MessageAttachment and cannot be null");
+            }
             this.Name = name;
             this.ContentType = contentType;
         }
@@ -59,14 +64,14 @@ namespace ElasticEmail.Model
         /// File&#39;s content as byte array (or a Base64 string)
         /// </summary>
         /// <value>File&#39;s content as byte array (or a Base64 string)</value>
-        [DataMember(Name = "BinaryContent", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "BinaryContent", IsRequired = true, EmitDefaultValue = true)]
         public byte[] BinaryContent { get; set; }
 
         /// <summary>
         /// Display name of the file
         /// </summary>
         /// <value>Display name of the file</value>
-        [DataMember(Name = "Name", EmitDefaultValue = false)]
+        [DataMember(Name = "Name", IsRequired = true, EmitDefaultValue = true)]
         public string Name { get; set; }
 
         /// <summary>

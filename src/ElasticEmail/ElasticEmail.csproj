@@ -12,12 +12,12 @@
     <Description>The C# library for the Elastic Email REST API. This API is based on the REST API architecture, allowing the user to easily manage their data with this resource-based approach. To start using this API, you will need your Access Token. Remember to keep it safe.</Description>
     <Copyright>No Copyright</Copyright>
     <RootNamespace>ElasticEmail</RootNamespace>
-    <Version>4.0.20</Version>
+    <Version>4.0.21</Version>
     <DocumentationFile>bin\$(Configuration)\$(TargetFramework)\ElasticEmail.xml</DocumentationFile>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <RepositoryUrl>https://github.com/elasticemail/elasticemail-csharp.git</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
-    <PackageReleaseNotes>API update</PackageReleaseNotes>
+    <PackageReleaseNotes>update to latest API changes</PackageReleaseNotes>
     <PackageTags>mailing, email, elasticemail, smtp</PackageTags>
     <PackageIcon>ee-logo.png</PackageIcon>
     <PackageProjectUrl>https://github.com/ElasticEmail/elasticemail-csharp</PackageProjectUrl>
@@ -31,11 +31,17 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="JsonSubTypes" Version="1.8.0" />
+    <PackageReference Include="JsonSubTypes" Version="1.9.0" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
-    <PackageReference Include="RestSharp" Version="106.13.0" />
+    <PackageReference Include="RestSharp" Version="108.0.2" />
     <PackageReference Include="Polly" Version="7.2.3" />
     <PackageReference Include="System.ComponentModel.Annotations" Version="5.0.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Remove="System.Web" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System.Web" />
+  </ItemGroup>
 </Project>

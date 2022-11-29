@@ -2,13 +2,12 @@
 
 All URIs are relative to *https://api.elasticemail.com/v4*
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**EmailsByMsgidViewGet**](EmailsApi.md#emailsbymsgidviewget) | **GET** /emails/{msgid}/view | View Email
-[**EmailsMergefilePost**](EmailsApi.md#emailsmergefilepost) | **POST** /emails/mergefile | Send Bulk Emails CSV
-[**EmailsPost**](EmailsApi.md#emailspost) | **POST** /emails | Send Bulk Emails
-[**EmailsTransactionalPost**](EmailsApi.md#emailstransactionalpost) | **POST** /emails/transactional | Send Transactional Email
-
+| Method | HTTP request | Description |
+|--------|--------------|-------------|
+| [**EmailsByMsgidViewGet**](EmailsApi.md#emailsbymsgidviewget) | **GET** /emails/{msgid}/view | View Email |
+| [**EmailsMergefilePost**](EmailsApi.md#emailsmergefilepost) | **POST** /emails/mergefile | Send Bulk Emails CSV |
+| [**EmailsPost**](EmailsApi.md#emailspost) | **POST** /emails | Send Bulk Emails |
+| [**EmailsTransactionalPost**](EmailsApi.md#emailstransactionalpost) | **POST** /emails/transactional | Send Transactional Email |
 
 <a name="emailsbymsgidviewget"></a>
 # **EmailsByMsgidViewGet**
@@ -50,8 +49,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling EmailsApi.EmailsByMsgidViewGet: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling EmailsApi.EmailsByMsgidViewGet: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -59,11 +58,31 @@ namespace Example
 }
 ```
 
+#### Using the EmailsByMsgidViewGetWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // View Email
+    ApiResponse<EmailData> response = apiInstance.EmailsByMsgidViewGetWithHttpInfo(msgid);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling EmailsApi.EmailsByMsgidViewGetWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **msgid** | **string**| Message identifier | 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **msgid** | **string** | Message identifier |  |
 
 ### Return type
 
@@ -126,8 +145,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling EmailsApi.EmailsMergefilePost: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling EmailsApi.EmailsMergefilePost: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -135,11 +154,31 @@ namespace Example
 }
 ```
 
+#### Using the EmailsMergefilePostWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Send Bulk Emails CSV
+    ApiResponse<EmailSend> response = apiInstance.EmailsMergefilePostWithHttpInfo(mergeEmailPayload);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling EmailsApi.EmailsMergefilePostWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **mergeEmailPayload** | [**MergeEmailPayload**](MergeEmailPayload.md)| Email data | 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **mergeEmailPayload** | [**MergeEmailPayload**](MergeEmailPayload.md) | Email data |  |
 
 ### Return type
 
@@ -202,8 +241,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling EmailsApi.EmailsPost: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling EmailsApi.EmailsPost: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -211,11 +250,31 @@ namespace Example
 }
 ```
 
+#### Using the EmailsPostWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Send Bulk Emails
+    ApiResponse<EmailSend> response = apiInstance.EmailsPostWithHttpInfo(emailMessageData);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling EmailsApi.EmailsPostWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **emailMessageData** | [**EmailMessageData**](EmailMessageData.md)| Email data | 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **emailMessageData** | [**EmailMessageData**](EmailMessageData.md) | Email data |  |
 
 ### Return type
 
@@ -278,8 +337,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling EmailsApi.EmailsTransactionalPost: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling EmailsApi.EmailsTransactionalPost: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -287,11 +346,31 @@ namespace Example
 }
 ```
 
+#### Using the EmailsTransactionalPostWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Send Transactional Email
+    ApiResponse<EmailSend> response = apiInstance.EmailsTransactionalPostWithHttpInfo(emailTransactionalMessageData);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling EmailsApi.EmailsTransactionalPostWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **emailTransactionalMessageData** | [**EmailTransactionalMessageData**](EmailTransactionalMessageData.md)| Email data | 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **emailTransactionalMessageData** | [**EmailTransactionalMessageData**](EmailTransactionalMessageData.md) | Email data |  |
 
 ### Return type
 

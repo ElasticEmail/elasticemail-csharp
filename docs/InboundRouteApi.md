@@ -2,15 +2,14 @@
 
 All URIs are relative to *https://api.elasticemail.com/v4*
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**InboundrouteByIdDelete**](InboundRouteApi.md#inboundroutebyiddelete) | **DELETE** /inboundroute/{id} | Delete Route
-[**InboundrouteByIdGet**](InboundRouteApi.md#inboundroutebyidget) | **GET** /inboundroute/{id} | Get Route
-[**InboundrouteByIdPut**](InboundRouteApi.md#inboundroutebyidput) | **PUT** /inboundroute/{id} | Update Route
-[**InboundrouteGet**](InboundRouteApi.md#inboundrouteget) | **GET** /inboundroute | Get Routes
-[**InboundrouteOrderPut**](InboundRouteApi.md#inboundrouteorderput) | **PUT** /inboundroute/order | Update Sorting
-[**InboundroutePost**](InboundRouteApi.md#inboundroutepost) | **POST** /inboundroute | Create Route
-
+| Method | HTTP request | Description |
+|--------|--------------|-------------|
+| [**InboundrouteByIdDelete**](InboundRouteApi.md#inboundroutebyiddelete) | **DELETE** /inboundroute/{id} | Delete Route |
+| [**InboundrouteByIdGet**](InboundRouteApi.md#inboundroutebyidget) | **GET** /inboundroute/{id} | Get Route |
+| [**InboundrouteByIdPut**](InboundRouteApi.md#inboundroutebyidput) | **PUT** /inboundroute/{id} | Update Route |
+| [**InboundrouteGet**](InboundRouteApi.md#inboundrouteget) | **GET** /inboundroute | Get Routes |
+| [**InboundrouteOrderPut**](InboundRouteApi.md#inboundrouteorderput) | **PUT** /inboundroute/order | Update Sorting |
+| [**InboundroutePost**](InboundRouteApi.md#inboundroutepost) | **POST** /inboundroute | Create Route |
 
 <a name="inboundroutebyiddelete"></a>
 # **InboundrouteByIdDelete**
@@ -51,8 +50,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling InboundRouteApi.InboundrouteByIdDelete: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling InboundRouteApi.InboundrouteByIdDelete: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -60,11 +59,28 @@ namespace Example
 }
 ```
 
+#### Using the InboundrouteByIdDeleteWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Delete Route
+    apiInstance.InboundrouteByIdDeleteWithHttpInfo(id);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling InboundRouteApi.InboundrouteByIdDeleteWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **string**|  | 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **id** | **string** |  |  |
 
 ### Return type
 
@@ -127,8 +143,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling InboundRouteApi.InboundrouteByIdGet: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling InboundRouteApi.InboundrouteByIdGet: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -136,11 +152,31 @@ namespace Example
 }
 ```
 
+#### Using the InboundrouteByIdGetWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Get Route
+    ApiResponse<InboundRoute> response = apiInstance.InboundrouteByIdGetWithHttpInfo(id);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling InboundRouteApi.InboundrouteByIdGetWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **string**| ID number of your attachment | 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **id** | **string** | ID number of your attachment |  |
 
 ### Return type
 
@@ -204,8 +240,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling InboundRouteApi.InboundrouteByIdPut: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling InboundRouteApi.InboundrouteByIdPut: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -213,12 +249,32 @@ namespace Example
 }
 ```
 
+#### Using the InboundrouteByIdPutWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Update Route
+    ApiResponse<InboundRoute> response = apiInstance.InboundrouteByIdPutWithHttpInfo(id, inboundPayload);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling InboundRouteApi.InboundrouteByIdPutWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **string**|  | 
- **inboundPayload** | [**InboundPayload**](InboundPayload.md)|  | 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **id** | **string** |  |  |
+| **inboundPayload** | [**InboundPayload**](InboundPayload.md) |  |  |
 
 ### Return type
 
@@ -280,8 +336,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling InboundRouteApi.InboundrouteGet: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling InboundRouteApi.InboundrouteGet: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -289,9 +345,28 @@ namespace Example
 }
 ```
 
+#### Using the InboundrouteGetWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Get Routes
+    ApiResponse<List<InboundRoute>> response = apiInstance.InboundrouteGetWithHttpInfo();
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling InboundRouteApi.InboundrouteGetWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 This endpoint does not need any parameter.
-
 ### Return type
 
 [**List&lt;InboundRoute&gt;**](InboundRoute.md)
@@ -353,8 +428,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling InboundRouteApi.InboundrouteOrderPut: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling InboundRouteApi.InboundrouteOrderPut: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -362,11 +437,31 @@ namespace Example
 }
 ```
 
+#### Using the InboundrouteOrderPutWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Update Sorting
+    ApiResponse<List<InboundRoute>> response = apiInstance.InboundrouteOrderPutWithHttpInfo(sortOrderItem);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling InboundRouteApi.InboundrouteOrderPutWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **sortOrderItem** | [**List&lt;SortOrderItem&gt;**](SortOrderItem.md)| Change the ordering of inbound routes for when matching the inbound | 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **sortOrderItem** | [**List&lt;SortOrderItem&gt;**](SortOrderItem.md) | Change the ordering of inbound routes for when matching the inbound |  |
 
 ### Return type
 
@@ -429,8 +524,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling InboundRouteApi.InboundroutePost: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling InboundRouteApi.InboundroutePost: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -438,11 +533,31 @@ namespace Example
 }
 ```
 
+#### Using the InboundroutePostWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Create Route
+    ApiResponse<InboundRoute> response = apiInstance.InboundroutePostWithHttpInfo(inboundPayload);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling InboundRouteApi.InboundroutePostWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **inboundPayload** | [**InboundPayload**](InboundPayload.md)|  | 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **inboundPayload** | [**InboundPayload**](InboundPayload.md) |  |  |
 
 ### Return type
 

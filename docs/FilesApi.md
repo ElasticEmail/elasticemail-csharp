@@ -2,14 +2,13 @@
 
 All URIs are relative to *https://api.elasticemail.com/v4*
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**FilesByNameDelete**](FilesApi.md#filesbynamedelete) | **DELETE** /files/{name} | Delete File
-[**FilesByNameGet**](FilesApi.md#filesbynameget) | **GET** /files/{name} | Download File
-[**FilesByNameInfoGet**](FilesApi.md#filesbynameinfoget) | **GET** /files/{name}/info | Load File Details
-[**FilesGet**](FilesApi.md#filesget) | **GET** /files | List Files
-[**FilesPost**](FilesApi.md#filespost) | **POST** /files | Upload File
-
+| Method | HTTP request | Description |
+|--------|--------------|-------------|
+| [**FilesByNameDelete**](FilesApi.md#filesbynamedelete) | **DELETE** /files/{name} | Delete File |
+| [**FilesByNameGet**](FilesApi.md#filesbynameget) | **GET** /files/{name} | Download File |
+| [**FilesByNameInfoGet**](FilesApi.md#filesbynameinfoget) | **GET** /files/{name}/info | Load File Details |
+| [**FilesGet**](FilesApi.md#filesget) | **GET** /files | List Files |
+| [**FilesPost**](FilesApi.md#filespost) | **POST** /files | Upload File |
 
 <a name="filesbynamedelete"></a>
 # **FilesByNameDelete**
@@ -50,8 +49,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling FilesApi.FilesByNameDelete: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling FilesApi.FilesByNameDelete: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -59,11 +58,28 @@ namespace Example
 }
 ```
 
+#### Using the FilesByNameDeleteWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Delete File
+    apiInstance.FilesByNameDeleteWithHttpInfo(name);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling FilesApi.FilesByNameDeleteWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **name** | **string**| Name of your file including extension. | 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **name** | **string** | Name of your file including extension. |  |
 
 ### Return type
 
@@ -126,8 +142,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling FilesApi.FilesByNameGet: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling FilesApi.FilesByNameGet: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -135,11 +151,31 @@ namespace Example
 }
 ```
 
+#### Using the FilesByNameGetWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Download File
+    ApiResponse<System.IO.Stream> response = apiInstance.FilesByNameGetWithHttpInfo(name);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling FilesApi.FilesByNameGetWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **name** | **string**| Name of your file including extension. | 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **name** | **string** | Name of your file including extension. |  |
 
 ### Return type
 
@@ -152,7 +188,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/_*
+ - **Accept**: application/*
 
 
 ### HTTP response details
@@ -202,8 +238,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling FilesApi.FilesByNameInfoGet: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling FilesApi.FilesByNameInfoGet: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -211,11 +247,31 @@ namespace Example
 }
 ```
 
+#### Using the FilesByNameInfoGetWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Load File Details
+    ApiResponse<FileInfo> response = apiInstance.FilesByNameInfoGetWithHttpInfo(name);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling FilesApi.FilesByNameInfoGetWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **name** | **string**| Name of your file including extension. | 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **name** | **string** | Name of your file including extension. |  |
 
 ### Return type
 
@@ -279,8 +335,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling FilesApi.FilesGet: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling FilesApi.FilesGet: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -288,12 +344,32 @@ namespace Example
 }
 ```
 
+#### Using the FilesGetWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // List Files
+    ApiResponse<List<FileInfo>> response = apiInstance.FilesGetWithHttpInfo(limit, offset);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling FilesApi.FilesGetWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **limit** | **int?**| Maximum number of returned items. | [optional] 
- **offset** | **int?**| How many items should be returned ahead. | [optional] 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **limit** | **int?** | Maximum number of returned items. | [optional]  |
+| **offset** | **int?** | How many items should be returned ahead. | [optional]  |
 
 ### Return type
 
@@ -357,8 +433,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling FilesApi.FilesPost: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling FilesApi.FilesPost: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -366,12 +442,32 @@ namespace Example
 }
 ```
 
+#### Using the FilesPostWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Upload File
+    ApiResponse<FileInfo> response = apiInstance.FilesPostWithHttpInfo(filePayload, expiresAfterDays);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling FilesApi.FilesPostWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **filePayload** | [**FilePayload**](FilePayload.md)|  | 
- **expiresAfterDays** | **int?**| After how many days should the file be deleted. | [optional] 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **filePayload** | [**FilePayload**](FilePayload.md) |  |  |
+| **expiresAfterDays** | **int?** | After how many days should the file be deleted. | [optional]  |
 
 ### Return type
 
