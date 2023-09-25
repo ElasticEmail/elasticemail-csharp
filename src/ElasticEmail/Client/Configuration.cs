@@ -33,7 +33,7 @@ namespace ElasticEmail.Client
         /// Version of the package.
         /// </summary>
         /// <value>Version of the package.</value>
-        public const string Version = "4.0.21";
+        public const string Version = "4.0.22";
 
         /// <summary>
         /// Identifier for ISO 8601 DateTime Format
@@ -110,7 +110,7 @@ namespace ElasticEmail.Client
         public Configuration()
         {
             Proxy = null;
-            UserAgent = WebUtility.UrlEncode("OpenAPI-Generator/4.0.21/csharp");
+            UserAgent = WebUtility.UrlEncode("OpenAPI-Generator/4.0.22/csharp");
             BasePath = "https://api.elasticemail.com/v4";
             DefaultHeaders = new ConcurrentDictionary<string, string>();
             ApiKey = new ConcurrentDictionary<string, string>();
@@ -518,7 +518,7 @@ namespace ElasticEmail.Client
             report += "    OS: " + System.Environment.OSVersion + "\n";
             report += "    .NET Framework Version: " + System.Environment.Version  + "\n";
             report += "    Version of the API: 4.0.0\n";
-            report += "    SDK Package Version: 4.0.21\n";
+            report += "    SDK Package Version: 4.0.22\n";
 
             return report;
         }

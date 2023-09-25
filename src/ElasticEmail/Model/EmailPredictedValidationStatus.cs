@@ -27,34 +27,40 @@ using OpenAPIDateConverter = ElasticEmail.Client.OpenAPIDateConverter;
 namespace ElasticEmail.Model
 {
     /// <summary>
-    /// Defines TemplateType
+    /// Defines EmailPredictedValidationStatus
     /// </summary>
     [JsonConverter(typeof(StringEnumConverter))]
-    public enum TemplateType
+    public enum EmailPredictedValidationStatus
     {
         /// <summary>
-        /// Enum RawHTML for value: RawHTML
+        /// Enum None for value: None
         /// </summary>
-        [EnumMember(Value = "RawHTML")]
-        RawHTML = 1,
+        [EnumMember(Value = "None")]
+        None = 1,
 
         /// <summary>
-        /// Enum DragDropEditor for value: DragDropEditor
+        /// Enum Valid for value: Valid
         /// </summary>
-        [EnumMember(Value = "DragDropEditor")]
-        DragDropEditor = 2,
+        [EnumMember(Value = "Valid")]
+        Valid = 2,
 
         /// <summary>
-        /// Enum LandingPageEditor for value: LandingPageEditor
+        /// Enum LowRisk for value: LowRisk
         /// </summary>
-        [EnumMember(Value = "LandingPageEditor")]
-        LandingPageEditor = 3,
+        [EnumMember(Value = "LowRisk")]
+        LowRisk = 3,
 
         /// <summary>
-        /// Enum TemplateEditor for value: TemplateEditor
+        /// Enum HighRisk for value: HighRisk
         /// </summary>
-        [EnumMember(Value = "TemplateEditor")]
-        TemplateEditor = 4
+        [EnumMember(Value = "HighRisk")]
+        HighRisk = 4,
+
+        /// <summary>
+        /// Enum Invalid for value: Invalid
+        /// </summary>
+        [EnumMember(Value = "Invalid")]
+        Invalid = 5
 
     }
 

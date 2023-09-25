@@ -113,7 +113,7 @@ void (empty response body)
 
 Get Email Verification Result
 
-Returns a result of verified email. Required Access Level: VerifyEmails, ViewEmailVerifications
+Returns a result of verified email. Required Access Level: VerifyEmails
 
 ### Example
 ```csharp
@@ -493,7 +493,7 @@ catch (ApiException e)
 
 Get Detailed File Verification Result
 
-Returns status and results (if verified) of file with given ID. Required Access Level: VerifyEmails, ViewEmailVerifications
+Returns status and results (if verified) of file with given ID. Required Access Level: VerifyEmails
 
 ### Example
 ```csharp
@@ -781,7 +781,7 @@ catch (ApiException e)
 
 Get Files Verification Results
 
-Returns a list of uploaded files, their statuses and results. Required Access Level: VerifyEmails, ViewEmailVerifications
+Returns a list of uploaded files, their statuses and results. Required Access Level: VerifyEmails
 
 ### Example
 ```csharp
@@ -872,7 +872,7 @@ This endpoint does not need any parameter.
 
 Get Emails Verification Results
 
-Returns a results of all verified single emails. Required Access Level: VerifyEmails, ViewEmailVerifications
+Returns a results of all verified single emails. Required Access Level: VerifyEmails
 
 ### Example
 ```csharp

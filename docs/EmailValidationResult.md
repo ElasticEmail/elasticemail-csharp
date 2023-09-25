@@ -13,6 +13,8 @@ Name | Type | Description | Notes
 **Reason** | **string** | All detected issues | [optional] 
 **DateAdded** | **DateTime** | Date of creation in YYYY-MM-DDThh:ii:ss format | [optional] 
 **Result** | **EmailValidationStatus** |  | [optional] 
+**PredictedScore** | **decimal** |  | [optional] 
+**PredictedStatus** | **EmailPredictedValidationStatus** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

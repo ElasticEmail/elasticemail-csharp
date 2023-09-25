@@ -48,7 +48,7 @@ namespace ElasticEmail.Model
         /// </summary>
         /// <param name="contentType">contentType (required).</param>
         /// <param name="content">Actual content of the body part.</param>
-        /// <param name="charset">Text value of charset encoding for example: iso-8859-1, windows-1251, utf-8, us-ascii, windows-1250 and more….</param>
+        /// <param name="charset">Text value of charset encoding for example: iso-8859-1, windows-1251, utf-8, us-ascii, windows-1250 and more....</param>
         public BodyPart(BodyContentType contentType = default(BodyContentType), string content = default(string), string charset = default(string))
         {
             this.ContentType = contentType;
@@ -64,9 +64,9 @@ namespace ElasticEmail.Model
         public string Content { get; set; }
 
         /// <summary>
-        /// Text value of charset encoding for example: iso-8859-1, windows-1251, utf-8, us-ascii, windows-1250 and more…
+        /// Text value of charset encoding for example: iso-8859-1, windows-1251, utf-8, us-ascii, windows-1250 and more...
         /// </summary>
-        /// <value>Text value of charset encoding for example: iso-8859-1, windows-1251, utf-8, us-ascii, windows-1250 and more…</value>
+        /// <value>Text value of charset encoding for example: iso-8859-1, windows-1251, utf-8, us-ascii, windows-1250 and more...</value>
         [DataMember(Name = "Charset", EmitDefaultValue = false)]
         public string Charset { get; set; }
 

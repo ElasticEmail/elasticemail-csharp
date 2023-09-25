@@ -16,5 +16,4 @@
   <ItemGroup>
     <ProjectReference Include="..\ElasticEmail\ElasticEmail.csproj" />
   </ItemGroup>
-
 </Project>

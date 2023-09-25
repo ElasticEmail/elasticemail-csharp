@@ -54,7 +54,7 @@ namespace ElasticEmail.Api
         /// Get Email Verification Result
         /// </summary>
         /// <remarks>
-        /// Returns a result of verified email. Required Access Level: VerifyEmails, ViewEmailVerifications
+        /// Returns a result of verified email. Required Access Level: VerifyEmails
         /// </remarks>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="email">Email address to view verification result of</param>
@@ -66,7 +66,7 @@ namespace ElasticEmail.Api
         /// Get Email Verification Result
         /// </summary>
         /// <remarks>
-        /// Returns a result of verified email. Required Access Level: VerifyEmails, ViewEmailVerifications
+        /// Returns a result of verified email. Required Access Level: VerifyEmails
         /// </remarks>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="email">Email address to view verification result of</param>
@@ -146,7 +146,7 @@ namespace ElasticEmail.Api
         /// Get Detailed File Verification Result
         /// </summary>
         /// <remarks>
-        /// Returns status and results (if verified) of file with given ID. Required Access Level: VerifyEmails, ViewEmailVerifications
+        /// Returns status and results (if verified) of file with given ID. Required Access Level: VerifyEmails
         /// </remarks>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">ID of the Verification to display status of</param>
@@ -160,7 +160,7 @@ namespace ElasticEmail.Api
         /// Get Detailed File Verification Result
         /// </summary>
         /// <remarks>
-        /// Returns status and results (if verified) of file with given ID. Required Access Level: VerifyEmails, ViewEmailVerifications
+        /// Returns status and results (if verified) of file with given ID. Required Access Level: VerifyEmails
         /// </remarks>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">ID of the Verification to display status of</param>
@@ -219,7 +219,7 @@ namespace ElasticEmail.Api
         /// Get Files Verification Results
         /// </summary>
         /// <remarks>
-        /// Returns a list of uploaded files, their statuses and results. Required Access Level: VerifyEmails, ViewEmailVerifications
+        /// Returns a list of uploaded files, their statuses and results. Required Access Level: VerifyEmails
         /// </remarks>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -230,7 +230,7 @@ namespace ElasticEmail.Api
         /// Get Files Verification Results
         /// </summary>
         /// <remarks>
-        /// Returns a list of uploaded files, their statuses and results. Required Access Level: VerifyEmails, ViewEmailVerifications
+        /// Returns a list of uploaded files, their statuses and results. Required Access Level: VerifyEmails
         /// </remarks>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -240,7 +240,7 @@ namespace ElasticEmail.Api
         /// Get Emails Verification Results
         /// </summary>
         /// <remarks>
-        /// Returns a results of all verified single emails. Required Access Level: VerifyEmails, ViewEmailVerifications
+        /// Returns a results of all verified single emails. Required Access Level: VerifyEmails
         /// </remarks>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="limit">Maximum number of returned items. (optional)</param>
@@ -253,7 +253,7 @@ namespace ElasticEmail.Api
         /// Get Emails Verification Results
         /// </summary>
         /// <remarks>
-        /// Returns a results of all verified single emails. Required Access Level: VerifyEmails, ViewEmailVerifications
+        /// Returns a results of all verified single emails. Required Access Level: VerifyEmails
         /// </remarks>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="limit">Maximum number of returned items. (optional)</param>
@@ -299,7 +299,7 @@ namespace ElasticEmail.Api
         /// Get Email Verification Result
         /// </summary>
         /// <remarks>
-        /// Returns a result of verified email. Required Access Level: VerifyEmails, ViewEmailVerifications
+        /// Returns a result of verified email. Required Access Level: VerifyEmails
         /// </remarks>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="email">Email address to view verification result of</param>
@@ -312,7 +312,7 @@ namespace ElasticEmail.Api
         /// Get Email Verification Result
         /// </summary>
         /// <remarks>
-        /// Returns a result of verified email. Required Access Level: VerifyEmails, ViewEmailVerifications
+        /// Returns a result of verified email. Required Access Level: VerifyEmails
         /// </remarks>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="email">Email address to view verification result of</param>
@@ -399,7 +399,7 @@ namespace ElasticEmail.Api
         /// Get Detailed File Verification Result
         /// </summary>
         /// <remarks>
-        /// Returns status and results (if verified) of file with given ID. Required Access Level: VerifyEmails, ViewEmailVerifications
+        /// Returns status and results (if verified) of file with given ID. Required Access Level: VerifyEmails
         /// </remarks>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">ID of the Verification to display status of</param>
@@ -414,7 +414,7 @@ namespace ElasticEmail.Api
         /// Get Detailed File Verification Result
         /// </summary>
         /// <remarks>
-        /// Returns status and results (if verified) of file with given ID. Required Access Level: VerifyEmails, ViewEmailVerifications
+        /// Returns status and results (if verified) of file with given ID. Required Access Level: VerifyEmails
         /// </remarks>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">ID of the Verification to display status of</param>
@@ -478,7 +478,7 @@ namespace ElasticEmail.Api
         /// Get Files Verification Results
         /// </summary>
         /// <remarks>
-        /// Returns a list of uploaded files, their statuses and results. Required Access Level: VerifyEmails, ViewEmailVerifications
+        /// Returns a list of uploaded files, their statuses and results. Required Access Level: VerifyEmails
         /// </remarks>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -490,7 +490,7 @@ namespace ElasticEmail.Api
         /// Get Files Verification Results
         /// </summary>
         /// <remarks>
-        /// Returns a list of uploaded files, their statuses and results. Required Access Level: VerifyEmails, ViewEmailVerifications
+        /// Returns a list of uploaded files, their statuses and results. Required Access Level: VerifyEmails
         /// </remarks>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -501,7 +501,7 @@ namespace ElasticEmail.Api
         /// Get Emails Verification Results
         /// </summary>
         /// <remarks>
-        /// Returns a results of all verified single emails. Required Access Level: VerifyEmails, ViewEmailVerifications
+        /// Returns a results of all verified single emails. Required Access Level: VerifyEmails
         /// </remarks>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="limit">Maximum number of returned items. (optional)</param>
@@ -515,7 +515,7 @@ namespace ElasticEmail.Api
         /// Get Emails Verification Results
         /// </summary>
         /// <remarks>
-        /// Returns a results of all verified single emails. Required Access Level: VerifyEmails, ViewEmailVerifications
+        /// Returns a results of all verified single emails. Required Access Level: VerifyEmails
         /// </remarks>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="limit">Maximum number of returned items. (optional)</param>
@@ -795,7 +795,7 @@ namespace ElasticEmail.Api
         }
 
         /// <summary>
-        /// Get Email Verification Result Returns a result of verified email. Required Access Level: VerifyEmails, ViewEmailVerifications
+        /// Get Email Verification Result Returns a result of verified email. Required Access Level: VerifyEmails
         /// </summary>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="email">Email address to view verification result of</param>
@@ -808,7 +808,7 @@ namespace ElasticEmail.Api
         }
 
         /// <summary>
-        /// Get Email Verification Result Returns a result of verified email. Required Access Level: VerifyEmails, ViewEmailVerifications
+        /// Get Email Verification Result Returns a result of verified email. Required Access Level: VerifyEmails
         /// </summary>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="email">Email address to view verification result of</param>
@@ -870,7 +870,7 @@ namespace ElasticEmail.Api
         }
 
         /// <summary>
-        /// Get Email Verification Result Returns a result of verified email. Required Access Level: VerifyEmails, ViewEmailVerifications
+        /// Get Email Verification Result Returns a result of verified email. Required Access Level: VerifyEmails
         /// </summary>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="email">Email address to view verification result of</param>
@@ -884,7 +884,7 @@ namespace ElasticEmail.Api
         }
 
         /// <summary>
-        /// Get Email Verification Result Returns a result of verified email. Required Access Level: VerifyEmails, ViewEmailVerifications
+        /// Get Email Verification Result Returns a result of verified email. Required Access Level: VerifyEmails
         /// </summary>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="email">Email address to view verification result of</param>
@@ -1407,7 +1407,7 @@ namespace ElasticEmail.Api
         }
 
         /// <summary>
-        /// Get Detailed File Verification Result Returns status and results (if verified) of file with given ID. Required Access Level: VerifyEmails, ViewEmailVerifications
+        /// Get Detailed File Verification Result Returns status and results (if verified) of file with given ID. Required Access Level: VerifyEmails
         /// </summary>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">ID of the Verification to display status of</param>
@@ -1422,7 +1422,7 @@ namespace ElasticEmail.Api
         }
 
         /// <summary>
-        /// Get Detailed File Verification Result Returns status and results (if verified) of file with given ID. Required Access Level: VerifyEmails, ViewEmailVerifications
+        /// Get Detailed File Verification Result Returns status and results (if verified) of file with given ID. Required Access Level: VerifyEmails
         /// </summary>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">ID of the Verification to display status of</param>
@@ -1494,7 +1494,7 @@ namespace ElasticEmail.Api
         }
 
         /// <summary>
-        /// Get Detailed File Verification Result Returns status and results (if verified) of file with given ID. Required Access Level: VerifyEmails, ViewEmailVerifications
+        /// Get Detailed File Verification Result Returns status and results (if verified) of file with given ID. Required Access Level: VerifyEmails
         /// </summary>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">ID of the Verification to display status of</param>
@@ -1510,7 +1510,7 @@ namespace ElasticEmail.Api
         }
 
         /// <summary>
-        /// Get Detailed File Verification Result Returns status and results (if verified) of file with given ID. Required Access Level: VerifyEmails, ViewEmailVerifications
+        /// Get Detailed File Verification Result Returns status and results (if verified) of file with given ID. Required Access Level: VerifyEmails
         /// </summary>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">ID of the Verification to display status of</param>
@@ -1885,7 +1885,7 @@ namespace ElasticEmail.Api
         }
 
         /// <summary>
-        /// Get Files Verification Results Returns a list of uploaded files, their statuses and results. Required Access Level: VerifyEmails, ViewEmailVerifications
+        /// Get Files Verification Results Returns a list of uploaded files, their statuses and results. Required Access Level: VerifyEmails
         /// </summary>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -1897,7 +1897,7 @@ namespace ElasticEmail.Api
         }
 
         /// <summary>
-        /// Get Files Verification Results Returns a list of uploaded files, their statuses and results. Required Access Level: VerifyEmails, ViewEmailVerifications
+        /// Get Files Verification Results Returns a list of uploaded files, their statuses and results. Required Access Level: VerifyEmails
         /// </summary>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -1951,7 +1951,7 @@ namespace ElasticEmail.Api
         }
 
         /// <summary>
-        /// Get Files Verification Results Returns a list of uploaded files, their statuses and results. Required Access Level: VerifyEmails, ViewEmailVerifications
+        /// Get Files Verification Results Returns a list of uploaded files, their statuses and results. Required Access Level: VerifyEmails
         /// </summary>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -1964,7 +1964,7 @@ namespace ElasticEmail.Api
         }
 
         /// <summary>
-        /// Get Files Verification Results Returns a list of uploaded files, their statuses and results. Required Access Level: VerifyEmails, ViewEmailVerifications
+        /// Get Files Verification Results Returns a list of uploaded files, their statuses and results. Required Access Level: VerifyEmails
         /// </summary>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -2021,7 +2021,7 @@ namespace ElasticEmail.Api
         }
 
         /// <summary>
-        /// Get Emails Verification Results Returns a results of all verified single emails. Required Access Level: VerifyEmails, ViewEmailVerifications
+        /// Get Emails Verification Results Returns a results of all verified single emails. Required Access Level: VerifyEmails
         /// </summary>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="limit">Maximum number of returned items. (optional)</param>
@@ -2035,7 +2035,7 @@ namespace ElasticEmail.Api
         }
 
         /// <summary>
-        /// Get Emails Verification Results Returns a results of all verified single emails. Required Access Level: VerifyEmails, ViewEmailVerifications
+        /// Get Emails Verification Results Returns a results of all verified single emails. Required Access Level: VerifyEmails
         /// </summary>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="limit">Maximum number of returned items. (optional)</param>
@@ -2099,7 +2099,7 @@ namespace ElasticEmail.Api
         }
 
         /// <summary>
-        /// Get Emails Verification Results Returns a results of all verified single emails. Required Access Level: VerifyEmails, ViewEmailVerifications
+        /// Get Emails Verification Results Returns a results of all verified single emails. Required Access Level: VerifyEmails
         /// </summary>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="limit">Maximum number of returned items. (optional)</param>
@@ -2114,7 +2114,7 @@ namespace ElasticEmail.Api
         }
 
         /// <summary>
-        /// Get Emails Verification Results Returns a results of all verified single emails. Required Access Level: VerifyEmails, ViewEmailVerifications
+        /// Get Emails Verification Results Returns a results of all verified single emails. Required Access Level: VerifyEmails
         /// </summary>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="limit">Maximum number of returned items. (optional)</param>

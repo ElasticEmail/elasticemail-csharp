@@ -38,6 +38,12 @@ namespace ElasticEmail.Model
         /// </summary>
         [DataMember(Name = "Result", EmitDefaultValue = false)]
         public EmailValidationStatus? Result { get; set; }
+
+        /// <summary>
+        /// Gets or Sets PredictedStatus
+        /// </summary>
+        [DataMember(Name = "PredictedStatus", EmitDefaultValue = false)]
+        public EmailPredictedValidationStatus? PredictedStatus { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="EmailValidationResult" /> class.
         /// </summary>
@@ -50,7 +56,9 @@ namespace ElasticEmail.Model
         /// <param name="reason">All detected issues.</param>
         /// <param name="dateAdded">Date of creation in YYYY-MM-DDThh:ii:ss format.</param>
         /// <param name="result">result.</param>
-        public EmailValidationResult(string account = default(string), string domain = default(string), string email = default(string), string suggestedSpelling = default(string), bool disposable = default(bool), bool role = default(bool), string reason = default(string), DateTime dateAdded = default(DateTime), EmailValidationStatus? result = default(EmailValidationStatus?))
+        /// <param name="predictedScore">predictedScore.</param>
+        /// <param name="predictedStatus">predictedStatus.</param>
+        public EmailValidationResult(string account = default(string), string domain = default(string), string email = default(string), string suggestedSpelling = default(string), bool disposable = default(bool), bool role = default(bool), string reason = default(string), DateTime dateAdded = default(DateTime), EmailValidationStatus? result = default(EmailValidationStatus?), decimal predictedScore = default(decimal), EmailPredictedValidationStatus? predictedStatus = default(EmailPredictedValidationStatus?))
         {
             this.Account = account;
             this.Domain = domain;
@@ -61,6 +69,8 @@ namespace ElasticEmail.Model
             this.Reason = reason;
             this.DateAdded = dateAdded;
             this.Result = result;
+            this.PredictedScore = predictedScore;
+            this.PredictedStatus = predictedStatus;
         }
 
         /// <summary>
@@ -120,6 +130,12 @@ namespace ElasticEmail.Model
         public DateTime DateAdded { get; set; }
 
         /// <summary>
+        /// Gets or Sets PredictedScore
+        /// </summary>
+        [DataMember(Name = "PredictedScore", EmitDefaultValue = false)]
+        public decimal PredictedScore { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -136,6 +152,8 @@ namespace ElasticEmail.Model
             sb.Append("  Reason: ").Append(Reason).Append("\n");
             sb.Append("  DateAdded: ").Append(DateAdded).Append("\n");
             sb.Append("  Result: ").Append(Result).Append("\n");
+            sb.Append("  PredictedScore: ").Append(PredictedScore).Append("\n");
+            sb.Append("  PredictedStatus: ").Append(PredictedStatus).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -212,6 +230,14 @@ namespace ElasticEmail.Model
                 (
                     this.Result == input.Result ||
                     this.Result.Equals(input.Result)
+                ) && 
+                (
+                    this.PredictedScore == input.PredictedScore ||
+                    this.PredictedScore.Equals(input.PredictedScore)
+                ) && 
+                (
+                    this.PredictedStatus == input.PredictedStatus ||
+                    this.PredictedStatus.Equals(input.PredictedStatus)
                 );
         }
 
@@ -251,6 +277,8 @@ namespace ElasticEmail.Model
                     hashCode = (hashCode * 59) + this.DateAdded.GetHashCode();
                 }
                 hashCode = (hashCode * 59) + this.Result.GetHashCode();
+                hashCode = (hashCode * 59) + this.PredictedScore.GetHashCode();
+                hashCode = (hashCode * 59) + this.PredictedStatus.GetHashCode();
                 return hashCode;
             }
         }

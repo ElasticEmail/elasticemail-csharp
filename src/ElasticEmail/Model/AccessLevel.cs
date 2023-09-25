@@ -249,10 +249,10 @@ namespace ElasticEmail.Model
         SendHttp = 36,
 
         /// <summary>
-        /// Enum Modify2FA for value: Modify2FA
+        /// Enum Modify2FAEmail for value: Modify2FAEmail
         /// </summary>
-        [EnumMember(Value = "Modify2FA")]
-        Modify2FA = 37,
+        [EnumMember(Value = "Modify2FAEmail")]
+        Modify2FAEmail = 37,
 
         /// <summary>
         /// Enum ModifySupport for value: ModifySupport
@@ -291,10 +291,10 @@ namespace ElasticEmail.Model
         VerifyEmails = 43,
 
         /// <summary>
-        /// Enum ViewEmailVerifications for value: ViewEmailVerifications
+        /// Enum Modify2FASms for value: Modify2FASms
         /// </summary>
-        [EnumMember(Value = "ViewEmailVerifications")]
-        ViewEmailVerifications = 44,
+        [EnumMember(Value = "Modify2FASms")]
+        Modify2FASms = 44,
 
         /// <summary>
         /// Enum DisableContactsStore for value: DisableContactsStore
@@ -324,7 +324,19 @@ namespace ElasticEmail.Model
         /// Enum ViewSuppressions for value: ViewSuppressions
         /// </summary>
         [EnumMember(Value = "ViewSuppressions")]
-        ViewSuppressions = 49
+        ViewSuppressions = 49,
+
+        /// <summary>
+        /// Enum ViewDragDropEditor for value: ViewDragDropEditor
+        /// </summary>
+        [EnumMember(Value = "ViewDragDropEditor")]
+        ViewDragDropEditor = 50,
+
+        /// <summary>
+        /// Enum ViewTemplateEditor for value: ViewTemplateEditor
+        /// </summary>
+        [EnumMember(Value = "ViewTemplateEditor")]
+        ViewTemplateEditor = 51
 
     }
 

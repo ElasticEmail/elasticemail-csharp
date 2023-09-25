@@ -43,7 +43,8 @@ namespace ElasticEmail.Model
         /// <param name="binaryContent">File&#39;s content as byte array (or a Base64 string) (required).</param>
         /// <param name="name">Display name of the file (required).</param>
         /// <param name="contentType">MIME content type.</param>
-        public MessageAttachment(byte[] binaryContent = default(byte[]), string name = default(string), string contentType = default(string))
+        /// <param name="size">Size of your attachment (in bytes)..</param>
+        public MessageAttachment(byte[] binaryContent = default(byte[]), string name = default(string), string contentType = default(string), int size = default(int))
         {
             // to ensure "binaryContent" is required (not null)
             if (binaryContent == null)
@@ -58,6 +59,7 @@ namespace ElasticEmail.Model
             }
             this.Name = name;
             this.ContentType = contentType;
+            this.Size = size;
         }
 
         /// <summary>
@@ -82,6 +84,13 @@ namespace ElasticEmail.Model
         public string ContentType { get; set; }
 
         /// <summary>
+        /// Size of your attachment (in bytes).
+        /// </summary>
+        /// <value>Size of your attachment (in bytes).</value>
+        [DataMember(Name = "Size", EmitDefaultValue = false)]
+        public int Size { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -92,6 +101,7 @@ namespace ElasticEmail.Model
             sb.Append("  BinaryContent: ").Append(BinaryContent).Append("\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("  ContentType: ").Append(ContentType).Append("\n");
+            sb.Append("  Size: ").Append(Size).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -141,6 +151,10 @@ namespace ElasticEmail.Model
                     this.ContentType == input.ContentType ||
                     (this.ContentType != null &&
                     this.ContentType.Equals(input.ContentType))
+                ) && 
+                (
+                    this.Size == input.Size ||
+                    this.Size.Equals(input.Size)
                 );
         }
 
@@ -165,6 +179,7 @@ namespace ElasticEmail.Model
                 {
                     hashCode = (hashCode * 59) + this.ContentType.GetHashCode();
                 }
+                hashCode = (hashCode * 59) + this.Size.GetHashCode();
                 return hashCode;
             }
         }
