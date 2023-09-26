@@ -21,7 +21,16 @@
     <PackageTags>mailing, email, elasticemail, smtp</PackageTags>
     <PackageIcon>ee-logo.png</PackageIcon>
     <PackageProjectUrl>https://github.com/ElasticEmail/elasticemail-csharp</PackageProjectUrl>
+    <PackageIcon>ee-logo.png</PackageIcon>
+    <PackageProjectUrl>https://github.com/ElasticEmail/elasticemail-csharp</PackageProjectUrl>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="ee-logo.png">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
 
   <ItemGroup>
     <None Include="ee-logo.png">
