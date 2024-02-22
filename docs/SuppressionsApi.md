@@ -147,7 +147,7 @@ namespace Example
             // config.AddApiKeyPrefix("X-ElasticEmail-ApiKey", "Bearer");
 
             var apiInstance = new SuppressionsApi(config);
-            var file = new System.IO.MemoryStream(System.IO.File.ReadAllBytes("/path/to/file.txt"));  // System.IO.Stream |  (optional) 
+            var file = new System.IO.FileStream("/path/to/file.txt", FileMode.Open, FileAccess.Read);  // System.IO.Stream |  (optional) 
 
             try
             {
@@ -623,7 +623,7 @@ namespace Example
             // config.AddApiKeyPrefix("X-ElasticEmail-ApiKey", "Bearer");
 
             var apiInstance = new SuppressionsApi(config);
-            var file = new System.IO.MemoryStream(System.IO.File.ReadAllBytes("/path/to/file.txt"));  // System.IO.Stream |  (optional) 
+            var file = new System.IO.FileStream("/path/to/file.txt", FileMode.Open, FileAccess.Read);  // System.IO.Stream |  (optional) 
 
             try
             {
@@ -1009,7 +1009,7 @@ namespace Example
             // config.AddApiKeyPrefix("X-ElasticEmail-ApiKey", "Bearer");
 
             var apiInstance = new SuppressionsApi(config);
-            var file = new System.IO.MemoryStream(System.IO.File.ReadAllBytes("/path/to/file.txt"));  // System.IO.Stream |  (optional) 
+            var file = new System.IO.FileStream("/path/to/file.txt", FileMode.Open, FileAccess.Read);  // System.IO.Stream |  (optional) 
 
             try
             {
