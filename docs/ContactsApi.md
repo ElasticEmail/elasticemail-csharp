@@ -723,7 +723,7 @@ namespace Example
             var listName = "listName_example";  // string | Name of an existing list to add these contacts to (optional) 
             var encodingName = "encodingName_example";  // string | In what encoding the file is uploaded (optional) 
             var fileUrl = "fileUrl_example";  // string | Optional url of csv to import (optional) 
-            var file = new System.IO.MemoryStream(System.IO.File.ReadAllBytes("/path/to/file.txt"));  // System.IO.Stream |  (optional) 
+            var file = new System.IO.FileStream("/path/to/file.txt", FileMode.Open, FileAccess.Read);  // System.IO.Stream |  (optional) 
 
             try
             {
