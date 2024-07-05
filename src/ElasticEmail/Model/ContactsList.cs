@@ -30,7 +30,7 @@ namespace ElasticEmail.Model
     /// List of Lists, with detailed data about its contents.
     /// </summary>
     [DataContract(Name = "ContactsList")]
-    public partial class ContactsList : IEquatable<ContactsList>, IValidatableObject
+    public partial class ContactsList : IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="ContactsList" /> class.
@@ -51,6 +51,7 @@ namespace ElasticEmail.Model
         /// Name of your list.
         /// </summary>
         /// <value>Name of your list.</value>
+        /// <example>My List 1</example>
         [DataMember(Name = "ListName", EmitDefaultValue = false)]
         public string ListName { get; set; }
 
@@ -58,6 +59,7 @@ namespace ElasticEmail.Model
         /// ID code of list. Please note that this is different from the listid field.
         /// </summary>
         /// <value>ID code of list. Please note that this is different from the listid field.</value>
+        /// <example>E33EBA7A-C20D-4D3D-8F2F-5EEF42F58E6F</example>
         [DataMember(Name = "PublicListID", EmitDefaultValue = true)]
         public string PublicListID { get; set; }
 
@@ -72,6 +74,7 @@ namespace ElasticEmail.Model
         /// True: Allow unsubscribing from this list. Otherwise, false
         /// </summary>
         /// <value>True: Allow unsubscribing from this list. Otherwise, false</value>
+        /// <example>false</example>
         [DataMember(Name = "AllowUnsubscribe", EmitDefaultValue = true)]
         public bool AllowUnsubscribe { get; set; }
 
@@ -101,80 +104,11 @@ namespace ElasticEmail.Model
         }
 
         /// <summary>
-        /// Returns true if objects are equal
-        /// </summary>
-        /// <param name="input">Object to be compared</param>
-        /// <returns>Boolean</returns>
-        public override bool Equals(object input)
-        {
-            return this.Equals(input as ContactsList);
-        }
-
-        /// <summary>
-        /// Returns true if ContactsList instances are equal
-        /// </summary>
-        /// <param name="input">Instance of ContactsList to be compared</param>
-        /// <returns>Boolean</returns>
-        public bool Equals(ContactsList input)
-        {
-            if (input == null)
-            {
-                return false;
-            }
-            return 
-                (
-                    this.ListName == input.ListName ||
-                    (this.ListName != null &&
-                    this.ListName.Equals(input.ListName))
-                ) && 
-                (
-                    this.PublicListID == input.PublicListID ||
-                    (this.PublicListID != null &&
-                    this.PublicListID.Equals(input.PublicListID))
-                ) && 
-                (
-                    this.DateAdded == input.DateAdded ||
-                    (this.DateAdded != null &&
-                    this.DateAdded.Equals(input.DateAdded))
-                ) && 
-                (
-                    this.AllowUnsubscribe == input.AllowUnsubscribe ||
-                    this.AllowUnsubscribe.Equals(input.AllowUnsubscribe)
-                );
-        }
-
-        /// <summary>
-        /// Gets the hash code
-        /// </summary>
-        /// <returns>Hash code</returns>
-        public override int GetHashCode()
-        {
-            unchecked // Overflow is fine, just wrap
-            {
-                int hashCode = 41;
-                if (this.ListName != null)
-                {
-                    hashCode = (hashCode * 59) + this.ListName.GetHashCode();
-                }
-                if (this.PublicListID != null)
-                {
-                    hashCode = (hashCode * 59) + this.PublicListID.GetHashCode();
-                }
-                if (this.DateAdded != null)
-                {
-                    hashCode = (hashCode * 59) + this.DateAdded.GetHashCode();
-                }
-                hashCode = (hashCode * 59) + this.AllowUnsubscribe.GetHashCode();
-                return hashCode;
-            }
-        }
-
-        /// <summary>
         /// To validate all properties of the instance
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             yield break;
         }

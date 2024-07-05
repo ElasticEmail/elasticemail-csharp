@@ -1,7 +1,7 @@
 /*
  * Elastic Email REST API
  *
- * This API is based on the REST API architecture, allowing the user to easily manage their data with this resource-based approach.    Every API call is established on which specific request type (GET, POST, PUT, DELETE) will be used.    To start using this API, you will need your Access Token (available <a href=\"https://elasticemail.com/account#/settings/new/manage-api\">here</a>). Remember to keep it safe. Required access levels are listed in the given request’s description.    This is the documentation for REST API. If you’d like to read our legacy documentation regarding Web API v2 click <a href=\"https://api.elasticemail.com/public/help\">here</a>.
+ * This API is based on the REST API architecture, allowing the user to easily manage their data with this resource-based approach.    Every API call is established on which specific request type (GET, POST, PUT, DELETE) will be used.    The API has a limit of 20 concurrent connections and a hard timeout of 600 seconds per request.    To start using this API, you will need your Access Token (available <a target=\"_blank\" href=\"https://app.elasticemail.com/marketing/settings/new/manage-api\">here</a>). Remember to keep it safe. Required access levels are listed in the given request’s description.    Downloadable library clients can be found in our Github repository <a target=\"_blank\" href=\"https://github.com/ElasticEmail?tab=repositories&q=%22rest+api%22+in%3Areadme\">here</a>
  *
  * The version of the OpenAPI document: 4.0.0
  * Contact: support@elasticemail.com
@@ -15,7 +15,6 @@ using System;
 using System.Linq;
 using System.IO;
 using System.Collections.Generic;
-using ElasticEmail.Api;
 using ElasticEmail.Model;
 using ElasticEmail.Client;
 using System.Reflection;
@@ -56,7 +55,6 @@ namespace ElasticEmail.Test.Model
             //Assert.IsType<ChannelLogStatusSummary>(instance);
         }
 
-
         /// <summary>
         /// Test the property 'ChannelName'
         /// </summary>
@@ -65,6 +63,7 @@ namespace ElasticEmail.Test.Model
         {
             // TODO unit test for the property 'ChannelName'
         }
+
         /// <summary>
         /// Test the property 'Recipients'
         /// </summary>
@@ -73,6 +72,7 @@ namespace ElasticEmail.Test.Model
         {
             // TODO unit test for the property 'Recipients'
         }
+
         /// <summary>
         /// Test the property 'EmailTotal'
         /// </summary>
@@ -81,6 +81,7 @@ namespace ElasticEmail.Test.Model
         {
             // TODO unit test for the property 'EmailTotal'
         }
+
         /// <summary>
         /// Test the property 'SmsTotal'
         /// </summary>
@@ -89,6 +90,7 @@ namespace ElasticEmail.Test.Model
         {
             // TODO unit test for the property 'SmsTotal'
         }
+
         /// <summary>
         /// Test the property 'Delivered'
         /// </summary>
@@ -97,6 +99,7 @@ namespace ElasticEmail.Test.Model
         {
             // TODO unit test for the property 'Delivered'
         }
+
         /// <summary>
         /// Test the property 'Bounced'
         /// </summary>
@@ -105,6 +108,7 @@ namespace ElasticEmail.Test.Model
         {
             // TODO unit test for the property 'Bounced'
         }
+
         /// <summary>
         /// Test the property 'InProgress'
         /// </summary>
@@ -113,6 +117,7 @@ namespace ElasticEmail.Test.Model
         {
             // TODO unit test for the property 'InProgress'
         }
+
         /// <summary>
         /// Test the property 'Opened'
         /// </summary>
@@ -121,6 +126,7 @@ namespace ElasticEmail.Test.Model
         {
             // TODO unit test for the property 'Opened'
         }
+
         /// <summary>
         /// Test the property 'Clicked'
         /// </summary>
@@ -129,6 +135,7 @@ namespace ElasticEmail.Test.Model
         {
             // TODO unit test for the property 'Clicked'
         }
+
         /// <summary>
         /// Test the property 'Unsubscribed'
         /// </summary>
@@ -137,6 +144,7 @@ namespace ElasticEmail.Test.Model
         {
             // TODO unit test for the property 'Unsubscribed'
         }
+
         /// <summary>
         /// Test the property 'Complaints'
         /// </summary>
@@ -145,6 +153,7 @@ namespace ElasticEmail.Test.Model
         {
             // TODO unit test for the property 'Complaints'
         }
+
         /// <summary>
         /// Test the property 'Inbound'
         /// </summary>
@@ -153,6 +162,7 @@ namespace ElasticEmail.Test.Model
         {
             // TODO unit test for the property 'Inbound'
         }
+
         /// <summary>
         /// Test the property 'ManualCancel'
         /// </summary>
@@ -161,6 +171,7 @@ namespace ElasticEmail.Test.Model
         {
             // TODO unit test for the property 'ManualCancel'
         }
+
         /// <summary>
         /// Test the property 'NotDelivered'
         /// </summary>
@@ -169,7 +180,5 @@ namespace ElasticEmail.Test.Model
         {
             // TODO unit test for the property 'NotDelivered'
         }
-
     }
-
 }

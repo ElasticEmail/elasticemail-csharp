@@ -74,7 +74,6 @@ namespace ElasticEmail.Model
         /// </summary>
         [EnumMember(Value = "Uue")]
         Uue = 7
-
     }
 
 }

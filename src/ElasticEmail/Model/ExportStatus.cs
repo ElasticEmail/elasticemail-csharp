@@ -56,7 +56,6 @@ namespace ElasticEmail.Model
         /// </summary>
         [EnumMember(Value = "Expired")]
         Expired = 4
-
     }
 
 }

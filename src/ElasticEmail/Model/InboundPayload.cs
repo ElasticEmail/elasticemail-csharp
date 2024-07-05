@@ -30,7 +30,7 @@ namespace ElasticEmail.Model
     /// InboundPayload
     /// </summary>
     [DataContract(Name = "InboundPayload")]
-    public partial class InboundPayload : IEquatable<InboundPayload>, IValidatableObject
+    public partial class InboundPayload : IValidatableObject
     {
 
         /// <summary>
@@ -134,94 +134,11 @@ namespace ElasticEmail.Model
         }
 
         /// <summary>
-        /// Returns true if objects are equal
-        /// </summary>
-        /// <param name="input">Object to be compared</param>
-        /// <returns>Boolean</returns>
-        public override bool Equals(object input)
-        {
-            return this.Equals(input as InboundPayload);
-        }
-
-        /// <summary>
-        /// Returns true if InboundPayload instances are equal
-        /// </summary>
-        /// <param name="input">Instance of InboundPayload to be compared</param>
-        /// <returns>Boolean</returns>
-        public bool Equals(InboundPayload input)
-        {
-            if (input == null)
-            {
-                return false;
-            }
-            return 
-                (
-                    this.Filter == input.Filter ||
-                    (this.Filter != null &&
-                    this.Filter.Equals(input.Filter))
-                ) && 
-                (
-                    this.Name == input.Name ||
-                    (this.Name != null &&
-                    this.Name.Equals(input.Name))
-                ) && 
-                (
-                    this.FilterType == input.FilterType ||
-                    this.FilterType.Equals(input.FilterType)
-                ) && 
-                (
-                    this.ActionType == input.ActionType ||
-                    this.ActionType.Equals(input.ActionType)
-                ) && 
-                (
-                    this.EmailAddress == input.EmailAddress ||
-                    (this.EmailAddress != null &&
-                    this.EmailAddress.Equals(input.EmailAddress))
-                ) && 
-                (
-                    this.HttpAddress == input.HttpAddress ||
-                    (this.HttpAddress != null &&
-                    this.HttpAddress.Equals(input.HttpAddress))
-                );
-        }
-
-        /// <summary>
-        /// Gets the hash code
-        /// </summary>
-        /// <returns>Hash code</returns>
-        public override int GetHashCode()
-        {
-            unchecked // Overflow is fine, just wrap
-            {
-                int hashCode = 41;
-                if (this.Filter != null)
-                {
-                    hashCode = (hashCode * 59) + this.Filter.GetHashCode();
-                }
-                if (this.Name != null)
-                {
-                    hashCode = (hashCode * 59) + this.Name.GetHashCode();
-                }
-                hashCode = (hashCode * 59) + this.FilterType.GetHashCode();
-                hashCode = (hashCode * 59) + this.ActionType.GetHashCode();
-                if (this.EmailAddress != null)
-                {
-                    hashCode = (hashCode * 59) + this.EmailAddress.GetHashCode();
-                }
-                if (this.HttpAddress != null)
-                {
-                    hashCode = (hashCode * 59) + this.HttpAddress.GetHashCode();
-                }
-                return hashCode;
-            }
-        }
-
-        /// <summary>
         /// To validate all properties of the instance
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             yield break;
         }

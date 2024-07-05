@@ -80,7 +80,6 @@ namespace ElasticEmail.Model
         /// </summary>
         [EnumMember(Value = "Complaint")]
         Complaint = 8
-
     }
 
 }

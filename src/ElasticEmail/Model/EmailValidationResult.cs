@@ -30,7 +30,7 @@ namespace ElasticEmail.Model
     /// EmailValidationResult
     /// </summary>
     [DataContract(Name = "EmailValidationResult")]
-    public partial class EmailValidationResult : IEquatable<EmailValidationResult>, IValidatableObject
+    public partial class EmailValidationResult : IValidatableObject
     {
 
         /// <summary>
@@ -54,9 +54,9 @@ namespace ElasticEmail.Model
         /// <param name="disposable">Does the email have a temporary domain.</param>
         /// <param name="role">Is an email a role email (e.g. info@, noreply@ etc.).</param>
         /// <param name="reason">All detected issues.</param>
-        /// <param name="dateAdded">Date of creation in YYYY-MM-DDThh:ii:ss format.</param>
+        /// <param name="dateAdded">Added date.</param>
         /// <param name="result">result.</param>
-        /// <param name="predictedScore">predictedScore.</param>
+        /// <param name="predictedScore">Predicted score.</param>
         /// <param name="predictedStatus">predictedStatus.</param>
         public EmailValidationResult(string account = default(string), string domain = default(string), string email = default(string), string suggestedSpelling = default(string), bool disposable = default(bool), bool role = default(bool), string reason = default(string), DateTime dateAdded = default(DateTime), EmailValidationStatus? result = default(EmailValidationStatus?), decimal predictedScore = default(decimal), EmailPredictedValidationStatus? predictedStatus = default(EmailPredictedValidationStatus?))
         {
@@ -84,6 +84,7 @@ namespace ElasticEmail.Model
         /// Name of selected domain.
         /// </summary>
         /// <value>Name of selected domain.</value>
+        /// <example>example.com</example>
         [DataMember(Name = "Domain", EmitDefaultValue = false)]
         public string Domain { get; set; }
 
@@ -123,15 +124,16 @@ namespace ElasticEmail.Model
         public string Reason { get; set; }
 
         /// <summary>
-        /// Date of creation in YYYY-MM-DDThh:ii:ss format
+        /// Added date
         /// </summary>
-        /// <value>Date of creation in YYYY-MM-DDThh:ii:ss format</value>
+        /// <value>Added date</value>
         [DataMember(Name = "DateAdded", EmitDefaultValue = false)]
         public DateTime DateAdded { get; set; }
 
         /// <summary>
-        /// Gets or Sets PredictedScore
+        /// Predicted score
         /// </summary>
+        /// <value>Predicted score</value>
         [DataMember(Name = "PredictedScore", EmitDefaultValue = false)]
         public decimal PredictedScore { get; set; }
 
@@ -168,127 +170,11 @@ namespace ElasticEmail.Model
         }
 
         /// <summary>
-        /// Returns true if objects are equal
-        /// </summary>
-        /// <param name="input">Object to be compared</param>
-        /// <returns>Boolean</returns>
-        public override bool Equals(object input)
-        {
-            return this.Equals(input as EmailValidationResult);
-        }
-
-        /// <summary>
-        /// Returns true if EmailValidationResult instances are equal
-        /// </summary>
-        /// <param name="input">Instance of EmailValidationResult to be compared</param>
-        /// <returns>Boolean</returns>
-        public bool Equals(EmailValidationResult input)
-        {
-            if (input == null)
-            {
-                return false;
-            }
-            return 
-                (
-                    this.Account == input.Account ||
-                    (this.Account != null &&
-                    this.Account.Equals(input.Account))
-                ) && 
-                (
-                    this.Domain == input.Domain ||
-                    (this.Domain != null &&
-                    this.Domain.Equals(input.Domain))
-                ) && 
-                (
-                    this.Email == input.Email ||
-                    (this.Email != null &&
-                    this.Email.Equals(input.Email))
-                ) && 
-                (
-                    this.SuggestedSpelling == input.SuggestedSpelling ||
-                    (this.SuggestedSpelling != null &&
-                    this.SuggestedSpelling.Equals(input.SuggestedSpelling))
-                ) && 
-                (
-                    this.Disposable == input.Disposable ||
-                    this.Disposable.Equals(input.Disposable)
-                ) && 
-                (
-                    this.Role == input.Role ||
-                    this.Role.Equals(input.Role)
-                ) && 
-                (
-                    this.Reason == input.Reason ||
-                    (this.Reason != null &&
-                    this.Reason.Equals(input.Reason))
-                ) && 
-                (
-                    this.DateAdded == input.DateAdded ||
-                    (this.DateAdded != null &&
-                    this.DateAdded.Equals(input.DateAdded))
-                ) && 
-                (
-                    this.Result == input.Result ||
-                    this.Result.Equals(input.Result)
-                ) && 
-                (
-                    this.PredictedScore == input.PredictedScore ||
-                    this.PredictedScore.Equals(input.PredictedScore)
-                ) && 
-                (
-                    this.PredictedStatus == input.PredictedStatus ||
-                    this.PredictedStatus.Equals(input.PredictedStatus)
-                );
-        }
-
-        /// <summary>
-        /// Gets the hash code
-        /// </summary>
-        /// <returns>Hash code</returns>
-        public override int GetHashCode()
-        {
-            unchecked // Overflow is fine, just wrap
-            {
-                int hashCode = 41;
-                if (this.Account != null)
-                {
-                    hashCode = (hashCode * 59) + this.Account.GetHashCode();
-                }
-                if (this.Domain != null)
-                {
-                    hashCode = (hashCode * 59) + this.Domain.GetHashCode();
-                }
-                if (this.Email != null)
-                {
-                    hashCode = (hashCode * 59) + this.Email.GetHashCode();
-                }
-                if (this.SuggestedSpelling != null)
-                {
-                    hashCode = (hashCode * 59) + this.SuggestedSpelling.GetHashCode();
-                }
-                hashCode = (hashCode * 59) + this.Disposable.GetHashCode();
-                hashCode = (hashCode * 59) + this.Role.GetHashCode();
-                if (this.Reason != null)
-                {
-                    hashCode = (hashCode * 59) + this.Reason.GetHashCode();
-                }
-                if (this.DateAdded != null)
-                {
-                    hashCode = (hashCode * 59) + this.DateAdded.GetHashCode();
-                }
-                hashCode = (hashCode * 59) + this.Result.GetHashCode();
-                hashCode = (hashCode * 59) + this.PredictedScore.GetHashCode();
-                hashCode = (hashCode * 59) + this.PredictedStatus.GetHashCode();
-                return hashCode;
-            }
-        }
-
-        /// <summary>
         /// To validate all properties of the instance
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             yield break;
         }

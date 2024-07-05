@@ -30,7 +30,7 @@ namespace ElasticEmail.Model
     /// MessageAttachment
     /// </summary>
     [DataContract(Name = "MessageAttachment")]
-    public partial class MessageAttachment : IEquatable<MessageAttachment>, IValidatableObject
+    public partial class MessageAttachment : IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="MessageAttachment" /> class.
@@ -87,6 +87,7 @@ namespace ElasticEmail.Model
         /// Size of your attachment (in bytes).
         /// </summary>
         /// <value>Size of your attachment (in bytes).</value>
+        /// <example>100</example>
         [DataMember(Name = "Size", EmitDefaultValue = false)]
         public int Size { get; set; }
 
@@ -116,80 +117,11 @@ namespace ElasticEmail.Model
         }
 
         /// <summary>
-        /// Returns true if objects are equal
-        /// </summary>
-        /// <param name="input">Object to be compared</param>
-        /// <returns>Boolean</returns>
-        public override bool Equals(object input)
-        {
-            return this.Equals(input as MessageAttachment);
-        }
-
-        /// <summary>
-        /// Returns true if MessageAttachment instances are equal
-        /// </summary>
-        /// <param name="input">Instance of MessageAttachment to be compared</param>
-        /// <returns>Boolean</returns>
-        public bool Equals(MessageAttachment input)
-        {
-            if (input == null)
-            {
-                return false;
-            }
-            return 
-                (
-                    this.BinaryContent == input.BinaryContent ||
-                    (this.BinaryContent != null &&
-                    this.BinaryContent.Equals(input.BinaryContent))
-                ) && 
-                (
-                    this.Name == input.Name ||
-                    (this.Name != null &&
-                    this.Name.Equals(input.Name))
-                ) && 
-                (
-                    this.ContentType == input.ContentType ||
-                    (this.ContentType != null &&
-                    this.ContentType.Equals(input.ContentType))
-                ) && 
-                (
-                    this.Size == input.Size ||
-                    this.Size.Equals(input.Size)
-                );
-        }
-
-        /// <summary>
-        /// Gets the hash code
-        /// </summary>
-        /// <returns>Hash code</returns>
-        public override int GetHashCode()
-        {
-            unchecked // Overflow is fine, just wrap
-            {
-                int hashCode = 41;
-                if (this.BinaryContent != null)
-                {
-                    hashCode = (hashCode * 59) + this.BinaryContent.GetHashCode();
-                }
-                if (this.Name != null)
-                {
-                    hashCode = (hashCode * 59) + this.Name.GetHashCode();
-                }
-                if (this.ContentType != null)
-                {
-                    hashCode = (hashCode * 59) + this.ContentType.GetHashCode();
-                }
-                hashCode = (hashCode * 59) + this.Size.GetHashCode();
-                return hashCode;
-            }
-        }
-
-        /// <summary>
         /// To validate all properties of the instance
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             yield break;
         }

@@ -30,7 +30,7 @@ namespace ElasticEmail.Model
     /// EmailSend
     /// </summary>
     [DataContract(Name = "EmailSend")]
-    public partial class EmailSend : IEquatable<EmailSend>, IValidatableObject
+    public partial class EmailSend : IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="EmailSend" /> class.
@@ -47,6 +47,7 @@ namespace ElasticEmail.Model
         /// ID number of transaction
         /// </summary>
         /// <value>ID number of transaction</value>
+        /// <example>TransactionID</example>
         [DataMember(Name = "TransactionID", EmitDefaultValue = false)]
         public string TransactionID { get; set; }
 
@@ -54,6 +55,7 @@ namespace ElasticEmail.Model
         /// Unique identifier for this email.
         /// </summary>
         /// <value>Unique identifier for this email.</value>
+        /// <example>-HHGPM_9RPhSMiaJq_ab4g3</example>
         [DataMember(Name = "MessageID", EmitDefaultValue = false)]
         public string MessageID { get; set; }
 
@@ -81,66 +83,11 @@ namespace ElasticEmail.Model
         }
 
         /// <summary>
-        /// Returns true if objects are equal
-        /// </summary>
-        /// <param name="input">Object to be compared</param>
-        /// <returns>Boolean</returns>
-        public override bool Equals(object input)
-        {
-            return this.Equals(input as EmailSend);
-        }
-
-        /// <summary>
-        /// Returns true if EmailSend instances are equal
-        /// </summary>
-        /// <param name="input">Instance of EmailSend to be compared</param>
-        /// <returns>Boolean</returns>
-        public bool Equals(EmailSend input)
-        {
-            if (input == null)
-            {
-                return false;
-            }
-            return 
-                (
-                    this.TransactionID == input.TransactionID ||
-                    (this.TransactionID != null &&
-                    this.TransactionID.Equals(input.TransactionID))
-                ) && 
-                (
-                    this.MessageID == input.MessageID ||
-                    (this.MessageID != null &&
-                    this.MessageID.Equals(input.MessageID))
-                );
-        }
-
-        /// <summary>
-        /// Gets the hash code
-        /// </summary>
-        /// <returns>Hash code</returns>
-        public override int GetHashCode()
-        {
-            unchecked // Overflow is fine, just wrap
-            {
-                int hashCode = 41;
-                if (this.TransactionID != null)
-                {
-                    hashCode = (hashCode * 59) + this.TransactionID.GetHashCode();
-                }
-                if (this.MessageID != null)
-                {
-                    hashCode = (hashCode * 59) + this.MessageID.GetHashCode();
-                }
-                return hashCode;
-            }
-        }
-
-        /// <summary>
         /// To validate all properties of the instance
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             yield break;
         }

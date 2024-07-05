@@ -30,7 +30,7 @@ namespace ElasticEmail.Model
     /// SegmentPayload
     /// </summary>
     [DataContract(Name = "SegmentPayload")]
-    public partial class SegmentPayload : IEquatable<SegmentPayload>, IValidatableObject
+    public partial class SegmentPayload : IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="SegmentPayload" /> class.
@@ -96,66 +96,11 @@ namespace ElasticEmail.Model
         }
 
         /// <summary>
-        /// Returns true if objects are equal
-        /// </summary>
-        /// <param name="input">Object to be compared</param>
-        /// <returns>Boolean</returns>
-        public override bool Equals(object input)
-        {
-            return this.Equals(input as SegmentPayload);
-        }
-
-        /// <summary>
-        /// Returns true if SegmentPayload instances are equal
-        /// </summary>
-        /// <param name="input">Instance of SegmentPayload to be compared</param>
-        /// <returns>Boolean</returns>
-        public bool Equals(SegmentPayload input)
-        {
-            if (input == null)
-            {
-                return false;
-            }
-            return 
-                (
-                    this.Name == input.Name ||
-                    (this.Name != null &&
-                    this.Name.Equals(input.Name))
-                ) && 
-                (
-                    this.Rule == input.Rule ||
-                    (this.Rule != null &&
-                    this.Rule.Equals(input.Rule))
-                );
-        }
-
-        /// <summary>
-        /// Gets the hash code
-        /// </summary>
-        /// <returns>Hash code</returns>
-        public override int GetHashCode()
-        {
-            unchecked // Overflow is fine, just wrap
-            {
-                int hashCode = 41;
-                if (this.Name != null)
-                {
-                    hashCode = (hashCode * 59) + this.Name.GetHashCode();
-                }
-                if (this.Rule != null)
-                {
-                    hashCode = (hashCode * 59) + this.Rule.GetHashCode();
-                }
-                return hashCode;
-            }
-        }
-
-        /// <summary>
         /// To validate all properties of the instance
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             yield break;
         }

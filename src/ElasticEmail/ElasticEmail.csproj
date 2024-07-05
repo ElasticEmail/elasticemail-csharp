@@ -12,15 +12,14 @@
     <Description>The C# library for the Elastic Email REST API. This API is based on the REST API architecture, allowing the user to easily manage their data with this resource-based approach. To start using this API, you will need your Access Token. Remember to keep it safe.</Description>
     <Copyright>No Copyright</Copyright>
     <RootNamespace>ElasticEmail</RootNamespace>
-    <Version>4.0.22</Version>
+    <Version>4.0.24</Version>
     <DocumentationFile>bin\$(Configuration)\$(TargetFramework)\ElasticEmail.xml</DocumentationFile>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <RepositoryUrl>https://github.com/elasticemail/elasticemail-csharp.git</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
-    <PackageReleaseNotes>introduced new type of template - template editor; Size of MessageAttachment added; added Predicted Score and Status to EmailValidationResult</PackageReleaseNotes>
+    <PackageReleaseNotes>update API, using OpenAPI Generator 7.7.0</PackageReleaseNotes>
     <PackageTags>mailing, email, elasticemail, smtp</PackageTags>
-    <PackageIcon>ee-logo.png</PackageIcon>
-    <PackageProjectUrl>https://github.com/ElasticEmail/elasticemail-csharp</PackageProjectUrl>
+    <ManagePackageVersionsCentrally>false</ManagePackageVersionsCentrally>
     <PackageIcon>ee-logo.png</PackageIcon>
     <PackageProjectUrl>https://github.com/ElasticEmail/elasticemail-csharp</PackageProjectUrl>
   </PropertyGroup>
@@ -33,17 +32,10 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="ee-logo.png">
-      <Pack>True</Pack>
-      <PackagePath>\</PackagePath>
-    </None>
-  </ItemGroup>
-
-  <ItemGroup>
-    <PackageReference Include="JsonSubTypes" Version="1.9.0" />
-    <PackageReference Include="Newtonsoft.Json" Version="13.0.2" />
-    <PackageReference Include="RestSharp" Version="108.0.2" />
-    <PackageReference Include="Polly" Version="7.2.3" />
+    <PackageReference Include="JsonSubTypes" Version="2.0.1" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+    <PackageReference Include="RestSharp" Version="110.2.0" />
+    <PackageReference Include="Polly" Version="8.1.0" />
     <PackageReference Include="System.ComponentModel.Annotations" Version="5.0.0" />
   </ItemGroup>
 

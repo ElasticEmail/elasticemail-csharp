@@ -30,7 +30,7 @@ namespace ElasticEmail.Model
     /// Email data
     /// </summary>
     [DataContract(Name = "EmailTransactionalMessageData")]
-    public partial class EmailTransactionalMessageData : IEquatable<EmailTransactionalMessageData>, IValidatableObject
+    public partial class EmailTransactionalMessageData : IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="EmailTransactionalMessageData" /> class.
@@ -41,7 +41,7 @@ namespace ElasticEmail.Model
         /// Initializes a new instance of the <see cref="EmailTransactionalMessageData" /> class.
         /// </summary>
         /// <param name="recipients">recipients (required).</param>
-        /// <param name="content">content.</param>
+        /// <param name="content">content (required).</param>
         /// <param name="options">options.</param>
         public EmailTransactionalMessageData(TransactionalRecipient recipients = default(TransactionalRecipient), EmailContent content = default(EmailContent), Options options = default(Options))
         {
@@ -51,6 +51,11 @@ namespace ElasticEmail.Model
                 throw new ArgumentNullException("recipients is a required property for EmailTransactionalMessageData and cannot be null");
             }
             this.Recipients = recipients;
+            // to ensure "content" is required (not null)
+            if (content == null)
+            {
+                throw new ArgumentNullException("content is a required property for EmailTransactionalMessageData and cannot be null");
+            }
             this.Content = content;
             this.Options = options;
         }
@@ -64,7 +69,7 @@ namespace ElasticEmail.Model
         /// <summary>
         /// Gets or Sets Content
         /// </summary>
-        [DataMember(Name = "Content", EmitDefaultValue = false)]
+        [DataMember(Name = "Content", IsRequired = true, EmitDefaultValue = true)]
         public EmailContent Content { get; set; }
 
         /// <summary>
@@ -98,75 +103,11 @@ namespace ElasticEmail.Model
         }
 
         /// <summary>
-        /// Returns true if objects are equal
-        /// </summary>
-        /// <param name="input">Object to be compared</param>
-        /// <returns>Boolean</returns>
-        public override bool Equals(object input)
-        {
-            return this.Equals(input as EmailTransactionalMessageData);
-        }
-
-        /// <summary>
-        /// Returns true if EmailTransactionalMessageData instances are equal
-        /// </summary>
-        /// <param name="input">Instance of EmailTransactionalMessageData to be compared</param>
-        /// <returns>Boolean</returns>
-        public bool Equals(EmailTransactionalMessageData input)
-        {
-            if (input == null)
-            {
-                return false;
-            }
-            return 
-                (
-                    this.Recipients == input.Recipients ||
-                    (this.Recipients != null &&
-                    this.Recipients.Equals(input.Recipients))
-                ) && 
-                (
-                    this.Content == input.Content ||
-                    (this.Content != null &&
-                    this.Content.Equals(input.Content))
-                ) && 
-                (
-                    this.Options == input.Options ||
-                    (this.Options != null &&
-                    this.Options.Equals(input.Options))
-                );
-        }
-
-        /// <summary>
-        /// Gets the hash code
-        /// </summary>
-        /// <returns>Hash code</returns>
-        public override int GetHashCode()
-        {
-            unchecked // Overflow is fine, just wrap
-            {
-                int hashCode = 41;
-                if (this.Recipients != null)
-                {
-                    hashCode = (hashCode * 59) + this.Recipients.GetHashCode();
-                }
-                if (this.Content != null)
-                {
-                    hashCode = (hashCode * 59) + this.Content.GetHashCode();
-                }
-                if (this.Options != null)
-                {
-                    hashCode = (hashCode * 59) + this.Options.GetHashCode();
-                }
-                return hashCode;
-            }
-        }
-
-        /// <summary>
         /// To validate all properties of the instance
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             yield break;
         }

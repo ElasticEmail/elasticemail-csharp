@@ -10,7 +10,7 @@ All URIs are relative to *https://api.elasticemail.com/v4*
 | [**SegmentsGet**](SegmentsApi.md#segmentsget) | **GET** /segments | Load Segments |
 | [**SegmentsPost**](SegmentsApi.md#segmentspost) | **POST** /segments | Add Segment |
 
-<a name="segmentsbynamedelete"></a>
+<a id="segmentsbynamedelete"></a>
 # **SegmentsByNameDelete**
 > void SegmentsByNameDelete (string name)
 
@@ -102,7 +102,7 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="segmentsbynameget"></a>
+<a id="segmentsbynameget"></a>
 # **SegmentsByNameGet**
 > Segment SegmentsByNameGet (string name)
 
@@ -198,7 +198,7 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="segmentsbynameput"></a>
+<a id="segmentsbynameput"></a>
 # **SegmentsByNamePut**
 > Segment SegmentsByNamePut (string name, SegmentPayload segmentPayload)
 
@@ -296,7 +296,7 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="segmentsget"></a>
+<a id="segmentsget"></a>
 # **SegmentsGet**
 > List&lt;Segment&gt; SegmentsGet (int? limit = null, int? offset = null)
 
@@ -394,7 +394,7 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="segmentspost"></a>
+<a id="segmentspost"></a>
 # **SegmentsPost**
 > Segment SegmentsPost (SegmentPayload segmentPayload)
 

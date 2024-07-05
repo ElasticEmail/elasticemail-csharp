@@ -30,7 +30,7 @@ namespace ElasticEmail.Model
     /// Detailed information about message recipient
     /// </summary>
     [DataContract(Name = "RecipientEvent")]
-    public partial class RecipientEvent : IEquatable<RecipientEvent>, IValidatableObject
+    public partial class RecipientEvent : IValidatableObject
     {
 
         /// <summary>
@@ -81,6 +81,7 @@ namespace ElasticEmail.Model
         /// ID number of transaction
         /// </summary>
         /// <value>ID number of transaction</value>
+        /// <example>TransactionID</example>
         [DataMember(Name = "TransactionID", EmitDefaultValue = false)]
         public string TransactionID { get; set; }
 
@@ -88,6 +89,7 @@ namespace ElasticEmail.Model
         /// ID number of selected message.
         /// </summary>
         /// <value>ID number of selected message.</value>
+        /// <example>ABCDE_9RPhSWiaJq_ab1g1</example>
         [DataMember(Name = "MsgID", EmitDefaultValue = false)]
         public string MsgID { get; set; }
 
@@ -95,6 +97,7 @@ namespace ElasticEmail.Model
         /// Default From: email address.
         /// </summary>
         /// <value>Default From: email address.</value>
+        /// <example>sender@yourdomain.com</example>
         [DataMember(Name = "FromEmail", EmitDefaultValue = false)]
         public string FromEmail { get; set; }
 
@@ -102,6 +105,7 @@ namespace ElasticEmail.Model
         /// Ending date for search in YYYY-MM-DDThh:mm:ss format.
         /// </summary>
         /// <value>Ending date for search in YYYY-MM-DDThh:mm:ss format.</value>
+        /// <example>2001-01-01T01:01:01</example>
         [DataMember(Name = "To", EmitDefaultValue = false)]
         public string To { get; set; }
 
@@ -109,6 +113,7 @@ namespace ElasticEmail.Model
         /// Default subject of email.
         /// </summary>
         /// <value>Default subject of email.</value>
+        /// <example>Hello!</example>
         [DataMember(Name = "Subject", EmitDefaultValue = false)]
         public string Subject { get; set; }
 
@@ -123,6 +128,7 @@ namespace ElasticEmail.Model
         /// Name of selected channel.
         /// </summary>
         /// <value>Name of selected channel.</value>
+        /// <example>Channel01</example>
         [DataMember(Name = "ChannelName", EmitDefaultValue = false)]
         public string ChannelName { get; set; }
 
@@ -137,6 +143,7 @@ namespace ElasticEmail.Model
         /// Content of message, HTML encoded
         /// </summary>
         /// <value>Content of message, HTML encoded</value>
+        /// <example>Lorem ipsum</example>
         [DataMember(Name = "Message", EmitDefaultValue = false)]
         public string Message { get; set; }
 
@@ -189,157 +196,11 @@ namespace ElasticEmail.Model
         }
 
         /// <summary>
-        /// Returns true if objects are equal
-        /// </summary>
-        /// <param name="input">Object to be compared</param>
-        /// <returns>Boolean</returns>
-        public override bool Equals(object input)
-        {
-            return this.Equals(input as RecipientEvent);
-        }
-
-        /// <summary>
-        /// Returns true if RecipientEvent instances are equal
-        /// </summary>
-        /// <param name="input">Instance of RecipientEvent to be compared</param>
-        /// <returns>Boolean</returns>
-        public bool Equals(RecipientEvent input)
-        {
-            if (input == null)
-            {
-                return false;
-            }
-            return 
-                (
-                    this.TransactionID == input.TransactionID ||
-                    (this.TransactionID != null &&
-                    this.TransactionID.Equals(input.TransactionID))
-                ) && 
-                (
-                    this.MsgID == input.MsgID ||
-                    (this.MsgID != null &&
-                    this.MsgID.Equals(input.MsgID))
-                ) && 
-                (
-                    this.FromEmail == input.FromEmail ||
-                    (this.FromEmail != null &&
-                    this.FromEmail.Equals(input.FromEmail))
-                ) && 
-                (
-                    this.To == input.To ||
-                    (this.To != null &&
-                    this.To.Equals(input.To))
-                ) && 
-                (
-                    this.Subject == input.Subject ||
-                    (this.Subject != null &&
-                    this.Subject.Equals(input.Subject))
-                ) && 
-                (
-                    this.EventType == input.EventType ||
-                    this.EventType.Equals(input.EventType)
-                ) && 
-                (
-                    this.EventDate == input.EventDate ||
-                    (this.EventDate != null &&
-                    this.EventDate.Equals(input.EventDate))
-                ) && 
-                (
-                    this.ChannelName == input.ChannelName ||
-                    (this.ChannelName != null &&
-                    this.ChannelName.Equals(input.ChannelName))
-                ) && 
-                (
-                    this.MessageCategory == input.MessageCategory ||
-                    this.MessageCategory.Equals(input.MessageCategory)
-                ) && 
-                (
-                    this.NextTryOn == input.NextTryOn ||
-                    (this.NextTryOn != null &&
-                    this.NextTryOn.Equals(input.NextTryOn))
-                ) && 
-                (
-                    this.Message == input.Message ||
-                    (this.Message != null &&
-                    this.Message.Equals(input.Message))
-                ) && 
-                (
-                    this.IPAddress == input.IPAddress ||
-                    (this.IPAddress != null &&
-                    this.IPAddress.Equals(input.IPAddress))
-                ) && 
-                (
-                    this.PoolName == input.PoolName ||
-                    (this.PoolName != null &&
-                    this.PoolName.Equals(input.PoolName))
-                );
-        }
-
-        /// <summary>
-        /// Gets the hash code
-        /// </summary>
-        /// <returns>Hash code</returns>
-        public override int GetHashCode()
-        {
-            unchecked // Overflow is fine, just wrap
-            {
-                int hashCode = 41;
-                if (this.TransactionID != null)
-                {
-                    hashCode = (hashCode * 59) + this.TransactionID.GetHashCode();
-                }
-                if (this.MsgID != null)
-                {
-                    hashCode = (hashCode * 59) + this.MsgID.GetHashCode();
-                }
-                if (this.FromEmail != null)
-                {
-                    hashCode = (hashCode * 59) + this.FromEmail.GetHashCode();
-                }
-                if (this.To != null)
-                {
-                    hashCode = (hashCode * 59) + this.To.GetHashCode();
-                }
-                if (this.Subject != null)
-                {
-                    hashCode = (hashCode * 59) + this.Subject.GetHashCode();
-                }
-                hashCode = (hashCode * 59) + this.EventType.GetHashCode();
-                if (this.EventDate != null)
-                {
-                    hashCode = (hashCode * 59) + this.EventDate.GetHashCode();
-                }
-                if (this.ChannelName != null)
-                {
-                    hashCode = (hashCode * 59) + this.ChannelName.GetHashCode();
-                }
-                hashCode = (hashCode * 59) + this.MessageCategory.GetHashCode();
-                if (this.NextTryOn != null)
-                {
-                    hashCode = (hashCode * 59) + this.NextTryOn.GetHashCode();
-                }
-                if (this.Message != null)
-                {
-                    hashCode = (hashCode * 59) + this.Message.GetHashCode();
-                }
-                if (this.IPAddress != null)
-                {
-                    hashCode = (hashCode * 59) + this.IPAddress.GetHashCode();
-                }
-                if (this.PoolName != null)
-                {
-                    hashCode = (hashCode * 59) + this.PoolName.GetHashCode();
-                }
-                return hashCode;
-            }
-        }
-
-        /// <summary>
         /// To validate all properties of the instance
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             yield break;
         }

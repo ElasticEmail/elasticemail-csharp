@@ -30,7 +30,7 @@ namespace ElasticEmail.Model
     /// MergeEmailPayload
     /// </summary>
     [DataContract(Name = "MergeEmailPayload")]
-    public partial class MergeEmailPayload : IEquatable<MergeEmailPayload>, IValidatableObject
+    public partial class MergeEmailPayload : IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="MergeEmailPayload" /> class.
@@ -41,7 +41,7 @@ namespace ElasticEmail.Model
         /// Initializes a new instance of the <see cref="MergeEmailPayload" /> class.
         /// </summary>
         /// <param name="mergeFile">mergeFile (required).</param>
-        /// <param name="content">content.</param>
+        /// <param name="content">content (required).</param>
         /// <param name="options">options.</param>
         public MergeEmailPayload(MessageAttachment mergeFile = default(MessageAttachment), EmailContent content = default(EmailContent), Options options = default(Options))
         {
@@ -51,6 +51,11 @@ namespace ElasticEmail.Model
                 throw new ArgumentNullException("mergeFile is a required property for MergeEmailPayload and cannot be null");
             }
             this.MergeFile = mergeFile;
+            // to ensure "content" is required (not null)
+            if (content == null)
+            {
+                throw new ArgumentNullException("content is a required property for MergeEmailPayload and cannot be null");
+            }
             this.Content = content;
             this.Options = options;
         }
@@ -64,7 +69,7 @@ namespace ElasticEmail.Model
         /// <summary>
         /// Gets or Sets Content
         /// </summary>
-        [DataMember(Name = "Content", EmitDefaultValue = false)]
+        [DataMember(Name = "Content", IsRequired = true, EmitDefaultValue = true)]
         public EmailContent Content { get; set; }
 
         /// <summary>
@@ -98,75 +103,11 @@ namespace ElasticEmail.Model
         }
 
         /// <summary>
-        /// Returns true if objects are equal
-        /// </summary>
-        /// <param name="input">Object to be compared</param>
-        /// <returns>Boolean</returns>
-        public override bool Equals(object input)
-        {
-            return this.Equals(input as MergeEmailPayload);
-        }
-
-        /// <summary>
-        /// Returns true if MergeEmailPayload instances are equal
-        /// </summary>
-        /// <param name="input">Instance of MergeEmailPayload to be compared</param>
-        /// <returns>Boolean</returns>
-        public bool Equals(MergeEmailPayload input)
-        {
-            if (input == null)
-            {
-                return false;
-            }
-            return 
-                (
-                    this.MergeFile == input.MergeFile ||
-                    (this.MergeFile != null &&
-                    this.MergeFile.Equals(input.MergeFile))
-                ) && 
-                (
-                    this.Content == input.Content ||
-                    (this.Content != null &&
-                    this.Content.Equals(input.Content))
-                ) && 
-                (
-                    this.Options == input.Options ||
-                    (this.Options != null &&
-                    this.Options.Equals(input.Options))
-                );
-        }
-
-        /// <summary>
-        /// Gets the hash code
-        /// </summary>
-        /// <returns>Hash code</returns>
-        public override int GetHashCode()
-        {
-            unchecked // Overflow is fine, just wrap
-            {
-                int hashCode = 41;
-                if (this.MergeFile != null)
-                {
-                    hashCode = (hashCode * 59) + this.MergeFile.GetHashCode();
-                }
-                if (this.Content != null)
-                {
-                    hashCode = (hashCode * 59) + this.Content.GetHashCode();
-                }
-                if (this.Options != null)
-                {
-                    hashCode = (hashCode * 59) + this.Options.GetHashCode();
-                }
-                return hashCode;
-            }
-        }
-
-        /// <summary>
         /// To validate all properties of the instance
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             yield break;
         }

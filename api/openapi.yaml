@@ -1,0 +1,6167 @@
+openapi: 3.0.3
+info:
+  contact:
+    email: support@elasticemail.com
+  description: "This API is based on the REST API architecture, allowing the user\
+    \ to easily manage their data with this resource-based approach.\r\n\r\nEvery\
+    \ API call is established on which specific request type (GET, POST, PUT, DELETE)\
+    \ will be used.\r\n\r\nThe API has a limit of 20 concurrent connections and a\
+    \ hard timeout of 600 seconds per request.\r\n\r\nTo start using this API, you\
+    \ will need your Access Token (available <a target=\"_blank\" href=\"https://app.elasticemail.com/marketing/settings/new/manage-api\"\
+    >here</a>). Remember to keep it safe. Required access levels are listed in the\
+    \ given request’s description.\r\n\r\nDownloadable library clients can be found\
+    \ in our Github repository <a target=\"_blank\" href=\"https://github.com/ElasticEmail?tab=repositories&q=%22rest+api%22+in%3Areadme\"\
+    >here</a>"
+  license:
+    name: MIT
+    url: https://opensource.org/licenses/MIT
+  termsOfService: https://elasticemail.com/resources/usage-policies/terms-of-use/
+  title: Elastic Email REST API
+  version: 4.0.0
+servers:
+- url: https://api.elasticemail.com/v4
+security:
+- apikey: []
+tags:
+- description: Sending and monitoring progress of your Campaigns
+  name: Campaigns
+- description: Methods used to manage your Contacts.
+  name: Contacts
+- description: Send your emails and see their statuses
+  name: Emails
+- description: Methods to check logs of your campaigns
+  name: Events
+- description: "Manage the files on your account to be used as attachments in your\
+    \ email, templates, etc."
+  name: Files
+- description: Inbounds operations
+  name: InboundRoute
+- description: API methods for managing your Lists
+  name: Lists
+- description: Security methods
+  name: Security
+- description: "Manages your segments - dynamically created lists of contacts. Help\
+    \ for building a segment rule can be found here: https://help.elasticemail.com/en/articles/5162182-segment-rules"
+  name: Segments
+- description: Methods to check logs of your campaigns
+  name: Statistics
+- description: Manage your subaccounts
+  name: SubAccounts
+- description: Methods used to manage your Suppressions.
+  name: Suppressions
+- description: Managing and editing templates of your emails
+  name: Templates
+- description: Verify emails and read the results
+  name: Verifications
+paths:
+  /campaigns:
+    get:
+      description: "Returns a list all of your campaigns. Limited to 1000 results.\
+        \ Required Access Level: ViewCampaigns"
+      operationId: campaignsGet
+      parameters:
+      - description: Text fragment used for searching in Campaign name (using the
+          'contains' rule)
+        explode: true
+        in: query
+        name: search
+        required: false
+        schema:
+          description: string
+          format: string
+          type: string
+        style: form
+      - description: How many items should be returned ahead.
+        explode: true
+        in: query
+        name: offset
+        required: false
+        schema:
+          description: integer
+          example: 20
+          format: int32
+          type: integer
+        style: form
+      - description: Maximum number of returned items.
+        explode: true
+        in: query
+        name: limit
+        required: false
+        schema:
+          description: integer
+          example: 100
+          format: int32
+          type: integer
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/Campaign'
+                type: array
+          description: OK
+      summary: Load Campaigns
+      tags:
+      - Campaigns
+    post:
+      description: "Add a campaign for processing. Required Access Level: ModifyCampaigns"
+      operationId: campaignsPost
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Campaign'
+        description: JSON representation of a campaign
+        required: true
+      responses:
+        "201":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Campaign'
+          description: Created
+      summary: Add Campaign
+      tags:
+      - Campaigns
+  /campaigns/{name}:
+    delete:
+      description: "Delete the specific campaign.  This does not cancel in progress\
+        \ email, see Cancel In Progress. Required Access Level: ModifyCampaigns"
+      operationId: campaignsByNameDelete
+      parameters:
+      - description: Name of Campaign to delete
+        explode: false
+        in: path
+        name: name
+        required: true
+        schema:
+          description: string
+          format: string
+          type: string
+        style: simple
+      responses:
+        "200":
+          description: OK
+      summary: Delete Campaign
+      tags:
+      - Campaigns
+    get:
+      description: "Returns the specified campaign details. Required Access Level:\
+        \ ViewCampaigns"
+      operationId: campaignsByNameGet
+      parameters:
+      - description: Name of Campaign to get
+        explode: false
+        in: path
+        name: name
+        required: true
+        schema:
+          description: string
+          format: string
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Campaign'
+          description: OK
+      summary: Load Campaign
+      tags:
+      - Campaigns
+    put:
+      description: "Updates a previously added campaign.  Only Active and Paused campaigns\
+        \ can be updated. Required Access Level: ModifyCampaigns"
+      operationId: campaignsByNamePut
+      parameters:
+      - description: Name of Campaign to update
+        explode: false
+        in: path
+        name: name
+        required: true
+        schema:
+          description: string
+          format: string
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Campaign'
+        description: JSON representation of a campaign
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Campaign'
+          description: OK
+      summary: Update Campaign
+      tags:
+      - Campaigns
+  /contacts:
+    get:
+      description: "Returns a list of contacts. Required Access Level: ViewContacts"
+      operationId: contactsGet
+      parameters:
+      - description: Maximum number of returned items.
+        explode: true
+        in: query
+        name: limit
+        required: false
+        schema:
+          description: integer
+          example: 100
+          format: int32
+          type: integer
+        style: form
+      - description: How many items should be returned ahead.
+        explode: true
+        in: query
+        name: offset
+        required: false
+        schema:
+          description: integer
+          example: 20
+          format: int32
+          type: integer
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/Contact'
+                type: array
+          description: OK
+      summary: Load Contacts
+      tags:
+      - Contacts
+    post:
+      description: "Add new Contacts to your Lists. Up to 1000 can be added (for more\
+        \ please refer to the import request). Required Access Level: ModifyContacts"
+      operationId: contactsPost
+      parameters:
+      - description: Names of lists to which the uploaded contacts should be added
+          to
+        explode: true
+        in: query
+        name: listnames
+        required: false
+        schema:
+          description: array
+          items:
+            format: string
+            type: string
+          type: array
+        style: form
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                $ref: '#/components/schemas/ContactPayload'
+              type: array
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/Contact'
+                type: array
+          description: OK
+      summary: Add Contact
+      tags:
+      - Contacts
+  /contacts/{email}:
+    delete:
+      description: "Deletes the provided contact. Required Access Level: ModifyContacts"
+      operationId: contactsByEmailDelete
+      parameters:
+      - description: Proper email address.
+        explode: false
+        in: path
+        name: email
+        required: true
+        schema:
+          description: string
+          example: mail@example.com
+          format: string
+          type: string
+        style: simple
+      responses:
+        "200":
+          description: OK
+      summary: Delete Contact
+      tags:
+      - Contacts
+    get:
+      description: "Load detailed contact information for specified email. Required\
+        \ Access Level: ViewContacts"
+      operationId: contactsByEmailGet
+      parameters:
+      - description: Proper email address.
+        explode: false
+        in: path
+        name: email
+        required: true
+        schema:
+          description: string
+          example: mail@example.com
+          format: string
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Contact'
+          description: OK
+      summary: Load Contact
+      tags:
+      - Contacts
+    put:
+      description: "Update selected contact. Omitted contact's fields will not be\
+        \ changed. Required Access Level: ModifyContacts"
+      operationId: contactsByEmailPut
+      parameters:
+      - description: Proper email address.
+        explode: false
+        in: path
+        name: email
+        required: true
+        schema:
+          description: string
+          example: mail@example.com
+          format: string
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ContactUpdatePayload'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Contact'
+          description: OK
+      summary: Update Contact
+      tags:
+      - Contacts
+  /contacts/delete:
+    post:
+      description: "Deletes provided contacts in bulk. Required Access Level: ModifyContacts"
+      operationId: contactsDeletePost
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EmailsPayload'
+        description: "Provide either rule or a list of emails, not both."
+        required: true
+      responses:
+        "200":
+          description: OK
+      summary: Delete Contacts Bulk
+      tags:
+      - Contacts
+  /contacts/export:
+    post:
+      description: "Request an Export of specified Contacts. Required Access Level:\
+        \ Export"
+      operationId: contactsExportPost
+      parameters:
+      - description: Format of the exported file
+        explode: true
+        in: query
+        name: fileFormat
+        required: false
+        schema:
+          $ref: '#/components/schemas/ExportFileFormats'
+        style: form
+      - description: Query used for filtering.
+        explode: true
+        in: query
+        name: rule
+        required: false
+        schema:
+          description: string
+          example: Status%20=%20Engaged
+          format: string
+          type: string
+        style: form
+      - description: Comma delimited list of contact emails
+        explode: true
+        in: query
+        name: emails
+        required: false
+        schema:
+          description: array
+          example:
+          - "mail@contact.com,mail1@contact.com,mail2@contact.com"
+          items:
+            format: string
+            type: string
+          type: array
+        style: form
+      - description: FileResponse compression format. None or Zip.
+        explode: true
+        in: query
+        name: compressionFormat
+        required: false
+        schema:
+          $ref: '#/components/schemas/CompressionFormat'
+        style: form
+      - description: Name of your file including extension.
+        explode: true
+        in: query
+        name: fileName
+        required: false
+        schema:
+          description: string
+          example: filename.txt
+          format: string
+          type: string
+        style: form
+      responses:
+        "202":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ExportLink'
+          description: Accepted
+      summary: Export Contacts
+      tags:
+      - Contacts
+  /contacts/export/{id}/status:
+    get:
+      description: "Check the current status of the export. Required Access Level:\
+        \ Export"
+      operationId: contactsExportByIdStatusGet
+      parameters:
+      - description: ID of the exported file
+        explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          description: string
+          example: E33EBA7A-C20D-4D3D-8F2F-5EEF42F58E6F
+          format: guid
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ExportStatus'
+          description: OK
+      summary: Check Export Status
+      tags:
+      - Contacts
+  /contacts/import:
+    post:
+      description: "Upload contacts from a file. Required Access Level: ModifyContacts"
+      operationId: contactsImportPost
+      parameters:
+      - description: Name of an existing list to add these contacts to
+        explode: true
+        in: query
+        name: listName
+        required: false
+        schema:
+          description: string
+          format: string
+          type: string
+        style: form
+      - description: In what encoding the file is uploaded
+        explode: true
+        in: query
+        name: encodingName
+        required: false
+        schema:
+          description: string
+          format: string
+          type: string
+        style: form
+      - description: Optional url of csv to import
+        explode: true
+        in: query
+        name: fileUrl
+        required: false
+        schema:
+          description: string
+          format: string
+          type: string
+        style: form
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/contactsImportPost_request'
+        description: "File in CSV format with columns to upload as Contact fields.\
+          \ Required columns: Email. Suggested columns: AllowUnsubscribe, Status,\
+          \ ConsentDate, ConsentIP, ConsentTracking."
+        required: true
+      responses:
+        "202":
+          description: Accepted
+      summary: Upload Contacts
+      tags:
+      - Contacts
+  /emails:
+    post:
+      description: "Send bulk merge email. Required Access Level: SendHttp"
+      operationId: emailsPost
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EmailMessageData'
+        description: Email data
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmailSend'
+          description: OK
+      summary: Send Bulk Emails
+      tags:
+      - Emails
+  /emails/{msgid}/view:
+    get:
+      description: "Returns email details for viewing or rendering. Required Access\
+        \ Level: None"
+      operationId: emailsByMsgidViewGet
+      parameters:
+      - description: Message identifier
+        explode: false
+        in: path
+        name: msgid
+        required: true
+        schema:
+          description: string
+          format: string
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmailData'
+          description: OK
+      summary: View Email
+      tags:
+      - Emails
+  /emails/{transactionid}/status:
+    get:
+      description: "Get status details of an email transaction. Required Access Level:\
+        \ ViewReports"
+      operationId: emailsByTransactionidStatusGet
+      parameters:
+      - description: Transaction identifier
+        explode: false
+        in: path
+        name: transactionid
+        required: true
+        schema:
+          description: string
+          format: string
+          type: string
+        style: simple
+      - description: Include Bounced email addresses.
+        explode: true
+        in: query
+        name: showFailed
+        required: false
+        schema:
+          default: false
+          description: boolean
+          format: boolean
+          type: boolean
+        style: form
+      - description: Include Sent email addresses.
+        explode: true
+        in: query
+        name: showSent
+        required: false
+        schema:
+          default: false
+          description: boolean
+          format: boolean
+          type: boolean
+        style: form
+      - description: Include all delivered email addresses.
+        explode: true
+        in: query
+        name: showDelivered
+        required: false
+        schema:
+          default: false
+          description: boolean
+          format: boolean
+          type: boolean
+        style: form
+      - description: Include Ready to send email addresses.
+        explode: true
+        in: query
+        name: showPending
+        required: false
+        schema:
+          default: false
+          description: boolean
+          format: boolean
+          type: boolean
+        style: form
+      - description: Include Opened email addresses.
+        explode: true
+        in: query
+        name: showOpened
+        required: false
+        schema:
+          default: false
+          description: boolean
+          format: boolean
+          type: boolean
+        style: form
+      - description: Include Clicked email addresses.
+        explode: true
+        in: query
+        name: showClicked
+        required: false
+        schema:
+          default: false
+          description: boolean
+          format: boolean
+          type: boolean
+        style: form
+      - description: Include Reported as abuse email addresses.
+        explode: true
+        in: query
+        name: showAbuse
+        required: false
+        schema:
+          default: false
+          description: boolean
+          format: boolean
+          type: boolean
+        style: form
+      - description: Include Unsubscribed email addresses.
+        explode: true
+        in: query
+        name: showUnsubscribed
+        required: false
+        schema:
+          default: false
+          description: boolean
+          format: boolean
+          type: boolean
+        style: form
+      - description: Include error messages for bounced emails.
+        explode: true
+        in: query
+        name: showErrors
+        required: false
+        schema:
+          default: false
+          description: boolean
+          format: boolean
+          type: boolean
+        style: form
+      - description: Include all MessageIDs for this transaction
+        explode: true
+        in: query
+        name: showMessageIDs
+        required: false
+        schema:
+          default: false
+          description: boolean
+          format: boolean
+          type: boolean
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmailJobStatus'
+          description: OK
+      summary: Get Status
+      tags:
+      - Emails
+  /emails/mergefile:
+    post:
+      description: "Send bulk merge email. Required Access Level: SendHttp"
+      operationId: emailsMergefilePost
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MergeEmailPayload'
+        description: Email data
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmailSend'
+          description: OK
+      summary: Send Bulk Emails CSV
+      tags:
+      - Emails
+  /emails/transactional:
+    post:
+      description: "Send transactional emails (recipients will be known to each other).\
+        \ Required Access Level: SendHttp"
+      operationId: emailsTransactionalPost
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EmailTransactionalMessageData'
+        description: Email data
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmailSend'
+          description: OK
+      summary: Send Transactional Email
+      tags:
+      - Emails
+  /events:
+    get:
+      description: "Returns a log of delivery events filtered by specified parameters.\
+        \ Required Access Level: ViewReports"
+      operationId: eventsGet
+      parameters:
+      - description: Types of Events to return
+        explode: true
+        in: query
+        name: eventTypes
+        required: false
+        schema:
+          description: array
+          items:
+            $ref: '#/components/schemas/EventType'
+          type: array
+        style: form
+      - description: Starting date for search in YYYY-MM-DDThh:mm:ss format.
+        explode: true
+        in: query
+        name: from
+        required: false
+        schema:
+          description: string
+          format: date-time
+          nullable: true
+          type: string
+        style: form
+      - description: Ending date for search in YYYY-MM-DDThh:mm:ss format.
+        explode: true
+        in: query
+        name: to
+        required: false
+        schema:
+          description: string
+          format: date-time
+          nullable: true
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: orderBy
+        required: false
+        schema:
+          $ref: '#/components/schemas/EventsOrderBy'
+        style: form
+      - description: How many items to load. Maximum for this request is 1000 items
+        explode: true
+        in: query
+        name: limit
+        required: false
+        schema:
+          description: integer
+          format: int32
+          type: integer
+        style: form
+      - description: How many items should be returned ahead.
+        explode: true
+        in: query
+        name: offset
+        required: false
+        schema:
+          description: integer
+          example: 20
+          format: int32
+          type: integer
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/RecipientEvent'
+                type: array
+          description: OK
+      summary: Load Events
+      tags:
+      - Events
+  /events/{transactionid}:
+    get:
+      description: "Returns a log of delivery events for the specific transaction\
+        \ ID. Required Access Level: ViewReports"
+      operationId: eventsByTransactionidGet
+      parameters:
+      - description: ID number of transaction
+        explode: false
+        in: path
+        name: transactionid
+        required: true
+        schema:
+          description: string
+          example: TransactionID
+          format: string
+          type: string
+        style: simple
+      - description: Starting date for search in YYYY-MM-DDThh:mm:ss format.
+        explode: true
+        in: query
+        name: from
+        required: false
+        schema:
+          description: string
+          format: date-time
+          nullable: true
+          type: string
+        style: form
+      - description: Ending date for search in YYYY-MM-DDThh:mm:ss format.
+        explode: true
+        in: query
+        name: to
+        required: false
+        schema:
+          description: string
+          format: date-time
+          nullable: true
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: orderBy
+        required: false
+        schema:
+          $ref: '#/components/schemas/EventsOrderBy'
+        style: form
+      - description: Maximum number of returned items.
+        explode: true
+        in: query
+        name: limit
+        required: false
+        schema:
+          description: integer
+          example: 100
+          format: int32
+          type: integer
+        style: form
+      - description: How many items should be returned ahead.
+        explode: true
+        in: query
+        name: offset
+        required: false
+        schema:
+          description: integer
+          example: 20
+          format: int32
+          type: integer
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/RecipientEvent'
+                type: array
+          description: OK
+      summary: Load Email Events
+      tags:
+      - Events
+  /events/channels/{name}:
+    get:
+      description: "Returns a log of delivery events filtered by specified parameters.\
+        \ Required Access Level: ViewReports"
+      operationId: eventsChannelsByNameGet
+      parameters:
+      - description: Name of selected channel.
+        explode: false
+        in: path
+        name: name
+        required: true
+        schema:
+          description: string
+          example: Channel01
+          format: string
+          type: string
+        style: simple
+      - description: Types of Events to return
+        explode: true
+        in: query
+        name: eventTypes
+        required: false
+        schema:
+          description: array
+          items:
+            $ref: '#/components/schemas/EventType'
+          type: array
+        style: form
+      - description: Starting date for search in YYYY-MM-DDThh:mm:ss format.
+        explode: true
+        in: query
+        name: from
+        required: false
+        schema:
+          description: string
+          format: date-time
+          nullable: true
+          type: string
+        style: form
+      - description: Ending date for search in YYYY-MM-DDThh:mm:ss format.
+        explode: true
+        in: query
+        name: to
+        required: false
+        schema:
+          description: string
+          format: date-time
+          nullable: true
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: orderBy
+        required: false
+        schema:
+          $ref: '#/components/schemas/EventsOrderBy'
+        style: form
+      - description: How many items to load. Maximum for this request is 1000 items
+        explode: true
+        in: query
+        name: limit
+        required: false
+        schema:
+          description: integer
+          format: int32
+          type: integer
+        style: form
+      - description: How many items should be returned ahead.
+        explode: true
+        in: query
+        name: offset
+        required: false
+        schema:
+          description: integer
+          example: 20
+          format: int32
+          type: integer
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/RecipientEvent'
+                type: array
+          description: OK
+      summary: Load Channel Events
+      tags:
+      - Events
+  /events/channels/{name}/export:
+    post:
+      description: "Export delivery events log information to the specified file format.\
+        \ Required Access Level: Export"
+      operationId: eventsChannelsByNameExportPost
+      parameters:
+      - description: Name of selected channel.
+        explode: false
+        in: path
+        name: name
+        required: true
+        schema:
+          description: string
+          example: Channel01
+          format: string
+          type: string
+        style: simple
+      - description: Types of Events to return
+        explode: true
+        in: query
+        name: eventTypes
+        required: false
+        schema:
+          description: array
+          items:
+            $ref: '#/components/schemas/EventType'
+          type: array
+        style: form
+      - description: Starting date for search in YYYY-MM-DDThh:mm:ss format.
+        explode: true
+        in: query
+        name: from
+        required: false
+        schema:
+          description: string
+          format: date-time
+          nullable: true
+          type: string
+        style: form
+      - description: Ending date for search in YYYY-MM-DDThh:mm:ss format.
+        explode: true
+        in: query
+        name: to
+        required: false
+        schema:
+          description: string
+          format: date-time
+          nullable: true
+          type: string
+        style: form
+      - description: Format of the exported file
+        explode: true
+        in: query
+        name: fileFormat
+        required: false
+        schema:
+          $ref: '#/components/schemas/ExportFileFormats'
+        style: form
+      - description: FileResponse compression format. None or Zip.
+        explode: true
+        in: query
+        name: compressionFormat
+        required: false
+        schema:
+          $ref: '#/components/schemas/CompressionFormat'
+        style: form
+      - description: Name of your file including extension.
+        explode: true
+        in: query
+        name: fileName
+        required: false
+        schema:
+          description: string
+          example: filename.txt
+          format: string
+          type: string
+        style: form
+      responses:
+        "202":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ExportLink'
+          description: Accepted
+      summary: Export Channel Events
+      tags:
+      - Events
+  /events/channels/export/{id}/status:
+    get:
+      description: "Check the current status of the channel export. Required Access\
+        \ Level: Export"
+      operationId: eventsChannelsExportByIdStatusGet
+      parameters:
+      - description: ID of the exported file
+        explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          description: string
+          example: E33EBA7A-C20D-4D3D-8F2F-5EEF42F58E6F
+          format: guid
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ExportStatus'
+          description: OK
+      summary: Check Channel Export Status
+      tags:
+      - Events
+  /events/export:
+    post:
+      description: "Export delivery events log information to the specified file format.\
+        \ Required Access Level: Export"
+      operationId: eventsExportPost
+      parameters:
+      - description: Types of Events to return
+        explode: true
+        in: query
+        name: eventTypes
+        required: false
+        schema:
+          description: array
+          items:
+            $ref: '#/components/schemas/EventType'
+          type: array
+        style: form
+      - description: Starting date for search in YYYY-MM-DDThh:mm:ss format.
+        explode: true
+        in: query
+        name: from
+        required: false
+        schema:
+          description: string
+          format: date-time
+          nullable: true
+          type: string
+        style: form
+      - description: Ending date for search in YYYY-MM-DDThh:mm:ss format.
+        explode: true
+        in: query
+        name: to
+        required: false
+        schema:
+          description: string
+          format: date-time
+          nullable: true
+          type: string
+        style: form
+      - description: Format of the exported file
+        explode: true
+        in: query
+        name: fileFormat
+        required: false
+        schema:
+          $ref: '#/components/schemas/ExportFileFormats'
+        style: form
+      - description: FileResponse compression format. None or Zip.
+        explode: true
+        in: query
+        name: compressionFormat
+        required: false
+        schema:
+          $ref: '#/components/schemas/CompressionFormat'
+        style: form
+      - description: Name of your file including extension.
+        explode: true
+        in: query
+        name: fileName
+        required: false
+        schema:
+          description: string
+          example: filename.txt
+          format: string
+          type: string
+        style: form
+      responses:
+        "202":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ExportLink'
+          description: Accepted
+      summary: Export Events
+      tags:
+      - Events
+  /events/export/{id}/status:
+    get:
+      description: "Check the current status of the export. Required Access Level:\
+        \ Export"
+      operationId: eventsExportByIdStatusGet
+      parameters:
+      - description: ID of the exported file
+        explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          description: string
+          example: E33EBA7A-C20D-4D3D-8F2F-5EEF42F58E6F
+          format: guid
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ExportStatus'
+          description: OK
+      summary: Check Export Status
+      tags:
+      - Events
+  /files:
+    get:
+      description: "Returns a list of all your available files. Required Access Level:\
+        \ ViewFiles"
+      operationId: filesGet
+      parameters:
+      - description: Maximum number of returned items.
+        explode: true
+        in: query
+        name: limit
+        required: false
+        schema:
+          description: integer
+          example: 100
+          format: int32
+          type: integer
+        style: form
+      - description: How many items should be returned ahead.
+        explode: true
+        in: query
+        name: offset
+        required: false
+        schema:
+          description: integer
+          example: 20
+          format: int32
+          type: integer
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/FileInfo'
+                type: array
+          description: OK
+      summary: List Files
+      tags:
+      - Files
+    post:
+      description: "Uploads selected file to the server. Required Access Level: ModifyFiles"
+      operationId: filesPost
+      parameters:
+      - description: After how many days should the file be deleted.
+        explode: true
+        in: query
+        name: expiresAfterDays
+        required: false
+        schema:
+          description: integer
+          format: int32
+          nullable: true
+          type: integer
+          example: null
+        style: form
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FilePayload'
+        required: true
+      responses:
+        "201":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FileInfo'
+          description: Created
+      summary: Upload File
+      tags:
+      - Files
+  /files/{name}:
+    delete:
+      description: "Permanently deletes the file from your Account. Required Access\
+        \ Level: ModifyFiles"
+      operationId: filesByNameDelete
+      parameters:
+      - description: Name of your file including extension.
+        explode: false
+        in: path
+        name: name
+        required: true
+        schema:
+          description: string
+          example: filename.txt
+          format: string
+          type: string
+        style: simple
+      responses:
+        "200":
+          description: OK
+      summary: Delete File
+      tags:
+      - Files
+    get:
+      description: "Gets content of the specified File. Required Access Level: ViewFiles"
+      operationId: filesByNameGet
+      parameters:
+      - description: Name of your file including extension.
+        explode: false
+        in: path
+        name: name
+        required: true
+        schema:
+          description: string
+          example: filename.txt
+          format: string
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/*:
+              schema:
+                format: binary
+                type: string
+          description: OK
+      summary: Download File
+      tags:
+      - Files
+  /files/{name}/info:
+    get:
+      description: "Returns the specified File's details. Required Access Level: ViewFiles"
+      operationId: filesByNameInfoGet
+      parameters:
+      - description: Name of your file including extension.
+        explode: false
+        in: path
+        name: name
+        required: true
+        schema:
+          description: string
+          example: filename.txt
+          format: string
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FileInfo'
+          description: OK
+      summary: Load File Details
+      tags:
+      - Files
+  /inboundroute:
+    get:
+      description: "Get all your Inbound Routes. Required Access Level: ViewSettings"
+      operationId: inboundrouteGet
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/InboundRoute'
+                type: array
+          description: OK
+      summary: Get Routes
+      tags:
+      - InboundRoute
+    post:
+      description: "Create new Inbound Route. Required Access Level: ModifySettings"
+      operationId: inboundroutePost
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/InboundPayload'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InboundRoute'
+          description: OK
+      summary: Create Route
+      tags:
+      - InboundRoute
+  /inboundroute/{id}:
+    delete:
+      description: "Deletes the Inbound Route. Required Access Level: ModifySettings"
+      operationId: inboundrouteByIdDelete
+      parameters:
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          description: string
+          format: guid
+          type: string
+        style: simple
+      responses:
+        "200":
+          description: OK
+      summary: Delete Route
+      tags:
+      - InboundRoute
+    get:
+      description: "Load an Inbound Route. Required Access Level: ViewSettings"
+      operationId: inboundrouteByIdGet
+      parameters:
+      - description: ID number of your attachment
+        explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          description: string
+          example: "123456"
+          format: guid
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InboundRoute'
+          description: OK
+      summary: Get Route
+      tags:
+      - InboundRoute
+    put:
+      description: "Update the Inbound Route. Required Access Level: ModifySettings"
+      operationId: inboundrouteByIdPut
+      parameters:
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          description: string
+          format: guid
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/InboundPayload'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InboundRoute'
+          description: OK
+      summary: Update Route
+      tags:
+      - InboundRoute
+  /inboundroute/order:
+    put:
+      description: "Required Access Level: ViewSettings"
+      operationId: inboundrouteOrderPut
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                $ref: '#/components/schemas/SortOrderItem'
+              type: array
+        description: Change the ordering of inbound routes for when matching the inbound
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/InboundRoute'
+                type: array
+          description: OK
+      summary: Update Sorting
+      tags:
+      - InboundRoute
+  /lists:
+    get:
+      description: "Returns all your existing lists. Required Access Level: ViewContacts"
+      operationId: listsGet
+      parameters:
+      - description: Maximum number of returned items.
+        explode: true
+        in: query
+        name: limit
+        required: false
+        schema:
+          description: integer
+          example: 100
+          format: int32
+          type: integer
+        style: form
+      - description: How many items should be returned ahead.
+        explode: true
+        in: query
+        name: offset
+        required: false
+        schema:
+          description: integer
+          example: 20
+          format: int32
+          type: integer
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/ContactsList'
+                type: array
+          description: OK
+      summary: Load Lists
+      tags:
+      - Lists
+    post:
+      description: "Add a new list. Required Access Level: ModifyContacts"
+      operationId: listsPost
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ListPayload'
+        required: true
+      responses:
+        "201":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ContactsList'
+          description: Created
+      summary: Add List
+      tags:
+      - Lists
+  /lists/{listname}/contacts:
+    get:
+      description: "Returns a list of contacts. Required Access Level: ViewContacts"
+      operationId: listsByListnameContactsGet
+      parameters:
+      - description: Name of your list.
+        explode: false
+        in: path
+        name: listname
+        required: true
+        schema:
+          description: string
+          example: My List 1
+          format: string
+          type: string
+        style: simple
+      - description: Maximum number of returned items.
+        explode: true
+        in: query
+        name: limit
+        required: false
+        schema:
+          description: integer
+          example: 100
+          format: int32
+          type: integer
+        style: form
+      - description: How many items should be returned ahead.
+        explode: true
+        in: query
+        name: offset
+        required: false
+        schema:
+          description: integer
+          example: 20
+          format: int32
+          type: integer
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/Contact'
+                type: array
+          description: OK
+      summary: Load Contacts in List
+      tags:
+      - Lists
+  /lists/{name}:
+    delete:
+      description: "Deletes List and removes all the Contacts from it (does not delete\
+        \ Contacts). Required Access Level: ModifyContacts"
+      operationId: listsByNameDelete
+      parameters:
+      - description: Name of your list.
+        explode: false
+        in: path
+        name: name
+        required: true
+        schema:
+          description: string
+          example: My List 1
+          format: string
+          type: string
+        style: simple
+      responses:
+        "200":
+          description: OK
+      summary: Delete List
+      tags:
+      - Lists
+    get:
+      description: "Returns detailed information about specified list. Required Access\
+        \ Level: ViewContacts"
+      operationId: listsByNameGet
+      parameters:
+      - description: Name of your list.
+        explode: false
+        in: path
+        name: name
+        required: true
+        schema:
+          description: string
+          example: My List 1
+          format: string
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ContactsList'
+          description: OK
+      summary: Load List
+      tags:
+      - Lists
+    put:
+      description: "Update existing list. Required Access Level: ModifyContacts"
+      operationId: listsByNamePut
+      parameters:
+      - description: Name of your list.
+        explode: false
+        in: path
+        name: name
+        required: true
+        schema:
+          description: string
+          example: My List 1
+          format: string
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ListUpdatePayload'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ContactsList'
+          description: OK
+      summary: Update List
+      tags:
+      - Lists
+  /lists/{name}/contacts:
+    post:
+      description: "Add existing Contacts to specified list. Required Access Level:\
+        \ ModifyContacts"
+      operationId: listsByNameContactsPost
+      parameters:
+      - description: Name of your list.
+        explode: false
+        in: path
+        name: name
+        required: true
+        schema:
+          description: string
+          example: My List 1
+          format: string
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EmailsPayload'
+        description: "Provide either rule or a list of emails, not both."
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ContactsList'
+          description: OK
+      summary: Add Contacts to List
+      tags:
+      - Lists
+  /lists/{name}/contacts/remove:
+    post:
+      description: "Remove specified Contacts from your list. Required Access Level:\
+        \ ModifyContacts"
+      operationId: listsByNameContactsRemovePost
+      parameters:
+      - description: Name of your list.
+        explode: false
+        in: path
+        name: name
+        required: true
+        schema:
+          description: string
+          example: My List 1
+          format: string
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EmailsPayload'
+        description: "Provide either rule or a list of emails, not both."
+        required: true
+      responses:
+        "200":
+          description: OK
+      summary: Remove Contacts from List
+      tags:
+      - Lists
+  /security/apikeys:
+    get:
+      description: "List all your existing ApiKeys. Required Access Level: Security"
+      operationId: securityApikeysGet
+      parameters:
+      - description: Email of the subaccount of which ApiKeys should be loaded
+        explode: true
+        in: query
+        name: subaccount
+        required: false
+        schema:
+          description: string
+          format: string
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/ApiKey'
+                type: array
+          description: OK
+      summary: List ApiKeys
+      tags:
+      - Security
+    post:
+      description: "Add a new ApiKey. Required Access Level: Security"
+      operationId: securityApikeysPost
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ApiKeyPayload'
+        required: true
+      responses:
+        "201":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NewApiKey'
+          description: Created
+      summary: Add ApiKey
+      tags:
+      - Security
+  /security/apikeys/{name}:
+    delete:
+      description: "Delete your existing ApiKey. Required Access Level: Security"
+      operationId: securityApikeysByNameDelete
+      parameters:
+      - description: Name of the ApiKey
+        explode: false
+        in: path
+        name: name
+        required: true
+        schema:
+          description: string
+          format: string
+          type: string
+        style: simple
+      - description: Email of the subaccount of which ApiKey should be deleted
+        explode: true
+        in: query
+        name: subaccount
+        required: false
+        schema:
+          description: string
+          format: string
+          type: string
+        style: form
+      responses:
+        "200":
+          description: OK
+      summary: Delete ApiKey
+      tags:
+      - Security
+    get:
+      description: "Load your existing ApiKey info. Required Access Level: Security"
+      operationId: securityApikeysByNameGet
+      parameters:
+      - description: Name of the ApiKey
+        explode: false
+        in: path
+        name: name
+        required: true
+        schema:
+          description: string
+          format: string
+          type: string
+        style: simple
+      - description: Email of the subaccount of which ApiKey should be loaded
+        explode: true
+        in: query
+        name: subaccount
+        required: false
+        schema:
+          description: string
+          format: string
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiKey'
+          description: OK
+      summary: Load ApiKey
+      tags:
+      - Security
+    put:
+      description: "Update your existing ApiKey. Required Access Level: Security"
+      operationId: securityApikeysByNamePut
+      parameters:
+      - description: Name of the ApiKey
+        explode: false
+        in: path
+        name: name
+        required: true
+        schema:
+          description: string
+          format: string
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ApiKeyPayload'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiKey'
+          description: OK
+      summary: Update ApiKey
+      tags:
+      - Security
+  /security/smtp:
+    get:
+      description: "List all your existing SMTP Credentials. Required Access Level:\
+        \ Security"
+      operationId: securitySmtpGet
+      parameters:
+      - description: Email of the subaccount of which credentials should be listed
+        explode: true
+        in: query
+        name: subaccount
+        required: false
+        schema:
+          description: string
+          format: string
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/SmtpCredentials'
+                type: array
+          description: OK
+      summary: List SMTP Credentials
+      tags:
+      - Security
+    post:
+      description: "Add new SMTP Credential. Required Access Level: Security"
+      operationId: securitySmtpPost
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SmtpCredentialsPayload'
+        required: true
+      responses:
+        "201":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NewSmtpCredentials'
+          description: Created
+      summary: Add SMTP Credential
+      tags:
+      - Security
+  /security/smtp/{name}:
+    delete:
+      description: "Delete your existing SMTP Credentials. Required Access Level:\
+        \ Security"
+      operationId: securitySmtpByNameDelete
+      parameters:
+      - description: Name of the SMTP Credential
+        explode: false
+        in: path
+        name: name
+        required: true
+        schema:
+          description: string
+          format: string
+          type: string
+        style: simple
+      - description: Email of the subaccount of which credential should be deleted
+        explode: true
+        in: query
+        name: subaccount
+        required: false
+        schema:
+          description: string
+          format: string
+          type: string
+        style: form
+      responses:
+        "200":
+          description: OK
+      summary: Delete SMTP Credential
+      tags:
+      - Security
+    get:
+      description: "Load your existing SMTP Credential info. Required Access Level:\
+        \ Security"
+      operationId: securitySmtpByNameGet
+      parameters:
+      - description: Name of the SMTP Credential
+        explode: false
+        in: path
+        name: name
+        required: true
+        schema:
+          description: string
+          format: string
+          type: string
+        style: simple
+      - description: Email of the subaccount of which credential should be loaded
+        explode: true
+        in: query
+        name: subaccount
+        required: false
+        schema:
+          description: string
+          format: string
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SmtpCredentials'
+          description: OK
+      summary: Load SMTP Credential
+      tags:
+      - Security
+    put:
+      description: "Update your existing SMTP Credentials. Required Access Level:\
+        \ Security"
+      operationId: securitySmtpByNamePut
+      parameters:
+      - description: Name of the SMTP Credential
+        explode: false
+        in: path
+        name: name
+        required: true
+        schema:
+          description: string
+          format: string
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SmtpCredentialsPayload'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SmtpCredentials'
+          description: OK
+      summary: Update SMTP Credential
+      tags:
+      - Security
+  /segments:
+    get:
+      description: "Returns a list of all your available Segments. Required Access\
+        \ Level: ViewContacts"
+      operationId: segmentsGet
+      parameters:
+      - description: Maximum number of returned items.
+        explode: true
+        in: query
+        name: limit
+        required: false
+        schema:
+          description: integer
+          example: 100
+          format: int32
+          type: integer
+        style: form
+      - description: How many items should be returned ahead.
+        explode: true
+        in: query
+        name: offset
+        required: false
+        schema:
+          description: integer
+          example: 20
+          format: int32
+          type: integer
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/Segment'
+                type: array
+          description: OK
+      summary: Load Segments
+      tags:
+      - Segments
+    post:
+      description: "Add a new segment, based on specified RULE. Required Access Level:\
+        \ ModifyContacts"
+      operationId: segmentsPost
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SegmentPayload'
+        required: true
+      responses:
+        "201":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Segment'
+          description: Created
+      summary: Add Segment
+      tags:
+      - Segments
+  /segments/{name}:
+    delete:
+      description: "Delete an existing segment. Required Access Level: ModifyContacts"
+      operationId: segmentsByNameDelete
+      parameters:
+      - description: Name of your segment.
+        explode: false
+        in: path
+        name: name
+        required: true
+        schema:
+          description: string
+          example: My Segment 1
+          format: string
+          type: string
+        style: simple
+      responses:
+        "200":
+          description: OK
+      summary: Delete Segment
+      tags:
+      - Segments
+    get:
+      description: "Returns details for the specified segment. Required Access Level:\
+        \ ViewContacts"
+      operationId: segmentsByNameGet
+      parameters:
+      - description: Name of the segment you want to load. Will load all contacts
+          if the 'All Contacts' name has been provided
+        explode: false
+        in: path
+        name: name
+        required: true
+        schema:
+          description: string
+          format: string
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Segment'
+          description: OK
+      summary: Load Segment
+      tags:
+      - Segments
+    put:
+      description: "Rename or change RULE for your segment. Required Access Level:\
+        \ ModifyContacts"
+      operationId: segmentsByNamePut
+      parameters:
+      - description: Name of your segment.
+        explode: false
+        in: path
+        name: name
+        required: true
+        schema:
+          description: string
+          example: My Segment 1
+          format: string
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SegmentPayload'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Segment'
+          description: OK
+      summary: Update Segment
+      tags:
+      - Segments
+  /statistics:
+    get:
+      description: "Returns basic statistics. Required Access Level: ViewReports"
+      operationId: statisticsGet
+      parameters:
+      - description: Starting date for search in YYYY-MM-DDThh:mm:ss format.
+        explode: true
+        in: query
+        name: from
+        required: true
+        schema:
+          description: string
+          format: date-time
+          type: string
+        style: form
+      - description: Ending date for search in YYYY-MM-DDThh:mm:ss format.
+        explode: true
+        in: query
+        name: to
+        required: false
+        schema:
+          description: string
+          format: date-time
+          nullable: true
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LogStatusSummary'
+          description: OK
+      summary: Load Statistics
+      tags:
+      - Statistics
+  /statistics/campaigns:
+    get:
+      description: "Returns a list of your Campaigns' stats. Required Access Level:\
+        \ ViewChannels"
+      operationId: statisticsCampaignsGet
+      parameters:
+      - description: Maximum number of returned items.
+        explode: true
+        in: query
+        name: limit
+        required: false
+        schema:
+          description: integer
+          example: 100
+          format: int32
+          type: integer
+        style: form
+      - description: How many items should be returned ahead.
+        explode: true
+        in: query
+        name: offset
+        required: false
+        schema:
+          description: integer
+          example: 20
+          format: int32
+          type: integer
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/ChannelLogStatusSummary'
+                type: array
+          description: OK
+      summary: Load Campaigns Stats
+      tags:
+      - Statistics
+  /statistics/campaigns/{name}:
+    get:
+      description: "Retrieve stats of an existing campaign. Required Access Level:\
+        \ ViewChannels"
+      operationId: statisticsCampaignsByNameGet
+      parameters:
+      - description: The name of the campaign to get.
+        explode: false
+        in: path
+        name: name
+        required: true
+        schema:
+          description: string
+          format: string
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ChannelLogStatusSummary'
+          description: OK
+      summary: Load Campaign Stats
+      tags:
+      - Statistics
+  /statistics/channels:
+    get:
+      description: "Returns a list of your Channels' stats. Required Access Level:\
+        \ ViewChannels"
+      operationId: statisticsChannelsGet
+      parameters:
+      - description: Maximum number of returned items.
+        explode: true
+        in: query
+        name: limit
+        required: false
+        schema:
+          description: integer
+          example: 100
+          format: int32
+          type: integer
+        style: form
+      - description: How many items should be returned ahead.
+        explode: true
+        in: query
+        name: offset
+        required: false
+        schema:
+          description: integer
+          example: 20
+          format: int32
+          type: integer
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/ChannelLogStatusSummary'
+                type: array
+          description: OK
+      summary: Load Channels Stats
+      tags:
+      - Statistics
+  /statistics/channels/{name}:
+    get:
+      description: "Retrieve an existing channel stats. Required Access Level: ViewChannels"
+      operationId: statisticsChannelsByNameGet
+      parameters:
+      - description: The name of the channel to get.
+        explode: false
+        in: path
+        name: name
+        required: true
+        schema:
+          description: string
+          format: string
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ChannelLogStatusSummary'
+          description: OK
+      summary: Load Channel Stats
+      tags:
+      - Statistics
+  /subaccounts:
+    get:
+      description: "Returns a list of all your SubAccounts. Required Access Level:\
+        \ ViewSubAccounts"
+      operationId: subaccountsGet
+      parameters:
+      - description: Maximum number of returned items.
+        explode: true
+        in: query
+        name: limit
+        required: false
+        schema:
+          description: integer
+          example: 100
+          format: int32
+          type: integer
+        style: form
+      - description: How many items should be returned ahead.
+        explode: true
+        in: query
+        name: offset
+        required: false
+        schema:
+          description: integer
+          example: 20
+          format: int32
+          type: integer
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/SubAccountInfo'
+                type: array
+          description: OK
+      summary: Load SubAccounts
+      tags:
+      - SubAccounts
+    post:
+      description: "Add a new SubAccount to your Account. To receive an access token\
+        \ for this SubAccount, make a POST security/apikeys request using the 'subaccount'\
+        \ parameter. Required Access Level: ModifySubAccounts"
+      operationId: subaccountsPost
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SubaccountPayload'
+        required: true
+      responses:
+        "201":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SubAccountInfo'
+          description: Created
+      summary: Add SubAccount
+      tags:
+      - SubAccounts
+  /subaccounts/{email}:
+    delete:
+      description: "Deletes specified SubAccount. An email will be sent to confirm\
+        \ this change. Required Access Level: ModifySubAccounts"
+      operationId: subaccountsByEmailDelete
+      parameters:
+      - description: Email address of Sub-Account
+        explode: false
+        in: path
+        name: email
+        required: true
+        schema:
+          description: string
+          example: mail@example.com
+          format: string
+          type: string
+        style: simple
+      responses:
+        "200":
+          description: OK
+      summary: Delete SubAccount
+      tags:
+      - SubAccounts
+    get:
+      description: "Returns details for the specified SubAccount. Required Access\
+        \ Level: ViewSubAccounts"
+      operationId: subaccountsByEmailGet
+      parameters:
+      - description: Email address of Sub-Account
+        explode: false
+        in: path
+        name: email
+        required: true
+        schema:
+          description: string
+          example: mail@example.com
+          format: string
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SubAccountInfo'
+          description: OK
+      summary: Load SubAccount
+      tags:
+      - SubAccounts
+  /subaccounts/{email}/credits:
+    patch:
+      description: "Update email credits of a subaccount by the given amount. Required\
+        \ Access Level: ModifySubAccounts"
+      operationId: subaccountsByEmailCreditsPatch
+      parameters:
+      - description: Email address of Sub-Account
+        explode: false
+        in: path
+        name: email
+        required: true
+        schema:
+          description: string
+          example: mail@example.com
+          format: string
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SubaccountEmailCreditsPayload'
+        description: Amount of email credits to add or subtract from the current SubAccount
+          email credits pool (positive or negative value)
+        required: true
+      responses:
+        "200":
+          description: OK
+      summary: "Add, Subtract Email Credits"
+      tags:
+      - SubAccounts
+  /subaccounts/{email}/settings/email:
+    put:
+      description: "Update SubAccount email settings. Required Access Level: ModifySubAccounts"
+      operationId: subaccountsByEmailSettingsEmailPut
+      parameters:
+      - explode: false
+        in: path
+        name: email
+        required: true
+        schema:
+          description: string
+          format: string
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SubaccountEmailSettings'
+        description: Updated Email Settings
+        required: true
+      responses:
+        "201":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SubaccountEmailSettings'
+          description: Created
+      summary: Update SubAccount Email Settings
+      tags:
+      - SubAccounts
+  /suppressions:
+    get:
+      description: "Retrieve your suppressions. Required Access Level: ViewContacts,\
+        \ ViewSuppressions"
+      operationId: suppressionsGet
+      parameters:
+      - description: Maximum number of returned items.
+        explode: true
+        in: query
+        name: limit
+        required: false
+        schema:
+          description: integer
+          example: 100
+          format: int32
+          type: integer
+        style: form
+      - description: How many items should be returned ahead.
+        explode: true
+        in: query
+        name: offset
+        required: false
+        schema:
+          description: integer
+          example: 20
+          format: int32
+          type: integer
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/Suppression'
+                type: array
+          description: OK
+      summary: Get Suppressions
+      tags:
+      - Suppressions
+  /suppressions/{email}:
+    delete:
+      description: "Delete Suppression. Required Access Level: ViewContacts, ViewSuppressions"
+      operationId: suppressionsByEmailDelete
+      parameters:
+      - description: Proper email address.
+        explode: false
+        in: path
+        name: email
+        required: true
+        schema:
+          description: string
+          example: mail@example.com
+          format: string
+          type: string
+        style: simple
+      responses:
+        "200":
+          description: OK
+      summary: Delete Suppression
+      tags:
+      - Suppressions
+    get:
+      description: "Retrieve your suppression. Required Access Level: ViewContacts,\
+        \ ViewSuppressions"
+      operationId: suppressionsByEmailGet
+      parameters:
+      - description: Proper email address.
+        explode: false
+        in: path
+        name: email
+        required: true
+        schema:
+          description: string
+          example: mail@example.com
+          format: string
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Suppression'
+          description: OK
+      summary: Get Suppression
+      tags:
+      - Suppressions
+  /suppressions/bounces:
+    get:
+      description: "Retrieve your list of bounced emails. Required Access Level: ViewContacts,\
+        \ ViewSuppressions"
+      operationId: suppressionsBouncesGet
+      parameters:
+      - description: Text fragment used for searching.
+        explode: true
+        in: query
+        name: search
+        required: false
+        schema:
+          description: string
+          example: text
+          format: string
+          type: string
+        style: form
+      - description: Maximum number of returned items.
+        explode: true
+        in: query
+        name: limit
+        required: false
+        schema:
+          description: integer
+          example: 100
+          format: int32
+          type: integer
+        style: form
+      - description: How many items should be returned ahead.
+        explode: true
+        in: query
+        name: offset
+        required: false
+        schema:
+          description: integer
+          example: 20
+          format: int32
+          type: integer
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/Suppression'
+                type: array
+          description: OK
+      summary: Get Bounce List
+      tags:
+      - Suppressions
+    post:
+      description: "Add Bounced. Required Access Level: ModifyContacts, ModifySuppressions"
+      operationId: suppressionsBouncesPost
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                format: string
+                type: string
+              type: array
+        description: Emails to add as bounces. Limited to 1000 per request
+        required: true
+      responses:
+        "201":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/Suppression'
+                type: array
+          description: Created
+      summary: Add Bounces
+      tags:
+      - Suppressions
+  /suppressions/bounces/import:
+    post:
+      description: "Add Bounced. Required Access Level: ModifyContacts, ModifySuppressions"
+      operationId: suppressionsBouncesImportPost
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/contactsImportPost_request'
+        description: Emails to add as bounces.
+        required: true
+      responses:
+        "202":
+          description: Accepted
+      summary: Add Bounces Async
+      tags:
+      - Suppressions
+  /suppressions/complaints:
+    get:
+      description: "Retrieve your list of complaints. Required Access Level: ViewContacts,\
+        \ ViewSuppressions"
+      operationId: suppressionsComplaintsGet
+      parameters:
+      - description: Text fragment used for searching.
+        explode: true
+        in: query
+        name: search
+        required: false
+        schema:
+          description: string
+          example: text
+          format: string
+          type: string
+        style: form
+      - description: Maximum number of returned items.
+        explode: true
+        in: query
+        name: limit
+        required: false
+        schema:
+          description: integer
+          example: 100
+          format: int32
+          type: integer
+        style: form
+      - description: How many items should be returned ahead.
+        explode: true
+        in: query
+        name: offset
+        required: false
+        schema:
+          description: integer
+          example: 20
+          format: int32
+          type: integer
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/Suppression'
+                type: array
+          description: OK
+      summary: Get Complaints List
+      tags:
+      - Suppressions
+    post:
+      description: "Add Complaints. Required Access Level: ModifyContacts, ModifySuppressions"
+      operationId: suppressionsComplaintsPost
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                format: string
+                type: string
+              type: array
+        description: Emails to add as complaints. Limited to 1000 per request
+        required: true
+      responses:
+        "201":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/Suppression'
+                type: array
+          description: Created
+      summary: Add Complaints
+      tags:
+      - Suppressions
+  /suppressions/complaints/import:
+    post:
+      description: "Add Complaints. Required Access Level: ModifyContacts, ModifySuppressions"
+      operationId: suppressionsComplaintsImportPost
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/contactsImportPost_request'
+        description: Emails to add as complaints.
+        required: true
+      responses:
+        "202":
+          description: Accepted
+      summary: Add Complaints Async
+      tags:
+      - Suppressions
+  /suppressions/unsubscribes:
+    get:
+      description: "Retrieve your list of unsubscribes. Required Access Level: ViewContacts,\
+        \ ViewSuppressions"
+      operationId: suppressionsUnsubscribesGet
+      parameters:
+      - description: Text fragment used for searching.
+        explode: true
+        in: query
+        name: search
+        required: false
+        schema:
+          description: string
+          example: text
+          format: string
+          type: string
+        style: form
+      - description: Maximum number of returned items.
+        explode: true
+        in: query
+        name: limit
+        required: false
+        schema:
+          description: integer
+          example: 100
+          format: int32
+          type: integer
+        style: form
+      - description: How many items should be returned ahead.
+        explode: true
+        in: query
+        name: offset
+        required: false
+        schema:
+          description: integer
+          example: 20
+          format: int32
+          type: integer
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/Suppression'
+                type: array
+          description: OK
+      summary: Get Unsubscribes List
+      tags:
+      - Suppressions
+    post:
+      description: "Add Unsubscribes. Required Access Level: ModifyContacts, ModifySuppressions"
+      operationId: suppressionsUnsubscribesPost
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                format: string
+                type: string
+              type: array
+        description: Emails to add as unsubscribes. Limited to 1000 per request
+        required: true
+      responses:
+        "201":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/Suppression'
+                type: array
+          description: Created
+      summary: Add Unsubscribes
+      tags:
+      - Suppressions
+  /suppressions/unsubscribes/import:
+    post:
+      description: "Add Unsubscribes. Required Access Level: ModifyContacts, ModifySuppressions"
+      operationId: suppressionsUnsubscribesImportPost
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/contactsImportPost_request'
+        description: Emails to add as unsubscribes.
+        required: true
+      responses:
+        "202":
+          description: Accepted
+      summary: Add Unsubscribes Async
+      tags:
+      - Suppressions
+  /templates:
+    get:
+      description: "Returns a list of templates for the specified type. Required Access\
+        \ Level: ViewTemplates"
+      operationId: templatesGet
+      parameters:
+      - description: Return templates with specified scope only
+        explode: true
+        in: query
+        name: scopeType
+        required: true
+        schema:
+          description: array
+          items:
+            $ref: '#/components/schemas/TemplateScope'
+          type: array
+        style: form
+      - description: Return templates with specified type only
+        explode: true
+        in: query
+        name: templateTypes
+        required: false
+        schema:
+          description: array
+          items:
+            $ref: '#/components/schemas/TemplateType'
+          type: array
+        style: form
+      - description: Maximum number of returned items.
+        explode: true
+        in: query
+        name: limit
+        required: false
+        schema:
+          description: integer
+          example: 100
+          format: int32
+          type: integer
+        style: form
+      - description: How many items should be returned ahead.
+        explode: true
+        in: query
+        name: offset
+        required: false
+        schema:
+          description: integer
+          example: 20
+          format: int32
+          type: integer
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/Template'
+                type: array
+          description: OK
+      summary: Load Templates
+      tags:
+      - Templates
+    post:
+      description: "Add a new Template. Required Access Level: ModifyTemplates"
+      operationId: templatesPost
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TemplatePayload'
+        required: true
+      responses:
+        "201":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Template'
+          description: Template
+      summary: Add Template
+      tags:
+      - Templates
+  /templates/{name}:
+    delete:
+      description: "Delete template with the specified name. Required Access Level:\
+        \ ModifyTemplates"
+      operationId: templatesByNameDelete
+      parameters:
+      - description: Name of template.
+        explode: false
+        in: path
+        name: name
+        required: true
+        schema:
+          description: string
+          example: Template01
+          format: string
+          type: string
+        style: simple
+      responses:
+        "200":
+          description: OK
+      summary: Delete Template
+      tags:
+      - Templates
+    get:
+      description: "Load detailed information of the specified template. Required\
+        \ Access Level: ViewTemplates"
+      operationId: templatesByNameGet
+      parameters:
+      - description: Name of template.
+        explode: false
+        in: path
+        name: name
+        required: true
+        schema:
+          description: string
+          example: Template01
+          format: string
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Template'
+          description: Serialized template
+      summary: Load Template
+      tags:
+      - Templates
+    put:
+      description: "Update existing template, overwriting existing data. Required\
+        \ Access Level: ModifyTemplates"
+      operationId: templatesByNamePut
+      parameters:
+      - description: Name of template.
+        explode: false
+        in: path
+        name: name
+        required: true
+        schema:
+          description: string
+          example: Template01
+          format: string
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TemplatePayload'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Template'
+          description: OK
+      summary: Update Template
+      tags:
+      - Templates
+  /verifications:
+    get:
+      description: "Returns a results of all verified single emails. Required Access\
+        \ Level: VerifyEmails"
+      operationId: verificationsGet
+      parameters:
+      - description: Maximum number of returned items.
+        explode: true
+        in: query
+        name: limit
+        required: false
+        schema:
+          description: integer
+          example: 100
+          format: int32
+          type: integer
+        style: form
+      - description: How many items should be returned ahead.
+        explode: true
+        in: query
+        name: offset
+        required: false
+        schema:
+          description: integer
+          example: 20
+          format: int32
+          type: integer
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/EmailValidationResult'
+                type: array
+          description: OK
+      summary: Get Emails Verification Results
+      tags:
+      - Verifications
+  /verifications/{email}:
+    delete:
+      description: "Delete a result with given email if exists. Required Access Level:\
+        \ VerifyEmails"
+      operationId: verificationsByEmailDelete
+      parameters:
+      - description: Email address to verification
+        explode: false
+        in: path
+        name: email
+        required: true
+        schema:
+          description: string
+          format: string
+          type: string
+        style: simple
+      responses:
+        "200":
+          description: OK
+      summary: Delete Email Verification Result
+      tags:
+      - Verifications
+    get:
+      description: "Returns a result of verified email. Required Access Level: VerifyEmails"
+      operationId: verificationsByEmailGet
+      parameters:
+      - description: Email address to view verification result of
+        explode: false
+        in: path
+        name: email
+        required: true
+        schema:
+          description: string
+          format: string
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmailValidationResult'
+          description: OK
+      summary: Get Email Verification Result
+      tags:
+      - Verifications
+    post:
+      description: "Verify single email address and returns result of verification.\
+        \ Required Access Level: VerifyEmails"
+      operationId: verificationsByEmailPost
+      parameters:
+      - description: Email address to verify
+        explode: false
+        in: path
+        name: email
+        required: true
+        schema:
+          description: string
+          format: string
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmailValidationResult'
+          description: OK
+      summary: Verify Email
+      tags:
+      - Verifications
+  /verifications/files:
+    post:
+      description: "Uploads a CSV file with list of emails that can then be triggered\
+        \ for verification. An 'email' column is required. Required Access Level:\
+        \ VerifyEmails"
+      operationId: verificationsFilesPost
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/contactsImportPost_request'
+        description: Uploaded file
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/VerificationFileResult'
+          description: OK
+      summary: Upload File with Emails
+      tags:
+      - Verifications
+  /verifications/files/{id}:
+    delete:
+      description: "Delete Verification Results if they exist. Required Access Level:\
+        \ VerifyEmails"
+      operationId: verificationsFilesByIdDelete
+      parameters:
+      - description: ID of the exported file
+        explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          description: string
+          example: E33EBA7A-C20D-4D3D-8F2F-5EEF42F58E6F
+          format: string
+          type: string
+        style: simple
+      responses:
+        "200":
+          description: OK
+      summary: Delete File Verification Result
+      tags:
+      - Verifications
+  /verifications/files/{id}/result:
+    get:
+      description: "Returns status and results (if verified) of file with given ID.\
+        \ Required Access Level: VerifyEmails"
+      operationId: verificationsFilesByIdResultGet
+      parameters:
+      - description: ID of the Verification to display status of
+        explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          description: string
+          format: string
+          type: string
+        style: simple
+      - description: Maximum number of returned email verification results
+        explode: true
+        in: query
+        name: limit
+        required: false
+        schema:
+          description: integer
+          format: int32
+          type: integer
+        style: form
+      - description: How many result items should be returned ahead
+        explode: true
+        in: query
+        name: offset
+        required: false
+        schema:
+          description: integer
+          format: int32
+          type: integer
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/VerificationFileResultDetails'
+          description: OK
+      summary: Get Detailed File Verification Result
+      tags:
+      - Verifications
+  /verifications/files/{id}/result/download:
+    get:
+      description: "Download verification results as a ZIP file. Required Access Level:\
+        \ VerifyEmails"
+      operationId: verificationsFilesByIdResultDownloadGet
+      parameters:
+      - description: Verification ID to download
+        explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          description: string
+          format: string
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/*:
+              schema:
+                format: binary
+                type: string
+          description: A ZIP file with verification details
+      summary: Download File Verification Result
+      tags:
+      - Verifications
+  /verifications/files/{id}/verification:
+    post:
+      description: "Start a verification of the previously uploaded file with emails.\
+        \ Required Access Level: VerifyEmails"
+      operationId: verificationsFilesByIdVerificationPost
+      parameters:
+      - description: File ID to start verification
+        explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          description: string
+          format: string
+          type: string
+        style: simple
+      responses:
+        "200":
+          description: OK
+      summary: Start verification
+      tags:
+      - Verifications
+  /verifications/files/result:
+    get:
+      description: "Returns a list of uploaded files, their statuses and results.\
+        \ Required Access Level: VerifyEmails"
+      operationId: verificationsFilesResultGet
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/VerificationFileResult'
+                type: array
+          description: OK
+      summary: Get Files Verification Results
+      tags:
+      - Verifications
+components:
+  schemas:
+    AccessLevel:
+      default: None
+      enum:
+      - None
+      - ViewAccount
+      - ViewContacts
+      - ViewForms
+      - ViewTemplates
+      - ViewCampaigns
+      - ViewChannels
+      - ViewAutomations
+      - ViewSurveys
+      - ViewSettings
+      - ViewBilling
+      - ViewSubAccounts
+      - ViewUsers
+      - ViewFiles
+      - ViewReports
+      - ModifyAccount
+      - ModifyContacts
+      - ModifyForms
+      - ModifyTemplates
+      - ModifyCampaigns
+      - ModifyChannels
+      - ModifyAutomations
+      - ModifySurveys
+      - ModifyFiles
+      - Export
+      - SendSmtp
+      - SendSMS
+      - ModifySettings
+      - ModifyBilling
+      - ModifyProfile
+      - ModifySubAccounts
+      - ModifyUsers
+      - Security
+      - ModifyLanguage
+      - ViewSupport
+      - SendHttp
+      - Modify2FAEmail
+      - ModifySupport
+      - ViewCustomFields
+      - ModifyCustomFields
+      - ModifyWebNotifications
+      - ExtendedLogs
+      - VerifyEmails
+      - Modify2FASms
+      - ModifyLandingPages
+      - ViewLandingPages
+      - ModifySuppressions
+      - ViewSuppressions
+      - ViewDragDropEditor
+      - ViewTemplateEditor
+      - ViewAITools
+      type: string
+    AccountStatusEnum:
+      default: Disabled
+      enum:
+      - Disabled
+      - UnderReview
+      - NeverSignedIn
+      - Active
+      type: string
+    ApiKey:
+      description: ApiKey info
+      example:
+        RestrictAccessToIPRange:
+        - RestrictAccessToIPRange
+        - RestrictAccessToIPRange
+        DateCreated: 2000-01-23T04:56:07.000+00:00
+        LastUse: 2000-01-23T04:56:07.000+00:00
+        Expires: 2000-01-23T04:56:07.000+00:00
+        AccessLevel:
+        - None
+        - None
+        Name: Name
+      properties:
+        AccessLevel:
+          description: Access level or permission to be assigned to this ApiKey.
+          items:
+            $ref: '#/components/schemas/AccessLevel'
+          type: array
+        Name:
+          description: Name of the ApiKey.
+          format: string
+          type: string
+        DateCreated:
+          description: Date this ApiKey was created.
+          format: date-time
+          type: string
+        LastUse:
+          description: Date this ApiKey was last used.
+          format: date-time
+          nullable: true
+          type: string
+          example: null
+        Expires:
+          description: Date this ApiKey expires.
+          format: date-time
+          nullable: true
+          type: string
+          example: null
+        RestrictAccessToIPRange:
+          description: Which IPs can use this ApiKey
+          items:
+            format: string
+            type: string
+          type: array
+      type: object
+    ApiKeyPayload:
+      description: Create a new ApiKey
+      example:
+        Subaccount: Subaccount
+        RestrictAccessToIPRange:
+        - RestrictAccessToIPRange
+        - RestrictAccessToIPRange
+        Expires: 2000-01-23T04:56:07.000+00:00
+        AccessLevel:
+        - None
+        - None
+        Name: Name
+      properties:
+        Name:
+          description: Name of the ApiKey for ease of reference.
+          format: string
+          type: string
+        AccessLevel:
+          description: Access level or permission to be assigned to this ApiKey.
+          items:
+            $ref: '#/components/schemas/AccessLevel'
+          type: array
+        Expires:
+          description: Date this ApiKey expires.
+          format: date-time
+          nullable: true
+          type: string
+          example: null
+        RestrictAccessToIPRange:
+          description: Which IPs can use this ApiKey
+          items:
+            format: string
+            type: string
+          type: array
+        Subaccount:
+          description: Email of the subaccount for which this ApiKey should be created
+          format: string
+          type: string
+      required:
+      - AccessLevel
+      - Name
+      type: object
+    BodyContentType:
+      default: HTML
+      description: Type of body part
+      enum:
+      - HTML
+      - PlainText
+      - AMP
+      - CSS
+      type: string
+    BodyPart:
+      description: "Email body part with user-provided MIME type (text/html, text/plain,\
+        \ etc)"
+      example:
+        ContentType: HTML
+        Content: Content
+        Charset: Charset
+      properties:
+        ContentType:
+          $ref: '#/components/schemas/BodyContentType'
+        Content:
+          description: Actual content of the body part
+          format: string
+          type: string
+        Charset:
+          description: "Text value of charset encoding for example: iso-8859-1, windows-1251,\
+            \ utf-8, us-ascii, windows-1250 and more..."
+          format: string
+          type: string
+      required:
+      - ContentType
+      type: object
+    Campaign:
+      example:
+        Status: Deleted
+        Options:
+          TrackClicks: true
+          TriggerCount: 6
+          ScheduleFor: 2000-01-23T04:56:07.000+00:00
+          TriggerFrequency: 0.8008281904610115
+          DeliveryOptimization: None
+          TrackOpens: true
+          SplitOptions:
+            OptimizeFor: Opens
+            OptimizePeriodMinutes: 30
+        Recipients:
+          SegmentNames:
+          - SegmentNames
+          - SegmentNames
+          ListNames:
+          - ListNames
+          - ListNames
+        Content:
+        - ReplyTo: John Doe <email@domain.com>
+          Poolname: My Custom Pool
+          TemplateName: Template01
+          From: John Doe <email@domain.com>
+          AttachFiles:
+          - preuploaded.jpg
+          Subject: Hello!
+          Utm:
+            Campaign: Campaign
+            Medium: Medium
+            Content: Content
+            Source: Source
+        - ReplyTo: John Doe <email@domain.com>
+          Poolname: My Custom Pool
+          TemplateName: Template01
+          From: John Doe <email@domain.com>
+          AttachFiles:
+          - preuploaded.jpg
+          Subject: Hello!
+          Utm:
+            Campaign: Campaign
+            Medium: Medium
+            Content: Content
+            Source: Source
+        Name: Name
+      properties:
+        Content:
+          description: Campaign's email content. Provide multiple items to send an
+            A/X Split Campaign
+          items:
+            $ref: '#/components/schemas/CampaignTemplate'
+          type: array
+        Name:
+          description: Campaign name
+          format: string
+          type: string
+        Status:
+          $ref: '#/components/schemas/CampaignStatus'
+        Recipients:
+          $ref: '#/components/schemas/CampaignRecipient'
+        Options:
+          $ref: '#/components/schemas/CampaignOptions'
+      required:
+      - Name
+      - Recipients
+      type: object
+    CampaignOptions:
+      description: Different send options for a Campaign
+      example:
+        TrackClicks: true
+        TriggerCount: 6
+        ScheduleFor: 2000-01-23T04:56:07.000+00:00
+        TriggerFrequency: 0.8008281904610115
+        DeliveryOptimization: None
+        TrackOpens: true
+        SplitOptions:
+          OptimizeFor: Opens
+          OptimizePeriodMinutes: 30
+      properties:
+        DeliveryOptimization:
+          $ref: '#/components/schemas/DeliveryOptimizationType'
+        TrackOpens:
+          description: "Should the opens be tracked? If no value has been provided,\
+            \ Account's default setting will be used."
+          example: true
+          format: boolean
+          nullable: true
+          type: boolean
+        TrackClicks:
+          description: "Should the clicks be tracked? If no value has been provided,\
+            \ Account's default setting will be used."
+          example: true
+          format: boolean
+          nullable: true
+          type: boolean
+        ScheduleFor:
+          description: Date when this Campaign is scheduled to be sent on
+          format: date-time
+          nullable: true
+          type: string
+          example: null
+        TriggerFrequency:
+          description: How often (in minutes) to send the campaign
+          format: double
+          type: number
+        TriggerCount:
+          description: How many times send the campaign
+          format: int32
+          type: integer
+        SplitOptions:
+          $ref: '#/components/schemas/SplitOptions'
+      type: object
+    CampaignRecipient:
+      description: A set of lists and segments names to read recipients from
+      example:
+        SegmentNames:
+        - SegmentNames
+        - SegmentNames
+        ListNames:
+        - ListNames
+        - ListNames
+      properties:
+        ListNames:
+          description: Names of lists from your Account to read recipients from
+          items:
+            format: string
+            type: string
+          type: array
+        SegmentNames:
+          description: Names of segments from your Account to read recipients from
+          items:
+            format: string
+            type: string
+          type: array
+      type: object
+    CampaignStatus:
+      default: Deleted
+      enum:
+      - Deleted
+      - Active
+      - Processing
+      - Sending
+      - Completed
+      - Paused
+      - Cancelled
+      - Draft
+      type: string
+    CampaignTemplate:
+      description: Content of a Campaign
+      example:
+        ReplyTo: John Doe <email@domain.com>
+        Poolname: My Custom Pool
+        TemplateName: Template01
+        From: John Doe <email@domain.com>
+        AttachFiles:
+        - preuploaded.jpg
+        Subject: Hello!
+        Utm:
+          Campaign: Campaign
+          Medium: Medium
+          Content: Content
+          Source: Source
+      properties:
+        Poolname:
+          description: Name of your custom IP Pool to be used in the sending process
+          example: My Custom Pool
+          format: string
+          type: string
+        From:
+          description: "Your e-mail with an optional name (e.g.: John Doe <email@domain.com>)"
+          example: John Doe <email@domain.com>
+          format: string
+          type: string
+        ReplyTo:
+          description: To what address should the recipients reply to (e.g. John Doe
+            <email@domain.com>)
+          example: John Doe <email@domain.com>
+          format: string
+          type: string
+        Subject:
+          description: Default subject of email.
+          example: Hello!
+          format: string
+          type: string
+        TemplateName:
+          description: Name of template.
+          example: Template01
+          format: string
+          type: string
+        AttachFiles:
+          description: Names of previously uploaded files that should be sent as downloadable
+            attachments
+          example:
+          - preuploaded.jpg
+          items:
+            format: string
+            type: string
+          type: array
+        Utm:
+          $ref: '#/components/schemas/Utm'
+      required:
+      - From
+      type: object
+    ChannelLogStatusSummary:
+      description: Summary of channel log status
+      example:
+        NotDelivered: 0
+        Opened: 1000
+        Recipients: 1234
+        Delivered: 1000
+        Clicked: 1000
+        EmailTotal: 1234
+        Inbound: 1000
+        SmsTotal: 12
+        ChannelName: ChannelName
+        Bounced: 1000
+        InProgress: 1234
+        Complaints: 1000
+        ManualCancel: 1000
+        Unsubscribed: 1000
+      properties:
+        ChannelName:
+          description: Channel name
+          format: string
+          type: string
+        Recipients:
+          description: Number of recipients
+          example: 1234
+          format: int64
+          type: integer
+        EmailTotal:
+          description: Number of emails
+          example: 1234
+          format: int64
+          type: integer
+        SmsTotal:
+          description: Number of SMS
+          example: 12
+          format: int64
+          type: integer
+        Delivered:
+          description: Number of delivered messages
+          example: 1000
+          format: int64
+          type: integer
+        Bounced:
+          description: Number of bounced messages
+          example: 1000
+          format: int64
+          type: integer
+        InProgress:
+          description: Number of messages in progress
+          example: 1234
+          format: int64
+          type: integer
+        Opened:
+          description: Number of opened messages
+          example: 1000
+          format: int64
+          type: integer
+        Clicked:
+          description: Number of clicked messages
+          example: 1000
+          format: int64
+          type: integer
+        Unsubscribed:
+          description: Number of unsubscribed messages
+          example: 1000
+          format: int64
+          type: integer
+        Complaints:
+          description: Number of complaint messages
+          example: 1000
+          format: int64
+          type: integer
+        Inbound:
+          description: Number of inbound messages
+          example: 1000
+          format: int64
+          type: integer
+        ManualCancel:
+          description: Number of manually cancelled messages
+          example: 1000
+          format: int64
+          type: integer
+        NotDelivered:
+          description: Number of messages flagged with 'Not Delivered'
+          example: 0
+          format: int64
+          type: integer
+      type: object
+    CompressionFormat:
+      default: None
+      description: FileResponse compression format
+      enum:
+      - None
+      - Zip
+      type: string
+    ConsentData:
+      example:
+        ConsentTracking: Unknown
+        ConsentDate: 2000-01-23T04:56:07.000+00:00
+        ConsentIP: 192.168.0.1
+      properties:
+        ConsentIP:
+          description: IP address of consent to send this contact(s) your email. If
+            not provided your current public IP address is used for consent.
+          example: 192.168.0.1
+          format: string
+          type: string
+        ConsentDate:
+          description: Date of consent to send this contact(s) your email. If not
+            provided current date is used for consent.
+          format: date-time
+          nullable: true
+          type: string
+        ConsentTracking:
+          $ref: '#/components/schemas/ConsentTracking'
+      type: object
+    ConsentTracking:
+      default: Unknown
+      enum:
+      - Unknown
+      - Allow
+      - Deny
+      type: string
+    Contact:
+      description: Contact
+      example:
+        Status: Transactional
+        CustomFields:
+          city: New York
+          age: "34"
+        Email: mail@example.com
+        StatusChangeDate: 2000-01-23T04:56:07.000+00:00
+        Consent:
+          ConsentTracking: Unknown
+          ConsentDate: 2000-01-23T04:56:07.000+00:00
+          ConsentIP: 192.168.0.1
+        FirstName: Fred
+        DateUpdated: 2000-01-23T04:56:07.000+00:00
+        Activity:
+          LastIP: LastIP
+          LastOpened: 2000-01-23T04:56:07.000+00:00
+          TotalFailed: 1000
+          LastSent: 2000-01-23T04:56:07.000+00:00
+          LastFailed: 2000-01-23T04:56:07.000+00:00
+          LastClicked: 2000-01-23T04:56:07.000+00:00
+          TotalSent: 1000
+          FriendlyErrorMessage: FriendlyErrorMessage
+          TotalClicked: 1000
+          ErrorCode: 0
+          TotalOpened: 1000
+        LastName: Flintstone
+        DateAdded: 2000-01-23T04:56:07.000+00:00
+        Source: DeliveryApi
+      properties:
+        Email:
+          description: Proper email address.
+          example: mail@example.com
+          format: string
+          type: string
+        Status:
+          $ref: '#/components/schemas/ContactStatus'
+        FirstName:
+          description: First name.
+          example: Fred
+          format: string
+          type: string
+        LastName:
+          description: Last name.
+          example: Flintstone
+          format: string
+          type: string
+        CustomFields:
+          additionalProperties:
+            type: string
+          description: A key-value collection of custom contact fields which can be
+            used in the system.
+          example:
+            city: New York
+            age: "34"
+          type: object
+        Consent:
+          $ref: '#/components/schemas/ConsentData'
+        Source:
+          $ref: '#/components/schemas/ContactSource'
+        DateAdded:
+          description: Date of creation in YYYY-MM-DDThh:ii:ss format
+          format: date-time
+          type: string
+        DateUpdated:
+          description: Last change date
+          format: date-time
+          nullable: true
+          type: string
+        StatusChangeDate:
+          description: Date of last status change.
+          format: date-time
+          nullable: true
+          type: string
+        Activity:
+          $ref: '#/components/schemas/ContactActivity'
+      type: object
+    ContactActivity:
+      example:
+        LastIP: LastIP
+        LastOpened: 2000-01-23T04:56:07.000+00:00
+        TotalFailed: 1000
+        LastSent: 2000-01-23T04:56:07.000+00:00
+        LastFailed: 2000-01-23T04:56:07.000+00:00
+        LastClicked: 2000-01-23T04:56:07.000+00:00
+        TotalSent: 1000
+        FriendlyErrorMessage: FriendlyErrorMessage
+        TotalClicked: 1000
+        ErrorCode: 0
+        TotalOpened: 1000
+      properties:
+        TotalSent:
+          description: Total emails sent.
+          example: 1000
+          format: int32
+          type: integer
+        TotalOpened:
+          description: Total emails opened.
+          example: 1000
+          format: int32
+          type: integer
+        TotalClicked:
+          description: Total emails clicked
+          example: 1000
+          format: int32
+          type: integer
+        TotalFailed:
+          description: Total emails failed.
+          example: 1000
+          format: int32
+          type: integer
+        LastSent:
+          description: Last date when an email was sent to this contact
+          format: date-time
+          nullable: true
+          type: string
+          example: null
+        LastOpened:
+          description: Date this contact last opened an email
+          format: date-time
+          nullable: true
+          type: string
+        LastClicked:
+          description: Date this contact last clicked an email
+          format: date-time
+          nullable: true
+          type: string
+          example: null
+        LastFailed:
+          description: Last date when an email sent to this contact bounced
+          format: date-time
+          nullable: true
+          type: string
+          example: null
+        LastIP:
+          description: IP from which this contact opened or clicked their email last
+            time
+          format: string
+          type: string
+        ErrorCode:
+          description: Last RFC Error code if any occurred
+          format: int32
+          nullable: true
+          type: integer
+          example: null
+        FriendlyErrorMessage:
+          description: Last RFC error message if any occurred
+          format: string
+          type: string
+      type: object
+    ContactPayload:
+      example:
+        Status: Transactional
+        CustomFields:
+          city: New York
+          age: "34"
+        Email: mail@example.com
+        Consent:
+          ConsentTracking: Unknown
+          ConsentDate: 2000-01-23T04:56:07.000+00:00
+          ConsentIP: 192.168.0.1
+        FirstName: Fred
+        LastName: Flintstone
+      properties:
+        Email:
+          description: Proper email address.
+          example: mail@example.com
+          format: string
+          type: string
+        Status:
+          $ref: '#/components/schemas/ContactStatus'
+        FirstName:
+          description: First name.
+          example: Fred
+          format: string
+          type: string
+        LastName:
+          description: Last name.
+          example: Flintstone
+          format: string
+          type: string
+        CustomFields:
+          additionalProperties:
+            type: string
+          description: A key-value collection of custom contact fields which can be
+            used in the system. Only already existing custom fields will be saved.
+          example:
+            city: New York
+            age: "34"
+          type: object
+        Consent:
+          $ref: '#/components/schemas/ConsentData'
+      required:
+      - Email
+      type: object
+    ContactSource:
+      default: DeliveryApi
+      enum:
+      - DeliveryApi
+      - ManualInput
+      - FileUpload
+      - WebForm
+      - ContactApi
+      - VerificationApi
+      - FileVerificationApi
+      type: string
+    ContactStatus:
+      default: Transactional
+      enum:
+      - Transactional
+      - Engaged
+      - Active
+      - Bounced
+      - Unsubscribed
+      - Abuse
+      - Inactive
+      - Stale
+      - NotConfirmed
+      type: string
+    ContactUpdatePayload:
+      example:
+        CustomFields:
+          city: New York
+          age: "34"
+        FirstName: Fred
+        LastName: Flintstone
+      properties:
+        FirstName:
+          description: First name.
+          example: Fred
+          format: string
+          type: string
+        LastName:
+          description: Last name.
+          example: Flintstone
+          format: string
+          type: string
+        CustomFields:
+          additionalProperties:
+            type: string
+          description: A key-value collection of custom contact fields which can be
+            used in the system.
+          example:
+            city: New York
+            age: "34"
+          type: object
+      type: object
+    DeliveryOptimizationType:
+      default: None
+      enum:
+      - None
+      - ToEngagedFirst
+      - ByOpenTime
+      type: string
+    EmailContent:
+      description: Proper e-mail content
+      example:
+        ReplyTo: John Doe <email@domain.com>
+        Merge:
+          city: New York
+          age: "34"
+        Headers:
+          city: New York
+          age: "34"
+        Postback: Postback
+        EnvelopeFrom: John Doe <email@domain.com>
+        TemplateName: Template01
+        From: John Doe <email@domain.com>
+        AttachFiles:
+        - preuploaded.jpg
+        Body:
+        - ContentType: HTML
+          Content: Content
+          Charset: Charset
+        - ContentType: HTML
+          Content: Content
+          Charset: Charset
+        Attachments:
+        - ContentType: ContentType
+          Size: 100
+          BinaryContent: BinaryContent
+          Name: Name
+        - ContentType: ContentType
+          Size: 100
+          BinaryContent: BinaryContent
+          Name: Name
+        Subject: Hello!
+        Utm:
+          Campaign: Campaign
+          Medium: Medium
+          Content: Content
+          Source: Source
+      properties:
+        Body:
+          description: "List of e-mail body parts, with user-provided MIME types (text/html,\
+            \ text/plain etc)"
+          items:
+            $ref: '#/components/schemas/BodyPart'
+          type: array
+        Merge:
+          additionalProperties:
+            type: string
+          description: "A key-value collection of custom merge fields, shared between\
+            \ recipients. Should be used in e-mail body like so: {firstname}, {lastname}\
+            \ etc."
+          example:
+            city: New York
+            age: "34"
+          type: object
+        Attachments:
+          description: Attachments provided by sending binary data
+          items:
+            $ref: '#/components/schemas/MessageAttachment'
+          type: array
+        Headers:
+          additionalProperties:
+            type: string
+          description: A key-value collection of custom e-mail headers.
+          example:
+            city: New York
+            age: "34"
+          type: object
+        Postback:
+          description: Postback header.
+          format: string
+          type: string
+        EnvelopeFrom:
+          description: "E-mail with an optional name to be used as the envelope from\
+            \ address (e.g.: John Doe <email@domain.com>)"
+          example: John Doe <email@domain.com>
+          format: string
+          type: string
+        From:
+          description: "Your e-mail with an optional name (e.g.: John Doe <email@domain.com>)"
+          example: John Doe <email@domain.com>
+          format: string
+          type: string
+        ReplyTo:
+          description: To what address should the recipients reply to (e.g. John Doe
+            <email@domain.com>)
+          example: John Doe <email@domain.com>
+          format: string
+          type: string
+        Subject:
+          description: Default subject of email.
+          example: Hello!
+          format: string
+          type: string
+        TemplateName:
+          description: Name of template.
+          example: Template01
+          format: string
+          type: string
+        AttachFiles:
+          description: Names of previously uploaded files that should be sent as downloadable
+            attachments
+          example:
+          - preuploaded.jpg
+          items:
+            format: string
+            type: string
+          type: array
+        Utm:
+          $ref: '#/components/schemas/Utm'
+      required:
+      - From
+      type: object
+    EmailData:
+      example:
+        Status:
+          Status: All
+          DateOpened: 2000-01-23T04:56:07.000+00:00
+          DateSent: 2000-01-23T04:56:07.000+00:00
+          StatusChangeDate: 2000-01-23T04:56:07.000+00:00
+          DateClicked: 2000-01-23T04:56:07.000+00:00
+          EnvelopeFrom: EnvelopeFrom
+          StatusName: StatusName
+          From: From
+          To: To
+          ErrorMessage: ErrorMessage
+          Date: 2000-01-23T04:56:07.000+00:00
+          TransactionID: TransactionID
+        Preview:
+          From: From
+          Body: Body
+          Subject: Hello!
+        Attachments:
+        - ExpirationDate: 2000-01-23T04:56:07.000+00:00
+          ContentType: image/jpeg
+          Size: 100
+          FileName: filename.txt
+          DateAdded: 2000-01-23T04:56:07.000+00:00
+        - ExpirationDate: 2000-01-23T04:56:07.000+00:00
+          ContentType: image/jpeg
+          Size: 100
+          FileName: filename.txt
+          DateAdded: 2000-01-23T04:56:07.000+00:00
+      properties:
+        Preview:
+          $ref: '#/components/schemas/EmailView'
+        Attachments:
+          description: Attachments sent with the email
+          items:
+            $ref: '#/components/schemas/FileInfo'
+          type: array
+        Status:
+          $ref: '#/components/schemas/EmailStatus'
+      type: object
+    EmailJobFailedStatus:
+      example:
+        Category: Category
+        Address: Address
+        Error: Error
+        ErrorCode: 550
+      properties:
+        Address:
+          format: string
+          type: string
+        Error:
+          format: string
+          type: string
+        ErrorCode:
+          description: RFC Error code
+          example: 550
+          format: int32
+          type: integer
+        Category:
+          format: string
+          type: string
+      type: object
+    EmailJobStatus:
+      example:
+        Status: Status
+        PendingCount: 1
+        RecipientsCount: 0
+        Opened:
+        - "1000"
+        Delivered:
+        - "1000"
+        Clicked:
+        - "1000"
+        ClickedCount: 1000
+        Failed:
+        - Category: Category
+          Address: Address
+          Error: Error
+          ErrorCode: 550
+        - Category: Category
+          Address: Address
+          Error: Error
+          ErrorCode: 550
+        AbuseReportsCount: 5
+        OpenedCount: 1000
+        DeliveredCount: 6
+        FailedCount: 1000
+        AbuseReports:
+        - AbuseReports
+        - AbuseReports
+        MessageIDs:
+        - MessageIDs
+        - MessageIDs
+        ID: "123456"
+        UnsubscribedCount: 1000
+        SentCount: 1000
+        Pending:
+        - Pending
+        - Pending
+        Sent:
+        - Sent
+        - Sent
+        Unsubscribed:
+        - "1000"
+      properties:
+        ID:
+          description: ID number of your attachment
+          example: "123456"
+          format: string
+          type: string
+        Status:
+          description: "Name of status: submitted, complete, in_progress"
+          format: string
+          type: string
+        RecipientsCount:
+          format: int32
+          type: integer
+        Failed:
+          items:
+            $ref: '#/components/schemas/EmailJobFailedStatus'
+          type: array
+        FailedCount:
+          description: Total emails failed.
+          example: 1000
+          format: int32
+          type: integer
+        Sent:
+          items:
+            format: string
+            type: string
+          type: array
+        SentCount:
+          description: Total emails sent.
+          example: 1000
+          format: int32
+          type: integer
+        Delivered:
+          description: Number of delivered messages
+          example:
+          - "1000"
+          items:
+            format: string
+            type: string
+          type: array
+        DeliveredCount:
+          format: int32
+          type: integer
+        Pending:
+          items:
+            format: string
+            type: string
+          type: array
+        PendingCount:
+          format: int32
+          type: integer
+        Opened:
+          description: Number of opened messages
+          example:
+          - "1000"
+          items:
+            format: string
+            type: string
+          type: array
+        OpenedCount:
+          description: Total emails opened.
+          example: 1000
+          format: int32
+          type: integer
+        Clicked:
+          description: Number of clicked messages
+          example:
+          - "1000"
+          items:
+            format: string
+            type: string
+          type: array
+        ClickedCount:
+          description: Total emails clicked
+          example: 1000
+          format: int32
+          type: integer
+        Unsubscribed:
+          description: Number of unsubscribed messages
+          example:
+          - "1000"
+          items:
+            format: string
+            type: string
+          type: array
+        UnsubscribedCount:
+          description: Total emails unsubscribed
+          example: 1000
+          format: int32
+          type: integer
+        AbuseReports:
+          items:
+            format: string
+            type: string
+          type: array
+        AbuseReportsCount:
+          format: int32
+          type: integer
+        MessageIDs:
+          description: List of all MessageIDs for this job.
+          items:
+            format: string
+            type: string
+          type: array
+      type: object
+    EmailMessageData:
+      description: Email data
+      example:
+        Options:
+          TrackClicks: true
+          ChannelName: Channel01
+          PoolName: My Custom Pool
+          Encoding: UserProvided
+          TimeOffset: 0
+          TrackOpens: true
+        Recipients:
+        - Email: mail@example.com
+          Fields:
+            city: New York
+            age: "34"
+        - Email: mail@example.com
+          Fields:
+            city: New York
+            age: "34"
+        Content:
+          ReplyTo: John Doe <email@domain.com>
+          Merge:
+            city: New York
+            age: "34"
+          Headers:
+            city: New York
+            age: "34"
+          Postback: Postback
+          EnvelopeFrom: John Doe <email@domain.com>
+          TemplateName: Template01
+          From: John Doe <email@domain.com>
+          AttachFiles:
+          - preuploaded.jpg
+          Body:
+          - ContentType: HTML
+            Content: Content
+            Charset: Charset
+          - ContentType: HTML
+            Content: Content
+            Charset: Charset
+          Attachments:
+          - ContentType: ContentType
+            Size: 100
+            BinaryContent: BinaryContent
+            Name: Name
+          - ContentType: ContentType
+            Size: 100
+            BinaryContent: BinaryContent
+            Name: Name
+          Subject: Hello!
+          Utm:
+            Campaign: Campaign
+            Medium: Medium
+            Content: Content
+            Source: Source
+      properties:
+        Recipients:
+          description: List of recipients
+          items:
+            $ref: '#/components/schemas/EmailRecipient'
+          type: array
+        Content:
+          $ref: '#/components/schemas/EmailContent'
+        Options:
+          $ref: '#/components/schemas/Options'
+      required:
+      - Content
+      - Recipients
+      type: object
+    EmailPredictedValidationStatus:
+      default: None
+      enum:
+      - None
+      - Valid
+      - LowRisk
+      - HighRisk
+      - Invalid
+      type: string
+    EmailRecipient:
+      description: List of recipients
+      example:
+        Email: mail@example.com
+        Fields:
+          city: New York
+          age: "34"
+      properties:
+        Email:
+          description: Proper email address.
+          example: mail@example.com
+          format: string
+          type: string
+        Fields:
+          additionalProperties:
+            type: string
+          description: A key-value collection of merge fields which can be used in
+            e-mail body.
+          example:
+            city: New York
+            age: "34"
+          type: object
+      required:
+      - Email
+      type: object
+    EmailSend:
+      example:
+        TransactionID: TransactionID
+        MessageID: -HHGPM_9RPhSMiaJq_ab4g3
+      properties:
+        TransactionID:
+          description: ID number of transaction
+          example: TransactionID
+          format: string
+          type: string
+        MessageID:
+          description: Unique identifier for this email.
+          example: -HHGPM_9RPhSMiaJq_ab4g3
+          format: string
+          type: string
+      type: object
+    EmailsPayload:
+      description: "Provide either rule or a list of emails, not both."
+      example:
+        Rule: Rule
+        Emails:
+        - john.doe@sample.com
+      properties:
+        Rule:
+          description: "SQL-like rule. Sending 'All' as a value loads all resources\
+            \ of the given type. Help for building a segment rule can be found here:\
+            \ https://help.elasticemail.com/en/articles/5162182-segment-rules"
+          format: string
+          type: string
+        Emails:
+          description: Comma delimited list of contact emails
+          example:
+          - john.doe@sample.com
+          items:
+            format: string
+            type: string
+          type: array
+      type: object
+    EmailStatus:
+      description: Status information of the specified email
+      example:
+        Status: All
+        DateOpened: 2000-01-23T04:56:07.000+00:00
+        DateSent: 2000-01-23T04:56:07.000+00:00
+        StatusChangeDate: 2000-01-23T04:56:07.000+00:00
+        DateClicked: 2000-01-23T04:56:07.000+00:00
+        EnvelopeFrom: EnvelopeFrom
+        StatusName: StatusName
+        From: From
+        To: To
+        ErrorMessage: ErrorMessage
+        Date: 2000-01-23T04:56:07.000+00:00
+        TransactionID: TransactionID
+      properties:
+        From:
+          description: Email address this email was sent from.
+          format: string
+          type: string
+        To:
+          description: Email address this email was sent to.
+          format: string
+          type: string
+        Date:
+          description: Date the email was submitted.
+          format: date-time
+          type: string
+        Status:
+          $ref: '#/components/schemas/LogJobStatus'
+        StatusName:
+          description: Name of email's status
+          format: string
+          type: string
+        StatusChangeDate:
+          description: Date of last status change.
+          format: date-time
+          type: string
+        DateSent:
+          description: Date when the email was sent
+          format: date-time
+          type: string
+        DateOpened:
+          description: Date when the email changed the status to 'opened'
+          format: date-time
+          nullable: true
+          type: string
+        DateClicked:
+          description: Date when the email changed the status to 'clicked'
+          format: date-time
+          nullable: true
+          type: string
+        ErrorMessage:
+          description: Detailed error or bounced message.
+          format: string
+          type: string
+        TransactionID:
+          description: ID number of transaction
+          example: TransactionID
+          format: guid
+          type: string
+        EnvelopeFrom:
+          description: Envelope from address
+          format: string
+          type: string
+      type: object
+    EmailTransactionalMessageData:
+      description: Email data
+      example:
+        Options:
+          TrackClicks: true
+          ChannelName: Channel01
+          PoolName: My Custom Pool
+          Encoding: UserProvided
+          TimeOffset: 0
+          TrackOpens: true
+        Recipients:
+          CC:
+          - CC
+          - CC
+          BCC:
+          - BCC
+          - BCC
+          To:
+          - To
+          - To
+        Content:
+          ReplyTo: John Doe <email@domain.com>
+          Merge:
+            city: New York
+            age: "34"
+          Headers:
+            city: New York
+            age: "34"
+          Postback: Postback
+          EnvelopeFrom: John Doe <email@domain.com>
+          TemplateName: Template01
+          From: John Doe <email@domain.com>
+          AttachFiles:
+          - preuploaded.jpg
+          Body:
+          - ContentType: HTML
+            Content: Content
+            Charset: Charset
+          - ContentType: HTML
+            Content: Content
+            Charset: Charset
+          Attachments:
+          - ContentType: ContentType
+            Size: 100
+            BinaryContent: BinaryContent
+            Name: Name
+          - ContentType: ContentType
+            Size: 100
+            BinaryContent: BinaryContent
+            Name: Name
+          Subject: Hello!
+          Utm:
+            Campaign: Campaign
+            Medium: Medium
+            Content: Content
+            Source: Source
+      properties:
+        Recipients:
+          $ref: '#/components/schemas/TransactionalRecipient'
+        Content:
+          $ref: '#/components/schemas/EmailContent'
+        Options:
+          $ref: '#/components/schemas/Options'
+      required:
+      - Content
+      - Recipients
+      type: object
+    EmailValidationResult:
+      example:
+        Disposable: true
+        Role: true
+        PredictedStatus: None
+        Account: Account
+        SuggestedSpelling: SuggestedSpelling
+        Email: Email
+        PredictedScore: 0.8008281904610115
+        Domain: example.com
+        DateAdded: 2000-01-23T04:56:07.000+00:00
+        Reason: Reason
+        Result: None
+      properties:
+        Account:
+          description: Local part of an email
+          format: string
+          type: string
+        Domain:
+          description: Name of selected domain.
+          example: example.com
+          format: string
+          type: string
+        Email:
+          description: Full email address that was verified
+          format: string
+          type: string
+        SuggestedSpelling:
+          description: Suggested spelling if a possible mistake was found
+          format: string
+          type: string
+        Disposable:
+          description: Does the email have a temporary domain
+          format: boolean
+          type: boolean
+        Role:
+          description: "Is an email a role email (e.g. info@, noreply@ etc.)"
+          format: boolean
+          type: boolean
+        Reason:
+          description: All detected issues
+          format: string
+          type: string
+        DateAdded:
+          description: Added date
+          format: date-time
+          type: string
+        Result:
+          $ref: '#/components/schemas/EmailValidationStatus'
+        PredictedScore:
+          description: Predicted score
+          format: single
+          type: number
+        PredictedStatus:
+          $ref: '#/components/schemas/EmailPredictedValidationStatus'
+      type: object
+    EmailValidationStatus:
+      default: None
+      enum:
+      - None
+      - Valid
+      - Unknown
+      - Risky
+      - Invalid
+      type: string
+    EmailView:
+      description: Email details formatted in json
+      example:
+        From: From
+        Body: Body
+        Subject: Hello!
+      properties:
+        Body:
+          description: "Body (HTML, otherwise plain text) of email"
+          format: string
+          type: string
+        Subject:
+          description: Default subject of email.
+          example: Hello!
+          format: string
+          type: string
+        From:
+          description: From email address
+          format: string
+          type: string
+      type: object
+    EncodingType:
+      default: UserProvided
+      description: Encoding type for the email headers
+      enum:
+      - UserProvided
+      - None
+      - Raw7bit
+      - Raw8bit
+      - QuotedPrintable
+      - Base64
+      - Uue
+      type: string
+    EventsOrderBy:
+      default: DateDescending
+      enum:
+      - DateDescending
+      - DateAscending
+      type: string
+    EventType:
+      default: Submission
+      description: Type of event
+      enum:
+      - Submission
+      - FailedAttempt
+      - Bounce
+      - Sent
+      - Open
+      - Click
+      - Unsubscribe
+      - Complaint
+      type: string
+    ExportFileFormats:
+      default: Csv
+      description: Format of the exported file.
+      enum:
+      - Csv
+      - Xml
+      - Json
+      type: string
+    ExportLink:
+      example:
+        PublicExportID: E33EBA7A-C20D-4D3D-8F2F-5EEF42F58E6F
+        Link: Link
+      properties:
+        Link:
+          description: Direct URL to the exported file
+          format: string
+          type: string
+        PublicExportID:
+          description: ID of the exported file
+          example: E33EBA7A-C20D-4D3D-8F2F-5EEF42F58E6F
+          format: guid
+          type: string
+      type: object
+    ExportStatus:
+      default: Error
+      description: Current status of the export.
+      enum:
+      - Error
+      - Loading
+      - Ready
+      - Expired
+      type: string
+    FileInfo:
+      description: File information
+      example:
+        ExpirationDate: 2000-01-23T04:56:07.000+00:00
+        ContentType: image/jpeg
+        Size: 100
+        FileName: filename.txt
+        DateAdded: 2000-01-23T04:56:07.000+00:00
+      properties:
+        FileName:
+          description: Name of your file including extension.
+          example: filename.txt
+          format: string
+          type: string
+        Size:
+          description: Size of your attachment (in bytes).
+          example: 100
+          format: int32
+          nullable: true
+          type: integer
+        DateAdded:
+          description: Date of creation in YYYY-MM-DDThh:ii:ss format
+          format: date-time
+          type: string
+        ExpirationDate:
+          description: Date when the file will be deleted from your Account.
+          format: date-time
+          nullable: true
+          type: string
+          example: null
+        ContentType:
+          description: Content type of the file.
+          example: image/jpeg
+          format: string
+          type: string
+      type: object
+    FilePayload:
+      example:
+        ContentType: ContentType
+        BinaryContent: BinaryContent
+        Name: attachment.txt
+      properties:
+        BinaryContent:
+          description: Content of the file sent as binary data
+          format: byte
+          type: string
+        Name:
+          description: Filename
+          example: attachment.txt
+          format: string
+          type: string
+        ContentType:
+          description: Type of file's content (e.g. image/jpeg)
+          format: string
+          type: string
+      required:
+      - BinaryContent
+      type: object
+    FileUploadResult:
+      example:
+        EmailsCount: 0
+        DuplicatedEmailsCount: 6
+      properties:
+        EmailsCount:
+          description: How many unique emails were detected the file
+          format: int32
+          type: integer
+        DuplicatedEmailsCount:
+          description: How many email duplicates were detected
+          format: int32
+          type: integer
+      type: object
+    InboundPayload:
+      example:
+        FilterType: EmailAddress
+        ActionType: ForwardToEmail
+        HttpAddress: HttpAddress
+        Filter: Filter
+        EmailAddress: EmailAddress
+        Name: Name
+      properties:
+        Filter:
+          description: Filter of the inbound data
+          format: string
+          type: string
+        Name:
+          description: Name of this route
+          format: string
+          type: string
+        FilterType:
+          $ref: '#/components/schemas/InboundRouteFilterType'
+        ActionType:
+          $ref: '#/components/schemas/InboundRouteActionType'
+        EmailAddress:
+          description: Email to forward the inbound to
+          format: string
+          type: string
+        HttpAddress:
+          description: Address to notify about the inbound
+          format: string
+          type: string
+      required:
+      - ActionType
+      - Filter
+      - FilterType
+      - Name
+      type: object
+    InboundRoute:
+      example:
+        PublicId: PublicId
+        FilterType: EmailAddress
+        ActionType: ForwardToEmail
+        Filter: Filter
+        SortOrder: 0
+        ActionParameter: ActionParameter
+        Name: Name
+      properties:
+        PublicId:
+          format: string
+          type: string
+        Name:
+          description: Name of this route
+          format: string
+          type: string
+        FilterType:
+          $ref: '#/components/schemas/InboundRouteFilterType'
+        Filter:
+          description: Filter of the inbound data
+          format: string
+          type: string
+        ActionType:
+          $ref: '#/components/schemas/InboundRouteActionType'
+        ActionParameter:
+          description: URL address or Email to notify about the inbound
+          format: string
+          type: string
+        SortOrder:
+          description: Place of this route in your routes queue's order
+          format: int32
+          type: integer
+      type: object
+    InboundRouteActionType:
+      default: ForwardToEmail
+      enum:
+      - ForwardToEmail
+      - NotifyViaHttp
+      - Stop
+      type: string
+    InboundRouteFilterType:
+      default: EmailAddress
+      enum:
+      - EmailAddress
+      - Subject
+      type: string
+    ContactsList:
+      description: "List of Lists, with detailed data about its contents."
+      example:
+        AllowUnsubscribe: false
+        ListName: My List 1
+        PublicListID: E33EBA7A-C20D-4D3D-8F2F-5EEF42F58E6F
+        DateAdded: 2000-01-23T04:56:07.000+00:00
+      properties:
+        ListName:
+          description: Name of your list.
+          example: My List 1
+          format: string
+          type: string
+        PublicListID:
+          description: ID code of list. Please note that this is different from the
+            listid field.
+          example: E33EBA7A-C20D-4D3D-8F2F-5EEF42F58E6F
+          format: guid
+          nullable: true
+          type: string
+        DateAdded:
+          description: Date of creation in YYYY-MM-DDThh:ii:ss format
+          format: date-time
+          type: string
+        AllowUnsubscribe:
+          description: "True: Allow unsubscribing from this list. Otherwise, false"
+          example: false
+          format: boolean
+          type: boolean
+      type: object
+    ListPayload:
+      example:
+        AllowUnsubscribe: false
+        ListName: My List 1
+        Emails:
+        - john.doe@sample.com
+      properties:
+        ListName:
+          description: Name of your list.
+          example: My List 1
+          format: string
+          type: string
+        AllowUnsubscribe:
+          description: "True: Allow unsubscribing from this list. Otherwise, false"
+          example: false
+          format: boolean
+          type: boolean
+        Emails:
+          description: Comma delimited list of existing contact emails that should
+            be added to this list. Leave empty for all contacts
+          example:
+          - john.doe@sample.com
+          items:
+            format: string
+            type: string
+          type: array
+      required:
+      - ListName
+      type: object
+    ListUpdatePayload:
+      example:
+        AllowUnsubscribe: false
+        NewListName: My List 2
+      properties:
+        NewListName:
+          description: Name of your list if you want to change it.
+          example: My List 2
+          format: string
+          type: string
+        AllowUnsubscribe:
+          description: "True: Allow unsubscribing from this list. Otherwise, false"
+          example: false
+          format: boolean
+          type: boolean
+      type: object
+    LogJobStatus:
+      default: All
+      enum:
+      - All
+      - ReadyToSend
+      - WaitingToRetry
+      - Sending
+      - Error
+      - Sent
+      - Opened
+      - Clicked
+      - Unsubscribed
+      - AbuseReport
+      type: string
+    LogStatusSummary:
+      description: Summary of log status
+      example:
+        NotDelivered: 0
+        Opened: 1000
+        Recipients: 1234
+        Delivered: 1000
+        Clicked: 1000
+        EmailTotal: 1234
+        Inbound: 1000
+        SmsTotal: 12
+        Bounced: 1000
+        InProgress: 1234
+        Complaints: 1000
+        ManualCancel: 1000
+        Unsubscribed: 1000
+      properties:
+        Recipients:
+          description: Number of recipients
+          example: 1234
+          format: int64
+          type: integer
+        EmailTotal:
+          description: Number of emails
+          example: 1234
+          format: int64
+          type: integer
+        SmsTotal:
+          description: Number of SMS
+          example: 12
+          format: int64
+          type: integer
+        Delivered:
+          description: Number of delivered messages
+          example: 1000
+          format: int64
+          type: integer
+        Bounced:
+          description: Number of bounced messages
+          example: 1000
+          format: int64
+          type: integer
+        InProgress:
+          description: Number of messages in progress
+          example: 1234
+          format: int64
+          type: integer
+        Opened:
+          description: Number of opened messages
+          example: 1000
+          format: int64
+          type: integer
+        Clicked:
+          description: Number of clicked messages
+          example: 1000
+          format: int64
+          type: integer
+        Unsubscribed:
+          description: Number of unsubscribed messages
+          example: 1000
+          format: int64
+          type: integer
+        Complaints:
+          description: Number of complaint messages
+          example: 1000
+          format: int64
+          type: integer
+        Inbound:
+          description: Number of inbound messages
+          example: 1000
+          format: int64
+          type: integer
+        ManualCancel:
+          description: Number of manually cancelled messages
+          example: 1000
+          format: int64
+          type: integer
+        NotDelivered:
+          description: Number of messages flagged with 'Not Delivered'
+          example: 0
+          format: int64
+          type: integer
+      type: object
+    MergeEmailPayload:
+      example:
+        Options:
+          TrackClicks: true
+          ChannelName: Channel01
+          PoolName: My Custom Pool
+          Encoding: UserProvided
+          TimeOffset: 0
+          TrackOpens: true
+        MergeFile:
+          ContentType: ContentType
+          Size: 100
+          BinaryContent: BinaryContent
+          Name: Name
+        Content:
+          ReplyTo: John Doe <email@domain.com>
+          Merge:
+            city: New York
+            age: "34"
+          Headers:
+            city: New York
+            age: "34"
+          Postback: Postback
+          EnvelopeFrom: John Doe <email@domain.com>
+          TemplateName: Template01
+          From: John Doe <email@domain.com>
+          AttachFiles:
+          - preuploaded.jpg
+          Body:
+          - ContentType: HTML
+            Content: Content
+            Charset: Charset
+          - ContentType: HTML
+            Content: Content
+            Charset: Charset
+          Attachments:
+          - ContentType: ContentType
+            Size: 100
+            BinaryContent: BinaryContent
+            Name: Name
+          - ContentType: ContentType
+            Size: 100
+            BinaryContent: BinaryContent
+            Name: Name
+          Subject: Hello!
+          Utm:
+            Campaign: Campaign
+            Medium: Medium
+            Content: Content
+            Source: Source
+      properties:
+        MergeFile:
+          $ref: '#/components/schemas/MessageAttachment'
+        Content:
+          $ref: '#/components/schemas/EmailContent'
+        Options:
+          $ref: '#/components/schemas/Options'
+      required:
+      - Content
+      - MergeFile
+      type: object
+    MessageAttachment:
+      example:
+        ContentType: ContentType
+        Size: 100
+        BinaryContent: BinaryContent
+        Name: Name
+      properties:
+        BinaryContent:
+          description: File's content as byte array (or a Base64 string)
+          format: byte
+          type: string
+        Name:
+          description: Display name of the file
+          format: string
+          type: string
+        ContentType:
+          description: MIME content type
+          format: string
+          type: string
+        Size:
+          description: Size of your attachment (in bytes).
+          example: 100
+          format: int32
+          type: integer
+      required:
+      - BinaryContent
+      - Name
+      type: object
+    MessageCategory:
+      default: Unknown
+      enum:
+      - Unknown
+      - Ignore
+      - Spam
+      - BlackListed
+      - NoMailbox
+      - GreyListed
+      - Throttled
+      - Timeout
+      - ConnectionProblem
+      - SPFProblem
+      - AccountProblem
+      - DNSProblem
+      - NotDeliveredCancelled
+      - CodeError
+      - ManualCancel
+      - ConnectionTerminated
+      - NotDelivered
+      type: string
+    NewApiKey:
+      description: Newly generated ApiKey with Token
+      example:
+        RestrictAccessToIPRange:
+        - RestrictAccessToIPRange
+        - RestrictAccessToIPRange
+        DateCreated: 2000-01-23T04:56:07.000+00:00
+        Token: Token
+        LastUse: 2000-01-23T04:56:07.000+00:00
+        Expires: 2000-01-23T04:56:07.000+00:00
+        AccessLevel:
+        - None
+        - None
+        Name: Name
+      properties:
+        Token:
+          description: Unique token to be used in the system
+          format: string
+          type: string
+        AccessLevel:
+          description: Access level or permission to be assigned to this ApiKey.
+          items:
+            $ref: '#/components/schemas/AccessLevel'
+          type: array
+        Name:
+          description: Name of the ApiKey.
+          format: string
+          type: string
+        DateCreated:
+          description: Date this ApiKey was created.
+          format: date-time
+          type: string
+        LastUse:
+          description: Date this ApiKey was last used.
+          format: date-time
+          nullable: true
+          type: string
+          example: null
+        Expires:
+          description: Date this ApiKey expires.
+          format: date-time
+          nullable: true
+          type: string
+          example: null
+        RestrictAccessToIPRange:
+          description: Which IPs can use this ApiKey
+          items:
+            format: string
+            type: string
+          type: array
+      type: object
+    NewSmtpCredentials:
+      description: Newly generated SMTP Credentials with Token
+      example:
+        RestrictAccessToIPRange:
+        - RestrictAccessToIPRange
+        - RestrictAccessToIPRange
+        DateCreated: 2000-01-23T04:56:07.000+00:00
+        Token: Token
+        LastUse: 2000-01-23T04:56:07.000+00:00
+        Expires: 2000-01-23T04:56:07.000+00:00
+        AccessLevel: None
+        Name: Name
+      properties:
+        Token:
+          description: Unique token to be used in the system
+          format: string
+          type: string
+        AccessLevel:
+          $ref: '#/components/schemas/AccessLevel'
+        Name:
+          description: Name of the key.
+          format: string
+          type: string
+        DateCreated:
+          description: Date this SmtpCredential was created.
+          format: date-time
+          type: string
+        LastUse:
+          description: Date this SmtpCredential was last used.
+          format: date-time
+          nullable: true
+          type: string
+          example: null
+        Expires:
+          description: Date this SmtpCredential expires.
+          format: date-time
+          nullable: true
+          type: string
+          example: null
+        RestrictAccessToIPRange:
+          description: Which IPs can use this SmtpCredential
+          items:
+            format: string
+            type: string
+          type: array
+      type: object
+    Options:
+      description: E-mail configuration
+      example:
+        TrackClicks: true
+        ChannelName: Channel01
+        PoolName: My Custom Pool
+        Encoding: UserProvided
+        TimeOffset: 0
+        TrackOpens: true
+      properties:
+        TimeOffset:
+          description: By how long should an e-mail be delayed (in minutes). Maximum
+            is 35 days.
+          format: int32
+          nullable: true
+          type: integer
+          example: null
+        PoolName:
+          description: Name of your custom IP Pool to be used in the sending process
+          example: My Custom Pool
+          format: string
+          type: string
+        ChannelName:
+          description: Name of selected channel.
+          example: Channel01
+          format: string
+          type: string
+        Encoding:
+          $ref: '#/components/schemas/EncodingType'
+        TrackOpens:
+          description: "Should the opens be tracked? If no value has been provided,\
+            \ Account's default setting will be used."
+          example: true
+          format: boolean
+          nullable: true
+          type: boolean
+        TrackClicks:
+          description: "Should the clicks be tracked? If no value has been provided,\
+            \ Account's default setting will be used."
+          example: true
+          format: boolean
+          nullable: true
+          type: boolean
+      type: object
+    RecipientEvent:
+      description: Detailed information about message recipient
+      example:
+        EventDate: 2000-01-23T04:56:07.000+00:00
+        NextTryOn: 2000-01-23T04:56:07.000+00:00
+        Message: Lorem ipsum
+        EventType: Submission
+        MsgID: ABCDE_9RPhSWiaJq_ab1g1
+        Subject: Hello!
+        TransactionID: TransactionID
+        ChannelName: Channel01
+        PoolName: PoolName
+        To: 2001-01-01T01:01:01
+        MessageCategory: Unknown
+        IPAddress: IPAddress
+        FromEmail: sender@yourdomain.com
+      properties:
+        TransactionID:
+          description: ID number of transaction
+          example: TransactionID
+          format: string
+          type: string
+        MsgID:
+          description: ID number of selected message.
+          example: ABCDE_9RPhSWiaJq_ab1g1
+          format: string
+          type: string
+        FromEmail:
+          description: "Default From: email address."
+          example: sender@yourdomain.com
+          format: string
+          type: string
+        To:
+          description: Ending date for search in YYYY-MM-DDThh:mm:ss format.
+          example: 2001-01-01T01:01:01
+          format: string
+          type: string
+        Subject:
+          description: Default subject of email.
+          example: Hello!
+          format: string
+          type: string
+        EventType:
+          $ref: '#/components/schemas/EventType'
+        EventDate:
+          description: Creation date
+          format: date-time
+          type: string
+        ChannelName:
+          description: Name of selected channel.
+          example: Channel01
+          format: string
+          type: string
+        MessageCategory:
+          $ref: '#/components/schemas/MessageCategory'
+        NextTryOn:
+          description: Date of next try
+          format: date-time
+          nullable: true
+          type: string
+        Message:
+          description: "Content of message, HTML encoded"
+          example: Lorem ipsum
+          format: string
+          type: string
+        IPAddress:
+          description: IP which this email was sent through
+          format: string
+          type: string
+        PoolName:
+          description: Name of an IP pool this email was sent through
+          format: string
+          type: string
+      type: object
+    Segment:
+      description: "Dynamic collection of Contacts, managed by SQL-like rule."
+      example:
+        Rule: Rule
+        Name: Name
+      properties:
+        Name:
+          description: Segment name
+          format: string
+          type: string
+        Rule:
+          description: SQL-like rule to determine which Contacts belong to this Segment.
+          format: string
+          type: string
+      type: object
+    SegmentPayload:
+      example:
+        Rule: Rule
+        Name: Name
+      properties:
+        Name:
+          description: Segment name
+          format: string
+          type: string
+        Rule:
+          description: "SQL-like rule to determine which Contacts belong to this Segment.\
+            \ Help for building a segment rule can be found here: https://help.elasticemail.com/en/articles/5162182-segment-rules"
+          format: string
+          type: string
+      required:
+      - Name
+      - Rule
+      type: object
+    SmtpCredentials:
+      description: SMTP Credentials info
+      example:
+        RestrictAccessToIPRange:
+        - RestrictAccessToIPRange
+        - RestrictAccessToIPRange
+        DateCreated: 2000-01-23T04:56:07.000+00:00
+        LastUse: 2000-01-23T04:56:07.000+00:00
+        Expires: 2000-01-23T04:56:07.000+00:00
+        AccessLevel: None
+        Name: Name
+      properties:
+        AccessLevel:
+          $ref: '#/components/schemas/AccessLevel'
+        Name:
+          description: Name of the key.
+          format: string
+          type: string
+        DateCreated:
+          description: Date this SmtpCredential was created.
+          format: date-time
+          type: string
+        LastUse:
+          description: Date this SmtpCredential was last used.
+          format: date-time
+          nullable: true
+          type: string
+          example: null
+        Expires:
+          description: Date this SmtpCredential expires.
+          format: date-time
+          nullable: true
+          type: string
+          example: null
+        RestrictAccessToIPRange:
+          description: Which IPs can use this SmtpCredential
+          items:
+            format: string
+            type: string
+          type: array
+      type: object
+    SmtpCredentialsPayload:
+      description: Create new SMTP Credentials
+      example:
+        Subaccount: Subaccount
+        RestrictAccessToIPRange:
+        - RestrictAccessToIPRange
+        - RestrictAccessToIPRange
+        Expires: 2000-01-23T04:56:07.000+00:00
+        Name: Name
+      properties:
+        Name:
+          description: Name of the Credential for ease of reference. It must be a
+            valid email address.
+          format: string
+          type: string
+        Expires:
+          description: Date this SmtpCredential expires.
+          format: date-time
+          nullable: true
+          type: string
+          example: null
+        RestrictAccessToIPRange:
+          description: Which IPs can use this SmtpCredential
+          items:
+            format: string
+            type: string
+          type: array
+        Subaccount:
+          description: Email of the subaccount for which this SmtpCredential should
+            be created
+          format: string
+          type: string
+      required:
+      - Name
+      type: object
+    SortOrderItem:
+      description: Change the ordering of this inbound route for when matching the
+        inbound
+      example:
+        PublicInboundId: PublicInboundId
+        SortOrder: 0
+      properties:
+        PublicInboundId:
+          description: ID of the route to change the order of
+          format: guid
+          type: string
+        SortOrder:
+          description: 1 - route will be used first
+          format: int32
+          type: integer
+      required:
+      - PublicInboundId
+      - SortOrder
+      type: object
+    SplitOptimizationType:
+      default: Opens
+      enum:
+      - Opens
+      - Clicks
+      type: string
+    SplitOptions:
+      description: Optional A/X split campaign options
+      example:
+        OptimizeFor: Opens
+        OptimizePeriodMinutes: 30
+      properties:
+        OptimizeFor:
+          $ref: '#/components/schemas/SplitOptimizationType'
+        OptimizePeriodMinutes:
+          description: For how long should the results be measured until determining
+            the winner template (content)
+          example: 30
+          format: int32
+          type: integer
+      type: object
+    SubaccountEmailCreditsPayload:
+      description: "A change to SubAccount email credits pool, with an additional\
+        \ note."
+      example:
+        Credits: 0
+        Notes: Notes
+      properties:
+        Credits:
+          description: Positive or negative value; this will be added or subtracted
+            from Subaccount's current email Credits pool.
+          format: int32
+          type: integer
+        Notes:
+          description: "Note to append to this credits change, for history."
+          format: string
+          type: string
+      required:
+      - Credits
+      type: object
+    SubaccountEmailSettings:
+      description: Settings related to sending emails
+      example:
+        PoolName: My Custom Pool
+        RequiresEmailCredits: true
+        ValidSenderDomainOnly: true
+        MonthlyRefillCredits: 1000
+        EmailSizeLimit: 10
+        DailySendLimit: 100000
+        MaxContacts: 0
+        EnablePrivateIPPurchase: true
+      properties:
+        MonthlyRefillCredits:
+          description: Amount of credits added to Account automatically
+          example: 1000
+          format: int32
+          type: integer
+        RequiresEmailCredits:
+          description: "True, if Account needs credits to send emails. Otherwise,\
+            \ false"
+          example: true
+          format: boolean
+          type: boolean
+        EmailSizeLimit:
+          description: Maximum size of email including attachments in MB's
+          example: 10
+          format: int32
+          type: integer
+        DailySendLimit:
+          description: Amount of emails Account can send daily
+          example: 100000
+          format: int32
+          type: integer
+        MaxContacts:
+          description: Maximum number of contacts the Account can have. 0 means that
+            parent account's limit is used.
+          format: int32
+          type: integer
+        EnablePrivateIPPurchase:
+          description: Can the SubAccount purchase Private IP for themselves
+          format: boolean
+          type: boolean
+        PoolName:
+          description: Name of your custom IP Pool to be used in the sending process
+          example: My Custom Pool
+          format: string
+          type: string
+        ValidSenderDomainOnly:
+          format: boolean
+          nullable: true
+          type: boolean
+          example: null
+      type: object
+    SubaccountEmailSettingsPayload:
+      description: Settings related to sending emails
+      example:
+        PoolName: My Custom Pool
+        RequiresEmailCredits: true
+        ValidSenderDomainOnly: true
+        EmailSizeLimit: 10
+        DailySendLimit: 100000
+        MaxContacts: 0
+        EnablePrivateIPPurchase: true
+      properties:
+        RequiresEmailCredits:
+          description: "True, if Account needs credits to send emails. Otherwise,\
+            \ false"
+          example: true
+          format: boolean
+          type: boolean
+        EmailSizeLimit:
+          description: Maximum size of email including attachments in MB's
+          example: 10
+          format: int32
+          type: integer
+        DailySendLimit:
+          description: Amount of emails Account can send daily
+          example: 100000
+          format: int32
+          type: integer
+        MaxContacts:
+          description: Maximum number of contacts the Account can have. 0 means that
+            parent account's limit is used.
+          format: int32
+          type: integer
+        EnablePrivateIPPurchase:
+          description: Can the SubAccount purchase Private IP for themselves
+          format: boolean
+          type: boolean
+        PoolName:
+          description: Name of your custom IP Pool to be used in the sending process
+          example: My Custom Pool
+          format: string
+          type: string
+        ValidSenderDomainOnly:
+          format: boolean
+          nullable: true
+          type: boolean
+          example: null
+      type: object
+    SubAccountInfo:
+      description: Detailed information about SubAccount.
+      example:
+        EmailCredits: 1000
+        Status: Disabled
+        Email: mail@example.com
+        PublicAccountID: EB3EBB7A-C20D-4D39-8F2F-5E6842F58E6F
+        ContactsCount: 6
+        TotalEmailsSent: 1000
+        Reputation: 100
+        Settings:
+          Email:
+            PoolName: My Custom Pool
+            RequiresEmailCredits: true
+            ValidSenderDomainOnly: true
+            MonthlyRefillCredits: 1000
+            EmailSizeLimit: 10
+            DailySendLimit: 100000
+            MaxContacts: 0
+            EnablePrivateIPPurchase: true
+        LastActivity: 2000-01-23T04:56:07.000+00:00
+      properties:
+        PublicAccountID:
+          description: Public key for limited access to your Account such as contact/add
+            so you can use it safely on public websites.
+          example: EB3EBB7A-C20D-4D39-8F2F-5E6842F58E6F
+          format: string
+          type: string
+        Email:
+          description: Proper email address.
+          example: mail@example.com
+          format: string
+          type: string
+        Settings:
+          $ref: '#/components/schemas/SubaccountSettingsInfo'
+        LastActivity:
+          description: Date of last activity on Account
+          format: date-time
+          type: string
+        EmailCredits:
+          description: Amount of email credits
+          example: 1000
+          format: int32
+          type: integer
+        TotalEmailsSent:
+          description: Amount of emails sent from this Account
+          example: 1000
+          format: int64
+          type: integer
+        Reputation:
+          description: Numeric reputation
+          example: 100
+          format: double
+          type: number
+        Status:
+          $ref: '#/components/schemas/AccountStatusEnum'
+        ContactsCount:
+          description: How many contacts this SubAccount has stored
+          format: int32
+          type: integer
+      type: object
+    SubaccountPayload:
+      description: New SubAccount payload
+      example:
+        Email: mail@example.com
+        Settings:
+          Email:
+            PoolName: My Custom Pool
+            RequiresEmailCredits: true
+            ValidSenderDomainOnly: true
+            EmailSizeLimit: 10
+            DailySendLimit: 100000
+            MaxContacts: 0
+            EnablePrivateIPPurchase: true
+        Password: '********'
+        SendActivation: true
+      properties:
+        Email:
+          description: Proper email address.
+          example: mail@example.com
+          format: string
+          type: string
+        Password:
+          description: Current password.
+          example: '********'
+          format: string
+          type: string
+        SendActivation:
+          description: "True, if you want to send activation email to this Account\
+            \ to confirm the creation of a new SubAccount. Otherwise, false (SubAccount\
+            \ will immediately be Active)."
+          format: boolean
+          type: boolean
+        Settings:
+          $ref: '#/components/schemas/SubaccountSettingsInfoPayload'
+      required:
+      - Email
+      - Password
+      type: object
+    SubaccountSettingsInfo:
+      description: SubAccount settings
+      example:
+        Email:
+          PoolName: My Custom Pool
+          RequiresEmailCredits: true
+          ValidSenderDomainOnly: true
+          MonthlyRefillCredits: 1000
+          EmailSizeLimit: 10
+          DailySendLimit: 100000
+          MaxContacts: 0
+          EnablePrivateIPPurchase: true
+      properties:
+        Email:
+          $ref: '#/components/schemas/SubaccountEmailSettings'
+      type: object
+    SubaccountSettingsInfoPayload:
+      description: SubAccount settings
+      example:
+        Email:
+          PoolName: My Custom Pool
+          RequiresEmailCredits: true
+          ValidSenderDomainOnly: true
+          EmailSizeLimit: 10
+          DailySendLimit: 100000
+          MaxContacts: 0
+          EnablePrivateIPPurchase: true
+      properties:
+        Email:
+          $ref: '#/components/schemas/SubaccountEmailSettingsPayload'
+      type: object
+    Suppression:
+      description: Suppression - Email returning Hard Bounces
+      example:
+        Email: mail@example.com
+        FriendlyErrorMessage: Mailbox not found
+        DateUpdated: 2000-01-23T04:56:07.000+00:00
+        ErrorCode: 0
+      properties:
+        Email:
+          description: Proper email address.
+          example: mail@example.com
+          format: string
+          type: string
+        FriendlyErrorMessage:
+          description: RFC error message
+          example: Mailbox not found
+          format: string
+          type: string
+        ErrorCode:
+          description: SMTP Error code
+          format: int32
+          nullable: true
+          type: integer
+          example: null
+        DateUpdated:
+          description: Last change date
+          format: date-time
+          nullable: true
+          type: string
+      type: object
+    Template:
+      description: Template info
+      example:
+        TemplateScope: Personal
+        TemplateType: RawHTML
+        DateAdded: 2000-01-23T04:56:07.000+00:00
+        Body:
+        - ContentType: HTML
+          Content: Content
+          Charset: Charset
+        - ContentType: HTML
+          Content: Content
+          Charset: Charset
+        Subject: Hello!
+        Name: Name
+      properties:
+        TemplateType:
+          $ref: '#/components/schemas/TemplateType'
+        Name:
+          description: Template name
+          format: string
+          type: string
+        DateAdded:
+          description: Date of creation in YYYY-MM-DDThh:ii:ss format
+          format: date-time
+          type: string
+        Subject:
+          description: Default subject of email.
+          example: Hello!
+          format: string
+          type: string
+        Body:
+          description: Email content of this template
+          items:
+            $ref: '#/components/schemas/BodyPart'
+          type: array
+        TemplateScope:
+          $ref: '#/components/schemas/TemplateScope'
+      type: object
+    TemplatePayload:
+      description: New template object
+      example:
+        TemplateScope: Personal
+        Body:
+        - ContentType: HTML
+          Content: Content
+          Charset: Charset
+        - ContentType: HTML
+          Content: Content
+          Charset: Charset
+        Subject: Hello!
+        Name: Name
+      properties:
+        Name:
+          description: Template name
+          format: string
+          type: string
+        Subject:
+          description: Default subject of email.
+          example: Hello!
+          format: string
+          type: string
+        Body:
+          description: Email content of this template
+          items:
+            $ref: '#/components/schemas/BodyPart'
+          type: array
+        TemplateScope:
+          $ref: '#/components/schemas/TemplateScope'
+      required:
+      - Name
+      type: object
+    TemplateScope:
+      default: Personal
+      description: Visibility of a template
+      enum:
+      - Personal
+      - Global
+      type: string
+    TemplateType:
+      default: RawHTML
+      enum:
+      - RawHTML
+      - DragDropEditor
+      - LandingPageEditor
+      - TemplateEditor
+      - FormTemplate
+      type: string
+    TransactionalRecipient:
+      description: List of transactional recipients
+      example:
+        CC:
+        - CC
+        - CC
+        BCC:
+        - BCC
+        - BCC
+        To:
+        - To
+        - To
+      properties:
+        To:
+          description: List of recipients (visible to others)
+          items:
+            format: string
+            type: string
+          type: array
+        CC:
+          description: List of Carbon Copy recipients (visible to others)
+          items:
+            format: string
+            type: string
+          type: array
+        BCC:
+          description: List of Blind Carbon Copy recipients (hidden from other recipients)
+          items:
+            format: string
+            type: string
+          type: array
+      required:
+      - To
+      type: object
+    Utm:
+      description: Utm marketing data to be attached to every link in this e-mail.
+      example:
+        Campaign: Campaign
+        Medium: Medium
+        Content: Content
+        Source: Source
+      properties:
+        Source:
+          description: utmsource value
+          format: string
+          type: string
+        Medium:
+          description: utmmedium value
+          format: string
+          type: string
+        Campaign:
+          description: utmcampaign value
+          format: string
+          type: string
+        Content:
+          description: utmcontent value
+          format: string
+          type: string
+      type: object
+    VerificationFileResult:
+      description: Simple verification file result info
+      example:
+        VerificationStatus: Processing
+        FileUploadResult:
+          EmailsCount: 0
+          DuplicatedEmailsCount: 6
+        VerificationID: VerificationID
+        Filename: Filename
+        DateAdded: 2000-01-23T04:56:07.000+00:00
+        Source: Source
+      properties:
+        VerificationID:
+          description: Identifier of this verification result
+          format: string
+          type: string
+        Filename:
+          description: Origin file name
+          format: string
+          type: string
+        VerificationStatus:
+          $ref: '#/components/schemas/VerificationStatus'
+        FileUploadResult:
+          $ref: '#/components/schemas/FileUploadResult'
+        DateAdded:
+          description: Date of creation in YYYY-MM-DDThh:ii:ss format
+          format: date-time
+          type: string
+        Source:
+          description: Origin file extension
+          format: string
+          type: string
+      type: object
+    VerificationFileResultDetails:
+      description: Detailed verification file result info
+      example:
+        VerificationStatus: Processing
+        FileUploadResult:
+          EmailsCount: 0
+          DuplicatedEmailsCount: 6
+        VerificationResult:
+        - Disposable: true
+          Role: true
+          PredictedStatus: None
+          Account: Account
+          SuggestedSpelling: SuggestedSpelling
+          Email: Email
+          PredictedScore: 0.8008281904610115
+          Domain: example.com
+          DateAdded: 2000-01-23T04:56:07.000+00:00
+          Reason: Reason
+          Result: None
+        - Disposable: true
+          Role: true
+          PredictedStatus: None
+          Account: Account
+          SuggestedSpelling: SuggestedSpelling
+          Email: Email
+          PredictedScore: 0.8008281904610115
+          Domain: example.com
+          DateAdded: 2000-01-23T04:56:07.000+00:00
+          Reason: Reason
+          Result: None
+        VerificationID: VerificationID
+        Filename: Filename
+        DateAdded: 2000-01-23T04:56:07.000+00:00
+        Source: Source
+      properties:
+        VerificationResult:
+          description: Verification result's details
+          items:
+            $ref: '#/components/schemas/EmailValidationResult'
+          type: array
+        VerificationID:
+          description: Identifier of this verification result
+          format: string
+          type: string
+        Filename:
+          description: Origin file name
+          format: string
+          type: string
+        VerificationStatus:
+          $ref: '#/components/schemas/VerificationStatus'
+        FileUploadResult:
+          $ref: '#/components/schemas/FileUploadResult'
+        DateAdded:
+          description: Date of creation in YYYY-MM-DDThh:ii:ss format
+          format: date-time
+          type: string
+        Source:
+          description: Origin file extension
+          format: string
+          type: string
+      type: object
+    VerificationStatus:
+      default: Processing
+      enum:
+      - Processing
+      - Ready
+      - Expired
+      - Verified
+      - Error
+      type: string
+    contactsImportPost_request:
+      format: binary
+      properties:
+        file:
+          format: binary
+          type: string
+      type: object
+  securitySchemes:
+    apikey:
+      in: header
+      name: X-ElasticEmail-ApiKey
+      type: apiKey
+

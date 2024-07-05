@@ -30,7 +30,7 @@ namespace ElasticEmail.Model
     /// A change to SubAccount email credits pool, with an additional note.
     /// </summary>
     [DataContract(Name = "SubaccountEmailCreditsPayload")]
-    public partial class SubaccountEmailCreditsPayload : IEquatable<SubaccountEmailCreditsPayload>, IValidatableObject
+    public partial class SubaccountEmailCreditsPayload : IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="SubaccountEmailCreditsPayload" /> class.
@@ -86,62 +86,11 @@ namespace ElasticEmail.Model
         }
 
         /// <summary>
-        /// Returns true if objects are equal
-        /// </summary>
-        /// <param name="input">Object to be compared</param>
-        /// <returns>Boolean</returns>
-        public override bool Equals(object input)
-        {
-            return this.Equals(input as SubaccountEmailCreditsPayload);
-        }
-
-        /// <summary>
-        /// Returns true if SubaccountEmailCreditsPayload instances are equal
-        /// </summary>
-        /// <param name="input">Instance of SubaccountEmailCreditsPayload to be compared</param>
-        /// <returns>Boolean</returns>
-        public bool Equals(SubaccountEmailCreditsPayload input)
-        {
-            if (input == null)
-            {
-                return false;
-            }
-            return 
-                (
-                    this.Credits == input.Credits ||
-                    this.Credits.Equals(input.Credits)
-                ) && 
-                (
-                    this.Notes == input.Notes ||
-                    (this.Notes != null &&
-                    this.Notes.Equals(input.Notes))
-                );
-        }
-
-        /// <summary>
-        /// Gets the hash code
-        /// </summary>
-        /// <returns>Hash code</returns>
-        public override int GetHashCode()
-        {
-            unchecked // Overflow is fine, just wrap
-            {
-                int hashCode = 41;
-                hashCode = (hashCode * 59) + this.Credits.GetHashCode();
-                if (this.Notes != null)
-                {
-                    hashCode = (hashCode * 59) + this.Notes.GetHashCode();
-                }
-                return hashCode;
-            }
-        }
-
-        /// <summary>
         /// To validate all properties of the instance
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             yield break;
         }

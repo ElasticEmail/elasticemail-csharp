@@ -30,7 +30,7 @@ namespace ElasticEmail.Model
     /// Settings related to sending emails
     /// </summary>
     [DataContract(Name = "SubaccountEmailSettings")]
-    public partial class SubaccountEmailSettings : IEquatable<SubaccountEmailSettings>, IValidatableObject
+    public partial class SubaccountEmailSettings : IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="SubaccountEmailSettings" /> class.
@@ -59,6 +59,7 @@ namespace ElasticEmail.Model
         /// Amount of credits added to Account automatically
         /// </summary>
         /// <value>Amount of credits added to Account automatically</value>
+        /// <example>1000</example>
         [DataMember(Name = "MonthlyRefillCredits", EmitDefaultValue = false)]
         public int MonthlyRefillCredits { get; set; }
 
@@ -66,6 +67,7 @@ namespace ElasticEmail.Model
         /// True, if Account needs credits to send emails. Otherwise, false
         /// </summary>
         /// <value>True, if Account needs credits to send emails. Otherwise, false</value>
+        /// <example>true</example>
         [DataMember(Name = "RequiresEmailCredits", EmitDefaultValue = true)]
         public bool RequiresEmailCredits { get; set; }
 
@@ -73,6 +75,7 @@ namespace ElasticEmail.Model
         /// Maximum size of email including attachments in MB&#39;s
         /// </summary>
         /// <value>Maximum size of email including attachments in MB&#39;s</value>
+        /// <example>10</example>
         [DataMember(Name = "EmailSizeLimit", EmitDefaultValue = false)]
         public int EmailSizeLimit { get; set; }
 
@@ -80,6 +83,7 @@ namespace ElasticEmail.Model
         /// Amount of emails Account can send daily
         /// </summary>
         /// <value>Amount of emails Account can send daily</value>
+        /// <example>100000</example>
         [DataMember(Name = "DailySendLimit", EmitDefaultValue = false)]
         public int DailySendLimit { get; set; }
 
@@ -101,6 +105,7 @@ namespace ElasticEmail.Model
         /// Name of your custom IP Pool to be used in the sending process
         /// </summary>
         /// <value>Name of your custom IP Pool to be used in the sending process</value>
+        /// <example>My Custom Pool</example>
         [DataMember(Name = "PoolName", EmitDefaultValue = false)]
         public string PoolName { get; set; }
 
@@ -140,96 +145,11 @@ namespace ElasticEmail.Model
         }
 
         /// <summary>
-        /// Returns true if objects are equal
-        /// </summary>
-        /// <param name="input">Object to be compared</param>
-        /// <returns>Boolean</returns>
-        public override bool Equals(object input)
-        {
-            return this.Equals(input as SubaccountEmailSettings);
-        }
-
-        /// <summary>
-        /// Returns true if SubaccountEmailSettings instances are equal
-        /// </summary>
-        /// <param name="input">Instance of SubaccountEmailSettings to be compared</param>
-        /// <returns>Boolean</returns>
-        public bool Equals(SubaccountEmailSettings input)
-        {
-            if (input == null)
-            {
-                return false;
-            }
-            return 
-                (
-                    this.MonthlyRefillCredits == input.MonthlyRefillCredits ||
-                    this.MonthlyRefillCredits.Equals(input.MonthlyRefillCredits)
-                ) && 
-                (
-                    this.RequiresEmailCredits == input.RequiresEmailCredits ||
-                    this.RequiresEmailCredits.Equals(input.RequiresEmailCredits)
-                ) && 
-                (
-                    this.EmailSizeLimit == input.EmailSizeLimit ||
-                    this.EmailSizeLimit.Equals(input.EmailSizeLimit)
-                ) && 
-                (
-                    this.DailySendLimit == input.DailySendLimit ||
-                    this.DailySendLimit.Equals(input.DailySendLimit)
-                ) && 
-                (
-                    this.MaxContacts == input.MaxContacts ||
-                    this.MaxContacts.Equals(input.MaxContacts)
-                ) && 
-                (
-                    this.EnablePrivateIPPurchase == input.EnablePrivateIPPurchase ||
-                    this.EnablePrivateIPPurchase.Equals(input.EnablePrivateIPPurchase)
-                ) && 
-                (
-                    this.PoolName == input.PoolName ||
-                    (this.PoolName != null &&
-                    this.PoolName.Equals(input.PoolName))
-                ) && 
-                (
-                    this.ValidSenderDomainOnly == input.ValidSenderDomainOnly ||
-                    (this.ValidSenderDomainOnly != null &&
-                    this.ValidSenderDomainOnly.Equals(input.ValidSenderDomainOnly))
-                );
-        }
-
-        /// <summary>
-        /// Gets the hash code
-        /// </summary>
-        /// <returns>Hash code</returns>
-        public override int GetHashCode()
-        {
-            unchecked // Overflow is fine, just wrap
-            {
-                int hashCode = 41;
-                hashCode = (hashCode * 59) + this.MonthlyRefillCredits.GetHashCode();
-                hashCode = (hashCode * 59) + this.RequiresEmailCredits.GetHashCode();
-                hashCode = (hashCode * 59) + this.EmailSizeLimit.GetHashCode();
-                hashCode = (hashCode * 59) + this.DailySendLimit.GetHashCode();
-                hashCode = (hashCode * 59) + this.MaxContacts.GetHashCode();
-                hashCode = (hashCode * 59) + this.EnablePrivateIPPurchase.GetHashCode();
-                if (this.PoolName != null)
-                {
-                    hashCode = (hashCode * 59) + this.PoolName.GetHashCode();
-                }
-                if (this.ValidSenderDomainOnly != null)
-                {
-                    hashCode = (hashCode * 59) + this.ValidSenderDomainOnly.GetHashCode();
-                }
-                return hashCode;
-            }
-        }
-
-        /// <summary>
         /// To validate all properties of the instance
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             yield break;
         }

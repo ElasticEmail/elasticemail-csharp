@@ -50,7 +50,6 @@ namespace ElasticEmail.Model
         /// </summary>
         [EnumMember(Value = "Json")]
         Json = 3
-
     }
 
 }

@@ -30,7 +30,7 @@ namespace ElasticEmail.Model
     /// ListPayload
     /// </summary>
     [DataContract(Name = "ListPayload")]
-    public partial class ListPayload : IEquatable<ListPayload>, IValidatableObject
+    public partial class ListPayload : IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="ListPayload" /> class.
@@ -59,6 +59,7 @@ namespace ElasticEmail.Model
         /// Name of your list.
         /// </summary>
         /// <value>Name of your list.</value>
+        /// <example>My List 1</example>
         [DataMember(Name = "ListName", IsRequired = true, EmitDefaultValue = true)]
         public string ListName { get; set; }
 
@@ -66,6 +67,7 @@ namespace ElasticEmail.Model
         /// True: Allow unsubscribing from this list. Otherwise, false
         /// </summary>
         /// <value>True: Allow unsubscribing from this list. Otherwise, false</value>
+        /// <example>false</example>
         [DataMember(Name = "AllowUnsubscribe", EmitDefaultValue = true)]
         public bool AllowUnsubscribe { get; set; }
 
@@ -73,6 +75,7 @@ namespace ElasticEmail.Model
         /// Comma delimited list of existing contact emails that should be added to this list. Leave empty for all contacts
         /// </summary>
         /// <value>Comma delimited list of existing contact emails that should be added to this list. Leave empty for all contacts</value>
+        /// <example>[&quot;john.doe@sample.com&quot;]</example>
         [DataMember(Name = "Emails", EmitDefaultValue = false)]
         public List<string> Emails { get; set; }
 
@@ -101,72 +104,11 @@ namespace ElasticEmail.Model
         }
 
         /// <summary>
-        /// Returns true if objects are equal
-        /// </summary>
-        /// <param name="input">Object to be compared</param>
-        /// <returns>Boolean</returns>
-        public override bool Equals(object input)
-        {
-            return this.Equals(input as ListPayload);
-        }
-
-        /// <summary>
-        /// Returns true if ListPayload instances are equal
-        /// </summary>
-        /// <param name="input">Instance of ListPayload to be compared</param>
-        /// <returns>Boolean</returns>
-        public bool Equals(ListPayload input)
-        {
-            if (input == null)
-            {
-                return false;
-            }
-            return 
-                (
-                    this.ListName == input.ListName ||
-                    (this.ListName != null &&
-                    this.ListName.Equals(input.ListName))
-                ) && 
-                (
-                    this.AllowUnsubscribe == input.AllowUnsubscribe ||
-                    this.AllowUnsubscribe.Equals(input.AllowUnsubscribe)
-                ) && 
-                (
-                    this.Emails == input.Emails ||
-                    this.Emails != null &&
-                    input.Emails != null &&
-                    this.Emails.SequenceEqual(input.Emails)
-                );
-        }
-
-        /// <summary>
-        /// Gets the hash code
-        /// </summary>
-        /// <returns>Hash code</returns>
-        public override int GetHashCode()
-        {
-            unchecked // Overflow is fine, just wrap
-            {
-                int hashCode = 41;
-                if (this.ListName != null)
-                {
-                    hashCode = (hashCode * 59) + this.ListName.GetHashCode();
-                }
-                hashCode = (hashCode * 59) + this.AllowUnsubscribe.GetHashCode();
-                if (this.Emails != null)
-                {
-                    hashCode = (hashCode * 59) + this.Emails.GetHashCode();
-                }
-                return hashCode;
-            }
-        }
-
-        /// <summary>
         /// To validate all properties of the instance
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             yield break;
         }

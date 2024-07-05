@@ -30,7 +30,7 @@ namespace ElasticEmail.Model
     /// ConsentData
     /// </summary>
     [DataContract(Name = "ConsentData")]
-    public partial class ConsentData : IEquatable<ConsentData>, IValidatableObject
+    public partial class ConsentData : IValidatableObject
     {
 
         /// <summary>
@@ -55,6 +55,7 @@ namespace ElasticEmail.Model
         /// IP address of consent to send this contact(s) your email. If not provided your current public IP address is used for consent.
         /// </summary>
         /// <value>IP address of consent to send this contact(s) your email. If not provided your current public IP address is used for consent.</value>
+        /// <example>192.168.0.1</example>
         [DataMember(Name = "ConsentIP", EmitDefaultValue = false)]
         public string ConsentIP { get; set; }
 
@@ -90,71 +91,11 @@ namespace ElasticEmail.Model
         }
 
         /// <summary>
-        /// Returns true if objects are equal
-        /// </summary>
-        /// <param name="input">Object to be compared</param>
-        /// <returns>Boolean</returns>
-        public override bool Equals(object input)
-        {
-            return this.Equals(input as ConsentData);
-        }
-
-        /// <summary>
-        /// Returns true if ConsentData instances are equal
-        /// </summary>
-        /// <param name="input">Instance of ConsentData to be compared</param>
-        /// <returns>Boolean</returns>
-        public bool Equals(ConsentData input)
-        {
-            if (input == null)
-            {
-                return false;
-            }
-            return 
-                (
-                    this.ConsentIP == input.ConsentIP ||
-                    (this.ConsentIP != null &&
-                    this.ConsentIP.Equals(input.ConsentIP))
-                ) && 
-                (
-                    this.ConsentDate == input.ConsentDate ||
-                    (this.ConsentDate != null &&
-                    this.ConsentDate.Equals(input.ConsentDate))
-                ) && 
-                (
-                    this.ConsentTracking == input.ConsentTracking ||
-                    this.ConsentTracking.Equals(input.ConsentTracking)
-                );
-        }
-
-        /// <summary>
-        /// Gets the hash code
-        /// </summary>
-        /// <returns>Hash code</returns>
-        public override int GetHashCode()
-        {
-            unchecked // Overflow is fine, just wrap
-            {
-                int hashCode = 41;
-                if (this.ConsentIP != null)
-                {
-                    hashCode = (hashCode * 59) + this.ConsentIP.GetHashCode();
-                }
-                if (this.ConsentDate != null)
-                {
-                    hashCode = (hashCode * 59) + this.ConsentDate.GetHashCode();
-                }
-                hashCode = (hashCode * 59) + this.ConsentTracking.GetHashCode();
-                return hashCode;
-            }
-        }
-
-        /// <summary>
         /// To validate all properties of the instance
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             yield break;
         }

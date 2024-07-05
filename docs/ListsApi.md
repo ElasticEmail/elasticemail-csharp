@@ -4,6 +4,7 @@ All URIs are relative to *https://api.elasticemail.com/v4*
 
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
+| [**ListsByListnameContactsGet**](ListsApi.md#listsbylistnamecontactsget) | **GET** /lists/{listname}/contacts | Load Contacts in List |
 | [**ListsByNameContactsPost**](ListsApi.md#listsbynamecontactspost) | **POST** /lists/{name}/contacts | Add Contacts to List |
 | [**ListsByNameContactsRemovePost**](ListsApi.md#listsbynamecontactsremovepost) | **POST** /lists/{name}/contacts/remove | Remove Contacts from List |
 | [**ListsByNameDelete**](ListsApi.md#listsbynamedelete) | **DELETE** /lists/{name} | Delete List |
@@ -12,7 +13,107 @@ All URIs are relative to *https://api.elasticemail.com/v4*
 | [**ListsGet**](ListsApi.md#listsget) | **GET** /lists | Load Lists |
 | [**ListsPost**](ListsApi.md#listspost) | **POST** /lists | Add List |
 
-<a name="listsbynamecontactspost"></a>
+<a id="listsbylistnamecontactsget"></a>
+# **ListsByListnameContactsGet**
+> List&lt;Contact&gt; ListsByListnameContactsGet (string listname, int? limit = null, int? offset = null)
+
+Load Contacts in List
+
+Returns a list of contacts. Required Access Level: ViewContacts
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using ElasticEmail.Api;
+using ElasticEmail.Client;
+using ElasticEmail.Model;
+
+namespace Example
+{
+    public class ListsByListnameContactsGetExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.elasticemail.com/v4";
+            // Configure API key authorization: apikey
+            config.AddApiKey("X-ElasticEmail-ApiKey", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("X-ElasticEmail-ApiKey", "Bearer");
+
+            var apiInstance = new ListsApi(config);
+            var listname = My List 1;  // string | Name of your list.
+            var limit = 100;  // int? | Maximum number of returned items. (optional) 
+            var offset = 20;  // int? | How many items should be returned ahead. (optional) 
+
+            try
+            {
+                // Load Contacts in List
+                List<Contact> result = apiInstance.ListsByListnameContactsGet(listname, limit, offset);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling ListsApi.ListsByListnameContactsGet: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the ListsByListnameContactsGetWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Load Contacts in List
+    ApiResponse<List<Contact>> response = apiInstance.ListsByListnameContactsGetWithHttpInfo(listname, limit, offset);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling ListsApi.ListsByListnameContactsGetWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **listname** | **string** | Name of your list. |  |
+| **limit** | **int?** | Maximum number of returned items. | [optional]  |
+| **offset** | **int?** | How many items should be returned ahead. | [optional]  |
+
+### Return type
+
+[**List&lt;Contact&gt;**](Contact.md)
+
+### Authorization
+
+[apikey](../README.md#apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a id="listsbynamecontactspost"></a>
 # **ListsByNameContactsPost**
 > ContactsList ListsByNameContactsPost (string name, EmailsPayload emailsPayload)
 
@@ -110,7 +211,7 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="listsbynamecontactsremovepost"></a>
+<a id="listsbynamecontactsremovepost"></a>
 # **ListsByNameContactsRemovePost**
 > void ListsByNameContactsRemovePost (string name, EmailsPayload emailsPayload)
 
@@ -204,7 +305,7 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="listsbynamedelete"></a>
+<a id="listsbynamedelete"></a>
 # **ListsByNameDelete**
 > void ListsByNameDelete (string name)
 
@@ -296,7 +397,7 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="listsbynameget"></a>
+<a id="listsbynameget"></a>
 # **ListsByNameGet**
 > ContactsList ListsByNameGet (string name)
 
@@ -392,7 +493,7 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="listsbynameput"></a>
+<a id="listsbynameput"></a>
 # **ListsByNamePut**
 > ContactsList ListsByNamePut (string name, ListUpdatePayload listUpdatePayload)
 
@@ -490,7 +591,7 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="listsget"></a>
+<a id="listsget"></a>
 # **ListsGet**
 > List&lt;ContactsList&gt; ListsGet (int? limit = null, int? offset = null)
 
@@ -588,7 +689,7 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="listspost"></a>
+<a id="listspost"></a>
 # **ListsPost**
 > ContactsList ListsPost (ListPayload listPayload)
 

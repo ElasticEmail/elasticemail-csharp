@@ -14,7 +14,7 @@ All URIs are relative to *https://api.elasticemail.com/v4*
 | [**ContactsImportPost**](ContactsApi.md#contactsimportpost) | **POST** /contacts/import | Upload Contacts |
 | [**ContactsPost**](ContactsApi.md#contactspost) | **POST** /contacts | Add Contact |
 
-<a name="contactsbyemaildelete"></a>
+<a id="contactsbyemaildelete"></a>
 # **ContactsByEmailDelete**
 > void ContactsByEmailDelete (string email)
 
@@ -106,7 +106,7 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="contactsbyemailget"></a>
+<a id="contactsbyemailget"></a>
 # **ContactsByEmailGet**
 > Contact ContactsByEmailGet (string email)
 
@@ -202,7 +202,7 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="contactsbyemailput"></a>
+<a id="contactsbyemailput"></a>
 # **ContactsByEmailPut**
 > Contact ContactsByEmailPut (string email, ContactUpdatePayload contactUpdatePayload)
 
@@ -300,7 +300,7 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="contactsdeletepost"></a>
+<a id="contactsdeletepost"></a>
 # **ContactsDeletePost**
 > void ContactsDeletePost (EmailsPayload emailsPayload)
 
@@ -392,7 +392,7 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="contactsexportbyidstatusget"></a>
+<a id="contactsexportbyidstatusget"></a>
 # **ContactsExportByIdStatusGet**
 > ExportStatus ContactsExportByIdStatusGet (string id)
 
@@ -488,7 +488,7 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="contactsexportpost"></a>
+<a id="contactsexportpost"></a>
 # **ContactsExportPost**
 > ExportLink ContactsExportPost (ExportFileFormats? fileFormat = null, string rule = null, List<string> emails = null, CompressionFormat? compressionFormat = null, string fileName = null)
 
@@ -592,7 +592,7 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="contactsget"></a>
+<a id="contactsget"></a>
 # **ContactsGet**
 > List&lt;Contact&gt; ContactsGet (int? limit = null, int? offset = null)
 
@@ -690,7 +690,7 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="contactsimportpost"></a>
+<a id="contactsimportpost"></a>
 # **ContactsImportPost**
 > void ContactsImportPost (string listName = null, string encodingName = null, string fileUrl = null, System.IO.Stream file = null)
 
@@ -723,7 +723,7 @@ namespace Example
             var listName = "listName_example";  // string | Name of an existing list to add these contacts to (optional) 
             var encodingName = "encodingName_example";  // string | In what encoding the file is uploaded (optional) 
             var fileUrl = "fileUrl_example";  // string | Optional url of csv to import (optional) 
-            var file = new System.IO.FileStream("/path/to/file.txt", FileMode.Open, FileAccess.Read);  // System.IO.Stream |  (optional) 
+            var file = new System.IO.MemoryStream(System.IO.File.ReadAllBytes("/path/to/file.txt"));  // System.IO.Stream |  (optional) 
 
             try
             {
@@ -788,7 +788,7 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="contactspost"></a>
+<a id="contactspost"></a>
 # **ContactsPost**
 > List&lt;Contact&gt; ContactsPost (List<ContactPayload> contactPayload, List<string> listnames = null)
 

@@ -56,7 +56,6 @@ namespace ElasticEmail.Model
         /// </summary>
         [EnumMember(Value = "CSS")]
         CSS = 4
-
     }
 
 }

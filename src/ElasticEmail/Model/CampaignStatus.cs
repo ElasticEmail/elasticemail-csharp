@@ -79,7 +79,6 @@ namespace ElasticEmail.Model
         /// </summary>
         [EnumMember(Value = "Draft")]
         Draft = 8
-
     }
 
 }

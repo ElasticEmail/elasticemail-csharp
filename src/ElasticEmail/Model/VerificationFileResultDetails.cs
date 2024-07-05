@@ -30,7 +30,7 @@ namespace ElasticEmail.Model
     /// Detailed verification file result info
     /// </summary>
     [DataContract(Name = "VerificationFileResultDetails")]
-    public partial class VerificationFileResultDetails : IEquatable<VerificationFileResultDetails>, IValidatableObject
+    public partial class VerificationFileResultDetails : IValidatableObject
     {
 
         /// <summary>
@@ -129,108 +129,11 @@ namespace ElasticEmail.Model
         }
 
         /// <summary>
-        /// Returns true if objects are equal
-        /// </summary>
-        /// <param name="input">Object to be compared</param>
-        /// <returns>Boolean</returns>
-        public override bool Equals(object input)
-        {
-            return this.Equals(input as VerificationFileResultDetails);
-        }
-
-        /// <summary>
-        /// Returns true if VerificationFileResultDetails instances are equal
-        /// </summary>
-        /// <param name="input">Instance of VerificationFileResultDetails to be compared</param>
-        /// <returns>Boolean</returns>
-        public bool Equals(VerificationFileResultDetails input)
-        {
-            if (input == null)
-            {
-                return false;
-            }
-            return 
-                (
-                    this.VerificationResult == input.VerificationResult ||
-                    this.VerificationResult != null &&
-                    input.VerificationResult != null &&
-                    this.VerificationResult.SequenceEqual(input.VerificationResult)
-                ) && 
-                (
-                    this.VerificationID == input.VerificationID ||
-                    (this.VerificationID != null &&
-                    this.VerificationID.Equals(input.VerificationID))
-                ) && 
-                (
-                    this.Filename == input.Filename ||
-                    (this.Filename != null &&
-                    this.Filename.Equals(input.Filename))
-                ) && 
-                (
-                    this.VerificationStatus == input.VerificationStatus ||
-                    this.VerificationStatus.Equals(input.VerificationStatus)
-                ) && 
-                (
-                    this.FileUploadResult == input.FileUploadResult ||
-                    (this.FileUploadResult != null &&
-                    this.FileUploadResult.Equals(input.FileUploadResult))
-                ) && 
-                (
-                    this.DateAdded == input.DateAdded ||
-                    (this.DateAdded != null &&
-                    this.DateAdded.Equals(input.DateAdded))
-                ) && 
-                (
-                    this.Source == input.Source ||
-                    (this.Source != null &&
-                    this.Source.Equals(input.Source))
-                );
-        }
-
-        /// <summary>
-        /// Gets the hash code
-        /// </summary>
-        /// <returns>Hash code</returns>
-        public override int GetHashCode()
-        {
-            unchecked // Overflow is fine, just wrap
-            {
-                int hashCode = 41;
-                if (this.VerificationResult != null)
-                {
-                    hashCode = (hashCode * 59) + this.VerificationResult.GetHashCode();
-                }
-                if (this.VerificationID != null)
-                {
-                    hashCode = (hashCode * 59) + this.VerificationID.GetHashCode();
-                }
-                if (this.Filename != null)
-                {
-                    hashCode = (hashCode * 59) + this.Filename.GetHashCode();
-                }
-                hashCode = (hashCode * 59) + this.VerificationStatus.GetHashCode();
-                if (this.FileUploadResult != null)
-                {
-                    hashCode = (hashCode * 59) + this.FileUploadResult.GetHashCode();
-                }
-                if (this.DateAdded != null)
-                {
-                    hashCode = (hashCode * 59) + this.DateAdded.GetHashCode();
-                }
-                if (this.Source != null)
-                {
-                    hashCode = (hashCode * 59) + this.Source.GetHashCode();
-                }
-                return hashCode;
-            }
-        }
-
-        /// <summary>
         /// To validate all properties of the instance
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             yield break;
         }

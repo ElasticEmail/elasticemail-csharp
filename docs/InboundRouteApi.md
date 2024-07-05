@@ -11,7 +11,7 @@ All URIs are relative to *https://api.elasticemail.com/v4*
 | [**InboundrouteOrderPut**](InboundRouteApi.md#inboundrouteorderput) | **PUT** /inboundroute/order | Update Sorting |
 | [**InboundroutePost**](InboundRouteApi.md#inboundroutepost) | **POST** /inboundroute | Create Route |
 
-<a name="inboundroutebyiddelete"></a>
+<a id="inboundroutebyiddelete"></a>
 # **InboundrouteByIdDelete**
 > void InboundrouteByIdDelete (string id)
 
@@ -103,7 +103,7 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="inboundroutebyidget"></a>
+<a id="inboundroutebyidget"></a>
 # **InboundrouteByIdGet**
 > InboundRoute InboundrouteByIdGet (string id)
 
@@ -199,7 +199,7 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="inboundroutebyidput"></a>
+<a id="inboundroutebyidput"></a>
 # **InboundrouteByIdPut**
 > InboundRoute InboundrouteByIdPut (string id, InboundPayload inboundPayload)
 
@@ -297,7 +297,7 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="inboundrouteget"></a>
+<a id="inboundrouteget"></a>
 # **InboundrouteGet**
 > List&lt;InboundRoute&gt; InboundrouteGet ()
 
@@ -388,7 +388,7 @@ This endpoint does not need any parameter.
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="inboundrouteorderput"></a>
+<a id="inboundrouteorderput"></a>
 # **InboundrouteOrderPut**
 > List&lt;InboundRoute&gt; InboundrouteOrderPut (List<SortOrderItem> sortOrderItem)
 
@@ -484,7 +484,7 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="inboundroutepost"></a>
+<a id="inboundroutepost"></a>
 # **InboundroutePost**
 > InboundRoute InboundroutePost (InboundPayload inboundPayload)
 

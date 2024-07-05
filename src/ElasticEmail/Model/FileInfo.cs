@@ -30,7 +30,7 @@ namespace ElasticEmail.Model
     /// File information
     /// </summary>
     [DataContract(Name = "FileInfo")]
-    public partial class FileInfo : IEquatable<FileInfo>, IValidatableObject
+    public partial class FileInfo : IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="FileInfo" /> class.
@@ -53,6 +53,7 @@ namespace ElasticEmail.Model
         /// Name of your file including extension.
         /// </summary>
         /// <value>Name of your file including extension.</value>
+        /// <example>filename.txt</example>
         [DataMember(Name = "FileName", EmitDefaultValue = false)]
         public string FileName { get; set; }
 
@@ -60,6 +61,7 @@ namespace ElasticEmail.Model
         /// Size of your attachment (in bytes).
         /// </summary>
         /// <value>Size of your attachment (in bytes).</value>
+        /// <example>100</example>
         [DataMember(Name = "Size", EmitDefaultValue = true)]
         public int? Size { get; set; }
 
@@ -81,6 +83,7 @@ namespace ElasticEmail.Model
         /// Content type of the file.
         /// </summary>
         /// <value>Content type of the file.</value>
+        /// <example>image/jpeg</example>
         [DataMember(Name = "ContentType", EmitDefaultValue = false)]
         public string ContentType { get; set; }
 
@@ -111,93 +114,11 @@ namespace ElasticEmail.Model
         }
 
         /// <summary>
-        /// Returns true if objects are equal
-        /// </summary>
-        /// <param name="input">Object to be compared</param>
-        /// <returns>Boolean</returns>
-        public override bool Equals(object input)
-        {
-            return this.Equals(input as FileInfo);
-        }
-
-        /// <summary>
-        /// Returns true if FileInfo instances are equal
-        /// </summary>
-        /// <param name="input">Instance of FileInfo to be compared</param>
-        /// <returns>Boolean</returns>
-        public bool Equals(FileInfo input)
-        {
-            if (input == null)
-            {
-                return false;
-            }
-            return 
-                (
-                    this.FileName == input.FileName ||
-                    (this.FileName != null &&
-                    this.FileName.Equals(input.FileName))
-                ) && 
-                (
-                    this.Size == input.Size ||
-                    (this.Size != null &&
-                    this.Size.Equals(input.Size))
-                ) && 
-                (
-                    this.DateAdded == input.DateAdded ||
-                    (this.DateAdded != null &&
-                    this.DateAdded.Equals(input.DateAdded))
-                ) && 
-                (
-                    this.ExpirationDate == input.ExpirationDate ||
-                    (this.ExpirationDate != null &&
-                    this.ExpirationDate.Equals(input.ExpirationDate))
-                ) && 
-                (
-                    this.ContentType == input.ContentType ||
-                    (this.ContentType != null &&
-                    this.ContentType.Equals(input.ContentType))
-                );
-        }
-
-        /// <summary>
-        /// Gets the hash code
-        /// </summary>
-        /// <returns>Hash code</returns>
-        public override int GetHashCode()
-        {
-            unchecked // Overflow is fine, just wrap
-            {
-                int hashCode = 41;
-                if (this.FileName != null)
-                {
-                    hashCode = (hashCode * 59) + this.FileName.GetHashCode();
-                }
-                if (this.Size != null)
-                {
-                    hashCode = (hashCode * 59) + this.Size.GetHashCode();
-                }
-                if (this.DateAdded != null)
-                {
-                    hashCode = (hashCode * 59) + this.DateAdded.GetHashCode();
-                }
-                if (this.ExpirationDate != null)
-                {
-                    hashCode = (hashCode * 59) + this.ExpirationDate.GetHashCode();
-                }
-                if (this.ContentType != null)
-                {
-                    hashCode = (hashCode * 59) + this.ContentType.GetHashCode();
-                }
-                return hashCode;
-            }
-        }
-
-        /// <summary>
         /// To validate all properties of the instance
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             yield break;
         }

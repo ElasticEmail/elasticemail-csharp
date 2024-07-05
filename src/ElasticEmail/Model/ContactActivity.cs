@@ -30,7 +30,7 @@ namespace ElasticEmail.Model
     /// ContactActivity
     /// </summary>
     [DataContract(Name = "ContactActivity")]
-    public partial class ContactActivity : IEquatable<ContactActivity>, IValidatableObject
+    public partial class ContactActivity : IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="ContactActivity" /> class.
@@ -65,6 +65,7 @@ namespace ElasticEmail.Model
         /// Total emails sent.
         /// </summary>
         /// <value>Total emails sent.</value>
+        /// <example>1000</example>
         [DataMember(Name = "TotalSent", EmitDefaultValue = false)]
         public int TotalSent { get; set; }
 
@@ -72,6 +73,7 @@ namespace ElasticEmail.Model
         /// Total emails opened.
         /// </summary>
         /// <value>Total emails opened.</value>
+        /// <example>1000</example>
         [DataMember(Name = "TotalOpened", EmitDefaultValue = false)]
         public int TotalOpened { get; set; }
 
@@ -79,6 +81,7 @@ namespace ElasticEmail.Model
         /// Total emails clicked
         /// </summary>
         /// <value>Total emails clicked</value>
+        /// <example>1000</example>
         [DataMember(Name = "TotalClicked", EmitDefaultValue = false)]
         public int TotalClicked { get; set; }
 
@@ -86,6 +89,7 @@ namespace ElasticEmail.Model
         /// Total emails failed.
         /// </summary>
         /// <value>Total emails failed.</value>
+        /// <example>1000</example>
         [DataMember(Name = "TotalFailed", EmitDefaultValue = false)]
         public int TotalFailed { get; set; }
 
@@ -171,131 +175,11 @@ namespace ElasticEmail.Model
         }
 
         /// <summary>
-        /// Returns true if objects are equal
-        /// </summary>
-        /// <param name="input">Object to be compared</param>
-        /// <returns>Boolean</returns>
-        public override bool Equals(object input)
-        {
-            return this.Equals(input as ContactActivity);
-        }
-
-        /// <summary>
-        /// Returns true if ContactActivity instances are equal
-        /// </summary>
-        /// <param name="input">Instance of ContactActivity to be compared</param>
-        /// <returns>Boolean</returns>
-        public bool Equals(ContactActivity input)
-        {
-            if (input == null)
-            {
-                return false;
-            }
-            return 
-                (
-                    this.TotalSent == input.TotalSent ||
-                    this.TotalSent.Equals(input.TotalSent)
-                ) && 
-                (
-                    this.TotalOpened == input.TotalOpened ||
-                    this.TotalOpened.Equals(input.TotalOpened)
-                ) && 
-                (
-                    this.TotalClicked == input.TotalClicked ||
-                    this.TotalClicked.Equals(input.TotalClicked)
-                ) && 
-                (
-                    this.TotalFailed == input.TotalFailed ||
-                    this.TotalFailed.Equals(input.TotalFailed)
-                ) && 
-                (
-                    this.LastSent == input.LastSent ||
-                    (this.LastSent != null &&
-                    this.LastSent.Equals(input.LastSent))
-                ) && 
-                (
-                    this.LastOpened == input.LastOpened ||
-                    (this.LastOpened != null &&
-                    this.LastOpened.Equals(input.LastOpened))
-                ) && 
-                (
-                    this.LastClicked == input.LastClicked ||
-                    (this.LastClicked != null &&
-                    this.LastClicked.Equals(input.LastClicked))
-                ) && 
-                (
-                    this.LastFailed == input.LastFailed ||
-                    (this.LastFailed != null &&
-                    this.LastFailed.Equals(input.LastFailed))
-                ) && 
-                (
-                    this.LastIP == input.LastIP ||
-                    (this.LastIP != null &&
-                    this.LastIP.Equals(input.LastIP))
-                ) && 
-                (
-                    this.ErrorCode == input.ErrorCode ||
-                    (this.ErrorCode != null &&
-                    this.ErrorCode.Equals(input.ErrorCode))
-                ) && 
-                (
-                    this.FriendlyErrorMessage == input.FriendlyErrorMessage ||
-                    (this.FriendlyErrorMessage != null &&
-                    this.FriendlyErrorMessage.Equals(input.FriendlyErrorMessage))
-                );
-        }
-
-        /// <summary>
-        /// Gets the hash code
-        /// </summary>
-        /// <returns>Hash code</returns>
-        public override int GetHashCode()
-        {
-            unchecked // Overflow is fine, just wrap
-            {
-                int hashCode = 41;
-                hashCode = (hashCode * 59) + this.TotalSent.GetHashCode();
-                hashCode = (hashCode * 59) + this.TotalOpened.GetHashCode();
-                hashCode = (hashCode * 59) + this.TotalClicked.GetHashCode();
-                hashCode = (hashCode * 59) + this.TotalFailed.GetHashCode();
-                if (this.LastSent != null)
-                {
-                    hashCode = (hashCode * 59) + this.LastSent.GetHashCode();
-                }
-                if (this.LastOpened != null)
-                {
-                    hashCode = (hashCode * 59) + this.LastOpened.GetHashCode();
-                }
-                if (this.LastClicked != null)
-                {
-                    hashCode = (hashCode * 59) + this.LastClicked.GetHashCode();
-                }
-                if (this.LastFailed != null)
-                {
-                    hashCode = (hashCode * 59) + this.LastFailed.GetHashCode();
-                }
-                if (this.LastIP != null)
-                {
-                    hashCode = (hashCode * 59) + this.LastIP.GetHashCode();
-                }
-                if (this.ErrorCode != null)
-                {
-                    hashCode = (hashCode * 59) + this.ErrorCode.GetHashCode();
-                }
-                if (this.FriendlyErrorMessage != null)
-                {
-                    hashCode = (hashCode * 59) + this.FriendlyErrorMessage.GetHashCode();
-                }
-                return hashCode;
-            }
-        }
-
-        /// <summary>
         /// To validate all properties of the instance
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             yield break;
         }

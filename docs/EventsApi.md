@@ -12,7 +12,7 @@ All URIs are relative to *https://api.elasticemail.com/v4*
 | [**EventsExportPost**](EventsApi.md#eventsexportpost) | **POST** /events/export | Export Events |
 | [**EventsGet**](EventsApi.md#eventsget) | **GET** /events | Load Events |
 
-<a name="eventsbytransactionidget"></a>
+<a id="eventsbytransactionidget"></a>
 # **EventsByTransactionidGet**
 > List&lt;RecipientEvent&gt; EventsByTransactionidGet (string transactionid, DateTime? from = null, DateTime? to = null, EventsOrderBy? orderBy = null, int? limit = null, int? offset = null)
 
@@ -118,7 +118,7 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="eventschannelsbynameexportpost"></a>
+<a id="eventschannelsbynameexportpost"></a>
 # **EventsChannelsByNameExportPost**
 > ExportLink EventsChannelsByNameExportPost (string name, List<EventType> eventTypes = null, DateTime? from = null, DateTime? to = null, ExportFileFormats? fileFormat = null, CompressionFormat? compressionFormat = null, string fileName = null)
 
@@ -226,7 +226,7 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="eventschannelsbynameget"></a>
+<a id="eventschannelsbynameget"></a>
 # **EventsChannelsByNameGet**
 > List&lt;RecipientEvent&gt; EventsChannelsByNameGet (string name, List<EventType> eventTypes = null, DateTime? from = null, DateTime? to = null, EventsOrderBy? orderBy = null, int? limit = null, int? offset = null)
 
@@ -334,7 +334,7 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="eventschannelsexportbyidstatusget"></a>
+<a id="eventschannelsexportbyidstatusget"></a>
 # **EventsChannelsExportByIdStatusGet**
 > ExportStatus EventsChannelsExportByIdStatusGet (string id)
 
@@ -430,7 +430,7 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="eventsexportbyidstatusget"></a>
+<a id="eventsexportbyidstatusget"></a>
 # **EventsExportByIdStatusGet**
 > ExportStatus EventsExportByIdStatusGet (string id)
 
@@ -526,7 +526,7 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="eventsexportpost"></a>
+<a id="eventsexportpost"></a>
 # **EventsExportPost**
 > ExportLink EventsExportPost (List<EventType> eventTypes = null, DateTime? from = null, DateTime? to = null, ExportFileFormats? fileFormat = null, CompressionFormat? compressionFormat = null, string fileName = null)
 
@@ -632,7 +632,7 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="eventsget"></a>
+<a id="eventsget"></a>
 # **EventsGet**
 > List&lt;RecipientEvent&gt; EventsGet (List<EventType> eventTypes = null, DateTime? from = null, DateTime? to = null, EventsOrderBy? orderBy = null, int? limit = null, int? offset = null)
 

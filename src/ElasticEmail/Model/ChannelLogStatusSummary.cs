@@ -30,7 +30,7 @@ namespace ElasticEmail.Model
     /// Summary of channel log status
     /// </summary>
     [DataContract(Name = "ChannelLogStatusSummary")]
-    public partial class ChannelLogStatusSummary : IEquatable<ChannelLogStatusSummary>, IValidatableObject
+    public partial class ChannelLogStatusSummary : IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="ChannelLogStatusSummary" /> class.
@@ -78,6 +78,7 @@ namespace ElasticEmail.Model
         /// Number of recipients
         /// </summary>
         /// <value>Number of recipients</value>
+        /// <example>1234</example>
         [DataMember(Name = "Recipients", EmitDefaultValue = false)]
         public long Recipients { get; set; }
 
@@ -85,6 +86,7 @@ namespace ElasticEmail.Model
         /// Number of emails
         /// </summary>
         /// <value>Number of emails</value>
+        /// <example>1234</example>
         [DataMember(Name = "EmailTotal", EmitDefaultValue = false)]
         public long EmailTotal { get; set; }
 
@@ -92,6 +94,7 @@ namespace ElasticEmail.Model
         /// Number of SMS
         /// </summary>
         /// <value>Number of SMS</value>
+        /// <example>12</example>
         [DataMember(Name = "SmsTotal", EmitDefaultValue = false)]
         public long SmsTotal { get; set; }
 
@@ -99,6 +102,7 @@ namespace ElasticEmail.Model
         /// Number of delivered messages
         /// </summary>
         /// <value>Number of delivered messages</value>
+        /// <example>1000</example>
         [DataMember(Name = "Delivered", EmitDefaultValue = false)]
         public long Delivered { get; set; }
 
@@ -106,6 +110,7 @@ namespace ElasticEmail.Model
         /// Number of bounced messages
         /// </summary>
         /// <value>Number of bounced messages</value>
+        /// <example>1000</example>
         [DataMember(Name = "Bounced", EmitDefaultValue = false)]
         public long Bounced { get; set; }
 
@@ -113,6 +118,7 @@ namespace ElasticEmail.Model
         /// Number of messages in progress
         /// </summary>
         /// <value>Number of messages in progress</value>
+        /// <example>1234</example>
         [DataMember(Name = "InProgress", EmitDefaultValue = false)]
         public long InProgress { get; set; }
 
@@ -120,6 +126,7 @@ namespace ElasticEmail.Model
         /// Number of opened messages
         /// </summary>
         /// <value>Number of opened messages</value>
+        /// <example>1000</example>
         [DataMember(Name = "Opened", EmitDefaultValue = false)]
         public long Opened { get; set; }
 
@@ -127,6 +134,7 @@ namespace ElasticEmail.Model
         /// Number of clicked messages
         /// </summary>
         /// <value>Number of clicked messages</value>
+        /// <example>1000</example>
         [DataMember(Name = "Clicked", EmitDefaultValue = false)]
         public long Clicked { get; set; }
 
@@ -134,6 +142,7 @@ namespace ElasticEmail.Model
         /// Number of unsubscribed messages
         /// </summary>
         /// <value>Number of unsubscribed messages</value>
+        /// <example>1000</example>
         [DataMember(Name = "Unsubscribed", EmitDefaultValue = false)]
         public long Unsubscribed { get; set; }
 
@@ -141,6 +150,7 @@ namespace ElasticEmail.Model
         /// Number of complaint messages
         /// </summary>
         /// <value>Number of complaint messages</value>
+        /// <example>1000</example>
         [DataMember(Name = "Complaints", EmitDefaultValue = false)]
         public long Complaints { get; set; }
 
@@ -148,6 +158,7 @@ namespace ElasticEmail.Model
         /// Number of inbound messages
         /// </summary>
         /// <value>Number of inbound messages</value>
+        /// <example>1000</example>
         [DataMember(Name = "Inbound", EmitDefaultValue = false)]
         public long Inbound { get; set; }
 
@@ -155,6 +166,7 @@ namespace ElasticEmail.Model
         /// Number of manually cancelled messages
         /// </summary>
         /// <value>Number of manually cancelled messages</value>
+        /// <example>1000</example>
         [DataMember(Name = "ManualCancel", EmitDefaultValue = false)]
         public long ManualCancel { get; set; }
 
@@ -162,6 +174,7 @@ namespace ElasticEmail.Model
         /// Number of messages flagged with &#39;Not Delivered&#39;
         /// </summary>
         /// <value>Number of messages flagged with &#39;Not Delivered&#39;</value>
+        /// <example>0</example>
         [DataMember(Name = "NotDelivered", EmitDefaultValue = false)]
         public long NotDelivered { get; set; }
 
@@ -201,122 +214,11 @@ namespace ElasticEmail.Model
         }
 
         /// <summary>
-        /// Returns true if objects are equal
-        /// </summary>
-        /// <param name="input">Object to be compared</param>
-        /// <returns>Boolean</returns>
-        public override bool Equals(object input)
-        {
-            return this.Equals(input as ChannelLogStatusSummary);
-        }
-
-        /// <summary>
-        /// Returns true if ChannelLogStatusSummary instances are equal
-        /// </summary>
-        /// <param name="input">Instance of ChannelLogStatusSummary to be compared</param>
-        /// <returns>Boolean</returns>
-        public bool Equals(ChannelLogStatusSummary input)
-        {
-            if (input == null)
-            {
-                return false;
-            }
-            return 
-                (
-                    this.ChannelName == input.ChannelName ||
-                    (this.ChannelName != null &&
-                    this.ChannelName.Equals(input.ChannelName))
-                ) && 
-                (
-                    this.Recipients == input.Recipients ||
-                    this.Recipients.Equals(input.Recipients)
-                ) && 
-                (
-                    this.EmailTotal == input.EmailTotal ||
-                    this.EmailTotal.Equals(input.EmailTotal)
-                ) && 
-                (
-                    this.SmsTotal == input.SmsTotal ||
-                    this.SmsTotal.Equals(input.SmsTotal)
-                ) && 
-                (
-                    this.Delivered == input.Delivered ||
-                    this.Delivered.Equals(input.Delivered)
-                ) && 
-                (
-                    this.Bounced == input.Bounced ||
-                    this.Bounced.Equals(input.Bounced)
-                ) && 
-                (
-                    this.InProgress == input.InProgress ||
-                    this.InProgress.Equals(input.InProgress)
-                ) && 
-                (
-                    this.Opened == input.Opened ||
-                    this.Opened.Equals(input.Opened)
-                ) && 
-                (
-                    this.Clicked == input.Clicked ||
-                    this.Clicked.Equals(input.Clicked)
-                ) && 
-                (
-                    this.Unsubscribed == input.Unsubscribed ||
-                    this.Unsubscribed.Equals(input.Unsubscribed)
-                ) && 
-                (
-                    this.Complaints == input.Complaints ||
-                    this.Complaints.Equals(input.Complaints)
-                ) && 
-                (
-                    this.Inbound == input.Inbound ||
-                    this.Inbound.Equals(input.Inbound)
-                ) && 
-                (
-                    this.ManualCancel == input.ManualCancel ||
-                    this.ManualCancel.Equals(input.ManualCancel)
-                ) && 
-                (
-                    this.NotDelivered == input.NotDelivered ||
-                    this.NotDelivered.Equals(input.NotDelivered)
-                );
-        }
-
-        /// <summary>
-        /// Gets the hash code
-        /// </summary>
-        /// <returns>Hash code</returns>
-        public override int GetHashCode()
-        {
-            unchecked // Overflow is fine, just wrap
-            {
-                int hashCode = 41;
-                if (this.ChannelName != null)
-                {
-                    hashCode = (hashCode * 59) + this.ChannelName.GetHashCode();
-                }
-                hashCode = (hashCode * 59) + this.Recipients.GetHashCode();
-                hashCode = (hashCode * 59) + this.EmailTotal.GetHashCode();
-                hashCode = (hashCode * 59) + this.SmsTotal.GetHashCode();
-                hashCode = (hashCode * 59) + this.Delivered.GetHashCode();
-                hashCode = (hashCode * 59) + this.Bounced.GetHashCode();
-                hashCode = (hashCode * 59) + this.InProgress.GetHashCode();
-                hashCode = (hashCode * 59) + this.Opened.GetHashCode();
-                hashCode = (hashCode * 59) + this.Clicked.GetHashCode();
-                hashCode = (hashCode * 59) + this.Unsubscribed.GetHashCode();
-                hashCode = (hashCode * 59) + this.Complaints.GetHashCode();
-                hashCode = (hashCode * 59) + this.Inbound.GetHashCode();
-                hashCode = (hashCode * 59) + this.ManualCancel.GetHashCode();
-                hashCode = (hashCode * 59) + this.NotDelivered.GetHashCode();
-                return hashCode;
-            }
-        }
-
-        /// <summary>
         /// To validate all properties of the instance
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             yield break;
         }

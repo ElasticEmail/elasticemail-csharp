@@ -30,7 +30,7 @@ namespace ElasticEmail.Model
     /// New SubAccount payload
     /// </summary>
     [DataContract(Name = "SubaccountPayload")]
-    public partial class SubaccountPayload : IEquatable<SubaccountPayload>, IValidatableObject
+    public partial class SubaccountPayload : IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="SubaccountPayload" /> class.
@@ -66,6 +66,7 @@ namespace ElasticEmail.Model
         /// Proper email address.
         /// </summary>
         /// <value>Proper email address.</value>
+        /// <example>mail@example.com</example>
         [DataMember(Name = "Email", IsRequired = true, EmitDefaultValue = true)]
         public string Email { get; set; }
 
@@ -73,6 +74,7 @@ namespace ElasticEmail.Model
         /// Current password.
         /// </summary>
         /// <value>Current password.</value>
+        /// <example>********</example>
         [DataMember(Name = "Password", IsRequired = true, EmitDefaultValue = true)]
         public string Password { get; set; }
 
@@ -115,80 +117,11 @@ namespace ElasticEmail.Model
         }
 
         /// <summary>
-        /// Returns true if objects are equal
-        /// </summary>
-        /// <param name="input">Object to be compared</param>
-        /// <returns>Boolean</returns>
-        public override bool Equals(object input)
-        {
-            return this.Equals(input as SubaccountPayload);
-        }
-
-        /// <summary>
-        /// Returns true if SubaccountPayload instances are equal
-        /// </summary>
-        /// <param name="input">Instance of SubaccountPayload to be compared</param>
-        /// <returns>Boolean</returns>
-        public bool Equals(SubaccountPayload input)
-        {
-            if (input == null)
-            {
-                return false;
-            }
-            return 
-                (
-                    this.Email == input.Email ||
-                    (this.Email != null &&
-                    this.Email.Equals(input.Email))
-                ) && 
-                (
-                    this.Password == input.Password ||
-                    (this.Password != null &&
-                    this.Password.Equals(input.Password))
-                ) && 
-                (
-                    this.SendActivation == input.SendActivation ||
-                    this.SendActivation.Equals(input.SendActivation)
-                ) && 
-                (
-                    this.Settings == input.Settings ||
-                    (this.Settings != null &&
-                    this.Settings.Equals(input.Settings))
-                );
-        }
-
-        /// <summary>
-        /// Gets the hash code
-        /// </summary>
-        /// <returns>Hash code</returns>
-        public override int GetHashCode()
-        {
-            unchecked // Overflow is fine, just wrap
-            {
-                int hashCode = 41;
-                if (this.Email != null)
-                {
-                    hashCode = (hashCode * 59) + this.Email.GetHashCode();
-                }
-                if (this.Password != null)
-                {
-                    hashCode = (hashCode * 59) + this.Password.GetHashCode();
-                }
-                hashCode = (hashCode * 59) + this.SendActivation.GetHashCode();
-                if (this.Settings != null)
-                {
-                    hashCode = (hashCode * 59) + this.Settings.GetHashCode();
-                }
-                return hashCode;
-            }
-        }
-
-        /// <summary>
         /// To validate all properties of the instance
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             yield break;
         }

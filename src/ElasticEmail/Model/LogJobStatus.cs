@@ -91,7 +91,6 @@ namespace ElasticEmail.Model
         /// </summary>
         [EnumMember(Value = "AbuseReport")]
         AbuseReport = 10
-
     }
 
 }

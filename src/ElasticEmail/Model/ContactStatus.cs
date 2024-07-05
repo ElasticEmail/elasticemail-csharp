@@ -85,7 +85,6 @@ namespace ElasticEmail.Model
         /// </summary>
         [EnumMember(Value = "NotConfirmed")]
         NotConfirmed = 9
-
     }
 
 }

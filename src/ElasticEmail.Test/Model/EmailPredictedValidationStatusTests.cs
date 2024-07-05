@@ -15,7 +15,6 @@ using System;
 using System.Linq;
 using System.IO;
 using System.Collections.Generic;
-using ElasticEmail.Api;
 using ElasticEmail.Model;
 using ElasticEmail.Client;
 using System.Reflection;
@@ -55,9 +54,5 @@ namespace ElasticEmail.Test.Model
             // TODO uncomment below to test "IsType" EmailPredictedValidationStatus
             //Assert.IsType<EmailPredictedValidationStatus>(instance);
         }
-
-
-
     }
-
 }

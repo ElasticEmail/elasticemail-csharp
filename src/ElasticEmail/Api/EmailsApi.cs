@@ -51,6 +51,49 @@ namespace ElasticEmail.Api
         /// <returns>ApiResponse of EmailData</returns>
         ApiResponse<EmailData> EmailsByMsgidViewGetWithHttpInfo(string msgid, int operationIndex = 0);
         /// <summary>
+        /// Get Status
+        /// </summary>
+        /// <remarks>
+        /// Get status details of an email transaction. Required Access Level: ViewReports
+        /// </remarks>
+        /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="transactionid">Transaction identifier</param>
+        /// <param name="showFailed">Include Bounced email addresses. (optional, default to false)</param>
+        /// <param name="showSent">Include Sent email addresses. (optional, default to false)</param>
+        /// <param name="showDelivered">Include all delivered email addresses. (optional, default to false)</param>
+        /// <param name="showPending">Include Ready to send email addresses. (optional, default to false)</param>
+        /// <param name="showOpened">Include Opened email addresses. (optional, default to false)</param>
+        /// <param name="showClicked">Include Clicked email addresses. (optional, default to false)</param>
+        /// <param name="showAbuse">Include Reported as abuse email addresses. (optional, default to false)</param>
+        /// <param name="showUnsubscribed">Include Unsubscribed email addresses. (optional, default to false)</param>
+        /// <param name="showErrors">Include error messages for bounced emails. (optional, default to false)</param>
+        /// <param name="showMessageIDs">Include all MessageIDs for this transaction (optional, default to false)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>EmailJobStatus</returns>
+        EmailJobStatus EmailsByTransactionidStatusGet(string transactionid, bool? showFailed = default(bool?), bool? showSent = default(bool?), bool? showDelivered = default(bool?), bool? showPending = default(bool?), bool? showOpened = default(bool?), bool? showClicked = default(bool?), bool? showAbuse = default(bool?), bool? showUnsubscribed = default(bool?), bool? showErrors = default(bool?), bool? showMessageIDs = default(bool?), int operationIndex = 0);
+
+        /// <summary>
+        /// Get Status
+        /// </summary>
+        /// <remarks>
+        /// Get status details of an email transaction. Required Access Level: ViewReports
+        /// </remarks>
+        /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="transactionid">Transaction identifier</param>
+        /// <param name="showFailed">Include Bounced email addresses. (optional, default to false)</param>
+        /// <param name="showSent">Include Sent email addresses. (optional, default to false)</param>
+        /// <param name="showDelivered">Include all delivered email addresses. (optional, default to false)</param>
+        /// <param name="showPending">Include Ready to send email addresses. (optional, default to false)</param>
+        /// <param name="showOpened">Include Opened email addresses. (optional, default to false)</param>
+        /// <param name="showClicked">Include Clicked email addresses. (optional, default to false)</param>
+        /// <param name="showAbuse">Include Reported as abuse email addresses. (optional, default to false)</param>
+        /// <param name="showUnsubscribed">Include Unsubscribed email addresses. (optional, default to false)</param>
+        /// <param name="showErrors">Include error messages for bounced emails. (optional, default to false)</param>
+        /// <param name="showMessageIDs">Include all MessageIDs for this transaction (optional, default to false)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ApiResponse of EmailJobStatus</returns>
+        ApiResponse<EmailJobStatus> EmailsByTransactionidStatusGetWithHttpInfo(string transactionid, bool? showFailed = default(bool?), bool? showSent = default(bool?), bool? showDelivered = default(bool?), bool? showPending = default(bool?), bool? showOpened = default(bool?), bool? showClicked = default(bool?), bool? showAbuse = default(bool?), bool? showUnsubscribed = default(bool?), bool? showErrors = default(bool?), bool? showMessageIDs = default(bool?), int operationIndex = 0);
+        /// <summary>
         /// Send Bulk Emails CSV
         /// </summary>
         /// <remarks>
@@ -153,6 +196,51 @@ namespace ElasticEmail.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (EmailData)</returns>
         System.Threading.Tasks.Task<ApiResponse<EmailData>> EmailsByMsgidViewGetWithHttpInfoAsync(string msgid, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <summary>
+        /// Get Status
+        /// </summary>
+        /// <remarks>
+        /// Get status details of an email transaction. Required Access Level: ViewReports
+        /// </remarks>
+        /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="transactionid">Transaction identifier</param>
+        /// <param name="showFailed">Include Bounced email addresses. (optional, default to false)</param>
+        /// <param name="showSent">Include Sent email addresses. (optional, default to false)</param>
+        /// <param name="showDelivered">Include all delivered email addresses. (optional, default to false)</param>
+        /// <param name="showPending">Include Ready to send email addresses. (optional, default to false)</param>
+        /// <param name="showOpened">Include Opened email addresses. (optional, default to false)</param>
+        /// <param name="showClicked">Include Clicked email addresses. (optional, default to false)</param>
+        /// <param name="showAbuse">Include Reported as abuse email addresses. (optional, default to false)</param>
+        /// <param name="showUnsubscribed">Include Unsubscribed email addresses. (optional, default to false)</param>
+        /// <param name="showErrors">Include error messages for bounced emails. (optional, default to false)</param>
+        /// <param name="showMessageIDs">Include all MessageIDs for this transaction (optional, default to false)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of EmailJobStatus</returns>
+        System.Threading.Tasks.Task<EmailJobStatus> EmailsByTransactionidStatusGetAsync(string transactionid, bool? showFailed = default(bool?), bool? showSent = default(bool?), bool? showDelivered = default(bool?), bool? showPending = default(bool?), bool? showOpened = default(bool?), bool? showClicked = default(bool?), bool? showAbuse = default(bool?), bool? showUnsubscribed = default(bool?), bool? showErrors = default(bool?), bool? showMessageIDs = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+
+        /// <summary>
+        /// Get Status
+        /// </summary>
+        /// <remarks>
+        /// Get status details of an email transaction. Required Access Level: ViewReports
+        /// </remarks>
+        /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="transactionid">Transaction identifier</param>
+        /// <param name="showFailed">Include Bounced email addresses. (optional, default to false)</param>
+        /// <param name="showSent">Include Sent email addresses. (optional, default to false)</param>
+        /// <param name="showDelivered">Include all delivered email addresses. (optional, default to false)</param>
+        /// <param name="showPending">Include Ready to send email addresses. (optional, default to false)</param>
+        /// <param name="showOpened">Include Opened email addresses. (optional, default to false)</param>
+        /// <param name="showClicked">Include Clicked email addresses. (optional, default to false)</param>
+        /// <param name="showAbuse">Include Reported as abuse email addresses. (optional, default to false)</param>
+        /// <param name="showUnsubscribed">Include Unsubscribed email addresses. (optional, default to false)</param>
+        /// <param name="showErrors">Include error messages for bounced emails. (optional, default to false)</param>
+        /// <param name="showMessageIDs">Include all MessageIDs for this transaction (optional, default to false)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (EmailJobStatus)</returns>
+        System.Threading.Tasks.Task<ApiResponse<EmailJobStatus>> EmailsByTransactionidStatusGetWithHttpInfoAsync(string transactionid, bool? showFailed = default(bool?), bool? showSent = default(bool?), bool? showDelivered = default(bool?), bool? showPending = default(bool?), bool? showOpened = default(bool?), bool? showClicked = default(bool?), bool? showAbuse = default(bool?), bool? showUnsubscribed = default(bool?), bool? showErrors = default(bool?), bool? showMessageIDs = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Send Bulk Emails CSV
         /// </summary>
@@ -493,6 +581,280 @@ namespace ElasticEmail.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("EmailsByMsgidViewGet", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Get Status Get status details of an email transaction. Required Access Level: ViewReports
+        /// </summary>
+        /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="transactionid">Transaction identifier</param>
+        /// <param name="showFailed">Include Bounced email addresses. (optional, default to false)</param>
+        /// <param name="showSent">Include Sent email addresses. (optional, default to false)</param>
+        /// <param name="showDelivered">Include all delivered email addresses. (optional, default to false)</param>
+        /// <param name="showPending">Include Ready to send email addresses. (optional, default to false)</param>
+        /// <param name="showOpened">Include Opened email addresses. (optional, default to false)</param>
+        /// <param name="showClicked">Include Clicked email addresses. (optional, default to false)</param>
+        /// <param name="showAbuse">Include Reported as abuse email addresses. (optional, default to false)</param>
+        /// <param name="showUnsubscribed">Include Unsubscribed email addresses. (optional, default to false)</param>
+        /// <param name="showErrors">Include error messages for bounced emails. (optional, default to false)</param>
+        /// <param name="showMessageIDs">Include all MessageIDs for this transaction (optional, default to false)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>EmailJobStatus</returns>
+        public EmailJobStatus EmailsByTransactionidStatusGet(string transactionid, bool? showFailed = default(bool?), bool? showSent = default(bool?), bool? showDelivered = default(bool?), bool? showPending = default(bool?), bool? showOpened = default(bool?), bool? showClicked = default(bool?), bool? showAbuse = default(bool?), bool? showUnsubscribed = default(bool?), bool? showErrors = default(bool?), bool? showMessageIDs = default(bool?), int operationIndex = 0)
+        {
+            ElasticEmail.Client.ApiResponse<EmailJobStatus> localVarResponse = EmailsByTransactionidStatusGetWithHttpInfo(transactionid, showFailed, showSent, showDelivered, showPending, showOpened, showClicked, showAbuse, showUnsubscribed, showErrors, showMessageIDs);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get Status Get status details of an email transaction. Required Access Level: ViewReports
+        /// </summary>
+        /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="transactionid">Transaction identifier</param>
+        /// <param name="showFailed">Include Bounced email addresses. (optional, default to false)</param>
+        /// <param name="showSent">Include Sent email addresses. (optional, default to false)</param>
+        /// <param name="showDelivered">Include all delivered email addresses. (optional, default to false)</param>
+        /// <param name="showPending">Include Ready to send email addresses. (optional, default to false)</param>
+        /// <param name="showOpened">Include Opened email addresses. (optional, default to false)</param>
+        /// <param name="showClicked">Include Clicked email addresses. (optional, default to false)</param>
+        /// <param name="showAbuse">Include Reported as abuse email addresses. (optional, default to false)</param>
+        /// <param name="showUnsubscribed">Include Unsubscribed email addresses. (optional, default to false)</param>
+        /// <param name="showErrors">Include error messages for bounced emails. (optional, default to false)</param>
+        /// <param name="showMessageIDs">Include all MessageIDs for this transaction (optional, default to false)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ApiResponse of EmailJobStatus</returns>
+        public ElasticEmail.Client.ApiResponse<EmailJobStatus> EmailsByTransactionidStatusGetWithHttpInfo(string transactionid, bool? showFailed = default(bool?), bool? showSent = default(bool?), bool? showDelivered = default(bool?), bool? showPending = default(bool?), bool? showOpened = default(bool?), bool? showClicked = default(bool?), bool? showAbuse = default(bool?), bool? showUnsubscribed = default(bool?), bool? showErrors = default(bool?), bool? showMessageIDs = default(bool?), int operationIndex = 0)
+        {
+            // verify the required parameter 'transactionid' is set
+            if (transactionid == null)
+            {
+                throw new ElasticEmail.Client.ApiException(400, "Missing required parameter 'transactionid' when calling EmailsApi->EmailsByTransactionidStatusGet");
+            }
+
+            ElasticEmail.Client.RequestOptions localVarRequestOptions = new ElasticEmail.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = ElasticEmail.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = ElasticEmail.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("transactionid", ElasticEmail.Client.ClientUtils.ParameterToString(transactionid)); // path parameter
+            if (showFailed != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ElasticEmail.Client.ClientUtils.ParameterToMultiMap("", "showFailed", showFailed));
+            }
+            if (showSent != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ElasticEmail.Client.ClientUtils.ParameterToMultiMap("", "showSent", showSent));
+            }
+            if (showDelivered != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ElasticEmail.Client.ClientUtils.ParameterToMultiMap("", "showDelivered", showDelivered));
+            }
+            if (showPending != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ElasticEmail.Client.ClientUtils.ParameterToMultiMap("", "showPending", showPending));
+            }
+            if (showOpened != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ElasticEmail.Client.ClientUtils.ParameterToMultiMap("", "showOpened", showOpened));
+            }
+            if (showClicked != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ElasticEmail.Client.ClientUtils.ParameterToMultiMap("", "showClicked", showClicked));
+            }
+            if (showAbuse != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ElasticEmail.Client.ClientUtils.ParameterToMultiMap("", "showAbuse", showAbuse));
+            }
+            if (showUnsubscribed != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ElasticEmail.Client.ClientUtils.ParameterToMultiMap("", "showUnsubscribed", showUnsubscribed));
+            }
+            if (showErrors != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ElasticEmail.Client.ClientUtils.ParameterToMultiMap("", "showErrors", showErrors));
+            }
+            if (showMessageIDs != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ElasticEmail.Client.ClientUtils.ParameterToMultiMap("", "showMessageIDs", showMessageIDs));
+            }
+
+            localVarRequestOptions.Operation = "EmailsApi.EmailsByTransactionidStatusGet";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (apikey) required
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-ElasticEmail-ApiKey")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("X-ElasticEmail-ApiKey", this.Configuration.GetApiKeyWithPrefix("X-ElasticEmail-ApiKey"));
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<EmailJobStatus>("/emails/{transactionid}/status", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("EmailsByTransactionidStatusGet", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Get Status Get status details of an email transaction. Required Access Level: ViewReports
+        /// </summary>
+        /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="transactionid">Transaction identifier</param>
+        /// <param name="showFailed">Include Bounced email addresses. (optional, default to false)</param>
+        /// <param name="showSent">Include Sent email addresses. (optional, default to false)</param>
+        /// <param name="showDelivered">Include all delivered email addresses. (optional, default to false)</param>
+        /// <param name="showPending">Include Ready to send email addresses. (optional, default to false)</param>
+        /// <param name="showOpened">Include Opened email addresses. (optional, default to false)</param>
+        /// <param name="showClicked">Include Clicked email addresses. (optional, default to false)</param>
+        /// <param name="showAbuse">Include Reported as abuse email addresses. (optional, default to false)</param>
+        /// <param name="showUnsubscribed">Include Unsubscribed email addresses. (optional, default to false)</param>
+        /// <param name="showErrors">Include error messages for bounced emails. (optional, default to false)</param>
+        /// <param name="showMessageIDs">Include all MessageIDs for this transaction (optional, default to false)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of EmailJobStatus</returns>
+        public async System.Threading.Tasks.Task<EmailJobStatus> EmailsByTransactionidStatusGetAsync(string transactionid, bool? showFailed = default(bool?), bool? showSent = default(bool?), bool? showDelivered = default(bool?), bool? showPending = default(bool?), bool? showOpened = default(bool?), bool? showClicked = default(bool?), bool? showAbuse = default(bool?), bool? showUnsubscribed = default(bool?), bool? showErrors = default(bool?), bool? showMessageIDs = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            ElasticEmail.Client.ApiResponse<EmailJobStatus> localVarResponse = await EmailsByTransactionidStatusGetWithHttpInfoAsync(transactionid, showFailed, showSent, showDelivered, showPending, showOpened, showClicked, showAbuse, showUnsubscribed, showErrors, showMessageIDs, operationIndex, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get Status Get status details of an email transaction. Required Access Level: ViewReports
+        /// </summary>
+        /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="transactionid">Transaction identifier</param>
+        /// <param name="showFailed">Include Bounced email addresses. (optional, default to false)</param>
+        /// <param name="showSent">Include Sent email addresses. (optional, default to false)</param>
+        /// <param name="showDelivered">Include all delivered email addresses. (optional, default to false)</param>
+        /// <param name="showPending">Include Ready to send email addresses. (optional, default to false)</param>
+        /// <param name="showOpened">Include Opened email addresses. (optional, default to false)</param>
+        /// <param name="showClicked">Include Clicked email addresses. (optional, default to false)</param>
+        /// <param name="showAbuse">Include Reported as abuse email addresses. (optional, default to false)</param>
+        /// <param name="showUnsubscribed">Include Unsubscribed email addresses. (optional, default to false)</param>
+        /// <param name="showErrors">Include error messages for bounced emails. (optional, default to false)</param>
+        /// <param name="showMessageIDs">Include all MessageIDs for this transaction (optional, default to false)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (EmailJobStatus)</returns>
+        public async System.Threading.Tasks.Task<ElasticEmail.Client.ApiResponse<EmailJobStatus>> EmailsByTransactionidStatusGetWithHttpInfoAsync(string transactionid, bool? showFailed = default(bool?), bool? showSent = default(bool?), bool? showDelivered = default(bool?), bool? showPending = default(bool?), bool? showOpened = default(bool?), bool? showClicked = default(bool?), bool? showAbuse = default(bool?), bool? showUnsubscribed = default(bool?), bool? showErrors = default(bool?), bool? showMessageIDs = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            // verify the required parameter 'transactionid' is set
+            if (transactionid == null)
+            {
+                throw new ElasticEmail.Client.ApiException(400, "Missing required parameter 'transactionid' when calling EmailsApi->EmailsByTransactionidStatusGet");
+            }
+
+
+            ElasticEmail.Client.RequestOptions localVarRequestOptions = new ElasticEmail.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = ElasticEmail.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = ElasticEmail.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("transactionid", ElasticEmail.Client.ClientUtils.ParameterToString(transactionid)); // path parameter
+            if (showFailed != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ElasticEmail.Client.ClientUtils.ParameterToMultiMap("", "showFailed", showFailed));
+            }
+            if (showSent != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ElasticEmail.Client.ClientUtils.ParameterToMultiMap("", "showSent", showSent));
+            }
+            if (showDelivered != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ElasticEmail.Client.ClientUtils.ParameterToMultiMap("", "showDelivered", showDelivered));
+            }
+            if (showPending != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ElasticEmail.Client.ClientUtils.ParameterToMultiMap("", "showPending", showPending));
+            }
+            if (showOpened != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ElasticEmail.Client.ClientUtils.ParameterToMultiMap("", "showOpened", showOpened));
+            }
+            if (showClicked != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ElasticEmail.Client.ClientUtils.ParameterToMultiMap("", "showClicked", showClicked));
+            }
+            if (showAbuse != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ElasticEmail.Client.ClientUtils.ParameterToMultiMap("", "showAbuse", showAbuse));
+            }
+            if (showUnsubscribed != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ElasticEmail.Client.ClientUtils.ParameterToMultiMap("", "showUnsubscribed", showUnsubscribed));
+            }
+            if (showErrors != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ElasticEmail.Client.ClientUtils.ParameterToMultiMap("", "showErrors", showErrors));
+            }
+            if (showMessageIDs != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ElasticEmail.Client.ClientUtils.ParameterToMultiMap("", "showMessageIDs", showMessageIDs));
+            }
+
+            localVarRequestOptions.Operation = "EmailsApi.EmailsByTransactionidStatusGet";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (apikey) required
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-ElasticEmail-ApiKey")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("X-ElasticEmail-ApiKey", this.Configuration.GetApiKeyWithPrefix("X-ElasticEmail-ApiKey"));
+            }
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.GetAsync<EmailJobStatus>("/emails/{transactionid}/status", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("EmailsByTransactionidStatusGet", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;

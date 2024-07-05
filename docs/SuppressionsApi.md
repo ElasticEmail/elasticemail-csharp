@@ -17,7 +17,7 @@ All URIs are relative to *https://api.elasticemail.com/v4*
 | [**SuppressionsUnsubscribesImportPost**](SuppressionsApi.md#suppressionsunsubscribesimportpost) | **POST** /suppressions/unsubscribes/import | Add Unsubscribes Async |
 | [**SuppressionsUnsubscribesPost**](SuppressionsApi.md#suppressionsunsubscribespost) | **POST** /suppressions/unsubscribes | Add Unsubscribes |
 
-<a name="suppressionsbouncesget"></a>
+<a id="suppressionsbouncesget"></a>
 # **SuppressionsBouncesGet**
 > List&lt;Suppression&gt; SuppressionsBouncesGet (string search = null, int? limit = null, int? offset = null)
 
@@ -117,7 +117,7 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="suppressionsbouncesimportpost"></a>
+<a id="suppressionsbouncesimportpost"></a>
 # **SuppressionsBouncesImportPost**
 > void SuppressionsBouncesImportPost (System.IO.Stream file = null)
 
@@ -147,7 +147,7 @@ namespace Example
             // config.AddApiKeyPrefix("X-ElasticEmail-ApiKey", "Bearer");
 
             var apiInstance = new SuppressionsApi(config);
-            var file = new System.IO.FileStream("/path/to/file.txt", FileMode.Open, FileAccess.Read);  // System.IO.Stream |  (optional) 
+            var file = new System.IO.MemoryStream(System.IO.File.ReadAllBytes("/path/to/file.txt"));  // System.IO.Stream |  (optional) 
 
             try
             {
@@ -209,7 +209,7 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="suppressionsbouncespost"></a>
+<a id="suppressionsbouncespost"></a>
 # **SuppressionsBouncesPost**
 > List&lt;Suppression&gt; SuppressionsBouncesPost (List<string> requestBody)
 
@@ -305,7 +305,7 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="suppressionsbyemaildelete"></a>
+<a id="suppressionsbyemaildelete"></a>
 # **SuppressionsByEmailDelete**
 > void SuppressionsByEmailDelete (string email)
 
@@ -397,7 +397,7 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="suppressionsbyemailget"></a>
+<a id="suppressionsbyemailget"></a>
 # **SuppressionsByEmailGet**
 > Suppression SuppressionsByEmailGet (string email)
 
@@ -493,7 +493,7 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="suppressionscomplaintsget"></a>
+<a id="suppressionscomplaintsget"></a>
 # **SuppressionsComplaintsGet**
 > List&lt;Suppression&gt; SuppressionsComplaintsGet (string search = null, int? limit = null, int? offset = null)
 
@@ -593,7 +593,7 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="suppressionscomplaintsimportpost"></a>
+<a id="suppressionscomplaintsimportpost"></a>
 # **SuppressionsComplaintsImportPost**
 > void SuppressionsComplaintsImportPost (System.IO.Stream file = null)
 
@@ -623,7 +623,7 @@ namespace Example
             // config.AddApiKeyPrefix("X-ElasticEmail-ApiKey", "Bearer");
 
             var apiInstance = new SuppressionsApi(config);
-            var file = new System.IO.FileStream("/path/to/file.txt", FileMode.Open, FileAccess.Read);  // System.IO.Stream |  (optional) 
+            var file = new System.IO.MemoryStream(System.IO.File.ReadAllBytes("/path/to/file.txt"));  // System.IO.Stream |  (optional) 
 
             try
             {
@@ -685,7 +685,7 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="suppressionscomplaintspost"></a>
+<a id="suppressionscomplaintspost"></a>
 # **SuppressionsComplaintsPost**
 > List&lt;Suppression&gt; SuppressionsComplaintsPost (List<string> requestBody)
 
@@ -781,7 +781,7 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="suppressionsget"></a>
+<a id="suppressionsget"></a>
 # **SuppressionsGet**
 > List&lt;Suppression&gt; SuppressionsGet (int? limit = null, int? offset = null)
 
@@ -879,7 +879,7 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="suppressionsunsubscribesget"></a>
+<a id="suppressionsunsubscribesget"></a>
 # **SuppressionsUnsubscribesGet**
 > List&lt;Suppression&gt; SuppressionsUnsubscribesGet (string search = null, int? limit = null, int? offset = null)
 
@@ -979,7 +979,7 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="suppressionsunsubscribesimportpost"></a>
+<a id="suppressionsunsubscribesimportpost"></a>
 # **SuppressionsUnsubscribesImportPost**
 > void SuppressionsUnsubscribesImportPost (System.IO.Stream file = null)
 
@@ -1009,7 +1009,7 @@ namespace Example
             // config.AddApiKeyPrefix("X-ElasticEmail-ApiKey", "Bearer");
 
             var apiInstance = new SuppressionsApi(config);
-            var file = new System.IO.FileStream("/path/to/file.txt", FileMode.Open, FileAccess.Read);  // System.IO.Stream |  (optional) 
+            var file = new System.IO.MemoryStream(System.IO.File.ReadAllBytes("/path/to/file.txt"));  // System.IO.Stream |  (optional) 
 
             try
             {
@@ -1071,7 +1071,7 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="suppressionsunsubscribespost"></a>
+<a id="suppressionsunsubscribespost"></a>
 # **SuppressionsUnsubscribesPost**
 > List&lt;Suppression&gt; SuppressionsUnsubscribesPost (List<string> requestBody)
 

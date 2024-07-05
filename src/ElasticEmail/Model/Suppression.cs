@@ -30,7 +30,7 @@ namespace ElasticEmail.Model
     /// Suppression - Email returning Hard Bounces
     /// </summary>
     [DataContract(Name = "Suppression")]
-    public partial class Suppression : IEquatable<Suppression>, IValidatableObject
+    public partial class Suppression : IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="Suppression" /> class.
@@ -51,6 +51,7 @@ namespace ElasticEmail.Model
         /// Proper email address.
         /// </summary>
         /// <value>Proper email address.</value>
+        /// <example>mail@example.com</example>
         [DataMember(Name = "Email", EmitDefaultValue = false)]
         public string Email { get; set; }
 
@@ -58,6 +59,7 @@ namespace ElasticEmail.Model
         /// RFC error message
         /// </summary>
         /// <value>RFC error message</value>
+        /// <example>Mailbox not found</example>
         [DataMember(Name = "FriendlyErrorMessage", EmitDefaultValue = false)]
         public string FriendlyErrorMessage { get; set; }
 
@@ -101,84 +103,11 @@ namespace ElasticEmail.Model
         }
 
         /// <summary>
-        /// Returns true if objects are equal
-        /// </summary>
-        /// <param name="input">Object to be compared</param>
-        /// <returns>Boolean</returns>
-        public override bool Equals(object input)
-        {
-            return this.Equals(input as Suppression);
-        }
-
-        /// <summary>
-        /// Returns true if Suppression instances are equal
-        /// </summary>
-        /// <param name="input">Instance of Suppression to be compared</param>
-        /// <returns>Boolean</returns>
-        public bool Equals(Suppression input)
-        {
-            if (input == null)
-            {
-                return false;
-            }
-            return 
-                (
-                    this.Email == input.Email ||
-                    (this.Email != null &&
-                    this.Email.Equals(input.Email))
-                ) && 
-                (
-                    this.FriendlyErrorMessage == input.FriendlyErrorMessage ||
-                    (this.FriendlyErrorMessage != null &&
-                    this.FriendlyErrorMessage.Equals(input.FriendlyErrorMessage))
-                ) && 
-                (
-                    this.ErrorCode == input.ErrorCode ||
-                    (this.ErrorCode != null &&
-                    this.ErrorCode.Equals(input.ErrorCode))
-                ) && 
-                (
-                    this.DateUpdated == input.DateUpdated ||
-                    (this.DateUpdated != null &&
-                    this.DateUpdated.Equals(input.DateUpdated))
-                );
-        }
-
-        /// <summary>
-        /// Gets the hash code
-        /// </summary>
-        /// <returns>Hash code</returns>
-        public override int GetHashCode()
-        {
-            unchecked // Overflow is fine, just wrap
-            {
-                int hashCode = 41;
-                if (this.Email != null)
-                {
-                    hashCode = (hashCode * 59) + this.Email.GetHashCode();
-                }
-                if (this.FriendlyErrorMessage != null)
-                {
-                    hashCode = (hashCode * 59) + this.FriendlyErrorMessage.GetHashCode();
-                }
-                if (this.ErrorCode != null)
-                {
-                    hashCode = (hashCode * 59) + this.ErrorCode.GetHashCode();
-                }
-                if (this.DateUpdated != null)
-                {
-                    hashCode = (hashCode * 59) + this.DateUpdated.GetHashCode();
-                }
-                return hashCode;
-            }
-        }
-
-        /// <summary>
         /// To validate all properties of the instance
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             yield break;
         }

@@ -30,7 +30,7 @@ namespace ElasticEmail.Model
     /// ListUpdatePayload
     /// </summary>
     [DataContract(Name = "ListUpdatePayload")]
-    public partial class ListUpdatePayload : IEquatable<ListUpdatePayload>, IValidatableObject
+    public partial class ListUpdatePayload : IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="ListUpdatePayload" /> class.
@@ -47,6 +47,7 @@ namespace ElasticEmail.Model
         /// Name of your list if you want to change it.
         /// </summary>
         /// <value>Name of your list if you want to change it.</value>
+        /// <example>My List 2</example>
         [DataMember(Name = "NewListName", EmitDefaultValue = false)]
         public string NewListName { get; set; }
 
@@ -54,6 +55,7 @@ namespace ElasticEmail.Model
         /// True: Allow unsubscribing from this list. Otherwise, false
         /// </summary>
         /// <value>True: Allow unsubscribing from this list. Otherwise, false</value>
+        /// <example>false</example>
         [DataMember(Name = "AllowUnsubscribe", EmitDefaultValue = true)]
         public bool AllowUnsubscribe { get; set; }
 
@@ -81,62 +83,11 @@ namespace ElasticEmail.Model
         }
 
         /// <summary>
-        /// Returns true if objects are equal
-        /// </summary>
-        /// <param name="input">Object to be compared</param>
-        /// <returns>Boolean</returns>
-        public override bool Equals(object input)
-        {
-            return this.Equals(input as ListUpdatePayload);
-        }
-
-        /// <summary>
-        /// Returns true if ListUpdatePayload instances are equal
-        /// </summary>
-        /// <param name="input">Instance of ListUpdatePayload to be compared</param>
-        /// <returns>Boolean</returns>
-        public bool Equals(ListUpdatePayload input)
-        {
-            if (input == null)
-            {
-                return false;
-            }
-            return 
-                (
-                    this.NewListName == input.NewListName ||
-                    (this.NewListName != null &&
-                    this.NewListName.Equals(input.NewListName))
-                ) && 
-                (
-                    this.AllowUnsubscribe == input.AllowUnsubscribe ||
-                    this.AllowUnsubscribe.Equals(input.AllowUnsubscribe)
-                );
-        }
-
-        /// <summary>
-        /// Gets the hash code
-        /// </summary>
-        /// <returns>Hash code</returns>
-        public override int GetHashCode()
-        {
-            unchecked // Overflow is fine, just wrap
-            {
-                int hashCode = 41;
-                if (this.NewListName != null)
-                {
-                    hashCode = (hashCode * 59) + this.NewListName.GetHashCode();
-                }
-                hashCode = (hashCode * 59) + this.AllowUnsubscribe.GetHashCode();
-                return hashCode;
-            }
-        }
-
-        /// <summary>
         /// To validate all properties of the instance
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             yield break;
         }

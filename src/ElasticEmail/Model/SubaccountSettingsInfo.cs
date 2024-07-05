@@ -30,7 +30,7 @@ namespace ElasticEmail.Model
     /// SubAccount settings
     /// </summary>
     [DataContract(Name = "SubaccountSettingsInfo")]
-    public partial class SubaccountSettingsInfo : IEquatable<SubaccountSettingsInfo>, IValidatableObject
+    public partial class SubaccountSettingsInfo : IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="SubaccountSettingsInfo" /> class.
@@ -70,57 +70,11 @@ namespace ElasticEmail.Model
         }
 
         /// <summary>
-        /// Returns true if objects are equal
-        /// </summary>
-        /// <param name="input">Object to be compared</param>
-        /// <returns>Boolean</returns>
-        public override bool Equals(object input)
-        {
-            return this.Equals(input as SubaccountSettingsInfo);
-        }
-
-        /// <summary>
-        /// Returns true if SubaccountSettingsInfo instances are equal
-        /// </summary>
-        /// <param name="input">Instance of SubaccountSettingsInfo to be compared</param>
-        /// <returns>Boolean</returns>
-        public bool Equals(SubaccountSettingsInfo input)
-        {
-            if (input == null)
-            {
-                return false;
-            }
-            return 
-                (
-                    this.Email == input.Email ||
-                    (this.Email != null &&
-                    this.Email.Equals(input.Email))
-                );
-        }
-
-        /// <summary>
-        /// Gets the hash code
-        /// </summary>
-        /// <returns>Hash code</returns>
-        public override int GetHashCode()
-        {
-            unchecked // Overflow is fine, just wrap
-            {
-                int hashCode = 41;
-                if (this.Email != null)
-                {
-                    hashCode = (hashCode * 59) + this.Email.GetHashCode();
-                }
-                return hashCode;
-            }
-        }
-
-        /// <summary>
         /// To validate all properties of the instance
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             yield break;
         }

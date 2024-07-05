@@ -15,7 +15,7 @@ All URIs are relative to *https://api.elasticemail.com/v4*
 | [**SecuritySmtpGet**](SecurityApi.md#securitysmtpget) | **GET** /security/smtp | List SMTP Credentials |
 | [**SecuritySmtpPost**](SecurityApi.md#securitysmtppost) | **POST** /security/smtp | Add SMTP Credential |
 
-<a name="securityapikeysbynamedelete"></a>
+<a id="securityapikeysbynamedelete"></a>
 # **SecurityApikeysByNameDelete**
 > void SecurityApikeysByNameDelete (string name, string subaccount = null)
 
@@ -109,7 +109,7 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="securityapikeysbynameget"></a>
+<a id="securityapikeysbynameget"></a>
 # **SecurityApikeysByNameGet**
 > ApiKey SecurityApikeysByNameGet (string name, string subaccount = null)
 
@@ -207,7 +207,7 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="securityapikeysbynameput"></a>
+<a id="securityapikeysbynameput"></a>
 # **SecurityApikeysByNamePut**
 > ApiKey SecurityApikeysByNamePut (string name, ApiKeyPayload apiKeyPayload)
 
@@ -305,7 +305,7 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="securityapikeysget"></a>
+<a id="securityapikeysget"></a>
 # **SecurityApikeysGet**
 > List&lt;ApiKey&gt; SecurityApikeysGet (string subaccount = null)
 
@@ -401,7 +401,7 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="securityapikeyspost"></a>
+<a id="securityapikeyspost"></a>
 # **SecurityApikeysPost**
 > NewApiKey SecurityApikeysPost (ApiKeyPayload apiKeyPayload)
 
@@ -497,7 +497,7 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="securitysmtpbynamedelete"></a>
+<a id="securitysmtpbynamedelete"></a>
 # **SecuritySmtpByNameDelete**
 > void SecuritySmtpByNameDelete (string name, string subaccount = null)
 
@@ -591,7 +591,7 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="securitysmtpbynameget"></a>
+<a id="securitysmtpbynameget"></a>
 # **SecuritySmtpByNameGet**
 > SmtpCredentials SecuritySmtpByNameGet (string name, string subaccount = null)
 
@@ -689,7 +689,7 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="securitysmtpbynameput"></a>
+<a id="securitysmtpbynameput"></a>
 # **SecuritySmtpByNamePut**
 > SmtpCredentials SecuritySmtpByNamePut (string name, SmtpCredentialsPayload smtpCredentialsPayload)
 
@@ -787,7 +787,7 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="securitysmtpget"></a>
+<a id="securitysmtpget"></a>
 # **SecuritySmtpGet**
 > List&lt;SmtpCredentials&gt; SecuritySmtpGet (string subaccount = null)
 
@@ -883,7 +883,7 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="securitysmtppost"></a>
+<a id="securitysmtppost"></a>
 # **SecuritySmtpPost**
 > NewSmtpCredentials SecuritySmtpPost (SmtpCredentialsPayload smtpCredentialsPayload)
 

@@ -55,7 +55,6 @@ namespace ElasticEmail.Model
         /// </summary>
         [EnumMember(Value = "Active")]
         Active = 4
-
     }
 
 }

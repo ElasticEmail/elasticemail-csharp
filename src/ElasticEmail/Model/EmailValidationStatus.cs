@@ -61,7 +61,6 @@ namespace ElasticEmail.Model
         /// </summary>
         [EnumMember(Value = "Invalid")]
         Invalid = 5
-
     }
 
 }

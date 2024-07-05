@@ -11,7 +11,7 @@ All URIs are relative to *https://api.elasticemail.com/v4*
 | [**SubaccountsGet**](SubAccountsApi.md#subaccountsget) | **GET** /subaccounts | Load SubAccounts |
 | [**SubaccountsPost**](SubAccountsApi.md#subaccountspost) | **POST** /subaccounts | Add SubAccount |
 
-<a name="subaccountsbyemailcreditspatch"></a>
+<a id="subaccountsbyemailcreditspatch"></a>
 # **SubaccountsByEmailCreditsPatch**
 > void SubaccountsByEmailCreditsPatch (string email, SubaccountEmailCreditsPayload subaccountEmailCreditsPayload)
 
@@ -105,7 +105,7 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="subaccountsbyemaildelete"></a>
+<a id="subaccountsbyemaildelete"></a>
 # **SubaccountsByEmailDelete**
 > void SubaccountsByEmailDelete (string email)
 
@@ -197,7 +197,7 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="subaccountsbyemailget"></a>
+<a id="subaccountsbyemailget"></a>
 # **SubaccountsByEmailGet**
 > SubAccountInfo SubaccountsByEmailGet (string email)
 
@@ -293,7 +293,7 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="subaccountsbyemailsettingsemailput"></a>
+<a id="subaccountsbyemailsettingsemailput"></a>
 # **SubaccountsByEmailSettingsEmailPut**
 > SubaccountEmailSettings SubaccountsByEmailSettingsEmailPut (string email, SubaccountEmailSettings subaccountEmailSettings)
 
@@ -391,7 +391,7 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="subaccountsget"></a>
+<a id="subaccountsget"></a>
 # **SubaccountsGet**
 > List&lt;SubAccountInfo&gt; SubaccountsGet (int? limit = null, int? offset = null)
 
@@ -489,7 +489,7 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="subaccountspost"></a>
+<a id="subaccountspost"></a>
 # **SubaccountsPost**
 > SubAccountInfo SubaccountsPost (SubaccountPayload subaccountPayload)
 

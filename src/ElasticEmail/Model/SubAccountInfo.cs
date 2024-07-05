@@ -30,7 +30,7 @@ namespace ElasticEmail.Model
     /// Detailed information about SubAccount.
     /// </summary>
     [DataContract(Name = "SubAccountInfo")]
-    public partial class SubAccountInfo : IEquatable<SubAccountInfo>, IValidatableObject
+    public partial class SubAccountInfo : IValidatableObject
     {
 
         /// <summary>
@@ -67,6 +67,7 @@ namespace ElasticEmail.Model
         /// Public key for limited access to your Account such as contact/add so you can use it safely on public websites.
         /// </summary>
         /// <value>Public key for limited access to your Account such as contact/add so you can use it safely on public websites.</value>
+        /// <example>EB3EBB7A-C20D-4D39-8F2F-5E6842F58E6F</example>
         [DataMember(Name = "PublicAccountID", EmitDefaultValue = false)]
         public string PublicAccountID { get; set; }
 
@@ -74,6 +75,7 @@ namespace ElasticEmail.Model
         /// Proper email address.
         /// </summary>
         /// <value>Proper email address.</value>
+        /// <example>mail@example.com</example>
         [DataMember(Name = "Email", EmitDefaultValue = false)]
         public string Email { get; set; }
 
@@ -94,6 +96,7 @@ namespace ElasticEmail.Model
         /// Amount of email credits
         /// </summary>
         /// <value>Amount of email credits</value>
+        /// <example>1000</example>
         [DataMember(Name = "EmailCredits", EmitDefaultValue = false)]
         public int EmailCredits { get; set; }
 
@@ -101,6 +104,7 @@ namespace ElasticEmail.Model
         /// Amount of emails sent from this Account
         /// </summary>
         /// <value>Amount of emails sent from this Account</value>
+        /// <example>1000</example>
         [DataMember(Name = "TotalEmailsSent", EmitDefaultValue = false)]
         public long TotalEmailsSent { get; set; }
 
@@ -108,6 +112,7 @@ namespace ElasticEmail.Model
         /// Numeric reputation
         /// </summary>
         /// <value>Numeric reputation</value>
+        /// <example>100</example>
         [DataMember(Name = "Reputation", EmitDefaultValue = false)]
         public double Reputation { get; set; }
 
@@ -149,109 +154,11 @@ namespace ElasticEmail.Model
         }
 
         /// <summary>
-        /// Returns true if objects are equal
-        /// </summary>
-        /// <param name="input">Object to be compared</param>
-        /// <returns>Boolean</returns>
-        public override bool Equals(object input)
-        {
-            return this.Equals(input as SubAccountInfo);
-        }
-
-        /// <summary>
-        /// Returns true if SubAccountInfo instances are equal
-        /// </summary>
-        /// <param name="input">Instance of SubAccountInfo to be compared</param>
-        /// <returns>Boolean</returns>
-        public bool Equals(SubAccountInfo input)
-        {
-            if (input == null)
-            {
-                return false;
-            }
-            return 
-                (
-                    this.PublicAccountID == input.PublicAccountID ||
-                    (this.PublicAccountID != null &&
-                    this.PublicAccountID.Equals(input.PublicAccountID))
-                ) && 
-                (
-                    this.Email == input.Email ||
-                    (this.Email != null &&
-                    this.Email.Equals(input.Email))
-                ) && 
-                (
-                    this.Settings == input.Settings ||
-                    (this.Settings != null &&
-                    this.Settings.Equals(input.Settings))
-                ) && 
-                (
-                    this.LastActivity == input.LastActivity ||
-                    (this.LastActivity != null &&
-                    this.LastActivity.Equals(input.LastActivity))
-                ) && 
-                (
-                    this.EmailCredits == input.EmailCredits ||
-                    this.EmailCredits.Equals(input.EmailCredits)
-                ) && 
-                (
-                    this.TotalEmailsSent == input.TotalEmailsSent ||
-                    this.TotalEmailsSent.Equals(input.TotalEmailsSent)
-                ) && 
-                (
-                    this.Reputation == input.Reputation ||
-                    this.Reputation.Equals(input.Reputation)
-                ) && 
-                (
-                    this.Status == input.Status ||
-                    this.Status.Equals(input.Status)
-                ) && 
-                (
-                    this.ContactsCount == input.ContactsCount ||
-                    this.ContactsCount.Equals(input.ContactsCount)
-                );
-        }
-
-        /// <summary>
-        /// Gets the hash code
-        /// </summary>
-        /// <returns>Hash code</returns>
-        public override int GetHashCode()
-        {
-            unchecked // Overflow is fine, just wrap
-            {
-                int hashCode = 41;
-                if (this.PublicAccountID != null)
-                {
-                    hashCode = (hashCode * 59) + this.PublicAccountID.GetHashCode();
-                }
-                if (this.Email != null)
-                {
-                    hashCode = (hashCode * 59) + this.Email.GetHashCode();
-                }
-                if (this.Settings != null)
-                {
-                    hashCode = (hashCode * 59) + this.Settings.GetHashCode();
-                }
-                if (this.LastActivity != null)
-                {
-                    hashCode = (hashCode * 59) + this.LastActivity.GetHashCode();
-                }
-                hashCode = (hashCode * 59) + this.EmailCredits.GetHashCode();
-                hashCode = (hashCode * 59) + this.TotalEmailsSent.GetHashCode();
-                hashCode = (hashCode * 59) + this.Reputation.GetHashCode();
-                hashCode = (hashCode * 59) + this.Status.GetHashCode();
-                hashCode = (hashCode * 59) + this.ContactsCount.GetHashCode();
-                return hashCode;
-            }
-        }
-
-        /// <summary>
         /// To validate all properties of the instance
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             yield break;
         }

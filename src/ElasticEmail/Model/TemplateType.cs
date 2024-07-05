@@ -54,8 +54,13 @@ namespace ElasticEmail.Model
         /// Enum TemplateEditor for value: TemplateEditor
         /// </summary>
         [EnumMember(Value = "TemplateEditor")]
-        TemplateEditor = 4
+        TemplateEditor = 4,
 
+        /// <summary>
+        /// Enum FormTemplate for value: FormTemplate
+        /// </summary>
+        [EnumMember(Value = "FormTemplate")]
+        FormTemplate = 5
     }
 
 }

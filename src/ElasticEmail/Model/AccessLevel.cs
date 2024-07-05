@@ -297,47 +297,46 @@ namespace ElasticEmail.Model
         Modify2FASms = 44,
 
         /// <summary>
-        /// Enum DisableContactsStore for value: DisableContactsStore
-        /// </summary>
-        [EnumMember(Value = "DisableContactsStore")]
-        DisableContactsStore = 45,
-
-        /// <summary>
         /// Enum ModifyLandingPages for value: ModifyLandingPages
         /// </summary>
         [EnumMember(Value = "ModifyLandingPages")]
-        ModifyLandingPages = 46,
+        ModifyLandingPages = 45,
 
         /// <summary>
         /// Enum ViewLandingPages for value: ViewLandingPages
         /// </summary>
         [EnumMember(Value = "ViewLandingPages")]
-        ViewLandingPages = 47,
+        ViewLandingPages = 46,
 
         /// <summary>
         /// Enum ModifySuppressions for value: ModifySuppressions
         /// </summary>
         [EnumMember(Value = "ModifySuppressions")]
-        ModifySuppressions = 48,
+        ModifySuppressions = 47,
 
         /// <summary>
         /// Enum ViewSuppressions for value: ViewSuppressions
         /// </summary>
         [EnumMember(Value = "ViewSuppressions")]
-        ViewSuppressions = 49,
+        ViewSuppressions = 48,
 
         /// <summary>
         /// Enum ViewDragDropEditor for value: ViewDragDropEditor
         /// </summary>
         [EnumMember(Value = "ViewDragDropEditor")]
-        ViewDragDropEditor = 50,
+        ViewDragDropEditor = 49,
 
         /// <summary>
         /// Enum ViewTemplateEditor for value: ViewTemplateEditor
         /// </summary>
         [EnumMember(Value = "ViewTemplateEditor")]
-        ViewTemplateEditor = 51
+        ViewTemplateEditor = 50,
 
+        /// <summary>
+        /// Enum ViewAITools for value: ViewAITools
+        /// </summary>
+        [EnumMember(Value = "ViewAITools")]
+        ViewAITools = 51
     }
 
 }

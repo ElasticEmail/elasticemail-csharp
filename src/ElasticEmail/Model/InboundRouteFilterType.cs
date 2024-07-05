@@ -43,7 +43,6 @@ namespace ElasticEmail.Model
         /// </summary>
         [EnumMember(Value = "Subject")]
         Subject = 2
-
     }
 
 }

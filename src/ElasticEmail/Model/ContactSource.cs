@@ -73,7 +73,6 @@ namespace ElasticEmail.Model
         /// </summary>
         [EnumMember(Value = "FileVerificationApi")]
         FileVerificationApi = 7
-
     }
 
 }

@@ -10,7 +10,7 @@ All URIs are relative to *https://api.elasticemail.com/v4*
 | [**StatisticsChannelsGet**](StatisticsApi.md#statisticschannelsget) | **GET** /statistics/channels | Load Channels Stats |
 | [**StatisticsGet**](StatisticsApi.md#statisticsget) | **GET** /statistics | Load Statistics |
 
-<a name="statisticscampaignsbynameget"></a>
+<a id="statisticscampaignsbynameget"></a>
 # **StatisticsCampaignsByNameGet**
 > ChannelLogStatusSummary StatisticsCampaignsByNameGet (string name)
 
@@ -106,7 +106,7 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="statisticscampaignsget"></a>
+<a id="statisticscampaignsget"></a>
 # **StatisticsCampaignsGet**
 > List&lt;ChannelLogStatusSummary&gt; StatisticsCampaignsGet (int? limit = null, int? offset = null)
 
@@ -204,7 +204,7 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="statisticschannelsbynameget"></a>
+<a id="statisticschannelsbynameget"></a>
 # **StatisticsChannelsByNameGet**
 > ChannelLogStatusSummary StatisticsChannelsByNameGet (string name)
 
@@ -300,7 +300,7 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="statisticschannelsget"></a>
+<a id="statisticschannelsget"></a>
 # **StatisticsChannelsGet**
 > List&lt;ChannelLogStatusSummary&gt; StatisticsChannelsGet (int? limit = null, int? offset = null)
 
@@ -398,7 +398,7 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="statisticsget"></a>
+<a id="statisticsget"></a>
 # **StatisticsGet**
 > LogStatusSummary StatisticsGet (DateTime from, DateTime? to = null)
 

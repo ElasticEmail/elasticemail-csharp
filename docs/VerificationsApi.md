@@ -15,7 +15,7 @@ All URIs are relative to *https://api.elasticemail.com/v4*
 | [**VerificationsFilesResultGet**](VerificationsApi.md#verificationsfilesresultget) | **GET** /verifications/files/result | Get Files Verification Results |
 | [**VerificationsGet**](VerificationsApi.md#verificationsget) | **GET** /verifications | Get Emails Verification Results |
 
-<a name="verificationsbyemaildelete"></a>
+<a id="verificationsbyemaildelete"></a>
 # **VerificationsByEmailDelete**
 > void VerificationsByEmailDelete (string email)
 
@@ -107,7 +107,7 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="verificationsbyemailget"></a>
+<a id="verificationsbyemailget"></a>
 # **VerificationsByEmailGet**
 > EmailValidationResult VerificationsByEmailGet (string email)
 
@@ -203,7 +203,7 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="verificationsbyemailpost"></a>
+<a id="verificationsbyemailpost"></a>
 # **VerificationsByEmailPost**
 > EmailValidationResult VerificationsByEmailPost (string email)
 
@@ -299,7 +299,7 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="verificationsfilesbyiddelete"></a>
+<a id="verificationsfilesbyiddelete"></a>
 # **VerificationsFilesByIdDelete**
 > void VerificationsFilesByIdDelete (string id)
 
@@ -391,7 +391,7 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="verificationsfilesbyidresultdownloadget"></a>
+<a id="verificationsfilesbyidresultdownloadget"></a>
 # **VerificationsFilesByIdResultDownloadGet**
 > System.IO.Stream VerificationsFilesByIdResultDownloadGet (string id)
 
@@ -487,7 +487,7 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="verificationsfilesbyidresultget"></a>
+<a id="verificationsfilesbyidresultget"></a>
 # **VerificationsFilesByIdResultGet**
 > VerificationFileResultDetails VerificationsFilesByIdResultGet (string id, int? limit = null, int? offset = null)
 
@@ -587,7 +587,7 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="verificationsfilesbyidverificationpost"></a>
+<a id="verificationsfilesbyidverificationpost"></a>
 # **VerificationsFilesByIdVerificationPost**
 > void VerificationsFilesByIdVerificationPost (string id)
 
@@ -679,7 +679,7 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="verificationsfilespost"></a>
+<a id="verificationsfilespost"></a>
 # **VerificationsFilesPost**
 > VerificationFileResult VerificationsFilesPost (System.IO.Stream file = null)
 
@@ -709,7 +709,7 @@ namespace Example
             // config.AddApiKeyPrefix("X-ElasticEmail-ApiKey", "Bearer");
 
             var apiInstance = new VerificationsApi(config);
-            var file = new System.IO.FileStream("/path/to/file.txt", FileMode.Open, FileAccess.Read);  // System.IO.Stream |  (optional) 
+            var file = new System.IO.MemoryStream(System.IO.File.ReadAllBytes("/path/to/file.txt"));  // System.IO.Stream |  (optional) 
 
             try
             {
@@ -775,7 +775,7 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="verificationsfilesresultget"></a>
+<a id="verificationsfilesresultget"></a>
 # **VerificationsFilesResultGet**
 > List&lt;VerificationFileResult&gt; VerificationsFilesResultGet ()
 
@@ -866,7 +866,7 @@ This endpoint does not need any parameter.
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="verificationsget"></a>
+<a id="verificationsget"></a>
 # **VerificationsGet**
 > List&lt;EmailValidationResult&gt; VerificationsGet (int? limit = null, int? offset = null)
 

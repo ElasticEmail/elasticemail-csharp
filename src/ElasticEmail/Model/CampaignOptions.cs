@@ -30,7 +30,7 @@ namespace ElasticEmail.Model
     /// Different send options for a Campaign
     /// </summary>
     [DataContract(Name = "CampaignOptions")]
-    public partial class CampaignOptions : IEquatable<CampaignOptions>, IValidatableObject
+    public partial class CampaignOptions : IValidatableObject
     {
 
         /// <summary>
@@ -45,13 +45,17 @@ namespace ElasticEmail.Model
         /// <param name="trackOpens">Should the opens be tracked? If no value has been provided, Account&#39;s default setting will be used..</param>
         /// <param name="trackClicks">Should the clicks be tracked? If no value has been provided, Account&#39;s default setting will be used..</param>
         /// <param name="scheduleFor">Date when this Campaign is scheduled to be sent on.</param>
+        /// <param name="triggerFrequency">How often (in minutes) to send the campaign.</param>
+        /// <param name="triggerCount">How many times send the campaign.</param>
         /// <param name="splitOptions">splitOptions.</param>
-        public CampaignOptions(DeliveryOptimizationType? deliveryOptimization = default(DeliveryOptimizationType?), bool? trackOpens = default(bool?), bool? trackClicks = default(bool?), DateTime? scheduleFor = default(DateTime?), SplitOptions splitOptions = default(SplitOptions))
+        public CampaignOptions(DeliveryOptimizationType? deliveryOptimization = default(DeliveryOptimizationType?), bool? trackOpens = default(bool?), bool? trackClicks = default(bool?), DateTime? scheduleFor = default(DateTime?), double triggerFrequency = default(double), int triggerCount = default(int), SplitOptions splitOptions = default(SplitOptions))
         {
             this.DeliveryOptimization = deliveryOptimization;
             this.TrackOpens = trackOpens;
             this.TrackClicks = trackClicks;
             this.ScheduleFor = scheduleFor;
+            this.TriggerFrequency = triggerFrequency;
+            this.TriggerCount = triggerCount;
             this.SplitOptions = splitOptions;
         }
 
@@ -59,6 +63,7 @@ namespace ElasticEmail.Model
         /// Should the opens be tracked? If no value has been provided, Account&#39;s default setting will be used.
         /// </summary>
         /// <value>Should the opens be tracked? If no value has been provided, Account&#39;s default setting will be used.</value>
+        /// <example>true</example>
         [DataMember(Name = "TrackOpens", EmitDefaultValue = true)]
         public bool? TrackOpens { get; set; }
 
@@ -66,6 +71,7 @@ namespace ElasticEmail.Model
         /// Should the clicks be tracked? If no value has been provided, Account&#39;s default setting will be used.
         /// </summary>
         /// <value>Should the clicks be tracked? If no value has been provided, Account&#39;s default setting will be used.</value>
+        /// <example>true</example>
         [DataMember(Name = "TrackClicks", EmitDefaultValue = true)]
         public bool? TrackClicks { get; set; }
 
@@ -75,6 +81,20 @@ namespace ElasticEmail.Model
         /// <value>Date when this Campaign is scheduled to be sent on</value>
         [DataMember(Name = "ScheduleFor", EmitDefaultValue = true)]
         public DateTime? ScheduleFor { get; set; }
+
+        /// <summary>
+        /// How often (in minutes) to send the campaign
+        /// </summary>
+        /// <value>How often (in minutes) to send the campaign</value>
+        [DataMember(Name = "TriggerFrequency", EmitDefaultValue = false)]
+        public double TriggerFrequency { get; set; }
+
+        /// <summary>
+        /// How many times send the campaign
+        /// </summary>
+        /// <value>How many times send the campaign</value>
+        [DataMember(Name = "TriggerCount", EmitDefaultValue = false)]
+        public int TriggerCount { get; set; }
 
         /// <summary>
         /// Gets or Sets SplitOptions
@@ -94,6 +114,8 @@ namespace ElasticEmail.Model
             sb.Append("  TrackOpens: ").Append(TrackOpens).Append("\n");
             sb.Append("  TrackClicks: ").Append(TrackClicks).Append("\n");
             sb.Append("  ScheduleFor: ").Append(ScheduleFor).Append("\n");
+            sb.Append("  TriggerFrequency: ").Append(TriggerFrequency).Append("\n");
+            sb.Append("  TriggerCount: ").Append(TriggerCount).Append("\n");
             sb.Append("  SplitOptions: ").Append(SplitOptions).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -109,89 +131,11 @@ namespace ElasticEmail.Model
         }
 
         /// <summary>
-        /// Returns true if objects are equal
-        /// </summary>
-        /// <param name="input">Object to be compared</param>
-        /// <returns>Boolean</returns>
-        public override bool Equals(object input)
-        {
-            return this.Equals(input as CampaignOptions);
-        }
-
-        /// <summary>
-        /// Returns true if CampaignOptions instances are equal
-        /// </summary>
-        /// <param name="input">Instance of CampaignOptions to be compared</param>
-        /// <returns>Boolean</returns>
-        public bool Equals(CampaignOptions input)
-        {
-            if (input == null)
-            {
-                return false;
-            }
-            return 
-                (
-                    this.DeliveryOptimization == input.DeliveryOptimization ||
-                    this.DeliveryOptimization.Equals(input.DeliveryOptimization)
-                ) && 
-                (
-                    this.TrackOpens == input.TrackOpens ||
-                    (this.TrackOpens != null &&
-                    this.TrackOpens.Equals(input.TrackOpens))
-                ) && 
-                (
-                    this.TrackClicks == input.TrackClicks ||
-                    (this.TrackClicks != null &&
-                    this.TrackClicks.Equals(input.TrackClicks))
-                ) && 
-                (
-                    this.ScheduleFor == input.ScheduleFor ||
-                    (this.ScheduleFor != null &&
-                    this.ScheduleFor.Equals(input.ScheduleFor))
-                ) && 
-                (
-                    this.SplitOptions == input.SplitOptions ||
-                    (this.SplitOptions != null &&
-                    this.SplitOptions.Equals(input.SplitOptions))
-                );
-        }
-
-        /// <summary>
-        /// Gets the hash code
-        /// </summary>
-        /// <returns>Hash code</returns>
-        public override int GetHashCode()
-        {
-            unchecked // Overflow is fine, just wrap
-            {
-                int hashCode = 41;
-                hashCode = (hashCode * 59) + this.DeliveryOptimization.GetHashCode();
-                if (this.TrackOpens != null)
-                {
-                    hashCode = (hashCode * 59) + this.TrackOpens.GetHashCode();
-                }
-                if (this.TrackClicks != null)
-                {
-                    hashCode = (hashCode * 59) + this.TrackClicks.GetHashCode();
-                }
-                if (this.ScheduleFor != null)
-                {
-                    hashCode = (hashCode * 59) + this.ScheduleFor.GetHashCode();
-                }
-                if (this.SplitOptions != null)
-                {
-                    hashCode = (hashCode * 59) + this.SplitOptions.GetHashCode();
-                }
-                return hashCode;
-            }
-        }
-
-        /// <summary>
         /// To validate all properties of the instance
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             yield break;
         }

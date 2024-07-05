@@ -30,7 +30,7 @@ namespace ElasticEmail.Model
     /// Create new SMTP Credentials
     /// </summary>
     [DataContract(Name = "SmtpCredentialsPayload")]
-    public partial class SmtpCredentialsPayload : IEquatable<SmtpCredentialsPayload>, IValidatableObject
+    public partial class SmtpCredentialsPayload : IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="SmtpCredentialsPayload" /> class.
@@ -111,85 +111,11 @@ namespace ElasticEmail.Model
         }
 
         /// <summary>
-        /// Returns true if objects are equal
-        /// </summary>
-        /// <param name="input">Object to be compared</param>
-        /// <returns>Boolean</returns>
-        public override bool Equals(object input)
-        {
-            return this.Equals(input as SmtpCredentialsPayload);
-        }
-
-        /// <summary>
-        /// Returns true if SmtpCredentialsPayload instances are equal
-        /// </summary>
-        /// <param name="input">Instance of SmtpCredentialsPayload to be compared</param>
-        /// <returns>Boolean</returns>
-        public bool Equals(SmtpCredentialsPayload input)
-        {
-            if (input == null)
-            {
-                return false;
-            }
-            return 
-                (
-                    this.Name == input.Name ||
-                    (this.Name != null &&
-                    this.Name.Equals(input.Name))
-                ) && 
-                (
-                    this.Expires == input.Expires ||
-                    (this.Expires != null &&
-                    this.Expires.Equals(input.Expires))
-                ) && 
-                (
-                    this.RestrictAccessToIPRange == input.RestrictAccessToIPRange ||
-                    this.RestrictAccessToIPRange != null &&
-                    input.RestrictAccessToIPRange != null &&
-                    this.RestrictAccessToIPRange.SequenceEqual(input.RestrictAccessToIPRange)
-                ) && 
-                (
-                    this.Subaccount == input.Subaccount ||
-                    (this.Subaccount != null &&
-                    this.Subaccount.Equals(input.Subaccount))
-                );
-        }
-
-        /// <summary>
-        /// Gets the hash code
-        /// </summary>
-        /// <returns>Hash code</returns>
-        public override int GetHashCode()
-        {
-            unchecked // Overflow is fine, just wrap
-            {
-                int hashCode = 41;
-                if (this.Name != null)
-                {
-                    hashCode = (hashCode * 59) + this.Name.GetHashCode();
-                }
-                if (this.Expires != null)
-                {
-                    hashCode = (hashCode * 59) + this.Expires.GetHashCode();
-                }
-                if (this.RestrictAccessToIPRange != null)
-                {
-                    hashCode = (hashCode * 59) + this.RestrictAccessToIPRange.GetHashCode();
-                }
-                if (this.Subaccount != null)
-                {
-                    hashCode = (hashCode * 59) + this.Subaccount.GetHashCode();
-                }
-                return hashCode;
-            }
-        }
-
-        /// <summary>
         /// To validate all properties of the instance
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             yield break;
         }

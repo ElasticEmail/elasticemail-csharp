@@ -6,7 +6,7 @@ Content of a Campaign
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Poolname** | **string** | Name of your custom IP Pool to be used in the sending process | [optional] 
-**From** | **string** | Your e-mail with an optional name (e.g.: John Doe &lt;email@domain.com&gt;) | [optional] 
+**From** | **string** | Your e-mail with an optional name (e.g.: John Doe &lt;email@domain.com&gt;) | 
 **ReplyTo** | **string** | To what address should the recipients reply to (e.g. John Doe &lt;email@domain.com&gt;) | [optional] 
 **Subject** | **string** | Default subject of email. | [optional] 
 **TemplateName** | **string** | Name of template. | [optional] 

@@ -36,104 +36,103 @@ namespace ElasticEmail.Model
         /// Enum Unknown for value: Unknown
         /// </summary>
         [EnumMember(Value = "Unknown")]
-        Unknown = 1,
+        Unknown,
 
         /// <summary>
         /// Enum Ignore for value: Ignore
         /// </summary>
         [EnumMember(Value = "Ignore")]
-        Ignore = 2,
+        Ignore,
 
         /// <summary>
         /// Enum Spam for value: Spam
         /// </summary>
         [EnumMember(Value = "Spam")]
-        Spam = 3,
+        Spam,
 
         /// <summary>
         /// Enum BlackListed for value: BlackListed
         /// </summary>
         [EnumMember(Value = "BlackListed")]
-        BlackListed = 4,
+        BlackListed,
 
         /// <summary>
         /// Enum NoMailbox for value: NoMailbox
         /// </summary>
         [EnumMember(Value = "NoMailbox")]
-        NoMailbox = 5,
+        NoMailbox,
 
         /// <summary>
         /// Enum GreyListed for value: GreyListed
         /// </summary>
         [EnumMember(Value = "GreyListed")]
-        GreyListed = 6,
+        GreyListed,
 
         /// <summary>
         /// Enum Throttled for value: Throttled
         /// </summary>
         [EnumMember(Value = "Throttled")]
-        Throttled = 7,
+        Throttled,
 
         /// <summary>
         /// Enum Timeout for value: Timeout
         /// </summary>
         [EnumMember(Value = "Timeout")]
-        Timeout = 8,
+        Timeout,
 
         /// <summary>
         /// Enum ConnectionProblem for value: ConnectionProblem
         /// </summary>
         [EnumMember(Value = "ConnectionProblem")]
-        ConnectionProblem = 9,
+        ConnectionProblem,
 
         /// <summary>
         /// Enum SPFProblem for value: SPFProblem
         /// </summary>
         [EnumMember(Value = "SPFProblem")]
-        SPFProblem = 10,
+        SPFProblem,
 
         /// <summary>
         /// Enum AccountProblem for value: AccountProblem
         /// </summary>
         [EnumMember(Value = "AccountProblem")]
-        AccountProblem = 11,
+        AccountProblem,
 
         /// <summary>
         /// Enum DNSProblem for value: DNSProblem
         /// </summary>
         [EnumMember(Value = "DNSProblem")]
-        DNSProblem = 12,
+        DNSProblem,
 
         /// <summary>
         /// Enum NotDeliveredCancelled for value: NotDeliveredCancelled
         /// </summary>
         [EnumMember(Value = "NotDeliveredCancelled")]
-        NotDeliveredCancelled = 13,
+        NotDeliveredCancelled,
 
         /// <summary>
         /// Enum CodeError for value: CodeError
         /// </summary>
         [EnumMember(Value = "CodeError")]
-        CodeError = 14,
+        CodeError,
 
         /// <summary>
         /// Enum ManualCancel for value: ManualCancel
         /// </summary>
         [EnumMember(Value = "ManualCancel")]
-        ManualCancel = 15,
+        ManualCancel,
 
         /// <summary>
         /// Enum ConnectionTerminated for value: ConnectionTerminated
         /// </summary>
         [EnumMember(Value = "ConnectionTerminated")]
-        ConnectionTerminated = 16,
+        ConnectionTerminated,
 
         /// <summary>
         /// Enum NotDelivered for value: NotDelivered
         /// </summary>
         [EnumMember(Value = "NotDelivered")]
-        NotDelivered = 17
-
+        NotDelivered
     }
 
 }

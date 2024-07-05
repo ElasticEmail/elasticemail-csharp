@@ -30,7 +30,7 @@ namespace ElasticEmail.Model
     /// Email details formatted in json
     /// </summary>
     [DataContract(Name = "EmailView")]
-    public partial class EmailView : IEquatable<EmailView>, IValidatableObject
+    public partial class EmailView : IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="EmailView" /> class.
@@ -56,6 +56,7 @@ namespace ElasticEmail.Model
         /// Default subject of email.
         /// </summary>
         /// <value>Default subject of email.</value>
+        /// <example>Hello!</example>
         [DataMember(Name = "Subject", EmitDefaultValue = false)]
         public string Subject { get; set; }
 
@@ -91,75 +92,11 @@ namespace ElasticEmail.Model
         }
 
         /// <summary>
-        /// Returns true if objects are equal
-        /// </summary>
-        /// <param name="input">Object to be compared</param>
-        /// <returns>Boolean</returns>
-        public override bool Equals(object input)
-        {
-            return this.Equals(input as EmailView);
-        }
-
-        /// <summary>
-        /// Returns true if EmailView instances are equal
-        /// </summary>
-        /// <param name="input">Instance of EmailView to be compared</param>
-        /// <returns>Boolean</returns>
-        public bool Equals(EmailView input)
-        {
-            if (input == null)
-            {
-                return false;
-            }
-            return 
-                (
-                    this.Body == input.Body ||
-                    (this.Body != null &&
-                    this.Body.Equals(input.Body))
-                ) && 
-                (
-                    this.Subject == input.Subject ||
-                    (this.Subject != null &&
-                    this.Subject.Equals(input.Subject))
-                ) && 
-                (
-                    this.From == input.From ||
-                    (this.From != null &&
-                    this.From.Equals(input.From))
-                );
-        }
-
-        /// <summary>
-        /// Gets the hash code
-        /// </summary>
-        /// <returns>Hash code</returns>
-        public override int GetHashCode()
-        {
-            unchecked // Overflow is fine, just wrap
-            {
-                int hashCode = 41;
-                if (this.Body != null)
-                {
-                    hashCode = (hashCode * 59) + this.Body.GetHashCode();
-                }
-                if (this.Subject != null)
-                {
-                    hashCode = (hashCode * 59) + this.Subject.GetHashCode();
-                }
-                if (this.From != null)
-                {
-                    hashCode = (hashCode * 59) + this.From.GetHashCode();
-                }
-                return hashCode;
-            }
-        }
-
-        /// <summary>
         /// To validate all properties of the instance
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             yield break;
         }

@@ -30,7 +30,7 @@ namespace ElasticEmail.Model
     /// Optional A/X split campaign options
     /// </summary>
     [DataContract(Name = "SplitOptions")]
-    public partial class SplitOptions : IEquatable<SplitOptions>, IValidatableObject
+    public partial class SplitOptions : IValidatableObject
     {
 
         /// <summary>
@@ -53,6 +53,7 @@ namespace ElasticEmail.Model
         /// For how long should the results be measured until determining the winner template (content)
         /// </summary>
         /// <value>For how long should the results be measured until determining the winner template (content)</value>
+        /// <example>30</example>
         [DataMember(Name = "OptimizePeriodMinutes", EmitDefaultValue = false)]
         public int OptimizePeriodMinutes { get; set; }
 
@@ -80,58 +81,11 @@ namespace ElasticEmail.Model
         }
 
         /// <summary>
-        /// Returns true if objects are equal
-        /// </summary>
-        /// <param name="input">Object to be compared</param>
-        /// <returns>Boolean</returns>
-        public override bool Equals(object input)
-        {
-            return this.Equals(input as SplitOptions);
-        }
-
-        /// <summary>
-        /// Returns true if SplitOptions instances are equal
-        /// </summary>
-        /// <param name="input">Instance of SplitOptions to be compared</param>
-        /// <returns>Boolean</returns>
-        public bool Equals(SplitOptions input)
-        {
-            if (input == null)
-            {
-                return false;
-            }
-            return 
-                (
-                    this.OptimizeFor == input.OptimizeFor ||
-                    this.OptimizeFor.Equals(input.OptimizeFor)
-                ) && 
-                (
-                    this.OptimizePeriodMinutes == input.OptimizePeriodMinutes ||
-                    this.OptimizePeriodMinutes.Equals(input.OptimizePeriodMinutes)
-                );
-        }
-
-        /// <summary>
-        /// Gets the hash code
-        /// </summary>
-        /// <returns>Hash code</returns>
-        public override int GetHashCode()
-        {
-            unchecked // Overflow is fine, just wrap
-            {
-                int hashCode = 41;
-                hashCode = (hashCode * 59) + this.OptimizeFor.GetHashCode();
-                hashCode = (hashCode * 59) + this.OptimizePeriodMinutes.GetHashCode();
-                return hashCode;
-            }
-        }
-
-        /// <summary>
         /// To validate all properties of the instance
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             yield break;
         }

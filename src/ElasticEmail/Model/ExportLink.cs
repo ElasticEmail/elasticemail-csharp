@@ -30,7 +30,7 @@ namespace ElasticEmail.Model
     /// ExportLink
     /// </summary>
     [DataContract(Name = "ExportLink")]
-    public partial class ExportLink : IEquatable<ExportLink>, IValidatableObject
+    public partial class ExportLink : IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="ExportLink" /> class.
@@ -54,6 +54,7 @@ namespace ElasticEmail.Model
         /// ID of the exported file
         /// </summary>
         /// <value>ID of the exported file</value>
+        /// <example>E33EBA7A-C20D-4D3D-8F2F-5EEF42F58E6F</example>
         [DataMember(Name = "PublicExportID", EmitDefaultValue = false)]
         public string PublicExportID { get; set; }
 
@@ -81,66 +82,11 @@ namespace ElasticEmail.Model
         }
 
         /// <summary>
-        /// Returns true if objects are equal
-        /// </summary>
-        /// <param name="input">Object to be compared</param>
-        /// <returns>Boolean</returns>
-        public override bool Equals(object input)
-        {
-            return this.Equals(input as ExportLink);
-        }
-
-        /// <summary>
-        /// Returns true if ExportLink instances are equal
-        /// </summary>
-        /// <param name="input">Instance of ExportLink to be compared</param>
-        /// <returns>Boolean</returns>
-        public bool Equals(ExportLink input)
-        {
-            if (input == null)
-            {
-                return false;
-            }
-            return 
-                (
-                    this.Link == input.Link ||
-                    (this.Link != null &&
-                    this.Link.Equals(input.Link))
-                ) && 
-                (
-                    this.PublicExportID == input.PublicExportID ||
-                    (this.PublicExportID != null &&
-                    this.PublicExportID.Equals(input.PublicExportID))
-                );
-        }
-
-        /// <summary>
-        /// Gets the hash code
-        /// </summary>
-        /// <returns>Hash code</returns>
-        public override int GetHashCode()
-        {
-            unchecked // Overflow is fine, just wrap
-            {
-                int hashCode = 41;
-                if (this.Link != null)
-                {
-                    hashCode = (hashCode * 59) + this.Link.GetHashCode();
-                }
-                if (this.PublicExportID != null)
-                {
-                    hashCode = (hashCode * 59) + this.PublicExportID.GetHashCode();
-                }
-                return hashCode;
-            }
-        }
-
-        /// <summary>
         /// To validate all properties of the instance
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             yield break;
         }

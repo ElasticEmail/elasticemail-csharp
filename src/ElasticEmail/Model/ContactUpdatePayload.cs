@@ -30,7 +30,7 @@ namespace ElasticEmail.Model
     /// ContactUpdatePayload
     /// </summary>
     [DataContract(Name = "ContactUpdatePayload")]
-    public partial class ContactUpdatePayload : IEquatable<ContactUpdatePayload>, IValidatableObject
+    public partial class ContactUpdatePayload : IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="ContactUpdatePayload" /> class.
@@ -49,6 +49,7 @@ namespace ElasticEmail.Model
         /// First name.
         /// </summary>
         /// <value>First name.</value>
+        /// <example>Fred</example>
         [DataMember(Name = "FirstName", EmitDefaultValue = false)]
         public string FirstName { get; set; }
 
@@ -56,6 +57,7 @@ namespace ElasticEmail.Model
         /// Last name.
         /// </summary>
         /// <value>Last name.</value>
+        /// <example>Flintstone</example>
         [DataMember(Name = "LastName", EmitDefaultValue = false)]
         public string LastName { get; set; }
 
@@ -63,6 +65,7 @@ namespace ElasticEmail.Model
         /// A key-value collection of custom contact fields which can be used in the system.
         /// </summary>
         /// <value>A key-value collection of custom contact fields which can be used in the system.</value>
+        /// <example>{&quot;city&quot;:&quot;New York&quot;,&quot;age&quot;:&quot;34&quot;}</example>
         [DataMember(Name = "CustomFields", EmitDefaultValue = false)]
         public Dictionary<string, string> CustomFields { get; set; }
 
@@ -91,76 +94,11 @@ namespace ElasticEmail.Model
         }
 
         /// <summary>
-        /// Returns true if objects are equal
-        /// </summary>
-        /// <param name="input">Object to be compared</param>
-        /// <returns>Boolean</returns>
-        public override bool Equals(object input)
-        {
-            return this.Equals(input as ContactUpdatePayload);
-        }
-
-        /// <summary>
-        /// Returns true if ContactUpdatePayload instances are equal
-        /// </summary>
-        /// <param name="input">Instance of ContactUpdatePayload to be compared</param>
-        /// <returns>Boolean</returns>
-        public bool Equals(ContactUpdatePayload input)
-        {
-            if (input == null)
-            {
-                return false;
-            }
-            return 
-                (
-                    this.FirstName == input.FirstName ||
-                    (this.FirstName != null &&
-                    this.FirstName.Equals(input.FirstName))
-                ) && 
-                (
-                    this.LastName == input.LastName ||
-                    (this.LastName != null &&
-                    this.LastName.Equals(input.LastName))
-                ) && 
-                (
-                    this.CustomFields == input.CustomFields ||
-                    this.CustomFields != null &&
-                    input.CustomFields != null &&
-                    this.CustomFields.SequenceEqual(input.CustomFields)
-                );
-        }
-
-        /// <summary>
-        /// Gets the hash code
-        /// </summary>
-        /// <returns>Hash code</returns>
-        public override int GetHashCode()
-        {
-            unchecked // Overflow is fine, just wrap
-            {
-                int hashCode = 41;
-                if (this.FirstName != null)
-                {
-                    hashCode = (hashCode * 59) + this.FirstName.GetHashCode();
-                }
-                if (this.LastName != null)
-                {
-                    hashCode = (hashCode * 59) + this.LastName.GetHashCode();
-                }
-                if (this.CustomFields != null)
-                {
-                    hashCode = (hashCode * 59) + this.CustomFields.GetHashCode();
-                }
-                return hashCode;
-            }
-        }
-
-        /// <summary>
         /// To validate all properties of the instance
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             yield break;
         }

@@ -36,20 +36,19 @@ namespace ElasticEmail.Model
         /// Enum Unknown for value: Unknown
         /// </summary>
         [EnumMember(Value = "Unknown")]
-        Unknown = 1,
+        Unknown,
 
         /// <summary>
         /// Enum Allow for value: Allow
         /// </summary>
         [EnumMember(Value = "Allow")]
-        Allow = 2,
+        Allow,
 
         /// <summary>
         /// Enum Deny for value: Deny
         /// </summary>
         [EnumMember(Value = "Deny")]
-        Deny = 3
-
+        Deny
     }
 
 }

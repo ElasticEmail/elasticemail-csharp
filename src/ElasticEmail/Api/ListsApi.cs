@@ -28,6 +28,33 @@ namespace ElasticEmail.Api
     {
         #region Synchronous Operations
         /// <summary>
+        /// Load Contacts in List
+        /// </summary>
+        /// <remarks>
+        /// Returns a list of contacts. Required Access Level: ViewContacts
+        /// </remarks>
+        /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="listname">Name of your list.</param>
+        /// <param name="limit">Maximum number of returned items. (optional)</param>
+        /// <param name="offset">How many items should be returned ahead. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>List&lt;Contact&gt;</returns>
+        List<Contact> ListsByListnameContactsGet(string listname, int? limit = default(int?), int? offset = default(int?), int operationIndex = 0);
+
+        /// <summary>
+        /// Load Contacts in List
+        /// </summary>
+        /// <remarks>
+        /// Returns a list of contacts. Required Access Level: ViewContacts
+        /// </remarks>
+        /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="listname">Name of your list.</param>
+        /// <param name="limit">Maximum number of returned items. (optional)</param>
+        /// <param name="offset">How many items should be returned ahead. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ApiResponse of List&lt;Contact&gt;</returns>
+        ApiResponse<List<Contact>> ListsByListnameContactsGetWithHttpInfo(string listname, int? limit = default(int?), int? offset = default(int?), int operationIndex = 0);
+        /// <summary>
         /// Add Contacts to List
         /// </summary>
         /// <remarks>
@@ -205,6 +232,35 @@ namespace ElasticEmail.Api
     public interface IListsApiAsync : IApiAccessor
     {
         #region Asynchronous Operations
+        /// <summary>
+        /// Load Contacts in List
+        /// </summary>
+        /// <remarks>
+        /// Returns a list of contacts. Required Access Level: ViewContacts
+        /// </remarks>
+        /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="listname">Name of your list.</param>
+        /// <param name="limit">Maximum number of returned items. (optional)</param>
+        /// <param name="offset">How many items should be returned ahead. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of List&lt;Contact&gt;</returns>
+        System.Threading.Tasks.Task<List<Contact>> ListsByListnameContactsGetAsync(string listname, int? limit = default(int?), int? offset = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+
+        /// <summary>
+        /// Load Contacts in List
+        /// </summary>
+        /// <remarks>
+        /// Returns a list of contacts. Required Access Level: ViewContacts
+        /// </remarks>
+        /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="listname">Name of your list.</param>
+        /// <param name="limit">Maximum number of returned items. (optional)</param>
+        /// <param name="offset">How many items should be returned ahead. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (List&lt;Contact&gt;)</returns>
+        System.Threading.Tasks.Task<ApiResponse<List<Contact>>> ListsByListnameContactsGetWithHttpInfoAsync(string listname, int? limit = default(int?), int? offset = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Add Contacts to List
         /// </summary>
@@ -506,6 +562,184 @@ namespace ElasticEmail.Api
                 return _exceptionFactory;
             }
             set { _exceptionFactory = value; }
+        }
+
+        /// <summary>
+        /// Load Contacts in List Returns a list of contacts. Required Access Level: ViewContacts
+        /// </summary>
+        /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="listname">Name of your list.</param>
+        /// <param name="limit">Maximum number of returned items. (optional)</param>
+        /// <param name="offset">How many items should be returned ahead. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>List&lt;Contact&gt;</returns>
+        public List<Contact> ListsByListnameContactsGet(string listname, int? limit = default(int?), int? offset = default(int?), int operationIndex = 0)
+        {
+            ElasticEmail.Client.ApiResponse<List<Contact>> localVarResponse = ListsByListnameContactsGetWithHttpInfo(listname, limit, offset);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Load Contacts in List Returns a list of contacts. Required Access Level: ViewContacts
+        /// </summary>
+        /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="listname">Name of your list.</param>
+        /// <param name="limit">Maximum number of returned items. (optional)</param>
+        /// <param name="offset">How many items should be returned ahead. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ApiResponse of List&lt;Contact&gt;</returns>
+        public ElasticEmail.Client.ApiResponse<List<Contact>> ListsByListnameContactsGetWithHttpInfo(string listname, int? limit = default(int?), int? offset = default(int?), int operationIndex = 0)
+        {
+            // verify the required parameter 'listname' is set
+            if (listname == null)
+            {
+                throw new ElasticEmail.Client.ApiException(400, "Missing required parameter 'listname' when calling ListsApi->ListsByListnameContactsGet");
+            }
+
+            ElasticEmail.Client.RequestOptions localVarRequestOptions = new ElasticEmail.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = ElasticEmail.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = ElasticEmail.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("listname", ElasticEmail.Client.ClientUtils.ParameterToString(listname)); // path parameter
+            if (limit != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ElasticEmail.Client.ClientUtils.ParameterToMultiMap("", "limit", limit));
+            }
+            if (offset != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ElasticEmail.Client.ClientUtils.ParameterToMultiMap("", "offset", offset));
+            }
+
+            localVarRequestOptions.Operation = "ListsApi.ListsByListnameContactsGet";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (apikey) required
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-ElasticEmail-ApiKey")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("X-ElasticEmail-ApiKey", this.Configuration.GetApiKeyWithPrefix("X-ElasticEmail-ApiKey"));
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<List<Contact>>("/lists/{listname}/contacts", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("ListsByListnameContactsGet", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Load Contacts in List Returns a list of contacts. Required Access Level: ViewContacts
+        /// </summary>
+        /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="listname">Name of your list.</param>
+        /// <param name="limit">Maximum number of returned items. (optional)</param>
+        /// <param name="offset">How many items should be returned ahead. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of List&lt;Contact&gt;</returns>
+        public async System.Threading.Tasks.Task<List<Contact>> ListsByListnameContactsGetAsync(string listname, int? limit = default(int?), int? offset = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            ElasticEmail.Client.ApiResponse<List<Contact>> localVarResponse = await ListsByListnameContactsGetWithHttpInfoAsync(listname, limit, offset, operationIndex, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Load Contacts in List Returns a list of contacts. Required Access Level: ViewContacts
+        /// </summary>
+        /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="listname">Name of your list.</param>
+        /// <param name="limit">Maximum number of returned items. (optional)</param>
+        /// <param name="offset">How many items should be returned ahead. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (List&lt;Contact&gt;)</returns>
+        public async System.Threading.Tasks.Task<ElasticEmail.Client.ApiResponse<List<Contact>>> ListsByListnameContactsGetWithHttpInfoAsync(string listname, int? limit = default(int?), int? offset = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            // verify the required parameter 'listname' is set
+            if (listname == null)
+            {
+                throw new ElasticEmail.Client.ApiException(400, "Missing required parameter 'listname' when calling ListsApi->ListsByListnameContactsGet");
+            }
+
+
+            ElasticEmail.Client.RequestOptions localVarRequestOptions = new ElasticEmail.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = ElasticEmail.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = ElasticEmail.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("listname", ElasticEmail.Client.ClientUtils.ParameterToString(listname)); // path parameter
+            if (limit != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ElasticEmail.Client.ClientUtils.ParameterToMultiMap("", "limit", limit));
+            }
+            if (offset != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ElasticEmail.Client.ClientUtils.ParameterToMultiMap("", "offset", offset));
+            }
+
+            localVarRequestOptions.Operation = "ListsApi.ListsByListnameContactsGet";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (apikey) required
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-ElasticEmail-ApiKey")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("X-ElasticEmail-ApiKey", this.Configuration.GetApiKeyWithPrefix("X-ElasticEmail-ApiKey"));
+            }
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.GetAsync<List<Contact>>("/lists/{listname}/contacts", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("ListsByListnameContactsGet", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
         }
 
         /// <summary>

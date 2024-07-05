@@ -30,7 +30,7 @@ namespace ElasticEmail.Model
     /// E-mail configuration
     /// </summary>
     [DataContract(Name = "Options")]
-    public partial class Options : IEquatable<Options>, IValidatableObject
+    public partial class Options : IValidatableObject
     {
 
         /// <summary>
@@ -47,7 +47,7 @@ namespace ElasticEmail.Model
         /// <param name="encoding">encoding.</param>
         /// <param name="trackOpens">Should the opens be tracked? If no value has been provided, Account&#39;s default setting will be used..</param>
         /// <param name="trackClicks">Should the clicks be tracked? If no value has been provided, Account&#39;s default setting will be used..</param>
-        public Options(int? timeOffset = default(int?), string poolName = default(string), string channelName = default(string), EncodingType? encoding = default(EncodingType?), bool trackOpens = default(bool), bool trackClicks = default(bool))
+        public Options(int? timeOffset = default(int?), string poolName = default(string), string channelName = default(string), EncodingType? encoding = default(EncodingType?), bool? trackOpens = default(bool?), bool? trackClicks = default(bool?))
         {
             this.TimeOffset = timeOffset;
             this.PoolName = poolName;
@@ -68,6 +68,7 @@ namespace ElasticEmail.Model
         /// Name of your custom IP Pool to be used in the sending process
         /// </summary>
         /// <value>Name of your custom IP Pool to be used in the sending process</value>
+        /// <example>My Custom Pool</example>
         [DataMember(Name = "PoolName", EmitDefaultValue = false)]
         public string PoolName { get; set; }
 
@@ -75,6 +76,7 @@ namespace ElasticEmail.Model
         /// Name of selected channel.
         /// </summary>
         /// <value>Name of selected channel.</value>
+        /// <example>Channel01</example>
         [DataMember(Name = "ChannelName", EmitDefaultValue = false)]
         public string ChannelName { get; set; }
 
@@ -82,15 +84,17 @@ namespace ElasticEmail.Model
         /// Should the opens be tracked? If no value has been provided, Account&#39;s default setting will be used.
         /// </summary>
         /// <value>Should the opens be tracked? If no value has been provided, Account&#39;s default setting will be used.</value>
+        /// <example>true</example>
         [DataMember(Name = "TrackOpens", EmitDefaultValue = true)]
-        public bool TrackOpens { get; set; }
+        public bool? TrackOpens { get; set; }
 
         /// <summary>
         /// Should the clicks be tracked? If no value has been provided, Account&#39;s default setting will be used.
         /// </summary>
         /// <value>Should the clicks be tracked? If no value has been provided, Account&#39;s default setting will be used.</value>
+        /// <example>true</example>
         [DataMember(Name = "TrackClicks", EmitDefaultValue = true)]
-        public bool TrackClicks { get; set; }
+        public bool? TrackClicks { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -120,90 +124,11 @@ namespace ElasticEmail.Model
         }
 
         /// <summary>
-        /// Returns true if objects are equal
-        /// </summary>
-        /// <param name="input">Object to be compared</param>
-        /// <returns>Boolean</returns>
-        public override bool Equals(object input)
-        {
-            return this.Equals(input as Options);
-        }
-
-        /// <summary>
-        /// Returns true if Options instances are equal
-        /// </summary>
-        /// <param name="input">Instance of Options to be compared</param>
-        /// <returns>Boolean</returns>
-        public bool Equals(Options input)
-        {
-            if (input == null)
-            {
-                return false;
-            }
-            return 
-                (
-                    this.TimeOffset == input.TimeOffset ||
-                    (this.TimeOffset != null &&
-                    this.TimeOffset.Equals(input.TimeOffset))
-                ) && 
-                (
-                    this.PoolName == input.PoolName ||
-                    (this.PoolName != null &&
-                    this.PoolName.Equals(input.PoolName))
-                ) && 
-                (
-                    this.ChannelName == input.ChannelName ||
-                    (this.ChannelName != null &&
-                    this.ChannelName.Equals(input.ChannelName))
-                ) && 
-                (
-                    this.Encoding == input.Encoding ||
-                    this.Encoding.Equals(input.Encoding)
-                ) && 
-                (
-                    this.TrackOpens == input.TrackOpens ||
-                    this.TrackOpens.Equals(input.TrackOpens)
-                ) && 
-                (
-                    this.TrackClicks == input.TrackClicks ||
-                    this.TrackClicks.Equals(input.TrackClicks)
-                );
-        }
-
-        /// <summary>
-        /// Gets the hash code
-        /// </summary>
-        /// <returns>Hash code</returns>
-        public override int GetHashCode()
-        {
-            unchecked // Overflow is fine, just wrap
-            {
-                int hashCode = 41;
-                if (this.TimeOffset != null)
-                {
-                    hashCode = (hashCode * 59) + this.TimeOffset.GetHashCode();
-                }
-                if (this.PoolName != null)
-                {
-                    hashCode = (hashCode * 59) + this.PoolName.GetHashCode();
-                }
-                if (this.ChannelName != null)
-                {
-                    hashCode = (hashCode * 59) + this.ChannelName.GetHashCode();
-                }
-                hashCode = (hashCode * 59) + this.Encoding.GetHashCode();
-                hashCode = (hashCode * 59) + this.TrackOpens.GetHashCode();
-                hashCode = (hashCode * 59) + this.TrackClicks.GetHashCode();
-                return hashCode;
-            }
-        }
-
-        /// <summary>
         /// To validate all properties of the instance
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             yield break;
         }

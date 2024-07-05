@@ -44,7 +44,6 @@ namespace ElasticEmail.Model
         /// </summary>
         [EnumMember(Value = "Global")]
         Global = 2
-
     }
 
 }

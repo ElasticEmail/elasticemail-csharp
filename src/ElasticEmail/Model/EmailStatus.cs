@@ -30,7 +30,7 @@ namespace ElasticEmail.Model
     /// Status information of the specified email
     /// </summary>
     [DataContract(Name = "EmailStatus")]
-    public partial class EmailStatus : IEquatable<EmailStatus>, IValidatableObject
+    public partial class EmailStatus : IValidatableObject
     {
 
         /// <summary>
@@ -136,6 +136,7 @@ namespace ElasticEmail.Model
         /// ID number of transaction
         /// </summary>
         /// <value>ID number of transaction</value>
+        /// <example>TransactionID</example>
         [DataMember(Name = "TransactionID", EmitDefaultValue = false)]
         public string TransactionID { get; set; }
 
@@ -180,152 +181,11 @@ namespace ElasticEmail.Model
         }
 
         /// <summary>
-        /// Returns true if objects are equal
-        /// </summary>
-        /// <param name="input">Object to be compared</param>
-        /// <returns>Boolean</returns>
-        public override bool Equals(object input)
-        {
-            return this.Equals(input as EmailStatus);
-        }
-
-        /// <summary>
-        /// Returns true if EmailStatus instances are equal
-        /// </summary>
-        /// <param name="input">Instance of EmailStatus to be compared</param>
-        /// <returns>Boolean</returns>
-        public bool Equals(EmailStatus input)
-        {
-            if (input == null)
-            {
-                return false;
-            }
-            return 
-                (
-                    this.From == input.From ||
-                    (this.From != null &&
-                    this.From.Equals(input.From))
-                ) && 
-                (
-                    this.To == input.To ||
-                    (this.To != null &&
-                    this.To.Equals(input.To))
-                ) && 
-                (
-                    this.Date == input.Date ||
-                    (this.Date != null &&
-                    this.Date.Equals(input.Date))
-                ) && 
-                (
-                    this.Status == input.Status ||
-                    this.Status.Equals(input.Status)
-                ) && 
-                (
-                    this.StatusName == input.StatusName ||
-                    (this.StatusName != null &&
-                    this.StatusName.Equals(input.StatusName))
-                ) && 
-                (
-                    this.StatusChangeDate == input.StatusChangeDate ||
-                    (this.StatusChangeDate != null &&
-                    this.StatusChangeDate.Equals(input.StatusChangeDate))
-                ) && 
-                (
-                    this.DateSent == input.DateSent ||
-                    (this.DateSent != null &&
-                    this.DateSent.Equals(input.DateSent))
-                ) && 
-                (
-                    this.DateOpened == input.DateOpened ||
-                    (this.DateOpened != null &&
-                    this.DateOpened.Equals(input.DateOpened))
-                ) && 
-                (
-                    this.DateClicked == input.DateClicked ||
-                    (this.DateClicked != null &&
-                    this.DateClicked.Equals(input.DateClicked))
-                ) && 
-                (
-                    this.ErrorMessage == input.ErrorMessage ||
-                    (this.ErrorMessage != null &&
-                    this.ErrorMessage.Equals(input.ErrorMessage))
-                ) && 
-                (
-                    this.TransactionID == input.TransactionID ||
-                    (this.TransactionID != null &&
-                    this.TransactionID.Equals(input.TransactionID))
-                ) && 
-                (
-                    this.EnvelopeFrom == input.EnvelopeFrom ||
-                    (this.EnvelopeFrom != null &&
-                    this.EnvelopeFrom.Equals(input.EnvelopeFrom))
-                );
-        }
-
-        /// <summary>
-        /// Gets the hash code
-        /// </summary>
-        /// <returns>Hash code</returns>
-        public override int GetHashCode()
-        {
-            unchecked // Overflow is fine, just wrap
-            {
-                int hashCode = 41;
-                if (this.From != null)
-                {
-                    hashCode = (hashCode * 59) + this.From.GetHashCode();
-                }
-                if (this.To != null)
-                {
-                    hashCode = (hashCode * 59) + this.To.GetHashCode();
-                }
-                if (this.Date != null)
-                {
-                    hashCode = (hashCode * 59) + this.Date.GetHashCode();
-                }
-                hashCode = (hashCode * 59) + this.Status.GetHashCode();
-                if (this.StatusName != null)
-                {
-                    hashCode = (hashCode * 59) + this.StatusName.GetHashCode();
-                }
-                if (this.StatusChangeDate != null)
-                {
-                    hashCode = (hashCode * 59) + this.StatusChangeDate.GetHashCode();
-                }
-                if (this.DateSent != null)
-                {
-                    hashCode = (hashCode * 59) + this.DateSent.GetHashCode();
-                }
-                if (this.DateOpened != null)
-                {
-                    hashCode = (hashCode * 59) + this.DateOpened.GetHashCode();
-                }
-                if (this.DateClicked != null)
-                {
-                    hashCode = (hashCode * 59) + this.DateClicked.GetHashCode();
-                }
-                if (this.ErrorMessage != null)
-                {
-                    hashCode = (hashCode * 59) + this.ErrorMessage.GetHashCode();
-                }
-                if (this.TransactionID != null)
-                {
-                    hashCode = (hashCode * 59) + this.TransactionID.GetHashCode();
-                }
-                if (this.EnvelopeFrom != null)
-                {
-                    hashCode = (hashCode * 59) + this.EnvelopeFrom.GetHashCode();
-                }
-                return hashCode;
-            }
-        }
-
-        /// <summary>
         /// To validate all properties of the instance
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             yield break;
         }

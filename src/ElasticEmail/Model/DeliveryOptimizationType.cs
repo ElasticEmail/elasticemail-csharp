@@ -49,7 +49,6 @@ namespace ElasticEmail.Model
         /// </summary>
         [EnumMember(Value = "ByOpenTime")]
         ByOpenTime = 3
-
     }
 
 }

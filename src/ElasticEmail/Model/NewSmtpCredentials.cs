@@ -30,7 +30,7 @@ namespace ElasticEmail.Model
     /// Newly generated SMTP Credentials with Token
     /// </summary>
     [DataContract(Name = "NewSmtpCredentials")]
-    public partial class NewSmtpCredentials : IEquatable<NewSmtpCredentials>, IValidatableObject
+    public partial class NewSmtpCredentials : IValidatableObject
     {
 
         /// <summary>
@@ -130,108 +130,11 @@ namespace ElasticEmail.Model
         }
 
         /// <summary>
-        /// Returns true if objects are equal
-        /// </summary>
-        /// <param name="input">Object to be compared</param>
-        /// <returns>Boolean</returns>
-        public override bool Equals(object input)
-        {
-            return this.Equals(input as NewSmtpCredentials);
-        }
-
-        /// <summary>
-        /// Returns true if NewSmtpCredentials instances are equal
-        /// </summary>
-        /// <param name="input">Instance of NewSmtpCredentials to be compared</param>
-        /// <returns>Boolean</returns>
-        public bool Equals(NewSmtpCredentials input)
-        {
-            if (input == null)
-            {
-                return false;
-            }
-            return 
-                (
-                    this.Token == input.Token ||
-                    (this.Token != null &&
-                    this.Token.Equals(input.Token))
-                ) && 
-                (
-                    this.AccessLevel == input.AccessLevel ||
-                    this.AccessLevel.Equals(input.AccessLevel)
-                ) && 
-                (
-                    this.Name == input.Name ||
-                    (this.Name != null &&
-                    this.Name.Equals(input.Name))
-                ) && 
-                (
-                    this.DateCreated == input.DateCreated ||
-                    (this.DateCreated != null &&
-                    this.DateCreated.Equals(input.DateCreated))
-                ) && 
-                (
-                    this.LastUse == input.LastUse ||
-                    (this.LastUse != null &&
-                    this.LastUse.Equals(input.LastUse))
-                ) && 
-                (
-                    this.Expires == input.Expires ||
-                    (this.Expires != null &&
-                    this.Expires.Equals(input.Expires))
-                ) && 
-                (
-                    this.RestrictAccessToIPRange == input.RestrictAccessToIPRange ||
-                    this.RestrictAccessToIPRange != null &&
-                    input.RestrictAccessToIPRange != null &&
-                    this.RestrictAccessToIPRange.SequenceEqual(input.RestrictAccessToIPRange)
-                );
-        }
-
-        /// <summary>
-        /// Gets the hash code
-        /// </summary>
-        /// <returns>Hash code</returns>
-        public override int GetHashCode()
-        {
-            unchecked // Overflow is fine, just wrap
-            {
-                int hashCode = 41;
-                if (this.Token != null)
-                {
-                    hashCode = (hashCode * 59) + this.Token.GetHashCode();
-                }
-                hashCode = (hashCode * 59) + this.AccessLevel.GetHashCode();
-                if (this.Name != null)
-                {
-                    hashCode = (hashCode * 59) + this.Name.GetHashCode();
-                }
-                if (this.DateCreated != null)
-                {
-                    hashCode = (hashCode * 59) + this.DateCreated.GetHashCode();
-                }
-                if (this.LastUse != null)
-                {
-                    hashCode = (hashCode * 59) + this.LastUse.GetHashCode();
-                }
-                if (this.Expires != null)
-                {
-                    hashCode = (hashCode * 59) + this.Expires.GetHashCode();
-                }
-                if (this.RestrictAccessToIPRange != null)
-                {
-                    hashCode = (hashCode * 59) + this.RestrictAccessToIPRange.GetHashCode();
-                }
-                return hashCode;
-            }
-        }
-
-        /// <summary>
         /// To validate all properties of the instance
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             yield break;
         }

@@ -30,7 +30,7 @@ namespace ElasticEmail.Model
     /// New template object
     /// </summary>
     [DataContract(Name = "TemplatePayload")]
-    public partial class TemplatePayload : IEquatable<TemplatePayload>, IValidatableObject
+    public partial class TemplatePayload : IValidatableObject
     {
 
         /// <summary>
@@ -74,6 +74,7 @@ namespace ElasticEmail.Model
         /// Default subject of email.
         /// </summary>
         /// <value>Default subject of email.</value>
+        /// <example>Hello!</example>
         [DataMember(Name = "Subject", EmitDefaultValue = false)]
         public string Subject { get; set; }
 
@@ -110,81 +111,11 @@ namespace ElasticEmail.Model
         }
 
         /// <summary>
-        /// Returns true if objects are equal
-        /// </summary>
-        /// <param name="input">Object to be compared</param>
-        /// <returns>Boolean</returns>
-        public override bool Equals(object input)
-        {
-            return this.Equals(input as TemplatePayload);
-        }
-
-        /// <summary>
-        /// Returns true if TemplatePayload instances are equal
-        /// </summary>
-        /// <param name="input">Instance of TemplatePayload to be compared</param>
-        /// <returns>Boolean</returns>
-        public bool Equals(TemplatePayload input)
-        {
-            if (input == null)
-            {
-                return false;
-            }
-            return 
-                (
-                    this.Name == input.Name ||
-                    (this.Name != null &&
-                    this.Name.Equals(input.Name))
-                ) && 
-                (
-                    this.Subject == input.Subject ||
-                    (this.Subject != null &&
-                    this.Subject.Equals(input.Subject))
-                ) && 
-                (
-                    this.Body == input.Body ||
-                    this.Body != null &&
-                    input.Body != null &&
-                    this.Body.SequenceEqual(input.Body)
-                ) && 
-                (
-                    this.TemplateScope == input.TemplateScope ||
-                    this.TemplateScope.Equals(input.TemplateScope)
-                );
-        }
-
-        /// <summary>
-        /// Gets the hash code
-        /// </summary>
-        /// <returns>Hash code</returns>
-        public override int GetHashCode()
-        {
-            unchecked // Overflow is fine, just wrap
-            {
-                int hashCode = 41;
-                if (this.Name != null)
-                {
-                    hashCode = (hashCode * 59) + this.Name.GetHashCode();
-                }
-                if (this.Subject != null)
-                {
-                    hashCode = (hashCode * 59) + this.Subject.GetHashCode();
-                }
-                if (this.Body != null)
-                {
-                    hashCode = (hashCode * 59) + this.Body.GetHashCode();
-                }
-                hashCode = (hashCode * 59) + this.TemplateScope.GetHashCode();
-                return hashCode;
-            }
-        }
-
-        /// <summary>
         /// To validate all properties of the instance
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             yield break;
         }

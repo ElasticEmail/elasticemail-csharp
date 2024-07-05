@@ -6,7 +6,7 @@ Email data
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Recipients** | [**TransactionalRecipient**](TransactionalRecipient.md) |  | 
-**Content** | [**EmailContent**](EmailContent.md) |  | [optional] 
+**Content** | [**EmailContent**](EmailContent.md) |  | 
 **Options** | [**Options**](Options.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

@@ -30,7 +30,7 @@ namespace ElasticEmail.Model
     /// Campaign
     /// </summary>
     [DataContract(Name = "Campaign")]
-    public partial class Campaign : IEquatable<Campaign>, IValidatableObject
+    public partial class Campaign : IValidatableObject
     {
 
         /// <summary>
@@ -123,90 +123,11 @@ namespace ElasticEmail.Model
         }
 
         /// <summary>
-        /// Returns true if objects are equal
-        /// </summary>
-        /// <param name="input">Object to be compared</param>
-        /// <returns>Boolean</returns>
-        public override bool Equals(object input)
-        {
-            return this.Equals(input as Campaign);
-        }
-
-        /// <summary>
-        /// Returns true if Campaign instances are equal
-        /// </summary>
-        /// <param name="input">Instance of Campaign to be compared</param>
-        /// <returns>Boolean</returns>
-        public bool Equals(Campaign input)
-        {
-            if (input == null)
-            {
-                return false;
-            }
-            return 
-                (
-                    this.Content == input.Content ||
-                    this.Content != null &&
-                    input.Content != null &&
-                    this.Content.SequenceEqual(input.Content)
-                ) && 
-                (
-                    this.Name == input.Name ||
-                    (this.Name != null &&
-                    this.Name.Equals(input.Name))
-                ) && 
-                (
-                    this.Status == input.Status ||
-                    this.Status.Equals(input.Status)
-                ) && 
-                (
-                    this.Recipients == input.Recipients ||
-                    (this.Recipients != null &&
-                    this.Recipients.Equals(input.Recipients))
-                ) && 
-                (
-                    this.Options == input.Options ||
-                    (this.Options != null &&
-                    this.Options.Equals(input.Options))
-                );
-        }
-
-        /// <summary>
-        /// Gets the hash code
-        /// </summary>
-        /// <returns>Hash code</returns>
-        public override int GetHashCode()
-        {
-            unchecked // Overflow is fine, just wrap
-            {
-                int hashCode = 41;
-                if (this.Content != null)
-                {
-                    hashCode = (hashCode * 59) + this.Content.GetHashCode();
-                }
-                if (this.Name != null)
-                {
-                    hashCode = (hashCode * 59) + this.Name.GetHashCode();
-                }
-                hashCode = (hashCode * 59) + this.Status.GetHashCode();
-                if (this.Recipients != null)
-                {
-                    hashCode = (hashCode * 59) + this.Recipients.GetHashCode();
-                }
-                if (this.Options != null)
-                {
-                    hashCode = (hashCode * 59) + this.Options.GetHashCode();
-                }
-                return hashCode;
-            }
-        }
-
-        /// <summary>
         /// To validate all properties of the instance
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             yield break;
         }

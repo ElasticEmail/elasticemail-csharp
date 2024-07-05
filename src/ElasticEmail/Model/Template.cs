@@ -30,7 +30,7 @@ namespace ElasticEmail.Model
     /// Template info
     /// </summary>
     [DataContract(Name = "Template")]
-    public partial class Template : IEquatable<Template>, IValidatableObject
+    public partial class Template : IValidatableObject
     {
 
         /// <summary>
@@ -81,6 +81,7 @@ namespace ElasticEmail.Model
         /// Default subject of email.
         /// </summary>
         /// <value>Default subject of email.</value>
+        /// <example>Hello!</example>
         [DataMember(Name = "Subject", EmitDefaultValue = false)]
         public string Subject { get; set; }
 
@@ -119,95 +120,11 @@ namespace ElasticEmail.Model
         }
 
         /// <summary>
-        /// Returns true if objects are equal
-        /// </summary>
-        /// <param name="input">Object to be compared</param>
-        /// <returns>Boolean</returns>
-        public override bool Equals(object input)
-        {
-            return this.Equals(input as Template);
-        }
-
-        /// <summary>
-        /// Returns true if Template instances are equal
-        /// </summary>
-        /// <param name="input">Instance of Template to be compared</param>
-        /// <returns>Boolean</returns>
-        public bool Equals(Template input)
-        {
-            if (input == null)
-            {
-                return false;
-            }
-            return 
-                (
-                    this.TemplateType == input.TemplateType ||
-                    this.TemplateType.Equals(input.TemplateType)
-                ) && 
-                (
-                    this.Name == input.Name ||
-                    (this.Name != null &&
-                    this.Name.Equals(input.Name))
-                ) && 
-                (
-                    this.DateAdded == input.DateAdded ||
-                    (this.DateAdded != null &&
-                    this.DateAdded.Equals(input.DateAdded))
-                ) && 
-                (
-                    this.Subject == input.Subject ||
-                    (this.Subject != null &&
-                    this.Subject.Equals(input.Subject))
-                ) && 
-                (
-                    this.Body == input.Body ||
-                    this.Body != null &&
-                    input.Body != null &&
-                    this.Body.SequenceEqual(input.Body)
-                ) && 
-                (
-                    this.TemplateScope == input.TemplateScope ||
-                    this.TemplateScope.Equals(input.TemplateScope)
-                );
-        }
-
-        /// <summary>
-        /// Gets the hash code
-        /// </summary>
-        /// <returns>Hash code</returns>
-        public override int GetHashCode()
-        {
-            unchecked // Overflow is fine, just wrap
-            {
-                int hashCode = 41;
-                hashCode = (hashCode * 59) + this.TemplateType.GetHashCode();
-                if (this.Name != null)
-                {
-                    hashCode = (hashCode * 59) + this.Name.GetHashCode();
-                }
-                if (this.DateAdded != null)
-                {
-                    hashCode = (hashCode * 59) + this.DateAdded.GetHashCode();
-                }
-                if (this.Subject != null)
-                {
-                    hashCode = (hashCode * 59) + this.Subject.GetHashCode();
-                }
-                if (this.Body != null)
-                {
-                    hashCode = (hashCode * 59) + this.Body.GetHashCode();
-                }
-                hashCode = (hashCode * 59) + this.TemplateScope.GetHashCode();
-                return hashCode;
-            }
-        }
-
-        /// <summary>
         /// To validate all properties of the instance
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             yield break;
         }

@@ -10,7 +10,7 @@ All URIs are relative to *https://api.elasticemail.com/v4*
 | [**CampaignsGet**](CampaignsApi.md#campaignsget) | **GET** /campaigns | Load Campaigns |
 | [**CampaignsPost**](CampaignsApi.md#campaignspost) | **POST** /campaigns | Add Campaign |
 
-<a name="campaignsbynamedelete"></a>
+<a id="campaignsbynamedelete"></a>
 # **CampaignsByNameDelete**
 > void CampaignsByNameDelete (string name)
 
@@ -102,7 +102,7 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="campaignsbynameget"></a>
+<a id="campaignsbynameget"></a>
 # **CampaignsByNameGet**
 > Campaign CampaignsByNameGet (string name)
 
@@ -198,7 +198,7 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="campaignsbynameput"></a>
+<a id="campaignsbynameput"></a>
 # **CampaignsByNamePut**
 > Campaign CampaignsByNamePut (string name, Campaign campaign)
 
@@ -296,7 +296,7 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="campaignsget"></a>
+<a id="campaignsget"></a>
 # **CampaignsGet**
 > List&lt;Campaign&gt; CampaignsGet (string search = null, int? offset = null, int? limit = null)
 
@@ -396,7 +396,7 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="campaignspost"></a>
+<a id="campaignspost"></a>
 # **CampaignsPost**
 > Campaign CampaignsPost (Campaign campaign)
 

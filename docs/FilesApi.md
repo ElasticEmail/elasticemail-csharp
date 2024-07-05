@@ -10,7 +10,7 @@ All URIs are relative to *https://api.elasticemail.com/v4*
 | [**FilesGet**](FilesApi.md#filesget) | **GET** /files | List Files |
 | [**FilesPost**](FilesApi.md#filespost) | **POST** /files | Upload File |
 
-<a name="filesbynamedelete"></a>
+<a id="filesbynamedelete"></a>
 # **FilesByNameDelete**
 > void FilesByNameDelete (string name)
 
@@ -102,7 +102,7 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="filesbynameget"></a>
+<a id="filesbynameget"></a>
 # **FilesByNameGet**
 > System.IO.Stream FilesByNameGet (string name)
 
@@ -198,7 +198,7 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="filesbynameinfoget"></a>
+<a id="filesbynameinfoget"></a>
 # **FilesByNameInfoGet**
 > FileInfo FilesByNameInfoGet (string name)
 
@@ -294,7 +294,7 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="filesget"></a>
+<a id="filesget"></a>
 # **FilesGet**
 > List&lt;FileInfo&gt; FilesGet (int? limit = null, int? offset = null)
 
@@ -392,7 +392,7 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="filespost"></a>
+<a id="filespost"></a>
 # **FilesPost**
 > FileInfo FilesPost (FilePayload filePayload, int? expiresAfterDays = null)
 

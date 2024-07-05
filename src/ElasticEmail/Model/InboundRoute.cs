@@ -30,7 +30,7 @@ namespace ElasticEmail.Model
     /// InboundRoute
     /// </summary>
     [DataContract(Name = "InboundRoute")]
-    public partial class InboundRoute : IEquatable<InboundRoute>, IValidatableObject
+    public partial class InboundRoute : IValidatableObject
     {
 
         /// <summary>
@@ -128,99 +128,11 @@ namespace ElasticEmail.Model
         }
 
         /// <summary>
-        /// Returns true if objects are equal
-        /// </summary>
-        /// <param name="input">Object to be compared</param>
-        /// <returns>Boolean</returns>
-        public override bool Equals(object input)
-        {
-            return this.Equals(input as InboundRoute);
-        }
-
-        /// <summary>
-        /// Returns true if InboundRoute instances are equal
-        /// </summary>
-        /// <param name="input">Instance of InboundRoute to be compared</param>
-        /// <returns>Boolean</returns>
-        public bool Equals(InboundRoute input)
-        {
-            if (input == null)
-            {
-                return false;
-            }
-            return 
-                (
-                    this.PublicId == input.PublicId ||
-                    (this.PublicId != null &&
-                    this.PublicId.Equals(input.PublicId))
-                ) && 
-                (
-                    this.Name == input.Name ||
-                    (this.Name != null &&
-                    this.Name.Equals(input.Name))
-                ) && 
-                (
-                    this.FilterType == input.FilterType ||
-                    this.FilterType.Equals(input.FilterType)
-                ) && 
-                (
-                    this.Filter == input.Filter ||
-                    (this.Filter != null &&
-                    this.Filter.Equals(input.Filter))
-                ) && 
-                (
-                    this.ActionType == input.ActionType ||
-                    this.ActionType.Equals(input.ActionType)
-                ) && 
-                (
-                    this.ActionParameter == input.ActionParameter ||
-                    (this.ActionParameter != null &&
-                    this.ActionParameter.Equals(input.ActionParameter))
-                ) && 
-                (
-                    this.SortOrder == input.SortOrder ||
-                    this.SortOrder.Equals(input.SortOrder)
-                );
-        }
-
-        /// <summary>
-        /// Gets the hash code
-        /// </summary>
-        /// <returns>Hash code</returns>
-        public override int GetHashCode()
-        {
-            unchecked // Overflow is fine, just wrap
-            {
-                int hashCode = 41;
-                if (this.PublicId != null)
-                {
-                    hashCode = (hashCode * 59) + this.PublicId.GetHashCode();
-                }
-                if (this.Name != null)
-                {
-                    hashCode = (hashCode * 59) + this.Name.GetHashCode();
-                }
-                hashCode = (hashCode * 59) + this.FilterType.GetHashCode();
-                if (this.Filter != null)
-                {
-                    hashCode = (hashCode * 59) + this.Filter.GetHashCode();
-                }
-                hashCode = (hashCode * 59) + this.ActionType.GetHashCode();
-                if (this.ActionParameter != null)
-                {
-                    hashCode = (hashCode * 59) + this.ActionParameter.GetHashCode();
-                }
-                hashCode = (hashCode * 59) + this.SortOrder.GetHashCode();
-                return hashCode;
-            }
-        }
-
-        /// <summary>
         /// To validate all properties of the instance
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             yield break;
         }

@@ -10,7 +10,7 @@ All URIs are relative to *https://api.elasticemail.com/v4*
 | [**TemplatesGet**](TemplatesApi.md#templatesget) | **GET** /templates | Load Templates |
 | [**TemplatesPost**](TemplatesApi.md#templatespost) | **POST** /templates | Add Template |
 
-<a name="templatesbynamedelete"></a>
+<a id="templatesbynamedelete"></a>
 # **TemplatesByNameDelete**
 > void TemplatesByNameDelete (string name)
 
@@ -102,7 +102,7 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="templatesbynameget"></a>
+<a id="templatesbynameget"></a>
 # **TemplatesByNameGet**
 > Template TemplatesByNameGet (string name)
 
@@ -198,7 +198,7 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="templatesbynameput"></a>
+<a id="templatesbynameput"></a>
 # **TemplatesByNamePut**
 > Template TemplatesByNamePut (string name, TemplatePayload templatePayload)
 
@@ -296,7 +296,7 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="templatesget"></a>
+<a id="templatesget"></a>
 # **TemplatesGet**
 > List&lt;Template&gt; TemplatesGet (List<TemplateScope> scopeType, List<TemplateType> templateTypes = null, int? limit = null, int? offset = null)
 
@@ -398,7 +398,7 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="templatespost"></a>
+<a id="templatespost"></a>
 # **TemplatesPost**
 > Template TemplatesPost (TemplatePayload templatePayload)
 
