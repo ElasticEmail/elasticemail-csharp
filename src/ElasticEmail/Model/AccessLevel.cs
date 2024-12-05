@@ -336,7 +336,13 @@ namespace ElasticEmail.Model
         /// Enum ViewAITools for value: ViewAITools
         /// </summary>
         [EnumMember(Value = "ViewAITools")]
-        ViewAITools = 51
+        ViewAITools = 51,
+
+        /// <summary>
+        /// Enum ModifySubscriptionAntiSpam for value: ModifySubscriptionAntiSpam
+        /// </summary>
+        [EnumMember(Value = "ModifySubscriptionAntiSpam")]
+        ModifySubscriptionAntiSpam = 52
     }
 
 }

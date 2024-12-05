@@ -23,15 +23,12 @@ using System.Text;
 using System.Threading;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
-using System.Web;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
 using RestSharp;
 using RestSharp.Serializers;
 using RestSharpMethod = RestSharp.Method;
-using FileIO = System.IO.File;
 using Polly;
-using ElasticEmail.Model;
 
 namespace ElasticEmail.Client
 {
@@ -72,10 +69,10 @@ namespace ElasticEmail.Client
         /// <returns>A JSON string.</returns>
         public string Serialize(object obj)
         {
-            if (obj != null && obj is AbstractOpenAPISchema)
+            if (obj != null && obj is ElasticEmail.Model.AbstractOpenAPISchema)
             {
                 // the object to be serialized is an oneOf/anyOf schema
-                return ((AbstractOpenAPISchema)obj).ToJson();
+                return ((ElasticEmail.Model.AbstractOpenAPISchema)obj).ToJson();
             }
             else
             {
@@ -120,7 +117,7 @@ namespace ElasticEmail.Client
                         if (match.Success)
                         {
                             string fileName = filePath + ClientUtils.SanitizeFilename(match.Groups[1].Value.Replace("\"", "").Replace("'", ""));
-                            FileIO.WriteAllBytes(fileName, bytes);
+                            File.WriteAllBytes(fileName, bytes);
                             return new FileStream(fileName, FileMode.Open);
                         }
                     }
@@ -131,7 +128,7 @@ namespace ElasticEmail.Client
 
             if (type.Name.StartsWith("System.Nullable`1[[System.DateTime")) // return a datetime object
             {
-                return DateTime.Parse(response.Content, null, DateTimeStyles.RoundtripKind);
+                return DateTime.Parse(response.Content, null, System.Globalization.DateTimeStyles.RoundtripKind);
             }
 
             if (type == typeof(string) || type.Name.StartsWith("System.Nullable")) // return primitive type
@@ -153,13 +150,13 @@ namespace ElasticEmail.Client
         public ISerializer Serializer => this;
         public IDeserializer Deserializer => this;
 
-        public string[] AcceptedContentTypes => ContentType.JsonAccept;
+        public string[] AcceptedContentTypes => RestSharp.ContentType.JsonAccept;
 
         public SupportsContentType SupportsContentType => contentType =>
             contentType.Value.EndsWith("json", StringComparison.InvariantCultureIgnoreCase) ||
             contentType.Value.EndsWith("javascript", StringComparison.InvariantCultureIgnoreCase);
 
-        public ContentType ContentType { get; set; } = ContentType.Json;
+        public ContentType ContentType { get; set; } = RestSharp.ContentType.Json;
 
         public DataFormat DataFormat => DataFormat.Json;
     }
@@ -206,7 +203,7 @@ namespace ElasticEmail.Client
         /// </summary>
         public ApiClient()
         {
-            _baseUrl = GlobalConfiguration.Instance.BasePath;
+            _baseUrl = ElasticEmail.Client.GlobalConfiguration.Instance.BasePath;
         }
 
         /// <summary>
@@ -263,14 +260,14 @@ namespace ElasticEmail.Client
 
         /// <summary>
         /// Provides all logic for constructing a new RestSharp <see cref="RestRequest"/>.
-        /// At this point, all information for querying the service is known. 
-        /// Here, it is simply mapped into the RestSharp request.
+        /// At this point, all information for querying the service is known. Here, it is simply
+        /// mapped into the RestSharp request.
         /// </summary>
         /// <param name="method">The http verb.</param>
         /// <param name="path">The target path (or resource).</param>
         /// <param name="options">The additional request options.</param>
-        /// <param name="configuration">A per-request configuration object.
-        /// It is assumed that any merge with GlobalConfiguration has been done before calling this method.</param>
+        /// <param name="configuration">A per-request configuration object. It is assumed that any merge with
+        /// GlobalConfiguration has been done before calling this method.</param>
         /// <returns>[private] A new RestRequest instance.</returns>
         /// <exception cref="ArgumentNullException"></exception>
         private RestRequest NewRequest(
@@ -378,7 +375,7 @@ namespace ElasticEmail.Client
                         var bytes = ClientUtils.ReadAsBytes(file);
                         var fileStream = file as FileStream;
                         if (fileStream != null)
-                            request.AddFile(fileParam.Key, bytes, Path.GetFileName(fileStream.Name));
+                            request.AddFile(fileParam.Key, bytes, System.IO.Path.GetFileName(fileStream.Name));
                         else
                             request.AddFile(fileParam.Key, bytes, "no_file_name_provided");
                     }
@@ -388,13 +385,6 @@ namespace ElasticEmail.Client
             return request;
         }
 
-        /// <summary>
-        /// Transforms a RestResponse instance into a new ApiResponse instance.
-        /// At this point, we have a concrete http response from the service.
-        /// Here, it is simply mapped into the [public] ApiResponse object.
-        /// </summary>
-        /// <param name="response">The RestSharp response object</param>
-        /// <returns>A new ApiResponse instance.</returns>
         private ApiResponse<T> ToApiResponse<T>(RestResponse<T> response)
         {
             T result = response.Data;
@@ -439,45 +429,57 @@ namespace ElasticEmail.Client
             return transformed;
         }
 
-        /// <summary>
-        /// Executes the HTTP request for the current service.
-        /// Based on functions received it can be async or sync.
-        /// </summary>
-        /// <param name="getResponse">Local function that executes http request and returns http response.</param>
-        /// <param name="setOptions">Local function to specify options for the service.</param>        
-        /// <param name="request">The RestSharp request object</param>
-        /// <param name="options">The RestSharp options object</param>
-        /// <param name="configuration">A per-request configuration object.
-        /// It is assumed that any merge with GlobalConfiguration has been done before calling this method.</param>
-        /// <returns>A new ApiResponse instance.</returns>
-        private ApiResponse<T> ExecClient<T>(Func<RestClient, RestResponse<T>> getResponse, Action<RestClientOptions> setOptions, RestRequest request, RequestOptions options, IReadableConfiguration configuration)
+        private ApiResponse<T> Exec<T>(RestRequest request, RequestOptions options, IReadableConfiguration configuration)
         {
             var baseUrl = configuration.GetOperationServerUrl(options.Operation, options.OperationIndex) ?? _baseUrl;
+
+            var cookies = new CookieContainer();
+
+            if (options.Cookies != null && options.Cookies.Count > 0)
+            {
+                foreach (var cookie in options.Cookies)
+                {
+                    cookies.Add(new Cookie(cookie.Name, cookie.Value));
+                }
+            }
 
             var clientOptions = new RestClientOptions(baseUrl)
             {
                 ClientCertificates = configuration.ClientCertificates,
+                CookieContainer = cookies,
                 MaxTimeout = configuration.Timeout,
                 Proxy = configuration.Proxy,
                 UserAgent = configuration.UserAgent,
                 UseDefaultCredentials = configuration.UseDefaultCredentials,
                 RemoteCertificateValidationCallback = configuration.RemoteCertificateValidationCallback
             };
-            setOptions(clientOptions);
-            
+
             using (RestClient client = new RestClient(clientOptions,
                 configureSerialization: serializerConfig => serializerConfig.UseSerializer(() => new CustomJsonCodec(SerializerSettings, configuration))))
             {
                 InterceptRequest(request);
 
-                RestResponse<T> response = getResponse(client);
+                RestResponse<T> response;
+                if (RetryConfiguration.RetryPolicy != null)
+                {
+                    var policy = RetryConfiguration.RetryPolicy;
+                    var policyResult = policy.ExecuteAndCapture(() => client.Execute(request));
+                    response = (policyResult.Outcome == OutcomeType.Successful) ? client.Deserialize<T>(policyResult.Result) : new RestResponse<T>(request)
+                    {
+                        ErrorException = policyResult.FinalException
+                    };
+                }
+                else
+                {
+                    response = client.Execute<T>(request);
+                }
 
                 // if the response type is oneOf/anyOf, call FromJSON to deserialize the data
-                if (typeof(AbstractOpenAPISchema).IsAssignableFrom(typeof(T)))
+                if (typeof(ElasticEmail.Model.AbstractOpenAPISchema).IsAssignableFrom(typeof(T)))
                 {
                     try
                     {
-                        response.Data = (T)typeof(T).GetMethod("FromJson").Invoke(null, new object[] { response.Content });
+                        response.Data = (T) typeof(T).GetMethod("FromJson").Invoke(null, new object[] { response.Content });
                     }
                     catch (Exception ex)
                     {
@@ -535,80 +537,90 @@ namespace ElasticEmail.Client
             }
         }
 
-        private RestResponse<T> DeserializeRestResponseFromPolicy<T>(RestClient client, RestRequest request, PolicyResult<RestResponse> policyResult)
+        private async Task<ApiResponse<T>> ExecAsync<T>(RestRequest request, RequestOptions options, IReadableConfiguration configuration, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            if (policyResult.Outcome == OutcomeType.Successful) 
-            {
-                return client.Deserialize<T>(policyResult.Result);
-            }
-            else
-            {
-                return new RestResponse<T>(request)
-                {
-                    ErrorException = policyResult.FinalException
-                };
-            }
-        }
-                
-        private ApiResponse<T> Exec<T>(RestRequest request, RequestOptions options, IReadableConfiguration configuration)
-        {
-            Action<RestClientOptions> setOptions = (clientOptions) =>
-            {
-                var cookies = new CookieContainer();
+            var baseUrl = configuration.GetOperationServerUrl(options.Operation, options.OperationIndex) ?? _baseUrl;
 
-                if (options.Cookies != null && options.Cookies.Count > 0)
-                {
-                    foreach (var cookie in options.Cookies)
-                    {
-                        cookies.Add(new Cookie(cookie.Name, cookie.Value));
-                    }
-                }
-                clientOptions.CookieContainer = cookies;
+            var clientOptions = new RestClientOptions(baseUrl)
+            {
+                ClientCertificates = configuration.ClientCertificates,
+                MaxTimeout = configuration.Timeout,
+                Proxy = configuration.Proxy,
+                UserAgent = configuration.UserAgent,
+                UseDefaultCredentials = configuration.UseDefaultCredentials,
+                RemoteCertificateValidationCallback = configuration.RemoteCertificateValidationCallback
             };
 
-            Func<RestClient, RestResponse<T>> getResponse = (client) =>
+            using (RestClient client = new RestClient(clientOptions,
+                configureSerialization: serializerConfig => serializerConfig.UseSerializer(() => new CustomJsonCodec(SerializerSettings, configuration))))
             {
-                if (RetryConfiguration.RetryPolicy != null)
+                InterceptRequest(request);
+
+                RestResponse<T> response;
+                if (RetryConfiguration.AsyncRetryPolicy != null)
                 {
-                    var policy = RetryConfiguration.RetryPolicy;
-                    var policyResult = policy.ExecuteAndCapture(() => client.Execute(request));
-                    return DeserializeRestResponseFromPolicy<T>(client, request, policyResult);
+                    var policy = RetryConfiguration.AsyncRetryPolicy;
+                    var policyResult = await policy.ExecuteAndCaptureAsync((ct) => client.ExecuteAsync(request, ct), cancellationToken).ConfigureAwait(false);
+                    response = (policyResult.Outcome == OutcomeType.Successful) ? client.Deserialize<T>(policyResult.Result) : new RestResponse<T>(request)
+                    {
+                        ErrorException = policyResult.FinalException
+                    };
                 }
                 else
                 {
-                    return client.Execute<T>(request);
+                    response = await client.ExecuteAsync<T>(request, cancellationToken).ConfigureAwait(false);
                 }
-            };
 
-            return ExecClient(getResponse, setOptions, request, options, configuration);
-        }
-
-        private Task<ApiResponse<T>> ExecAsync<T>(RestRequest request, RequestOptions options, IReadableConfiguration configuration, CancellationToken cancellationToken = default(CancellationToken))
-        {
-            Action<RestClientOptions> setOptions = (clientOptions) =>
-            {
-                //no extra options
-            };
-
-            Func<RestClient, RestResponse<T>> getResponse = (client) =>
-            {
-                Func<Task<RestResponse<T>>> action = async () =>
+                // if the response type is oneOf/anyOf, call FromJSON to deserialize the data
+                if (typeof(ElasticEmail.Model.AbstractOpenAPISchema).IsAssignableFrom(typeof(T)))
                 {
-                    if (RetryConfiguration.AsyncRetryPolicy != null)
-                    {
-                        var policy = RetryConfiguration.AsyncRetryPolicy;
-                        var policyResult = await policy.ExecuteAndCaptureAsync((ct) => client.ExecuteAsync(request, ct), cancellationToken).ConfigureAwait(false);
-                        return DeserializeRestResponseFromPolicy<T>(client, request, policyResult);
-                    }
-                    else
-                    {
-                        return await client.ExecuteAsync<T>(request, cancellationToken).ConfigureAwait(false);
-                    }
-                };
-                return action().Result;
-            };
+                    response.Data = (T) typeof(T).GetMethod("FromJson").Invoke(null, new object[] { response.Content });
+                }
+                else if (typeof(T).Name == "Stream") // for binary response
+                {
+                    response.Data = (T)(object)new MemoryStream(response.RawBytes);
+                }
+                else if (typeof(T).Name == "Byte[]") // for byte response
+                {
+                    response.Data = (T)(object)response.RawBytes;
+                }
 
-            return Task.FromResult<ApiResponse<T>>(ExecClient(getResponse, setOptions, request, options, configuration));
+                InterceptResponse(request, response);
+
+                var result = ToApiResponse(response);
+                if (response.ErrorMessage != null)
+                {
+                    result.ErrorText = response.ErrorMessage;
+                }
+
+                if (response.Cookies != null && response.Cookies.Count > 0)
+                {
+                    if (result.Cookies == null) result.Cookies = new List<Cookie>();
+                    foreach (var restResponseCookie in response.Cookies.Cast<Cookie>())
+                    {
+                        var cookie = new Cookie(
+                            restResponseCookie.Name,
+                            restResponseCookie.Value,
+                            restResponseCookie.Path,
+                            restResponseCookie.Domain
+                        )
+                        {
+                            Comment = restResponseCookie.Comment,
+                            CommentUri = restResponseCookie.CommentUri,
+                            Discard = restResponseCookie.Discard,
+                            Expired = restResponseCookie.Expired,
+                            Expires = restResponseCookie.Expires,
+                            HttpOnly = restResponseCookie.HttpOnly,
+                            Port = restResponseCookie.Port,
+                            Secure = restResponseCookie.Secure,
+                            Version = restResponseCookie.Version
+                        };
+
+                        result.Cookies.Add(cookie);
+                    }
+                }
+                return result;
+            }
         }
 
         #region IAsynchronousClient
@@ -621,7 +633,7 @@ namespace ElasticEmail.Client
         /// GlobalConfiguration has been done before calling this method.</param>
         /// <param name="cancellationToken">Token that enables callers to cancel the request.</param>
         /// <returns>A Task containing ApiResponse</returns>
-        public Task<ApiResponse<T>> GetAsync<T>(string path, RequestOptions options, IReadableConfiguration configuration = null, CancellationToken cancellationToken = default)
+        public Task<ApiResponse<T>> GetAsync<T>(string path, RequestOptions options, IReadableConfiguration configuration = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var config = configuration ?? GlobalConfiguration.Instance;
             return ExecAsync<T>(NewRequest(HttpMethod.Get, path, options, config), options, config, cancellationToken);
@@ -636,7 +648,7 @@ namespace ElasticEmail.Client
         /// GlobalConfiguration has been done before calling this method.</param>
         /// <param name="cancellationToken">Token that enables callers to cancel the request.</param>
         /// <returns>A Task containing ApiResponse</returns>
-        public Task<ApiResponse<T>> PostAsync<T>(string path, RequestOptions options, IReadableConfiguration configuration = null, CancellationToken cancellationToken = default)
+        public Task<ApiResponse<T>> PostAsync<T>(string path, RequestOptions options, IReadableConfiguration configuration = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var config = configuration ?? GlobalConfiguration.Instance;
             return ExecAsync<T>(NewRequest(HttpMethod.Post, path, options, config), options, config, cancellationToken);
@@ -651,7 +663,7 @@ namespace ElasticEmail.Client
         /// GlobalConfiguration has been done before calling this method.</param>
         /// <param name="cancellationToken">Token that enables callers to cancel the request.</param>
         /// <returns>A Task containing ApiResponse</returns>
-        public Task<ApiResponse<T>> PutAsync<T>(string path, RequestOptions options, IReadableConfiguration configuration = null, CancellationToken cancellationToken = default)
+        public Task<ApiResponse<T>> PutAsync<T>(string path, RequestOptions options, IReadableConfiguration configuration = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var config = configuration ?? GlobalConfiguration.Instance;
             return ExecAsync<T>(NewRequest(HttpMethod.Put, path, options, config), options, config, cancellationToken);
@@ -666,7 +678,7 @@ namespace ElasticEmail.Client
         /// GlobalConfiguration has been done before calling this method.</param>
         /// <param name="cancellationToken">Token that enables callers to cancel the request.</param>
         /// <returns>A Task containing ApiResponse</returns>
-        public Task<ApiResponse<T>> DeleteAsync<T>(string path, RequestOptions options, IReadableConfiguration configuration = null, CancellationToken cancellationToken = default)
+        public Task<ApiResponse<T>> DeleteAsync<T>(string path, RequestOptions options, IReadableConfiguration configuration = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var config = configuration ?? GlobalConfiguration.Instance;
             return ExecAsync<T>(NewRequest(HttpMethod.Delete, path, options, config), options, config, cancellationToken);
@@ -681,7 +693,7 @@ namespace ElasticEmail.Client
         /// GlobalConfiguration has been done before calling this method.</param>
         /// <param name="cancellationToken">Token that enables callers to cancel the request.</param>
         /// <returns>A Task containing ApiResponse</returns>
-        public Task<ApiResponse<T>> HeadAsync<T>(string path, RequestOptions options, IReadableConfiguration configuration = null, CancellationToken cancellationToken = default)
+        public Task<ApiResponse<T>> HeadAsync<T>(string path, RequestOptions options, IReadableConfiguration configuration = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var config = configuration ?? GlobalConfiguration.Instance;
             return ExecAsync<T>(NewRequest(HttpMethod.Head, path, options, config), options, config, cancellationToken);
@@ -696,7 +708,7 @@ namespace ElasticEmail.Client
         /// GlobalConfiguration has been done before calling this method.</param>
         /// <param name="cancellationToken">Token that enables callers to cancel the request.</param>
         /// <returns>A Task containing ApiResponse</returns>
-        public Task<ApiResponse<T>> OptionsAsync<T>(string path, RequestOptions options, IReadableConfiguration configuration = null, CancellationToken cancellationToken = default)
+        public Task<ApiResponse<T>> OptionsAsync<T>(string path, RequestOptions options, IReadableConfiguration configuration = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var config = configuration ?? GlobalConfiguration.Instance;
             return ExecAsync<T>(NewRequest(HttpMethod.Options, path, options, config), options, config, cancellationToken);
@@ -711,7 +723,7 @@ namespace ElasticEmail.Client
         /// GlobalConfiguration has been done before calling this method.</param>
         /// <param name="cancellationToken">Token that enables callers to cancel the request.</param>
         /// <returns>A Task containing ApiResponse</returns>
-        public Task<ApiResponse<T>> PatchAsync<T>(string path, RequestOptions options, IReadableConfiguration configuration = null, CancellationToken cancellationToken = default)
+        public Task<ApiResponse<T>> PatchAsync<T>(string path, RequestOptions options, IReadableConfiguration configuration = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var config = configuration ?? GlobalConfiguration.Instance;
             return ExecAsync<T>(NewRequest(HttpMethod.Patch, path, options, config), options, config, cancellationToken);

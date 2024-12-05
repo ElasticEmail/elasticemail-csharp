@@ -162,5 +162,14 @@ namespace ElasticEmail.Test.Model
         {
             // TODO unit test for the property 'EnvelopeFrom'
         }
+
+        /// <summary>
+        /// Test the property 'ErrorCategory'
+        /// </summary>
+        [Fact]
+        public void ErrorCategoryTest()
+        {
+            // TODO unit test for the property 'ErrorCategory'
+        }
     }
 }

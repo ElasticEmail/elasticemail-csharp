@@ -79,6 +79,17 @@ namespace ElasticEmail.Test.Api
         }
 
         /// <summary>
+        /// Test CampaignsByNamePausePut
+        /// </summary>
+        [Fact]
+        public void CampaignsByNamePausePutTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //string name = null;
+            //instance.CampaignsByNamePausePut(name);
+        }
+
+        /// <summary>
         /// Test CampaignsByNamePut
         /// </summary>
         [Fact]

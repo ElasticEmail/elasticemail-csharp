@@ -27,6 +27,8 @@ tags:
   name: Campaigns
 - description: Methods used to manage your Contacts.
   name: Contacts
+- description: Domain Actions
+  name: Domains
 - description: Send your emails and see their statuses
   name: Emails
 - description: Methods to check logs of your campaigns
@@ -202,6 +204,28 @@ paths:
                 $ref: '#/components/schemas/Campaign'
           description: OK
       summary: Update Campaign
+      tags:
+      - Campaigns
+  /campaigns/{name}/pause:
+    put:
+      description: "Pauses the specific campaign, cancelling emails that are waiting\
+        \ to be sent. Required Access Level: ModifyCampaigns"
+      operationId: campaignsByNamePausePut
+      parameters:
+      - description: Name of Campaign to pause
+        explode: false
+        in: path
+        name: name
+        required: true
+        schema:
+          description: string
+          format: string
+          type: string
+        style: simple
+      responses:
+        "200":
+          description: OK
+      summary: Pause Campaign
       tags:
       - Campaigns
   /contacts:
@@ -523,6 +547,214 @@ paths:
       summary: Upload Contacts
       tags:
       - Contacts
+  /domains:
+    get:
+      description: "Returns a list of all domains configured for this Account. Required\
+        \ Access Level: ViewSettings"
+      operationId: domainsGet
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/DomainDetail'
+                type: array
+          description: OK
+      summary: Load Domains
+      tags:
+      - Domains
+    post:
+      description: "Add new domain to Account. Required Access Level: ModifySettings"
+      operationId: domainsPost
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DomainPayload'
+        description: Domain to add
+        required: true
+      responses:
+        "201":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DomainDetail'
+          description: Created
+      summary: Add Domain
+      tags:
+      - Domains
+  /domains/{domain}:
+    delete:
+      description: "Deletes configured domain from Account. Required Access Level:\
+        \ ModifySettings"
+      operationId: domainsByDomainDelete
+      parameters:
+      - description: Name of the given domain
+        explode: false
+        in: path
+        name: domain
+        required: true
+        schema:
+          description: string
+          format: string
+          type: string
+        style: simple
+      responses:
+        "200":
+          description: OK
+      summary: Delete Domain
+      tags:
+      - Domains
+    get:
+      description: "Retrieve a domain configured for this Account. Required Access\
+        \ Level: ViewSettings"
+      operationId: domainsByDomainGet
+      parameters:
+      - description: Name of the given domain
+        explode: false
+        in: path
+        name: domain
+        required: true
+        schema:
+          description: string
+          format: string
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DomainData'
+          description: OK
+      summary: Load Domain
+      tags:
+      - Domains
+    put:
+      description: "Updates the specified domain. Required Access Level: ModifySettings"
+      operationId: domainsByDomainPut
+      parameters:
+      - description: Name of the given domain
+        explode: false
+        in: path
+        name: domain
+        required: true
+        schema:
+          description: string
+          format: string
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DomainUpdatePayload'
+        description: Updated Domain resource
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DomainDetail'
+          description: OK
+      summary: Update Domain
+      tags:
+      - Domains
+  /domains/{domain}/restricted:
+    get:
+      description: "Checking if domain is from free provider, or restricted. Required\
+        \ Access Level: ViewSettings"
+      operationId: domainsByDomainRestrictedGet
+      parameters:
+      - description: Name of the given domain
+        explode: false
+        in: path
+        name: domain
+        required: true
+        schema:
+          description: string
+          format: string
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                format: boolean
+                type: boolean
+          description: OK
+      summary: Check for domain restriction
+      tags:
+      - Domains
+  /domains/{domain}/verification:
+    put:
+      description: "Verifies that required DNS records exist for specified domain.\
+        \ Required Access Level: ModifySettings"
+      operationId: domainsByDomainVerificationPut
+      parameters:
+      - description: Name of the given domain
+        explode: false
+        in: path
+        name: domain
+        required: true
+        schema:
+          description: string
+          format: string
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              enum:
+              - None
+              - Delete
+              - Http
+              - ExternalHttps
+              - InternalCertHttps
+              - LetsEncryptCert
+              type: string
+        description: Tracking type used in the Tracking verification
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DomainData'
+          description: OK
+      summary: Verify Domain
+      tags:
+      - Domains
+  /domains/{email}/default:
+    patch:
+      description: "Sets a verified email address as default sender. Required Access\
+        \ Level: ModifySettings"
+      operationId: domainsByEmailDefaultPatch
+      parameters:
+      - description: "Default email sender, example: mail@yourdomain.com"
+        explode: false
+        in: path
+        name: email
+        required: true
+        schema:
+          description: string
+          format: string
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DomainDetail'
+          description: OK
+      summary: Set Default
+      tags:
+      - Domains
   /emails:
     post:
       description: "Send bulk merge email. Required Access Level: SendHttp"
@@ -708,7 +940,14 @@ paths:
       - Emails
   /emails/mergefile:
     post:
-      description: "Send bulk merge email. Required Access Level: SendHttp"
+      description: "Send to a list of contacts submitted in a CSV data file. The first\
+        \ column in the CSV must be the email address and the CSV must contain a header\
+        \ row. Additional fields can be included with a named header row and can be\
+        \ merged with the template using {merge} tags in the content.\n          \
+        \  \n             Example CSV:\n            \n             email, firstname,\
+        \ lastname\n             test1@gmail.com, michael, smith\n             test2@gmail.com,\
+        \ janet, smith\n            \n             Merge file must not be empty. Required\
+        \ Access Level: SendHttp"
       operationId: emailsMergefilePost
       requestBody:
         content:
@@ -3367,6 +3606,7 @@ components:
       - ViewDragDropEditor
       - ViewTemplateEditor
       - ViewAITools
+      - ModifySubscriptionAntiSpam
       type: string
     AccountStatusEnum:
       default: Disabled
@@ -3386,8 +3626,8 @@ components:
         LastUse: 2000-01-23T04:56:07.000+00:00
         Expires: 2000-01-23T04:56:07.000+00:00
         AccessLevel:
-        - None
-        - None
+        - null
+        - null
         Name: Name
       properties:
         AccessLevel:
@@ -3431,8 +3671,8 @@ components:
         - RestrictAccessToIPRange
         Expires: 2000-01-23T04:56:07.000+00:00
         AccessLevel:
-        - None
-        - None
+        - null
+        - null
         Name: Name
       properties:
         Name:
@@ -3477,7 +3717,7 @@ components:
       description: "Email body part with user-provided MIME type (text/html, text/plain,\
         \ etc)"
       example:
-        ContentType: HTML
+        ContentType: null
         Content: Content
         Charset: Charset
       properties:
@@ -3497,16 +3737,16 @@ components:
       type: object
     Campaign:
       example:
-        Status: Deleted
+        Status: null
         Options:
           TrackClicks: true
           TriggerCount: 6
           ScheduleFor: 2000-01-23T04:56:07.000+00:00
           TriggerFrequency: 0.8008281904610115
-          DeliveryOptimization: None
+          DeliveryOptimization: null
           TrackOpens: true
           SplitOptions:
-            OptimizeFor: Opens
+            OptimizeFor: null
             OptimizePeriodMinutes: 30
         Recipients:
           SegmentNames:
@@ -3569,10 +3809,10 @@ components:
         TriggerCount: 6
         ScheduleFor: 2000-01-23T04:56:07.000+00:00
         TriggerFrequency: 0.8008281904610115
-        DeliveryOptimization: None
+        DeliveryOptimization: null
         TrackOpens: true
         SplitOptions:
-          OptimizeFor: Opens
+          OptimizeFor: null
           OptimizePeriodMinutes: 30
       properties:
         DeliveryOptimization:
@@ -3699,6 +3939,14 @@ components:
       required:
       - From
       type: object
+    CertificateValidationStatus:
+      default: ErrorOccured
+      enum:
+      - ErrorOccured
+      - CertNotSet
+      - Valid
+      - NotValid
+      type: string
     ChannelLogStatusSummary:
       description: Summary of channel log status
       example:
@@ -3796,7 +4044,7 @@ components:
       type: string
     ConsentData:
       example:
-        ConsentTracking: Unknown
+        ConsentTracking: null
         ConsentDate: 2000-01-23T04:56:07.000+00:00
         ConsentIP: 192.168.0.1
       properties:
@@ -3825,14 +4073,14 @@ components:
     Contact:
       description: Contact
       example:
-        Status: Transactional
+        Status: null
         CustomFields:
           city: New York
           age: "34"
         Email: mail@example.com
         StatusChangeDate: 2000-01-23T04:56:07.000+00:00
         Consent:
-          ConsentTracking: Unknown
+          ConsentTracking: null
           ConsentDate: 2000-01-23T04:56:07.000+00:00
           ConsentIP: 192.168.0.1
         FirstName: Fred
@@ -3851,7 +4099,7 @@ components:
           TotalOpened: 1000
         LastName: Flintstone
         DateAdded: 2000-01-23T04:56:07.000+00:00
-        Source: DeliveryApi
+        Source: null
       properties:
         Email:
           description: Proper email address.
@@ -3975,13 +4223,13 @@ components:
       type: object
     ContactPayload:
       example:
-        Status: Transactional
+        Status: null
         CustomFields:
           city: New York
           age: "34"
         Email: mail@example.com
         Consent:
-          ConsentTracking: Unknown
+          ConsentTracking: null
           ConsentDate: 2000-01-23T04:56:07.000+00:00
           ConsentIP: 192.168.0.1
         FirstName: Fred
@@ -4077,6 +4325,221 @@ components:
       - ToEngagedFirst
       - ByOpenTime
       type: string
+    DomainData:
+      description: "Domain data, with information about domain records."
+      example:
+        ValidationLog: ValidationLog
+        Ownership: null
+        VERP: true
+        IsCustomBouncesDomainDefault: true
+        CertificateStatus: null
+        Spf: true
+        Dkim: true
+        MX: true
+        DMARC: true
+        IsMarkedForDeletion: true
+        CustomBouncesDomain: CustomBouncesDomain
+        DefaultDomain: true
+        IsRewriteDomainValid: true
+        TrackingStatus: null
+        Type: null
+        CertificateValidationError: CertificateValidationError
+        Domain: example.com
+        Verify: true
+        TrackingTypeUserRequest: null
+      properties:
+        ValidationLog:
+          description: Domain validation results - when domain has been running through
+            validation process
+          format: string
+          type: string
+        Domain:
+          description: Name of selected domain.
+          example: example.com
+          format: string
+          type: string
+        DefaultDomain:
+          description: "True, if domain is used as default. Otherwise, false,"
+          format: boolean
+          type: boolean
+        Spf:
+          description: "True, if SPF record is verified"
+          example: true
+          format: boolean
+          type: boolean
+        Dkim:
+          description: "True, if DKIM record is verified"
+          example: true
+          format: boolean
+          type: boolean
+        MX:
+          description: "True, if MX record is verified"
+          example: true
+          format: boolean
+          type: boolean
+        DMARC:
+          format: boolean
+          type: boolean
+        IsRewriteDomainValid:
+          description: "True, if tracking CNAME record is verified"
+          example: true
+          format: boolean
+          type: boolean
+        Verify:
+          description: "True, if DKIM, SPF, or tracking are still to be verified"
+          example: true
+          format: boolean
+          type: boolean
+        Type:
+          $ref: '#/components/schemas/TrackingType'
+        TrackingStatus:
+          $ref: '#/components/schemas/TrackingValidationStatus'
+        CertificateStatus:
+          $ref: '#/components/schemas/CertificateValidationStatus'
+        CertificateValidationError:
+          format: string
+          type: string
+        TrackingTypeUserRequest:
+          $ref: '#/components/schemas/TrackingType'
+        VERP:
+          format: boolean
+          type: boolean
+        CustomBouncesDomain:
+          format: string
+          type: string
+        IsCustomBouncesDomainDefault:
+          format: boolean
+          type: boolean
+        IsMarkedForDeletion:
+          format: boolean
+          type: boolean
+        Ownership:
+          $ref: '#/components/schemas/DomainOwner'
+      type: object
+    DomainDetail:
+      description: "Domain data, with information about domain records."
+      example:
+        Ownership: null
+        VERP: true
+        IsCustomBouncesDomainDefault: true
+        CertificateStatus: null
+        Spf: true
+        Dkim: true
+        MX: true
+        DMARC: true
+        IsMarkedForDeletion: true
+        CustomBouncesDomain: CustomBouncesDomain
+        DefaultDomain: true
+        IsRewriteDomainValid: true
+        TrackingStatus: null
+        Type: null
+        CertificateValidationError: CertificateValidationError
+        Domain: example.com
+        Verify: true
+        TrackingTypeUserRequest: null
+      properties:
+        Domain:
+          description: Name of selected domain.
+          example: example.com
+          format: string
+          type: string
+        DefaultDomain:
+          description: "True, if domain is used as default. Otherwise, false,"
+          format: boolean
+          type: boolean
+        Spf:
+          description: "True, if SPF record is verified"
+          example: true
+          format: boolean
+          type: boolean
+        Dkim:
+          description: "True, if DKIM record is verified"
+          example: true
+          format: boolean
+          type: boolean
+        MX:
+          description: "True, if MX record is verified"
+          example: true
+          format: boolean
+          type: boolean
+        DMARC:
+          format: boolean
+          type: boolean
+        IsRewriteDomainValid:
+          description: "True, if tracking CNAME record is verified"
+          example: true
+          format: boolean
+          type: boolean
+        Verify:
+          description: "True, if DKIM, SPF, or tracking are still to be verified"
+          example: true
+          format: boolean
+          type: boolean
+        Type:
+          $ref: '#/components/schemas/TrackingType'
+        TrackingStatus:
+          $ref: '#/components/schemas/TrackingValidationStatus'
+        CertificateStatus:
+          $ref: '#/components/schemas/CertificateValidationStatus'
+        CertificateValidationError:
+          format: string
+          type: string
+        TrackingTypeUserRequest:
+          $ref: '#/components/schemas/TrackingType'
+        VERP:
+          format: boolean
+          type: boolean
+        CustomBouncesDomain:
+          format: string
+          type: string
+        IsCustomBouncesDomainDefault:
+          format: boolean
+          type: boolean
+        IsMarkedForDeletion:
+          format: boolean
+          type: boolean
+        Ownership:
+          $ref: '#/components/schemas/DomainOwner'
+      type: object
+    DomainOwner:
+      default: Current
+      enum:
+      - Current
+      - Parent
+      type: string
+    DomainPayload:
+      example:
+        SetAsDefault: true
+        Domain: example.com
+      properties:
+        Domain:
+          description: Name of selected domain.
+          example: example.com
+          format: string
+          type: string
+        SetAsDefault:
+          format: boolean
+          type: boolean
+      type: object
+    DomainUpdatePayload:
+      example:
+        VERP: true
+        IsCustomBouncesDomainDefault: true
+        CertificateStatus: null
+        CustomBouncesDomain: CustomBouncesDomain
+      properties:
+        CertificateStatus:
+          $ref: '#/components/schemas/CertificateValidationStatus'
+        VERP:
+          format: boolean
+          type: boolean
+        CustomBouncesDomain:
+          format: string
+          type: string
+        IsCustomBouncesDomainDefault:
+          format: boolean
+          type: boolean
+      type: object
     EmailContent:
       description: Proper e-mail content
       example:
@@ -4094,10 +4557,10 @@ components:
         AttachFiles:
         - preuploaded.jpg
         Body:
-        - ContentType: HTML
+        - ContentType: null
           Content: Content
           Charset: Charset
-        - ContentType: HTML
+        - ContentType: null
           Content: Content
           Charset: Charset
         Attachments:
@@ -4193,18 +4656,19 @@ components:
     EmailData:
       example:
         Status:
-          Status: All
+          Status: null
           DateOpened: 2000-01-23T04:56:07.000+00:00
-          DateSent: 2000-01-23T04:56:07.000+00:00
-          StatusChangeDate: 2000-01-23T04:56:07.000+00:00
-          DateClicked: 2000-01-23T04:56:07.000+00:00
-          EnvelopeFrom: EnvelopeFrom
           StatusName: StatusName
           From: From
-          To: To
-          ErrorMessage: ErrorMessage
           Date: 2000-01-23T04:56:07.000+00:00
           TransactionID: TransactionID
+          DateSent: 2000-01-23T04:56:07.000+00:00
+          StatusChangeDate: 2000-01-23T04:56:07.000+00:00
+          ErrorCategory: null
+          DateClicked: 2000-01-23T04:56:07.000+00:00
+          EnvelopeFrom: EnvelopeFrom
+          To: To
+          ErrorMessage: ErrorMessage
         Preview:
           From: From
           Body: Body
@@ -4407,7 +4871,7 @@ components:
           TrackClicks: true
           ChannelName: Channel01
           PoolName: My Custom Pool
-          Encoding: UserProvided
+          Encoding: null
           TimeOffset: 0
           TrackOpens: true
         Recipients:
@@ -4434,10 +4898,10 @@ components:
           AttachFiles:
           - preuploaded.jpg
           Body:
-          - ContentType: HTML
+          - ContentType: null
             Content: Content
             Charset: Charset
-          - ContentType: HTML
+          - ContentType: null
             Content: Content
             Charset: Charset
           Attachments:
@@ -4544,18 +5008,19 @@ components:
     EmailStatus:
       description: Status information of the specified email
       example:
-        Status: All
+        Status: null
         DateOpened: 2000-01-23T04:56:07.000+00:00
-        DateSent: 2000-01-23T04:56:07.000+00:00
-        StatusChangeDate: 2000-01-23T04:56:07.000+00:00
-        DateClicked: 2000-01-23T04:56:07.000+00:00
-        EnvelopeFrom: EnvelopeFrom
         StatusName: StatusName
         From: From
-        To: To
-        ErrorMessage: ErrorMessage
         Date: 2000-01-23T04:56:07.000+00:00
         TransactionID: TransactionID
+        DateSent: 2000-01-23T04:56:07.000+00:00
+        StatusChangeDate: 2000-01-23T04:56:07.000+00:00
+        ErrorCategory: null
+        DateClicked: 2000-01-23T04:56:07.000+00:00
+        EnvelopeFrom: EnvelopeFrom
+        To: To
+        ErrorMessage: ErrorMessage
       properties:
         From:
           description: Email address this email was sent from.
@@ -4606,6 +5071,8 @@ components:
           description: Envelope from address
           format: string
           type: string
+        ErrorCategory:
+          $ref: '#/components/schemas/MessageCategoryEnum'
       type: object
     EmailTransactionalMessageData:
       description: Email data
@@ -4614,7 +5081,7 @@ components:
           TrackClicks: true
           ChannelName: Channel01
           PoolName: My Custom Pool
-          Encoding: UserProvided
+          Encoding: null
           TimeOffset: 0
           TrackOpens: true
         Recipients:
@@ -4642,10 +5109,10 @@ components:
           AttachFiles:
           - preuploaded.jpg
           Body:
-          - ContentType: HTML
+          - ContentType: null
             Content: Content
             Charset: Charset
-          - ContentType: HTML
+          - ContentType: null
             Content: Content
             Charset: Charset
           Attachments:
@@ -4678,7 +5145,7 @@ components:
       example:
         Disposable: true
         Role: true
-        PredictedStatus: None
+        PredictedStatus: null
         Account: Account
         SuggestedSpelling: SuggestedSpelling
         Email: Email
@@ -4686,7 +5153,7 @@ components:
         Domain: example.com
         DateAdded: 2000-01-23T04:56:07.000+00:00
         Reason: Reason
-        Result: None
+        Result: null
       properties:
         Account:
           description: Local part of an email
@@ -4897,8 +5364,8 @@ components:
       type: object
     InboundPayload:
       example:
-        FilterType: EmailAddress
-        ActionType: ForwardToEmail
+        FilterType: null
+        ActionType: null
         HttpAddress: HttpAddress
         Filter: Filter
         EmailAddress: EmailAddress
@@ -4933,8 +5400,8 @@ components:
     InboundRoute:
       example:
         PublicId: PublicId
-        FilterType: EmailAddress
-        ActionType: ForwardToEmail
+        FilterType: null
+        ActionType: null
         Filter: Filter
         SortOrder: 0
         ActionParameter: ActionParameter
@@ -5155,7 +5622,7 @@ components:
           TrackClicks: true
           ChannelName: Channel01
           PoolName: My Custom Pool
-          Encoding: UserProvided
+          Encoding: null
           TimeOffset: 0
           TrackOpens: true
         MergeFile:
@@ -5178,10 +5645,10 @@ components:
           AttachFiles:
           - preuploaded.jpg
           Body:
-          - ContentType: HTML
+          - ContentType: null
             Content: Content
             Charset: Charset
-          - ContentType: HTML
+          - ContentType: null
             Content: Content
             Charset: Charset
           Attachments:
@@ -5259,6 +5726,27 @@ components:
       - ConnectionTerminated
       - NotDelivered
       type: string
+    MessageCategoryEnum:
+      default: Unknown
+      enum:
+      - Unknown
+      - Ignore
+      - Spam
+      - BlackListed
+      - NoMailbox
+      - GreyListed
+      - Throttled
+      - Timeout
+      - ConnectionProblem
+      - SPFProblem
+      - AccountProblem
+      - DNSProblem
+      - NotDeliveredCancelled
+      - CodeError
+      - ManualCancel
+      - ConnectionTerminated
+      - NotDelivered
+      type: string
     NewApiKey:
       description: Newly generated ApiKey with Token
       example:
@@ -5270,8 +5758,8 @@ components:
         LastUse: 2000-01-23T04:56:07.000+00:00
         Expires: 2000-01-23T04:56:07.000+00:00
         AccessLevel:
-        - None
-        - None
+        - null
+        - null
         Name: Name
       properties:
         Token:
@@ -5320,7 +5808,7 @@ components:
         Token: Token
         LastUse: 2000-01-23T04:56:07.000+00:00
         Expires: 2000-01-23T04:56:07.000+00:00
-        AccessLevel: None
+        AccessLevel: null
         Name: Name
       properties:
         Token:
@@ -5362,7 +5850,7 @@ components:
         TrackClicks: true
         ChannelName: Channel01
         PoolName: My Custom Pool
-        Encoding: UserProvided
+        Encoding: null
         TimeOffset: 0
         TrackOpens: true
       properties:
@@ -5406,14 +5894,14 @@ components:
         EventDate: 2000-01-23T04:56:07.000+00:00
         NextTryOn: 2000-01-23T04:56:07.000+00:00
         Message: Lorem ipsum
-        EventType: Submission
+        EventType: null
         MsgID: ABCDE_9RPhSWiaJq_ab1g1
         Subject: Hello!
         TransactionID: TransactionID
         ChannelName: Channel01
         PoolName: PoolName
         To: 2001-01-01T01:01:01
-        MessageCategory: Unknown
+        MessageCategory: null
         IPAddress: IPAddress
         FromEmail: sender@yourdomain.com
       properties:
@@ -5516,7 +6004,7 @@ components:
         DateCreated: 2000-01-23T04:56:07.000+00:00
         LastUse: 2000-01-23T04:56:07.000+00:00
         Expires: 2000-01-23T04:56:07.000+00:00
-        AccessLevel: None
+        AccessLevel: null
         Name: Name
       properties:
         AccessLevel:
@@ -5611,7 +6099,7 @@ components:
     SplitOptions:
       description: Optional A/X split campaign options
       example:
-        OptimizeFor: Opens
+        OptimizeFor: null
         OptimizePeriodMinutes: 30
       properties:
         OptimizeFor:
@@ -5746,7 +6234,7 @@ components:
       description: Detailed information about SubAccount.
       example:
         EmailCredits: 1000
-        Status: Disabled
+        Status: null
         Email: mail@example.com
         PublicAccountID: EB3EBB7A-C20D-4D39-8F2F-5E6842F58E6F
         ContactsCount: 6
@@ -5905,14 +6393,14 @@ components:
     Template:
       description: Template info
       example:
-        TemplateScope: Personal
-        TemplateType: RawHTML
+        TemplateScope: null
+        TemplateType: null
         DateAdded: 2000-01-23T04:56:07.000+00:00
         Body:
-        - ContentType: HTML
+        - ContentType: null
           Content: Content
           Charset: Charset
-        - ContentType: HTML
+        - ContentType: null
           Content: Content
           Charset: Charset
         Subject: Hello!
@@ -5944,12 +6432,12 @@ components:
     TemplatePayload:
       description: New template object
       example:
-        TemplateScope: Personal
+        TemplateScope: null
         Body:
-        - ContentType: HTML
+        - ContentType: null
           Content: Content
           Charset: Charset
-        - ContentType: HTML
+        - ContentType: null
           Content: Content
           Charset: Charset
         Subject: Hello!
@@ -5989,6 +6477,28 @@ components:
       - LandingPageEditor
       - TemplateEditor
       - FormTemplate
+      - LandingPageTemplate
+      type: string
+    TrackingType:
+      default: None
+      description: HTTP or HTTPS Protocal used for link tracking.
+      enum:
+      - None
+      - Delete
+      - Http
+      - ExternalHttps
+      - InternalCertHttps
+      - LetsEncryptCert
+      type: string
+    TrackingValidationStatus:
+      default: Validated
+      description: Status of ValidDomain to determine how often tracking validation
+        should be performed.
+      enum:
+      - Validated
+      - NotValidated
+      - Invalid
+      - Broken
       type: string
     TransactionalRecipient:
       description: List of transactional recipients
@@ -6052,7 +6562,7 @@ components:
     VerificationFileResult:
       description: Simple verification file result info
       example:
-        VerificationStatus: Processing
+        VerificationStatus: null
         FileUploadResult:
           EmailsCount: 0
           DuplicatedEmailsCount: 6
@@ -6085,14 +6595,14 @@ components:
     VerificationFileResultDetails:
       description: Detailed verification file result info
       example:
-        VerificationStatus: Processing
+        VerificationStatus: null
         FileUploadResult:
           EmailsCount: 0
           DuplicatedEmailsCount: 6
         VerificationResult:
         - Disposable: true
           Role: true
-          PredictedStatus: None
+          PredictedStatus: null
           Account: Account
           SuggestedSpelling: SuggestedSpelling
           Email: Email
@@ -6100,10 +6610,10 @@ components:
           Domain: example.com
           DateAdded: 2000-01-23T04:56:07.000+00:00
           Reason: Reason
-          Result: None
+          Result: null
         - Disposable: true
           Role: true
-          PredictedStatus: None
+          PredictedStatus: null
           Account: Account
           SuggestedSpelling: SuggestedSpelling
           Email: Email
@@ -6111,7 +6621,7 @@ components:
           Domain: example.com
           DateAdded: 2000-01-23T04:56:07.000+00:00
           Reason: Reason
-          Result: None
+          Result: null
         VerificationID: VerificationID
         Filename: Filename
         DateAdded: 2000-01-23T04:56:07.000+00:00

@@ -6,6 +6,7 @@ All URIs are relative to *https://api.elasticemail.com/v4*
 |--------|--------------|-------------|
 | [**CampaignsByNameDelete**](CampaignsApi.md#campaignsbynamedelete) | **DELETE** /campaigns/{name} | Delete Campaign |
 | [**CampaignsByNameGet**](CampaignsApi.md#campaignsbynameget) | **GET** /campaigns/{name} | Load Campaign |
+| [**CampaignsByNamePausePut**](CampaignsApi.md#campaignsbynamepauseput) | **PUT** /campaigns/{name}/pause | Pause Campaign |
 | [**CampaignsByNamePut**](CampaignsApi.md#campaignsbynameput) | **PUT** /campaigns/{name} | Update Campaign |
 | [**CampaignsGet**](CampaignsApi.md#campaignsget) | **GET** /campaigns | Load Campaigns |
 | [**CampaignsPost**](CampaignsApi.md#campaignspost) | **POST** /campaigns | Add Campaign |
@@ -189,6 +190,98 @@ catch (ApiException e)
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a id="campaignsbynamepauseput"></a>
+# **CampaignsByNamePausePut**
+> void CampaignsByNamePausePut (string name)
+
+Pause Campaign
+
+Pauses the specific campaign, cancelling emails that are waiting to be sent. Required Access Level: ModifyCampaigns
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using ElasticEmail.Api;
+using ElasticEmail.Client;
+using ElasticEmail.Model;
+
+namespace Example
+{
+    public class CampaignsByNamePausePutExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.elasticemail.com/v4";
+            // Configure API key authorization: apikey
+            config.AddApiKey("X-ElasticEmail-ApiKey", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("X-ElasticEmail-ApiKey", "Bearer");
+
+            var apiInstance = new CampaignsApi(config);
+            var name = "name_example";  // string | Name of Campaign to pause
+
+            try
+            {
+                // Pause Campaign
+                apiInstance.CampaignsByNamePausePut(name);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling CampaignsApi.CampaignsByNamePausePut: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the CampaignsByNamePausePutWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Pause Campaign
+    apiInstance.CampaignsByNamePausePutWithHttpInfo(name);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling CampaignsApi.CampaignsByNamePausePutWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **name** | **string** | Name of Campaign to pause |  |
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[apikey](../README.md#apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
 
 
 ### HTTP response details

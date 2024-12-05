@@ -60,7 +60,13 @@ namespace ElasticEmail.Model
         /// Enum FormTemplate for value: FormTemplate
         /// </summary>
         [EnumMember(Value = "FormTemplate")]
-        FormTemplate = 5
+        FormTemplate = 5,
+
+        /// <summary>
+        /// Enum LandingPageTemplate for value: LandingPageTemplate
+        /// </summary>
+        [EnumMember(Value = "LandingPageTemplate")]
+        LandingPageTemplate = 6
     }
 
 }

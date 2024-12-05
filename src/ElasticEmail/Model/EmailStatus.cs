@@ -38,6 +38,12 @@ namespace ElasticEmail.Model
         /// </summary>
         [DataMember(Name = "Status", EmitDefaultValue = false)]
         public LogJobStatus? Status { get; set; }
+
+        /// <summary>
+        /// Gets or Sets ErrorCategory
+        /// </summary>
+        [DataMember(Name = "ErrorCategory", EmitDefaultValue = false)]
+        public MessageCategoryEnum? ErrorCategory { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="EmailStatus" /> class.
         /// </summary>
@@ -53,7 +59,8 @@ namespace ElasticEmail.Model
         /// <param name="errorMessage">Detailed error or bounced message..</param>
         /// <param name="transactionID">ID number of transaction.</param>
         /// <param name="envelopeFrom">Envelope from address.</param>
-        public EmailStatus(string from = default(string), string to = default(string), DateTime date = default(DateTime), LogJobStatus? status = default(LogJobStatus?), string statusName = default(string), DateTime statusChangeDate = default(DateTime), DateTime dateSent = default(DateTime), DateTime? dateOpened = default(DateTime?), DateTime? dateClicked = default(DateTime?), string errorMessage = default(string), string transactionID = default(string), string envelopeFrom = default(string))
+        /// <param name="errorCategory">errorCategory.</param>
+        public EmailStatus(string from = default(string), string to = default(string), DateTime date = default(DateTime), LogJobStatus? status = default(LogJobStatus?), string statusName = default(string), DateTime statusChangeDate = default(DateTime), DateTime dateSent = default(DateTime), DateTime? dateOpened = default(DateTime?), DateTime? dateClicked = default(DateTime?), string errorMessage = default(string), string transactionID = default(string), string envelopeFrom = default(string), MessageCategoryEnum? errorCategory = default(MessageCategoryEnum?))
         {
             this.From = from;
             this.To = to;
@@ -67,6 +74,7 @@ namespace ElasticEmail.Model
             this.ErrorMessage = errorMessage;
             this.TransactionID = transactionID;
             this.EnvelopeFrom = envelopeFrom;
+            this.ErrorCategory = errorCategory;
         }
 
         /// <summary>
@@ -167,6 +175,7 @@ namespace ElasticEmail.Model
             sb.Append("  ErrorMessage: ").Append(ErrorMessage).Append("\n");
             sb.Append("  TransactionID: ").Append(TransactionID).Append("\n");
             sb.Append("  EnvelopeFrom: ").Append(EnvelopeFrom).Append("\n");
+            sb.Append("  ErrorCategory: ").Append(ErrorCategory).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -185,7 +194,7 @@ namespace ElasticEmail.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             yield break;
         }

@@ -74,6 +74,29 @@ namespace ElasticEmail.Api
         /// <returns>ApiResponse of Campaign</returns>
         ApiResponse<Campaign> CampaignsByNameGetWithHttpInfo(string name, int operationIndex = 0);
         /// <summary>
+        /// Pause Campaign
+        /// </summary>
+        /// <remarks>
+        /// Pauses the specific campaign, cancelling emails that are waiting to be sent. Required Access Level: ModifyCampaigns
+        /// </remarks>
+        /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="name">Name of Campaign to pause</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns></returns>
+        void CampaignsByNamePausePut(string name, int operationIndex = 0);
+
+        /// <summary>
+        /// Pause Campaign
+        /// </summary>
+        /// <remarks>
+        /// Pauses the specific campaign, cancelling emails that are waiting to be sent. Required Access Level: ModifyCampaigns
+        /// </remarks>
+        /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="name">Name of Campaign to pause</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ApiResponse of Object(void)</returns>
+        ApiResponse<Object> CampaignsByNamePausePutWithHttpInfo(string name, int operationIndex = 0);
+        /// <summary>
         /// Update Campaign
         /// </summary>
         /// <remarks>
@@ -207,6 +230,31 @@ namespace ElasticEmail.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Campaign)</returns>
         System.Threading.Tasks.Task<ApiResponse<Campaign>> CampaignsByNameGetWithHttpInfoAsync(string name, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <summary>
+        /// Pause Campaign
+        /// </summary>
+        /// <remarks>
+        /// Pauses the specific campaign, cancelling emails that are waiting to be sent. Required Access Level: ModifyCampaigns
+        /// </remarks>
+        /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="name">Name of Campaign to pause</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of void</returns>
+        System.Threading.Tasks.Task CampaignsByNamePausePutAsync(string name, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+
+        /// <summary>
+        /// Pause Campaign
+        /// </summary>
+        /// <remarks>
+        /// Pauses the specific campaign, cancelling emails that are waiting to be sent. Required Access Level: ModifyCampaigns
+        /// </remarks>
+        /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="name">Name of Campaign to pause</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse</returns>
+        System.Threading.Tasks.Task<ApiResponse<Object>> CampaignsByNamePausePutWithHttpInfoAsync(string name, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Update Campaign
         /// </summary>
@@ -703,6 +751,156 @@ namespace ElasticEmail.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("CampaignsByNameGet", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Pause Campaign Pauses the specific campaign, cancelling emails that are waiting to be sent. Required Access Level: ModifyCampaigns
+        /// </summary>
+        /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="name">Name of Campaign to pause</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns></returns>
+        public void CampaignsByNamePausePut(string name, int operationIndex = 0)
+        {
+            CampaignsByNamePausePutWithHttpInfo(name);
+        }
+
+        /// <summary>
+        /// Pause Campaign Pauses the specific campaign, cancelling emails that are waiting to be sent. Required Access Level: ModifyCampaigns
+        /// </summary>
+        /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="name">Name of Campaign to pause</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ApiResponse of Object(void)</returns>
+        public ElasticEmail.Client.ApiResponse<Object> CampaignsByNamePausePutWithHttpInfo(string name, int operationIndex = 0)
+        {
+            // verify the required parameter 'name' is set
+            if (name == null)
+            {
+                throw new ElasticEmail.Client.ApiException(400, "Missing required parameter 'name' when calling CampaignsApi->CampaignsByNamePausePut");
+            }
+
+            ElasticEmail.Client.RequestOptions localVarRequestOptions = new ElasticEmail.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+            };
+
+            var localVarContentType = ElasticEmail.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = ElasticEmail.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("name", ElasticEmail.Client.ClientUtils.ParameterToString(name)); // path parameter
+
+            localVarRequestOptions.Operation = "CampaignsApi.CampaignsByNamePausePut";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (apikey) required
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-ElasticEmail-ApiKey")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("X-ElasticEmail-ApiKey", this.Configuration.GetApiKeyWithPrefix("X-ElasticEmail-ApiKey"));
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Put<Object>("/campaigns/{name}/pause", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("CampaignsByNamePausePut", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Pause Campaign Pauses the specific campaign, cancelling emails that are waiting to be sent. Required Access Level: ModifyCampaigns
+        /// </summary>
+        /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="name">Name of Campaign to pause</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of void</returns>
+        public async System.Threading.Tasks.Task CampaignsByNamePausePutAsync(string name, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            await CampaignsByNamePausePutWithHttpInfoAsync(name, operationIndex, cancellationToken).ConfigureAwait(false);
+        }
+
+        /// <summary>
+        /// Pause Campaign Pauses the specific campaign, cancelling emails that are waiting to be sent. Required Access Level: ModifyCampaigns
+        /// </summary>
+        /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="name">Name of Campaign to pause</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse</returns>
+        public async System.Threading.Tasks.Task<ElasticEmail.Client.ApiResponse<Object>> CampaignsByNamePausePutWithHttpInfoAsync(string name, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            // verify the required parameter 'name' is set
+            if (name == null)
+            {
+                throw new ElasticEmail.Client.ApiException(400, "Missing required parameter 'name' when calling CampaignsApi->CampaignsByNamePausePut");
+            }
+
+
+            ElasticEmail.Client.RequestOptions localVarRequestOptions = new ElasticEmail.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+            };
+
+            var localVarContentType = ElasticEmail.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = ElasticEmail.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("name", ElasticEmail.Client.ClientUtils.ParameterToString(name)); // path parameter
+
+            localVarRequestOptions.Operation = "CampaignsApi.CampaignsByNamePausePut";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (apikey) required
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-ElasticEmail-ApiKey")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("X-ElasticEmail-ApiKey", this.Configuration.GetApiKeyWithPrefix("X-ElasticEmail-ApiKey"));
+            }
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.PutAsync<Object>("/campaigns/{name}/pause", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("CampaignsByNamePausePut", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;
