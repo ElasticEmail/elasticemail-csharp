@@ -342,7 +342,43 @@ namespace ElasticEmail.Model
         /// Enum ModifySubscriptionAntiSpam for value: ModifySubscriptionAntiSpam
         /// </summary>
         [EnumMember(Value = "ModifySubscriptionAntiSpam")]
-        ModifySubscriptionAntiSpam = 52
+        ModifySubscriptionAntiSpam = 52,
+
+        /// <summary>
+        /// Enum ViewLandingPagesCheckout for value: ViewLandingPagesCheckout
+        /// </summary>
+        [EnumMember(Value = "ViewLandingPagesCheckout")]
+        ViewLandingPagesCheckout = 53,
+
+        /// <summary>
+        /// Enum ModifyLandingPagesCheckout for value: ModifyLandingPagesCheckout
+        /// </summary>
+        [EnumMember(Value = "ModifyLandingPagesCheckout")]
+        ModifyLandingPagesCheckout = 54,
+
+        /// <summary>
+        /// Enum ViewHTMLEditor for value: ViewHTMLEditor
+        /// </summary>
+        [EnumMember(Value = "ViewHTMLEditor")]
+        ViewHTMLEditor = 55,
+
+        /// <summary>
+        /// Enum ModifyAccessTokens for value: ModifyAccessTokens
+        /// </summary>
+        [EnumMember(Value = "ModifyAccessTokens")]
+        ModifyAccessTokens = 56,
+
+        /// <summary>
+        /// Enum ViewPaidNewsletters for value: ViewPaidNewsletters
+        /// </summary>
+        [EnumMember(Value = "ViewPaidNewsletters")]
+        ViewPaidNewsletters = 57,
+
+        /// <summary>
+        /// Enum ModifyPaidNewsletters for value: ModifyPaidNewsletters
+        /// </summary>
+        [EnumMember(Value = "ModifyPaidNewsletters")]
+        ModifyPaidNewsletters = 58
     }
 
 }

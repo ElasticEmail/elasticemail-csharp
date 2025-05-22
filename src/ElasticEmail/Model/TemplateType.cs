@@ -66,7 +66,31 @@ namespace ElasticEmail.Model
         /// Enum LandingPageTemplate for value: LandingPageTemplate
         /// </summary>
         [EnumMember(Value = "LandingPageTemplate")]
-        LandingPageTemplate = 6
+        LandingPageTemplate = 6,
+
+        /// <summary>
+        /// Enum PaymentConfirmationTemplate for value: PaymentConfirmationTemplate
+        /// </summary>
+        [EnumMember(Value = "PaymentConfirmationTemplate")]
+        PaymentConfirmationTemplate = 7,
+
+        /// <summary>
+        /// Enum LandingPageProductTemplate for value: LandingPageProductTemplate
+        /// </summary>
+        [EnumMember(Value = "LandingPageProductTemplate")]
+        LandingPageProductTemplate = 8,
+
+        /// <summary>
+        /// Enum LandingPageCheckoutTemplate for value: LandingPageCheckoutTemplate
+        /// </summary>
+        [EnumMember(Value = "LandingPageCheckoutTemplate")]
+        LandingPageCheckoutTemplate = 9,
+
+        /// <summary>
+        /// Enum LandingPagePaymentConfirmationTemplate for value: LandingPagePaymentConfirmationTemplate
+        /// </summary>
+        [EnumMember(Value = "LandingPagePaymentConfirmationTemplate")]
+        LandingPagePaymentConfirmationTemplate = 10
     }
 
 }

@@ -31,7 +31,7 @@ namespace ElasticEmail.Api
         /// Delete ApiKey
         /// </summary>
         /// <remarks>
-        /// Delete your existing ApiKey. Required Access Level: Security
+        /// Delete your existing ApiKey. Required Access Level: ModifyAccessTokens
         /// </remarks>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">Name of the ApiKey</param>
@@ -44,7 +44,7 @@ namespace ElasticEmail.Api
         /// Delete ApiKey
         /// </summary>
         /// <remarks>
-        /// Delete your existing ApiKey. Required Access Level: Security
+        /// Delete your existing ApiKey. Required Access Level: ModifyAccessTokens
         /// </remarks>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">Name of the ApiKey</param>
@@ -81,7 +81,7 @@ namespace ElasticEmail.Api
         /// Update ApiKey
         /// </summary>
         /// <remarks>
-        /// Update your existing ApiKey. Required Access Level: Security
+        /// Update your existing ApiKey. Required Access Level: ModifyAccessTokens
         /// </remarks>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">Name of the ApiKey</param>
@@ -94,7 +94,7 @@ namespace ElasticEmail.Api
         /// Update ApiKey
         /// </summary>
         /// <remarks>
-        /// Update your existing ApiKey. Required Access Level: Security
+        /// Update your existing ApiKey. Required Access Level: ModifyAccessTokens
         /// </remarks>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">Name of the ApiKey</param>
@@ -129,7 +129,7 @@ namespace ElasticEmail.Api
         /// Add ApiKey
         /// </summary>
         /// <remarks>
-        /// Add a new ApiKey. Required Access Level: Security
+        /// Add a new ApiKey. Required Access Level: ModifyAccessTokens
         /// </remarks>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="apiKeyPayload"></param>
@@ -141,7 +141,7 @@ namespace ElasticEmail.Api
         /// Add ApiKey
         /// </summary>
         /// <remarks>
-        /// Add a new ApiKey. Required Access Level: Security
+        /// Add a new ApiKey. Required Access Level: ModifyAccessTokens
         /// </remarks>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="apiKeyPayload"></param>
@@ -152,7 +152,7 @@ namespace ElasticEmail.Api
         /// Delete SMTP Credential
         /// </summary>
         /// <remarks>
-        /// Delete your existing SMTP Credentials. Required Access Level: Security
+        /// Delete your existing SMTP Credentials. Required Access Level: ModifyAccessTokens
         /// </remarks>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">Name of the SMTP Credential</param>
@@ -165,7 +165,7 @@ namespace ElasticEmail.Api
         /// Delete SMTP Credential
         /// </summary>
         /// <remarks>
-        /// Delete your existing SMTP Credentials. Required Access Level: Security
+        /// Delete your existing SMTP Credentials. Required Access Level: ModifyAccessTokens
         /// </remarks>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">Name of the SMTP Credential</param>
@@ -202,7 +202,7 @@ namespace ElasticEmail.Api
         /// Update SMTP Credential
         /// </summary>
         /// <remarks>
-        /// Update your existing SMTP Credentials. Required Access Level: Security
+        /// Update your existing SMTP Credentials. Required Access Level: ModifyAccessTokens
         /// </remarks>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">Name of the SMTP Credential</param>
@@ -215,7 +215,7 @@ namespace ElasticEmail.Api
         /// Update SMTP Credential
         /// </summary>
         /// <remarks>
-        /// Update your existing SMTP Credentials. Required Access Level: Security
+        /// Update your existing SMTP Credentials. Required Access Level: ModifyAccessTokens
         /// </remarks>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">Name of the SMTP Credential</param>
@@ -250,7 +250,7 @@ namespace ElasticEmail.Api
         /// Add SMTP Credential
         /// </summary>
         /// <remarks>
-        /// Add new SMTP Credential. Required Access Level: Security
+        /// Add new SMTP Credential. Required Access Level: ModifyAccessTokens
         /// </remarks>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="smtpCredentialsPayload"></param>
@@ -262,7 +262,7 @@ namespace ElasticEmail.Api
         /// Add SMTP Credential
         /// </summary>
         /// <remarks>
-        /// Add new SMTP Credential. Required Access Level: Security
+        /// Add new SMTP Credential. Required Access Level: ModifyAccessTokens
         /// </remarks>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="smtpCredentialsPayload"></param>
@@ -282,7 +282,7 @@ namespace ElasticEmail.Api
         /// Delete ApiKey
         /// </summary>
         /// <remarks>
-        /// Delete your existing ApiKey. Required Access Level: Security
+        /// Delete your existing ApiKey. Required Access Level: ModifyAccessTokens
         /// </remarks>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">Name of the ApiKey</param>
@@ -296,7 +296,7 @@ namespace ElasticEmail.Api
         /// Delete ApiKey
         /// </summary>
         /// <remarks>
-        /// Delete your existing ApiKey. Required Access Level: Security
+        /// Delete your existing ApiKey. Required Access Level: ModifyAccessTokens
         /// </remarks>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">Name of the ApiKey</param>
@@ -336,7 +336,7 @@ namespace ElasticEmail.Api
         /// Update ApiKey
         /// </summary>
         /// <remarks>
-        /// Update your existing ApiKey. Required Access Level: Security
+        /// Update your existing ApiKey. Required Access Level: ModifyAccessTokens
         /// </remarks>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">Name of the ApiKey</param>
@@ -350,7 +350,7 @@ namespace ElasticEmail.Api
         /// Update ApiKey
         /// </summary>
         /// <remarks>
-        /// Update your existing ApiKey. Required Access Level: Security
+        /// Update your existing ApiKey. Required Access Level: ModifyAccessTokens
         /// </remarks>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">Name of the ApiKey</param>
@@ -388,7 +388,7 @@ namespace ElasticEmail.Api
         /// Add ApiKey
         /// </summary>
         /// <remarks>
-        /// Add a new ApiKey. Required Access Level: Security
+        /// Add a new ApiKey. Required Access Level: ModifyAccessTokens
         /// </remarks>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="apiKeyPayload"></param>
@@ -401,7 +401,7 @@ namespace ElasticEmail.Api
         /// Add ApiKey
         /// </summary>
         /// <remarks>
-        /// Add a new ApiKey. Required Access Level: Security
+        /// Add a new ApiKey. Required Access Level: ModifyAccessTokens
         /// </remarks>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="apiKeyPayload"></param>
@@ -413,7 +413,7 @@ namespace ElasticEmail.Api
         /// Delete SMTP Credential
         /// </summary>
         /// <remarks>
-        /// Delete your existing SMTP Credentials. Required Access Level: Security
+        /// Delete your existing SMTP Credentials. Required Access Level: ModifyAccessTokens
         /// </remarks>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">Name of the SMTP Credential</param>
@@ -427,7 +427,7 @@ namespace ElasticEmail.Api
         /// Delete SMTP Credential
         /// </summary>
         /// <remarks>
-        /// Delete your existing SMTP Credentials. Required Access Level: Security
+        /// Delete your existing SMTP Credentials. Required Access Level: ModifyAccessTokens
         /// </remarks>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">Name of the SMTP Credential</param>
@@ -467,7 +467,7 @@ namespace ElasticEmail.Api
         /// Update SMTP Credential
         /// </summary>
         /// <remarks>
-        /// Update your existing SMTP Credentials. Required Access Level: Security
+        /// Update your existing SMTP Credentials. Required Access Level: ModifyAccessTokens
         /// </remarks>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">Name of the SMTP Credential</param>
@@ -481,7 +481,7 @@ namespace ElasticEmail.Api
         /// Update SMTP Credential
         /// </summary>
         /// <remarks>
-        /// Update your existing SMTP Credentials. Required Access Level: Security
+        /// Update your existing SMTP Credentials. Required Access Level: ModifyAccessTokens
         /// </remarks>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">Name of the SMTP Credential</param>
@@ -519,7 +519,7 @@ namespace ElasticEmail.Api
         /// Add SMTP Credential
         /// </summary>
         /// <remarks>
-        /// Add new SMTP Credential. Required Access Level: Security
+        /// Add new SMTP Credential. Required Access Level: ModifyAccessTokens
         /// </remarks>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="smtpCredentialsPayload"></param>
@@ -532,7 +532,7 @@ namespace ElasticEmail.Api
         /// Add SMTP Credential
         /// </summary>
         /// <remarks>
-        /// Add new SMTP Credential. Required Access Level: Security
+        /// Add new SMTP Credential. Required Access Level: ModifyAccessTokens
         /// </remarks>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="smtpCredentialsPayload"></param>
@@ -661,7 +661,7 @@ namespace ElasticEmail.Api
         }
 
         /// <summary>
-        /// Delete ApiKey Delete your existing ApiKey. Required Access Level: Security
+        /// Delete ApiKey Delete your existing ApiKey. Required Access Level: ModifyAccessTokens
         /// </summary>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">Name of the ApiKey</param>
@@ -674,7 +674,7 @@ namespace ElasticEmail.Api
         }
 
         /// <summary>
-        /// Delete ApiKey Delete your existing ApiKey. Required Access Level: Security
+        /// Delete ApiKey Delete your existing ApiKey. Required Access Level: ModifyAccessTokens
         /// </summary>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">Name of the ApiKey</param>
@@ -740,7 +740,7 @@ namespace ElasticEmail.Api
         }
 
         /// <summary>
-        /// Delete ApiKey Delete your existing ApiKey. Required Access Level: Security
+        /// Delete ApiKey Delete your existing ApiKey. Required Access Level: ModifyAccessTokens
         /// </summary>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">Name of the ApiKey</param>
@@ -754,7 +754,7 @@ namespace ElasticEmail.Api
         }
 
         /// <summary>
-        /// Delete ApiKey Delete your existing ApiKey. Required Access Level: Security
+        /// Delete ApiKey Delete your existing ApiKey. Required Access Level: ModifyAccessTokens
         /// </summary>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">Name of the ApiKey</param>
@@ -989,7 +989,7 @@ namespace ElasticEmail.Api
         }
 
         /// <summary>
-        /// Update ApiKey Update your existing ApiKey. Required Access Level: Security
+        /// Update ApiKey Update your existing ApiKey. Required Access Level: ModifyAccessTokens
         /// </summary>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">Name of the ApiKey</param>
@@ -1003,7 +1003,7 @@ namespace ElasticEmail.Api
         }
 
         /// <summary>
-        /// Update ApiKey Update your existing ApiKey. Required Access Level: Security
+        /// Update ApiKey Update your existing ApiKey. Required Access Level: ModifyAccessTokens
         /// </summary>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">Name of the ApiKey</param>
@@ -1074,7 +1074,7 @@ namespace ElasticEmail.Api
         }
 
         /// <summary>
-        /// Update ApiKey Update your existing ApiKey. Required Access Level: Security
+        /// Update ApiKey Update your existing ApiKey. Required Access Level: ModifyAccessTokens
         /// </summary>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">Name of the ApiKey</param>
@@ -1089,7 +1089,7 @@ namespace ElasticEmail.Api
         }
 
         /// <summary>
-        /// Update ApiKey Update your existing ApiKey. Required Access Level: Security
+        /// Update ApiKey Update your existing ApiKey. Required Access Level: ModifyAccessTokens
         /// </summary>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">Name of the ApiKey</param>
@@ -1311,7 +1311,7 @@ namespace ElasticEmail.Api
         }
 
         /// <summary>
-        /// Add ApiKey Add a new ApiKey. Required Access Level: Security
+        /// Add ApiKey Add a new ApiKey. Required Access Level: ModifyAccessTokens
         /// </summary>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="apiKeyPayload"></param>
@@ -1324,7 +1324,7 @@ namespace ElasticEmail.Api
         }
 
         /// <summary>
-        /// Add ApiKey Add a new ApiKey. Required Access Level: Security
+        /// Add ApiKey Add a new ApiKey. Required Access Level: ModifyAccessTokens
         /// </summary>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="apiKeyPayload"></param>
@@ -1387,7 +1387,7 @@ namespace ElasticEmail.Api
         }
 
         /// <summary>
-        /// Add ApiKey Add a new ApiKey. Required Access Level: Security
+        /// Add ApiKey Add a new ApiKey. Required Access Level: ModifyAccessTokens
         /// </summary>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="apiKeyPayload"></param>
@@ -1401,7 +1401,7 @@ namespace ElasticEmail.Api
         }
 
         /// <summary>
-        /// Add ApiKey Add a new ApiKey. Required Access Level: Security
+        /// Add ApiKey Add a new ApiKey. Required Access Level: ModifyAccessTokens
         /// </summary>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="apiKeyPayload"></param>
@@ -1467,7 +1467,7 @@ namespace ElasticEmail.Api
         }
 
         /// <summary>
-        /// Delete SMTP Credential Delete your existing SMTP Credentials. Required Access Level: Security
+        /// Delete SMTP Credential Delete your existing SMTP Credentials. Required Access Level: ModifyAccessTokens
         /// </summary>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">Name of the SMTP Credential</param>
@@ -1480,7 +1480,7 @@ namespace ElasticEmail.Api
         }
 
         /// <summary>
-        /// Delete SMTP Credential Delete your existing SMTP Credentials. Required Access Level: Security
+        /// Delete SMTP Credential Delete your existing SMTP Credentials. Required Access Level: ModifyAccessTokens
         /// </summary>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">Name of the SMTP Credential</param>
@@ -1546,7 +1546,7 @@ namespace ElasticEmail.Api
         }
 
         /// <summary>
-        /// Delete SMTP Credential Delete your existing SMTP Credentials. Required Access Level: Security
+        /// Delete SMTP Credential Delete your existing SMTP Credentials. Required Access Level: ModifyAccessTokens
         /// </summary>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">Name of the SMTP Credential</param>
@@ -1560,7 +1560,7 @@ namespace ElasticEmail.Api
         }
 
         /// <summary>
-        /// Delete SMTP Credential Delete your existing SMTP Credentials. Required Access Level: Security
+        /// Delete SMTP Credential Delete your existing SMTP Credentials. Required Access Level: ModifyAccessTokens
         /// </summary>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">Name of the SMTP Credential</param>
@@ -1795,7 +1795,7 @@ namespace ElasticEmail.Api
         }
 
         /// <summary>
-        /// Update SMTP Credential Update your existing SMTP Credentials. Required Access Level: Security
+        /// Update SMTP Credential Update your existing SMTP Credentials. Required Access Level: ModifyAccessTokens
         /// </summary>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">Name of the SMTP Credential</param>
@@ -1809,7 +1809,7 @@ namespace ElasticEmail.Api
         }
 
         /// <summary>
-        /// Update SMTP Credential Update your existing SMTP Credentials. Required Access Level: Security
+        /// Update SMTP Credential Update your existing SMTP Credentials. Required Access Level: ModifyAccessTokens
         /// </summary>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">Name of the SMTP Credential</param>
@@ -1880,7 +1880,7 @@ namespace ElasticEmail.Api
         }
 
         /// <summary>
-        /// Update SMTP Credential Update your existing SMTP Credentials. Required Access Level: Security
+        /// Update SMTP Credential Update your existing SMTP Credentials. Required Access Level: ModifyAccessTokens
         /// </summary>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">Name of the SMTP Credential</param>
@@ -1895,7 +1895,7 @@ namespace ElasticEmail.Api
         }
 
         /// <summary>
-        /// Update SMTP Credential Update your existing SMTP Credentials. Required Access Level: Security
+        /// Update SMTP Credential Update your existing SMTP Credentials. Required Access Level: ModifyAccessTokens
         /// </summary>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">Name of the SMTP Credential</param>
@@ -2117,7 +2117,7 @@ namespace ElasticEmail.Api
         }
 
         /// <summary>
-        /// Add SMTP Credential Add new SMTP Credential. Required Access Level: Security
+        /// Add SMTP Credential Add new SMTP Credential. Required Access Level: ModifyAccessTokens
         /// </summary>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="smtpCredentialsPayload"></param>
@@ -2130,7 +2130,7 @@ namespace ElasticEmail.Api
         }
 
         /// <summary>
-        /// Add SMTP Credential Add new SMTP Credential. Required Access Level: Security
+        /// Add SMTP Credential Add new SMTP Credential. Required Access Level: ModifyAccessTokens
         /// </summary>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="smtpCredentialsPayload"></param>
@@ -2193,7 +2193,7 @@ namespace ElasticEmail.Api
         }
 
         /// <summary>
-        /// Add SMTP Credential Add new SMTP Credential. Required Access Level: Security
+        /// Add SMTP Credential Add new SMTP Credential. Required Access Level: ModifyAccessTokens
         /// </summary>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="smtpCredentialsPayload"></param>
@@ -2207,7 +2207,7 @@ namespace ElasticEmail.Api
         }
 
         /// <summary>
-        /// Add SMTP Credential Add new SMTP Credential. Required Access Level: Security
+        /// Add SMTP Credential Add new SMTP Credential. Required Access Level: ModifyAccessTokens
         /// </summary>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="smtpCredentialsPayload"></param>
