@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **CustomFields** | **Dictionary&lt;string, string&gt;** | A key-value collection of custom contact fields which can be used in the system. | [optional] 
 **Consent** | [**ConsentData**](ConsentData.md) |  | [optional] 
 **Source** | **ContactSource** |  | [optional] 
+**SourceInfo** | **string** |  | [optional] 
 **DateAdded** | **DateTime** | Date of creation in YYYY-MM-DDThh:ii:ss format | [optional] 
 **DateUpdated** | **DateTime?** | Last change date | [optional] 
 **StatusChangeDate** | **DateTime?** | Date of last status change. | [optional] 

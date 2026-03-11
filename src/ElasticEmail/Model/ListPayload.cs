@@ -1,7 +1,7 @@
 /*
  * Elastic Email REST API
  *
- * This API is based on the REST API architecture, allowing the user to easily manage their data with this resource-based approach.    Every API call is established on which specific request type (GET, POST, PUT, DELETE) will be used.    The API has a limit of 20 concurrent connections and a hard timeout of 600 seconds per request.    To start using this API, you will need your Access Token (available <a target=\"_blank\" href=\"https://app.elasticemail.com/marketing/settings/new/manage-api\">here</a>). Remember to keep it safe. Required access levels are listed in the given request’s description.    Downloadable library clients can be found in our Github repository <a target=\"_blank\" href=\"https://github.com/ElasticEmail?tab=repositories&q=%22rest+api%22+in%3Areadme\">here</a>
+ * This API is based on the REST API architecture, allowing the user to easily manage their data with this resource-based approach.    Every API call is established on which specific request type (GET, POST, PUT, DELETE) will be used.    The API has a limit of 20 concurrent connections and a hard timeout of 600 seconds per request.    To start using this API, you will need your Access Token (available <a target='_blank' href='https://app.elasticemail.com/marketing/settings/new/manage-api'>here</a>). Remember to keep it safe. Required access levels are listed in the given request’s description.    Downloadable library clients can be found in our Github repository <a target='_blank' href='https://github.com/ElasticEmail?tab=repositories&q=%22rest+api%22+in%3Areadme'>here</a>
  *
  * The version of the OpenAPI document: 4.0.0
  * Contact: support@elasticemail.com
@@ -59,7 +59,9 @@ namespace ElasticEmail.Model
         /// Name of your list.
         /// </summary>
         /// <value>Name of your list.</value>
-        /// <example>My List 1</example>
+        /*
+        <example>My List 1</example>
+        */
         [DataMember(Name = "ListName", IsRequired = true, EmitDefaultValue = true)]
         public string ListName { get; set; }
 
@@ -67,7 +69,9 @@ namespace ElasticEmail.Model
         /// True: Allow unsubscribing from this list. Otherwise, false
         /// </summary>
         /// <value>True: Allow unsubscribing from this list. Otherwise, false</value>
-        /// <example>false</example>
+        /*
+        <example>false</example>
+        */
         [DataMember(Name = "AllowUnsubscribe", EmitDefaultValue = true)]
         public bool AllowUnsubscribe { get; set; }
 
@@ -75,7 +79,9 @@ namespace ElasticEmail.Model
         /// Comma delimited list of existing contact emails that should be added to this list. Leave empty for all contacts
         /// </summary>
         /// <value>Comma delimited list of existing contact emails that should be added to this list. Leave empty for all contacts</value>
-        /// <example>[&quot;john.doe@sample.com&quot;]</example>
+        /*
+        <example>[&quot;john.doe@sample.com&quot;]</example>
+        */
         [DataMember(Name = "Emails", EmitDefaultValue = false)]
         public List<string> Emails { get; set; }
 
@@ -108,7 +114,7 @@ namespace ElasticEmail.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             yield break;
         }

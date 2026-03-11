@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **Name** | **string** | Campaign name | 
 **Status** | **CampaignStatus** |  | [optional] 
 **Recipients** | [**CampaignRecipient**](CampaignRecipient.md) |  | 
+**ExcludedRecipients** | [**CampaignRecipient**](CampaignRecipient.md) |  | [optional] 
 **Options** | [**CampaignOptions**](CampaignOptions.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

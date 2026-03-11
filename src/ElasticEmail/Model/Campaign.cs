@@ -1,7 +1,7 @@
 /*
  * Elastic Email REST API
  *
- * This API is based on the REST API architecture, allowing the user to easily manage their data with this resource-based approach.    Every API call is established on which specific request type (GET, POST, PUT, DELETE) will be used.    The API has a limit of 20 concurrent connections and a hard timeout of 600 seconds per request.    To start using this API, you will need your Access Token (available <a target=\"_blank\" href=\"https://app.elasticemail.com/marketing/settings/new/manage-api\">here</a>). Remember to keep it safe. Required access levels are listed in the given request’s description.    Downloadable library clients can be found in our Github repository <a target=\"_blank\" href=\"https://github.com/ElasticEmail?tab=repositories&q=%22rest+api%22+in%3Areadme\">here</a>
+ * This API is based on the REST API architecture, allowing the user to easily manage their data with this resource-based approach.    Every API call is established on which specific request type (GET, POST, PUT, DELETE) will be used.    The API has a limit of 20 concurrent connections and a hard timeout of 600 seconds per request.    To start using this API, you will need your Access Token (available <a target='_blank' href='https://app.elasticemail.com/marketing/settings/new/manage-api'>here</a>). Remember to keep it safe. Required access levels are listed in the given request’s description.    Downloadable library clients can be found in our Github repository <a target='_blank' href='https://github.com/ElasticEmail?tab=repositories&q=%22rest+api%22+in%3Areadme'>here</a>
  *
  * The version of the OpenAPI document: 4.0.0
  * Contact: support@elasticemail.com
@@ -50,8 +50,9 @@ namespace ElasticEmail.Model
         /// <param name="name">Campaign name (required).</param>
         /// <param name="status">status.</param>
         /// <param name="recipients">recipients (required).</param>
+        /// <param name="excludedRecipients">excludedRecipients.</param>
         /// <param name="options">options.</param>
-        public Campaign(List<CampaignTemplate> content = default(List<CampaignTemplate>), string name = default(string), CampaignStatus? status = default(CampaignStatus?), CampaignRecipient recipients = default(CampaignRecipient), CampaignOptions options = default(CampaignOptions))
+        public Campaign(List<CampaignTemplate> content = default(List<CampaignTemplate>), string name = default(string), CampaignStatus? status = default(CampaignStatus?), CampaignRecipient recipients = default(CampaignRecipient), CampaignRecipient excludedRecipients = default(CampaignRecipient), CampaignOptions options = default(CampaignOptions))
         {
             // to ensure "name" is required (not null)
             if (name == null)
@@ -67,6 +68,7 @@ namespace ElasticEmail.Model
             this.Recipients = recipients;
             this.Content = content;
             this.Status = status;
+            this.ExcludedRecipients = excludedRecipients;
             this.Options = options;
         }
 
@@ -91,6 +93,12 @@ namespace ElasticEmail.Model
         public CampaignRecipient Recipients { get; set; }
 
         /// <summary>
+        /// Gets or Sets ExcludedRecipients
+        /// </summary>
+        [DataMember(Name = "ExcludedRecipients", EmitDefaultValue = false)]
+        public CampaignRecipient ExcludedRecipients { get; set; }
+
+        /// <summary>
         /// Gets or Sets Options
         /// </summary>
         [DataMember(Name = "Options", EmitDefaultValue = false)]
@@ -108,6 +116,7 @@ namespace ElasticEmail.Model
             sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("  Status: ").Append(Status).Append("\n");
             sb.Append("  Recipients: ").Append(Recipients).Append("\n");
+            sb.Append("  ExcludedRecipients: ").Append(ExcludedRecipients).Append("\n");
             sb.Append("  Options: ").Append(Options).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -127,7 +136,7 @@ namespace ElasticEmail.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             yield break;
         }

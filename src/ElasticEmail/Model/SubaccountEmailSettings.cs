@@ -1,7 +1,7 @@
 /*
  * Elastic Email REST API
  *
- * This API is based on the REST API architecture, allowing the user to easily manage their data with this resource-based approach.    Every API call is established on which specific request type (GET, POST, PUT, DELETE) will be used.    The API has a limit of 20 concurrent connections and a hard timeout of 600 seconds per request.    To start using this API, you will need your Access Token (available <a target=\"_blank\" href=\"https://app.elasticemail.com/marketing/settings/new/manage-api\">here</a>). Remember to keep it safe. Required access levels are listed in the given request’s description.    Downloadable library clients can be found in our Github repository <a target=\"_blank\" href=\"https://github.com/ElasticEmail?tab=repositories&q=%22rest+api%22+in%3Areadme\">here</a>
+ * This API is based on the REST API architecture, allowing the user to easily manage their data with this resource-based approach.    Every API call is established on which specific request type (GET, POST, PUT, DELETE) will be used.    The API has a limit of 20 concurrent connections and a hard timeout of 600 seconds per request.    To start using this API, you will need your Access Token (available <a target='_blank' href='https://app.elasticemail.com/marketing/settings/new/manage-api'>here</a>). Remember to keep it safe. Required access levels are listed in the given request’s description.    Downloadable library clients can be found in our Github repository <a target='_blank' href='https://github.com/ElasticEmail?tab=repositories&q=%22rest+api%22+in%3Areadme'>here</a>
  *
  * The version of the OpenAPI document: 4.0.0
  * Contact: support@elasticemail.com
@@ -59,7 +59,9 @@ namespace ElasticEmail.Model
         /// Amount of credits added to Account automatically
         /// </summary>
         /// <value>Amount of credits added to Account automatically</value>
-        /// <example>1000</example>
+        /*
+        <example>1000</example>
+        */
         [DataMember(Name = "MonthlyRefillCredits", EmitDefaultValue = false)]
         public int MonthlyRefillCredits { get; set; }
 
@@ -67,7 +69,9 @@ namespace ElasticEmail.Model
         /// True, if Account needs credits to send emails. Otherwise, false
         /// </summary>
         /// <value>True, if Account needs credits to send emails. Otherwise, false</value>
-        /// <example>true</example>
+        /*
+        <example>true</example>
+        */
         [DataMember(Name = "RequiresEmailCredits", EmitDefaultValue = true)]
         public bool RequiresEmailCredits { get; set; }
 
@@ -75,7 +79,9 @@ namespace ElasticEmail.Model
         /// Maximum size of email including attachments in MB&#39;s
         /// </summary>
         /// <value>Maximum size of email including attachments in MB&#39;s</value>
-        /// <example>10</example>
+        /*
+        <example>10</example>
+        */
         [DataMember(Name = "EmailSizeLimit", EmitDefaultValue = false)]
         public int EmailSizeLimit { get; set; }
 
@@ -83,7 +89,9 @@ namespace ElasticEmail.Model
         /// Amount of emails Account can send daily
         /// </summary>
         /// <value>Amount of emails Account can send daily</value>
-        /// <example>100000</example>
+        /*
+        <example>100000</example>
+        */
         [DataMember(Name = "DailySendLimit", EmitDefaultValue = false)]
         public int DailySendLimit { get; set; }
 
@@ -105,7 +113,9 @@ namespace ElasticEmail.Model
         /// Name of your custom IP Pool to be used in the sending process
         /// </summary>
         /// <value>Name of your custom IP Pool to be used in the sending process</value>
-        /// <example>My Custom Pool</example>
+        /*
+        <example>My Custom Pool</example>
+        */
         [DataMember(Name = "PoolName", EmitDefaultValue = false)]
         public string PoolName { get; set; }
 
@@ -149,7 +159,7 @@ namespace ElasticEmail.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             yield break;
         }

@@ -1,7 +1,7 @@
 /*
  * Elastic Email REST API
  *
- * This API is based on the REST API architecture, allowing the user to easily manage their data with this resource-based approach.    Every API call is established on which specific request type (GET, POST, PUT, DELETE) will be used.    The API has a limit of 20 concurrent connections and a hard timeout of 600 seconds per request.    To start using this API, you will need your Access Token (available <a target=\"_blank\" href=\"https://app.elasticemail.com/marketing/settings/new/manage-api\">here</a>). Remember to keep it safe. Required access levels are listed in the given request’s description.    Downloadable library clients can be found in our Github repository <a target=\"_blank\" href=\"https://github.com/ElasticEmail?tab=repositories&q=%22rest+api%22+in%3Areadme\">here</a>
+ * This API is based on the REST API architecture, allowing the user to easily manage their data with this resource-based approach.    Every API call is established on which specific request type (GET, POST, PUT, DELETE) will be used.    The API has a limit of 20 concurrent connections and a hard timeout of 600 seconds per request.    To start using this API, you will need your Access Token (available <a target='_blank' href='https://app.elasticemail.com/marketing/settings/new/manage-api'>here</a>). Remember to keep it safe. Required access levels are listed in the given request’s description.    Downloadable library clients can be found in our Github repository <a target='_blank' href='https://github.com/ElasticEmail?tab=repositories&q=%22rest+api%22+in%3Areadme'>here</a>
  *
  * The version of the OpenAPI document: 4.0.0
  * Contact: support@elasticemail.com
@@ -54,7 +54,7 @@ namespace ElasticEmail.Api
         /// Get Email Verification Result
         /// </summary>
         /// <remarks>
-        /// Returns a result of verified email. Required Access Level: VerifyEmails
+        /// Returns a result of verified email. Required Access Level: ViewVerifyEmails
         /// </remarks>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="email">Email address to view verification result of</param>
@@ -66,7 +66,7 @@ namespace ElasticEmail.Api
         /// Get Email Verification Result
         /// </summary>
         /// <remarks>
-        /// Returns a result of verified email. Required Access Level: VerifyEmails
+        /// Returns a result of verified email. Required Access Level: ViewVerifyEmails
         /// </remarks>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="email">Email address to view verification result of</param>
@@ -123,7 +123,7 @@ namespace ElasticEmail.Api
         /// Download File Verification Result
         /// </summary>
         /// <remarks>
-        /// Download verification results as a ZIP file. Required Access Level: VerifyEmails
+        /// Download verification results as a ZIP file. Required Access Level: ViewVerifyEmails
         /// </remarks>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Verification ID to download</param>
@@ -135,7 +135,7 @@ namespace ElasticEmail.Api
         /// Download File Verification Result
         /// </summary>
         /// <remarks>
-        /// Download verification results as a ZIP file. Required Access Level: VerifyEmails
+        /// Download verification results as a ZIP file. Required Access Level: ViewVerifyEmails
         /// </remarks>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Verification ID to download</param>
@@ -146,7 +146,7 @@ namespace ElasticEmail.Api
         /// Get Detailed File Verification Result
         /// </summary>
         /// <remarks>
-        /// Returns status and results (if verified) of file with given ID. Required Access Level: VerifyEmails
+        /// Returns status and results (if verified) of file with given ID. Required Access Level: ViewVerifyEmails
         /// </remarks>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">ID of the Verification to display status of</param>
@@ -160,7 +160,7 @@ namespace ElasticEmail.Api
         /// Get Detailed File Verification Result
         /// </summary>
         /// <remarks>
-        /// Returns status and results (if verified) of file with given ID. Required Access Level: VerifyEmails
+        /// Returns status and results (if verified) of file with given ID. Required Access Level: ViewVerifyEmails
         /// </remarks>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">ID of the Verification to display status of</param>
@@ -219,7 +219,7 @@ namespace ElasticEmail.Api
         /// Get Files Verification Results
         /// </summary>
         /// <remarks>
-        /// Returns a list of uploaded files, their statuses and results. Required Access Level: VerifyEmails
+        /// Returns a list of uploaded files, their statuses and results. Required Access Level: ViewVerifyEmails
         /// </remarks>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -230,7 +230,7 @@ namespace ElasticEmail.Api
         /// Get Files Verification Results
         /// </summary>
         /// <remarks>
-        /// Returns a list of uploaded files, their statuses and results. Required Access Level: VerifyEmails
+        /// Returns a list of uploaded files, their statuses and results. Required Access Level: ViewVerifyEmails
         /// </remarks>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -240,7 +240,7 @@ namespace ElasticEmail.Api
         /// Get Emails Verification Results
         /// </summary>
         /// <remarks>
-        /// Returns a results of all verified single emails. Required Access Level: VerifyEmails
+        /// Returns a results of all verified single emails. Required Access Level: ViewVerifyEmails
         /// </remarks>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="limit">Maximum number of returned items. (optional)</param>
@@ -253,7 +253,7 @@ namespace ElasticEmail.Api
         /// Get Emails Verification Results
         /// </summary>
         /// <remarks>
-        /// Returns a results of all verified single emails. Required Access Level: VerifyEmails
+        /// Returns a results of all verified single emails. Required Access Level: ViewVerifyEmails
         /// </remarks>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="limit">Maximum number of returned items. (optional)</param>
@@ -281,7 +281,7 @@ namespace ElasticEmail.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task VerificationsByEmailDeleteAsync(string email, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task VerificationsByEmailDeleteAsync(string email, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Delete Email Verification Result
@@ -294,32 +294,32 @@ namespace ElasticEmail.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> VerificationsByEmailDeleteWithHttpInfoAsync(string email, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Object>> VerificationsByEmailDeleteWithHttpInfoAsync(string email, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Get Email Verification Result
         /// </summary>
         /// <remarks>
-        /// Returns a result of verified email. Required Access Level: VerifyEmails
+        /// Returns a result of verified email. Required Access Level: ViewVerifyEmails
         /// </remarks>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="email">Email address to view verification result of</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of EmailValidationResult</returns>
-        System.Threading.Tasks.Task<EmailValidationResult> VerificationsByEmailGetAsync(string email, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<EmailValidationResult> VerificationsByEmailGetAsync(string email, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Get Email Verification Result
         /// </summary>
         /// <remarks>
-        /// Returns a result of verified email. Required Access Level: VerifyEmails
+        /// Returns a result of verified email. Required Access Level: ViewVerifyEmails
         /// </remarks>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="email">Email address to view verification result of</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (EmailValidationResult)</returns>
-        System.Threading.Tasks.Task<ApiResponse<EmailValidationResult>> VerificationsByEmailGetWithHttpInfoAsync(string email, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<EmailValidationResult>> VerificationsByEmailGetWithHttpInfoAsync(string email, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Verify Email
         /// </summary>
@@ -331,7 +331,7 @@ namespace ElasticEmail.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of EmailValidationResult</returns>
-        System.Threading.Tasks.Task<EmailValidationResult> VerificationsByEmailPostAsync(string email, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<EmailValidationResult> VerificationsByEmailPostAsync(string email, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Verify Email
@@ -344,7 +344,7 @@ namespace ElasticEmail.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (EmailValidationResult)</returns>
-        System.Threading.Tasks.Task<ApiResponse<EmailValidationResult>> VerificationsByEmailPostWithHttpInfoAsync(string email, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<EmailValidationResult>> VerificationsByEmailPostWithHttpInfoAsync(string email, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Delete File Verification Result
         /// </summary>
@@ -356,7 +356,7 @@ namespace ElasticEmail.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task VerificationsFilesByIdDeleteAsync(string id, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task VerificationsFilesByIdDeleteAsync(string id, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Delete File Verification Result
@@ -369,37 +369,37 @@ namespace ElasticEmail.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> VerificationsFilesByIdDeleteWithHttpInfoAsync(string id, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Object>> VerificationsFilesByIdDeleteWithHttpInfoAsync(string id, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Download File Verification Result
         /// </summary>
         /// <remarks>
-        /// Download verification results as a ZIP file. Required Access Level: VerifyEmails
+        /// Download verification results as a ZIP file. Required Access Level: ViewVerifyEmails
         /// </remarks>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Verification ID to download</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of System.IO.Stream</returns>
-        System.Threading.Tasks.Task<System.IO.Stream> VerificationsFilesByIdResultDownloadGetAsync(string id, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<System.IO.Stream> VerificationsFilesByIdResultDownloadGetAsync(string id, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Download File Verification Result
         /// </summary>
         /// <remarks>
-        /// Download verification results as a ZIP file. Required Access Level: VerifyEmails
+        /// Download verification results as a ZIP file. Required Access Level: ViewVerifyEmails
         /// </remarks>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Verification ID to download</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (System.IO.Stream)</returns>
-        System.Threading.Tasks.Task<ApiResponse<System.IO.Stream>> VerificationsFilesByIdResultDownloadGetWithHttpInfoAsync(string id, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<System.IO.Stream>> VerificationsFilesByIdResultDownloadGetWithHttpInfoAsync(string id, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Get Detailed File Verification Result
         /// </summary>
         /// <remarks>
-        /// Returns status and results (if verified) of file with given ID. Required Access Level: VerifyEmails
+        /// Returns status and results (if verified) of file with given ID. Required Access Level: ViewVerifyEmails
         /// </remarks>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">ID of the Verification to display status of</param>
@@ -408,13 +408,13 @@ namespace ElasticEmail.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of VerificationFileResultDetails</returns>
-        System.Threading.Tasks.Task<VerificationFileResultDetails> VerificationsFilesByIdResultGetAsync(string id, int? limit = default(int?), int? offset = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<VerificationFileResultDetails> VerificationsFilesByIdResultGetAsync(string id, int? limit = default(int?), int? offset = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Get Detailed File Verification Result
         /// </summary>
         /// <remarks>
-        /// Returns status and results (if verified) of file with given ID. Required Access Level: VerifyEmails
+        /// Returns status and results (if verified) of file with given ID. Required Access Level: ViewVerifyEmails
         /// </remarks>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">ID of the Verification to display status of</param>
@@ -423,7 +423,7 @@ namespace ElasticEmail.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (VerificationFileResultDetails)</returns>
-        System.Threading.Tasks.Task<ApiResponse<VerificationFileResultDetails>> VerificationsFilesByIdResultGetWithHttpInfoAsync(string id, int? limit = default(int?), int? offset = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<VerificationFileResultDetails>> VerificationsFilesByIdResultGetWithHttpInfoAsync(string id, int? limit = default(int?), int? offset = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Start verification
         /// </summary>
@@ -435,7 +435,7 @@ namespace ElasticEmail.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task VerificationsFilesByIdVerificationPostAsync(string id, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task VerificationsFilesByIdVerificationPostAsync(string id, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Start verification
@@ -448,7 +448,7 @@ namespace ElasticEmail.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> VerificationsFilesByIdVerificationPostWithHttpInfoAsync(string id, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Object>> VerificationsFilesByIdVerificationPostWithHttpInfoAsync(string id, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Upload File with Emails
         /// </summary>
@@ -460,7 +460,7 @@ namespace ElasticEmail.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of VerificationFileResult</returns>
-        System.Threading.Tasks.Task<VerificationFileResult> VerificationsFilesPostAsync(System.IO.Stream file = default(System.IO.Stream), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<VerificationFileResult> VerificationsFilesPostAsync(System.IO.Stream file = default(System.IO.Stream), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Upload File with Emails
@@ -473,35 +473,35 @@ namespace ElasticEmail.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (VerificationFileResult)</returns>
-        System.Threading.Tasks.Task<ApiResponse<VerificationFileResult>> VerificationsFilesPostWithHttpInfoAsync(System.IO.Stream file = default(System.IO.Stream), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<VerificationFileResult>> VerificationsFilesPostWithHttpInfoAsync(System.IO.Stream file = default(System.IO.Stream), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Get Files Verification Results
         /// </summary>
         /// <remarks>
-        /// Returns a list of uploaded files, their statuses and results. Required Access Level: VerifyEmails
+        /// Returns a list of uploaded files, their statuses and results. Required Access Level: ViewVerifyEmails
         /// </remarks>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;VerificationFileResult&gt;</returns>
-        System.Threading.Tasks.Task<List<VerificationFileResult>> VerificationsFilesResultGetAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<List<VerificationFileResult>> VerificationsFilesResultGetAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Get Files Verification Results
         /// </summary>
         /// <remarks>
-        /// Returns a list of uploaded files, their statuses and results. Required Access Level: VerifyEmails
+        /// Returns a list of uploaded files, their statuses and results. Required Access Level: ViewVerifyEmails
         /// </remarks>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;VerificationFileResult&gt;)</returns>
-        System.Threading.Tasks.Task<ApiResponse<List<VerificationFileResult>>> VerificationsFilesResultGetWithHttpInfoAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<List<VerificationFileResult>>> VerificationsFilesResultGetWithHttpInfoAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Get Emails Verification Results
         /// </summary>
         /// <remarks>
-        /// Returns a results of all verified single emails. Required Access Level: VerifyEmails
+        /// Returns a results of all verified single emails. Required Access Level: ViewVerifyEmails
         /// </remarks>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="limit">Maximum number of returned items. (optional)</param>
@@ -509,13 +509,13 @@ namespace ElasticEmail.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;EmailValidationResult&gt;</returns>
-        System.Threading.Tasks.Task<List<EmailValidationResult>> VerificationsGetAsync(int? limit = default(int?), int? offset = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<List<EmailValidationResult>> VerificationsGetAsync(int? limit = default(int?), int? offset = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Get Emails Verification Results
         /// </summary>
         /// <remarks>
-        /// Returns a results of all verified single emails. Required Access Level: VerifyEmails
+        /// Returns a results of all verified single emails. Required Access Level: ViewVerifyEmails
         /// </remarks>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="limit">Maximum number of returned items. (optional)</param>
@@ -523,7 +523,7 @@ namespace ElasticEmail.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;EmailValidationResult&gt;)</returns>
-        System.Threading.Tasks.Task<ApiResponse<List<EmailValidationResult>>> VerificationsGetWithHttpInfoAsync(int? limit = default(int?), int? offset = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<List<EmailValidationResult>>> VerificationsGetWithHttpInfoAsync(int? limit = default(int?), int? offset = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         #endregion Asynchronous Operations
     }
 
@@ -681,6 +681,7 @@ namespace ElasticEmail.Api
             };
 
             var localVarContentType = ElasticEmail.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarMultipartFormData = localVarContentType == "multipart/form-data";
             if (localVarContentType != null)
             {
                 localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
@@ -725,7 +726,7 @@ namespace ElasticEmail.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task VerificationsByEmailDeleteAsync(string email, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task VerificationsByEmailDeleteAsync(string email, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             await VerificationsByEmailDeleteWithHttpInfoAsync(email, operationIndex, cancellationToken).ConfigureAwait(false);
         }
@@ -738,7 +739,7 @@ namespace ElasticEmail.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<ElasticEmail.Client.ApiResponse<Object>> VerificationsByEmailDeleteWithHttpInfoAsync(string email, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ElasticEmail.Client.ApiResponse<Object>> VerificationsByEmailDeleteWithHttpInfoAsync(string email, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             // verify the required parameter 'email' is set
             if (email == null)
@@ -795,7 +796,7 @@ namespace ElasticEmail.Api
         }
 
         /// <summary>
-        /// Get Email Verification Result Returns a result of verified email. Required Access Level: VerifyEmails
+        /// Get Email Verification Result Returns a result of verified email. Required Access Level: ViewVerifyEmails
         /// </summary>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="email">Email address to view verification result of</param>
@@ -808,7 +809,7 @@ namespace ElasticEmail.Api
         }
 
         /// <summary>
-        /// Get Email Verification Result Returns a result of verified email. Required Access Level: VerifyEmails
+        /// Get Email Verification Result Returns a result of verified email. Required Access Level: ViewVerifyEmails
         /// </summary>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="email">Email address to view verification result of</param>
@@ -833,6 +834,7 @@ namespace ElasticEmail.Api
             };
 
             var localVarContentType = ElasticEmail.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarMultipartFormData = localVarContentType == "multipart/form-data";
             if (localVarContentType != null)
             {
                 localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
@@ -870,28 +872,28 @@ namespace ElasticEmail.Api
         }
 
         /// <summary>
-        /// Get Email Verification Result Returns a result of verified email. Required Access Level: VerifyEmails
+        /// Get Email Verification Result Returns a result of verified email. Required Access Level: ViewVerifyEmails
         /// </summary>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="email">Email address to view verification result of</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of EmailValidationResult</returns>
-        public async System.Threading.Tasks.Task<EmailValidationResult> VerificationsByEmailGetAsync(string email, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<EmailValidationResult> VerificationsByEmailGetAsync(string email, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             ElasticEmail.Client.ApiResponse<EmailValidationResult> localVarResponse = await VerificationsByEmailGetWithHttpInfoAsync(email, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Get Email Verification Result Returns a result of verified email. Required Access Level: VerifyEmails
+        /// Get Email Verification Result Returns a result of verified email. Required Access Level: ViewVerifyEmails
         /// </summary>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="email">Email address to view verification result of</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (EmailValidationResult)</returns>
-        public async System.Threading.Tasks.Task<ElasticEmail.Client.ApiResponse<EmailValidationResult>> VerificationsByEmailGetWithHttpInfoAsync(string email, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ElasticEmail.Client.ApiResponse<EmailValidationResult>> VerificationsByEmailGetWithHttpInfoAsync(string email, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             // verify the required parameter 'email' is set
             if (email == null)
@@ -987,6 +989,7 @@ namespace ElasticEmail.Api
             };
 
             var localVarContentType = ElasticEmail.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarMultipartFormData = localVarContentType == "multipart/form-data";
             if (localVarContentType != null)
             {
                 localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
@@ -1031,7 +1034,7 @@ namespace ElasticEmail.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of EmailValidationResult</returns>
-        public async System.Threading.Tasks.Task<EmailValidationResult> VerificationsByEmailPostAsync(string email, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<EmailValidationResult> VerificationsByEmailPostAsync(string email, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             ElasticEmail.Client.ApiResponse<EmailValidationResult> localVarResponse = await VerificationsByEmailPostWithHttpInfoAsync(email, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -1045,7 +1048,7 @@ namespace ElasticEmail.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (EmailValidationResult)</returns>
-        public async System.Threading.Tasks.Task<ElasticEmail.Client.ApiResponse<EmailValidationResult>> VerificationsByEmailPostWithHttpInfoAsync(string email, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ElasticEmail.Client.ApiResponse<EmailValidationResult>> VerificationsByEmailPostWithHttpInfoAsync(string email, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             // verify the required parameter 'email' is set
             if (email == null)
@@ -1139,6 +1142,7 @@ namespace ElasticEmail.Api
             };
 
             var localVarContentType = ElasticEmail.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarMultipartFormData = localVarContentType == "multipart/form-data";
             if (localVarContentType != null)
             {
                 localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
@@ -1183,7 +1187,7 @@ namespace ElasticEmail.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task VerificationsFilesByIdDeleteAsync(string id, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task VerificationsFilesByIdDeleteAsync(string id, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             await VerificationsFilesByIdDeleteWithHttpInfoAsync(id, operationIndex, cancellationToken).ConfigureAwait(false);
         }
@@ -1196,7 +1200,7 @@ namespace ElasticEmail.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<ElasticEmail.Client.ApiResponse<Object>> VerificationsFilesByIdDeleteWithHttpInfoAsync(string id, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ElasticEmail.Client.ApiResponse<Object>> VerificationsFilesByIdDeleteWithHttpInfoAsync(string id, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             // verify the required parameter 'id' is set
             if (id == null)
@@ -1253,7 +1257,7 @@ namespace ElasticEmail.Api
         }
 
         /// <summary>
-        /// Download File Verification Result Download verification results as a ZIP file. Required Access Level: VerifyEmails
+        /// Download File Verification Result Download verification results as a ZIP file. Required Access Level: ViewVerifyEmails
         /// </summary>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Verification ID to download</param>
@@ -1266,7 +1270,7 @@ namespace ElasticEmail.Api
         }
 
         /// <summary>
-        /// Download File Verification Result Download verification results as a ZIP file. Required Access Level: VerifyEmails
+        /// Download File Verification Result Download verification results as a ZIP file. Required Access Level: ViewVerifyEmails
         /// </summary>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Verification ID to download</param>
@@ -1291,6 +1295,7 @@ namespace ElasticEmail.Api
             };
 
             var localVarContentType = ElasticEmail.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarMultipartFormData = localVarContentType == "multipart/form-data";
             if (localVarContentType != null)
             {
                 localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
@@ -1328,28 +1333,28 @@ namespace ElasticEmail.Api
         }
 
         /// <summary>
-        /// Download File Verification Result Download verification results as a ZIP file. Required Access Level: VerifyEmails
+        /// Download File Verification Result Download verification results as a ZIP file. Required Access Level: ViewVerifyEmails
         /// </summary>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Verification ID to download</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of System.IO.Stream</returns>
-        public async System.Threading.Tasks.Task<System.IO.Stream> VerificationsFilesByIdResultDownloadGetAsync(string id, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<System.IO.Stream> VerificationsFilesByIdResultDownloadGetAsync(string id, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             ElasticEmail.Client.ApiResponse<System.IO.Stream> localVarResponse = await VerificationsFilesByIdResultDownloadGetWithHttpInfoAsync(id, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Download File Verification Result Download verification results as a ZIP file. Required Access Level: VerifyEmails
+        /// Download File Verification Result Download verification results as a ZIP file. Required Access Level: ViewVerifyEmails
         /// </summary>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Verification ID to download</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (System.IO.Stream)</returns>
-        public async System.Threading.Tasks.Task<ElasticEmail.Client.ApiResponse<System.IO.Stream>> VerificationsFilesByIdResultDownloadGetWithHttpInfoAsync(string id, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ElasticEmail.Client.ApiResponse<System.IO.Stream>> VerificationsFilesByIdResultDownloadGetWithHttpInfoAsync(string id, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             // verify the required parameter 'id' is set
             if (id == null)
@@ -1407,7 +1412,7 @@ namespace ElasticEmail.Api
         }
 
         /// <summary>
-        /// Get Detailed File Verification Result Returns status and results (if verified) of file with given ID. Required Access Level: VerifyEmails
+        /// Get Detailed File Verification Result Returns status and results (if verified) of file with given ID. Required Access Level: ViewVerifyEmails
         /// </summary>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">ID of the Verification to display status of</param>
@@ -1422,7 +1427,7 @@ namespace ElasticEmail.Api
         }
 
         /// <summary>
-        /// Get Detailed File Verification Result Returns status and results (if verified) of file with given ID. Required Access Level: VerifyEmails
+        /// Get Detailed File Verification Result Returns status and results (if verified) of file with given ID. Required Access Level: ViewVerifyEmails
         /// </summary>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">ID of the Verification to display status of</param>
@@ -1449,6 +1454,7 @@ namespace ElasticEmail.Api
             };
 
             var localVarContentType = ElasticEmail.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarMultipartFormData = localVarContentType == "multipart/form-data";
             if (localVarContentType != null)
             {
                 localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
@@ -1494,7 +1500,7 @@ namespace ElasticEmail.Api
         }
 
         /// <summary>
-        /// Get Detailed File Verification Result Returns status and results (if verified) of file with given ID. Required Access Level: VerifyEmails
+        /// Get Detailed File Verification Result Returns status and results (if verified) of file with given ID. Required Access Level: ViewVerifyEmails
         /// </summary>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">ID of the Verification to display status of</param>
@@ -1503,14 +1509,14 @@ namespace ElasticEmail.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of VerificationFileResultDetails</returns>
-        public async System.Threading.Tasks.Task<VerificationFileResultDetails> VerificationsFilesByIdResultGetAsync(string id, int? limit = default(int?), int? offset = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<VerificationFileResultDetails> VerificationsFilesByIdResultGetAsync(string id, int? limit = default(int?), int? offset = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             ElasticEmail.Client.ApiResponse<VerificationFileResultDetails> localVarResponse = await VerificationsFilesByIdResultGetWithHttpInfoAsync(id, limit, offset, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Get Detailed File Verification Result Returns status and results (if verified) of file with given ID. Required Access Level: VerifyEmails
+        /// Get Detailed File Verification Result Returns status and results (if verified) of file with given ID. Required Access Level: ViewVerifyEmails
         /// </summary>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">ID of the Verification to display status of</param>
@@ -1519,7 +1525,7 @@ namespace ElasticEmail.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (VerificationFileResultDetails)</returns>
-        public async System.Threading.Tasks.Task<ElasticEmail.Client.ApiResponse<VerificationFileResultDetails>> VerificationsFilesByIdResultGetWithHttpInfoAsync(string id, int? limit = default(int?), int? offset = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ElasticEmail.Client.ApiResponse<VerificationFileResultDetails>> VerificationsFilesByIdResultGetWithHttpInfoAsync(string id, int? limit = default(int?), int? offset = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             // verify the required parameter 'id' is set
             if (id == null)
@@ -1621,6 +1627,7 @@ namespace ElasticEmail.Api
             };
 
             var localVarContentType = ElasticEmail.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarMultipartFormData = localVarContentType == "multipart/form-data";
             if (localVarContentType != null)
             {
                 localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
@@ -1665,7 +1672,7 @@ namespace ElasticEmail.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task VerificationsFilesByIdVerificationPostAsync(string id, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task VerificationsFilesByIdVerificationPostAsync(string id, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             await VerificationsFilesByIdVerificationPostWithHttpInfoAsync(id, operationIndex, cancellationToken).ConfigureAwait(false);
         }
@@ -1678,7 +1685,7 @@ namespace ElasticEmail.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<ElasticEmail.Client.ApiResponse<Object>> VerificationsFilesByIdVerificationPostWithHttpInfoAsync(string id, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ElasticEmail.Client.ApiResponse<Object>> VerificationsFilesByIdVerificationPostWithHttpInfoAsync(string id, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             // verify the required parameter 'id' is set
             if (id == null)
@@ -1768,6 +1775,7 @@ namespace ElasticEmail.Api
             };
 
             var localVarContentType = ElasticEmail.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarMultipartFormData = localVarContentType == "multipart/form-data";
             if (localVarContentType != null)
             {
                 localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
@@ -1815,7 +1823,7 @@ namespace ElasticEmail.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of VerificationFileResult</returns>
-        public async System.Threading.Tasks.Task<VerificationFileResult> VerificationsFilesPostAsync(System.IO.Stream file = default(System.IO.Stream), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<VerificationFileResult> VerificationsFilesPostAsync(System.IO.Stream file = default(System.IO.Stream), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             ElasticEmail.Client.ApiResponse<VerificationFileResult> localVarResponse = await VerificationsFilesPostWithHttpInfoAsync(file, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -1829,7 +1837,7 @@ namespace ElasticEmail.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (VerificationFileResult)</returns>
-        public async System.Threading.Tasks.Task<ElasticEmail.Client.ApiResponse<VerificationFileResult>> VerificationsFilesPostWithHttpInfoAsync(System.IO.Stream file = default(System.IO.Stream), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ElasticEmail.Client.ApiResponse<VerificationFileResult>> VerificationsFilesPostWithHttpInfoAsync(System.IO.Stream file = default(System.IO.Stream), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
 
             ElasticEmail.Client.RequestOptions localVarRequestOptions = new ElasticEmail.Client.RequestOptions();
@@ -1885,7 +1893,7 @@ namespace ElasticEmail.Api
         }
 
         /// <summary>
-        /// Get Files Verification Results Returns a list of uploaded files, their statuses and results. Required Access Level: VerifyEmails
+        /// Get Files Verification Results Returns a list of uploaded files, their statuses and results. Required Access Level: ViewVerifyEmails
         /// </summary>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -1897,7 +1905,7 @@ namespace ElasticEmail.Api
         }
 
         /// <summary>
-        /// Get Files Verification Results Returns a list of uploaded files, their statuses and results. Required Access Level: VerifyEmails
+        /// Get Files Verification Results Returns a list of uploaded files, their statuses and results. Required Access Level: ViewVerifyEmails
         /// </summary>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -1915,6 +1923,7 @@ namespace ElasticEmail.Api
             };
 
             var localVarContentType = ElasticEmail.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarMultipartFormData = localVarContentType == "multipart/form-data";
             if (localVarContentType != null)
             {
                 localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
@@ -1951,26 +1960,26 @@ namespace ElasticEmail.Api
         }
 
         /// <summary>
-        /// Get Files Verification Results Returns a list of uploaded files, their statuses and results. Required Access Level: VerifyEmails
+        /// Get Files Verification Results Returns a list of uploaded files, their statuses and results. Required Access Level: ViewVerifyEmails
         /// </summary>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;VerificationFileResult&gt;</returns>
-        public async System.Threading.Tasks.Task<List<VerificationFileResult>> VerificationsFilesResultGetAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<List<VerificationFileResult>> VerificationsFilesResultGetAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             ElasticEmail.Client.ApiResponse<List<VerificationFileResult>> localVarResponse = await VerificationsFilesResultGetWithHttpInfoAsync(operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Get Files Verification Results Returns a list of uploaded files, their statuses and results. Required Access Level: VerifyEmails
+        /// Get Files Verification Results Returns a list of uploaded files, their statuses and results. Required Access Level: ViewVerifyEmails
         /// </summary>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;VerificationFileResult&gt;)</returns>
-        public async System.Threading.Tasks.Task<ElasticEmail.Client.ApiResponse<List<VerificationFileResult>>> VerificationsFilesResultGetWithHttpInfoAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ElasticEmail.Client.ApiResponse<List<VerificationFileResult>>> VerificationsFilesResultGetWithHttpInfoAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
 
             ElasticEmail.Client.RequestOptions localVarRequestOptions = new ElasticEmail.Client.RequestOptions();
@@ -2021,7 +2030,7 @@ namespace ElasticEmail.Api
         }
 
         /// <summary>
-        /// Get Emails Verification Results Returns a results of all verified single emails. Required Access Level: VerifyEmails
+        /// Get Emails Verification Results Returns a results of all verified single emails. Required Access Level: ViewVerifyEmails
         /// </summary>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="limit">Maximum number of returned items. (optional)</param>
@@ -2035,7 +2044,7 @@ namespace ElasticEmail.Api
         }
 
         /// <summary>
-        /// Get Emails Verification Results Returns a results of all verified single emails. Required Access Level: VerifyEmails
+        /// Get Emails Verification Results Returns a results of all verified single emails. Required Access Level: ViewVerifyEmails
         /// </summary>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="limit">Maximum number of returned items. (optional)</param>
@@ -2055,6 +2064,7 @@ namespace ElasticEmail.Api
             };
 
             var localVarContentType = ElasticEmail.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarMultipartFormData = localVarContentType == "multipart/form-data";
             if (localVarContentType != null)
             {
                 localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
@@ -2099,7 +2109,7 @@ namespace ElasticEmail.Api
         }
 
         /// <summary>
-        /// Get Emails Verification Results Returns a results of all verified single emails. Required Access Level: VerifyEmails
+        /// Get Emails Verification Results Returns a results of all verified single emails. Required Access Level: ViewVerifyEmails
         /// </summary>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="limit">Maximum number of returned items. (optional)</param>
@@ -2107,14 +2117,14 @@ namespace ElasticEmail.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;EmailValidationResult&gt;</returns>
-        public async System.Threading.Tasks.Task<List<EmailValidationResult>> VerificationsGetAsync(int? limit = default(int?), int? offset = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<List<EmailValidationResult>> VerificationsGetAsync(int? limit = default(int?), int? offset = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             ElasticEmail.Client.ApiResponse<List<EmailValidationResult>> localVarResponse = await VerificationsGetWithHttpInfoAsync(limit, offset, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Get Emails Verification Results Returns a results of all verified single emails. Required Access Level: VerifyEmails
+        /// Get Emails Verification Results Returns a results of all verified single emails. Required Access Level: ViewVerifyEmails
         /// </summary>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="limit">Maximum number of returned items. (optional)</param>
@@ -2122,7 +2132,7 @@ namespace ElasticEmail.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;EmailValidationResult&gt;)</returns>
-        public async System.Threading.Tasks.Task<ElasticEmail.Client.ApiResponse<List<EmailValidationResult>>> VerificationsGetWithHttpInfoAsync(int? limit = default(int?), int? offset = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ElasticEmail.Client.ApiResponse<List<EmailValidationResult>>> VerificationsGetWithHttpInfoAsync(int? limit = default(int?), int? offset = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
 
             ElasticEmail.Client.RequestOptions localVarRequestOptions = new ElasticEmail.Client.RequestOptions();

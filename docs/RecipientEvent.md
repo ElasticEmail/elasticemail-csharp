@@ -15,7 +15,7 @@ Name | Type | Description | Notes
 **ChannelName** | **string** | Name of selected channel. | [optional] 
 **MessageCategory** | **MessageCategory** |  | [optional] 
 **NextTryOn** | **DateTime?** | Date of next try | [optional] 
-**Message** | **string** | Content of message, HTML encoded | [optional] 
+**Message** | **string** | Error message if sending has failed (FailedAttempt or Bounce) | [optional] 
 **IPAddress** | **string** | IP which this email was sent through | [optional] 
 **PoolName** | **string** | Name of an IP pool this email was sent through | [optional] 
 

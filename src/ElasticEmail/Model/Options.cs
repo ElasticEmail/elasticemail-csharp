@@ -1,7 +1,7 @@
 /*
  * Elastic Email REST API
  *
- * This API is based on the REST API architecture, allowing the user to easily manage their data with this resource-based approach.    Every API call is established on which specific request type (GET, POST, PUT, DELETE) will be used.    The API has a limit of 20 concurrent connections and a hard timeout of 600 seconds per request.    To start using this API, you will need your Access Token (available <a target=\"_blank\" href=\"https://app.elasticemail.com/marketing/settings/new/manage-api\">here</a>). Remember to keep it safe. Required access levels are listed in the given request’s description.    Downloadable library clients can be found in our Github repository <a target=\"_blank\" href=\"https://github.com/ElasticEmail?tab=repositories&q=%22rest+api%22+in%3Areadme\">here</a>
+ * This API is based on the REST API architecture, allowing the user to easily manage their data with this resource-based approach.    Every API call is established on which specific request type (GET, POST, PUT, DELETE) will be used.    The API has a limit of 20 concurrent connections and a hard timeout of 600 seconds per request.    To start using this API, you will need your Access Token (available <a target='_blank' href='https://app.elasticemail.com/marketing/settings/new/manage-api'>here</a>). Remember to keep it safe. Required access levels are listed in the given request’s description.    Downloadable library clients can be found in our Github repository <a target='_blank' href='https://github.com/ElasticEmail?tab=repositories&q=%22rest+api%22+in%3Areadme'>here</a>
  *
  * The version of the OpenAPI document: 4.0.0
  * Contact: support@elasticemail.com
@@ -68,7 +68,9 @@ namespace ElasticEmail.Model
         /// Name of your custom IP Pool to be used in the sending process
         /// </summary>
         /// <value>Name of your custom IP Pool to be used in the sending process</value>
-        /// <example>My Custom Pool</example>
+        /*
+        <example>My Custom Pool</example>
+        */
         [DataMember(Name = "PoolName", EmitDefaultValue = false)]
         public string PoolName { get; set; }
 
@@ -76,7 +78,9 @@ namespace ElasticEmail.Model
         /// Name of selected channel.
         /// </summary>
         /// <value>Name of selected channel.</value>
-        /// <example>Channel01</example>
+        /*
+        <example>Channel01</example>
+        */
         [DataMember(Name = "ChannelName", EmitDefaultValue = false)]
         public string ChannelName { get; set; }
 
@@ -84,7 +88,9 @@ namespace ElasticEmail.Model
         /// Should the opens be tracked? If no value has been provided, Account&#39;s default setting will be used.
         /// </summary>
         /// <value>Should the opens be tracked? If no value has been provided, Account&#39;s default setting will be used.</value>
-        /// <example>true</example>
+        /*
+        <example>true</example>
+        */
         [DataMember(Name = "TrackOpens", EmitDefaultValue = true)]
         public bool? TrackOpens { get; set; }
 
@@ -92,7 +98,9 @@ namespace ElasticEmail.Model
         /// Should the clicks be tracked? If no value has been provided, Account&#39;s default setting will be used.
         /// </summary>
         /// <value>Should the clicks be tracked? If no value has been provided, Account&#39;s default setting will be used.</value>
-        /// <example>true</example>
+        /*
+        <example>true</example>
+        */
         [DataMember(Name = "TrackClicks", EmitDefaultValue = true)]
         public bool? TrackClicks { get; set; }
 
@@ -128,7 +136,7 @@ namespace ElasticEmail.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             yield break;
         }

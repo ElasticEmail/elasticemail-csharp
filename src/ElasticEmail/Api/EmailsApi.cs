@@ -1,7 +1,7 @@
 /*
  * Elastic Email REST API
  *
- * This API is based on the REST API architecture, allowing the user to easily manage their data with this resource-based approach.    Every API call is established on which specific request type (GET, POST, PUT, DELETE) will be used.    The API has a limit of 20 concurrent connections and a hard timeout of 600 seconds per request.    To start using this API, you will need your Access Token (available <a target=\"_blank\" href=\"https://app.elasticemail.com/marketing/settings/new/manage-api\">here</a>). Remember to keep it safe. Required access levels are listed in the given request’s description.    Downloadable library clients can be found in our Github repository <a target=\"_blank\" href=\"https://github.com/ElasticEmail?tab=repositories&q=%22rest+api%22+in%3Areadme\">here</a>
+ * This API is based on the REST API architecture, allowing the user to easily manage their data with this resource-based approach.    Every API call is established on which specific request type (GET, POST, PUT, DELETE) will be used.    The API has a limit of 20 concurrent connections and a hard timeout of 600 seconds per request.    To start using this API, you will need your Access Token (available <a target='_blank' href='https://app.elasticemail.com/marketing/settings/new/manage-api'>here</a>). Remember to keep it safe. Required access levels are listed in the given request’s description.    Downloadable library clients can be found in our Github repository <a target='_blank' href='https://github.com/ElasticEmail?tab=repositories&q=%22rest+api%22+in%3Areadme'>here</a>
  *
  * The version of the OpenAPI document: 4.0.0
  * Contact: support@elasticemail.com
@@ -182,7 +182,7 @@ namespace ElasticEmail.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of EmailData</returns>
-        System.Threading.Tasks.Task<EmailData> EmailsByMsgidViewGetAsync(string msgid, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<EmailData> EmailsByMsgidViewGetAsync(string msgid, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// View Email
@@ -195,7 +195,7 @@ namespace ElasticEmail.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (EmailData)</returns>
-        System.Threading.Tasks.Task<ApiResponse<EmailData>> EmailsByMsgidViewGetWithHttpInfoAsync(string msgid, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<EmailData>> EmailsByMsgidViewGetWithHttpInfoAsync(string msgid, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Get Status
         /// </summary>
@@ -217,7 +217,7 @@ namespace ElasticEmail.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of EmailJobStatus</returns>
-        System.Threading.Tasks.Task<EmailJobStatus> EmailsByTransactionidStatusGetAsync(string transactionid, bool? showFailed = default(bool?), bool? showSent = default(bool?), bool? showDelivered = default(bool?), bool? showPending = default(bool?), bool? showOpened = default(bool?), bool? showClicked = default(bool?), bool? showAbuse = default(bool?), bool? showUnsubscribed = default(bool?), bool? showErrors = default(bool?), bool? showMessageIDs = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<EmailJobStatus> EmailsByTransactionidStatusGetAsync(string transactionid, bool? showFailed = default(bool?), bool? showSent = default(bool?), bool? showDelivered = default(bool?), bool? showPending = default(bool?), bool? showOpened = default(bool?), bool? showClicked = default(bool?), bool? showAbuse = default(bool?), bool? showUnsubscribed = default(bool?), bool? showErrors = default(bool?), bool? showMessageIDs = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Get Status
@@ -240,7 +240,7 @@ namespace ElasticEmail.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (EmailJobStatus)</returns>
-        System.Threading.Tasks.Task<ApiResponse<EmailJobStatus>> EmailsByTransactionidStatusGetWithHttpInfoAsync(string transactionid, bool? showFailed = default(bool?), bool? showSent = default(bool?), bool? showDelivered = default(bool?), bool? showPending = default(bool?), bool? showOpened = default(bool?), bool? showClicked = default(bool?), bool? showAbuse = default(bool?), bool? showUnsubscribed = default(bool?), bool? showErrors = default(bool?), bool? showMessageIDs = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<EmailJobStatus>> EmailsByTransactionidStatusGetWithHttpInfoAsync(string transactionid, bool? showFailed = default(bool?), bool? showSent = default(bool?), bool? showDelivered = default(bool?), bool? showPending = default(bool?), bool? showOpened = default(bool?), bool? showClicked = default(bool?), bool? showAbuse = default(bool?), bool? showUnsubscribed = default(bool?), bool? showErrors = default(bool?), bool? showMessageIDs = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Send Bulk Emails CSV
         /// </summary>
@@ -252,7 +252,7 @@ namespace ElasticEmail.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of EmailSend</returns>
-        System.Threading.Tasks.Task<EmailSend> EmailsMergefilePostAsync(MergeEmailPayload mergeEmailPayload, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<EmailSend> EmailsMergefilePostAsync(MergeEmailPayload mergeEmailPayload, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Send Bulk Emails CSV
@@ -265,7 +265,7 @@ namespace ElasticEmail.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (EmailSend)</returns>
-        System.Threading.Tasks.Task<ApiResponse<EmailSend>> EmailsMergefilePostWithHttpInfoAsync(MergeEmailPayload mergeEmailPayload, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<EmailSend>> EmailsMergefilePostWithHttpInfoAsync(MergeEmailPayload mergeEmailPayload, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Send Bulk Emails
         /// </summary>
@@ -277,7 +277,7 @@ namespace ElasticEmail.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of EmailSend</returns>
-        System.Threading.Tasks.Task<EmailSend> EmailsPostAsync(EmailMessageData emailMessageData, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<EmailSend> EmailsPostAsync(EmailMessageData emailMessageData, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Send Bulk Emails
@@ -290,7 +290,7 @@ namespace ElasticEmail.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (EmailSend)</returns>
-        System.Threading.Tasks.Task<ApiResponse<EmailSend>> EmailsPostWithHttpInfoAsync(EmailMessageData emailMessageData, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<EmailSend>> EmailsPostWithHttpInfoAsync(EmailMessageData emailMessageData, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Send Transactional Email
         /// </summary>
@@ -302,7 +302,7 @@ namespace ElasticEmail.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of EmailSend</returns>
-        System.Threading.Tasks.Task<EmailSend> EmailsTransactionalPostAsync(EmailTransactionalMessageData emailTransactionalMessageData, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<EmailSend> EmailsTransactionalPostAsync(EmailTransactionalMessageData emailTransactionalMessageData, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Send Transactional Email
@@ -315,7 +315,7 @@ namespace ElasticEmail.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (EmailSend)</returns>
-        System.Threading.Tasks.Task<ApiResponse<EmailSend>> EmailsTransactionalPostWithHttpInfoAsync(EmailTransactionalMessageData emailTransactionalMessageData, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<EmailSend>> EmailsTransactionalPostWithHttpInfoAsync(EmailTransactionalMessageData emailTransactionalMessageData, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         #endregion Asynchronous Operations
     }
 
@@ -475,6 +475,7 @@ namespace ElasticEmail.Api
             };
 
             var localVarContentType = ElasticEmail.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarMultipartFormData = localVarContentType == "multipart/form-data";
             if (localVarContentType != null)
             {
                 localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
@@ -519,7 +520,7 @@ namespace ElasticEmail.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of EmailData</returns>
-        public async System.Threading.Tasks.Task<EmailData> EmailsByMsgidViewGetAsync(string msgid, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<EmailData> EmailsByMsgidViewGetAsync(string msgid, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             ElasticEmail.Client.ApiResponse<EmailData> localVarResponse = await EmailsByMsgidViewGetWithHttpInfoAsync(msgid, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -533,7 +534,7 @@ namespace ElasticEmail.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (EmailData)</returns>
-        public async System.Threading.Tasks.Task<ElasticEmail.Client.ApiResponse<EmailData>> EmailsByMsgidViewGetWithHttpInfoAsync(string msgid, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ElasticEmail.Client.ApiResponse<EmailData>> EmailsByMsgidViewGetWithHttpInfoAsync(string msgid, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             // verify the required parameter 'msgid' is set
             if (msgid == null)
@@ -649,6 +650,7 @@ namespace ElasticEmail.Api
             };
 
             var localVarContentType = ElasticEmail.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarMultipartFormData = localVarContentType == "multipart/form-data";
             if (localVarContentType != null)
             {
                 localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
@@ -743,7 +745,7 @@ namespace ElasticEmail.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of EmailJobStatus</returns>
-        public async System.Threading.Tasks.Task<EmailJobStatus> EmailsByTransactionidStatusGetAsync(string transactionid, bool? showFailed = default(bool?), bool? showSent = default(bool?), bool? showDelivered = default(bool?), bool? showPending = default(bool?), bool? showOpened = default(bool?), bool? showClicked = default(bool?), bool? showAbuse = default(bool?), bool? showUnsubscribed = default(bool?), bool? showErrors = default(bool?), bool? showMessageIDs = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<EmailJobStatus> EmailsByTransactionidStatusGetAsync(string transactionid, bool? showFailed = default(bool?), bool? showSent = default(bool?), bool? showDelivered = default(bool?), bool? showPending = default(bool?), bool? showOpened = default(bool?), bool? showClicked = default(bool?), bool? showAbuse = default(bool?), bool? showUnsubscribed = default(bool?), bool? showErrors = default(bool?), bool? showMessageIDs = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             ElasticEmail.Client.ApiResponse<EmailJobStatus> localVarResponse = await EmailsByTransactionidStatusGetWithHttpInfoAsync(transactionid, showFailed, showSent, showDelivered, showPending, showOpened, showClicked, showAbuse, showUnsubscribed, showErrors, showMessageIDs, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -767,7 +769,7 @@ namespace ElasticEmail.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (EmailJobStatus)</returns>
-        public async System.Threading.Tasks.Task<ElasticEmail.Client.ApiResponse<EmailJobStatus>> EmailsByTransactionidStatusGetWithHttpInfoAsync(string transactionid, bool? showFailed = default(bool?), bool? showSent = default(bool?), bool? showDelivered = default(bool?), bool? showPending = default(bool?), bool? showOpened = default(bool?), bool? showClicked = default(bool?), bool? showAbuse = default(bool?), bool? showUnsubscribed = default(bool?), bool? showErrors = default(bool?), bool? showMessageIDs = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ElasticEmail.Client.ApiResponse<EmailJobStatus>> EmailsByTransactionidStatusGetWithHttpInfoAsync(string transactionid, bool? showFailed = default(bool?), bool? showSent = default(bool?), bool? showDelivered = default(bool?), bool? showPending = default(bool?), bool? showOpened = default(bool?), bool? showClicked = default(bool?), bool? showAbuse = default(bool?), bool? showUnsubscribed = default(bool?), bool? showErrors = default(bool?), bool? showMessageIDs = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             // verify the required parameter 'transactionid' is set
             if (transactionid == null)
@@ -904,6 +906,7 @@ namespace ElasticEmail.Api
             };
 
             var localVarContentType = ElasticEmail.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarMultipartFormData = localVarContentType == "multipart/form-data";
             if (localVarContentType != null)
             {
                 localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
@@ -948,7 +951,7 @@ namespace ElasticEmail.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of EmailSend</returns>
-        public async System.Threading.Tasks.Task<EmailSend> EmailsMergefilePostAsync(MergeEmailPayload mergeEmailPayload, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<EmailSend> EmailsMergefilePostAsync(MergeEmailPayload mergeEmailPayload, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             ElasticEmail.Client.ApiResponse<EmailSend> localVarResponse = await EmailsMergefilePostWithHttpInfoAsync(mergeEmailPayload, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -962,7 +965,7 @@ namespace ElasticEmail.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (EmailSend)</returns>
-        public async System.Threading.Tasks.Task<ElasticEmail.Client.ApiResponse<EmailSend>> EmailsMergefilePostWithHttpInfoAsync(MergeEmailPayload mergeEmailPayload, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ElasticEmail.Client.ApiResponse<EmailSend>> EmailsMergefilePostWithHttpInfoAsync(MergeEmailPayload mergeEmailPayload, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             // verify the required parameter 'mergeEmailPayload' is set
             if (mergeEmailPayload == null)
@@ -1060,6 +1063,7 @@ namespace ElasticEmail.Api
             };
 
             var localVarContentType = ElasticEmail.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarMultipartFormData = localVarContentType == "multipart/form-data";
             if (localVarContentType != null)
             {
                 localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
@@ -1104,7 +1108,7 @@ namespace ElasticEmail.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of EmailSend</returns>
-        public async System.Threading.Tasks.Task<EmailSend> EmailsPostAsync(EmailMessageData emailMessageData, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<EmailSend> EmailsPostAsync(EmailMessageData emailMessageData, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             ElasticEmail.Client.ApiResponse<EmailSend> localVarResponse = await EmailsPostWithHttpInfoAsync(emailMessageData, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -1118,7 +1122,7 @@ namespace ElasticEmail.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (EmailSend)</returns>
-        public async System.Threading.Tasks.Task<ElasticEmail.Client.ApiResponse<EmailSend>> EmailsPostWithHttpInfoAsync(EmailMessageData emailMessageData, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ElasticEmail.Client.ApiResponse<EmailSend>> EmailsPostWithHttpInfoAsync(EmailMessageData emailMessageData, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             // verify the required parameter 'emailMessageData' is set
             if (emailMessageData == null)
@@ -1216,6 +1220,7 @@ namespace ElasticEmail.Api
             };
 
             var localVarContentType = ElasticEmail.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarMultipartFormData = localVarContentType == "multipart/form-data";
             if (localVarContentType != null)
             {
                 localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
@@ -1260,7 +1265,7 @@ namespace ElasticEmail.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of EmailSend</returns>
-        public async System.Threading.Tasks.Task<EmailSend> EmailsTransactionalPostAsync(EmailTransactionalMessageData emailTransactionalMessageData, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<EmailSend> EmailsTransactionalPostAsync(EmailTransactionalMessageData emailTransactionalMessageData, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             ElasticEmail.Client.ApiResponse<EmailSend> localVarResponse = await EmailsTransactionalPostWithHttpInfoAsync(emailTransactionalMessageData, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -1274,7 +1279,7 @@ namespace ElasticEmail.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (EmailSend)</returns>
-        public async System.Threading.Tasks.Task<ElasticEmail.Client.ApiResponse<EmailSend>> EmailsTransactionalPostWithHttpInfoAsync(EmailTransactionalMessageData emailTransactionalMessageData, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ElasticEmail.Client.ApiResponse<EmailSend>> EmailsTransactionalPostWithHttpInfoAsync(EmailTransactionalMessageData emailTransactionalMessageData, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             // verify the required parameter 'emailTransactionalMessageData' is set
             if (emailTransactionalMessageData == null)

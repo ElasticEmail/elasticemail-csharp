@@ -1,7 +1,7 @@
 /*
  * Elastic Email REST API
  *
- * This API is based on the REST API architecture, allowing the user to easily manage their data with this resource-based approach.    Every API call is established on which specific request type (GET, POST, PUT, DELETE) will be used.    The API has a limit of 20 concurrent connections and a hard timeout of 600 seconds per request.    To start using this API, you will need your Access Token (available <a target=\"_blank\" href=\"https://app.elasticemail.com/marketing/settings/new/manage-api\">here</a>). Remember to keep it safe. Required access levels are listed in the given request’s description.    Downloadable library clients can be found in our Github repository <a target=\"_blank\" href=\"https://github.com/ElasticEmail?tab=repositories&q=%22rest+api%22+in%3Areadme\">here</a>
+ * This API is based on the REST API architecture, allowing the user to easily manage their data with this resource-based approach.    Every API call is established on which specific request type (GET, POST, PUT, DELETE) will be used.    The API has a limit of 20 concurrent connections and a hard timeout of 600 seconds per request.    To start using this API, you will need your Access Token (available <a target='_blank' href='https://app.elasticemail.com/marketing/settings/new/manage-api'>here</a>). Remember to keep it safe. Required access levels are listed in the given request’s description.    Downloadable library clients can be found in our Github repository <a target='_blank' href='https://github.com/ElasticEmail?tab=repositories&q=%22rest+api%22+in%3Areadme'>here</a>
  *
  * The version of the OpenAPI document: 4.0.0
  * Contact: support@elasticemail.com
@@ -297,88 +297,106 @@ namespace ElasticEmail.Model
         Modify2FASms = 44,
 
         /// <summary>
+        /// Enum ViewVerifyEmails for value: ViewVerifyEmails
+        /// </summary>
+        [EnumMember(Value = "ViewVerifyEmails")]
+        ViewVerifyEmails = 45,
+
+        /// <summary>
+        /// Enum ViewAccessTokens for value: ViewAccessTokens
+        /// </summary>
+        [EnumMember(Value = "ViewAccessTokens")]
+        ViewAccessTokens = 46,
+
+        /// <summary>
+        /// Enum ViewWebNotifications for value: ViewWebNotifications
+        /// </summary>
+        [EnumMember(Value = "ViewWebNotifications")]
+        ViewWebNotifications = 47,
+
+        /// <summary>
         /// Enum ModifyLandingPages for value: ModifyLandingPages
         /// </summary>
         [EnumMember(Value = "ModifyLandingPages")]
-        ModifyLandingPages = 45,
+        ModifyLandingPages = 48,
 
         /// <summary>
         /// Enum ViewLandingPages for value: ViewLandingPages
         /// </summary>
         [EnumMember(Value = "ViewLandingPages")]
-        ViewLandingPages = 46,
+        ViewLandingPages = 49,
 
         /// <summary>
         /// Enum ModifySuppressions for value: ModifySuppressions
         /// </summary>
         [EnumMember(Value = "ModifySuppressions")]
-        ModifySuppressions = 47,
+        ModifySuppressions = 50,
 
         /// <summary>
         /// Enum ViewSuppressions for value: ViewSuppressions
         /// </summary>
         [EnumMember(Value = "ViewSuppressions")]
-        ViewSuppressions = 48,
+        ViewSuppressions = 51,
 
         /// <summary>
         /// Enum ViewDragDropEditor for value: ViewDragDropEditor
         /// </summary>
         [EnumMember(Value = "ViewDragDropEditor")]
-        ViewDragDropEditor = 49,
+        ViewDragDropEditor = 52,
 
         /// <summary>
         /// Enum ViewTemplateEditor for value: ViewTemplateEditor
         /// </summary>
         [EnumMember(Value = "ViewTemplateEditor")]
-        ViewTemplateEditor = 50,
+        ViewTemplateEditor = 53,
 
         /// <summary>
         /// Enum ViewAITools for value: ViewAITools
         /// </summary>
         [EnumMember(Value = "ViewAITools")]
-        ViewAITools = 51,
+        ViewAITools = 54,
 
         /// <summary>
         /// Enum ModifySubscriptionAntiSpam for value: ModifySubscriptionAntiSpam
         /// </summary>
         [EnumMember(Value = "ModifySubscriptionAntiSpam")]
-        ModifySubscriptionAntiSpam = 52,
+        ModifySubscriptionAntiSpam = 55,
 
         /// <summary>
         /// Enum ViewLandingPagesCheckout for value: ViewLandingPagesCheckout
         /// </summary>
         [EnumMember(Value = "ViewLandingPagesCheckout")]
-        ViewLandingPagesCheckout = 53,
+        ViewLandingPagesCheckout = 56,
 
         /// <summary>
         /// Enum ModifyLandingPagesCheckout for value: ModifyLandingPagesCheckout
         /// </summary>
         [EnumMember(Value = "ModifyLandingPagesCheckout")]
-        ModifyLandingPagesCheckout = 54,
+        ModifyLandingPagesCheckout = 57,
 
         /// <summary>
         /// Enum ViewHTMLEditor for value: ViewHTMLEditor
         /// </summary>
         [EnumMember(Value = "ViewHTMLEditor")]
-        ViewHTMLEditor = 55,
+        ViewHTMLEditor = 58,
 
         /// <summary>
         /// Enum ModifyAccessTokens for value: ModifyAccessTokens
         /// </summary>
         [EnumMember(Value = "ModifyAccessTokens")]
-        ModifyAccessTokens = 56,
+        ModifyAccessTokens = 59,
 
         /// <summary>
         /// Enum ViewPaidNewsletters for value: ViewPaidNewsletters
         /// </summary>
         [EnumMember(Value = "ViewPaidNewsletters")]
-        ViewPaidNewsletters = 57,
+        ViewPaidNewsletters = 60,
 
         /// <summary>
         /// Enum ModifyPaidNewsletters for value: ModifyPaidNewsletters
         /// </summary>
         [EnumMember(Value = "ModifyPaidNewsletters")]
-        ModifyPaidNewsletters = 58
+        ModifyPaidNewsletters = 61
     }
 
 }

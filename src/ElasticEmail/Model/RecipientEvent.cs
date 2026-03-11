@@ -1,7 +1,7 @@
 /*
  * Elastic Email REST API
  *
- * This API is based on the REST API architecture, allowing the user to easily manage their data with this resource-based approach.    Every API call is established on which specific request type (GET, POST, PUT, DELETE) will be used.    The API has a limit of 20 concurrent connections and a hard timeout of 600 seconds per request.    To start using this API, you will need your Access Token (available <a target=\"_blank\" href=\"https://app.elasticemail.com/marketing/settings/new/manage-api\">here</a>). Remember to keep it safe. Required access levels are listed in the given request’s description.    Downloadable library clients can be found in our Github repository <a target=\"_blank\" href=\"https://github.com/ElasticEmail?tab=repositories&q=%22rest+api%22+in%3Areadme\">here</a>
+ * This API is based on the REST API architecture, allowing the user to easily manage their data with this resource-based approach.    Every API call is established on which specific request type (GET, POST, PUT, DELETE) will be used.    The API has a limit of 20 concurrent connections and a hard timeout of 600 seconds per request.    To start using this API, you will need your Access Token (available <a target='_blank' href='https://app.elasticemail.com/marketing/settings/new/manage-api'>here</a>). Remember to keep it safe. Required access levels are listed in the given request’s description.    Downloadable library clients can be found in our Github repository <a target='_blank' href='https://github.com/ElasticEmail?tab=repositories&q=%22rest+api%22+in%3Areadme'>here</a>
  *
  * The version of the OpenAPI document: 4.0.0
  * Contact: support@elasticemail.com
@@ -57,7 +57,7 @@ namespace ElasticEmail.Model
         /// <param name="channelName">Name of selected channel..</param>
         /// <param name="messageCategory">messageCategory.</param>
         /// <param name="nextTryOn">Date of next try.</param>
-        /// <param name="message">Content of message, HTML encoded.</param>
+        /// <param name="message">Error message if sending has failed (FailedAttempt or Bounce).</param>
         /// <param name="iPAddress">IP which this email was sent through.</param>
         /// <param name="poolName">Name of an IP pool this email was sent through.</param>
         public RecipientEvent(string transactionID = default(string), string msgID = default(string), string fromEmail = default(string), string to = default(string), string subject = default(string), EventType? eventType = default(EventType?), DateTime eventDate = default(DateTime), string channelName = default(string), MessageCategory? messageCategory = default(MessageCategory?), DateTime? nextTryOn = default(DateTime?), string message = default(string), string iPAddress = default(string), string poolName = default(string))
@@ -81,7 +81,9 @@ namespace ElasticEmail.Model
         /// ID number of transaction
         /// </summary>
         /// <value>ID number of transaction</value>
-        /// <example>TransactionID</example>
+        /*
+        <example>TransactionID</example>
+        */
         [DataMember(Name = "TransactionID", EmitDefaultValue = false)]
         public string TransactionID { get; set; }
 
@@ -89,7 +91,9 @@ namespace ElasticEmail.Model
         /// ID number of selected message.
         /// </summary>
         /// <value>ID number of selected message.</value>
-        /// <example>ABCDE_9RPhSWiaJq_ab1g1</example>
+        /*
+        <example>ABCDE_9RPhSWiaJq_ab1g1</example>
+        */
         [DataMember(Name = "MsgID", EmitDefaultValue = false)]
         public string MsgID { get; set; }
 
@@ -97,7 +101,9 @@ namespace ElasticEmail.Model
         /// Default From: email address.
         /// </summary>
         /// <value>Default From: email address.</value>
-        /// <example>sender@yourdomain.com</example>
+        /*
+        <example>sender@yourdomain.com</example>
+        */
         [DataMember(Name = "FromEmail", EmitDefaultValue = false)]
         public string FromEmail { get; set; }
 
@@ -105,7 +111,9 @@ namespace ElasticEmail.Model
         /// Ending date for search in YYYY-MM-DDThh:mm:ss format.
         /// </summary>
         /// <value>Ending date for search in YYYY-MM-DDThh:mm:ss format.</value>
-        /// <example>2001-01-01T01:01:01</example>
+        /*
+        <example>2001-01-01T01:01:01</example>
+        */
         [DataMember(Name = "To", EmitDefaultValue = false)]
         public string To { get; set; }
 
@@ -113,7 +121,9 @@ namespace ElasticEmail.Model
         /// Default subject of email.
         /// </summary>
         /// <value>Default subject of email.</value>
-        /// <example>Hello!</example>
+        /*
+        <example>Hello!</example>
+        */
         [DataMember(Name = "Subject", EmitDefaultValue = false)]
         public string Subject { get; set; }
 
@@ -128,7 +138,9 @@ namespace ElasticEmail.Model
         /// Name of selected channel.
         /// </summary>
         /// <value>Name of selected channel.</value>
-        /// <example>Channel01</example>
+        /*
+        <example>Channel01</example>
+        */
         [DataMember(Name = "ChannelName", EmitDefaultValue = false)]
         public string ChannelName { get; set; }
 
@@ -140,10 +152,9 @@ namespace ElasticEmail.Model
         public DateTime? NextTryOn { get; set; }
 
         /// <summary>
-        /// Content of message, HTML encoded
+        /// Error message if sending has failed (FailedAttempt or Bounce)
         /// </summary>
-        /// <value>Content of message, HTML encoded</value>
-        /// <example>Lorem ipsum</example>
+        /// <value>Error message if sending has failed (FailedAttempt or Bounce)</value>
         [DataMember(Name = "Message", EmitDefaultValue = false)]
         public string Message { get; set; }
 
@@ -200,7 +211,7 @@ namespace ElasticEmail.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             yield break;
         }

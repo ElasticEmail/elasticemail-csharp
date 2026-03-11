@@ -1,7 +1,7 @@
 /*
  * Elastic Email REST API
  *
- * This API is based on the REST API architecture, allowing the user to easily manage their data with this resource-based approach.    Every API call is established on which specific request type (GET, POST, PUT, DELETE) will be used.    The API has a limit of 20 concurrent connections and a hard timeout of 600 seconds per request.    To start using this API, you will need your Access Token (available <a target=\"_blank\" href=\"https://app.elasticemail.com/marketing/settings/new/manage-api\">here</a>). Remember to keep it safe. Required access levels are listed in the given request’s description.    Downloadable library clients can be found in our Github repository <a target=\"_blank\" href=\"https://github.com/ElasticEmail?tab=repositories&q=%22rest+api%22+in%3Areadme\">here</a>
+ * This API is based on the REST API architecture, allowing the user to easily manage their data with this resource-based approach.    Every API call is established on which specific request type (GET, POST, PUT, DELETE) will be used.    The API has a limit of 20 concurrent connections and a hard timeout of 600 seconds per request.    To start using this API, you will need your Access Token (available <a target='_blank' href='https://app.elasticemail.com/marketing/settings/new/manage-api'>here</a>). Remember to keep it safe. Required access levels are listed in the given request’s description.    Downloadable library clients can be found in our Github repository <a target='_blank' href='https://github.com/ElasticEmail?tab=repositories&q=%22rest+api%22+in%3Areadme'>here</a>
  *
  * The version of the OpenAPI document: 4.0.0
  * Contact: support@elasticemail.com
@@ -69,7 +69,9 @@ namespace ElasticEmail.Model
         /// Number of recipients
         /// </summary>
         /// <value>Number of recipients</value>
-        /// <example>1234</example>
+        /*
+        <example>1234</example>
+        */
         [DataMember(Name = "Recipients", EmitDefaultValue = false)]
         public long Recipients { get; set; }
 
@@ -77,7 +79,9 @@ namespace ElasticEmail.Model
         /// Number of emails
         /// </summary>
         /// <value>Number of emails</value>
-        /// <example>1234</example>
+        /*
+        <example>1234</example>
+        */
         [DataMember(Name = "EmailTotal", EmitDefaultValue = false)]
         public long EmailTotal { get; set; }
 
@@ -85,7 +89,9 @@ namespace ElasticEmail.Model
         /// Number of SMS
         /// </summary>
         /// <value>Number of SMS</value>
-        /// <example>12</example>
+        /*
+        <example>12</example>
+        */
         [DataMember(Name = "SmsTotal", EmitDefaultValue = false)]
         public long SmsTotal { get; set; }
 
@@ -93,7 +99,9 @@ namespace ElasticEmail.Model
         /// Number of delivered messages
         /// </summary>
         /// <value>Number of delivered messages</value>
-        /// <example>1000</example>
+        /*
+        <example>1000</example>
+        */
         [DataMember(Name = "Delivered", EmitDefaultValue = false)]
         public long Delivered { get; set; }
 
@@ -101,7 +109,9 @@ namespace ElasticEmail.Model
         /// Number of bounced messages
         /// </summary>
         /// <value>Number of bounced messages</value>
-        /// <example>1000</example>
+        /*
+        <example>1000</example>
+        */
         [DataMember(Name = "Bounced", EmitDefaultValue = false)]
         public long Bounced { get; set; }
 
@@ -109,7 +119,9 @@ namespace ElasticEmail.Model
         /// Number of messages in progress
         /// </summary>
         /// <value>Number of messages in progress</value>
-        /// <example>1234</example>
+        /*
+        <example>1234</example>
+        */
         [DataMember(Name = "InProgress", EmitDefaultValue = false)]
         public long InProgress { get; set; }
 
@@ -117,7 +129,9 @@ namespace ElasticEmail.Model
         /// Number of opened messages
         /// </summary>
         /// <value>Number of opened messages</value>
-        /// <example>1000</example>
+        /*
+        <example>1000</example>
+        */
         [DataMember(Name = "Opened", EmitDefaultValue = false)]
         public long Opened { get; set; }
 
@@ -125,7 +139,9 @@ namespace ElasticEmail.Model
         /// Number of clicked messages
         /// </summary>
         /// <value>Number of clicked messages</value>
-        /// <example>1000</example>
+        /*
+        <example>1000</example>
+        */
         [DataMember(Name = "Clicked", EmitDefaultValue = false)]
         public long Clicked { get; set; }
 
@@ -133,7 +149,9 @@ namespace ElasticEmail.Model
         /// Number of unsubscribed messages
         /// </summary>
         /// <value>Number of unsubscribed messages</value>
-        /// <example>1000</example>
+        /*
+        <example>1000</example>
+        */
         [DataMember(Name = "Unsubscribed", EmitDefaultValue = false)]
         public long Unsubscribed { get; set; }
 
@@ -141,7 +159,9 @@ namespace ElasticEmail.Model
         /// Number of complaint messages
         /// </summary>
         /// <value>Number of complaint messages</value>
-        /// <example>1000</example>
+        /*
+        <example>1000</example>
+        */
         [DataMember(Name = "Complaints", EmitDefaultValue = false)]
         public long Complaints { get; set; }
 
@@ -149,7 +169,9 @@ namespace ElasticEmail.Model
         /// Number of inbound messages
         /// </summary>
         /// <value>Number of inbound messages</value>
-        /// <example>1000</example>
+        /*
+        <example>1000</example>
+        */
         [DataMember(Name = "Inbound", EmitDefaultValue = false)]
         public long Inbound { get; set; }
 
@@ -157,7 +179,9 @@ namespace ElasticEmail.Model
         /// Number of manually cancelled messages
         /// </summary>
         /// <value>Number of manually cancelled messages</value>
-        /// <example>1000</example>
+        /*
+        <example>1000</example>
+        */
         [DataMember(Name = "ManualCancel", EmitDefaultValue = false)]
         public long ManualCancel { get; set; }
 
@@ -165,7 +189,9 @@ namespace ElasticEmail.Model
         /// Number of messages flagged with &#39;Not Delivered&#39;
         /// </summary>
         /// <value>Number of messages flagged with &#39;Not Delivered&#39;</value>
-        /// <example>0</example>
+        /*
+        <example>0</example>
+        */
         [DataMember(Name = "NotDelivered", EmitDefaultValue = false)]
         public long NotDelivered { get; set; }
 
@@ -208,7 +234,7 @@ namespace ElasticEmail.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             yield break;
         }

@@ -1,7 +1,7 @@
 /*
  * Elastic Email REST API
  *
- * This API is based on the REST API architecture, allowing the user to easily manage their data with this resource-based approach.    Every API call is established on which specific request type (GET, POST, PUT, DELETE) will be used.    The API has a limit of 20 concurrent connections and a hard timeout of 600 seconds per request.    To start using this API, you will need your Access Token (available <a target=\"_blank\" href=\"https://app.elasticemail.com/marketing/settings/new/manage-api\">here</a>). Remember to keep it safe. Required access levels are listed in the given request’s description.    Downloadable library clients can be found in our Github repository <a target=\"_blank\" href=\"https://github.com/ElasticEmail?tab=repositories&q=%22rest+api%22+in%3Areadme\">here</a>
+ * This API is based on the REST API architecture, allowing the user to easily manage their data with this resource-based approach.    Every API call is established on which specific request type (GET, POST, PUT, DELETE) will be used.    The API has a limit of 20 concurrent connections and a hard timeout of 600 seconds per request.    To start using this API, you will need your Access Token (available <a target='_blank' href='https://app.elasticemail.com/marketing/settings/new/manage-api'>here</a>). Remember to keep it safe. Required access levels are listed in the given request’s description.    Downloadable library clients can be found in our Github repository <a target='_blank' href='https://github.com/ElasticEmail?tab=repositories&q=%22rest+api%22+in%3Areadme'>here</a>
  *
  * The version of the OpenAPI document: 4.0.0
  * Contact: support@elasticemail.com
@@ -54,11 +54,12 @@ namespace ElasticEmail.Model
         /// <param name="customFields">A key-value collection of custom contact fields which can be used in the system..</param>
         /// <param name="consent">consent.</param>
         /// <param name="source">source.</param>
+        /// <param name="sourceInfo">sourceInfo.</param>
         /// <param name="dateAdded">Date of creation in YYYY-MM-DDThh:ii:ss format.</param>
         /// <param name="dateUpdated">Last change date.</param>
         /// <param name="statusChangeDate">Date of last status change..</param>
         /// <param name="activity">activity.</param>
-        public Contact(string email = default(string), ContactStatus? status = default(ContactStatus?), string firstName = default(string), string lastName = default(string), Dictionary<string, string> customFields = default(Dictionary<string, string>), ConsentData consent = default(ConsentData), ContactSource? source = default(ContactSource?), DateTime dateAdded = default(DateTime), DateTime? dateUpdated = default(DateTime?), DateTime? statusChangeDate = default(DateTime?), ContactActivity activity = default(ContactActivity))
+        public Contact(string email = default(string), ContactStatus? status = default(ContactStatus?), string firstName = default(string), string lastName = default(string), Dictionary<string, string> customFields = default(Dictionary<string, string>), ConsentData consent = default(ConsentData), ContactSource? source = default(ContactSource?), string sourceInfo = default(string), DateTime dateAdded = default(DateTime), DateTime? dateUpdated = default(DateTime?), DateTime? statusChangeDate = default(DateTime?), ContactActivity activity = default(ContactActivity))
         {
             this.Email = email;
             this.Status = status;
@@ -67,6 +68,7 @@ namespace ElasticEmail.Model
             this.CustomFields = customFields;
             this.Consent = consent;
             this.Source = source;
+            this.SourceInfo = sourceInfo;
             this.DateAdded = dateAdded;
             this.DateUpdated = dateUpdated;
             this.StatusChangeDate = statusChangeDate;
@@ -77,7 +79,9 @@ namespace ElasticEmail.Model
         /// Proper email address.
         /// </summary>
         /// <value>Proper email address.</value>
-        /// <example>mail@example.com</example>
+        /*
+        <example>mail@example.com</example>
+        */
         [DataMember(Name = "Email", EmitDefaultValue = false)]
         public string Email { get; set; }
 
@@ -85,7 +89,9 @@ namespace ElasticEmail.Model
         /// First name.
         /// </summary>
         /// <value>First name.</value>
-        /// <example>Fred</example>
+        /*
+        <example>Fred</example>
+        */
         [DataMember(Name = "FirstName", EmitDefaultValue = false)]
         public string FirstName { get; set; }
 
@@ -93,7 +99,9 @@ namespace ElasticEmail.Model
         /// Last name.
         /// </summary>
         /// <value>Last name.</value>
-        /// <example>Flintstone</example>
+        /*
+        <example>Flintstone</example>
+        */
         [DataMember(Name = "LastName", EmitDefaultValue = false)]
         public string LastName { get; set; }
 
@@ -101,7 +109,9 @@ namespace ElasticEmail.Model
         /// A key-value collection of custom contact fields which can be used in the system.
         /// </summary>
         /// <value>A key-value collection of custom contact fields which can be used in the system.</value>
-        /// <example>{&quot;city&quot;:&quot;New York&quot;,&quot;age&quot;:&quot;34&quot;}</example>
+        /*
+        <example>{&quot;city&quot;:&quot;New York&quot;,&quot;age&quot;:&quot;34&quot;}</example>
+        */
         [DataMember(Name = "CustomFields", EmitDefaultValue = false)]
         public Dictionary<string, string> CustomFields { get; set; }
 
@@ -110,6 +120,12 @@ namespace ElasticEmail.Model
         /// </summary>
         [DataMember(Name = "Consent", EmitDefaultValue = false)]
         public ConsentData Consent { get; set; }
+
+        /// <summary>
+        /// Gets or Sets SourceInfo
+        /// </summary>
+        [DataMember(Name = "SourceInfo", EmitDefaultValue = false)]
+        public string SourceInfo { get; set; }
 
         /// <summary>
         /// Date of creation in YYYY-MM-DDThh:ii:ss format
@@ -153,6 +169,7 @@ namespace ElasticEmail.Model
             sb.Append("  CustomFields: ").Append(CustomFields).Append("\n");
             sb.Append("  Consent: ").Append(Consent).Append("\n");
             sb.Append("  Source: ").Append(Source).Append("\n");
+            sb.Append("  SourceInfo: ").Append(SourceInfo).Append("\n");
             sb.Append("  DateAdded: ").Append(DateAdded).Append("\n");
             sb.Append("  DateUpdated: ").Append(DateUpdated).Append("\n");
             sb.Append("  StatusChangeDate: ").Append(StatusChangeDate).Append("\n");
@@ -175,7 +192,7 @@ namespace ElasticEmail.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             yield break;
         }

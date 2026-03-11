@@ -115,7 +115,7 @@ void (empty response body)
 
 Load ApiKey
 
-Load your existing ApiKey info. Required Access Level: Security
+Load your existing ApiKey info. Required Access Level: ViewAccessTokens
 
 ### Example
 ```csharp
@@ -311,7 +311,7 @@ catch (ApiException e)
 
 List ApiKeys
 
-List all your existing ApiKeys. Required Access Level: Security
+List all your existing ApiKeys. Required Access Level: ViewAccessTokens
 
 ### Example
 ```csharp
@@ -597,7 +597,7 @@ void (empty response body)
 
 Load SMTP Credential
 
-Load your existing SMTP Credential info. Required Access Level: Security
+Load your existing SMTP Credential info. Required Access Level: ViewAccessTokens
 
 ### Example
 ```csharp
@@ -793,7 +793,7 @@ catch (ApiException e)
 
 List SMTP Credentials
 
-List all your existing SMTP Credentials. Required Access Level: Security
+List all your existing SMTP Credentials. Required Access Level: ViewAccessTokens
 
 ### Example
 ```csharp
