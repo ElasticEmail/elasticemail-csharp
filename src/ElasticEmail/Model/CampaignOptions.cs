@@ -48,7 +48,8 @@ namespace ElasticEmail.Model
         /// <param name="triggerFrequency">How often (in minutes) to send the campaign.</param>
         /// <param name="triggerCount">How many times send the campaign.</param>
         /// <param name="splitOptions">splitOptions.</param>
-        public CampaignOptions(DeliveryOptimizationType? deliveryOptimization = default(DeliveryOptimizationType?), bool? trackOpens = default(bool?), bool? trackClicks = default(bool?), DateTime? scheduleFor = default(DateTime?), double triggerFrequency = default(double), int triggerCount = default(int), SplitOptions splitOptions = default(SplitOptions))
+        /// <param name="sendAtLocalTime">Send email at local time of contact..</param>
+        public CampaignOptions(DeliveryOptimizationType? deliveryOptimization = default(DeliveryOptimizationType?), bool? trackOpens = default(bool?), bool? trackClicks = default(bool?), DateTime? scheduleFor = default(DateTime?), double triggerFrequency = default(double), int triggerCount = default(int), SplitOptions splitOptions = default(SplitOptions), bool? sendAtLocalTime = default(bool?))
         {
             this.DeliveryOptimization = deliveryOptimization;
             this.TrackOpens = trackOpens;
@@ -57,6 +58,7 @@ namespace ElasticEmail.Model
             this.TriggerFrequency = triggerFrequency;
             this.TriggerCount = triggerCount;
             this.SplitOptions = splitOptions;
+            this.SendAtLocalTime = sendAtLocalTime;
         }
 
         /// <summary>
@@ -107,6 +109,13 @@ namespace ElasticEmail.Model
         public SplitOptions SplitOptions { get; set; }
 
         /// <summary>
+        /// Send email at local time of contact.
+        /// </summary>
+        /// <value>Send email at local time of contact.</value>
+        [DataMember(Name = "SendAtLocalTime", EmitDefaultValue = true)]
+        public bool? SendAtLocalTime { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -121,6 +130,7 @@ namespace ElasticEmail.Model
             sb.Append("  TriggerFrequency: ").Append(TriggerFrequency).Append("\n");
             sb.Append("  TriggerCount: ").Append(TriggerCount).Append("\n");
             sb.Append("  SplitOptions: ").Append(SplitOptions).Append("\n");
+            sb.Append("  SendAtLocalTime: ").Append(SendAtLocalTime).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

@@ -42,7 +42,7 @@ namespace ElasticEmail.Model
         /// </summary>
         /// <param name="poolname">Name of your custom IP Pool to be used in the sending process.</param>
         /// <param name="from">Your e-mail with an optional name (e.g.: John Doe &lt;email@domain.com&gt;) (required).</param>
-        /// <param name="replyTo">To what address should the recipients reply to (e.g. John Doe &lt;email@domain.com&gt;).</param>
+        /// <param name="replyTo">To what addresses should the recipients reply to (e.g. John Doe &lt;email@domain.com&gt;).</param>
         /// <param name="subject">Default subject of email..</param>
         /// <param name="templateName">Name of template..</param>
         /// <param name="attachFiles">Names of previously uploaded files that should be sent as downloadable attachments.</param>
@@ -84,11 +84,11 @@ namespace ElasticEmail.Model
         public string From { get; set; }
 
         /// <summary>
-        /// To what address should the recipients reply to (e.g. John Doe &lt;email@domain.com&gt;)
+        /// To what addresses should the recipients reply to (e.g. John Doe &lt;email@domain.com&gt;)
         /// </summary>
-        /// <value>To what address should the recipients reply to (e.g. John Doe &lt;email@domain.com&gt;)</value>
+        /// <value>To what addresses should the recipients reply to (e.g. John Doe &lt;email@domain.com&gt;)</value>
         /*
-        <example>John Doe &lt;email@domain.com&gt;</example>
+        <example>John Doe &lt;email@domain.com&gt;,John Doe2 &lt;email2@domain.com&gt;</example>
         */
         [DataMember(Name = "ReplyTo", EmitDefaultValue = false)]
         public string ReplyTo { get; set; }

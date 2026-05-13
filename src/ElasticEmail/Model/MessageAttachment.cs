@@ -43,7 +43,7 @@ namespace ElasticEmail.Model
         /// <param name="binaryContent">File&#39;s content as byte array (or a Base64 string) (required).</param>
         /// <param name="name">Display name of the file (required).</param>
         /// <param name="contentType">MIME content type.</param>
-        /// <param name="size">Size of your attachment (in bytes)..</param>
+        /// <param name="size">Size of the attachement in B.</param>
         public MessageAttachment(byte[] binaryContent = default(byte[]), string name = default(string), string contentType = default(string), int size = default(int))
         {
             // to ensure "binaryContent" is required (not null)
@@ -84,12 +84,9 @@ namespace ElasticEmail.Model
         public string ContentType { get; set; }
 
         /// <summary>
-        /// Size of your attachment (in bytes).
+        /// Size of the attachement in B
         /// </summary>
-        /// <value>Size of your attachment (in bytes).</value>
-        /*
-        <example>100</example>
-        */
+        /// <value>Size of the attachement in B</value>
         [DataMember(Name = "Size", EmitDefaultValue = false)]
         public int Size { get; set; }
 

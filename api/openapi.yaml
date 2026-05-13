@@ -54,6 +54,8 @@ tags:
   name: Templates
 - description: Verify emails and read the results
   name: Verifications
+- description: Verify emails and read the results
+  name: Webhook
 paths:
   /campaigns:
     get:
@@ -3549,6 +3551,138 @@ paths:
       summary: Get Files Verification Results
       tags:
       - Verifications
+  /webhook:
+    get:
+      description: "Returns a list of notification webhooks. Required Access Level:\
+        \ ViewWebNotifications"
+      operationId: webhookGet
+      parameters:
+      - description: Maximum number of returned items.
+        explode: true
+        in: query
+        name: limit
+        required: false
+        schema:
+          description: integer
+          example: 100
+          format: int32
+          type: integer
+        style: form
+      - description: How many items should be returned ahead.
+        explode: true
+        in: query
+        name: offset
+        required: false
+        schema:
+          description: integer
+          example: 20
+          format: int32
+          type: integer
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/Webhook'
+                type: array
+          description: OK
+      summary: Load Webhooks
+      tags:
+      - Webhook
+    post:
+      description: "Add a notification webhook. Required Access Level: ModifyWebNotifications"
+      operationId: webhookPost
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/WebhookCreatePayload'
+        required: true
+      responses:
+        "201":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Webhook'
+          description: Created
+      summary: Add Webhook
+      tags:
+      - Webhook
+  /webhook/{publicid}:
+    delete:
+      description: "Delete the specified notifications webhook. Required Access Level:\
+        \ ModifyWebNotifications"
+      operationId: webhookByPublicidDelete
+      parameters:
+      - explode: false
+        in: path
+        name: publicid
+        required: true
+        schema:
+          description: string
+          format: string
+          type: string
+        style: simple
+      responses:
+        "200":
+          description: OK
+      summary: Delete Webhook
+      tags:
+      - Webhook
+    get:
+      description: "Load notifications webhook details. Required Access Level: ViewWebNotifications"
+      operationId: webhookByPublicidGet
+      parameters:
+      - explode: false
+        in: path
+        name: publicid
+        required: true
+        schema:
+          description: string
+          format: string
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Webhook'
+          description: OK
+      summary: Load Webhook
+      tags:
+      - Webhook
+    put:
+      description: "Update notification webhook. Required Access Level: ModifyWebNotifications"
+      operationId: webhookByPublicidPut
+      parameters:
+      - explode: false
+        in: path
+        name: publicid
+        required: true
+        schema:
+          description: string
+          format: string
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/WebhookUpdatePayload'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Webhook'
+          description: OK
+      summary: Update Webhook
+      tags:
+      - Webhook
 components:
   schemas:
     AccessLevel:
@@ -3750,6 +3884,7 @@ components:
           TrackClicks: true
           TriggerCount: 6
           ScheduleFor: 2000-01-23T04:56:07.000+00:00
+          SendAtLocalTime: true
           TriggerFrequency: 0.8008281904610115
           DeliveryOptimization: None
           TrackOpens: true
@@ -3764,7 +3899,7 @@ components:
           - ListNames
           - ListNames
         Content:
-        - ReplyTo: John Doe <email@domain.com>
+        - ReplyTo: "John Doe <email@domain.com>,John Doe2 <email2@domain.com>"
           Poolname: My Custom Pool
           TemplateName: Template01
           From: John Doe <email@domain.com>
@@ -3776,7 +3911,7 @@ components:
             Medium: Medium
             Content: Content
             Source: Source
-        - ReplyTo: John Doe <email@domain.com>
+        - ReplyTo: "John Doe <email@domain.com>,John Doe2 <email2@domain.com>"
           Poolname: My Custom Pool
           TemplateName: Template01
           From: John Doe <email@domain.com>
@@ -3825,6 +3960,7 @@ components:
         TrackClicks: true
         TriggerCount: 6
         ScheduleFor: 2000-01-23T04:56:07.000+00:00
+        SendAtLocalTime: true
         TriggerFrequency: 0.8008281904610115
         DeliveryOptimization: None
         TrackOpens: true
@@ -3864,6 +4000,12 @@ components:
           type: integer
         SplitOptions:
           $ref: '#/components/schemas/SplitOptions'
+        SendAtLocalTime:
+          description: Send email at local time of contact.
+          format: boolean
+          nullable: true
+          type: boolean
+          example: null
       type: object
     CampaignRecipient:
       description: A set of lists and segments names to read recipients from
@@ -3903,7 +4045,7 @@ components:
     CampaignTemplate:
       description: Content of a Campaign
       example:
-        ReplyTo: John Doe <email@domain.com>
+        ReplyTo: "John Doe <email@domain.com>,John Doe2 <email2@domain.com>"
         Poolname: My Custom Pool
         TemplateName: Template01
         From: John Doe <email@domain.com>
@@ -3927,9 +4069,9 @@ components:
           format: string
           type: string
         ReplyTo:
-          description: To what address should the recipients reply to (e.g. John Doe
-            <email@domain.com>)
-          example: John Doe <email@domain.com>
+          description: To what addresses should the recipients reply to (e.g. John
+            Doe <email@domain.com>)
+          example: "John Doe <email@domain.com>,John Doe2 <email2@domain.com>"
           format: string
           type: string
         Subject:
@@ -4566,7 +4708,7 @@ components:
     EmailContent:
       description: Proper e-mail content
       example:
-        ReplyTo: John Doe <email@domain.com>
+        ReplyTo: "John Doe <email@domain.com>,John Doe2 <email2@domain.com>"
         Merge:
           city: New York
           age: "34"
@@ -4588,11 +4730,11 @@ components:
           Charset: Charset
         Attachments:
         - ContentType: ContentType
-          Size: 100
+          Size: 0
           BinaryContent: BinaryContent
           Name: Name
         - ContentType: ContentType
-          Size: 100
+          Size: 0
           BinaryContent: BinaryContent
           Name: Name
         Subject: Hello!
@@ -4647,9 +4789,9 @@ components:
           format: string
           type: string
         ReplyTo:
-          description: To what address should the recipients reply to (e.g. John Doe
-            <email@domain.com>)
-          example: John Doe <email@domain.com>
+          description: To what addresses should the recipients reply to (e.g. John
+            Doe <email@domain.com>)
+          example: "John Doe <email@domain.com>,John Doe2 <email2@domain.com>"
           format: string
           type: string
         Subject:
@@ -4895,7 +5037,7 @@ components:
           ChannelName: Channel01
           PoolName: My Custom Pool
           Encoding: UserProvided
-          TimeOffset: 0
+          TimeOffset: 6
           TrackOpens: true
         Recipients:
         - Email: mail@example.com
@@ -4907,7 +5049,7 @@ components:
             city: New York
             age: "34"
         Content:
-          ReplyTo: John Doe <email@domain.com>
+          ReplyTo: "John Doe <email@domain.com>,John Doe2 <email2@domain.com>"
           Merge:
             city: New York
             age: "34"
@@ -4929,11 +5071,11 @@ components:
             Charset: Charset
           Attachments:
           - ContentType: ContentType
-            Size: 100
+            Size: 0
             BinaryContent: BinaryContent
             Name: Name
           - ContentType: ContentType
-            Size: 100
+            Size: 0
             BinaryContent: BinaryContent
             Name: Name
           Subject: Hello!
@@ -5105,7 +5247,7 @@ components:
           ChannelName: Channel01
           PoolName: My Custom Pool
           Encoding: UserProvided
-          TimeOffset: 0
+          TimeOffset: 6
           TrackOpens: true
         Recipients:
           CC:
@@ -5118,7 +5260,7 @@ components:
           - To
           - To
         Content:
-          ReplyTo: John Doe <email@domain.com>
+          ReplyTo: "John Doe <email@domain.com>,John Doe2 <email2@domain.com>"
           Merge:
             city: New York
             age: "34"
@@ -5140,11 +5282,11 @@ components:
             Charset: Charset
           Attachments:
           - ContentType: ContentType
-            Size: 100
+            Size: 0
             BinaryContent: BinaryContent
             Name: Name
           - ContentType: ContentType
-            Size: 100
+            Size: 0
             BinaryContent: BinaryContent
             Name: Name
           Subject: Hello!
@@ -5646,15 +5788,15 @@ components:
           ChannelName: Channel01
           PoolName: My Custom Pool
           Encoding: UserProvided
-          TimeOffset: 0
+          TimeOffset: 6
           TrackOpens: true
         MergeFile:
           ContentType: ContentType
-          Size: 100
+          Size: 0
           BinaryContent: BinaryContent
           Name: Name
         Content:
-          ReplyTo: John Doe <email@domain.com>
+          ReplyTo: "John Doe <email@domain.com>,John Doe2 <email2@domain.com>"
           Merge:
             city: New York
             age: "34"
@@ -5676,11 +5818,11 @@ components:
             Charset: Charset
           Attachments:
           - ContentType: ContentType
-            Size: 100
+            Size: 0
             BinaryContent: BinaryContent
             Name: Name
           - ContentType: ContentType
-            Size: 100
+            Size: 0
             BinaryContent: BinaryContent
             Name: Name
           Subject: Hello!
@@ -5703,7 +5845,7 @@ components:
     MessageAttachment:
       example:
         ContentType: ContentType
-        Size: 100
+        Size: 0
         BinaryContent: BinaryContent
         Name: Name
       properties:
@@ -5720,8 +5862,7 @@ components:
           format: string
           type: string
         Size:
-          description: Size of your attachment (in bytes).
-          example: 100
+          description: Size of the attachement in B
           format: int32
           type: integer
       required:
@@ -5874,7 +6015,7 @@ components:
         ChannelName: Channel01
         PoolName: My Custom Pool
         Encoding: UserProvided
-        TimeOffset: 0
+        TimeOffset: 6
         TrackOpens: true
       properties:
         TimeOffset:
@@ -6691,6 +6832,185 @@ components:
       - Verified
       - Error
       type: string
+    Webhook:
+      description: Notification webhook setting
+      example:
+        IsEnabled: true
+        DateUpdated: 2000-01-23T04:56:07.000+00:00
+        NotificationForSent: true
+        NotificationForUnsubscribed: true
+        DateCreated: 2000-01-23T04:56:07.000+00:00
+        URL: http://address.for.notification.com
+        Name: attachment.txt
+        WebhookID: WebhookID
+        NotificationForError: true
+        NotificationForOpened: true
+        NotificationForClicked: true
+        NotificationForAbuseReport: true
+        NotifyOncePerEmail: true
+      properties:
+        WebhookID:
+          description: Public webhook ID
+          format: string
+          type: string
+        Name:
+          description: Filename
+          example: attachment.txt
+          format: string
+          type: string
+        DateCreated:
+          description: Creation date.
+          format: date-time
+          nullable: true
+          type: string
+        DateUpdated:
+          description: Last change date
+          format: date-time
+          nullable: true
+          type: string
+        URL:
+          description: URL of notification.
+          example: http://address.for.notification.com
+          format: string
+          type: string
+        NotifyOncePerEmail:
+          format: boolean
+          type: boolean
+        NotificationForSent:
+          format: boolean
+          type: boolean
+        NotificationForOpened:
+          format: boolean
+          type: boolean
+        NotificationForClicked:
+          format: boolean
+          type: boolean
+        NotificationForUnsubscribed:
+          format: boolean
+          type: boolean
+        NotificationForAbuseReport:
+          format: boolean
+          type: boolean
+        NotificationForError:
+          format: boolean
+          type: boolean
+        IsEnabled:
+          format: boolean
+          type: boolean
+      type: object
+    WebhookCreatePayload:
+      description: Create webhook payload
+      example:
+        NotificationForError: true
+        NotificationForOpened: true
+        NotificationForSent: true
+        NotificationForUnsubscribed: true
+        NotificationForClicked: true
+        NotificationForAbuseReport: true
+        URL: http://address.for.notification.com
+        Name: attachment.txt
+        NotifyOncePerEmail: true
+      properties:
+        Name:
+          description: Filename
+          example: attachment.txt
+          format: string
+          type: string
+        URL:
+          description: URL of notification.
+          example: http://address.for.notification.com
+          format: string
+          type: string
+        NotifyOncePerEmail:
+          format: boolean
+          type: boolean
+        NotificationForSent:
+          format: boolean
+          type: boolean
+        NotificationForOpened:
+          format: boolean
+          type: boolean
+        NotificationForClicked:
+          format: boolean
+          type: boolean
+        NotificationForUnsubscribed:
+          format: boolean
+          type: boolean
+        NotificationForAbuseReport:
+          format: boolean
+          type: boolean
+        NotificationForError:
+          format: boolean
+          type: boolean
+      required:
+      - Name
+      - URL
+      type: object
+    WebhookUpdatePayload:
+      description: Update webhook payload
+      example:
+        NotificationForError: true
+        NotificationForOpened: true
+        IsEnabled: true
+        NotificationForSent: true
+        NotificationForUnsubscribed: true
+        NotificationForClicked: true
+        NotificationForAbuseReport: true
+        URL: http://address.for.notification.com
+        Name: attachment.txt
+        NotifyOncePerEmail: true
+      properties:
+        Name:
+          description: Filename
+          example: attachment.txt
+          format: string
+          type: string
+        URL:
+          description: URL of notification.
+          example: http://address.for.notification.com
+          format: string
+          type: string
+        NotifyOncePerEmail:
+          format: boolean
+          nullable: true
+          type: boolean
+          example: null
+        NotificationForSent:
+          format: boolean
+          nullable: true
+          type: boolean
+          example: null
+        NotificationForOpened:
+          format: boolean
+          nullable: true
+          type: boolean
+          example: null
+        NotificationForClicked:
+          format: boolean
+          nullable: true
+          type: boolean
+          example: null
+        NotificationForUnsubscribed:
+          format: boolean
+          nullable: true
+          type: boolean
+          example: null
+        NotificationForAbuseReport:
+          format: boolean
+          nullable: true
+          type: boolean
+          example: null
+        NotificationForError:
+          format: boolean
+          nullable: true
+          type: boolean
+          example: null
+        IsEnabled:
+          format: boolean
+          nullable: true
+          type: boolean
+          example: null
+      type: object
     contactsImportPost_request:
       format: binary
       properties:
