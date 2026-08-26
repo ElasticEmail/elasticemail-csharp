@@ -2,7 +2,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ElasticEmail", "src\ElasticEmail\ElasticEmail.csproj", "{0AB63665-043D-4718-A7FE-4F139CA4FC25}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ElasticEmail", "src\ElasticEmail\ElasticEmail.csproj", "{E07F7693-E6D8-4EA1-A162-54B4DD8A1457}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ElasticEmail.Test", "src\ElasticEmail.Test\ElasticEmail.Test.csproj", "{19F1DEBC-DE5E-4517-8062-F000CD499087}"
 EndProject
@@ -12,10 +12,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{0AB63665-043D-4718-A7FE-4F139CA4FC25}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{0AB63665-043D-4718-A7FE-4F139CA4FC25}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{0AB63665-043D-4718-A7FE-4F139CA4FC25}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{0AB63665-043D-4718-A7FE-4F139CA4FC25}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E07F7693-E6D8-4EA1-A162-54B4DD8A1457}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E07F7693-E6D8-4EA1-A162-54B4DD8A1457}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E07F7693-E6D8-4EA1-A162-54B4DD8A1457}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E07F7693-E6D8-4EA1-A162-54B4DD8A1457}.Release|Any CPU.Build.0 = Release|Any CPU
 		{19F1DEBC-DE5E-4517-8062-F000CD499087}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{19F1DEBC-DE5E-4517-8062-F000CD499087}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{19F1DEBC-DE5E-4517-8062-F000CD499087}.Release|Any CPU.ActiveCfg = Release|Any CPU
