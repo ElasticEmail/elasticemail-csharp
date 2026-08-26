@@ -56,6 +56,18 @@ namespace ElasticEmail.Test.Api
         }
 
         /// <summary>
+        /// Test SubaccountsByEmailApikeyGet
+        /// </summary>
+        [Fact]
+        public void SubaccountsByEmailApikeyGetTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //string email = null;
+            //var response = instance.SubaccountsByEmailApikeyGet(email);
+            //Assert.IsType<string>(response);
+        }
+
+        /// <summary>
         /// Test SubaccountsByEmailCreditsPatch
         /// </summary>
         [Fact]

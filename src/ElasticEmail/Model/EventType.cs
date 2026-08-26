@@ -46,10 +46,10 @@ namespace ElasticEmail.Model
         FailedAttempt = 2,
 
         /// <summary>
-        /// Enum Bounce for value: Bounce
+        /// Enum Error for value: Error
         /// </summary>
-        [EnumMember(Value = "Bounce")]
-        Bounce = 3,
+        [EnumMember(Value = "Error")]
+        Error = 3,
 
         /// <summary>
         /// Enum Sent for value: Sent
@@ -79,7 +79,25 @@ namespace ElasticEmail.Model
         /// Enum Complaint for value: Complaint
         /// </summary>
         [EnumMember(Value = "Complaint")]
-        Complaint = 8
+        Complaint = 8,
+
+        /// <summary>
+        /// Enum Bounce for value: Bounce
+        /// </summary>
+        [EnumMember(Value = "Bounce")]
+        Bounce = 9,
+
+        /// <summary>
+        /// Enum TransactionalUnsubscribe for value: TransactionalUnsubscribe
+        /// </summary>
+        [EnumMember(Value = "TransactionalUnsubscribe")]
+        TransactionalUnsubscribe = 10,
+
+        /// <summary>
+        /// Enum Suppress for value: Suppress
+        /// </summary>
+        [EnumMember(Value = "Suppress")]
+        Suppress = 11
     }
 
 }

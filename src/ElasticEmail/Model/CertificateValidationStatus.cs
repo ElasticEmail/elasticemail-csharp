@@ -54,7 +54,13 @@ namespace ElasticEmail.Model
         /// Enum NotValid for value: NotValid
         /// </summary>
         [EnumMember(Value = "NotValid")]
-        NotValid = 4
+        NotValid = 4,
+
+        /// <summary>
+        /// Enum InProgress for value: InProgress
+        /// </summary>
+        [EnumMember(Value = "InProgress")]
+        InProgress = 5
     }
 
 }

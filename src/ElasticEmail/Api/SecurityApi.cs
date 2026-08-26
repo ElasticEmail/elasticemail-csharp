@@ -60,7 +60,7 @@ namespace ElasticEmail.Api
         /// </remarks>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">Name of the ApiKey</param>
-        /// <param name="subaccount">Email of the subaccount of which ApiKey should be loaded (optional)</param>
+        /// <param name="subaccount">Email of the subaccount of which ApiKey should be loaded. The default API key created for the subaccount has a 48-hour expiration period. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiKey</returns>
         ApiKey SecurityApikeysByNameGet(string name, string subaccount = default(string), int operationIndex = 0);
@@ -73,7 +73,7 @@ namespace ElasticEmail.Api
         /// </remarks>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">Name of the ApiKey</param>
-        /// <param name="subaccount">Email of the subaccount of which ApiKey should be loaded (optional)</param>
+        /// <param name="subaccount">Email of the subaccount of which ApiKey should be loaded. The default API key created for the subaccount has a 48-hour expiration period. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of ApiKey</returns>
         ApiResponse<ApiKey> SecurityApikeysByNameGetWithHttpInfo(string name, string subaccount = default(string), int operationIndex = 0);
@@ -109,7 +109,7 @@ namespace ElasticEmail.Api
         /// List all your existing ApiKeys. Required Access Level: ViewAccessTokens
         /// </remarks>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="subaccount">Email of the subaccount of which ApiKeys should be loaded (optional)</param>
+        /// <param name="subaccount">Email of the subaccount of which ApiKeys should be loaded. The default API key created for the subaccount has a 48-hour expiration period. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>List&lt;ApiKey&gt;</returns>
         List<ApiKey> SecurityApikeysGet(string subaccount = default(string), int operationIndex = 0);
@@ -121,7 +121,7 @@ namespace ElasticEmail.Api
         /// List all your existing ApiKeys. Required Access Level: ViewAccessTokens
         /// </remarks>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="subaccount">Email of the subaccount of which ApiKeys should be loaded (optional)</param>
+        /// <param name="subaccount">Email of the subaccount of which ApiKeys should be loaded. The default API key created for the subaccount has a 48-hour expiration period. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of List&lt;ApiKey&gt;</returns>
         ApiResponse<List<ApiKey>> SecurityApikeysGetWithHttpInfo(string subaccount = default(string), int operationIndex = 0);
@@ -313,7 +313,7 @@ namespace ElasticEmail.Api
         /// </remarks>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">Name of the ApiKey</param>
-        /// <param name="subaccount">Email of the subaccount of which ApiKey should be loaded (optional)</param>
+        /// <param name="subaccount">Email of the subaccount of which ApiKey should be loaded. The default API key created for the subaccount has a 48-hour expiration period. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiKey</returns>
@@ -327,7 +327,7 @@ namespace ElasticEmail.Api
         /// </remarks>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">Name of the ApiKey</param>
-        /// <param name="subaccount">Email of the subaccount of which ApiKey should be loaded (optional)</param>
+        /// <param name="subaccount">Email of the subaccount of which ApiKey should be loaded. The default API key created for the subaccount has a 48-hour expiration period. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ApiKey)</returns>
@@ -366,7 +366,7 @@ namespace ElasticEmail.Api
         /// List all your existing ApiKeys. Required Access Level: ViewAccessTokens
         /// </remarks>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="subaccount">Email of the subaccount of which ApiKeys should be loaded (optional)</param>
+        /// <param name="subaccount">Email of the subaccount of which ApiKeys should be loaded. The default API key created for the subaccount has a 48-hour expiration period. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;ApiKey&gt;</returns>
@@ -379,7 +379,7 @@ namespace ElasticEmail.Api
         /// List all your existing ApiKeys. Required Access Level: ViewAccessTokens
         /// </remarks>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="subaccount">Email of the subaccount of which ApiKeys should be loaded (optional)</param>
+        /// <param name="subaccount">Email of the subaccount of which ApiKeys should be loaded. The default API key created for the subaccount has a 48-hour expiration period. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;ApiKey&gt;)</returns>
@@ -828,7 +828,7 @@ namespace ElasticEmail.Api
         /// </summary>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">Name of the ApiKey</param>
-        /// <param name="subaccount">Email of the subaccount of which ApiKey should be loaded (optional)</param>
+        /// <param name="subaccount">Email of the subaccount of which ApiKey should be loaded. The default API key created for the subaccount has a 48-hour expiration period. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiKey</returns>
         public ApiKey SecurityApikeysByNameGet(string name, string subaccount = default(string), int operationIndex = 0)
@@ -842,7 +842,7 @@ namespace ElasticEmail.Api
         /// </summary>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">Name of the ApiKey</param>
-        /// <param name="subaccount">Email of the subaccount of which ApiKey should be loaded (optional)</param>
+        /// <param name="subaccount">Email of the subaccount of which ApiKey should be loaded. The default API key created for the subaccount has a 48-hour expiration period. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of ApiKey</returns>
         public ElasticEmail.Client.ApiResponse<ApiKey> SecurityApikeysByNameGetWithHttpInfo(string name, string subaccount = default(string), int operationIndex = 0)
@@ -910,7 +910,7 @@ namespace ElasticEmail.Api
         /// </summary>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">Name of the ApiKey</param>
-        /// <param name="subaccount">Email of the subaccount of which ApiKey should be loaded (optional)</param>
+        /// <param name="subaccount">Email of the subaccount of which ApiKey should be loaded. The default API key created for the subaccount has a 48-hour expiration period. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiKey</returns>
@@ -925,7 +925,7 @@ namespace ElasticEmail.Api
         /// </summary>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">Name of the ApiKey</param>
-        /// <param name="subaccount">Email of the subaccount of which ApiKey should be loaded (optional)</param>
+        /// <param name="subaccount">Email of the subaccount of which ApiKey should be loaded. The default API key created for the subaccount has a 48-hour expiration period. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ApiKey)</returns>
@@ -1169,7 +1169,7 @@ namespace ElasticEmail.Api
         /// List ApiKeys List all your existing ApiKeys. Required Access Level: ViewAccessTokens
         /// </summary>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="subaccount">Email of the subaccount of which ApiKeys should be loaded (optional)</param>
+        /// <param name="subaccount">Email of the subaccount of which ApiKeys should be loaded. The default API key created for the subaccount has a 48-hour expiration period. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>List&lt;ApiKey&gt;</returns>
         public List<ApiKey> SecurityApikeysGet(string subaccount = default(string), int operationIndex = 0)
@@ -1182,7 +1182,7 @@ namespace ElasticEmail.Api
         /// List ApiKeys List all your existing ApiKeys. Required Access Level: ViewAccessTokens
         /// </summary>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="subaccount">Email of the subaccount of which ApiKeys should be loaded (optional)</param>
+        /// <param name="subaccount">Email of the subaccount of which ApiKeys should be loaded. The default API key created for the subaccount has a 48-hour expiration period. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of List&lt;ApiKey&gt;</returns>
         public ElasticEmail.Client.ApiResponse<List<ApiKey>> SecurityApikeysGetWithHttpInfo(string subaccount = default(string), int operationIndex = 0)
@@ -1242,7 +1242,7 @@ namespace ElasticEmail.Api
         /// List ApiKeys List all your existing ApiKeys. Required Access Level: ViewAccessTokens
         /// </summary>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="subaccount">Email of the subaccount of which ApiKeys should be loaded (optional)</param>
+        /// <param name="subaccount">Email of the subaccount of which ApiKeys should be loaded. The default API key created for the subaccount has a 48-hour expiration period. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;ApiKey&gt;</returns>
@@ -1256,7 +1256,7 @@ namespace ElasticEmail.Api
         /// List ApiKeys List all your existing ApiKeys. Required Access Level: ViewAccessTokens
         /// </summary>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="subaccount">Email of the subaccount of which ApiKeys should be loaded (optional)</param>
+        /// <param name="subaccount">Email of the subaccount of which ApiKeys should be loaded. The default API key created for the subaccount has a 48-hour expiration period. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;ApiKey&gt;)</returns>

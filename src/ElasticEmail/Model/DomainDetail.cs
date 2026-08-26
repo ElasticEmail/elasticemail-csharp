@@ -76,14 +76,17 @@ namespace ElasticEmail.Model
         /// <param name="type">type.</param>
         /// <param name="trackingStatus">trackingStatus.</param>
         /// <param name="certificateStatus">certificateStatus.</param>
+        /// <param name="certificateExpiryDate">certificateExpiryDate.</param>
         /// <param name="certificateValidationError">certificateValidationError.</param>
         /// <param name="trackingTypeUserRequest">trackingTypeUserRequest.</param>
         /// <param name="vERP">vERP.</param>
         /// <param name="customBouncesDomain">customBouncesDomain.</param>
         /// <param name="isCustomBouncesDomainDefault">isCustomBouncesDomainDefault.</param>
+        /// <param name="wasEverVerified">wasEverVerified.</param>
         /// <param name="isMarkedForDeletion">isMarkedForDeletion.</param>
         /// <param name="ownership">ownership.</param>
-        public DomainDetail(string domain = default(string), bool defaultDomain = default(bool), bool spf = default(bool), bool dkim = default(bool), bool mX = default(bool), bool dMARC = default(bool), bool isRewriteDomainValid = default(bool), bool verify = default(bool), TrackingType? type = default(TrackingType?), TrackingValidationStatus? trackingStatus = default(TrackingValidationStatus?), CertificateValidationStatus? certificateStatus = default(CertificateValidationStatus?), string certificateValidationError = default(string), TrackingType? trackingTypeUserRequest = default(TrackingType?), bool vERP = default(bool), string customBouncesDomain = default(string), bool isCustomBouncesDomainDefault = default(bool), bool isMarkedForDeletion = default(bool), DomainOwner? ownership = default(DomainOwner?))
+        /// <param name="dKIMRecord">dKIMRecord.</param>
+        public DomainDetail(string domain = default(string), bool defaultDomain = default(bool), bool spf = default(bool), bool dkim = default(bool), bool mX = default(bool), bool dMARC = default(bool), bool isRewriteDomainValid = default(bool), bool verify = default(bool), TrackingType? type = default(TrackingType?), TrackingValidationStatus? trackingStatus = default(TrackingValidationStatus?), CertificateValidationStatus? certificateStatus = default(CertificateValidationStatus?), DateTime? certificateExpiryDate = default(DateTime?), string certificateValidationError = default(string), TrackingType? trackingTypeUserRequest = default(TrackingType?), bool vERP = default(bool), string customBouncesDomain = default(string), bool isCustomBouncesDomainDefault = default(bool), bool wasEverVerified = default(bool), bool isMarkedForDeletion = default(bool), DomainOwner? ownership = default(DomainOwner?), DKIMRecord dKIMRecord = default(DKIMRecord))
         {
             this.Domain = domain;
             this.DefaultDomain = defaultDomain;
@@ -96,13 +99,16 @@ namespace ElasticEmail.Model
             this.Type = type;
             this.TrackingStatus = trackingStatus;
             this.CertificateStatus = certificateStatus;
+            this.CertificateExpiryDate = certificateExpiryDate;
             this.CertificateValidationError = certificateValidationError;
             this.TrackingTypeUserRequest = trackingTypeUserRequest;
             this.VERP = vERP;
             this.CustomBouncesDomain = customBouncesDomain;
             this.IsCustomBouncesDomainDefault = isCustomBouncesDomainDefault;
+            this.WasEverVerified = wasEverVerified;
             this.IsMarkedForDeletion = isMarkedForDeletion;
             this.Ownership = ownership;
+            this.DKIMRecord = dKIMRecord;
         }
 
         /// <summary>
@@ -179,6 +185,12 @@ namespace ElasticEmail.Model
         public bool Verify { get; set; }
 
         /// <summary>
+        /// Gets or Sets CertificateExpiryDate
+        /// </summary>
+        [DataMember(Name = "CertificateExpiryDate", EmitDefaultValue = true)]
+        public DateTime? CertificateExpiryDate { get; set; }
+
+        /// <summary>
         /// Gets or Sets CertificateValidationError
         /// </summary>
         [DataMember(Name = "CertificateValidationError", EmitDefaultValue = false)]
@@ -203,10 +215,22 @@ namespace ElasticEmail.Model
         public bool IsCustomBouncesDomainDefault { get; set; }
 
         /// <summary>
+        /// Gets or Sets WasEverVerified
+        /// </summary>
+        [DataMember(Name = "WasEverVerified", EmitDefaultValue = true)]
+        public bool WasEverVerified { get; set; }
+
+        /// <summary>
         /// Gets or Sets IsMarkedForDeletion
         /// </summary>
         [DataMember(Name = "IsMarkedForDeletion", EmitDefaultValue = true)]
         public bool IsMarkedForDeletion { get; set; }
+
+        /// <summary>
+        /// Gets or Sets DKIMRecord
+        /// </summary>
+        [DataMember(Name = "DKIMRecord", EmitDefaultValue = false)]
+        public DKIMRecord DKIMRecord { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -227,13 +251,16 @@ namespace ElasticEmail.Model
             sb.Append("  Type: ").Append(Type).Append("\n");
             sb.Append("  TrackingStatus: ").Append(TrackingStatus).Append("\n");
             sb.Append("  CertificateStatus: ").Append(CertificateStatus).Append("\n");
+            sb.Append("  CertificateExpiryDate: ").Append(CertificateExpiryDate).Append("\n");
             sb.Append("  CertificateValidationError: ").Append(CertificateValidationError).Append("\n");
             sb.Append("  TrackingTypeUserRequest: ").Append(TrackingTypeUserRequest).Append("\n");
             sb.Append("  VERP: ").Append(VERP).Append("\n");
             sb.Append("  CustomBouncesDomain: ").Append(CustomBouncesDomain).Append("\n");
             sb.Append("  IsCustomBouncesDomainDefault: ").Append(IsCustomBouncesDomainDefault).Append("\n");
+            sb.Append("  WasEverVerified: ").Append(WasEverVerified).Append("\n");
             sb.Append("  IsMarkedForDeletion: ").Append(IsMarkedForDeletion).Append("\n");
             sb.Append("  Ownership: ").Append(Ownership).Append("\n");
+            sb.Append("  DKIMRecord: ").Append(DKIMRecord).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

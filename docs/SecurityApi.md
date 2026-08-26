@@ -140,7 +140,7 @@ namespace Example
 
             var apiInstance = new SecurityApi(config);
             var name = "name_example";  // string | Name of the ApiKey
-            var subaccount = "subaccount_example";  // string | Email of the subaccount of which ApiKey should be loaded (optional) 
+            var subaccount = "subaccount_example";  // string | Email of the subaccount of which ApiKey should be loaded. The default API key created for the subaccount has a 48-hour expiration period. (optional) 
 
             try
             {
@@ -184,7 +184,7 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **name** | **string** | Name of the ApiKey |  |
-| **subaccount** | **string** | Email of the subaccount of which ApiKey should be loaded | [optional]  |
+| **subaccount** | **string** | Email of the subaccount of which ApiKey should be loaded. The default API key created for the subaccount has a 48-hour expiration period. | [optional]  |
 
 ### Return type
 
@@ -335,7 +335,7 @@ namespace Example
             // config.AddApiKeyPrefix("X-ElasticEmail-ApiKey", "Bearer");
 
             var apiInstance = new SecurityApi(config);
-            var subaccount = "subaccount_example";  // string | Email of the subaccount of which ApiKeys should be loaded (optional) 
+            var subaccount = "subaccount_example";  // string | Email of the subaccount of which ApiKeys should be loaded. The default API key created for the subaccount has a 48-hour expiration period. (optional) 
 
             try
             {
@@ -378,7 +378,7 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **subaccount** | **string** | Email of the subaccount of which ApiKeys should be loaded | [optional]  |
+| **subaccount** | **string** | Email of the subaccount of which ApiKeys should be loaded. The default API key created for the subaccount has a 48-hour expiration period. | [optional]  |
 
 ### Return type
 

@@ -4,12 +4,109 @@ All URIs are relative to *https://api.elasticemail.com/v4*
 
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
+| [**SubaccountsByEmailApikeyGet**](SubAccountsApi.md#subaccountsbyemailapikeyget) | **GET** /subaccounts/{email}/apikey | Get SubAccount ApiKey |
 | [**SubaccountsByEmailCreditsPatch**](SubAccountsApi.md#subaccountsbyemailcreditspatch) | **PATCH** /subaccounts/{email}/credits | Add, Subtract Email Credits |
 | [**SubaccountsByEmailDelete**](SubAccountsApi.md#subaccountsbyemaildelete) | **DELETE** /subaccounts/{email} | Delete SubAccount |
 | [**SubaccountsByEmailGet**](SubAccountsApi.md#subaccountsbyemailget) | **GET** /subaccounts/{email} | Load SubAccount |
 | [**SubaccountsByEmailSettingsEmailPut**](SubAccountsApi.md#subaccountsbyemailsettingsemailput) | **PUT** /subaccounts/{email}/settings/email | Update SubAccount Email Settings |
 | [**SubaccountsGet**](SubAccountsApi.md#subaccountsget) | **GET** /subaccounts | Load SubAccounts |
 | [**SubaccountsPost**](SubAccountsApi.md#subaccountspost) | **POST** /subaccounts | Add SubAccount |
+
+<a id="subaccountsbyemailapikeyget"></a>
+# **SubaccountsByEmailApikeyGet**
+> string SubaccountsByEmailApikeyGet (string email)
+
+Get SubAccount ApiKey
+
+Returns API key token for the specified SubAccount.             The default API key created for the subaccount has a 48-hour expiration period. Required Access Level: ModifySubAccounts
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using ElasticEmail.Api;
+using ElasticEmail.Client;
+using ElasticEmail.Model;
+
+namespace Example
+{
+    public class SubaccountsByEmailApikeyGetExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.elasticemail.com/v4";
+            // Configure API key authorization: apikey
+            config.AddApiKey("X-ElasticEmail-ApiKey", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("X-ElasticEmail-ApiKey", "Bearer");
+
+            var apiInstance = new SubAccountsApi(config);
+            var email = mail@example.com;  // string | Email address of Sub-Account
+
+            try
+            {
+                // Get SubAccount ApiKey
+                string result = apiInstance.SubaccountsByEmailApikeyGet(email);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling SubAccountsApi.SubaccountsByEmailApikeyGet: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the SubaccountsByEmailApikeyGetWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Get SubAccount ApiKey
+    ApiResponse<string> response = apiInstance.SubaccountsByEmailApikeyGetWithHttpInfo(email);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling SubAccountsApi.SubaccountsByEmailApikeyGetWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **email** | **string** | Email address of Sub-Account |  |
+
+### Return type
+
+**string**
+
+### Authorization
+
+[apikey](../README.md#apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 <a id="subaccountsbyemailcreditspatch"></a>
 # **SubaccountsByEmailCreditsPatch**
@@ -495,7 +592,7 @@ catch (ApiException e)
 
 Add SubAccount
 
-Add a new SubAccount to your Account. To receive an access token for this SubAccount, make a POST security/apikeys request using the 'subaccount' parameter. Required Access Level: ModifySubAccounts
+Add a new SubAccount to your Account. To receive an access token for this SubAccount, make a POST security/apikeys request using the 'subaccount' parameter.             The default API key created for the subaccount has a 48-hour expiration period. Required Access Level: ModifySubAccounts
 
 ### Example
 ```csharp

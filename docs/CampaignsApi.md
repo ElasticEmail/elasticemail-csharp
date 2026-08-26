@@ -4,12 +4,107 @@ All URIs are relative to *https://api.elasticemail.com/v4*
 
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
+| [**CampaignsAutomationByNameTriggerPost**](CampaignsApi.md#campaignsautomationbynametriggerpost) | **POST** /campaigns/automation/{name}/trigger | Trigger Automation for Contact |
 | [**CampaignsByNameDelete**](CampaignsApi.md#campaignsbynamedelete) | **DELETE** /campaigns/{name} | Delete Campaign |
 | [**CampaignsByNameGet**](CampaignsApi.md#campaignsbynameget) | **GET** /campaigns/{name} | Load Campaign |
 | [**CampaignsByNamePausePut**](CampaignsApi.md#campaignsbynamepauseput) | **PUT** /campaigns/{name}/pause | Pause Campaign |
 | [**CampaignsByNamePut**](CampaignsApi.md#campaignsbynameput) | **PUT** /campaigns/{name} | Update Campaign |
 | [**CampaignsGet**](CampaignsApi.md#campaignsget) | **GET** /campaigns | Load Campaigns |
 | [**CampaignsPost**](CampaignsApi.md#campaignspost) | **POST** /campaigns | Add Campaign |
+
+<a id="campaignsautomationbynametriggerpost"></a>
+# **CampaignsAutomationByNameTriggerPost**
+> void CampaignsAutomationByNameTriggerPost (string name, string contactEmail)
+
+Trigger Automation for Contact
+
+Manually trigger an Automation for a contact. Required Access Level: ModifyAutomations
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using ElasticEmail.Api;
+using ElasticEmail.Client;
+using ElasticEmail.Model;
+
+namespace Example
+{
+    public class CampaignsAutomationByNameTriggerPostExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.elasticemail.com/v4";
+            // Configure API key authorization: apikey
+            config.AddApiKey("X-ElasticEmail-ApiKey", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("X-ElasticEmail-ApiKey", "Bearer");
+
+            var apiInstance = new CampaignsApi(config);
+            var name = "name_example";  // string | 
+            var contactEmail = "contactEmail_example";  // string | 
+
+            try
+            {
+                // Trigger Automation for Contact
+                apiInstance.CampaignsAutomationByNameTriggerPost(name, contactEmail);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling CampaignsApi.CampaignsAutomationByNameTriggerPost: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the CampaignsAutomationByNameTriggerPostWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Trigger Automation for Contact
+    apiInstance.CampaignsAutomationByNameTriggerPostWithHttpInfo(name, contactEmail);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling CampaignsApi.CampaignsAutomationByNameTriggerPostWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **name** | **string** |  |  |
+| **contactEmail** | **string** |  |  |
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[apikey](../README.md#apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 <a id="campaignsbynamedelete"></a>
 # **CampaignsByNameDelete**

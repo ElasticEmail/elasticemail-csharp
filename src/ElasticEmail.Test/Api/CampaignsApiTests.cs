@@ -56,6 +56,18 @@ namespace ElasticEmail.Test.Api
         }
 
         /// <summary>
+        /// Test CampaignsAutomationByNameTriggerPost
+        /// </summary>
+        [Fact]
+        public void CampaignsAutomationByNameTriggerPostTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //string name = null;
+            //string contactEmail = null;
+            //instance.CampaignsAutomationByNameTriggerPost(name, contactEmail);
+        }
+
+        /// <summary>
         /// Test CampaignsByNameDelete
         /// </summary>
         [Fact]

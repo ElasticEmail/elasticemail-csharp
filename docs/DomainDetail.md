@@ -16,13 +16,16 @@ Name | Type | Description | Notes
 **Type** | **TrackingType** |  | [optional] 
 **TrackingStatus** | **TrackingValidationStatus** |  | [optional] 
 **CertificateStatus** | **CertificateValidationStatus** |  | [optional] 
+**CertificateExpiryDate** | **DateTime?** |  | [optional] 
 **CertificateValidationError** | **string** |  | [optional] 
 **TrackingTypeUserRequest** | **TrackingType** |  | [optional] 
 **VERP** | **bool** |  | [optional] 
 **CustomBouncesDomain** | **string** |  | [optional] 
 **IsCustomBouncesDomainDefault** | **bool** |  | [optional] 
+**WasEverVerified** | **bool** |  | [optional] 
 **IsMarkedForDeletion** | **bool** |  | [optional] 
 **Ownership** | **DomainOwner** |  | [optional] 
+**DKIMRecord** | [**DKIMRecord**](DKIMRecord.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

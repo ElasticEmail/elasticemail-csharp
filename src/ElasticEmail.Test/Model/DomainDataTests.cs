@@ -164,6 +164,15 @@ namespace ElasticEmail.Test.Model
         }
 
         /// <summary>
+        /// Test the property 'CertificateExpiryDate'
+        /// </summary>
+        [Fact]
+        public void CertificateExpiryDateTest()
+        {
+            // TODO unit test for the property 'CertificateExpiryDate'
+        }
+
+        /// <summary>
         /// Test the property 'CertificateValidationError'
         /// </summary>
         [Fact]
@@ -209,6 +218,15 @@ namespace ElasticEmail.Test.Model
         }
 
         /// <summary>
+        /// Test the property 'WasEverVerified'
+        /// </summary>
+        [Fact]
+        public void WasEverVerifiedTest()
+        {
+            // TODO unit test for the property 'WasEverVerified'
+        }
+
+        /// <summary>
         /// Test the property 'IsMarkedForDeletion'
         /// </summary>
         [Fact]
@@ -224,6 +242,15 @@ namespace ElasticEmail.Test.Model
         public void OwnershipTest()
         {
             // TODO unit test for the property 'Ownership'
+        }
+
+        /// <summary>
+        /// Test the property 'DKIMRecord'
+        /// </summary>
+        [Fact]
+        public void DKIMRecordTest()
+        {
+            // TODO unit test for the property 'DKIMRecord'
         }
     }
 }

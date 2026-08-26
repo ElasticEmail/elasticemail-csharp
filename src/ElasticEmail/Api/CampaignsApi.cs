@@ -28,6 +28,31 @@ namespace ElasticEmail.Api
     {
         #region Synchronous Operations
         /// <summary>
+        /// Trigger Automation for Contact
+        /// </summary>
+        /// <remarks>
+        /// Manually trigger an Automation for a contact. Required Access Level: ModifyAutomations
+        /// </remarks>
+        /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="name"></param>
+        /// <param name="contactEmail"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns></returns>
+        void CampaignsAutomationByNameTriggerPost(string name, string contactEmail, int operationIndex = 0);
+
+        /// <summary>
+        /// Trigger Automation for Contact
+        /// </summary>
+        /// <remarks>
+        /// Manually trigger an Automation for a contact. Required Access Level: ModifyAutomations
+        /// </remarks>
+        /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="name"></param>
+        /// <param name="contactEmail"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ApiResponse of Object(void)</returns>
+        ApiResponse<Object> CampaignsAutomationByNameTriggerPostWithHttpInfo(string name, string contactEmail, int operationIndex = 0);
+        /// <summary>
         /// Delete Campaign
         /// </summary>
         /// <remarks>
@@ -180,6 +205,33 @@ namespace ElasticEmail.Api
     public interface ICampaignsApiAsync : IApiAccessor
     {
         #region Asynchronous Operations
+        /// <summary>
+        /// Trigger Automation for Contact
+        /// </summary>
+        /// <remarks>
+        /// Manually trigger an Automation for a contact. Required Access Level: ModifyAutomations
+        /// </remarks>
+        /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="name"></param>
+        /// <param name="contactEmail"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of void</returns>
+        System.Threading.Tasks.Task CampaignsAutomationByNameTriggerPostAsync(string name, string contactEmail, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+
+        /// <summary>
+        /// Trigger Automation for Contact
+        /// </summary>
+        /// <remarks>
+        /// Manually trigger an Automation for a contact. Required Access Level: ModifyAutomations
+        /// </remarks>
+        /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="name"></param>
+        /// <param name="contactEmail"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse</returns>
+        System.Threading.Tasks.Task<ApiResponse<Object>> CampaignsAutomationByNameTriggerPostWithHttpInfoAsync(string name, string contactEmail, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Delete Campaign
         /// </summary>
@@ -454,6 +506,175 @@ namespace ElasticEmail.Api
                 return _exceptionFactory;
             }
             set { _exceptionFactory = value; }
+        }
+
+        /// <summary>
+        /// Trigger Automation for Contact Manually trigger an Automation for a contact. Required Access Level: ModifyAutomations
+        /// </summary>
+        /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="name"></param>
+        /// <param name="contactEmail"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns></returns>
+        public void CampaignsAutomationByNameTriggerPost(string name, string contactEmail, int operationIndex = 0)
+        {
+            CampaignsAutomationByNameTriggerPostWithHttpInfo(name, contactEmail);
+        }
+
+        /// <summary>
+        /// Trigger Automation for Contact Manually trigger an Automation for a contact. Required Access Level: ModifyAutomations
+        /// </summary>
+        /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="name"></param>
+        /// <param name="contactEmail"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ApiResponse of Object(void)</returns>
+        public ElasticEmail.Client.ApiResponse<Object> CampaignsAutomationByNameTriggerPostWithHttpInfo(string name, string contactEmail, int operationIndex = 0)
+        {
+            // verify the required parameter 'name' is set
+            if (name == null)
+            {
+                throw new ElasticEmail.Client.ApiException(400, "Missing required parameter 'name' when calling CampaignsApi->CampaignsAutomationByNameTriggerPost");
+            }
+
+            // verify the required parameter 'contactEmail' is set
+            if (contactEmail == null)
+            {
+                throw new ElasticEmail.Client.ApiException(400, "Missing required parameter 'contactEmail' when calling CampaignsApi->CampaignsAutomationByNameTriggerPost");
+            }
+
+            ElasticEmail.Client.RequestOptions localVarRequestOptions = new ElasticEmail.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+            };
+
+            var localVarContentType = ElasticEmail.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarMultipartFormData = localVarContentType == "multipart/form-data";
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = ElasticEmail.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("name", ElasticEmail.Client.ClientUtils.ParameterToString(name)); // path parameter
+            localVarRequestOptions.QueryParameters.Add(ElasticEmail.Client.ClientUtils.ParameterToMultiMap("", "contactEmail", contactEmail));
+
+            localVarRequestOptions.Operation = "CampaignsApi.CampaignsAutomationByNameTriggerPost";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (apikey) required
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-ElasticEmail-ApiKey")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("X-ElasticEmail-ApiKey", this.Configuration.GetApiKeyWithPrefix("X-ElasticEmail-ApiKey"));
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<Object>("/campaigns/automation/{name}/trigger", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("CampaignsAutomationByNameTriggerPost", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Trigger Automation for Contact Manually trigger an Automation for a contact. Required Access Level: ModifyAutomations
+        /// </summary>
+        /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="name"></param>
+        /// <param name="contactEmail"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of void</returns>
+        public async System.Threading.Tasks.Task CampaignsAutomationByNameTriggerPostAsync(string name, string contactEmail, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        {
+            await CampaignsAutomationByNameTriggerPostWithHttpInfoAsync(name, contactEmail, operationIndex, cancellationToken).ConfigureAwait(false);
+        }
+
+        /// <summary>
+        /// Trigger Automation for Contact Manually trigger an Automation for a contact. Required Access Level: ModifyAutomations
+        /// </summary>
+        /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="name"></param>
+        /// <param name="contactEmail"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse</returns>
+        public async System.Threading.Tasks.Task<ElasticEmail.Client.ApiResponse<Object>> CampaignsAutomationByNameTriggerPostWithHttpInfoAsync(string name, string contactEmail, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        {
+            // verify the required parameter 'name' is set
+            if (name == null)
+            {
+                throw new ElasticEmail.Client.ApiException(400, "Missing required parameter 'name' when calling CampaignsApi->CampaignsAutomationByNameTriggerPost");
+            }
+
+            // verify the required parameter 'contactEmail' is set
+            if (contactEmail == null)
+            {
+                throw new ElasticEmail.Client.ApiException(400, "Missing required parameter 'contactEmail' when calling CampaignsApi->CampaignsAutomationByNameTriggerPost");
+            }
+
+
+            ElasticEmail.Client.RequestOptions localVarRequestOptions = new ElasticEmail.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+            };
+
+            var localVarContentType = ElasticEmail.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = ElasticEmail.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("name", ElasticEmail.Client.ClientUtils.ParameterToString(name)); // path parameter
+            localVarRequestOptions.QueryParameters.Add(ElasticEmail.Client.ClientUtils.ParameterToMultiMap("", "contactEmail", contactEmail));
+
+            localVarRequestOptions.Operation = "CampaignsApi.CampaignsAutomationByNameTriggerPost";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (apikey) required
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-ElasticEmail-ApiKey")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("X-ElasticEmail-ApiKey", this.Configuration.GetApiKeyWithPrefix("X-ElasticEmail-ApiKey"));
+            }
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.PostAsync<Object>("/campaigns/automation/{name}/trigger", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("CampaignsAutomationByNameTriggerPost", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
         }
 
         /// <summary>

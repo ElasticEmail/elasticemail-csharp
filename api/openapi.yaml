@@ -54,7 +54,7 @@ tags:
   name: Templates
 - description: Verify emails and read the results
   name: Verifications
-- description: Verify emails and read the results
+- description: Manage your webhooks
   name: Webhook
 paths:
   /campaigns:
@@ -227,6 +227,36 @@ paths:
         "200":
           description: OK
       summary: Pause Campaign
+      tags:
+      - Campaigns
+  /campaigns/automation/{name}/trigger:
+    post:
+      description: "Manually trigger an Automation for a contact. Required Access\
+        \ Level: ModifyAutomations"
+      operationId: campaignsAutomationByNameTriggerPost
+      parameters:
+      - explode: false
+        in: path
+        name: name
+        required: true
+        schema:
+          description: string
+          format: string
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: contactEmail
+        required: true
+        schema:
+          description: string
+          format: string
+          type: string
+        style: form
+      responses:
+        "200":
+          description: OK
+      summary: Trigger Automation for Contact
       tags:
       - Campaigns
   /contacts:
@@ -1993,7 +2023,8 @@ paths:
       description: "List all your existing ApiKeys. Required Access Level: ViewAccessTokens"
       operationId: securityApikeysGet
       parameters:
-      - description: Email of the subaccount of which ApiKeys should be loaded
+      - description: Email of the subaccount of which ApiKeys should be loaded. The
+          default API key created for the subaccount has a 48-hour expiration period.
         explode: true
         in: query
         name: subaccount
@@ -2079,7 +2110,8 @@ paths:
           format: string
           type: string
         style: simple
-      - description: Email of the subaccount of which ApiKey should be loaded
+      - description: Email of the subaccount of which ApiKey should be loaded. The
+          default API key created for the subaccount has a 48-hour expiration period.
         explode: true
         in: query
         name: subaccount
@@ -2622,9 +2654,9 @@ paths:
       tags:
       - SubAccounts
     post:
-      description: "Add a new SubAccount to your Account. To receive an access token\
-        \ for this SubAccount, make a POST security/apikeys request using the 'subaccount'\
-        \ parameter. Required Access Level: ModifySubAccounts"
+      description: |-
+        Add a new SubAccount to your Account. To receive an access token for this SubAccount, make a POST security/apikeys request using the 'subaccount' parameter.
+                    The default API key created for the subaccount has a 48-hour expiration period. Required Access Level: ModifySubAccounts
       operationId: subaccountsPost
       requestBody:
         content:
@@ -2689,6 +2721,35 @@ paths:
                 $ref: '#/components/schemas/SubAccountInfo'
           description: OK
       summary: Load SubAccount
+      tags:
+      - SubAccounts
+  /subaccounts/{email}/apikey:
+    get:
+      description: |-
+        Returns API key token for the specified SubAccount.
+                    The default API key created for the subaccount has a 48-hour expiration period. Required Access Level: ModifySubAccounts
+      operationId: subaccountsByEmailApikeyGet
+      parameters:
+      - description: Email address of Sub-Account
+        explode: false
+        in: path
+        name: email
+        required: true
+        schema:
+          description: string
+          example: mail@example.com
+          format: string
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                format: string
+                type: string
+          description: OK
+      summary: Get SubAccount ApiKey
       tags:
       - SubAccounts
   /subaccounts/{email}/credits:
@@ -4105,6 +4166,7 @@ components:
       - CertNotSet
       - Valid
       - NotValid
+      - InProgress
       type: string
     ChannelLogStatusSummary:
       description: Summary of channel log status
@@ -4490,10 +4552,38 @@ components:
       - ToEngagedFirst
       - ByOpenTime
       type: string
+    DKIMRecord:
+      description: Content of the DKIM record to be added to DNS for the domain.
+      example:
+        PublicKey: PublicKey
+        RecordValue: RecordValue
+        Domain: example.com
+        HostName: HostName
+        Selector: Selector
+      properties:
+        Selector:
+          format: string
+          type: string
+        PublicKey:
+          format: string
+          type: string
+        HostName:
+          format: string
+          type: string
+        RecordValue:
+          format: string
+          type: string
+        Domain:
+          description: Name of selected domain.
+          example: example.com
+          format: string
+          type: string
+      type: object
     DomainData:
       description: "Domain data, with information about domain records."
       example:
         ValidationLog: ValidationLog
+        WasEverVerified: true
         Ownership: Current
         VERP: true
         IsCustomBouncesDomainDefault: true
@@ -4509,6 +4599,13 @@ components:
         TrackingStatus: Validated
         Type: None
         CertificateValidationError: CertificateValidationError
+        DKIMRecord:
+          PublicKey: PublicKey
+          RecordValue: RecordValue
+          Domain: example.com
+          HostName: HostName
+          Selector: Selector
+        CertificateExpiryDate: 2000-01-23T04:56:07.000+00:00
         Domain: example.com
         Verify: true
         TrackingTypeUserRequest: null
@@ -4561,6 +4658,11 @@ components:
           $ref: '#/components/schemas/TrackingValidationStatus'
         CertificateStatus:
           $ref: '#/components/schemas/CertificateValidationStatus'
+        CertificateExpiryDate:
+          format: date-time
+          nullable: true
+          type: string
+          example: null
         CertificateValidationError:
           format: string
           type: string
@@ -4575,15 +4677,21 @@ components:
         IsCustomBouncesDomainDefault:
           format: boolean
           type: boolean
+        WasEverVerified:
+          format: boolean
+          type: boolean
         IsMarkedForDeletion:
           format: boolean
           type: boolean
         Ownership:
           $ref: '#/components/schemas/DomainOwner'
+        DKIMRecord:
+          $ref: '#/components/schemas/DKIMRecord'
       type: object
     DomainDetail:
       description: "Domain data, with information about domain records."
       example:
+        WasEverVerified: true
         Ownership: Current
         VERP: true
         IsCustomBouncesDomainDefault: true
@@ -4599,6 +4707,13 @@ components:
         TrackingStatus: Validated
         Type: None
         CertificateValidationError: CertificateValidationError
+        DKIMRecord:
+          PublicKey: PublicKey
+          RecordValue: RecordValue
+          Domain: example.com
+          HostName: HostName
+          Selector: Selector
+        CertificateExpiryDate: 2000-01-23T04:56:07.000+00:00
         Domain: example.com
         Verify: true
         TrackingTypeUserRequest: null
@@ -4646,6 +4761,11 @@ components:
           $ref: '#/components/schemas/TrackingValidationStatus'
         CertificateStatus:
           $ref: '#/components/schemas/CertificateValidationStatus'
+        CertificateExpiryDate:
+          format: date-time
+          nullable: true
+          type: string
+          example: null
         CertificateValidationError:
           format: string
           type: string
@@ -4660,11 +4780,16 @@ components:
         IsCustomBouncesDomainDefault:
           format: boolean
           type: boolean
+        WasEverVerified:
+          format: boolean
+          type: boolean
         IsMarkedForDeletion:
           format: boolean
           type: boolean
         Ownership:
           $ref: '#/components/schemas/DomainOwner'
+        DKIMRecord:
+          $ref: '#/components/schemas/DKIMRecord'
       type: object
     DomainOwner:
       default: Current
@@ -5416,12 +5541,15 @@ components:
       enum:
       - Submission
       - FailedAttempt
-      - Bounce
+      - Error
       - Sent
       - Open
       - Click
       - Unsubscribe
       - Complaint
+      - Bounce
+      - TransactionalUnsubscribe
+      - Suppress
       type: string
     ExportFileFormats:
       default: Csv
