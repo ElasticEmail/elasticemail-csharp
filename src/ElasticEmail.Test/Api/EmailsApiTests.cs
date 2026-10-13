@@ -97,7 +97,8 @@ namespace ElasticEmail.Test.Api
         {
             // TODO uncomment below to test the method and replace null with proper value
             //MergeEmailPayload mergeEmailPayload = null;
-            //var response = instance.EmailsMergefilePost(mergeEmailPayload);
+            //string idempotencyKey = null;
+            //var response = instance.EmailsMergefilePost(mergeEmailPayload, idempotencyKey);
             //Assert.IsType<EmailSend>(response);
         }
 
@@ -109,7 +110,8 @@ namespace ElasticEmail.Test.Api
         {
             // TODO uncomment below to test the method and replace null with proper value
             //EmailMessageData emailMessageData = null;
-            //var response = instance.EmailsPost(emailMessageData);
+            //string idempotencyKey = null;
+            //var response = instance.EmailsPost(emailMessageData, idempotencyKey);
             //Assert.IsType<EmailSend>(response);
         }
 
@@ -121,7 +123,8 @@ namespace ElasticEmail.Test.Api
         {
             // TODO uncomment below to test the method and replace null with proper value
             //EmailTransactionalMessageData emailTransactionalMessageData = null;
-            //var response = instance.EmailsTransactionalPost(emailTransactionalMessageData);
+            //string idempotencyKey = null;
+            //var response = instance.EmailsTransactionalPost(emailTransactionalMessageData, idempotencyKey);
             //Assert.IsType<EmailSend>(response);
         }
     }

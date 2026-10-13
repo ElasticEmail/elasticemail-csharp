@@ -12,6 +12,8 @@ This means:
 - If an endpoint, model, parameter or description is wrong or missing, the fix belongs in the API specification. Please [open an issue](https://github.com/ElasticEmail/elasticemail-csharp/issues/new/choose) describing the problem. We'll fix it upstream and regenerate the SDK.
 - Pull requests are most useful for non-generated content: documentation, examples, tests, build and CI configuration, and repository tooling.
 
+One exception: `src/ElasticEmail/Api/EmailsApi.Compat.cs` is hand-written. It keeps the pre-4.4.0 `EmailsPost`, `EmailsTransactionalPost` and `EmailsMergefilePost` signatures (without `idempotencyKey`) working, and the generator doesn't touch it, so keep it when you regenerate.
+
 If you're not sure whether something is generated, open an issue first and ask.
 
 ## Reporting bugs

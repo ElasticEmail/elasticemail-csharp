@@ -101,9 +101,10 @@ namespace ElasticEmail.Api
         /// </remarks>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="mergeEmailPayload">Email data</param>
+        /// <param name="idempotencyKey">Makes a retry of this request safe. A repeated request with the same key and the same body gets the stored response of the first one and is not executed again. Generate a new key, e.g. a UUID v4, for each request and reuse it only to retry that request. Keys are scoped to the account and kept for 24 hours after the first request. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>EmailSend</returns>
-        EmailSend EmailsMergefilePost(MergeEmailPayload mergeEmailPayload, int operationIndex = 0);
+        EmailSend EmailsMergefilePost(MergeEmailPayload mergeEmailPayload, string idempotencyKey = default(string), int operationIndex = 0);
 
         /// <summary>
         /// Send Bulk Emails CSV
@@ -113,9 +114,10 @@ namespace ElasticEmail.Api
         /// </remarks>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="mergeEmailPayload">Email data</param>
+        /// <param name="idempotencyKey">Makes a retry of this request safe. A repeated request with the same key and the same body gets the stored response of the first one and is not executed again. Generate a new key, e.g. a UUID v4, for each request and reuse it only to retry that request. Keys are scoped to the account and kept for 24 hours after the first request. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of EmailSend</returns>
-        ApiResponse<EmailSend> EmailsMergefilePostWithHttpInfo(MergeEmailPayload mergeEmailPayload, int operationIndex = 0);
+        ApiResponse<EmailSend> EmailsMergefilePostWithHttpInfo(MergeEmailPayload mergeEmailPayload, string idempotencyKey = default(string), int operationIndex = 0);
         /// <summary>
         /// Send Bulk Emails
         /// </summary>
@@ -124,9 +126,10 @@ namespace ElasticEmail.Api
         /// </remarks>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="emailMessageData">Email data</param>
+        /// <param name="idempotencyKey">Makes a retry of this request safe. A repeated request with the same key and the same body gets the stored response of the first one and is not executed again. Generate a new key, e.g. a UUID v4, for each request and reuse it only to retry that request. Keys are scoped to the account and kept for 24 hours after the first request. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>EmailSend</returns>
-        EmailSend EmailsPost(EmailMessageData emailMessageData, int operationIndex = 0);
+        EmailSend EmailsPost(EmailMessageData emailMessageData, string idempotencyKey = default(string), int operationIndex = 0);
 
         /// <summary>
         /// Send Bulk Emails
@@ -136,9 +139,10 @@ namespace ElasticEmail.Api
         /// </remarks>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="emailMessageData">Email data</param>
+        /// <param name="idempotencyKey">Makes a retry of this request safe. A repeated request with the same key and the same body gets the stored response of the first one and is not executed again. Generate a new key, e.g. a UUID v4, for each request and reuse it only to retry that request. Keys are scoped to the account and kept for 24 hours after the first request. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of EmailSend</returns>
-        ApiResponse<EmailSend> EmailsPostWithHttpInfo(EmailMessageData emailMessageData, int operationIndex = 0);
+        ApiResponse<EmailSend> EmailsPostWithHttpInfo(EmailMessageData emailMessageData, string idempotencyKey = default(string), int operationIndex = 0);
         /// <summary>
         /// Send Transactional Email
         /// </summary>
@@ -147,9 +151,10 @@ namespace ElasticEmail.Api
         /// </remarks>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="emailTransactionalMessageData">Email data</param>
+        /// <param name="idempotencyKey">Makes a retry of this request safe. A repeated request with the same key and the same body gets the stored response of the first one and is not executed again. Generate a new key, e.g. a UUID v4, for each request and reuse it only to retry that request. Keys are scoped to the account and kept for 24 hours after the first request. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>EmailSend</returns>
-        EmailSend EmailsTransactionalPost(EmailTransactionalMessageData emailTransactionalMessageData, int operationIndex = 0);
+        EmailSend EmailsTransactionalPost(EmailTransactionalMessageData emailTransactionalMessageData, string idempotencyKey = default(string), int operationIndex = 0);
 
         /// <summary>
         /// Send Transactional Email
@@ -159,9 +164,10 @@ namespace ElasticEmail.Api
         /// </remarks>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="emailTransactionalMessageData">Email data</param>
+        /// <param name="idempotencyKey">Makes a retry of this request safe. A repeated request with the same key and the same body gets the stored response of the first one and is not executed again. Generate a new key, e.g. a UUID v4, for each request and reuse it only to retry that request. Keys are scoped to the account and kept for 24 hours after the first request. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of EmailSend</returns>
-        ApiResponse<EmailSend> EmailsTransactionalPostWithHttpInfo(EmailTransactionalMessageData emailTransactionalMessageData, int operationIndex = 0);
+        ApiResponse<EmailSend> EmailsTransactionalPostWithHttpInfo(EmailTransactionalMessageData emailTransactionalMessageData, string idempotencyKey = default(string), int operationIndex = 0);
         #endregion Synchronous Operations
     }
 
@@ -249,10 +255,11 @@ namespace ElasticEmail.Api
         /// </remarks>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="mergeEmailPayload">Email data</param>
+        /// <param name="idempotencyKey">Makes a retry of this request safe. A repeated request with the same key and the same body gets the stored response of the first one and is not executed again. Generate a new key, e.g. a UUID v4, for each request and reuse it only to retry that request. Keys are scoped to the account and kept for 24 hours after the first request. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of EmailSend</returns>
-        System.Threading.Tasks.Task<EmailSend> EmailsMergefilePostAsync(MergeEmailPayload mergeEmailPayload, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<EmailSend> EmailsMergefilePostAsync(MergeEmailPayload mergeEmailPayload, string idempotencyKey = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Send Bulk Emails CSV
@@ -262,10 +269,11 @@ namespace ElasticEmail.Api
         /// </remarks>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="mergeEmailPayload">Email data</param>
+        /// <param name="idempotencyKey">Makes a retry of this request safe. A repeated request with the same key and the same body gets the stored response of the first one and is not executed again. Generate a new key, e.g. a UUID v4, for each request and reuse it only to retry that request. Keys are scoped to the account and kept for 24 hours after the first request. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (EmailSend)</returns>
-        System.Threading.Tasks.Task<ApiResponse<EmailSend>> EmailsMergefilePostWithHttpInfoAsync(MergeEmailPayload mergeEmailPayload, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<EmailSend>> EmailsMergefilePostWithHttpInfoAsync(MergeEmailPayload mergeEmailPayload, string idempotencyKey = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Send Bulk Emails
         /// </summary>
@@ -274,10 +282,11 @@ namespace ElasticEmail.Api
         /// </remarks>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="emailMessageData">Email data</param>
+        /// <param name="idempotencyKey">Makes a retry of this request safe. A repeated request with the same key and the same body gets the stored response of the first one and is not executed again. Generate a new key, e.g. a UUID v4, for each request and reuse it only to retry that request. Keys are scoped to the account and kept for 24 hours after the first request. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of EmailSend</returns>
-        System.Threading.Tasks.Task<EmailSend> EmailsPostAsync(EmailMessageData emailMessageData, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<EmailSend> EmailsPostAsync(EmailMessageData emailMessageData, string idempotencyKey = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Send Bulk Emails
@@ -287,10 +296,11 @@ namespace ElasticEmail.Api
         /// </remarks>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="emailMessageData">Email data</param>
+        /// <param name="idempotencyKey">Makes a retry of this request safe. A repeated request with the same key and the same body gets the stored response of the first one and is not executed again. Generate a new key, e.g. a UUID v4, for each request and reuse it only to retry that request. Keys are scoped to the account and kept for 24 hours after the first request. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (EmailSend)</returns>
-        System.Threading.Tasks.Task<ApiResponse<EmailSend>> EmailsPostWithHttpInfoAsync(EmailMessageData emailMessageData, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<EmailSend>> EmailsPostWithHttpInfoAsync(EmailMessageData emailMessageData, string idempotencyKey = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Send Transactional Email
         /// </summary>
@@ -299,10 +309,11 @@ namespace ElasticEmail.Api
         /// </remarks>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="emailTransactionalMessageData">Email data</param>
+        /// <param name="idempotencyKey">Makes a retry of this request safe. A repeated request with the same key and the same body gets the stored response of the first one and is not executed again. Generate a new key, e.g. a UUID v4, for each request and reuse it only to retry that request. Keys are scoped to the account and kept for 24 hours after the first request. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of EmailSend</returns>
-        System.Threading.Tasks.Task<EmailSend> EmailsTransactionalPostAsync(EmailTransactionalMessageData emailTransactionalMessageData, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<EmailSend> EmailsTransactionalPostAsync(EmailTransactionalMessageData emailTransactionalMessageData, string idempotencyKey = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Send Transactional Email
@@ -312,10 +323,11 @@ namespace ElasticEmail.Api
         /// </remarks>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="emailTransactionalMessageData">Email data</param>
+        /// <param name="idempotencyKey">Makes a retry of this request safe. A repeated request with the same key and the same body gets the stored response of the first one and is not executed again. Generate a new key, e.g. a UUID v4, for each request and reuse it only to retry that request. Keys are scoped to the account and kept for 24 hours after the first request. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (EmailSend)</returns>
-        System.Threading.Tasks.Task<ApiResponse<EmailSend>> EmailsTransactionalPostWithHttpInfoAsync(EmailTransactionalMessageData emailTransactionalMessageData, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<EmailSend>> EmailsTransactionalPostWithHttpInfoAsync(EmailTransactionalMessageData emailTransactionalMessageData, string idempotencyKey = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         #endregion Asynchronous Operations
     }
 
@@ -871,11 +883,12 @@ namespace ElasticEmail.Api
         /// </summary>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="mergeEmailPayload">Email data</param>
+        /// <param name="idempotencyKey">Makes a retry of this request safe. A repeated request with the same key and the same body gets the stored response of the first one and is not executed again. Generate a new key, e.g. a UUID v4, for each request and reuse it only to retry that request. Keys are scoped to the account and kept for 24 hours after the first request. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>EmailSend</returns>
-        public EmailSend EmailsMergefilePost(MergeEmailPayload mergeEmailPayload, int operationIndex = 0)
+        public EmailSend EmailsMergefilePost(MergeEmailPayload mergeEmailPayload, string idempotencyKey = default(string), int operationIndex = 0)
         {
-            ElasticEmail.Client.ApiResponse<EmailSend> localVarResponse = EmailsMergefilePostWithHttpInfo(mergeEmailPayload);
+            ElasticEmail.Client.ApiResponse<EmailSend> localVarResponse = EmailsMergefilePostWithHttpInfo(mergeEmailPayload, idempotencyKey);
             return localVarResponse.Data;
         }
 
@@ -884,9 +897,10 @@ namespace ElasticEmail.Api
         /// </summary>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="mergeEmailPayload">Email data</param>
+        /// <param name="idempotencyKey">Makes a retry of this request safe. A repeated request with the same key and the same body gets the stored response of the first one and is not executed again. Generate a new key, e.g. a UUID v4, for each request and reuse it only to retry that request. Keys are scoped to the account and kept for 24 hours after the first request. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of EmailSend</returns>
-        public ElasticEmail.Client.ApiResponse<EmailSend> EmailsMergefilePostWithHttpInfo(MergeEmailPayload mergeEmailPayload, int operationIndex = 0)
+        public ElasticEmail.Client.ApiResponse<EmailSend> EmailsMergefilePostWithHttpInfo(MergeEmailPayload mergeEmailPayload, string idempotencyKey = default(string), int operationIndex = 0)
         {
             // verify the required parameter 'mergeEmailPayload' is set
             if (mergeEmailPayload == null)
@@ -918,6 +932,10 @@ namespace ElasticEmail.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
+            if (idempotencyKey != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Idempotency-Key", ElasticEmail.Client.ClientUtils.ParameterToString(idempotencyKey)); // header parameter
+            }
             localVarRequestOptions.Data = mergeEmailPayload;
 
             localVarRequestOptions.Operation = "EmailsApi.EmailsMergefilePost";
@@ -948,12 +966,13 @@ namespace ElasticEmail.Api
         /// </summary>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="mergeEmailPayload">Email data</param>
+        /// <param name="idempotencyKey">Makes a retry of this request safe. A repeated request with the same key and the same body gets the stored response of the first one and is not executed again. Generate a new key, e.g. a UUID v4, for each request and reuse it only to retry that request. Keys are scoped to the account and kept for 24 hours after the first request. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of EmailSend</returns>
-        public async System.Threading.Tasks.Task<EmailSend> EmailsMergefilePostAsync(MergeEmailPayload mergeEmailPayload, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<EmailSend> EmailsMergefilePostAsync(MergeEmailPayload mergeEmailPayload, string idempotencyKey = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
-            ElasticEmail.Client.ApiResponse<EmailSend> localVarResponse = await EmailsMergefilePostWithHttpInfoAsync(mergeEmailPayload, operationIndex, cancellationToken).ConfigureAwait(false);
+            ElasticEmail.Client.ApiResponse<EmailSend> localVarResponse = await EmailsMergefilePostWithHttpInfoAsync(mergeEmailPayload, idempotencyKey, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -962,10 +981,11 @@ namespace ElasticEmail.Api
         /// </summary>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="mergeEmailPayload">Email data</param>
+        /// <param name="idempotencyKey">Makes a retry of this request safe. A repeated request with the same key and the same body gets the stored response of the first one and is not executed again. Generate a new key, e.g. a UUID v4, for each request and reuse it only to retry that request. Keys are scoped to the account and kept for 24 hours after the first request. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (EmailSend)</returns>
-        public async System.Threading.Tasks.Task<ElasticEmail.Client.ApiResponse<EmailSend>> EmailsMergefilePostWithHttpInfoAsync(MergeEmailPayload mergeEmailPayload, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ElasticEmail.Client.ApiResponse<EmailSend>> EmailsMergefilePostWithHttpInfoAsync(MergeEmailPayload mergeEmailPayload, string idempotencyKey = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             // verify the required parameter 'mergeEmailPayload' is set
             if (mergeEmailPayload == null)
@@ -997,6 +1017,10 @@ namespace ElasticEmail.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
+            if (idempotencyKey != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Idempotency-Key", ElasticEmail.Client.ClientUtils.ParameterToString(idempotencyKey)); // header parameter
+            }
             localVarRequestOptions.Data = mergeEmailPayload;
 
             localVarRequestOptions.Operation = "EmailsApi.EmailsMergefilePost";
@@ -1028,11 +1052,12 @@ namespace ElasticEmail.Api
         /// </summary>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="emailMessageData">Email data</param>
+        /// <param name="idempotencyKey">Makes a retry of this request safe. A repeated request with the same key and the same body gets the stored response of the first one and is not executed again. Generate a new key, e.g. a UUID v4, for each request and reuse it only to retry that request. Keys are scoped to the account and kept for 24 hours after the first request. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>EmailSend</returns>
-        public EmailSend EmailsPost(EmailMessageData emailMessageData, int operationIndex = 0)
+        public EmailSend EmailsPost(EmailMessageData emailMessageData, string idempotencyKey = default(string), int operationIndex = 0)
         {
-            ElasticEmail.Client.ApiResponse<EmailSend> localVarResponse = EmailsPostWithHttpInfo(emailMessageData);
+            ElasticEmail.Client.ApiResponse<EmailSend> localVarResponse = EmailsPostWithHttpInfo(emailMessageData, idempotencyKey);
             return localVarResponse.Data;
         }
 
@@ -1041,9 +1066,10 @@ namespace ElasticEmail.Api
         /// </summary>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="emailMessageData">Email data</param>
+        /// <param name="idempotencyKey">Makes a retry of this request safe. A repeated request with the same key and the same body gets the stored response of the first one and is not executed again. Generate a new key, e.g. a UUID v4, for each request and reuse it only to retry that request. Keys are scoped to the account and kept for 24 hours after the first request. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of EmailSend</returns>
-        public ElasticEmail.Client.ApiResponse<EmailSend> EmailsPostWithHttpInfo(EmailMessageData emailMessageData, int operationIndex = 0)
+        public ElasticEmail.Client.ApiResponse<EmailSend> EmailsPostWithHttpInfo(EmailMessageData emailMessageData, string idempotencyKey = default(string), int operationIndex = 0)
         {
             // verify the required parameter 'emailMessageData' is set
             if (emailMessageData == null)
@@ -1075,6 +1101,10 @@ namespace ElasticEmail.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
+            if (idempotencyKey != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Idempotency-Key", ElasticEmail.Client.ClientUtils.ParameterToString(idempotencyKey)); // header parameter
+            }
             localVarRequestOptions.Data = emailMessageData;
 
             localVarRequestOptions.Operation = "EmailsApi.EmailsPost";
@@ -1105,12 +1135,13 @@ namespace ElasticEmail.Api
         /// </summary>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="emailMessageData">Email data</param>
+        /// <param name="idempotencyKey">Makes a retry of this request safe. A repeated request with the same key and the same body gets the stored response of the first one and is not executed again. Generate a new key, e.g. a UUID v4, for each request and reuse it only to retry that request. Keys are scoped to the account and kept for 24 hours after the first request. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of EmailSend</returns>
-        public async System.Threading.Tasks.Task<EmailSend> EmailsPostAsync(EmailMessageData emailMessageData, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<EmailSend> EmailsPostAsync(EmailMessageData emailMessageData, string idempotencyKey = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
-            ElasticEmail.Client.ApiResponse<EmailSend> localVarResponse = await EmailsPostWithHttpInfoAsync(emailMessageData, operationIndex, cancellationToken).ConfigureAwait(false);
+            ElasticEmail.Client.ApiResponse<EmailSend> localVarResponse = await EmailsPostWithHttpInfoAsync(emailMessageData, idempotencyKey, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1119,10 +1150,11 @@ namespace ElasticEmail.Api
         /// </summary>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="emailMessageData">Email data</param>
+        /// <param name="idempotencyKey">Makes a retry of this request safe. A repeated request with the same key and the same body gets the stored response of the first one and is not executed again. Generate a new key, e.g. a UUID v4, for each request and reuse it only to retry that request. Keys are scoped to the account and kept for 24 hours after the first request. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (EmailSend)</returns>
-        public async System.Threading.Tasks.Task<ElasticEmail.Client.ApiResponse<EmailSend>> EmailsPostWithHttpInfoAsync(EmailMessageData emailMessageData, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ElasticEmail.Client.ApiResponse<EmailSend>> EmailsPostWithHttpInfoAsync(EmailMessageData emailMessageData, string idempotencyKey = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             // verify the required parameter 'emailMessageData' is set
             if (emailMessageData == null)
@@ -1154,6 +1186,10 @@ namespace ElasticEmail.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
+            if (idempotencyKey != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Idempotency-Key", ElasticEmail.Client.ClientUtils.ParameterToString(idempotencyKey)); // header parameter
+            }
             localVarRequestOptions.Data = emailMessageData;
 
             localVarRequestOptions.Operation = "EmailsApi.EmailsPost";
@@ -1185,11 +1221,12 @@ namespace ElasticEmail.Api
         /// </summary>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="emailTransactionalMessageData">Email data</param>
+        /// <param name="idempotencyKey">Makes a retry of this request safe. A repeated request with the same key and the same body gets the stored response of the first one and is not executed again. Generate a new key, e.g. a UUID v4, for each request and reuse it only to retry that request. Keys are scoped to the account and kept for 24 hours after the first request. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>EmailSend</returns>
-        public EmailSend EmailsTransactionalPost(EmailTransactionalMessageData emailTransactionalMessageData, int operationIndex = 0)
+        public EmailSend EmailsTransactionalPost(EmailTransactionalMessageData emailTransactionalMessageData, string idempotencyKey = default(string), int operationIndex = 0)
         {
-            ElasticEmail.Client.ApiResponse<EmailSend> localVarResponse = EmailsTransactionalPostWithHttpInfo(emailTransactionalMessageData);
+            ElasticEmail.Client.ApiResponse<EmailSend> localVarResponse = EmailsTransactionalPostWithHttpInfo(emailTransactionalMessageData, idempotencyKey);
             return localVarResponse.Data;
         }
 
@@ -1198,9 +1235,10 @@ namespace ElasticEmail.Api
         /// </summary>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="emailTransactionalMessageData">Email data</param>
+        /// <param name="idempotencyKey">Makes a retry of this request safe. A repeated request with the same key and the same body gets the stored response of the first one and is not executed again. Generate a new key, e.g. a UUID v4, for each request and reuse it only to retry that request. Keys are scoped to the account and kept for 24 hours after the first request. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of EmailSend</returns>
-        public ElasticEmail.Client.ApiResponse<EmailSend> EmailsTransactionalPostWithHttpInfo(EmailTransactionalMessageData emailTransactionalMessageData, int operationIndex = 0)
+        public ElasticEmail.Client.ApiResponse<EmailSend> EmailsTransactionalPostWithHttpInfo(EmailTransactionalMessageData emailTransactionalMessageData, string idempotencyKey = default(string), int operationIndex = 0)
         {
             // verify the required parameter 'emailTransactionalMessageData' is set
             if (emailTransactionalMessageData == null)
@@ -1232,6 +1270,10 @@ namespace ElasticEmail.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
+            if (idempotencyKey != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Idempotency-Key", ElasticEmail.Client.ClientUtils.ParameterToString(idempotencyKey)); // header parameter
+            }
             localVarRequestOptions.Data = emailTransactionalMessageData;
 
             localVarRequestOptions.Operation = "EmailsApi.EmailsTransactionalPost";
@@ -1262,12 +1304,13 @@ namespace ElasticEmail.Api
         /// </summary>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="emailTransactionalMessageData">Email data</param>
+        /// <param name="idempotencyKey">Makes a retry of this request safe. A repeated request with the same key and the same body gets the stored response of the first one and is not executed again. Generate a new key, e.g. a UUID v4, for each request and reuse it only to retry that request. Keys are scoped to the account and kept for 24 hours after the first request. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of EmailSend</returns>
-        public async System.Threading.Tasks.Task<EmailSend> EmailsTransactionalPostAsync(EmailTransactionalMessageData emailTransactionalMessageData, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<EmailSend> EmailsTransactionalPostAsync(EmailTransactionalMessageData emailTransactionalMessageData, string idempotencyKey = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
-            ElasticEmail.Client.ApiResponse<EmailSend> localVarResponse = await EmailsTransactionalPostWithHttpInfoAsync(emailTransactionalMessageData, operationIndex, cancellationToken).ConfigureAwait(false);
+            ElasticEmail.Client.ApiResponse<EmailSend> localVarResponse = await EmailsTransactionalPostWithHttpInfoAsync(emailTransactionalMessageData, idempotencyKey, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1276,10 +1319,11 @@ namespace ElasticEmail.Api
         /// </summary>
         /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="emailTransactionalMessageData">Email data</param>
+        /// <param name="idempotencyKey">Makes a retry of this request safe. A repeated request with the same key and the same body gets the stored response of the first one and is not executed again. Generate a new key, e.g. a UUID v4, for each request and reuse it only to retry that request. Keys are scoped to the account and kept for 24 hours after the first request. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (EmailSend)</returns>
-        public async System.Threading.Tasks.Task<ElasticEmail.Client.ApiResponse<EmailSend>> EmailsTransactionalPostWithHttpInfoAsync(EmailTransactionalMessageData emailTransactionalMessageData, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ElasticEmail.Client.ApiResponse<EmailSend>> EmailsTransactionalPostWithHttpInfoAsync(EmailTransactionalMessageData emailTransactionalMessageData, string idempotencyKey = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             // verify the required parameter 'emailTransactionalMessageData' is set
             if (emailTransactionalMessageData == null)
@@ -1311,6 +1355,10 @@ namespace ElasticEmail.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
+            if (idempotencyKey != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Idempotency-Key", ElasticEmail.Client.ClientUtils.ParameterToString(idempotencyKey)); // header parameter
+            }
             localVarRequestOptions.Data = emailTransactionalMessageData;
 
             localVarRequestOptions.Operation = "EmailsApi.EmailsTransactionalPost";

@@ -224,7 +224,7 @@ catch (ApiException e)
 
 <a id="emailsmergefilepost"></a>
 # **EmailsMergefilePost**
-> EmailSend EmailsMergefilePost (MergeEmailPayload mergeEmailPayload)
+> EmailSend EmailsMergefilePost (MergeEmailPayload mergeEmailPayload, string idempotencyKey = null)
 
 Send Bulk Emails CSV
 
@@ -253,11 +253,12 @@ namespace Example
 
             var apiInstance = new EmailsApi(config);
             var mergeEmailPayload = new MergeEmailPayload(); // MergeEmailPayload | Email data
+            var idempotencyKey = 6f1c2a7e-3b4d-4e8f-9a1b-2c3d4e5f6a7b;  // string | Makes a retry of this request safe. A repeated request with the same key and the same body gets the stored response of the first one and is not executed again. Generate a new key, e.g. a UUID v4, for each request and reuse it only to retry that request. Keys are scoped to the account and kept for 24 hours after the first request. (optional) 
 
             try
             {
                 // Send Bulk Emails CSV
-                EmailSend result = apiInstance.EmailsMergefilePost(mergeEmailPayload);
+                EmailSend result = apiInstance.EmailsMergefilePost(mergeEmailPayload, idempotencyKey);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -278,7 +279,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Send Bulk Emails CSV
-    ApiResponse<EmailSend> response = apiInstance.EmailsMergefilePostWithHttpInfo(mergeEmailPayload);
+    ApiResponse<EmailSend> response = apiInstance.EmailsMergefilePostWithHttpInfo(mergeEmailPayload, idempotencyKey);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -296,6 +297,7 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **mergeEmailPayload** | [**MergeEmailPayload**](MergeEmailPayload.md) | Email data |  |
+| **idempotencyKey** | **string** | Makes a retry of this request safe. A repeated request with the same key and the same body gets the stored response of the first one and is not executed again. Generate a new key, e.g. a UUID v4, for each request and reuse it only to retry that request. Keys are scoped to the account and kept for 24 hours after the first request. | [optional]  |
 
 ### Return type
 
@@ -315,12 +317,16 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
+| **400** | Bad request, e.g. the Idempotency-Key header is not 1 to 255 printable ASCII characters. |  -  |
+| **409** | A request with the same Idempotency-Key is still in progress. Retry once it has completed. |  -  |
+| **422** | The Idempotency-Key was already used with a different request. |  -  |
+| **503** | The Idempotency-Key could not be confirmed, so the request was not executed. Retry after the time given in Retry-After. |  * Retry-After - Seconds to wait before retrying. <br>  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 <a id="emailspost"></a>
 # **EmailsPost**
-> EmailSend EmailsPost (EmailMessageData emailMessageData)
+> EmailSend EmailsPost (EmailMessageData emailMessageData, string idempotencyKey = null)
 
 Send Bulk Emails
 
@@ -349,11 +355,12 @@ namespace Example
 
             var apiInstance = new EmailsApi(config);
             var emailMessageData = new EmailMessageData(); // EmailMessageData | Email data
+            var idempotencyKey = 6f1c2a7e-3b4d-4e8f-9a1b-2c3d4e5f6a7b;  // string | Makes a retry of this request safe. A repeated request with the same key and the same body gets the stored response of the first one and is not executed again. Generate a new key, e.g. a UUID v4, for each request and reuse it only to retry that request. Keys are scoped to the account and kept for 24 hours after the first request. (optional) 
 
             try
             {
                 // Send Bulk Emails
-                EmailSend result = apiInstance.EmailsPost(emailMessageData);
+                EmailSend result = apiInstance.EmailsPost(emailMessageData, idempotencyKey);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -374,7 +381,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Send Bulk Emails
-    ApiResponse<EmailSend> response = apiInstance.EmailsPostWithHttpInfo(emailMessageData);
+    ApiResponse<EmailSend> response = apiInstance.EmailsPostWithHttpInfo(emailMessageData, idempotencyKey);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -392,6 +399,7 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **emailMessageData** | [**EmailMessageData**](EmailMessageData.md) | Email data |  |
+| **idempotencyKey** | **string** | Makes a retry of this request safe. A repeated request with the same key and the same body gets the stored response of the first one and is not executed again. Generate a new key, e.g. a UUID v4, for each request and reuse it only to retry that request. Keys are scoped to the account and kept for 24 hours after the first request. | [optional]  |
 
 ### Return type
 
@@ -411,12 +419,16 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
+| **400** | Bad request, e.g. the Idempotency-Key header is not 1 to 255 printable ASCII characters. |  -  |
+| **409** | A request with the same Idempotency-Key is still in progress. Retry once it has completed. |  -  |
+| **422** | The Idempotency-Key was already used with a different request. |  -  |
+| **503** | The Idempotency-Key could not be confirmed, so the request was not executed. Retry after the time given in Retry-After. |  * Retry-After - Seconds to wait before retrying. <br>  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 <a id="emailstransactionalpost"></a>
 # **EmailsTransactionalPost**
-> EmailSend EmailsTransactionalPost (EmailTransactionalMessageData emailTransactionalMessageData)
+> EmailSend EmailsTransactionalPost (EmailTransactionalMessageData emailTransactionalMessageData, string idempotencyKey = null)
 
 Send Transactional Email
 
@@ -445,11 +457,12 @@ namespace Example
 
             var apiInstance = new EmailsApi(config);
             var emailTransactionalMessageData = new EmailTransactionalMessageData(); // EmailTransactionalMessageData | Email data
+            var idempotencyKey = 6f1c2a7e-3b4d-4e8f-9a1b-2c3d4e5f6a7b;  // string | Makes a retry of this request safe. A repeated request with the same key and the same body gets the stored response of the first one and is not executed again. Generate a new key, e.g. a UUID v4, for each request and reuse it only to retry that request. Keys are scoped to the account and kept for 24 hours after the first request. (optional) 
 
             try
             {
                 // Send Transactional Email
-                EmailSend result = apiInstance.EmailsTransactionalPost(emailTransactionalMessageData);
+                EmailSend result = apiInstance.EmailsTransactionalPost(emailTransactionalMessageData, idempotencyKey);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -470,7 +483,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Send Transactional Email
-    ApiResponse<EmailSend> response = apiInstance.EmailsTransactionalPostWithHttpInfo(emailTransactionalMessageData);
+    ApiResponse<EmailSend> response = apiInstance.EmailsTransactionalPostWithHttpInfo(emailTransactionalMessageData, idempotencyKey);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -488,6 +501,7 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **emailTransactionalMessageData** | [**EmailTransactionalMessageData**](EmailTransactionalMessageData.md) | Email data |  |
+| **idempotencyKey** | **string** | Makes a retry of this request safe. A repeated request with the same key and the same body gets the stored response of the first one and is not executed again. Generate a new key, e.g. a UUID v4, for each request and reuse it only to retry that request. Keys are scoped to the account and kept for 24 hours after the first request. | [optional]  |
 
 ### Return type
 
@@ -507,6 +521,10 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
+| **400** | Bad request, e.g. the Idempotency-Key header is not 1 to 255 printable ASCII characters. |  -  |
+| **409** | A request with the same Idempotency-Key is still in progress. Retry once it has completed. |  -  |
+| **422** | The Idempotency-Key was already used with a different request. |  -  |
+| **503** | The Idempotency-Key could not be confirmed, so the request was not executed. Retry after the time given in Retry-After. |  * Retry-After - Seconds to wait before retrying. <br>  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

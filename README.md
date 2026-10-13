@@ -32,6 +32,7 @@ The official C# / .NET client library for the [Elastic Email](https://elasticema
 ## Features
 
 - **Transactional and bulk email.** Send single messages, bulk campaigns or CSV merge-file sends.
+- **Safe retries.** Pass an `Idempotency-Key` to the send methods so a retried send is delivered and charged only once.
 - **Contacts, lists and segments.** Add, update, import, export and bulk-delete contacts.
 - **Campaigns and automations.** Create, update, pause and trigger automations for a contact.
 - **Templates, files and attachments.** Manage templates and uploaded files.
@@ -68,7 +69,7 @@ Install-Package ElasticEmail
 Or add it to your `.csproj`:
 
 ```xml
-<PackageReference Include="ElasticEmail" Version="4.3.0" />
+<PackageReference Include="ElasticEmail" Version="4.4.0" />
 ```
 
 NuGet installs the dependencies ([RestSharp](https://www.nuget.org/packages/RestSharp), [Newtonsoft.Json](https://www.nuget.org/packages/Newtonsoft.Json), [JsonSubTypes](https://www.nuget.org/packages/JsonSubTypes) and [System.ComponentModel.Annotations](https://www.nuget.org/packages/System.ComponentModel.Annotations)) for you.
@@ -123,6 +124,37 @@ catch (ApiException e)
 ```
 
 The `from` address must use a domain you've [verified in your Elastic Email account](https://help.elasticemail.com/en/articles/4934400-how-to-verify-your-domain).
+
+### Retry a send safely (Idempotency-Key)
+
+Pass an `Idempotency-Key` to `EmailsPost`, `EmailsTransactionalPost` or `EmailsMergefilePost` (or their `…Async` variants) so a retry after a timeout or a dropped connection can't send the same email twice. If Elastic Email already processed the key, it returns the stored response (same `TransactionID` and `MessageID`, with an `Idempotency-Replayed: true` header) and sends nothing again.
+
+```csharp
+// One key per logical send; reuse it only to retry that same send.
+var idempotencyKey = Guid.NewGuid().ToString();
+
+EmailSend result = null;
+for (var attempt = 1; result == null; attempt++)
+{
+    var wait = TimeSpan.FromSeconds(2);
+    try
+    {
+        // Returns null when there was no response (network error or timeout).
+        result = await emails.EmailsTransactionalPostAsync(message, idempotencyKey);
+    }
+    catch (ApiException e) when (attempt < 3 && (e.ErrorCode == 409 || e.ErrorCode >= 500))
+    {
+        if (e.Headers != null && e.Headers.TryGetValue("Retry-After", out var retryAfter))
+            wait = TimeSpan.FromSeconds(int.Parse(retryAfter[0]));
+    }
+    if (result == null && attempt == 3)
+        throw new TimeoutException("No response from Elastic Email after 3 attempts.");
+    if (result == null)
+        await Task.Delay(wait); // then retry with the same key and the same message
+}
+```
+
+Keys are kept for 24 hours per account, and a retry must send the same body: reusing a key with a different request returns `422`. A `409` means the first request with that key is still running, and a `503` means the key couldn't be checked, so wait for `Retry-After` and retry with the same key. The parameter is optional, and calls without it work as before.
 
 ### Send from a template with merge fields
 
@@ -439,7 +471,7 @@ The SDK follows the Elastic Email API v4. Package versions and release notes are
 <summary>Build details</summary>
 
 - API version: 4.0.0
-- SDK version: 4.3.0
+- SDK version: 4.4.0
 - Generator version: 7.11.0
 - Build package: `org.openapitools.codegen.languages.CSharpClientCodegen`
 

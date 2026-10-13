@@ -51,6 +51,37 @@ catch (ApiException e)
 
 Keep your API key out of source code: load it from an environment variable, user secrets or a secrets manager. Create one in your [API settings](https://app.elasticemail.com/marketing/settings/new/manage-api).
 
+## Retry a send safely (Idempotency-Key)
+
+Pass an `Idempotency-Key` to `EmailsPost`, `EmailsTransactionalPost` or `EmailsMergefilePost` (or their `…Async` variants) so a retry after a timeout or a dropped connection can't send the same email twice. If the key was already processed, you get the stored response (same `TransactionID` and `MessageID`) and nothing is sent again.
+
+```csharp
+// One key per logical send; reuse it only to retry that same send.
+var idempotencyKey = Guid.NewGuid().ToString();
+
+EmailSend result = null;
+for (var attempt = 1; result == null; attempt++)
+{
+    var wait = TimeSpan.FromSeconds(2);
+    try
+    {
+        // Returns null when there was no response (network error or timeout).
+        result = await emails.EmailsTransactionalPostAsync(message, idempotencyKey);
+    }
+    catch (ApiException e) when (attempt < 3 && (e.ErrorCode == 409 || e.ErrorCode >= 500))
+    {
+        if (e.Headers != null && e.Headers.TryGetValue("Retry-After", out var retryAfter))
+            wait = TimeSpan.FromSeconds(int.Parse(retryAfter[0]));
+    }
+    if (result == null && attempt == 3)
+        throw new TimeoutException("No response from Elastic Email after 3 attempts.");
+    if (result == null)
+        await Task.Delay(wait); // then retry with the same key and the same message
+}
+```
+
+Reuse a key only to retry the same send, with the same body, within 24 hours: a different request with the same key returns `422`. A `409` means the first request is still running, and a `503` means the key couldn't be checked, so wait for `Retry-After` and retry with the same key. Without the key, sends work as before.
+
 ## Signed webhooks
 
 Webhooks can be signed with HMAC-SHA256 and delivered as POST + JSON. Both are chosen when the webhook is created:
