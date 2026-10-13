@@ -1,0 +1,44 @@
+name: Publish to NuGet
+
+# Publishes with NuGet trusted publishing (OIDC): no API key is stored in the repo.
+# Runs when a GitHub release is published, or manually for an existing tag.
+on:
+  release:
+    types: [published]
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: "Tag to publish, e.g. 4.3.0"
+        required: true
+
+permissions:
+  contents: read
+  id-token: write # required for NuGet/login
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.release.tag_name || inputs.tag }}
+
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 8.0.x
+
+      - name: Pack
+        run: dotnet pack src/ElasticEmail -c Release -o out
+
+      - name: NuGet login (OIDC)
+        id: login
+        uses: NuGet/login@v1
+        with:
+          user: ${{ secrets.NUGET_USER }} # nuget.org profile name, not email
+
+      - name: Push
+        run: >
+          dotnet nuget push "out/*.nupkg"
+          --api-key ${{ steps.login.outputs.NUGET_API_KEY }}
+          --source https://api.nuget.org/v3/index.json
+          --skip-duplicate
