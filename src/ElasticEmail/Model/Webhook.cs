@@ -32,6 +32,12 @@ namespace ElasticEmail.Model
     [DataContract(Name = "Webhook")]
     public partial class Webhook : IValidatableObject
     {
+
+        /// <summary>
+        /// Gets or Sets DeliveryMethod
+        /// </summary>
+        [DataMember(Name = "DeliveryMethod", EmitDefaultValue = false)]
+        public WebhookDeliveryMethod? DeliveryMethod { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="Webhook" /> class.
         /// </summary>
@@ -48,7 +54,10 @@ namespace ElasticEmail.Model
         /// <param name="notificationForAbuseReport">notificationForAbuseReport.</param>
         /// <param name="notificationForError">notificationForError.</param>
         /// <param name="isEnabled">isEnabled.</param>
-        public Webhook(string webhookID = default(string), string name = default(string), DateTime? dateCreated = default(DateTime?), DateTime? dateUpdated = default(DateTime?), string uRL = default(string), bool notifyOncePerEmail = default(bool), bool notificationForSent = default(bool), bool notificationForOpened = default(bool), bool notificationForClicked = default(bool), bool notificationForUnsubscribed = default(bool), bool notificationForAbuseReport = default(bool), bool notificationForError = default(bool), bool isEnabled = default(bool))
+        /// <param name="signingEnabled">Requests carry an HMAC-SHA256 signature. Chosen when the webhook is created and can&#39;t be changed..</param>
+        /// <param name="deliveryMethod">deliveryMethod.</param>
+        /// <param name="signingSecret">Signing secret - returned only once, when a webhook is created with signing or its secret is rotated. Store it safely..</param>
+        public Webhook(string webhookID = default(string), string name = default(string), DateTime? dateCreated = default(DateTime?), DateTime? dateUpdated = default(DateTime?), string uRL = default(string), bool notifyOncePerEmail = default(bool), bool notificationForSent = default(bool), bool notificationForOpened = default(bool), bool notificationForClicked = default(bool), bool notificationForUnsubscribed = default(bool), bool notificationForAbuseReport = default(bool), bool notificationForError = default(bool), bool isEnabled = default(bool), bool signingEnabled = default(bool), WebhookDeliveryMethod? deliveryMethod = default(WebhookDeliveryMethod?), string signingSecret = default(string))
         {
             this.WebhookID = webhookID;
             this.Name = name;
@@ -63,6 +72,9 @@ namespace ElasticEmail.Model
             this.NotificationForAbuseReport = notificationForAbuseReport;
             this.NotificationForError = notificationForError;
             this.IsEnabled = isEnabled;
+            this.SigningEnabled = signingEnabled;
+            this.DeliveryMethod = deliveryMethod;
+            this.SigningSecret = signingSecret;
         }
 
         /// <summary>
@@ -155,6 +167,20 @@ namespace ElasticEmail.Model
         public bool IsEnabled { get; set; }
 
         /// <summary>
+        /// Requests carry an HMAC-SHA256 signature. Chosen when the webhook is created and can&#39;t be changed.
+        /// </summary>
+        /// <value>Requests carry an HMAC-SHA256 signature. Chosen when the webhook is created and can&#39;t be changed.</value>
+        [DataMember(Name = "SigningEnabled", EmitDefaultValue = true)]
+        public bool SigningEnabled { get; set; }
+
+        /// <summary>
+        /// Signing secret - returned only once, when a webhook is created with signing or its secret is rotated. Store it safely.
+        /// </summary>
+        /// <value>Signing secret - returned only once, when a webhook is created with signing or its secret is rotated. Store it safely.</value>
+        [DataMember(Name = "SigningSecret", EmitDefaultValue = false)]
+        public string SigningSecret { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -175,6 +201,9 @@ namespace ElasticEmail.Model
             sb.Append("  NotificationForAbuseReport: ").Append(NotificationForAbuseReport).Append("\n");
             sb.Append("  NotificationForError: ").Append(NotificationForError).Append("\n");
             sb.Append("  IsEnabled: ").Append(IsEnabled).Append("\n");
+            sb.Append("  SigningEnabled: ").Append(SigningEnabled).Append("\n");
+            sb.Append("  DeliveryMethod: ").Append(DeliveryMethod).Append("\n");
+            sb.Append("  SigningSecret: ").Append(SigningSecret).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

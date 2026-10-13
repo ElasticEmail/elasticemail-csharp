@@ -92,6 +92,18 @@ namespace ElasticEmail.Test.Api
         }
 
         /// <summary>
+        /// Test WebhookByPublicidSecretRotatePost
+        /// </summary>
+        [Fact]
+        public void WebhookByPublicidSecretRotatePostTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //string publicid = null;
+            //var response = instance.WebhookByPublicidSecretRotatePost(publicid);
+            //Assert.IsType<Webhook>(response);
+        }
+
+        /// <summary>
         /// Test WebhookGet
         /// </summary>
         [Fact]

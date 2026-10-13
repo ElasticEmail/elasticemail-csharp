@@ -3744,6 +3744,32 @@ paths:
       summary: Update Webhook
       tags:
       - Webhook
+  /webhook/{publicid}/secret/rotate:
+    post:
+      description: |-
+        Replace the signing secret of a webhook created with signing. The old secret stops being used at once - there is no grace period.
+                    The new secret is returned only in this response. Notifications your endpoint rejects while it still has the old secret are retried and signed with the new one. Required Access Level: ModifyWebNotifications
+      operationId: webhookByPublicidSecretRotatePost
+      parameters:
+      - explode: false
+        in: path
+        name: publicid
+        required: true
+        schema:
+          description: string
+          format: string
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Webhook'
+          description: OK
+      summary: Rotate Webhook Secret
+      tags:
+      - Webhook
 components:
   schemas:
     AccessLevel:
@@ -6963,13 +6989,16 @@ components:
     Webhook:
       description: Notification webhook setting
       example:
+        DeliveryMethod: Get
         IsEnabled: true
         DateUpdated: 2000-01-23T04:56:07.000+00:00
         NotificationForSent: true
         NotificationForUnsubscribed: true
         DateCreated: 2000-01-23T04:56:07.000+00:00
+        SigningSecret: SigningSecret
         URL: http://address.for.notification.com
         Name: attachment.txt
+        SigningEnabled: true
         WebhookID: WebhookID
         NotificationForError: true
         NotificationForOpened: true
@@ -7025,11 +7054,25 @@ components:
         IsEnabled:
           format: boolean
           type: boolean
+        SigningEnabled:
+          description: Requests carry an HMAC-SHA256 signature. Chosen when the webhook
+            is created and can't be changed.
+          format: boolean
+          type: boolean
+        DeliveryMethod:
+          $ref: '#/components/schemas/WebhookDeliveryMethod'
+        SigningSecret:
+          description: "Signing secret - returned only once, when a webhook is created\
+            \ with signing or its secret is rotated. Store it safely."
+          format: string
+          type: string
       type: object
     WebhookCreatePayload:
       description: Create webhook payload
       example:
         NotificationForError: true
+        EnableSigning: true
+        DeliveryMethod: Get
         NotificationForOpened: true
         NotificationForSent: true
         NotificationForUnsubscribed: true
@@ -7070,10 +7113,26 @@ components:
         NotificationForError:
           format: boolean
           type: boolean
+        EnableSigning:
+          description: "Sign every request with HMAC-SHA256. Can be set only when\
+            \ the webhook is created. Default: false."
+          format: boolean
+          nullable: true
+          type: boolean
+          example: null
+        DeliveryMethod:
+          $ref: '#/components/schemas/WebhookDeliveryMethod'
       required:
       - Name
       - URL
       type: object
+    WebhookDeliveryMethod:
+      default: Get
+      description: How notifications are sent
+      enum:
+      - Get
+      - PostJson
+      type: string
     WebhookUpdatePayload:
       description: Update webhook payload
       example:

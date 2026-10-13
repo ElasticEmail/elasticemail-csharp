@@ -32,6 +32,12 @@ namespace ElasticEmail.Model
     [DataContract(Name = "WebhookCreatePayload")]
     public partial class WebhookCreatePayload : IValidatableObject
     {
+
+        /// <summary>
+        /// Gets or Sets DeliveryMethod
+        /// </summary>
+        [DataMember(Name = "DeliveryMethod", EmitDefaultValue = false)]
+        public WebhookDeliveryMethod? DeliveryMethod { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="WebhookCreatePayload" /> class.
         /// </summary>
@@ -49,7 +55,9 @@ namespace ElasticEmail.Model
         /// <param name="notificationForUnsubscribed">notificationForUnsubscribed.</param>
         /// <param name="notificationForAbuseReport">notificationForAbuseReport.</param>
         /// <param name="notificationForError">notificationForError.</param>
-        public WebhookCreatePayload(string name = default(string), string uRL = default(string), bool notifyOncePerEmail = default(bool), bool notificationForSent = default(bool), bool notificationForOpened = default(bool), bool notificationForClicked = default(bool), bool notificationForUnsubscribed = default(bool), bool notificationForAbuseReport = default(bool), bool notificationForError = default(bool))
+        /// <param name="enableSigning">Sign every request with HMAC-SHA256. Can be set only when the webhook is created. Default: false..</param>
+        /// <param name="deliveryMethod">deliveryMethod.</param>
+        public WebhookCreatePayload(string name = default(string), string uRL = default(string), bool notifyOncePerEmail = default(bool), bool notificationForSent = default(bool), bool notificationForOpened = default(bool), bool notificationForClicked = default(bool), bool notificationForUnsubscribed = default(bool), bool notificationForAbuseReport = default(bool), bool notificationForError = default(bool), bool? enableSigning = default(bool?), WebhookDeliveryMethod? deliveryMethod = default(WebhookDeliveryMethod?))
         {
             // to ensure "name" is required (not null)
             if (name == null)
@@ -70,6 +78,8 @@ namespace ElasticEmail.Model
             this.NotificationForUnsubscribed = notificationForUnsubscribed;
             this.NotificationForAbuseReport = notificationForAbuseReport;
             this.NotificationForError = notificationForError;
+            this.EnableSigning = enableSigning;
+            this.DeliveryMethod = deliveryMethod;
         }
 
         /// <summary>
@@ -135,6 +145,13 @@ namespace ElasticEmail.Model
         public bool NotificationForError { get; set; }
 
         /// <summary>
+        /// Sign every request with HMAC-SHA256. Can be set only when the webhook is created. Default: false.
+        /// </summary>
+        /// <value>Sign every request with HMAC-SHA256. Can be set only when the webhook is created. Default: false.</value>
+        [DataMember(Name = "EnableSigning", EmitDefaultValue = true)]
+        public bool? EnableSigning { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -151,6 +168,8 @@ namespace ElasticEmail.Model
             sb.Append("  NotificationForUnsubscribed: ").Append(NotificationForUnsubscribed).Append("\n");
             sb.Append("  NotificationForAbuseReport: ").Append(NotificationForAbuseReport).Append("\n");
             sb.Append("  NotificationForError: ").Append(NotificationForError).Append("\n");
+            sb.Append("  EnableSigning: ").Append(EnableSigning).Append("\n");
+            sb.Append("  DeliveryMethod: ").Append(DeliveryMethod).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

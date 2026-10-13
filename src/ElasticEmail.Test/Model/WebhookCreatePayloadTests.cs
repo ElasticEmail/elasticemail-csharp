@@ -135,5 +135,23 @@ namespace ElasticEmail.Test.Model
         {
             // TODO unit test for the property 'NotificationForError'
         }
+
+        /// <summary>
+        /// Test the property 'EnableSigning'
+        /// </summary>
+        [Fact]
+        public void EnableSigningTest()
+        {
+            // TODO unit test for the property 'EnableSigning'
+        }
+
+        /// <summary>
+        /// Test the property 'DeliveryMethod'
+        /// </summary>
+        [Fact]
+        public void DeliveryMethodTest()
+        {
+            // TODO unit test for the property 'DeliveryMethod'
+        }
     }
 }

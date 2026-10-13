@@ -99,6 +99,29 @@ namespace ElasticEmail.Api
         /// <returns>ApiResponse of Webhook</returns>
         ApiResponse<Webhook> WebhookByPublicidPutWithHttpInfo(string publicid, WebhookUpdatePayload webhookUpdatePayload, int operationIndex = 0);
         /// <summary>
+        /// Rotate Webhook Secret
+        /// </summary>
+        /// <remarks>
+        /// Replace the signing secret of a webhook created with signing. The old secret stops being used at once - there is no grace period.             The new secret is returned only in this response. Notifications your endpoint rejects while it still has the old secret are retried and signed with the new one. Required Access Level: ModifyWebNotifications
+        /// </remarks>
+        /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="publicid"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>Webhook</returns>
+        Webhook WebhookByPublicidSecretRotatePost(string publicid, int operationIndex = 0);
+
+        /// <summary>
+        /// Rotate Webhook Secret
+        /// </summary>
+        /// <remarks>
+        /// Replace the signing secret of a webhook created with signing. The old secret stops being used at once - there is no grace period.             The new secret is returned only in this response. Notifications your endpoint rejects while it still has the old secret are retried and signed with the new one. Required Access Level: ModifyWebNotifications
+        /// </remarks>
+        /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="publicid"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ApiResponse of Webhook</returns>
+        ApiResponse<Webhook> WebhookByPublicidSecretRotatePostWithHttpInfo(string publicid, int operationIndex = 0);
+        /// <summary>
         /// Load Webhooks
         /// </summary>
         /// <remarks>
@@ -232,6 +255,31 @@ namespace ElasticEmail.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Webhook)</returns>
         System.Threading.Tasks.Task<ApiResponse<Webhook>> WebhookByPublicidPutWithHttpInfoAsync(string publicid, WebhookUpdatePayload webhookUpdatePayload, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        /// <summary>
+        /// Rotate Webhook Secret
+        /// </summary>
+        /// <remarks>
+        /// Replace the signing secret of a webhook created with signing. The old secret stops being used at once - there is no grace period.             The new secret is returned only in this response. Notifications your endpoint rejects while it still has the old secret are retried and signed with the new one. Required Access Level: ModifyWebNotifications
+        /// </remarks>
+        /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="publicid"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of Webhook</returns>
+        System.Threading.Tasks.Task<Webhook> WebhookByPublicidSecretRotatePostAsync(string publicid, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+
+        /// <summary>
+        /// Rotate Webhook Secret
+        /// </summary>
+        /// <remarks>
+        /// Replace the signing secret of a webhook created with signing. The old secret stops being used at once - there is no grace period.             The new secret is returned only in this response. Notifications your endpoint rejects while it still has the old secret are retried and signed with the new one. Required Access Level: ModifyWebNotifications
+        /// </remarks>
+        /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="publicid"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (Webhook)</returns>
+        System.Threading.Tasks.Task<ApiResponse<Webhook>> WebhookByPublicidSecretRotatePostWithHttpInfoAsync(string publicid, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Load Webhooks
         /// </summary>
@@ -876,6 +924,161 @@ namespace ElasticEmail.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("WebhookByPublicidPut", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Rotate Webhook Secret Replace the signing secret of a webhook created with signing. The old secret stops being used at once - there is no grace period.             The new secret is returned only in this response. Notifications your endpoint rejects while it still has the old secret are retried and signed with the new one. Required Access Level: ModifyWebNotifications
+        /// </summary>
+        /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="publicid"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>Webhook</returns>
+        public Webhook WebhookByPublicidSecretRotatePost(string publicid, int operationIndex = 0)
+        {
+            ElasticEmail.Client.ApiResponse<Webhook> localVarResponse = WebhookByPublicidSecretRotatePostWithHttpInfo(publicid);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Rotate Webhook Secret Replace the signing secret of a webhook created with signing. The old secret stops being used at once - there is no grace period.             The new secret is returned only in this response. Notifications your endpoint rejects while it still has the old secret are retried and signed with the new one. Required Access Level: ModifyWebNotifications
+        /// </summary>
+        /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="publicid"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ApiResponse of Webhook</returns>
+        public ElasticEmail.Client.ApiResponse<Webhook> WebhookByPublicidSecretRotatePostWithHttpInfo(string publicid, int operationIndex = 0)
+        {
+            // verify the required parameter 'publicid' is set
+            if (publicid == null)
+            {
+                throw new ElasticEmail.Client.ApiException(400, "Missing required parameter 'publicid' when calling WebhookApi->WebhookByPublicidSecretRotatePost");
+            }
+
+            ElasticEmail.Client.RequestOptions localVarRequestOptions = new ElasticEmail.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = ElasticEmail.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarMultipartFormData = localVarContentType == "multipart/form-data";
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = ElasticEmail.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("publicid", ElasticEmail.Client.ClientUtils.ParameterToString(publicid)); // path parameter
+
+            localVarRequestOptions.Operation = "WebhookApi.WebhookByPublicidSecretRotatePost";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (apikey) required
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-ElasticEmail-ApiKey")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("X-ElasticEmail-ApiKey", this.Configuration.GetApiKeyWithPrefix("X-ElasticEmail-ApiKey"));
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<Webhook>("/webhook/{publicid}/secret/rotate", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("WebhookByPublicidSecretRotatePost", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Rotate Webhook Secret Replace the signing secret of a webhook created with signing. The old secret stops being used at once - there is no grace period.             The new secret is returned only in this response. Notifications your endpoint rejects while it still has the old secret are retried and signed with the new one. Required Access Level: ModifyWebNotifications
+        /// </summary>
+        /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="publicid"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of Webhook</returns>
+        public async System.Threading.Tasks.Task<Webhook> WebhookByPublicidSecretRotatePostAsync(string publicid, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        {
+            ElasticEmail.Client.ApiResponse<Webhook> localVarResponse = await WebhookByPublicidSecretRotatePostWithHttpInfoAsync(publicid, operationIndex, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Rotate Webhook Secret Replace the signing secret of a webhook created with signing. The old secret stops being used at once - there is no grace period.             The new secret is returned only in this response. Notifications your endpoint rejects while it still has the old secret are retried and signed with the new one. Required Access Level: ModifyWebNotifications
+        /// </summary>
+        /// <exception cref="ElasticEmail.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="publicid"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (Webhook)</returns>
+        public async System.Threading.Tasks.Task<ElasticEmail.Client.ApiResponse<Webhook>> WebhookByPublicidSecretRotatePostWithHttpInfoAsync(string publicid, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        {
+            // verify the required parameter 'publicid' is set
+            if (publicid == null)
+            {
+                throw new ElasticEmail.Client.ApiException(400, "Missing required parameter 'publicid' when calling WebhookApi->WebhookByPublicidSecretRotatePost");
+            }
+
+
+            ElasticEmail.Client.RequestOptions localVarRequestOptions = new ElasticEmail.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = ElasticEmail.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = ElasticEmail.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("publicid", ElasticEmail.Client.ClientUtils.ParameterToString(publicid)); // path parameter
+
+            localVarRequestOptions.Operation = "WebhookApi.WebhookByPublicidSecretRotatePost";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (apikey) required
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-ElasticEmail-ApiKey")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("X-ElasticEmail-ApiKey", this.Configuration.GetApiKeyWithPrefix("X-ElasticEmail-ApiKey"));
+            }
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.PostAsync<Webhook>("/webhook/{publicid}/secret/rotate", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("WebhookByPublicidSecretRotatePost", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;
