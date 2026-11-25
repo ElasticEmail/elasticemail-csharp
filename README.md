@@ -205,8 +205,40 @@ Console.WriteLine(created.SigningSecret);
 
 More complete, runnable samples are in the **[Elastic Email examples repository](https://github.com/ElasticEmail/elasticemail-examples)**. It covers transactional email, SMTP, webhooks, inbound email, contacts and serverless platforms across 20+ languages and frameworks.
 
+- 📁 [Examples in this repository](examples/README.md): one runnable file per API call
 - 🟣 [.NET / C# examples](https://github.com/ElasticEmail/elasticemail-examples/tree/main/dotnet-elasticemail-examples)
 - 📂 [All examples](https://github.com/ElasticEmail/elasticemail-examples)
+
+<details>
+<summary><strong>Snippets in this repository</strong></summary>
+
+One runnable file per API call, with a step-by-step guide for each. See [examples/README.md](examples/README.md) for how to run them (`dotnet run sendTransactionalEmails.cs`, .NET 10 or later).
+
+Function | Guide
+------------ | -------------
+[addCampaign](examples/functions/addCampaign.cs) | [readme](examples/functions/addCampaign.md)
+[addContacts](examples/functions/addContacts.cs) | [readme](examples/functions/addContacts.md)
+[addList](examples/functions/addList.cs) | [readme](examples/functions/addList.md)
+[addTemplate](examples/functions/addTemplate.cs) | [readme](examples/functions/addTemplate.md)
+[deleteCampaign](examples/functions/deleteCampaign.cs) | [readme](examples/functions/deleteCampaign.md)
+[deleteContact](examples/functions/deleteContact.cs) | [readme](examples/functions/deleteContact.md)
+[deleteContacts](examples/functions/deleteContacts.cs) | [readme](examples/functions/deleteContacts.md)
+[deleteList](examples/functions/deleteList.cs) | [readme](examples/functions/deleteList.md)
+[deleteTemplate](examples/functions/deleteTemplate.cs) | [readme](examples/functions/deleteTemplate.md)
+[exportContacts](examples/functions/exportContacts.cs) | [readme](examples/functions/exportContacts.md)
+[loadCampaign](examples/functions/loadCampaign.cs) | [readme](examples/functions/loadCampaign.md)
+[loadCampaignsStats](examples/functions/loadCampaignsStats.cs) | [readme](examples/functions/loadCampaignsStats.md)
+[loadChannelsStats](examples/functions/loadChannelsStats.cs) | [readme](examples/functions/loadChannelsStats.md)
+[loadList](examples/functions/loadList.cs) | [readme](examples/functions/loadList.md)
+[loadStatistics](examples/functions/loadStatistics.cs) | [readme](examples/functions/loadStatistics.md)
+[loadTemplate](examples/functions/loadTemplate.cs) | [readme](examples/functions/loadTemplate.md)
+[sendBulkEmails](examples/functions/sendBulkEmails.cs) | [readme](examples/functions/sendBulkEmails.md)
+[sendTransactionalEmails](examples/functions/sendTransactionalEmails.cs) | [readme](examples/functions/sendTransactionalEmails.md)
+[sendTransactionalEmailsWithAttachment](examples/functions/sendTransactionalEmailsWithAttachment.cs) | [readme](examples/functions/sendTransactionalEmailsWithAttachment.md)
+[updateCampaign](examples/functions/updateCampaign.cs) | [readme](examples/functions/updateCampaign.md)
+[uploadContacts](examples/functions/uploadContacts.cs) | [readme](examples/functions/uploadContacts.md)
+
+</details>
 
 ## Authentication
 
