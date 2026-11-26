@@ -20,6 +20,7 @@ var config = new Configuration();
 config.BasePath = "https://api.elasticemail.com/v4";
 config.ApiKey.Add("X-ElasticEmail-ApiKey", apiKey);
 
+// README:BEGIN quickstart
 var emails = new EmailsApi(config);
 
 var message = new EmailTransactionalMessageData(
@@ -49,3 +50,4 @@ catch (ApiException e)
     Console.Error.WriteLine($"Elastic Email API error {e.ErrorCode}: {e.Message}");
     return 1;
 }
+// README:END quickstart

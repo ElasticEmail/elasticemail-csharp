@@ -1,9 +1,12 @@
+<!-- BEGIN GENERATED:logo -->
 <div align="center">
 
 <img src="src/ElasticEmail/ee-logo.png" alt="Elastic Email" width="96" />
+<!-- END GENERATED:logo -->
 
 # Elastic Email C# SDK
 
+<!-- BEGIN GENERATED:header -->
 The official C# / .NET client library for the [Elastic Email](https://elasticemail.com) REST API v4.
 
 [![NuGet](https://img.shields.io/nuget/v/ElasticEmail?logo=nuget&label=NuGet&color=004880)](https://www.nuget.org/packages/ElasticEmail)
@@ -28,6 +31,7 @@ The official C# / .NET client library for the [Elastic Email](https://elasticema
 </div>
 
 ---
+<!-- END GENERATED:header -->
 
 ## Features
 
@@ -68,9 +72,11 @@ Install-Package ElasticEmail
 
 Or add it to your `.csproj`:
 
+<!-- BEGIN GENERATED:install -->
 ```xml
 <PackageReference Include="ElasticEmail" Version="4.4.0" />
 ```
+<!-- END GENERATED:install -->
 
 NuGet installs the dependencies ([RestSharp](https://www.nuget.org/packages/RestSharp), [Newtonsoft.Json](https://www.nuget.org/packages/Newtonsoft.Json), [JsonSubTypes](https://www.nuget.org/packages/JsonSubTypes) and [System.ComponentModel.Annotations](https://www.nuget.org/packages/System.ComponentModel.Annotations)) for you.
 
@@ -249,12 +255,15 @@ Function | Guide
 
 ## API limits
 
+<!-- BEGIN GENERATED:api-limits -->
 - Up to **20 concurrent connections** per account. The API doesn't return `429`; a `5xx` under load means slow down and retry with backoff
 - A request with no response for about **50 seconds** fails with a gateway error (`5xx`)
 - Up to **50 recipients** per `POST /emails/transactional` and **1000 contacts or suppressions** per upload (`413` above that). For more recipients, send one bulk `POST /emails`
+<!-- END GENERATED:api-limits -->
 
 ## API reference
 
+<!-- BEGIN GENERATED:api-reference -->
 All URIs are relative to `https://api.elasticemail.com/v4`. The SDK covers **115 endpoints** across 16 API classes: `CampaignsApi`, `ContactsApi`, `DomainsApi`, `EmailsApi`, `EventsApi`, `FilesApi`, `InboundRouteApi`, `ListsApi`, `SecurityApi`, `SegmentsApi`, `StatisticsApi`, `SubAccountsApi`, `SuppressionsApi`, `TemplatesApi`, `VerificationsApi` and `WebhookApi`.
 
 <details>
@@ -383,11 +392,13 @@ Class | Method | HTTP request | Description
 
 
 </details>
+<!-- END GENERATED:api-reference -->
 
 ## Models
 
+<!-- BEGIN GENERATED:models -->
 <details>
-<summary><strong>Show all 98 models</strong></summary>
+<summary><strong>Show all 99 models</strong></summary>
 
  - [Model.AccessLevel](docs/AccessLevel.md)
  - [Model.AccountStatusEnum](docs/AccountStatusEnum.md)
@@ -491,6 +502,7 @@ Class | Method | HTTP request | Description
 
 
 </details>
+<!-- END GENERATED:models -->
 
 ## Known issues
 
@@ -498,6 +510,7 @@ Class | Method | HTTP request | Description
 
 ## Versioning
 
+<!-- BEGIN GENERATED:versioning -->
 The SDK follows the Elastic Email API v4. Package versions and release notes are listed on [NuGet](https://www.nuget.org/packages/ElasticEmail#versions-body-tab) and in [GitHub Releases](https://github.com/ElasticEmail/elasticemail-csharp/releases).
 
 <details>
@@ -509,19 +522,23 @@ The SDK follows the Elastic Email API v4. Package versions and release notes are
 - Build package: `org.openapitools.codegen.languages.CSharpClientCodegen`
 
 </details>
+<!-- END GENERATED:versioning -->
 
 ## Contributing
 
-Contributions are welcome! Most of this SDK is generated from the [OpenAPI specification](api/openapi.yaml), so please read [CONTRIBUTING.md](CONTRIBUTING.md) before opening a pull request.
+<!-- BEGIN GENERATED:contributing -->
+Contributions are welcome! Most of this SDK is generated from the Elastic Email OpenAPI specification, so please read [CONTRIBUTING.md](CONTRIBUTING.md) before opening a pull request.
 
 - 🐛 [Report a bug](https://github.com/ElasticEmail/elasticemail-csharp/issues/new?template=bug_report.md)
 - 💡 [Request a feature](https://github.com/ElasticEmail/elasticemail-csharp/issues/new?template=feature_request.md)
 - 🔒 [Report a security issue](SECURITY.md)
 
 This project follows the [Contributor Covenant Code of Conduct](CODE_OF_CONDUCT.md).
+<!-- END GENERATED:contributing -->
 
 ## Support
 
+<!-- BEGIN GENERATED:support -->
 > [!IMPORTANT]
 > The fastest way to get help is the **chat widget on [elasticemail.com](https://elasticemail.com)**. Our support team can help with your account, sending, deliverability and API questions.
 
@@ -529,7 +546,10 @@ This project follows the [Contributor Covenant Code of Conduct](CODE_OF_CONDUCT.
 - 📚 [API documentation](https://elasticemail.com/developers/api-documentation/rest-api)
 - 🧪 [Examples repository](https://github.com/ElasticEmail/elasticemail-examples)
 - 🐛 [GitHub issues](https://github.com/ElasticEmail/elasticemail-csharp/issues), for bugs in this SDK only
+<!-- END GENERATED:support -->
 
 ## License
 
+<!-- BEGIN GENERATED:license -->
 Released under the [MIT License](LICENSE). Copyright © 2021–2026 Elastic Email.
+<!-- END GENERATED:license -->
